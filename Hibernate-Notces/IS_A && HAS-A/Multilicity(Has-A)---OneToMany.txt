@@ -1,0 +1,69 @@
+
+Model:=
+~~~~~
+
+@Entity
+@Table(name = "addrtab1")
+public class Address  {
+
+	@Id
+	@Column(name = "addpin")
+	private long addrPin;
+	
+	@Column(name = "addloc")
+	private String addrLoc;
+//================================
+
+
+@Entity
+@Table(name = "emptab1")
+public class Employee {
+
+	@Id
+    @Column(name = "eid")
+	private int empId;
+	@Column(name = "ename")
+	private String empName;
+	@Column(name = "esal")
+	private long empSal;
+	@OneToMany
+	@JoinColumn(name="eidFK") 
+	List<Address> addr;
+	
+=======================================================================================
+
+Test:=
+~~~~~
+Address ad1 = new Address();
+			ad1.setAddrLoc("Banglore");
+			ad1.setAddrPin(1515);
+
+			Address ad2 = new Address();
+			ad2.setAddrLoc("HYD");
+			ad2.setAddrPin(1654465);
+
+			
+
+			List<Address> ll = new LinkedList<Address>();
+			ll.add(ad1);
+			ll.add(ad2);
+			
+
+			Employee emp = new Employee();
+			emp.setEmpId(653);
+			emp.setEmpName("ramesh");
+			emp.setEmpSal(1206000);
+			emp.setAddr(ll);
+
+			ses.save(ad1);
+			ses.save(ad2);
+			ses.save(emp);
+
+================================================================================================ 
+  
+Parent ~~~~~ 3 Records //////////// child~~~~~~~~~~~ 1 Records
+
+child table Primarykey is added as Foreign Key to Parent table
+
+================================================================================================ 
+ 

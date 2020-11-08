@@ -1,0 +1,2916 @@
+
+
+ 
+    ..........MAVEN123..............SpringSecurity444............JUnit550...............SPRINGCLOUD123
+				
+     .........JWT444...............MicroServices334(Links).....JWT550......AgileMethodology768......SDLC445........
+				
+     .........GIT996...XML900.......NumberConversion.............ApacheKafka540.......RabbitMQ330.....	 
+ 
+     .........RealTimeTools590.....DevOps890Other......Mockito330....JIRA790......CloudComputing550.....
+		 
+     .........ApacheCamel985 .....JMeter330..........Capcha770
+		 
+==============================================================================================  
+
+  [ http://localhost:9090 ]
+	
+	JWT (Boot + Angular) ----> https://github.com/Java-Techie-jt/angular-jwt-client
+	                           https://github.com/RameshMF/Angular-SpringBoot-REST-JWT
+	                           https://github.com/Java-Techie-jt/spring-security-angular-example
+							   https://www.techgeeknext.com/spring/angular-spring-boot-jwt-authentication
+		  
+  Security (JavaBrains) -----> https://github.com/koushikkothagal/spring-boot-security
+                               https://github.com/koushikkothagal/spring-security-jpa
+							   https://github.com/koushikkothagal/spring-security-jwt
+       
+
+    	    Security ------> https://github.com/TechPrimers/spring-security-example    
+                             http://websystique.com/spring-security-tutorial/
+						     https://github.com/RameshMF?tab=repositories&q=security&type=&language=
+						     https://github.com/dangeabunea/RomanianCoderExamples/tree/master/SpringBootSecurity
+						     https://howtodoinjava.com/spring-security-tutorial/
+						   
+	
+	 Security + Mysql ----> https://github.com/Java-Techie-jt/spring-security-jpa
+	    Custom-Login -----> https://java2blog.com/spring-security-custom-login-form/
+	  DB-Authentication --> https://java2blog.com/spring-security-database-authentication-example/
+	
+	
+	            OAth  ----> https://github.com/TechPrimers/spring-security-oauth-example
+	            LDAp -----> https://github.com/Java-Techie-jt/spring-security-ldap
+	
+	
+	            Mongo ----> https://github.com/TechPrimers/spring-boot-mongodb-example
+                            https://github.com/Java-Techie-jt/spring-mongodb
+                            https://github.com/chargeahead/SpringBootMongoDBCRUDRESTServices
+				   
+				   
+        SpringBoot+JWT----> https://www.techgeeknext.com/spring-boot/spring-boot-session-management
+	 
+       Boot + Angular ----> https://www.techgeeknext.com/angular/angular-spring-boot-example
+	                        https://www.techgeeknext.com/spring/angular-spring-boot-jwt-authentication
+
+  
+               TDD ------> https://github.com/Java-Techie-jt/tdd-example  
+
+=========================================================================================================================
+
+  Security(JWT,Oath) // Java8 // 
+   
+   Rest Template ----> (-YOUTUBE-) almighty java
+   
+   Feign Client ----> (-YOUTUBE-) almighty java
+
+   MICROSERVICES ----> (-YOUTUBE-) almighty java
+
+====================================================================================================
+                                                      
+ API560 := [ http://localhost:9195 ]
+~~~~~~~~
+---> a class/method/Interface which is already developed && developing Our-Own classes using those predefined-Library
+  called as "-API-".
+  
+  
+ CORS (Cross Orign Resource Sharing) := [ https://github.com/Java-Techie-jt/spring-security-cors-example ]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ---Restricting Application to access Specific-API.
+ 
+ Logger ----> https://github.com/kishanjavatrainer/SpringBootLogger
+              https://github.com/kishanjavatrainer/SpringBootLogger2
+ 
+
+=======================================================================================================
+
+ SLF4J := [ASHOK-IT] (Simple Logging Facade for java)
+~~~~~~~~
+ --- It is Only abstract-layer underlying Logging-Component.
+ --- SLF4J Can compare with Apache-commons-Logging (Not with Log4j) 
+
+
+           https://github.com/kishanjavatrainer/SpringBootLogger2
+	       https://github.com/kishanjavatrainer/SpringBootLoggerWithLogback
+		   https://github.com/kishanjavatrainer/HibernateLog4jExample
+ 
+ Log Monitoring Tools :=
+~~~~~~~~~~~~~~~~~~~~~~~
+ --Used to get logs-messages available in log-File.
+ 
+  Eg :=  Putty, Splunk.
+~~~~~~~
+
+
+ Log4J(32) :=    
+~~~~~~~~~~~~
+
+ import org.apache.log4j.Logger; 
+
+	  private static final Logger logger = LoggerFactory.getLogger(EmployeeController.class);
+                         Logger logger = Logger.getLogger(this.getClass()); 
+
+	  private static final Logger log = LogManager.getLogger(AssectController.class);
+
+                     log.debug("No data Found");
+                
+			Logger logger = LogFactory.getLogger(Controller.class); 	
+				 
+
+---->Fetching Messages  (Sucess...warning.....Error...Exceptions)
+
+              from Application which is running in Production-Server, 
+		 
+		                          And storing data in Permenant-Memory is called as "-Logging-".
+
+----> It is written in Development && Used in Production.(*********)
+								  
+								  
+Environment: System where application is running with all setup 
+Type of Env:  a. DEV    b. QA    c. UAT   d. Production
+
+=> While Developing and Testing applications, messages are printed on console in IDE(STS/Eclipse).
+=> Messages like Success, Warning, Errors/Exceptions..etc
+=> console section will display last 100/200 messages only.
+ 
+ 
+ Logging := 
+~~~~~~~~~~
+It is a process of fetching Success/Warning/Errors/Exceptions messagesfrom Server while it is running.
+
+
+=> Log4J is a Logging Tool.
+
+=> By using Log4J, we can get log messages and store in 
+   File (Log File)**** [___.log]
+   Database
+   Email (sends Mail)
+   Console (Print on Console-Dev Env).
+
+=> By using Log Files, Dev/Support Teams identifies the mistakes and Fix code.
+
+   
+			Log4J Components
+
+          a. Logger         b. Appender          c. Layout
+        (which class)     (where to print)     (how to print)
+
+
+ (a) Logger Object :=
+~~~~~~~~~~~~~~~~~~~
+=> This object must be created inside class for which Log4J is required.
+=> Ex: Controllers, Services, Repository ..etc Needs Log4J Server
+   if we get any exception/errors inside these classes 
+   we can trace those into Log-File.
+=> DO NOT CREATE logger object if we dont want to Logging for class
+   Ex: Model/Entity
+
+Ex:
+  private static Logger log=Logger.getLogger(TestApp.class);
+  private static Logger log=Logger.getLogger(EmployeeRestController.class);
+
+
+ (b) Appender := /// Where to Store (File-Appender, DB-Appender, Mail-Appender)
+~~~~~~~~~~~~~~~ 
+   Appender is used to specify where to store Log Message.
+
+Types are:
+1. ConsoleAppender             : print log message on console
+2. FileAppender **             : Store log message in .log file
+3. JdbcAppender                : Store log message inside Database table.
+4. Ftp/TelnetAppender(Network) : Send data from one server to another Server.
+5. SMTP Appender (Email)       : Send Log mesage using email.
+
+
+ (c) Layout :=  //How-To-Print.
+~~~~~~~~~~~~~
+ It indicates Message Format that should be printed on Appender.
+1. Simple Layout : Print message as it is given by application
+2. HTML Layout   : Print message as HTML file
+3. XML Layout    : Print message as XML Output
+4.*** Pattern Layout : Print message as Given pattern by Programmer  ( Frequently-Used *********)
+
+           %C ---->(Class)
+		   %M ---->(Method)  
+		   %m ---->(Message) 
+		   %p ----> Priority-Method-Name like DEBUG, INFO...
+		   %n ----> (New Line)
+		   %L -----> Line-Number.
+		   %r ----> Executes Current-Block (or) methods in Milli-Seconds.
+		   %l -----> Line-Number with Link.
+   %d (Or) now() --> System time && Date
+		   
+		   Layout laoyout= new patternlayout("-BeLoW-");
+		   
+  (Normal***) :=     %P %d{dd-MM-yy hh:mm} - %C[%M] %L %m %n ---> Priority....date&&Time...Class**Methods....Line...Message
+ ~~~~~~~~~~~~~
+
+ (SpringBoot***) :=  %d{dd-MM-yy hh:mm} %P - [%M]:%C %L %m %n ---> Priority....date&&Time...Class**Methods....Line...Message
+~~~~~~~~~~~~~~~~~~
+
+
+--------------------------------------------------------------
+
+Priority Methods :=
+~~~~~~~~~~~~~~~~~~
+ These are pre-defined methods given inside Logger Object.
+ By using these methods, we have to print messages at Appender.
+
+-------------------------------------------------
+	Slno      NAME           Method
+-------------------------------------------------
+	1.	      DEBUG		    debug(msg)
+	2.        INFO          info(msg)
+	3.        WARN          warn(msg)
+	4.        ERROR         error(msg)
+	5.        FATAL         fatal(msg)
+	-NA-       OFF            -NA-
+-------------------------------------------------
+DEBUG* : This method is used to print a final/success message.
+Ex:  Employee created with ID-EMP-3652 Successfully
+
+INFO* : This method is used to print current status in execution
+ex: Request cam to Controller method.
+    Object sent to Service layer.
+    Service Returned back to Controller
+    try block execution completed.
+
+
+WARN : This method is used to print Warnings in application
+Ex: File Object is created but never closed.
+    Variable is created, but not used.
+
+
+ERROR* : This method is used to print any general exception
+Ex:  NullPointerException, ArrayIndexOutOfBoundsException..etc
+    Application Id is null can not be processed.
+
+
+FATAL: This method is used to print any High level exception that makes 
+        STOPING application usage.
+
+Ex: Database connection is not woking.
+    Network server/Middleware server is Down.
+
+=========Ex#1============================================
+1. Create Maven Application
+2. pom.xml
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+	</dependencies>
+
+3. Test class
+package in.nit;
+
+import org.apache.log4j.Appender;
+import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.Layout;
+import org.apache.log4j.Logger;
+import org.apache.log4j.SimpleLayout;
+
+public class TestApp {
+	//3.Create Logger object
+	private static Logger log=Logger.getLogger(TestApp.class);
+	
+	public static void main(String[] args) {
+		//1. Create layout
+		Layout layout=new SimpleLayout();
+		//2. create appender + link layout
+		Appender app=new ConsoleAppender(layout);
+		
+		//4. link appender with logger
+		log.addAppender(app);
+		
+		
+		//---Print Messages--------------
+		log.info("FROM INFO");
+		log.debug("FROM DEBUG");
+		log.fatal("FROM FATAL");
+		log.error("FROM ERROR");
+		log.warn("FROM WANR");
+	}
+}
+==============Example#2======================================
+package in.nit;
+
+import org.apache.log4j.Appender;
+import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.Layout;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PatternLayout;
+
+public class TestApp {
+	//3.Create Logger object
+	private static Logger log=Logger.getLogger(TestApp.class);
+	
+	public static void main(String[] args) {
+		//1. Create layout
+		//Layout layout=new HTMLLayout();
+		//Layout layout=new SimpleLayout();
+		
+		//Layout layout=new XMLLayout();
+		Layout layout=new PatternLayout("%p %d %C %M  %m %n");
+		
+		//2. create appender + link layout
+		Appender app=new ConsoleAppender(layout);
+		
+		//4. link appender with logger
+		log.addAppender(app);
+		
+		
+		//---Print Messages--------------
+		log.info("FROM INFO");
+		log.debug("FROM DEBUG");
+		log.fatal("FROM FATAL");
+		log.error("FROM ERROR");
+		log.warn("FROM WANR");
+	}
+}
+============Example#3====================================
+package in.nit;
+
+import java.io.IOException;
+
+import org.apache.log4j.Appender;
+import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.FileAppender;
+import org.apache.log4j.Layout;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PatternLayout;
+
+public class TestApp {
+	//3.Create Logger object
+	private static Logger log=Logger.getLogger(TestApp.class);
+	
+	public static void main(String[] args) throws Exception {
+		//1. Create layout
+		//Layout layout=new HTMLLayout();
+		//Layout layout=new SimpleLayout();
+		
+		//Layout layout=new XMLLayout();
+		Layout layout=new PatternLayout("%p %d %C %M  %m %n");
+		
+		//2. create appender + link layout
+		//Appender app=new ConsoleAppender(layout);
+		Appender app=new FileAppender(layout, "D:/mylogs/data.log");
+		
+		//4. link appender with logger
+		log.addAppender(app);
+		
+		
+		//---Print Messages--------------
+		log.info("FROM INFO");
+		log.debug("FROM DEBUG");
+		log.fatal("FROM FATAL");
+		log.error("FROM ERROR");
+		log.warn("FROM WANR");
+	}
+}
+=================**File**=================
+
+log4j.rootLogger=INFO,ConsoleAppender,FileAppender
+
+log4j.appender.ConsoleAppender=org.apache.log4j.ConsoleAppender
+log4j.appender.ConsoleAppender.layout=org.apache.log4j.PatternLayout
+log4j.appender.ConsoleAppender.layout.ConversionPattern=%-7p %d [%t] %c [%X{userName}] [%X{accessToken}] - %m%n
+
+appender.console.type = Console
+appender.console.name = ConsoleAppender
+appender.console.layout.type = PatternLayout
+appender.console.layout.pattern = %d{MM:dd HH:mm:ss.SSS} [%t] [%level] [%logger{36}] - %msg%n
+
+appender.file.type = File
+appender.file.name = FileAppender
+appender.file.fileName=/home/ubuntu/application.log
+appender.file.layout.type=PatternLayout
+appender.file.layout.pattern= %d{MM:dd HH:mm:ss.SSS} [%t] [%level] [%logger{36}] - %msg%n
+
+==================
+
+ log4j.rootCategory=ALL, logFile, log
+log4j.appender.logFile=org.apache.log4j.RollingFileAppender
+log4j.appender.log=org.apache.log4j.ConsoleAppender
+log4j.appender.log.layout=org.apache.log4j.PatternLayout
+log4j.appender.log.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %m%n
+log4j.appender.logFile.File=src/main/resources/Job_Logger.log
+log4j.appender.logFile.layout=org.apache.log4j.PatternLayout
+log4j.appender.logFile.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %m%n
+
+======================================================================================================
+ 
+                                  MAVEN123 (MavenGoals) [build and dependency management tool] 
+                                 ~~~~~~~~~~~~~~~~~~~~~~~
+ Ant :=
+~~~~~~
+ --- It a Tool-Box && doesn't have life-Cycle.
+ --- 
+
+
+
+---->Maven is a build and dependency management tool for Java based application development. Just like other Java based development tools, it is not installed as Windows service, rather it is configured using windows environment variables.
+
+
+External-Dependency :=
+~~~~~~~~~~~~~~~~~~~
+Some times, you will have to refer jar files which are not in maven repository (neither local, central or remote repository). You can use these jars by placing them in project’s lib folder and configure the external dependency like this:
+
+ <dependency>
+  <groupId>extDependency</groupId>
+  <artifactId>extDependency</artifactId>
+  <scope>system</scope>
+  <version>1.0</version>
+  <systemPath>${basedir}\war\WEB-INF\lib\extDependency.jar</systemPath>
+ </dependency>
+
+ --The groupId and artifactId are both set to the name of the dependency.
+ --The scope element value is set to system.
+ --The systemPath element refer to the location of the JAR file.
+
+What is Build tool ?
+---------------------
+Build tool is used to automate project build process.
+
+-> Compilation of source code
+
+-> Executing Unit Test cases
+
+-> Packaging Our application into jar/war format
+
+What are the advantages of going for build tools?
+-------------------------------------------------
+-> Manul steps can be automated
+
+-> Productivity of the team will be improved
+
+
+What are the build tools available in Market ?
+----------------------------------------------
+1) Ant  (Outdated)
+
+2) Maven
+
+3) Gradle
+
+What is Maven
+---------------------------------------------
+-> Maven is one of the build tool given by Apache Organization.
+
+-> Maven provided 1500+ Project Templates
+
+-> Maven can download required jars for project development
+
+-> Maven Will add jars to classpath
+
+-> Maven will compile source code
+
+-> Maven will execute Junits
+
+-> Maven will package our application in jar/war format
+
+-> It will maintain standard project folder structure
+
+
+ Dependencies-Chain := One Jar depends on Another-jar that is Managed by Maven.
+~~~~~~~~~~~~~~~~~~~~~
+
+--> Manages Dependencies-Chain Jars. (*******)
+
+           Eg ---> Add Spring-MVC Dependency, add Related jars like (Core, AOP) Because of MVC is Dependencies-Chain Jar.
+		   
+ Scope := (********)
+~~~~~~~
+  --- When the Jar is Used. (Default --> (1)Compile) 
+  --- (1)Compile(Jar Provided at Compile && Runtime ) && (2)Runtime ,  (3)Provided (Jar Provided by API/Container)
+  --- (4) test(Used for UnitTesting)  // (5) System (from System-Drives , add <SystemPath> )
+  
+  
+ Version := // Above Dependencies 
+~~~~~~~~~
+
+  <properties>
+     <spring.version>5.2.6.Version</spring.version>
+  </properties>
+  
+                remianing --->  <spring.version>${spring.version}</spring.version>
+
+
+
+
+=======================
+
+-> Maven is maintaing below 3 types of Repository
+
+	1) Central Repository (Website)
+
+	2) Local Repository  (Company's own-repository)
+
+	3) Remote Repository  (System)
+
+============
+
+ MavenGoals :=
+------------
+-> Maven goals are used to instruct what operation has to be done by Maven for our application as part of build process
+
+-> Based on the goal we execute, respective plugin will perform opertion for us
+
+-> Plugins are used to perform Build Actions
+
+-> Maven plugin should execute is depends on the goal we execute
+
+-> Every Maven goal is associated with plugin
+
+
+compile : 
+----------
+Used to compile project source code and will keep .class files in target folder
+
+clean
+------
+It is used to delete target folder
+
+test
+----
+It is used to execute JUnits available in project
+
+package
+-------
+It is used to package our application based on packging format
+(jar/war)
+
+install
+-------
+It is used to install our project into maven local repository so that other applications can use our project as a dependency.
+
+spring-boot:run 
+----------------
+ ---> Project –>Run As –> Run Configuration –>Maven –> New Configuration. In the Main tab, key in the Goals as “spring-boot:run” and click on Run.
+ 
+ 
+=============================
+
+  Maven(War-ERROR) ----> Configure Build Path ---> Java ---> Java Compiler ---> Apply ----> Apply & Close
+~~~~~~~~~~~~~~~~~~~
+
+ Note :=
+~~~~~~
+ --- We Never share .java file, Instead we share .Class file by '.JAR' with the help of Maven-Build.
+
+
+     JAR ---> Contains .Class Files.
+     WAR ---> Contains .Class Files && Web-Resources (.html, .Jsp, .Xml, .Properties...)
+     EAR ---> Contains  War + EJB
+	 
+	                 
+					       Group-ID -------> Who is Providing this Jar
+					   Artifact-Version ---> Name of Jar
+                          Version ---------> Version-Name.
+
+
+ Exclusion Tag :=
+~~~~~~~~~~~~~~~~
+<dependency>
+    <groupId>org.dbunit</groupId>
+    <artifactId>dbunit</artifactId>
+    <version>${dbunit.version}</version>
+    <scope>test</scope>
+    <exclusions>
+        <!--Exclude transitive dependency to JUnit-3.8.2 -->
+        <exclusion>
+            <artifactId>junit</artifactId>
+            <groupId>junit</groupId>
+         </exclusion>
+    </exclusions>
+</dependency>
+
+
+ Commands :=
+~~~~~~~~~~
+ mvn spring-boot:run 
+ 
+ mvn clean eclipse:eclipse 
+ 
+ mvn clean package 
+ 
+ 
+  MavenGoals  := 
+~~~~~~~~~~~~~      
+ 
+ clean install ----> (Deletes target-Folder && Install jar to local-Repo) 
+  
+  // compile // Maven build  // test // package // clean package // clean compile test package
+ 
+ Maven-Test ----> automate build-process.
+
+ mvn clean package ----> Downloads Required Maven Jars.
+ 
+ mvn test   ---->
+ 
+ mvn clean test  ---->
+ 
+ mvn clean compile test  ---->
+ 
+  
+  BOM (Bill Of materials) :=
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- It is POM.xml is a Version management
+ --- Just add Dependency without Version, BOM will handle remaining.
+ --- To do this add below 
+  
+  <dependency-management>
+     <dependencies>
+        <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-framework-bom</artifactId>
+          <version>5.2.6.RELEASE</version>
+        <type>pom</type>
+      </dependency>
+     </dependencies>
+  <dependency-management>
+  
+ 
+ 
+ 
+========================================= 
+ 
+----> Maven dependency scope attribute is used to specify the visibility of a dependency, relative to the different lifecycle phases (build, test, runtime etc). Maven provides six scopes i.e. 
+                          
+					
+					compile......provided.....runtime.....test.....system.....import.
+
+
+Compile := (maven default scope) Dependencies with compile scope are needed to build, test, and run the project.
+~~~~~~~
+
+Runtime := are not needed to build, but are part of the classpath to test and run the project. (TEST && RUN)
+~~~~~~~~~
+
+Test:= not needed to build and run the project. They are needed to compile and run the unit tests. (COMPILE & RUN)
+~~~~~
+
+System := (not retrieved from remote repository) They are present under project’s subdirectory and are referred from there.
+~~~~~~~
+ 
+----> POM (Project Object Model) is an XML file that contains information about the project and configuration details used by Maven to build the project 
+
+-------------------------------------------------------------
+ 
+Local Respository := (system)
+~~~~~~~~~~~~~~~~~~
+Maven local repository reside in the developer’s machine. Whenever you run maven goals which require these dependencies, maven will download the dependencies from remote servers and store them into developer’s machine.
+
+
+Central Respository := (Internet)
+~~~~~~~~~~~~~~~~~~
+Maven central repository is located at http://repo.maven.apache.org/maven2/. Whenever you run build job, maven first try to find dependency from local repository. If it is not there, then, by default, maven will trigger the download from this central repository location.
+
+
+Remote Respository := (Any Server)
+~~~~~~~~~~~~~~~~~~
+Apart from central repository, you may have needed artifacts deployed on other remote locations. For example, in your corporate office there may be projects or modules specific to organization only. In this cases, organization can create remote repository and deploy these private artifacts. This remote repository will be accessible only inside organization.
+
+These maven remote repository work exactly same way as maven’s central repository. Whenever an artifact is needed from these repositories, it is first downloaded to developer’s local repository and then it is used.
+
+                    ----- ear > war > jar file
+					
+ Build Profile :=
+~~~~~~~~~~~~~~~~~ 
+ --- Refers Set of Configurations that are required to build the application.
+ --- Helps in customizing build for different-environments. 	
+	
+	      Artifact-Id ---> Name of Project
+	      Group-Id ------> Package-Name
+		  
+	Maven-Artifact ------> It is a file depending on packaging(Jar, War, Ear)
+	
+	          Phases ----> Clean // pre clean // post clean
+	
+	         Plugins ----> used to create Jar-files (Or) Documentation/Report ( <reporting> ) of Project.
+	
+	
+					
+--->Define the phases of a maven build life cycle?
+  clean - clean artifactory which was created earlier 
+  build - creates the application
+  Site - generates the document
+  
+ Add-Plugin to 'compile' :=   (In Target-Directory)---> java -jar Boot22-1-0.0.1-SNAPSHOT.jar === Running-Application
+~~~~~~~~~~~~~~~~~~~~~~~~
+ 	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.java.demo</groupId>
+	<artifactId>Maven22</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging> (***)
+	
+	<build>
+		<finalName>Maven</finalName> ....// changes Jar-name (***)
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<fork>true</fork>
+					<executable>C:\Program Files\Java\jdk1.8.0_241\bin\javac.exe</executable>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+-------------------
+	<build>
+		<plugins>
+			<plugin>
+				<configuration>
+					<fork>true</fork>
+					<executable>C:\Program Files\Java\jdk1.8.0_241\bin\javac.exe</executable>
+				</configuration>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+	
+
+ Maven-Modules :=
+~~~~~~~~~~~~~~~~
+  Add in PoM.xml -----> <packaging>pom</packaging>
+    
+	             RightClick --->Other ---> Maven-Module
+			
+			
+ Maven=Scopes :=
+~~~~~~~~~~~~~~~~
+ (1) Compile Scope
+ (2) provide Scope
+ (3) runtime Scope
+ (4) test Scope
+ (5) system Scope
+ (6) import Scope
+ (7) transitivity resolution
+ 
+======================================================================================
+
+
+==============/\/\\/\\/==============\/\\/\//\/\============\/\\/\/\\/\===========/\/\\/\==============
+
+SpringSecurity444 :=  [ https://www.baeldung.com/security-spring ] // [ https://www.baeldung.com/spring-security-oauth ]
+~~~~~~~~~~~~~~~~~~~   [ https://github.com/RameshMF/registration-login-springboot-security-thymeleaf ]
+                      [ https://bezkoder.com/spring-boot-jwt-authentication/ ]
+		
+		
+  https://github.com/SimpleProgramming/springboot-security-jwt
+  https://github.com/SimpleProgramming/springboot-security-simple-jwt
+  https://github.com/SimpleProgramming/spring-security-basic
+					  
+					  
+    SECURITY(-YOUTUBE-) ----> JAVA BRAINS , Almighty Java.
+	
+	
+  [ https://www.youtube.com/watch?v=qs91V059u68&list=PLZdfbI_OZWANoX7SJXi5xbKXu-q9AzSgQ&index=3&ab_channel=AlmightyJava ]
+
+
+                   Class 'User' HAS-A 'Role'(OneToMany) (********)
+				 
+				 
+	 UserDetailService(I) // List<GrantedAuthorities> // Confiuge(AuthenticationManagerBuilder , HttpSecurity) // 
+	 
+	 WebSecurityConfigureAdaptor (C)  // BasicAuthenticationEntryPoint (C) [Security-Exception-Purpose] //
+	 
+	 
+ Types of Auth := Basic-Auth  // Token-Based Auth  // OAth2 
+~~~~~~~~~~~~~~~~
+
+ (Q) If Token is not vailable at very FirstTime, How it is generated ??
+ (A) Based on AuthenticationManger will Verify Credentials && using 'JWTBuilder' Class In-Build methods will generate Token.
+     Else throws "-BadCredentials-" Exception. 
+
+
+---Username/Password Authentication
+ ---App-Level && Intra App-Level Authentication like OAth.
+ ---MicroServices-Security like JWT.
+ ---Method-Level Security.
+ ---SSO / OKTA / LDAP.  
+
+---->Spring Security supports integration with all of these technologies.
+ ---HTTP BASIC authentication headers
+ ---HTTP Digest authentication headers
+ ---LDAP (Lighweight Directory Access Protocol)
+ ---Form-based authentication
+ ---Automatic remember-me authentication
+ ---Authorization
+ 
+ 
+    --- Principal ----> Currently Logged-in User.
+	--- Authentication
+	--- Authorization
+	--- Granted-Authority
+
+ Features on Spring-Security :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Web, Tag-Library,   Core , LDAP, 
+  ACL,  CAS-Client, Open-ID
+
+
+(Q)What is the meaning of OAuth?
+(A) OAuth means open authorization Protocol. 
+    This protocol allows you to access the client applications on HTTP for third-party providers like Google, Facebook, etc. It helps you to share resources stored on one site with another site without the need for their credentials
+
+ 
+ (1) Cookie-based-Authorization :=  [SessionID(Unique)] [Cookie-based-Authentication]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --Generated with Login credentials and deleted from Both Server-Side(Secured-Infrm) && Browser-side(Other-Infrm)  when Logged-Out.
+ --Eg :: SessionId acts like 'Gymcard' in Gym(One-Site) Only. Invalid in Office(Other-Sites).
+
+
+ (2) Token-based-Authorization :=  [JWT(Unique)] [Cookie-based-Authentication]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ 
+
+ (1) Authentication := knowing and identifying the user that wants to access. (Basic-Access) prove with UserId/Password.
+~~~~~~~~~~~~~~~~~~~~~~ && Holds Credentials (Principle)
+
+ CODE::=
+~~~~~~                                extends
+ (a) WebSecurityConfigureAdaptor (C)  ---------> protected void configure (AuthenticationManagerBuilder auth){ } (M) [I/P]
+                 
+		auth.inMemoryAuthentication().withuser("user").password("user").role("Admin").and().
+		                              withuser("user2").password("user2").role("HR");		  
+				  
+----> Here  "and()" used to add users && providing authetication-credentials.
+
+ WebSecurityConfigurerAdapter := is a convenience class that allows customization to both WebSecurity and HttpSecurity.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ AbstractAnnotationConfigDispatcherServletInitializer := base-class used to initialize Spring-APP in Servlet-container Environ. 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+----> @EnableWebSecurity for Securing Web-applications, applied at class-level.
+ 
+
+                                       extends
+ (b) WebSecurityConfigureAdaptor (C)  ---------> protected void configure (AuthenticationManagerBuilder auth){} (M)
+ 
+   AuthenticationManagerBuilder auth[TypeOf-Auth, UN,PW, Role]
+
+----> A appliction can have Multiple-authentication() methods managed by "-AuthenticationManager-"
+ 
+----> Now, Authentication-filter will collect Authenticated-User as "Principle" && Store it in Thread-Local.
+
+---->  I/P --->CREDENTIALS && O/P ----> Priciple 
+
+ Eg :=
+~~~~~
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+	// --AUTHENTICATION-- 
+	@Override
+	public void configure(AuthenticationManagerBuilder auth) throws Exception { 
+		auth.inMemoryAuthentication().withUser("javainuse")
+				.password("javainuse").roles("USER");
+	}
+
+	 // --AUTHORIZATION--   [ /user (Req.Handling-URL applied on methods) ---> user,admin ]
+	                        [ /admin (Req.Handling-URL applied on methods) ---> admin ] 
+	@Override
+	public void configure(HttpSecurity http) throws Exception {                 
+		         -openChain-
+		http.authorizeRequest().antMatcher("/**").anyRequest().hasRole("USER")
+				.and().formLogin().loginPage("/login.jsp")
+				.failureUrl("/login.jsp?error=1").loginProcessingUrl("/login")
+				.permitAll().and().logout()
+				.logoutSuccessUrl("/listEmployees.html");
+				
+				http.authorizeRequest().antMatcher("/admin").hasRole("ADMIN").
+				                      .antMatcher("/user").hasAnyRole("USER", "ADMIN").
+									  .antMatcher("/").and().formLogin();
+
+	}
+
+}
+
+=====================================		  
+				  
+ (2) Authorization := process to allow authority to perform actions in the application.
+~~~~~~~~~~~~~~~~~~~~~~
+    ---(Level-Of-Access) depends On who-the-Users is ... like  Admin, Employee, Manager, HR, CEO etc....
+	
+
+----> Managed by "-JWT-".
+
+ CODE::=
+~~~~~~                             extends
+  WebSecurityConfigureAdaptor (C) ---------> protected void configure (HttpSecurity auth){} (M)
+  
+  
+         auth.authorizeRequests().antMatchers(."/admin").hasRole("Admin").antMatchers(("/").permitAll().formLogin();
+  
+----> Here if "-antMatchers()-" matches URL && gives specific-authentication-credentials.
+    
+	 antMatchers(."/user").hasAnyRole("USER", "ADMIN");
+  
+  
+----> CAN LOGOUT by entering "/logout" in URL.
+
+UserDetailsService(I) := used in order to lookup the username, password and granted authorities for any given user.
+~~~~~~~~~~~~~~~~~~~~~~~
+
+---->"-DelegatingFilterProxy-" provides the link between web.xml and the applicationContext.
+
+ Eg :=
+~~~~~
+@EnableWebSecurity
+public class Demo extends WebSecurityConfigurerAdapter{
+	
+	 @Override
+	 protected void configure (AuthenticationManagerBuilder auth){ }
+	 
+	 @Override 
+	 protected void configure (HttpSecurity auth){	 }
+	 
+=============================	
+
+ SecurityFlow := // ----> (Pass.Req to )
+~~~~~~~~~~~~~~~
+                          Extracts Servlet-Req && 
+----> DelegatingFilterProxy (Converts Authenticated-Object) ----> AuthenticationManager ----> ProviderManager
+ 
+                   (having Types(Auth))
+  AuthenticationProvider(checks-Types-Auth) ----> UserDetaisService  // 
+   
+----> AuthenticationProvider ---> ProviderManager ----> DelegatingFilterProxy ----> Authentication
+ 
+==================================
+
+ InXML :=
+~~~~~~~~~
+	 
+<use-expressions> : It is here to use expressions to secure individual URLs. 
+~~~~~~~~~~~~~~~~
+
+<intercept-url> :=  matches the requested url pattern from request and will decide what action to take based on access value.
+~~~~~~~~~~~~~
+
+<welcome-file-list> := Displays Home-Page(Index.jsp) will you run. 
+~~~~~~~~~~~~~~~~~~~~
+Eg:=
+----
+  	<welcome-file-list>
+  		<welcome-file>/WEB-INF/index.jsp</welcome-file>
+  	</welcome-file-list>
+
+
+<jdbc-user-service/> := used to fetch username and password from database to authenticate user into the system
+~~~~~~~~~~~~~~~~~~~~~
+
+
+<sec:authentication property=”principal.username”> := used to render Current-User.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ DelegatingFilterProxy :=  and this would instantiate the Spring Security filters according to my Spring configuration
+~~~~~~~~~~~~~~~~~~~~~~~
+
+<sec:accesscontrollist hasPermission="1,2" domainObject="someObject"> :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+It checks a comma-separated list of required permissions for a specified domain object. If the current user has any of those permissions, then the tag body will be evaluated. If they don’t, it will be skipped.
+
+======================================
+                                          
+										  NOTCES 
+									      ~~~~~~~~
+
+----> @PreAuthorize and @Secured implement method level security in spring applications.
+
+PRE_AUTH_FILTER :=
+~~~~~~~~~~~~~~~~~
+Assures that this filter will be invoked before other authentication/authorization handling. I have defined a siteminder filter for this. You can name it to another name.
+
+
+UserDetailsService(I) :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+ ---used to retrieve the user's authentication and authorization information. 
+ ---It has a single read-only method named as  "--loadUserByUsername()--" which locate the user based on the username.
+  
+         public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
+ 
+  
+---->To enable support for method level security, I will update the application-security.xml file with 
+
+      <global -method-security>
+	  
+@PreAuthorize:=
+~~~~~~~~~~~~~~
+It will test that if logged in used has the ‘ROLE_ADMIN‘ authority or not. If user has not this authority, an access denied exception will be thrown.
+
+
+ OAth (2.0) :=
+~~~~~~~~~~~
+---->It provides the facility to the user to login into the application by using their existing account at GitHub(or)Google. 
+ 
+  Eg:= Login-In in GitHub with help of existing-Google account.
+ ~~~
+
+ @EnableWebSecurity :=
+~~~~~~~~~~~~~~~~~~~~~ 
+ ----It enables Spring Security’s web security support, and also provides the Spring MVC integration.
+ 
+
+ Eg3 :=
+~~~~~~
+@Configuration
+public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    // Create 2 users for demo
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+
+        auth.inMemoryAuthentication()
+                .withUser("user").password("{noop}password").roles("USER")
+                .and()
+                .withUser("admin").password("{noop}password").roles("USER", "ADMIN");
+
+    }
+
+    // Secure the endpoins with HTTP Basic authentication
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+
+        http
+                //HTTP Basic authentication
+                .httpBasic()
+                .and()
+                .authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/books/**").hasRole("USER")
+                .antMatchers(HttpMethod.POST, "/books").hasRole("ADMIN")
+                .antMatchers(HttpMethod.PUT, "/books/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.PATCH, "/books/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/books/**").hasRole("ADMIN")
+                .and()
+                .csrf().disable()
+                .formLogin().disable();
+    }
+
+===================================================================================================
+
+
+==============/\/\\/\\/==============\/\\/\//\/\============/\/\\/\/\\/\===========/\/\\/\==============
+
+ JUnit550 :=   [JUnit 5 requires Java 8 at runtime. ]
+~~~~~~~~~   
+          ********[ YOUTUBE ---> Gain Java Knowledge , Java Techie , JavaGuides, ]********
+
+
+----> JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage
+
+---->To be able to execute junit 5 tests in eclipse, we will need following dependencies.
+
+JUnit Platform := defines the TestEngine API for developing new testing frameworks that runs on the platform.
+~~~~~~~~~~~~~~~~
+
+JUnit Jupiter := It has all new junit annotations and TestEngine implementation to run tests written with these annotations.
+~~~~~~~~~~~~~~
+
+JUnit Vintage := To support running JUnit 3 and JUnit 4 written tests on the JUnit 5 platform.
+~~~~~~~~~~~~~~
+
+
+ @BeforeEach ----> The annotated method will be run before each test method in the test class.
+
+ @AfterEach----> The annotated method will be run after each test method in the test class.
+
+ @BeforeAll(1Only, static) ----> It will be run before all test methods in the test class. This method must be static.
+
+ @AfterAll(1Only, static)  ----> It will be run after all test methods in the test class. This method must be static.
+
+ @Test ----> It is used to mark a method as junit test.
+ 
+ @Disabled ----> It is used to disable or ignore that test class/method from test-suite.
+ 
+ @RepeatedTest(5) ----> Runs Test-case for Specified No.of times.
+
+=============================================
+
+ @Tag ----> Mark test class/method with tags for test discovering and filtering.  eg::  @Tag("development")
+ 
+ @Include&&ExcludeTags ----> include those test-cases which are annoatted with @Tag.
+
+  Eg := 
+ ~~~~ 
+ @SelectPackages("com.howtodoinjava.junit5.examples")
+ @IncludeTags("production")
+ public class ProductionTests
+
+=============================================
+
+ @DisplayName ----> Used to provide any custom display name for a test class or test method
+
+ @Nested ----> Used to create nested test classes
+
+ @TestFactory ----> Mark a method is a test factory for dynamic tests
+ 
+=============================================
+
+ Assertions.Asserts() := assertions.assertEquals( 4 , Calculator.add(2, 2));
+~~~~~~~~~~~~~~~~~~~~
+
+ Assertions.Assumptions() := Assumptions.assumeTrue("DEV".equals(System.getProperty("ENV")));
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ Assertions.assertThrows():= (Test Exceptions) Will fail If no exception is thrown, or if Different-exception  is thrown  
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ----Will Run even-if Exception given is SuperClassException (exception of same types are allowed.)
+  
+  Eg :=
+ ~~~~
+     Assertions.assertThrows(NumberFormatException.class, () -> {
+      Integer.parseInt("One");
+    });
+  }
+  
+ Assertions.assertNotEquals() := It is used to assert that expected value and actual value are NOT equal.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+=============================================
+
+ Assumptions := It provides static methods to support conditional test execution based on assumptions.
+~~~~~~~~~~~~~
+
+---->JUnit 5 provides two annotations: @SelectPackages and @SelectClasses to create test suites. 
+
+
+ @SelectPackages := Classes present in this package AND all it’s sub-packages will be selected for test suite. s
+~~~~~~~~~~~~~~~~~~
+    ----pecifies the names of packages to select when running a test suite via @RunWith(JUnitPlatform.class).
+	
+	
+ @ExcludePackages := used to exclude any specific sub-package.	
+~~~~~~~~~~~~~~~~~~	
+	
+ Eg1 :=
+~~~~~
+   @RunWith(JUnitPlatform.class)
+   @SelectPackages("com.howtodoinjava.junit5.examples")
+   @ExcludePackages("com.howtodoinjava.junit5.examples.packageC")
+   public class JUnit5TestSuiteExample { }
+   
+ Eg2(Security) :=
+~~~~~~~~~~~~~~~~
+   @Before
+    public void init() {
+        Book book = new Book(1L, "A Guide to the Bodhisattva Way of Life", "Santideva", new BigDecimal("15.41"));
+        when(mockRepository.findById(1L)).thenReturn(Optional.of(book));
+    }
+	
+	
+	@Test
+	public void find_login_ok() throws Exception {
+
+		String expected = "{id:1,name:\"A Guide to the Bodhisattva Way of Life\",author:\"Santideva\",price:15.41}";
+
+		ResponseEntity<String> response = restTemplate.withBasicAuth("user", "password").getForEntity("/books/1",
+				String.class);
+
+		printJSON(response);
+
+		assertEquals(MediaType.APPLICATION_JSON_UTF8, response.getHeaders().getContentType());
+		assertEquals(HttpStatus.OK, response.getStatusCode());
+
+		JSONAssert.assertEquals(expected, response.getBody(), false);
+	}
+ 
+
+ Eg3 :=
+~~~~~
+ 
+ class TestWebApp extends SpringBootHelloWorldTests {
+ 
+	@Autowired
+	private WebApplicationContext webApplicationContext;
+
+	private MockMvc mockMvc;
+
+	@Before
+	public void setup() {
+		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+	}
+
+	@Test
+	public void testEmployee() throws Exception {
+		mockMvc.perform(get("/employee")).andExpect(status().isOk())
+				.andExpect(content().contentType("application/json;charset=UTF-8"))
+				.andExpect(jsonPath("$.name").value("emp1")).andExpect(jsonPath("$.designation").value("manager"))
+				.andExpect(jsonPath("$.empId").value("1")).andExpect(jsonPath("$.salary").value(3000));
+
+	}
+	
+	}
+ 
+=====================================================
+
+Junit ----> ECL Emma (STS MarketPlace)
+   
+    Build-In ---> Mock
+	
+	UserDefined ----> Spy
+   
+   @RunWith(SpringRunner.class)
+
+==========================================================
+
+ Mockito330 :=
+~~~~~~~~~~~~
+
+ ---The component under test has dependencies that are not yet implemented or the implementation is in progress.  
+ 
+ 
+ ---Browser Sec
+ 
+ -- Loadbalacer (Horizontal-Scaling) increasing No.of Servers.
+ 
+          API ---> Interface
+   WebService ---> Interact
+   
+      API takes the requests from the user and gives the response without exposing the internal details. API acts as Abstraction.
+	  
+	  
+What exactly needs to verify in API testing?
+ In API testing, we send a request to API with the known data and then analysis the response.
+ -- We will verify the accuracy of the data.
+ -- Will see the HTTP status code.
+ -- We will see the response time.
+ -- Error codes in case API returns any errors.
+ -- Authorization would be check.
+ -- Non-Functional testing such as performance testing, security testing.
+   
+   
+   	API may or may not need network for its operations.	
+	Web Services always need network for its operation.
+	
+	All APIs are not web service.	
+	All web services are API
+	
+	Resource ----> REST architecture treats any content as resource,
+   
+   
+   Swagger used as documentation template that make the whole process simple and easy. 
+   
+    In user interface testing the main focus is on how users can interact with app elements such as images, fonts, layout etc. are checked.
+   API testing allows the communication between two software systems. API testing works on backend also known as backend testing.
+
+   
+   
+   Request Header: Request Header carries metadata for the HTTP request message. 
+                   Metadata could be a client type, format supported by the client, format of a message body, cache setting etc.
+   
+   
+  HTTP is a protocol that is used to transfer the hypertext from the client end to the server end, but HTTP does not have any security. 
+   
+   The Server issues an HTTP Status Code in response to a request of the client made to the server. 
+   
+   Session State in HTTP?
+ In the session state, the client and server just know about each other only during the current request.
+   
+   
+   
+   
+    By providing only the setter or getter method, you can make the class read-only or write-only.
+   
+  
+  List some of the disadvantages of JavaScript.
+Some of the disadvantages of JavaScript are:
+
+No support for multithreading
+No support for multiprocessing
+Reading and writing of files is not allowed
+No support for networking application
+   
+   
+    Anonymous 'f' - These type of functions doesn't contain any name. 
+	                They are declared dynamically at runtime using the function-operator (stored in variable)
+	                instead of the function declaration
+   
+   
+   var display=function()  
+ {  
+  alert("Anonymous Function is invoked");  
+ }  
+ display();  
+   
+   
+===================================
+ 
+ 
+----> Every layer is dependent-on-another && to do Junit to 'Service-Layer'('Dao'-Not-written), we should go for 'MOCK'
+
+---> 'MOCK' is the process of Creating Alternate-Object(Dummy) (Or) Substitute-Object for Real-Object.
+
+ When-To-Use :=
+-------------
+ --- If dependent-layer is not Ready.
+ --- To Isolate Layer for Junit-Testing.
+ 
+ These 'MOCK' are 2 types :: (1) Proxy-Based Mock              [EasyMock & Mockito]
+                             (2) Byte-Code-Manipulation Mock   [PowerMock & JMockit]  
+    
+	(1) ---> Less-Used due to Cannot-Support (final-class && private & static & final-Methods)
+ 
+ 
+---->Mockito annotations – @Mock, @Spy, @Captor, @InjectMocks
+
+
+ Eg(1) := [ https://www.youtube.com/watch?v=6khYnHt513c&list=PLpLBSl8eY8jTHqH6H4Kie4vPvyeEE7yme&index=3 ]
+~~~~~~
+	
+	@Test
+	public void testGetNameById() {  // Here Dao-Layer Impl not-Present
+
+		contactDao daoProxy = EasyMock.createMock(contactDao.class);
+
+		EasyMock.expect(daoProxy.findNameById(101)).andReturn("Rama");
+		EasyMock.expect(daoProxy.findNameById(102)).andReturn("Krishna");
+		EasyMock.replay(daoProxy);
+
+		ContactServiceImpl contactService = new ContactServiceImpl();
+		contactService.setContactDao(daoProxy);
+
+		String name = contactService.getNameById(101);
+		assertNotNull(name);
+
+
+ Eg22 :=
+~~~~~~~~~
+	@Test
+	public void testGetNames() {
+
+		List<String> listOfString = new ArrayList<String>();
+		listOfString.add("Rama");
+		listOfString.add("Kishna");
+
+		// Creating Mock Object
+		contactDao daoProxy = EasyMock.createMock(contactDao.class);
+		// Set Behavior for Object
+		EasyMock.expect(daoProxy.findNames()).andReturn(listOfString);
+		EasyMock.replay(daoProxy);
+
+		ContactServiceImpl contactServiceImpl = new ContactServiceImpl();
+		contactServiceImpl.setContactDao(daoProxy);
+		List<String> contactNames = contactServiceImpl.getAllContatctNames();
+		assertNotNull(contactNames);
+
+	}
+	
+ Eg33 := // Eliminating BoilerPlate-Code by writing Common-Code in 'init()' method.
+~~~~~~~
+ 
+public class ContatctServiceTest {
+
+	private static ContactServiceImpl contactServiceImpl = null;
+
+	@BeforeClass
+	public static void init() {
+
+		contactDao daoProxy = EasyMock.createMock(contactDao.class);
+
+		// Set Behavior for //Method-1
+		EasyMock.expect(daoProxy.findNameById(101)).andReturn("Rama");
+		EasyMock.expect(daoProxy.findNameById(102)).andReturn("Krishna");
+
+		List<String> listOfString = new ArrayList<String>();
+		listOfString.add("Rama");
+		listOfString.add("Kishna");
+
+		// Set Behavior for Method-2
+		EasyMock.expect(daoProxy.findNames()).andReturn(listOfString);
+
+		Contact contact = new Contact();
+		contact.setContactname("RamKi");
+		contact.setContactNumber(8247336998L);
+		contact.setContatctid(121);
+
+		// Set Behavior for Method-3
+		EasyMock.expect(daoProxy.findContact_ById(101)).andReturn(contact);
+
+		// Activating-Proxy
+		EasyMock.replay(daoProxy);
+
+		// Creating Object && Injecting
+		contactServiceImpl = new ContactServiceImpl();
+		contactServiceImpl.setContactDao(daoProxy);
+
+	}
+
+	@Test
+	@Ignore
+	public void testGetNameById() { // Method-1
+		String name = contactServiceImpl.getNameById(101);
+		assertNotNull(name);
+
+	}
+
+	@Test
+	@Ignore
+	public void testGetNames() {// Method-2
+
+		List<String> contactNames = contactServiceImpl.getAllContatctNames();
+		assertNotNull(contactNames);
+
+	}
+
+	@Test
+	public void testGetNameBy_ContactId() throws NoDatFoundException {// Method-2
+
+		Contact contact = contactServiceImpl.getContactById(101);
+		assertNotNull(contact);
+
+	}
+
+}
+
+==================================================================================================
+ 
+==========/\/\\/\\/===========\/\\/\//\/\=========\/\\/\/\\/\=========/\/\/\/\/\=================
+
+ JIRA790 :=
+~~~~~~~~~~
+
+---->software testing tool developed by the Australian Company Atlassian & Current-Version i s'6'.
+
+----> It is a bug-tracking-tool(newly-added features (Or) improvements) that reports all the issues related to your software or mobile apps
+
+----> It enables software developers to track issues and improvements. It manages the projects as well as maintain the technical documentation.
+
+       Waterfall ---> RDD-TDM
+
+
+===================================================================================================
+ 
+===========/\/\\/\\/\=========\/\\/\//\/\=========\/\\/\/\\/\========/\/\\/\=/\/\=================
+
+                                                 SPRINGCLOUD123
+												  ~~~~~~~~~~~~~~
+
+----> Spring Cloud is a Spring module that provides the RAD (Rapid Application Development) feature to the Spring framework. We can quickly develop cloud-based allocation with the help of the Spring Cloud Framework.
+
+----> Spring Cloud framework provides tools for developers to build a robust cloud application quickly. 
+ ---We can also build the microservice-based applications, for example, configuration management, service discovery, circuit breakers, intelligent routing, cluster state, micro-proxy, a control bus, one time tokens, etc. 
+ ---Using Spring Cloud, a developer can quickly develop services and applications that implement the design patterns. 
+ ---These patterns work well in any distributed environment, including the bear metal data centers, developer's laptop, and managed platform such as Cloud Foundry.
+
+
+---->Spring Cloud provides tools for developers to build some of the common patterns in distributed systems quickly. For example, configuration management, service discovery, circuit breakers, intelligent routing, micro-proxy, a control bus, one-time tokens, global locks, leadership election, distributed sessions, cluster state.
+
+
+ Cloud Foundry := It  is an open-source, multi-cloud Platform as a Service (PaaS). You can deploy your application on your own computing infrastructure
+ 
+
+
+Features of Spring Cloud :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+The great part about Spring Cloud is that it builds the concept of Spring Boot. Spring cloud is built upon some of the common building blocks of Spring framework which are as follows:
+
+ --Intelligent routing and service discovery
+ --Service-to-Service Call
+ --Load Balancing
+ --Leadership Election
+ --Global Locks
+ --Distributed Configuration
+ --Distributed Messaging
+                                                  
+==============================================================================
+
+
+==============/\/\\/\\/==============\/\\/\\/\/===================\/\\/\/\\/\==================/\/\\/\=================
+
+  JWT444 := // Contains UN && PW in Encrypted-Format ( Header + Payload + VerifySignature) ..... [ https://jwt.io/ ]
+~~~~~~~~~
+ Security+JWT ----> [ https://github.com/koushikkothagal/spring-security-jwt ]
+ Security+JWT ----> [ https://github.com/Java-Techie-jt/spring-security-jwt-example ]
+ Security+JPA ----> [ https://github.com/Java-Techie-jt/spring-security-jpa ]
+ 
+  https://github.com/SimpleProgramming/springboot-security-jwt
+  https://github.com/SimpleProgramming/springboot-security-simple-jwt
+ 
+authorization uses 2 Strategy :: (1) Session-Based[Token]  (2) Token-based(JWT). [Form-having-Data && Digitally-Signed] 
+
+
+ 1.Session := 
+~~~~~~~~~~~~
+ ---created by Server when user authenticates(1) ("-ID-" is generated && Stored on Server)  [MonoLithic]
+ ---On login, server generates a unique (very difficult to guess) session id, passes this to the client (browser) which stores it (eg. browser cookie)
+ ---Maintains all session state on the server keyed on session id.
+  
+ 
+ 2.Token-based(JWT) :=  // 
+~~~~~~~~~~~~~~~~~~~~~
+--->The server authenticates(POST) the credentials and, if they are valid, generate a token for the user.(********)
+ ---The server stores the previously generated token 'DB' along with the user ['ID'] and an ['Expiration-date']
+ ---The server, in each request, extracts the token from the incoming request. With the token, the server looks up the user details to perform authentication.
+ 
+ ---On login, server generates an authentication token based on some cryptographic scheme, passes this to the client (browser) which stores it (eg. browser cookie).
+ ---No state is maintained on the server.
+ 
+
+
+----> In MicroServices  with JWT, we can access related-Service Only based on 'POST' credentials (***********)
+
+
+ 
+JWT :=
+~~~~~
+ created by Server when user authenticates(1) with Token in Json-Value (JWT generated && Stored on Client) [MicroServices]
+ 
+ 
+----> Three parts in JWT-Token (1) Header (2)Playload  (3) Signature.
+  
+
+ OAth330 := ( Eg:: Car-key with Limited Access given to Car-Parking-Guy )
+~~~~~~~~~
+Provides Security Protection  to avoid Stealing of "JWT".
+
+---->It meant for a Service to Authorize another Service.
+ 
+ 
+================================================================================================
+ 
+ 
+==============/\/\\/\\/==============\/\\/\//\/\============\/\\/\/\\/\===========/\/\\/\==============
+
+                                      MicroServices334  (---CodePrimers, JavaTechie, Simple Programming---)
+                                   ~~~~~~~~~~~~~~~~~~~~~~
+												  
+----> It is architectural style in which you can build application as a collection of small autonomous services that focussed  around common Business goal/domain.	
+
+----> Microservices is an architectural design pattern to develop applications.											  
+												  
+----> each service has self-contained that implements single business  capability  and responsible for it's dataModel.	
+
+---->small services communicate with each other to develop big Application.
+
+---> Communication between Microservices can be acheived through "-REST-API-". REST is a medium to build MicroServices.
+
+---->Each Service in MicroService acts as
+            ---Independent & Autonomous Service
+			---Scalability,Avaliability, Decentralization
+			---Resilient Services (Other Services will work even if oner service goes down)
+			---seamless API-Integration && continious monitoring. ...//API-Gateway
+			---continious delivery through DevOps integration.
+			---Isolates from failure (One MicroService fails also, that doesn't effect entire application.)
+			
+			
+ Advantages of Spring-Cloud :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Redundancy issues that occur in distributed systems.
+ --- Balances the distribution of load between resources like network links, CPU, clusters etc.
+ --- Technology diversity.
+ --- Fault isolation, e., a process failure should not bring the whole system down.
+
+ 
+ Distributed-Applications := The App that Runs at Multiple-Devices.
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+						
+Features of Microservices :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ---Small focused (simple)
+ ---Loosely Coupled ( as Microservices are independent, Development && Deployment is quicker. )
+ ---Language Neutral ( two MC developed in 2 differnt languages also Communicated well && doesn't effect Other Services )
+ ---Bounded Context ( One MC no need to understand  implementation  of Other MC ) 
+			
+
+Advantages of Microservices :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~			
+  ---Independent development && Deployment
+  ---Mixed Technology stack.
+  ---Fault Isolation.(Even if One MC down, Other will work )
+  ---Deployment is very easy. Hence, it will be less time- consuming && Cost-Effective.
+  
+
+ Challanges of MicroServices :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  --- Require heavy investment && Heavy Infrastructure Setup
+  ---Configuration management (maintain components across various environments)
+  --- Distributed Transaction // Distributed Logging // Security Concern 
+  ---Debugging is difficult in this MC Architecture.
+  ---Complete end-to-end testing is difficult.
+  ---Deployment Challenges.
+  
+  
+ Monitoring MicroServices :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Hystrix dashboard
+ --- Eureka admin dashboard
+ --- Spring boot admin dashboard.
+
+
+---->What are the different Microservices Design Patterns?
+A: The different Microservices Design Patterns are -
+  
+  API Gateway Design Pattern
+ Chain of Responsibility Design Pattern
+ Branch Microservice Design Pattern
+ Circuit Breaker Design Pattern
+ 
+  Aggregator Microservice Design Pattern
+  Asynchronous Messaging Design Pattern
+
+ Service Registry := Service Registry is used to maintain list of services available in our project 
+~~~~~~~~~~~~~~~~~~~
+ 
+                                  Here (1),(2) ...... Indicates App-Flow. (**********)
+								  
+----> https://www.quora.com/How-do-I-authenticate-and-authorize-in-a-microservice-architecture	
+----> https://www.quora.com/What-is-JWT-JSON-Web-Token-for		
+----> https://www.quora.com/How-are-JWT-tokens-secured					  
+
+       Spring Cloud Config Server  --- 8888
+      Netflix Eureka Naming Server --- 8761
+   Netflix Zuul API gateway Server --- 8765
+ Zipkin distributed Tracing Server --- 9411
+
+ .yml :=
+~~~~~~~
+server:
+  port: 8761
+  
+eureka:
+  client:
+    register-with-eureka: false
+	
+ PACT :=
+~~~~~~~
+ --- A contract between a consumer application and a provider application is called a PACT. 
+ --- Each pact is a collection of interactions. 
+ --- It is an open-source tool that can be used to implement the Consumer-Driven Contract in Microservices.
+ 
+ @Loadbalancer :=
+~~~~~~~~~~~~~~~~~~~
+ --- Improves the distribution of workloads across multiple computing resources, such as a computer cluster, network links, central processing units.
+ 
+ DRY := stands for Don’t Repeat Yourself. It basically promotes the concept of reusing the code.
+~~~~~~
+
+                 Synchronous Communication -----> RestTemplate, Feign Client
+ 
+                 ASynchronous Communication ----> RabbitMQ, Apache kafka.
+ 
+ 
+(Q). How will you define the domain driven design?
+(A) A domain-driven design focused more on core domain logic. 
+    It helps to identify complex designs on models of the domain. 
+	It can constantly collaborate with domain experts to improve the domain model and 
+	          resolve all issues related to the domain 
+
+
+(Q). What is the meaning of Cohesion in Microservices?
+(A) The degree to which how components bind together within a module is called the Cohesion.
+
+(Q) What is Scaling ?? 
+(A) Based on Traffic, Increasing / Decreasing Instances of Application.  
+ 
+ 
+(Q) when to go for Scaling (Horizantal / Vertical)
+(A) depends on below factors ::
+    
+      	--- CPU utilization
+		--- Memory requirement
+		--- How much Traffic does One-MicroService handling .  
+		
+		
+(Q) Which design pattern is used to Convert Monolithic to MicroServices ??
+(A) Strangulation Pattern. 
+
+
+  ELK Stack :=
+~~~~~~~~~~~~~
+  Java Techie // Simple Programming //  Tech Primer
+
+=========================================================================================================
+
+ Spring cloud :=  [ https://www.baeldung.com/spring-cloud-series ]
+~~~~~~~~~~~~~~~
+ --- system that provides integration with external systems.
+ --- Build on Top of application.
+
+ (1) API-Gateway (more 'freq' used than Zuul-Proxy) :=  /// Single-Point-entry to Application.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---->It is a gateway application that handles all the requests and does the dynamic routing of microservice applications.
+ ---Distributes incoming traffic to network by effectively distributing across multiple-Servers.
+ 
+---->(acts as Entry-point to forward-client-request handle the request and send to respective services.)
+ ---JVM based router && Server-side Load-Balancer.
+ 
+---->It improves the security of the microservices as we limit the access of external calls to all our services.
+ 
+---->Provides different methods for filtering-Request.
+ --- when client sends request, it will first send to API-Gateway through which the request id forwarded to Specific MicroServices.
+ 
+---->Provides more secure to services through Token Authentication, thus client has no direct-Access to Microservices. 
+ ---This MicroService will  continiously monitors whether the response send back or not.
+ ---API-Gateway must register with Eureka-Server && give Gateway PortNo::8989 in Post-man(*********)
+ 
+      Eg :=  http://localhost:8989/order/88
+
+ Feaures :=
+~~~~~~~~~~~
+ ---Versioned and distributed configuration.
+ ---Discovery of service registration.
+ ---Service to service calls.
+ ---Routing.
+ ---Circuit breakers and load balancing.
+ ---Cluster state and leadership election.
+ ---Global locks and distributed messaging.
+ 
+
+ 
+
+============================================================================================================	 
+ 
+ Links :=
+~~~~~~~~
+ 
+           [FULL**]          ----> https://www.youtube.com/watch?v=2BcmN6TG_No&list=PLVz2XdJiJQxxWhFkucZBoMxeYE6qTgEF8 
+ 
+ [Eureka + Hystrix + Cloud ] ----> https://github.com/Java-Techie-jt/spring-cloud-gatway-hystrix 
+                                   https://github.com/Java-Techie-jt/spring-boot-hystrix    
+
+          Cloud-Config ----------> https://github.com/Java-Techie-jt/spring-cloud-config								   
+	 
+      MicroServices-Design ------> https://github.com/TechPrimers/stock-price-viewer-microservices-part1
+	                               https://github.com/TechPrimers/stock-price-viewer-microservices-part2-final
+								   
+		 Ribbon-Client -----> https://github.com/PlayProCode/PlayJava/tree/master/my-app
+
+ [ https://github.com/mightyjava/almightyjava-ms-zuul ]
+ [ https://github.com/mightyjava/spring-boot-microservices-zuul ]	
+
+
+  https://github.com/SimpleProgramming/microservice-logging
+  https://github.com/SimpleProgramming/springcloud-zuul
+  https://github.com/SimpleProgramming/springcloud-hystrix
+  https://github.com/SimpleProgramming/springboot-admin-server
+  https://github.com/SimpleProgramming/spring-cloud-config-repo	 
+                                   
+                       
+======================================================
+   
+ Alogorithm followed for load-balancing :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Round-Robin    (Sequential Request-Distribution)
+ 
+ --- Least-Connections (Request send to least using Servers)
+ 
+ --- Ip-Hash   (Request send to Server based on Client-IP)
+ 
+===============================================================
+
+ Cluster :=
+~~~~~~~~~
+ --- Defined as number of things of the same kind, growing or held together;
+                    a bunch: a cluster of grapes. a group of things or persons close together:
+
+
+ Distributed LogTracing :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Distributed tracing helps in identifying that slow component among in the ecosystem.
+ 
+ --- Zipkin was originally developed at Twitter.
+ --- It manages both the collection and lookup of this data. 
+ --- To use Zipkin, applications are instrumented to report timing data to it.
+ 
+ 
+
+
+  
+ (2) Eureka-Server ( @EnableEurekaServer ) :=   // eureka.client.register-with-eureka : false
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Used by a service to make service-Registry (Separate-Service) && to Monitor & find location of all Service-instances.
+ --- Acts like Service-Discovery.&& Every Service has to Register with this Server. && default-Port:: 8961
+ --- This service will register every MicroService, then Client request, Eureka service will get dependent MC to get task done.
+
+----> AWS--Elastic-Load-Balancer (ELB) is an example of server-side discovery router
+
+---> When we start a project, we usally have all the configurations in the properties file. As more and more services are developed and deployed, adding and modifying these properties become more complex. Some services might go down, while some the location might change. This manual changing of properties may create issues.
+
+---> Eureka Service Registration and Discovery helps in such scenarios. As all services are registered to the Eureka server and lookup done by calling the Eureka Server, any change in service locations need not be handled and is taken care.
+
+
+ Eureka-Discovery-Client ( @EnableEurekaClient ) := 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ---Used by Other-Services Register to Eureka-server.
+ ---No Need to Mention (Host/Port) of Services , use  "--application:name--" as they are  Registered to Eureka-server
+
+     Eg :: http://localhost:8191/product/33 (Before)
+	       http://ORDER-SERVICE/product/33 (After)
+
+
+----> If Eureka Server Running on same machine with 8761 port number then client will auto-register with Eureka server.
+
+----> If Eureka Serer port number is not 8761 then we have to register client manually with Eureka Server.
+
+----> Service-Discovery can also be implemented with  Netflix-Ribbon..
+		   
+
+ @LoadBalanced :=  [ https://github.com/Java-Techie-jt/spring-cloud-loadbalance ]
+~~~~~~~~~~~~~~~~~  [ https://github.com/Java-Techie-jt/spring-cloud-loadbalance-eureka ]
+
+ --- To Indicate Client-Side load-balancing ( RestTemplate ) 
+
+----> Request-handling methods are called as "-EndPoints-" (**************)
+
+ 
+ API Gateway ---> Zuul-Proxy (@EnableEurekaClient + @EnableZuulProxy ) := 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  [ https://github.com/TechPrimers/spring-cloud-eureka-hystrix-zuul-example ] (***********)
+  [ https://github.com/Java-Techie-jt/spring-cloud-zuul ]
+    
+ ---Not-supports Non-blocking API.
+ ---makes use of as many threads as the number of incoming requests. So this approach is more resource intensive.
+ ---If no threads are available to process incoming request then the request has to wait in queue.
+                   
+				   Pre-filter.....Route-Filter.....Post-Filter.........Error-Filter.
+				   
+    API Monitoring Tool used Like APIGEE, KONG (***********)
+ 
+ 
+ Spring Cloud Gateway :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+ --- It is a non blocking API. 
+ --- When using non blocking API, a thread is always available to process the incoming request. 
+ --- These request are then processed asynchronously in the background and once completed the response is returned. 
+ --- So no incoming request never gets blocked when using Spring Cloud Gateway.
+	
+================================================
+
+  (3) Services :=
+~~~~~~~~~~~~~~~~~
+
+  Ribbon-Eureka -----> https://github.com/PlayProCode/PlayJava/tree/master/my-app
+                       https://github.com/PlayProCode/PlayJava
+
+ 
+ 
+ GIT-Repo :=
+~~~~~~~~~
+ ---Contains common-Configurations in GIT-Repo, which provides easy-access to all-Microservices.
+
+
+ (4) Spring-Cloud-Config-Server := [ https://github.com/TechPrimers/spring-boot-config-server-example ]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  [ https://github.com/Java-Techie-jt/spring-cloud-config ]
+ ---Reads GIT-Repo configurations.
+ ---So through Spring-Cloud-Config-Server, Microservices contact-directly to access common-Configurations. 
+ 
+ Eg :=
+~~~~
+    @Value("${microservice.payment-service.endpoints.endpoint.uri}")......///from GIT 
+    private String ENDPOINT_URL;
+
+========================================
+
+ Spring Cloud Gateway filters :=  [https://www.javainuse.com/spring/cloud-filter]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+--- @EnableConfigServer
+
+---->Spring Cloud Gateway filters can be classified as
+ Spring Cloud Gateway Pre Filters
+ Spring Cloud Gateway Post Filters
+
+---->Spring Cloud Filters can be implemented in following two ways-
+ Spring Cloud Gateway Filters using Java Configuration
+ Spring Cloud Gateway Filters using Property Configuration
+ 
+===========================================
+
+ (5) NetFlix-Hystrix (Fault-Tolerance library )-(CircuitBreaker)- :=  [SpringBootByRaghu -- 357 (*****)]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ( @EnableHystrixDashboard +  @EnableHystrix(C) +   @EnableCircuitBreaker)
+                               @HystrixCommand(fallbackMethod = "reliable" // groupKey , commandKey)  (M)
+	
+ [ https://github.com/mightyjava/spring-boot-microservices-hystrix ]
+ [ https://github.com/mightyjava/almightyjava-ms-hystrix ]
+
+
+	https://github.com/Java-Techie-jt/spring-boot-hystrix    ////   [ http://localhost:9090/booknow ]
+	
+	
+	https://github.com/Java-Techie-jt/spring-boot-hystrix-dashboard 
+	                                                
+                             Hystrix-dashBoard ----> [ http://localhost:9090/actuator/hystrix.stream ]
+													   http://localhost:8010/hystrix.stream
+													   
+  																       Title && Delay 
+																	   
+                                     Postman  -----> [ http://localhost:9090/booknow ]
+
+
+
+
+ ---It is Open-Source Library created by Netflix that implements Circuit-break Pattern. which gives a control over failure between distributed services. (returns Fallback-message if One-Service goes down)
+ 
+ --- Netflix has bunch of Open-Source Libraries.
+ ---Generally fallBack messages are written in "-Producer-Controller" class.
+ 
+ ---It is mainly used in production-Environment(2) not in Dev-Environment(1). (**************)
+ ---It provides Dashboard for UI to view current request flow and Status.
+ 
+ --- To visualize those failure-Streams, we can create Separate-Service as Hystrix-Dashboard in Application.
+ --- Add <Spring-cloud-starter-netflix-hystrix> Dependency && Add
+                
+	   @EnableCircuitBreaker ----> On Main-Class level.
+	   @HystrixCommand (fallbackmethod='')----------> On Methods.
+	   
+	                                         |--------------> Method-Name
+                                      |
+  @HystrixCommand(fallbackMethod="methodTwo") ---------> Method-Level
+
+  @EnableCircuitBreaker in start-class. ---------------> Start-Class Level.
+
+   Jedis ----> RedisTemplate ----> HashOperations ----> Dao 
+ 
+ ---Works based on Condition :: Request, Log-in, Wait(Session), TimeOut.....Sleep(MS)
+ 
+ Eg :=
+~~~~~
+@RestController
+public class FallbackController {
+
+    @RequestMapping("/orderFallBack")         .......... Should-be-same in yml
+    public Mono<String> orderServiceFallBack() {
+        return Mono.just("Order Service is taking too long to respond or is down. Please try again later");
+    }
+    @RequestMapping("/paymentFallback")
+    public Mono<String> paymentServiceFallBack() {
+        return Mono.just("Payment Service is taking too long to respond or is down. Please try again later");
+    }
+
+ Yml :=
+~~~~~~
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: order-service                 .......... Should-be-same in Controller
+                fallbackuri: forward:/orderFallBack  #For fall-back Message
+				
+========================================	
+
+ 6 ---> SpringBoot 
+
+ 7 ----> D/B  &&&     
+    
+                     8 ----> Eureka
+					  
+				     9 ----> API-GateWay &&&
+
+                                              10 ---> Client-Response[Request-Platform from :: Mobile (Or) Andriod (Or) 3rd Party] 					  
+
+
+=========================
+
+ Spring’s Rest-Template :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- RestTemplate is a class in spring web package, for synchronous client-side HTTP access.
+ --- The sole aim is to simplify communication with HTTP servers. 
+ --- That is it actually this is all RestTemplate does.
+ --- It offers methods that will handle HTTP operations very easily, such as retrieving data, posting data or retrieving all HTTP message headers
+
+   getForObject() method :: retrieve a representation of a resource by doing a GET on the specified URL.
+
+
+---->API gateway connects microservices, while load balancers redirect multiple instances of the same microservice components as they scale out.
+
+---->The API Gateway can work as a load balancer to handle requests in the most efficient manner. It can keep a track of the request load it has sent to different nodes of a particular service
+ 
+=============================================
+ 
+ Environment :=
+~~~~~~~~~~~~~~
+ --- uses "--getProperty("local.server.port")--" to get Port Number.
+ 
+ 
+ Feign Client :=
+~~~~~~~~~~~~~~
+ --- Used to Communicate with Other Service using Service-name.
+ --- FeignClient is used to achieve interservice communication
+
+ --- Configure below annotations at Spring Boot start class
+
+	1) @EnableDiscoveryClient
+	2) @EnableFeignClients
+
+
+ Ribbion-Client :=
+~~~~~~~~~~~~~~~~
+ --- Helps Feign-Client to use Specific-URL(API) to access Service.
+
+=============================================
+
+ Spring-Cloud-Bus := refresh configurations across multiple instances
+~~~~~~~~~~~~~~~~~~~
+
+----> What are the different Microservices Design Patterns?
+A: The different Microservices Design Patterns are -
+ Aggregator Microservice Design Pattern
+ API Gateway Design Pattern
+ Chain of Responsibility Design Pattern
+ Branch Microservice Design Pattern
+ Circuit Breaker Design Pattern
+ Asynchronous Messaging Design Pattern
+
+
+============================================
+ 
+ Netflix Ribbon  :=
+~~~~~~~~~~~~~~~~~~~
+ ---for Client Side Load Balancing.
+ ---In computing, load balancing improves the distribution of workloads across multiple computing resources, such as computers, a computer cluster, network links, central processing units, or disk drives. 
+
+==============================================
+
+MonolithicArchitecture := ( RPO ) [C.F..A]
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+It is a architectural style a big container in which all components and required functionalities of application are assembled toghether and tightly packed.
+  
+  ---Continious deployment is not possible.
+  ---Adopting new Technology is difficult. 
+  
+=========================================================================  
+ 
+ Sleuth && Zipkin (Distributed Logging)  :=  (YOUTUBE ---> Byte Programming) [*************]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ https://github.com/Java-Techie-jt/spring-cloud-sleuth-zipkin-example
+ https://github.com/Java-Techie-jt/spring-cloud-gatway-hystrix
+
+ https://github.com/TechPrimers/spring-cloud-sleuth-example
+
+   Logging ----> Storing  application-Exceution details in a file to monitor in future.
+                    
+   Trace-Id (Request-ID) ---> Remains SAME through out the DIFF-MicroServices (Passed between them) for   Particular-request.
+					
+   Span-Id ----> Unique-Id Assosiated with One-MicroService Only.
+   
+       vISULAIZATION and analysis BECAMES eASIER. (*****)
+					
+
+  Zikin Server :=
+~~~~~~~~~~~~~~~~~
+ ---- It is UI to monitor Service logs.
+ --- Create one RestController and apply Loggings.
+  
+        Download Zikin Server ( It is Exe- Jar )  // Port ----> 9411/zipkin/
+		
+		Command-To-Run ----> java -jar zipkin-server-2.12.9-exec.jar
+		
+		
+ Splunk  := Log Monitor Tool ( Costly && frequently used )
+~~~~~~ 
+===========================================	
+
+ Designpattern := ( MicroServiceDesignPattern--Edureka )
+~~~~~~~~~~~~~~~~ 
+---Aggregator Microservice Design Pattern
+---API Gateway Design Pattern
+---Chain of Responsibility Design Pattern
+---Branch Microservice Design Pattern
+---Circuit Breaker Design Pattern
+---Asynchronous Messaging Design Pattern
+
+ Saga Design Pattern :=  // [ YOUTUBE :: Byte Programming ********* ]
+~~~~~~~~~~~~~~~~~~~~~ 
+  --- Used to maintain Data-Consistancy for Distributed-Transaction. (************)
+  
+ --- Transaction to One Particular-Service is called as "-LOCAL-TRANSACTION-"
+ --- Sequence(Collection) of Local-Transaction in databases between Service for One-Request. (UI -- Stck -- Payment -- Feedback)
+ --- These Transactions can be parllerl / Sequential. Thse are 2-Types 
+   
+         (1) Event-based  (Here Interact with MicroService can be done based on EVENTS )
+		 (2) Orchestration-Based. (Here UI-Service Interact with MicroService with help of Central-Orchestrator). (***) 
+	 
+	         RollBack ---> Pretending Transaction never happen
+		 
+	         Compensate ---> Transaction failed, but doing Something else.  
+ 
+
+
+ AggregatorDesinPattern := It is a webpage that invokes  microservices to display required-data (API etc...)
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+ChainOfResponsibility := Produces single-output which is combination of Multiple Outputs.(uses HTTP for Comm) 
+~~~~~~~~~~~~~~~~~~~~~~
+  ---Until response received to all services and response is generated, Client cannot see Output.
+
+
+ AsynchronousMessaging :=
+~~~~~~~~~~~~~~~~~~~~~~~
+ ---Services communicate with each Other , but they do not have to communicate with each other sequencially.
+ ---Client may not need to wait for a long time this pattern is useful. (path is not defined) 
+
+
+ DatabaseDesign :=
+~~~~~~~~~~~~~~~~~
+ ---when a monolithic App is broke down to microservices, each microservices should have sufficient data to process    client-request , where DatabaseDesign is used.
+ ---it can have "--database/each Service--" (or) "--Shared-Database--" for moreThanOne MicroServices.
+
+
+ CQRS :=
+~~~~~~~~
+--App divided into 2 parts (1) Command  (2) Query
+   
+   (1) Command ---->handles request related to 'CUD'
+   (2) Query ---->handles request related to 'R'
+   
+========================================
+
+ Distributed Trasaction :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Trasaction Spanning over Multiple DB in MicroService-Context. 
+ --- For Single Request, Data reflects in Mutiple database.
+ --- Each MC has database that is Private to it Only .
+
+
+=================================================================================
+
+Why Do People Hesitate In Using Microservices?
+
+ ---Requires heavy investment – Microservices demand a great deal of collaboration. Since your teams are working independently, they should be able to synchronize well at all times.
+ 
+ ---Heavy architecture set up – The system is distributed, the architecture is heavily involved.
+Excessive planning for handling operations overhead – You need to be ready for operations overhead if you are planning to use Microservices architecture.
+
+ ----Autonomous staff selection – Skilled professionals are needed who can support microservices that are distributed heterogeneously.
+   
+    
+<dependency>
+    <groupId>io.zipkin.java</groupId>
+    <artifactId>zipkin-autoconfigure-ui</artifactId>
+    <version>2.12.8</version>
+</dependency>
+<dependency>
+    <groupId>io.zipkin.java</groupId>
+    <artifactId>zipkin-server</artifactId>
+    <version>2.12.8</version>
+</dependency>
+
+
+==================================================================================
+
+==============/\/\\/\\/===========\/\\/\\/\/===============\/\\/\/\\/\==============/\/\\/\==============
+
+ JWT550 :=
+~~~~~~~~
+ ---  JWT is a opensource service (API) that supports generating Token based on client details and secretKey.
+ --- State means - Data of Client stored at Server
+ 
+Client-Server Authentication:-
+
+ (a) Stateful Authentication := // checks with 'ID' which is present in Server(On-Request  created)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   // Client having Session-Id in-from as 'Cookie'
+
+ --- It will create one HTTP Session at server side when client is successfully authenticated
+ --- One 'Session-Id' is provided and same is sent to client using Response as one 'Cookie'
+ --- Client Machine, for next request onwards, submits Cookie to server,then server verifies and provides service, until logout.
+ --- On click logout session will be invalidated.
+
+ (b) Stateless Authentication := // Give-Token ---> Validate-Token ---> Response.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   It will 'never-create' any Memory at server side.  
+   For a client Authentication one unique number is generated ie called 'TOKEN'.
+
+ --- Token can be created using 'SecretKey' and even Generated Token can be read using SecretKey.
+ --- This generated token is sent to client machine using Response.
+   
+ --- Client has to send token using Request for 2nd request onwards. Token is valid only for a period of time.
+
+
+ -----Stateless Authentication used at------------------------
+ a. Webservices Authentication (server - server)
+ b. Horizontal Scaling (Microservices) // Running Same-Application at different servers is called as 'SCALING'.
+ c. Resource Grant (Open Authorization/OAuth)
+   Register/Login + Login with Google, Facebook
+
+
+ Benifits :=
+~~~~~~~~~~~~
+ *) Stateless concept, never allocates any memory at server.
+ *) It is good for Distributed Applications
+
+
+ Limitations :=
+~~~~~~~~~~~~~~
+ *) Token must be validate on every request
+ *) If Token is shared with others then they can access client data/services.
+ 
+ 
+    JWT := [HPS] // once per request (*****)   //////// Youtube ---> Gain Java Knowledge.
+~~~~~~~~~~~
+ --- It is Token-Based-Authentication && Secure-way of communicate between  Client and Server Over the Web
+ --- Token has UN &&PW in EnCrypted-Form.
+ --- Use this Tokemn to Access all APIs until it expires.
+   
+
+ 
+==================================================================================
+
+==============/\/\\/\\/===========\/\\/\\/\/===============\/\\/\/\\/\==============/\/\\/\==============
+
+  									            AgileMethodology768
+											   ~~~~~~~~~~~~~~~~~~~~
+
+ MonolithicArchitecture :=
+~~~~~~~~~~~~~~~~~~~~~~~
+It is a architectural style a big container in which all components and required functionalities of application are assembled toghether and tightly packed.
+
+
+ API :=
+ ~~~
+ ---Set of subroutine defination, protocols, tools for building App's Software.
+ ---collection of packages, Interfaces, Classes, fields, constructor, methods.
+ --- Service to service communication  and to use functionality of service in Application can be done through API's.
+ 
+ 
+ WaterFall :=
+~~~~~~~~~~~~~
+     Requirement.......Analysis.......Design.......Development........Test.......Deploy && Maintainentance Phases.
+  
+  
+
+Agile Methodology :=
+~~~~~~~~~~~~~~~~~
+ ---It is a chain of rapid development and Deployment (RDD) and Works in Iteration.
+     
+	     (design, Develop, Test,Deploy, Review && Launch)  && mainly used to avoid Single-Point of Failure.
+
+---->Specific set of tasks have to be compelted in Specific Priority.
+
+---->It Responses to changes rather than following plan.
+
+Advantages of Agile :=
+~~~~~~~~~~~~~~~~~~~
+  ----Inspect &&  Adopt
+  --- Daily Interaction
+  
+  
+----> Scrum is mostly used 'Agile-framework'  that helps you to organize, iterate, and continue the same project that you are working on. In scrum, a product is built in the series of iterations known as sprints or parts.
+
+---->   Product backlog ----- Bunch of Modules in Apps ( Eg :: FrontEnd, Email, Payment)
+        Sprint Backlog ------ time-boxed-period(2 to 4 weeks) in which the scrum team needs to finish the set amount of work
+		
+	ProductBacklog.... [ SprintPlanning.......SprintBacklog ......ScrumTeam(dailyScrum) ]....SprintReview.....
+	            |                                                                                  |
+				|<--------------------------Increment <--------------------------------------------|
+	
+	
+	
+ProductOwner := Manager    /////////   Scrum-Master := TeamLeader
+ 
+
+----> ProductOwner && Scrum-Master will prioritize the Product Backlog , So depending on that  they will come with      "--SpringBacklog--"
+
+----> Now, developer-Team will start working on this SpringBacklog
+
+---->Sprint Review has 2-Weeks Gap
+
+---->So at end of every 2 weeks , we have Shippable part of application that need to be deployed in Application.
+
+
+==============================================================================
+
+
+==============/\/\\/\\/===========\/\\/\\/\/==========\/\\/\/\\/\=========/\/\\/\==============
+
+ SVN :=  // [Youtube ---> Ashok-IT] // [ SVN-Visual-Server && Tortoise-SVN ]
+~~~~~~~
+----> 'SVN'(Centralized-VS) is two-tier architecture (Working...Central-Rep) 
+
+----> Developers (SVN-Client) responsible to store code in SVN-Server(having Repositories) 
+                                                               (Server avaliable in Remote-Area)    
+
+ Commands :=   
+~~~~~~~~~~~ 
+ 
+   Respositary......Repo-URL.......Checkout(To-Local).......add && Commit(To-Remote).......Version-Id
+   
+         Show-Log ------> (shows changes)
+          Delete -------> Select...Delete && Commit		 
+   Revert-to-this-revison ----->(Previous-Version from Show-Log && Commit)
+            Lock -----> (to avoid Conflict of Locking-file at same time, Untill commit others cannot Perform actions)
+           
+
+
+ Procedure :=  
+~~~~~~~~~~~~~
+
+   Create-Repositary in SVN-Server ----> Add-User (R/W, Read-Only etc...)
+
+  Create-Folder ----> SVN-Checkout ----> Add-Files ----> Add ---> Commit (Asks-Credentials && Added-To-Server)
+
+                         Working-base ---- Repositary-file
+						 Working-copy ---- Local-file
+						    Diff --------- Comparing  Working-copy with Working-base 
+						 
+ Single-Project-Repositary :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Trunk -------> Used by On-Going Development team
+  Branches ----> Used by Bug-Fixing team  (SIT && UAT fixes)
+   Tags -------> Used by Prod-fixing team (Releases code base). 
+
+
+ Senario11(****) :=  User1(Work) finished && Commited Existing-File at 9:00 &&  then assume
+~~~~~~~~~~~~~~~~             
+			   User2(Work) finished at 12:00 , then first "-UPDATE-" 
+			         && then compare using "-DIFF-" (To-Avoid-BoilerCode With user1) && then "-COMMIT-"
+           
+		   // "-DIVISON-"(line if already written) error may occur by doinf direct "-COMMIT-" (*******)
+
+   --- compare using Right-Click ----> Tortoise-SVN ----> 'Diff' (******)	
+
+
+ Conflict := It Occurs when 2-Developers are commiting "-SAME-LINE-"  even Senario11 Passed. (******) 
+~~~~~~~~~~~ 
+ --- To resolve, delete Junk-Code && solve-manually.
+ 
+ 
+===========================
+
+ GIT996 [81] := (uses 'C' language that reduces the OverHead Of run time)  //// [JAVA-TECHIE*****]
+~~~~~~~~~~~~ // Cloud-based Hoisting Service that manages Repositaries.
+
+----> 'SVN'(Centralized-VS) is two-tier architecture   (Working...Central-Rep) &&
+      'GIT'(Distributed-VS) is three-tier architecture.(Working....Local-Rep...Central-Rep)
+
+---->Takes 'snapshot'(called VERSIONS that contains State of Project at particular-time) documented and stored and saves it whenever developer makes changes.
+
+---->older version keep packed inside it.(can rollback when necessary)
+
+----> Git belongs to 3rd Generation of VersionControlTool(VCT)....data reside at server and have local copy. 
+      SVN belongs to 2nd Generation of VersionControlTool(VCT) ... data reside at server  
+
+---->GitHub is American company that provides hosting for Software Development Version Control using GIT.
+
+---->Git Provides DistributedVersionControl and SouceCodeManagement (SCM) functionalities. 
+
+          
+ CHARGE-AHEAD :=
+~~~~~~~~~~~~~~     https://www.youtube.com/watch?v=h2FCDY9av_o&list=PLmySAPXhfGyATTXmgCmjkn9ZS4HB8wY57&index=3&ab_channel=ChargeAhead
+		  
+
+=============
+
+ Respositary :=
+~~~~~~~~~~~~~~
+ ---Location  where Project Source-code placed.
+ 
+
+
+----> Git-Fetch --- Remote to Local repository.. pulls all commits from desired branch , stores in new Brach in local
+
+      Git-Pull ----Remote to Working repository...pulls new changes from Central and update it in local repository.
+	  
+	  Git Merge ----Local to Working  repository
+
+
+---->"-Fork-" is copy of repository.
+
+---->top clone specific branch ....git clone -b master <Link> master.......
+
+ git pull := fetches changes from Central-Rep, merge them to Local-Rep ( if collaberated others, used frequently ) 
+~~~~~~~~
+
+ git-checkout := switch to new-branches.
+~~~~~~~~~~~~~~
+
+ git branch <branch-name> := Creates new-branch.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+ git stash :=  store something safely in a hidden place
+~~~~~~~~~~~
+
+ git checkout -b <branchname> := to create new branch.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ get merge :=  Integrates Changes made in different-Branches into Single-Branch 
+~~~~~~~~~~~~ 
+
+ get rebase master := reflects changes made in Another-Branches.
+~~~~~~~~~~~~~~~~~~~ 
+
+ git rm <filename> //  git rm -cached <filename> := delete from local Repositary 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ git revert := Inverses Specific Commit. c
+~~~~~~~~~~~~~
+
+ git add * := Files that in Staging Area Before Commit. 
+~~~~~~~~~~~~ 
+
+ git log := History of Commits .
+~~~~~~~~~~
+
+
+
+==========================
+
+ GIT-COMMANDS :=  [ cd <TAB> ..... ls ..... git branch ]
+~~~~~~~~~~~~~~~
+    git clone <Link>
+	
+	Goto folder && Paste <Data>
+	
+	git add *      (Or) git add --a  (Or) git add  .
+	
+	git commit -m "Added"             // 'Commit-Id' will be Generated (having 40-Character but shows '7' )
+	
+	git push                          // To push Source-code to Central
+	
+======================
+		
+	git pull                         // To get Updated Source-code form Central
+	
+    git clone -b <Branch-name> <Git-URL>   // To Clone a 'branch'
+	
+	git branch                            // to see which branch we are in (Inside Project-Folder)
+						   
+=================================
+
+   git branch --unset-upstream
+   git push --set-upstream origin master
+   
+   git config --global user.email "you@example.com"
+   git config --global user.name "Your Name"
+
+   git config --global --unset user.name
+   git config --global --unset user.email
+
+==================================
+ 
+ Branches := [Youtube ---> ASHOK-IT] (Development //  Bug-Fix // QA // Prod-Supp-Dev  Teams uses Branches)
+~~~~~~~~~~~  
+
+  YouTube :: https://www.youtube.com/watch?v=-6gmmBXJSh8&list=PLpLBSl8eY8jTz8rc4ok54FMoX_eG3qjbo&index=5
+
+----> create 'developer' branch from master-Branch from GIT-HUB.
+
+----> Clone 'Developer-Branch' in Local-System.
+
+----> Clones Master-Branch (Default), but to clone Other-Branch execute below Command ::
+
+             git clone -b <Branch-name> <Git-URL>
+(3)			 
+----> After changing One-branch Source-Code(COMMIT && PUSH ****it), 
+                          then sit GitHub-Repositary shows "-COMPARE & PULL REQUEST-" && Click-it
+
+        GitHub compares Source-code of branch with MASTER ,If NO-CONFLICT then fllow below steps ::
+
+			        Create Pull-Request ----> Merge Pull-Request ----> Confirm-Merge.
+					
+					
+----> We can Create Sub-Branches within-Branch && Can Perform same-Operation as Point-(3). (*****)
+
+
+ Branch-Conflict :=
+~~~~~~~~~~~~~~~~~~
+
+----> Occurs When Multiple-Developers are working on SAME-LINE of same-Respositary (May be Different-Branches)
+	
+========================================	
+					   
+ Other-Commands :=
+~~~~~~~~~~~~~~~~~
+   
+   git restore Employee.java
+   
+   git rm --cached * (To Unstage newly created-Files)
+   
+   git rm index.html    // git rm * (remove/delete all files)
+   
+   git reset HEAD Test.java (To Unstage-File)
+   
+   git checkout --Test (To Discard changes done for File) 
+   
+   git log (To see Commit-history)
+   
+   git stash        (TillDate-Operation moves to Temporary-Storage // YOUTUBE ----> ASHOK-IT)
+   git stash apply (To get-back Temporary-Storage)
+	                             
+
+=====================================
+
+ STS-With-GIT (Raghu) :=  //Create One-Project in STS && One-Respositary in GIT-HUB
+~~~~~~~~~~~~~~~~~~~~~~~
+(1)
+----> Project(Right-Click) ---> (Team) Share-Project ---> Click 2-CheckBoxes ----> CreateRepositary ----> Finish  ///
+ 
+(2)
+----> click on Project --->  Double(+) && Message ----> Commit & Push ----> Paste<Git-URL> in Box  
+   
+                  Preview(2) ----> Push(To Master) ----> ( <Code> Pushed to GIT-HUB) //
+(3)	 
+----> (-Update-) Team && Share Project ---->  Drag&Drop ----> CommitANDPush ---> Close ///
+					   
+					   (-Update-FROM-Master-) Right-click on Project ---> Team && Pull///
+			   
+-------------------------
+ 
+ STS-With-GIT (Ashok-IT) :=  //Create One-Respositary in GIT-HUB && Project in STS
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Goto Project's WorkSpace-Folder ----> Right Click && "Git-Bash Here" & Follow below commands 
+  
+  git init
+  git add --a
+  git commit -m "Added"
+  git remote add origin  <Link>
+  git push -u origin master
+  
+  git add --a
+  git commit "Added"
+  git push -u origin master  
+			   
+ --------------------------
+ 
+(Q)How will you find about one file all modification?? 
+->We use history option in eclipse
+->right click->team->shown in history.
+
+
+ ToolsNotcesByRaghuNareshIT ----> [81] (************)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --- Pushing && Updating Project-REPO from STS. (***********)
+                             --- Right click on project: "pull" and then "rebase" for other update
+							 --- To see File-History , Right click on File > Team > Show in History
+	
+===============================================================================================================
+
+XML900 :=
+~~~~~~
+
+---->XML file can be validated by 2 ways:
+
+                        (1) against DTD (Document Type Definition) 
+						(2) against XSD  (XML Schema Definition) 
+
+---->Xml (eXtensible Markup Language) is a mark up language
+
+---->XML is not a replacement for HTML
+
+---->XML is designed to be self-descriptive and to carry data, not to display data
+
+---->XML tags are not predefined. You must define your own tags.
+
+---->XML is platform independent and language independent
+
+---->
+
+---->
+
+---->
+
+
+======================================================================================
+
+===========//\\/\/\/\/\================\/\/\/\/\/\/\=================\/\/\/\/\/\/\====================
+
+NumberConversion :=
+~~~~~~~~~~~~~~~~~
+
+ Natural number always starts with "1".  Basics:=
+  ~~~~~~~
+   Decimal(base-10)~~~~~~~~~  1,2,3.......8,9,10,11,12.........
+   
+   Binary(base-2)~~~~~~~~~~~ [.....,8,4,2,1]  
+   
+-----------------------------------------------------------
+Octal(base-8):=  [.....,8,4,2,1] 
+~~~~~~~~~~~~~
+
+tO bINARY
+DIV(BINARY)--->3
+ 
+-----------------------------------------------------------
+Hexa-Decimal(base-16):=  [.....,8,4,2,1] 
+~~~~~~~~~~~~~~~~~~~~
+
+tO bINARY
+DIV(BINARY)--->4
+  
+	  1,2,3...........A(10),B,C...........
+
+-----------------------------------------------------------
+
+               36 ---->  100100(Binary) 
+
+  Octal--------> 100 100    --> 44
+  HexaDecimal--> 0010 0100  --> 24
+
+======================================================================================
+
+===========/\/\/\/\/\================\/\/\/\/\/\/\=================\/\/\/\/\/\/\====================
+
+ ApacheKafka540 := [https://www.javainuse.com/misc/apache-kafka-interview-questions]
+~~~~~~~~~~~~~~~~  
+
+ https://github.com/Java-Techie-jt/kafka-publisher 
+ https://github.com/Java-Techie-jt/kafka-consumer  
+
+
+ https://github.com/TechPrimers/spring-boot-kafka-consumer-example
+ https://github.com/TechPrimers/spring-boot-kafka-producer-example
+ 
+ 
+                   [ SpringBootByRaghu -- 372 (*****) ]
+				   
+----> It is a distributed Streaming Platform which is horizantally scalable, Fault-Tolerant && Works-fast in Production.
+
+----> What is Messaging System?
+A Messaging System is responsible for transferring data from one application to another, so the applications can focus on data, but not worry about how to share it. They are 2 Types.
+
+ (1) Point to Point Messaging System (One-To-One)
+ (2) Publish-Subscribe Messaging System (One-To-Many)
+
+
+---->: What is Apache Kafka?
+A: Apache Kafka is a distributed publish-subscribe messaging system. 
+ --It is a scalable, fault-tolerant, publish-subscribe messaging system which enables us to build distributed applications. 
+ --It is an Apache Top Level project. Kafka is suitable for both offline and online message consumption.
+
+
+---->Q: What are the advantages of using Apache Kafka?
+ ---Process messages very fastly.
+ ---Fault-Tolerance.
+ ---Durability.
+ ---The message written in Kafka can be persisted. The persistence can be configured. This ensures re-processing, if required, can be performed
+
+Apache kafka :=
+~~~~~~~~~~~~~~~
+ --- It is Open Source Distributed Streaming Platform. && works on Pub/Sup
+ --- Developed by LinkDin && donated to Apache Organisation.
+ --- It is Streaming API used to Analyse Data && Process real data feeds with Low latency && High Performance.
+
+         Terminology ----> ZooKeeper //  Server // Topic // Producer(Publisher) // Consumer(Subcriber)
+
+
+  ZooKeeper ----> Supports to run Software
+   Topic -------> Stores Messages.
+  Message ------> Data (Xml/String)
+    
+	                    Change-Port -----------> zookeeper.properties && server.port  
+						
+						
+        Uses-4-API's ----> Cosnumer-API // Producer-API // Connector-API // Streams-API
+
+ 	
+ Topics :=
+~~~~~~~~~
+ --- A stream of messages belonging to a particular category is called a topic. Data is stored in topics.
+ --- Topics are split into partitions. For each topic, Kafka keeps a mini-mum of one partition. 
+ --- Each such partition contains messages in an immutable ordered sequence. A partition is implemented as a set of segment files of equal sizes.
+
+
+ In-Side ====> (1) (Producer)  || (2) ZooKeeper ---> Kafka-Server(Message-Broker) ---> Kafka-Topic  || (3) (Consumer)
+~~~~~~~~~~
+
+    Eg := Here Google(Producer) generates News && FaceBook(Cosumer) uses it by using 'KAFKA'
+   ~~~~
+   
+         Dependencies := Kafka streams // Spring-kafka // jackson-databind 
+		~~~~~~~~~~~~~~~
+
+
+ Download  :=
+~~~~~~~~~~~
+
+  (1) Zookeeper ----> (tar.gz) && Set path  Upto-Bin && Run " Zookeeper-server-start.bat zookeeper.properties " in Windows.  
+  
+              Copy Zookeeper.properties && server.properties from [ kafka/config ---- kafka/bin/windows ]
+		                        
+  (2) Apache-Kafka (tgz) ----> Run " kafka-server-start.bat server.properties "
+  
+
+   CREATE-Topic ----> kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 
+                     --partitions 1 --topic <topic-name>
+
+
+  (3) View Toipc ----> kafka-topics.bat --list --zookeeper localhost:2181
+
+ 
+              Rest-Controller ---> Kafka-Template ----> Producer-Config ----> Kafka-Topic ---> Consumer-Config
+
+
+======================================================================================
+
+===========/\/\/\/\/\================\/\/\/\/\/\/\=================\/\/\/\/\/\/\====================
+
+ ApacheCamel985 :=  [ SpringBootByRaghu -- 394 (*****) ]
+~~~~~~~~~~~~~~~~~~
+ --- Integration F/W used to Transfer data between Two-Systems.
+ --- Supports Different Protocol like HTTP, FTP, FILE, JMS etc...
+ --- Transfor data using XML, JSON, Text...
+ 
+ --- Support Routing , Filtering, Processing etc..
+ --- It is Light-Weight compared to Apache-Kafka, rabbitMQ.
+ --- It can also be done using Expression-Language.
+ 
+ --- SpringBoot supports Camel-Dependencies.
+ --- Class must extends 'RouteBuilder' having '-configure()-" method, From() && to() are used to Transfer data(Overrides).
+ --- All files Taken as .CAMEL folder in destination Folder.
+ ---  To avoid Duplicate && Overriden-data we can write as 
+                                                 from("file:F:\\source?noop=true").to("file:F:\\deesti");
+		
+ --- 
+
+
+======================================================================================
+
+===========/\/\/\/\/\================\/\/\/\/\/\/\=================\/\/\/\/\/\/\====================
+
+ RabbitMQ330 :=  [ https://github.com/Java-Techie-jt/springboot-rabbitmq-example ] // 
+~~~~~~~~~~~
+ --- It is a Message-Broker that orginally implement AMQP(Advanced Message Queuing Protocol) 
+ --- It is done using Producer && Consumer with the help of Exchange & Queue.
+  
+             Producer ----> Exchange(Routing-Key) ----> Queue ----> Consumer
+			 
+			 
+			      [ http://localhost:9090/order/zafa ]
+  
+ 
+======================================================================================
+
+===========/\/\/\/\/\================\/\/\/\/\/\/\=================\/\/\/\/\/\/\====================
+
+
+ Debug :=
+~~~~~~~~
+  
+  F6 ---->  Next-Line
+  
+  F5 ----> Next-Method.
+  
+  F8 ----> Neraest Break Point
+  
+  Ctrl+ Alt D ---> Skip Break-Points
+  
+  
+==============================
+
+ RealTimeTools590 :=
+~~~~~~~~~~~~~~~~~~~
+ 
+ Project-management-Tool(JIRA) ---> To manage Project-related work.
+
+ Code-Review-Tools ---> SonarQube
+ 
+ 	Ticket Tracking Tool ----> JIIRA, BugZilla, ServiceNow
+	
+   Memory Monitoring Tool ---> JConsole, JMC [Heap-Size increased when Exception ::OutofMemoryException Occur in Production] 
+ 
+=========================================================== 
+ 
+   Code-Review-Tools (SonarQube) :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ Reliability // Security // Maintainability 
+ 
+   add Plugin ----> sonar-maven-plugin && install maven ---> 
+   
+   Maven Build Goal ----> mvn sonar : sonar (Or) sonar: sonar
+
+===========================================================
+ 
+    Build-Tool ---->  Maven /Gradle
+	
+ Version-Control-tools ----> GIT / SVN / BitBucket
+ 
+   Unit-Testing ----> JUnit (identifies mistakes in Code)
+   
+   Mocking-Tools ----> EasyMock ,PowerMock
+   
+   Logging Tools ----> Log4J, LogBack, SLF4J
+   
+   Deployment-Tools ----> Jenkins 
+   
+   Containerization-Tools ----> Docker
+   
+   Memory-Analyzer ----> MAT (To analyse Heap && Thread dump)
+   
+  Performance-Management-Tools ----> JMeter.
+	
+  Ticket Tracking Tool ----> JIIRA, BugZilla, ServiceNow
+	
+   Memory Monitoring Tool ---> JConsole, JMC [ Heap-Size increased when Exception :: OutofMemoryException Occur in Production ]
+
+ 
+  TDD := Methodology where we write && Run Test-Cases before writing code. 
+~~~~~~~  
+	--- Provides Good Architecture
+	--- Prevents Defects	
+ 
+======================================================================================
+
+===========/\/\/\/\/\================\/\/\/\/\/\/\=================\/\/\/\/\/\/\====================
+
+ CloudComputing550 :=   // Pay-As-You-Go // Provides Paid-Softwares on Rental-Basis (OLA, UBER)
+~~~~~~~~~~~~~~~~~~~~~
+ --- It is delivery of On-Demand Computing Services from Application-Storage. 
+
+        Eg := AWS, AZURE(MicroSoft), PCF(Pivotal), GCP && IBM-Cloud.
+      ~~~~~
+	  
+ Categories ----> Iaas ---(Infra-structure as a Sevice),
+                  Saas ---(Software as a Sevice),
+				  Paas ---(Platform as a Sevice).
+
+           Download ------------> CF CLI  && 
+   Command-To-Connect-In-CMD ---> cf login // cf target // cf apps  // cf push <App-Name>
+
+
+======================================================================================
+
+===========/\/\/\/\/\================\/\/\/\/\/\/\=================\/\/\/\/\/\/\====================
+
+ DevOps890Other :=
+~~~~~~~~~~~~~~~~~
+
+----> TechPrimers (MicroServices, ElasticSearch, Docker, DevOps, AWS, IntelliJ, ) 
+
+----> JavaTechie (Docker, Jenkins, ) 
+
+----> HiteshChoudhary (Docker )
+
+
+======================================================================================
+
+===========/\/\/\/\/\================\/\/\/\/\/\/\=================\/\/\/\/\/\/\====================
+ 
+ JMeter330 :=
+~~~~~~~~~~~~
+---> Used to load test functional behavior and measure performance.
+ 
+---> JMeter originally is used for testing Web Application or FTP application. 
+     Nowadays, it is used for a functional test, database server test etc.
+
+----> jMeter to perform all types of testing (regression, functional, load, performance, etc.) at different stages of a Java project,
+
+---> JMeter can conduct load and performance test for many different server types − Web - HTTP, HTTPS, SOAP, Database via JDBC, LDAP, JMS, Mail - POP3, etc.
+
+              ThreadGroup ---- Sampler ---- Listener ---- Configuration 
+
+
+
+======================================================================================
+
+===========/\/\/\/\/\================\/\/\/\/\/\/\=================\/\/\/\/\/\/\====================
+
+ Capcha770 :=
+~~~~~~~~~~~
+ --- Introduced to avoid Invalid-Client application Request , Only Humans are allowed.
+
+-----> They are 4 
+
+               (1) Simple-Capcha       (2) Google-Capcha
+               (3)  OTP                (4) Email-Verification.	
+			   
+   Dependencies ---> Simple capcha &&  JAX-B
+
+
+
+======================================================================================
+
+===========/\/\/\/\/\================\/\/\/\/\/\/\=================\/\/\/\/\/\/\====================
+
+  React-Native ----> Build Mobile Apps
+  
+  React-JS ----> Build Web-Applications.
+  
+   Kotlin -----> Android-Development language.
+
+
+                  Kafka && rabbit-MQ 
+                
+				
+				
+				
+======================================================================================
+
+===========/\/\/\/\/\================\/\/\/\/\/\/\=================\/\/\/\/\/\/\====================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

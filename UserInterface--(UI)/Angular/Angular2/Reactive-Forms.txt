@@ -1,0 +1,594 @@
+	   
+	   
+	   
+	   
+	    .........TemplateDrivenForms.........ReactiveForms.........
+		
+		.........DropDownGETSeLECTED.........
+		
+		.........Others................
+	   
+	   
+==============================================================================================================================	   
+ 
+ Forms := 
+~~~~~~~
+
+---->Can create forms in 2 ways
+  ---Template driven forms
+  ---Reactive Forms (Model Driven forms)
+  
+  
+ (1) TemplateDrivenForms :=  validation are in HTML-page
+~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+  --- Readability decreases with complex-forms && Validations.
+  --- Unit-testing is challenge.
+  --- ADV** :: used when simple-scenario.
+  --- #name are called as "Template-Reference-name".
+  --- #name="ngModel" access to ngModel.
+  
+ Eg :=
+~~~~~ 
+
+  Class :=
+~~~~~~~~
+ export interface Employee {
+ 
+   constructor( 
+     id:number,
+     firstName:string;
+	 lastName:string;
+     age:number;
+     gender:string;
+    ){}
+  }
+
+ TS File :=
+~~~~~~~~~
+   emp= new Employee("Rama", "krishna", 22, "Male");
+  
+ HTML := // Touched...Invalid // Minlength....Required
+~~~~~~~  
+                              (ngSubmit)= "login(f.value)"
+  ---  <form #myForm="ngForm" (ngSubmit)= "onSubmit()"> ...../// here "myForm" contains data of all feilds.
+     
+                	 ***        *****
+  ---  ngModel && required && name="firstName" used to Track form-feilds-values. (Template-Dynamic // No-Class)
+  
+               *****                     *****
+  ---[(ngModel)]="emp.firstName" && class="form-control" used to Track form-feilds-values. (Template <--> TS // with-Class) 
+         
+ 		 *****                             *****
+  --- #name="ngModel"  &&& username [(ngModel)]="username"  &&& [class.is-invalid]="name.invalid && name.tocuhed" Gives Red-Border when Touched.
+           
+		   *****
+  --- pattern ="RegEX"  && <small>Name is required </small>
+  
+  --- <button [disabled] = "myForm.form.invalid"  class="btn btn-primary"  type="submit"> 
+
+ --- <ng-container *ngIf="name.touched && name.invalid"> 
+           <p [ngStyle]="{'color': check}">Username is Invalid </p> </ng-container>
+		   
+ ---  <div class="invalid-feedback" *ngIf="isSubmitted && cityName.errors?.required">
+              <sup>*</sup>Please enter your city name</div>
+
+ --- <input type="submit" value="submit" [disabled]="myForm.invalid" /> (***********************)
+ 
+		
+----------------------------------------------
+
+ Eg (Binding-Forms-To-Model) :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ <div>
+  <form [formGroup]="myForm">
+    <label> <span>Fisrt name:</span>
+      <input type="text" formControlName="firstName">
+    </label>
+    <label><span>Middle name</span>
+      <input type="text" formControlName="middleName">
+    </label>
+    <label><span>Last name</span>
+      <input type="text" formControlName="lastName">
+    </label>
+    <label><span> Age: </span>
+      <input type="number" formControlName="age">
+    </label>
+ 
+
+    <div style="display: block">
+      <button (click)="setToModelFromForm()">set model from form</button>
+    </div>
+  </form>
+</div>
+
+<div>
+  <p class="red"> from model : </p>
+  <span class="red"> Model: {{myModel | json}}  {{nothing}}</span>
+</div>
+
+<div>
+  <p class="blue"> from form, binding model : </p>
+  <span class="blue"> Model: {{myForm.value | json}}</span>
+</div>		
+		
+		
+ 
+ TS :=
+~~~~~~
+  public myForm: FormGroup;
+  public myModel = new MyModel();
+  public nothing: string;
+
+  constructor(private formBuilder: FormBuilder) {
+  }
+  ngOnInit() {
+    this.myModel.firstName = 'FIRST NAME';
+    this.myForm = this.formBuilder.group({
+      firstName: new FormControl({
+        value: this.myModel.firstName,
+        disabled: false
+      }),
+      middleName: new FormControl({
+        value: this.myModel.middleName,
+        disabled: false
+      }),
+      lastName: new FormControl({
+        value: this.myModel.lastName,
+        disabled: false
+      }),
+      age: new FormControl({
+        value: this.myModel.age,
+        disabled: false
+      })
+    });
+  }		
+
+  setToModelFromForm() {
+    this.nothing = '';
+    this.myModel.firstName = this.myForm.controls['firstName'].value;
+    this.myModel.lastName = this.myForm.controls['lastName'].value;
+    this.myModel.middleName = this.myForm.controls['middleName'].value;
+    this.myModel.age = this.myForm.controls['age'].value;
+    this.myModel.otherProperties = 'other value';
+  
+  }
+}
+export class MyModel {
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  age: number;
+  otherProperties: string;
+}		
+
+
+----------------------
+ DropDownGETSeLECTED := (Angular dropDown-Validation)
+~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+ HTML :=
+~~~~~~~~ 
+           <div class="mb-3">
+                 <select class="custom-select" (change)="changeCity($event)" formControlName="cityName">
+                 <option value="">Choose your city</option>
+                 <option *ngFor="let city of City" [ngValue]="city">{{city}}</option>
+            </select>
+
+   
+   TS :=
+~~~~~~~~~
+        City: any = ['Florida', 'South Dakota', 'Tennessee', 'Michigan']
+	
+	          changeCity(e) {
+                 console.log(e.value)     **Selected-value
+                 this.cityName.setValue(e.target.value, {
+                 onlySelf: true
+                })
+             }
+
+
+    onSubmit() {
+       this.isSubmitted = true;
+       if (!this.registrationForm.valid) {
+          return false;
+      } else {
+         alert(JSON.stringify(this.registrationForm.value))
+      }
+		
+===================================================================================
+
+ DropDownSubStates := [https://stackblitz.com/edit/angular-dropdown?file=app%2Fapp.component.ts]
+~~~~~~~~~~~~~~~~~~~~
+ 
+   countries = [
+  {id: 1, name: 'France', cities: ['Paris', 'Marseille', 'Nice']},
+  {id: 2, name: 'Germany', cities: ['Hamburg', 'Berlin', 'Munich']},
+  {id: 3, name: 'Italy', cities: ['Roma', 'Milan', 'Napoli']},
+  ];
+  
+  
+===================================================================================
+
+ (2) ReactiveForms :=  validation are in TS-page
+~~~~~~~~~~~~~~~~~~~~~
+  
+  --- Code && logoc resides in component-class.
+  --- NO ngModel && Supports both custom & Dynamic validation.
+  
+  --- Readability is more. && Unit-testing is easy.
+  ---ADV** :: used when Complex-scenario . Frequently used.
+
+
+  Eg 11:=
+~~~~~~~~
+
+ TS :=
+~~~~ 
+ //---OneWay-----
+    registrationForm: FormGroup;
+  registrationForm = new FormGroup({
+     userName: new FormControl('Vishwas'),
+     password: new FormControl(''),
+     confirmPassword: new FormControl(''),
+     address: new FormGroup({
+           city: new FormControl(''),
+           state: new FormControl(''),
+           postalCode: new FormControl('')
+      })
+  });
+
+//-----BestWay(Form-Builder)-----
+
+    constructor(private fb: FormBuilder){}
+	registrationForm: FormGroup;
+
+    ngOnInit() {
+        this.registerForm = this.fb.group({
+            firstName: ['', [Validators.required, Validators.minLength(3),Validators.maxLength(4)]],
+            lastName: ['Krishna', Validators.required],                  ....../// Krishna is default (******)
+			
+            email: ['', [Validators.required,    
+                                    Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+									
+            password: ['', [Validators.required, Validators.minLength(6)]].
+			address = this.fb.group({
+            city: ['', Validators.required],
+            state: ['', Validators.required],
+			address: ['', Validators.required],
+			})
+        });
+
+
+ HTML :=  ///Basic-Communication layer
+~~~~~~~
+   <form [formGroup]="registerForm">
+       <div class="form-group">
+	      <label> UserName></label>
+    	  <input formControlName="firstName" #frName type="text" class="form-control">
+		  <br>{{frName.className}}</br>
+		  <div *ngIf="registerForm.controls.['firstName'].hasError('required')" class="alert alert-danger">
+		      Please Enter a name
+		  </div>
+		  <div *ngIf="registerForm.controls.['firstName'].hasError('minLength')" class="alert alert-danger">
+		      Please Enter atleast 4 Characters
+		  </div>
+		  <div *ngIf="registerForm.controls.['firstName'].hasError('maxLength')" class="alert alert-danger">
+		      Name cannot exceed 10 characters.
+		  </div>
+	   </div>
+	   
+	   
+ Nested-FormGroup :=
+~~~~~~~~~~~~~~~~~~~
+ <div *ngIf="registerForm.controls.['address'].controls.['postalcode'].hasError('required')" class="alert alert-danger">
+		      Postal Card format is 5-Digits.
+		  </div>
+	   
+            ---- visualizing Form use :: {{ registerForm.value | json }}
+	         
+            ---- console.log(this.registerForm.value);
+			
+ Eg2 :=
+~~~~~
+  loginForm = new FormGroup({
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+    domain: new FormControl('', Validators.required),
+    Captcha: new FormControl('', Validators.required)
+  });
+ 
+====================================================================
+
+ Track Control State :=
+~~~~~~~~~~~~~~~~~~~~~~
+ 
+  ng-touched (Or) ng-untouched -----> form-feild visited (Or) Not.
+  
+  ng-dirty (Or) ng-Pristine  -----> form-feild-Value Changed (Or) Not.
+  
+  ng-valid (Or) ng-invalid   -----> form-feild-Value Valid   (Or) Not.
+
+
+---------------------------------------------------
+
+ Form-group :=  (----- valid, Invalid,  Touched, UnTouched, Dirty, Pristane(Din't Touched) ----) 
+~~~~~~~~~~~~~
+     Binds <form> element to FormGroup instance.
+
+
+Form-control:=  [OneField]
+~~~~~~~~~~~~~
+	 Binds input element to FormGroup instance.
+	 
+--->Both these classes are derived from "-AbstractControl-" class.
+
+
+ Form-Builder :=
+~~~~~~~~~~~~~~~~
+ ---Instead of calling "Form-Control" Multiple times, we use Form-Builder to improve Syntatical improvement. 
+
+	 
+Form-Array := [19]
+~~~~~~~~~~
+	 Contains Arrays of Form-Group, Form-Controls, NestedFormArray
+	 
+	 ---To create FormArray we use "-new-" keyword [OR] "-array()-"  of "-formBuilder-" class
+	 
+	 
+--->A FormGroup can has NestedFormGrop likewise a FormArray can have NestedFormArray. (Can have Unlike Items as well)	
+
+               ----Should have like Items  [***Preferred***}
+			   
+			   
+---->To Bind Form-Array && Form-Group 
+
+          <div formArrayName="skills">  .......///Binds Form-Array
+               
+			   <div formGroupName="0"> ......///Binds Form-GroupName
+			   
+			   
+			   Form-Array >>> Form-Group >>>> Form-Controls
+
+--->FormBuilder is used to build these Forms.
+			   
+----------------------------------------------------------------------------------------------			   
+
+---->If One of FormControl is Invalid,  then entire Form-Array is Invalid.
+
+
+   const formArray2 = this.formBulder.array([
+      new FormControl('John', Validators.required),
+      new FormControl('IT', Validators.required),
+	  new FormControl('', Validators.required),
+    ]);
+    console.log("Value--> "+formArray2.value);
+
+------------------------------------------------------------------------------------------
+
+---> FormArray serialized as an array.  ....///  const formGroup4 = this.formBulder.array([
+
+     FormGroup serialized as an Object  ....///  const formGroup4 = this.formBulder.group([
+	 
+	 
+	  const formArray2 = this.formBulder.array([
+      new FormControl('John', Validators.required),
+      new FormControl(' ', Validators.required),
+    ]);
+   // formArray2.push(new FormControl('Rama', Validators.required));//adding element
+    console.log(formArray2);
+    console.log("==================");
+
+     
+    const formGroup4 = this.formBulder.group([
+      new FormControl('John', Validators.required),
+      new FormControl(' ', Validators.required),
+    ]);
+    console.log(formGroup4);
+	 
+----------------------------------------------------------------------------------------
+	
+
+Methods :=
+~~~~~~~~
+     Push--- Inserts Controls at end of array.
+	 Insert-- Inserts Controls at Specified index of array.
+	 removeAt-- Inserts Controls at Specified index of array.
+	 setControl-- Replaces existing Controls at Specified index of array
+
+
+----------------------------------------------------------------------------------------
+
+NestedFormGroup :=
+~~~~~~~~~~~~~~~~
+   can be created with help of FormBuilder class Instance and "-Group-" method of it.
+   
+   constructor(private formBulder: FormBuilder) { }
+   
+   
+   this.employeeForm = this.formBulder.group({
+      fullName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(10)]],
+      contactPreference: ['email'],
+      emailGroup: this.formBulder.group({ .....///NestedFormGroup******
+
+        email: ['', [Validators.required, CustomValidators.emailDomain('aa.com')]],
+        confirmEmail: ['', [Validators.required]],
+      }
+	 
+
+===========================================================================================
+
+---->creating complex forms with "Template driven forms" is not recommended as HTML code can get complecated and messicand alse not     easy for Unit testing.
+
+---->classes for creating form-control tree
+     ---form-group class
+	 ---from-control class
+
+---->model that we create using above 2 classes called "FormGroupModel"
+
+---->"form-group" is collection of "form-control" and also "form-group" can also have "form-group" nested within it.   
+
+---->"fromControlName" used to bind each html input element to it's assosiated form-control instance in component class.
+
+---->"setValue()" to update all form controls.
+ 
+---->"patchValue()" method used to update subset of form controls. (without subset, to get data only of Set)     
+                       and also to update all form controls
+
+---->"FormBuilder" class used  to shortens creating instances of "form-group" && "form-control" and has method of  
+              
+			  ---control()  .... group()..... array()
+
+---->"FormGroup" class is collection of child-controls and nested "fromgroups".
+
+---->all validator functions are static, so 
+
+---->"ngClass" dynamically stylling for form-control.
+ 
+ 
+ Value-Changes := (method of Form-Group)
+ ~~~~~~~~~~~~~
+ Emits a value Only when a form-control-value of form-control-name in Form-Control changes.
+ 
+ Blur Event [13] := :=
+ ~~~~~~~~~~~~~~~
+ raises event when form-control looses focus.
+
+======================================================================================
+
+ Others :=
+~~~~~~~~
+
+  logValidationErrors [Common]:=
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Looks Over all FormControls and Nested-Form Groups in root-Form-Group ("-employeeForm-")
+ 
+    if(abstractControl instanceof FormGroup)  ---> If its is NestedFormGroup then it Recursively calls "-logValidationErrors.="
+    
+	Else -->Checking FormControl validOrNot.
+	      
+		         ----Not Valid then it loads all available validation Messages from "-validationMessages-"
+
+ 
+
+
+ValidationBasedOnRadioButton [14] :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  setValidators()......clearValidators().......updateValueAndValidity() are methods of AbstractClass to satisfy.
+  
+     means Form-Control class could able to access these functions.
+    
+ updateValueAndValidity():= 
+ ~~~~~~~~~~~~~~~~~~~~~~~~~
+    After clearValidators() , if we Validation on that Form-Control to be  trigger immediatley, then use this method..
+
+
+
+
+
+
+CustomValidation [15] :=
+~~~~~~~~~~~~~~~~~~~~~~
+     ---create Custom Validator
+	 ---Attach Validator to teh control you want to validate.
+	 ---Display Validation Error.
+	 
+	 
+	 
+	 
+	 
+	 
+CustomValidationDynamic[16]	:=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Can be acheived through Closures
+
+Closure(JavaScript):=
+~~~~~~~~~~~~~~~~~~~
+   Ita is function having another function(inner) which has access to outer && It's own varibles and methods.
+	 
+	 
+	 
+	 
+	 
+	 
+CustomValidationResusing[17] :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	 
+	 --BulidInValidators are Resuable ---- can be used on any FormControl and on any Angular-from.
+	           then...Import    "-Validator-" from "-@forms-" and tie it to Form-Control
+
+      ---CustomVlaidation can be done by creating-CustomValidatorclass && 
+	      then...Import "-CustomValidatorclass-" from "-@forms-" and tie it to Form-Control
+	 
+	 
+	 
+ 
+
+CrossFeildValidation[18] :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+  NestedGroup ---> employeeForm...emailGroup....Skills
+ 
+   ----Customvalidator function ("-matchEmails-") returns message if 2 emails are not matched are taken by "-emailGroup-" custom group (not Taken its sub-FormControls)  
+ 
+ 
+ 
+ReactiveFormBuildingBlock[19] :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ FormArray ~~~ 
+ 
+ 
+ 
+ 
+FormArray(AddingDynamicButton)[20 & 21] :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Dynamic Forms on Clicking Button 
+ 
+   addSkillButtonClick(): void {
+    (<FormArray>this.employeeForm.get('skills')).push(this.addSkillFormGroup());
+  }
+
+
+ addSkillFormGroup(): FormGroup {
+    return this.formBulder.group({
+      skillName: ['', Validators.required],
+      experienceInYears: ['', Validators.required],
+      proficiency: ['', Validators.required]
+    })
+  }
+ }
+ 
+  <div class="well">
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-4">
+                        <button type="button" class="btn btn-primary" (click)="addSkillButtonClick()">
+                            Add Skill
+                        </button>
+                    </div>
+                </div>
+ 
+ 
+ 
+ 
+ 
+
+FormArray(AddedDynamicButtonWithFocus-CLEAR)[22] := ........../// Property && Arrtibute Binding
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+  <div formArrayName="skills" *ngFor="let skill of employeeForm.get('skills').controls; let i=index">
+                    <div [(formGroupName)]="i">
+
+ <div class="form-group" [ngClass]="{'has-error': formErrors.skillName}">
+                            <label class="col-sm-2 control-label" [attr.for]="'skillName'+i">
+ 
+
+
+
+============================================================================================================================= 
+
+============================================================================================================================= 
+
+============================================================================================================================= 
+
+============================================================================================================================= 
+
+ 
+

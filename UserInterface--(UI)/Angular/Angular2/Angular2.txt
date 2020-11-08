@@ -1,0 +1,595 @@
+
+db.json:=
+~~~~~~~~~
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "RamaKrishna",
+      "age":22,
+      "gender": "male"
+    
+    },
+    {
+      "id": 2,
+      "name": "Rama",
+      "age":22,
+      "gender": "male"
+      
+    },
+    {
+      "id": 3,
+      "name": "Krishna",
+      "age":22,
+      "gender": "male"
+     
+     
+    },
+    {
+      "id": 4,
+      "name": "Radha",
+      "age":22,
+      "gender": "female"
+      
+     
+    },
+    {
+      "id": 5,
+      "name": "Seetha",
+      "age":22,
+      "gender": "female"
+     
+     
+    }
+  ]
+}
+=========================================================================================================================
+index.html:=
+~~~~~~~~~~~~~~~~~
+ <base href="/src">
+============================================================================================================================= 
+style.css:=
+~~~~~~~~~~~
+table{
+    color: blue;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size:large;
+    border-collapse: collapse;
+    }
+    
+    h1{
+        color: brown;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        font-size:large;
+        border-collapse: collapse;
+        }
+    
+    
+    td{
+        border: 1px solid black;
+    }
+
+     
+    td{
+        border: 1px solid brown;
+    }
+
+    .radioClass{
+        color: brown;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        font-size:large;
+        border-collapse: collapse;
+    }
+=============================================================================================================================
+export interface Employee {
+    id:number,
+    name:string;
+    age:number;
+    gender:string;
+}
+============================================================================================================================
+app.module.ts:=
+~~~~~~~~~~~~~~~~~
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { AppComponent } from './app.component';
+import { EmployeelistComponent } from './employeelist/employeelist.component';
+import { EmployeeCountComponent } from './employee-count/employee-count.component';
+import { EmployeetitlePipe } from './employeetitle.pipe';
+import { FormsModule } from '@angular/forms';
+import { Http, HttpModule} from '@angular/http';
+import { HomeComponent } from './home/home.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { EmployeeService } from './employee.service';
+import { UserPreferencesService } from './user-preferences.service';
+
+const appRoutes:Routes=[
+  {path:'home', component:HomeComponent},
+  {path:'employees', component:EmployeelistComponent},
+  // route with parameter
+  {path:'employees/:id', component:EmployeeComponent},
+  {path:'', redirectTo:'/home',pathMatch:'full'},
+  {path:'**',component:PagenotfoundComponent }
+  
+  ];  
+@NgModule({
+  declarations: [
+    AppComponent,
+    EmployeelistComponent,
+    EmployeeCountComponent,
+    EmployeetitlePipe,
+    HomeComponent,
+    PagenotfoundComponent,
+    EmployeeComponent
+  ],
+  imports: [
+    BrowserModule,FormsModule,HttpModule,RouterModule.forRoot(appRoutes)
+  ],exports:[RouterModule] ,
+  providers:[EmployeeService],
+  bootstrap: [AppComponent],
+ schemas:[CUSTOM_ELEMENTS_SCHEMA],
+  exports: [RouterModule]
+})
+  
+  
+})
+export class AppModule { }
+
+============================================================================================================================= 
+app.component.ts:=
+~~~~~~~~~~~~~~~~
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+<app-employeelist></app-employeelist>
+<div class="container">
+  <nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+      <li routerLinkActive="active"><a  routerLink="home"><h1>Home</h1></a></li>
+      <li routerLinkActive="active"><a  routerLink="employees"><h1>Employees</h1></a></li>
+    </ul>
+  </nav>
+<router-outlet></router-outlet> 
+</div>
+
+  `,
+  styleUrls: ['./app.component.css']
+})
+
+export class AppComponent {
+
+   
+}
+==============================================================================================================================
+//Employeetitle
+
+employeetitle.pipe.ts:=
+~~~~~~~~~~~~~~~~~~~~~~
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'employeetitle'
+})
+export class EmployeetitlePipe implements PipeTransform {
+
+  transform(value: string,gender:string): string {
+    if(gender.toLowerCase()=='male'){
+      return "Mr. "+value;
+    }
+    else if(gender.toLowerCase()=='female'){
+      return "Miss. "+value;
+    }
+    else if(gender.toLowerCase()=='other'){
+      return value;
+    }
+  }
+
+}
+
+============================================================================================================================= 
+//UserPreferences
+
+UserPreferences.service.ts:=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserPreferencesService {
+
+  constructor() { 
+    console.log("new Instanve of UserPreference is created")
+  }
+
+colorPreference:string='orange';
+
+}
+
+================================================================================================================================
+employee.service.ts:=
+~~~~~~~~~~~~~~~~~
+import { Injectable } from '@angular/core';
+import { Employee } from './employee';
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs';
+import { map } from "rxjs/operators";
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/toPromise';
+@Injectable({
+  providedIn: 'root'
+})
+export class EmployeeService {
+
+  constructor(private http: Http) { }
+
+  getEmployees(): Observable<Employee[]> {
+    return this.http.get(" http://localhost:3000/employees").
+    pipe(map(res => <Employee[]>res.json())).catch(this.handleError);
+
+}
+
+getEmployeeByCode(id:number): Observable<Employee> {
+  return  this.http.get(" http://localhost:3000/employees/"+ id).
+  pipe(map(res => <Employee>res.json())).catch(this.handleError);
+}
+
+handlePromiseError(error:Response){
+  console.error(error);
+ throw(error);
+  
+  }
+
+  
+
+handleError(error:Response){
+console.error(error);
+return Observable.throw(error);
+
+}
+
+}    
+
+
+============================================================================================================================= 
+employeelist.component.ts:=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Employee } from '../employee';
+import { EmployeeService } from '../employee.service';
+import { UserPreferencesService } from '../user-preferences.service';
+@Component({
+  selector: 'app-employeelist',
+  templateUrl: './employeelist.component.html',
+  styleUrls: ['./employeelist.component.css'],
+ 
+ 
+})
+export class EmployeelistComponent implements OnInit {
+
+  employees: Employee[];
+  statusMessage:string="Loading data....Please wait.";
+  //Here "employees" name should be same as specified in db.json.
+
+  
+  
+  constructor(private employeeServ:EmployeeService,private userPrefServ:UserPreferencesService) {
+    
+} 
+
+set color(value:string){
+  this.userPrefServ.colorPreference=value;
+}
+
+get color(){
+ return  this.userPrefServ.colorPreference;
+}
+
+
+//Below used subscribe method for Observable and .....
+   //specified callback method as parameter arrow function and populated to class property "employees"
+//Here "=>" receives response employee array data.
+  ngOnInit() {
+    this.employeeServ.getEmployees().subscribe((empData)=>this.employees=empData,(error)=>{
+      this.statusMessage='There is error in URL.pLase Check';
+    });
+  }
+
+
+
+  //track which radio button is selected
+  //To determine which employee display in table
+  selectedEmployeeCountRadioButton: string = "all";
+
+ 
+  //================================================================================
+  //Below event-handler method (Has event-data) called when custom-event within our child component is raised....
+  //If raised selected-radio-button value passed here
+  //this  method will TRACK "radio" button value && update it's value
+  onEmployeeCountRadioButtonChange(selectedRadioButtonValue: string): void {
+    this.selectedEmployeeCountRadioButton = selectedRadioButtonValue;
+    console.log(this.selectedEmployeeCountRadioButton);
+  }
+
+  //=======================================================================
+
+  getTotalEmployeeCount(): number {
+
+    return this.employees.length;
+  }
+
+  getTotalMaleEmployeeCount(): number {
+
+    return this.employees.filter(e => e.gender === "male").length;
+  }
+
+  getTotalFemaleEmployeeCount(): number {
+
+    return this.employees.filter(e => e.gender === "female").length;
+  }
+ 
+  
+
+
+
+ 
+
+}
+============================================================================================================================= 
+employeelist.component.html:=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<!--   Here EmployeeList--Parent EmployeeCount---Child      -->
+<!-- To Nest "Employee-Count" component  into "Employee-List" component  ((Below))-->
+<!-- To  bind @input class properties(all,male,female) in employeeCount.ts<==(to)=>
+                                                Methods in EmployeeList.ts  -->
+<!-- Bind custom event raised by child(employeecount) component  @7th line-->
+<app-employee-count *ngIf="employees" [all]="getTotalEmployeeCount()" [male]="getTotalMaleEmployeeCount()"
+    [female]="getTotalFemaleEmployeeCount()"
+    (countRadioButtonSelectionChanged)="onEmployeeCountRadioButtonChange($event)">
+</app-employee-count>
+<!-- Here $event gets selected radiobuttonvalue, updates "selectedEmployeeCountRadioButton"  in TS file-->
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let emp of employees;">
+            <tr *ngIf="selectedEmployeeCountRadioButton=='all'||selectedEmployeeCountRadioButton==emp.gender">
+                <td><a [routerLink]="['/employees',emp.id]">{{emp.id}}</a></td>
+                <td>{{emp.name |employeetitle:emp.gender}}</td>
+                <td>{{emp.age}}</td>
+                <td>{{emp.gender}}</td>
+            </tr>
+        </ng-container>
+        <tr *ngIf="!employees">
+            <td colspan="4">
+                {{statusMessage}}
+            </td>
+        </tr>
+        <tr *ngIf="employees && employees.length==0">
+            <td colspan="4">No data Found</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<div>
+colorPreference:
+<input type='text' [(ngModel)]='color' [style.background]='color'/>
+  </div>
+============================================================================================================================= 
+employee-count.component.ts:=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+
+@Component({
+  selector: 'app-employee-count',
+  templateUrl: './employee-count.component.html',
+  styleUrls: ['./employee-count.component.css']
+})
+export class EmployeeCountComponent implements OnInit {
+
+  //To tarck value of radio button selected && Default value is "all"
+  selectedRadioButtonValue: string = 'all';
+  //=============================================================
+
+  // To Pass Values from Parent component to Child Component
+  //To use values in Parent from child component
+  @Input()
+  all: number;
+  @Input()
+  male: number;
+  @Input()
+  female: number;
+ 
+ 
+
+  //Custom event
+  @Output()
+  countRadioButtonSelectionChanged: EventEmitter<string> = new EventEmitter<string>();
+
+
+ // =====================================================================
+  //below method will Raise custom event
+  //emit method used to raise event by passing selectedRadioButtonValue as  payload
+  onRadioButtonSelectionChange() {
+    this.countRadioButtonSelectionChanged.emit(this.selectedRadioButtonValue);
+    //To test the changes
+    //  
+  } 
+  
+ constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+================================================================================================================================
+employee-count.component.html:=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<span class="radioClass">Show</span>
+&nbsp;
+<input type="radio" name="options" value="all" [(ngModel)]="selectedRadioButtonValue"
+(change)="onRadioButtonSelectionChange()" />
+<span class="radioClass">{{"All("+all+")"}}</span>
+&nbsp;
+
+<input type="radio" name="options" value="male" [(ngModel)]="selectedRadioButtonValue"
+(change)="onRadioButtonSelectionChange()"/>
+<span class="radioClass">{{"Male("+male+")"}}</span>
+&nbsp;
+
+<input type="radio" name="options" value="female" [(ngModel)]="selectedRadioButtonValue"
+(change)="onRadioButtonSelectionChange()"/>
+<span class="radioClass">{{"Female("+female+")"}}</span>
+==================================================================================================================================
+home.component.ts:=
+~~~~~~~~~~~~~~~~~
+import { Component, OnInit } from '@angular/core';
+import { UserPreferencesService } from '../user-preferences.service';
+
+@Component({
+  selector: 'app-home',
+  template:`
+  <h1>Welcome to Home!!!!</h1>
+  <div>
+colorPreference:
+<input type='text' [(ngModel)]='color' [style.background]='color'/>
+  </div>
+
+  `,
+  styleUrls: ['./home.component.css'],
+ 
+})
+export class HomeComponent implements OnInit {
+  
+  ngOnInit() {
+  }
+
+
+constructor(private userPrefServ:UserPreferencesService) { 
+ 
+
+}
+
+
+ set color(value:string){
+   this.userPrefServ.colorPreference=value;
+}
+
+get color(){
+  return  this.userPrefServ.colorPreference;
+ }
+
+
+}
+
+============================================================================================================================= 
+employee.component.ts:=
+~~~~~~~~~~~~~~~~~
+import { Component, OnInit } from '@angular/core';
+import { Employee } from '../employee';
+import { ActivatedRoute, Router } from '@angular/router';
+import { EmployeeService } from '../employee.service';
+import { error } from 'util';
+
+@Component({
+  selector: 'app-employee',
+  templateUrl: './employee.component.html',
+  styleUrls: ['./employee.component.css'],
+  
+})
+export class EmployeeComponent implements OnInit {
+
+employee:Employee;
+statusMessage:string='Loading data.....Please wait.';
+
+//use "ActivateRoute" service to retrieve parameter value from URL
+
+constructor(private employeeServ:EmployeeService,private activatedRoute:ActivatedRoute,private Rout:Router) { }
+
+ngOnInit() {
+ 
+ let id:number=this.activatedRoute.snapshot.params['id'];
+  this.employeeServ.getEmployeeByCode(id).subscribe(
+    (empData22)=>{
+    // if(empData22==null){
+    //   this.statusMessage='Employee with Specified Id does not exits........';
+    // }else{
+    //   this.employee=empData22
+    // }
+    this.employee=empData22;
+  },
+    (error)=>{  
+    
+      this.statusMessage='Please Try again.......';
+      console.log(error);
+    }
+
+  );
+}
+
+
+onButtonClickBack(){
+  this.Rout.navigate(['/employees']);
+}
+
+
+
+}
+
+
+============================================================================================================================= 
+employee.component.html:=
+~~~~~~~~~~~~~~~~~~~~~~~~
+<table *ngIf="employee">
+    <thead>
+        <tr>
+            <th colspan="2">Employee Details</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                    <td> Id</td>
+                    <td>{{employee.id}}</td>
+                </tr>
+                <tr>
+                        <td> Name</td>
+                        <td>{{employee.name}}</td>
+                    </tr>
+        <tr>
+            <td>Age</td>
+            <td>{{employee.age}}</td>
+        </tr>
+        <tr>
+                <td>Gender</td>
+                <td>{{employee.gender}}</td>
+            </tr>
+    </tbody>
+    <div *ngIf="!employee">
+        {{statusMessage}}
+    </div>
+    <input type="button" class="btn btn-primary" (click)="onButtonClickBack()" value="back to Employee List"/> 
+============================================================================================================================= 
+
+
+================================================================================================================================
+
+
+
+
+
+
+
+
+

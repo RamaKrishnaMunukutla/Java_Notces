@@ -1,0 +1,251 @@
+
+ 
+    Directives ----> JavaGuides. (**********)
+
+================================================================================================
+
+ Directives :=
+~~~~~~~~~~~~~
+ ---Add behaviour to Html-DOM.
+ ---There are 3-directive.(SAC)
+     
+                                    
+ (1) Structural (ng--If,For,Switch)------> Changes Structure of HTML-DOM.
+ (2)Attribute [ [hidden]="hide()" ] -----> Changes Behavior of HTML-DOM.
+ (3)Component [ <demo> ] ----------------> having Own-UI code.
+ 
+ 
+ 
+ ngIf && Else :=
+~~~~~~~~~~~~~~~
+<h2  *ngIf="displayName; else elseBlock">CodeEvaluation</h2>
+<ng-template #elseBlock><h2>Name is Hidden</h2></ng-template>
+
+public displayName=false;
+
+
+ <app-hero-detail *ngIf="selectedHero" [hero]="selectedHero"></app-hero-detail>
+ 
+ 
+--------------------------------------
+
+ (*********) := /// Loads Spinner, Only onClick && for 5-Seconds.
+~~~~~~~~~~~~~
+
+ <mat-spinner *ngIf="showSnipper"></mat-spinner>
+
+ showSnipper :boolean= false;
+  
+  loadData(){
+    this.showSnipper=true;
+    setTimeout( ()=> { 
+       this,showSnipper=false;
+	 }, 5000 );
+   }	 
+ }
+ 
+-----------------------------
+
+ ngIf (Or) else :=  ///   show: boolean = false;
+~~~~~~~~~~~~~~~~~
+ <b> ngIf - Working with "else" Examples</b>
+	<div *ngIf="show; else notShow">
+		<p>Show this only if "show" is true</p>
+	</div>
+
+	<ng-template #notShow>
+		<p>Show this only if "show" is not true</p>
+	</ng-template>
+
+--------------------------------------
+
+ ngIf && then (Or) else  :=  ///   show: boolean = false;
+~~~~~~~~~~~~~~~~~~~~~~~~~~	 
+	<b>NgIf with "then" example</b>
+	  <ng-template *ngIf="show;then showBlock; else notShowBlock">
+	</ng-template>
+
+	<ng-template #showBlock>
+		<p>Show this only if "show" is true</p>
+	</ng-template>
+
+	<ng-template #notShowBlock>
+		<p>Show this only if "show" is not true</p>
+	</ng-template>
+	
+---------------
+ 
+
+<ul>
+  <li *ngFor="let bike of bikes" (click)="showInfo(bike)">
+    {{bike.model}}
+  </li>
+</ul>
+ 
+==========================================================================================================================
+
+ ngSwitch :=  displays one element from a possible set of elements based on some condition.
+ ~~~~~~~~~
+  <div [ngSwitch]="color">
+  <div *ngSwitchCase="'red'">You Picked Red Color</div> 
+  <div *ngSwitchCase="'blue'">You Picked blue Color</div>
+  <div *ngSwitchCase="'green'">You Picked green Color</div>
+  </div>
+  
+------------------------
+
+ Simple-Switch :=
+~~~~~~~~~~~~~~~~~
+ user = "Ramesh";
+    
+ <ul [ngSwitch]="user">
+    <li *ngSwitchCase="'Ramesh'">Hi Ramesh</li>
+	
+---------------------------
+
+ ngSwitch and ngSwitchCase - even odd number example :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ numbers = [1,2,3,4,5,6,7,8,9];
+ 
+  <div *ngFor="let number of numbers">
+    <div ngSwitch="{{number % 2}}"> 
+      <div *ngSwitchCase="'0'">{{number}} - Even number.</div>
+      <div *ngSwitchCase="'1'">{{number}} - Odd number.</div>
+      <div *ngSwitchDefault>Nothing Found.</div>
+    </div>
+  </div>	
+  
+--------------------------
+
+ ngSwitch and ngSwitchCase - enum example :=         //  O/P --->SUNDAY
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  days = Days;
+  day = Days.SUNDAY;
+}
+
+export enum Days {
+  SUNDAY,
+  MONDAY,
+  TUESDAY,
+  WEDNESDAY,
+  THURSDAY,
+  FRIDAY,
+  SATURDAY  }
+
+  <div [ngSwitch]="day">
+		<b *ngSwitchCase="days.SUNDAY"> SUNDAY</b>
+		<b *ngSwitchCase="days.MONDAY"> MONDAY</b>
+		<b *ngSwitchCase="days.TUESDAY">TUESDAY</b>
+		<b *ngSwitchCase="days.WEDNESDAY">WEDNESDAY</b>
+		<b *ngSwitchCase="days.THURSDAY">THURSDAY</b>
+		<b *ngSwitchCase="days.FRIDAY">FRIDAY</b>
+		<b *ngSwitchCase="days.SATURDAY">SATURDAY</b>
+		<b *ngSwitchDefault>No Days</b>
+	</div>
+ </div>
+  
+==========================================================================================================================
+ 
+ ngFor :=
+~~~~~~~~~
+
+   	<li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
+	
+-------------
+ 
+  <div *ngFor="let color of colors">
+<h2>{{color}}</h2>
+  </div>                     [OR]
+  
+<div *ngFor="let color of colors; index as i ">
+<h2>{{i}} {{color}}</h2>
+  </div>
+  
+ At class ---->  public colors=["red","blue","green","yellow"];
+ 
+-----------------
+
+users = [{
+    id: 100,
+    firstName: "Ramesh",
+    lastName: "Fadatare",
+    emailId: "ramesh@gmail.com"
+  },
+  {
+    id: 101,
+    firstName: "Tony",
+    lastName: "Stark",
+    emailId: "tony@gmail.com"
+  }, {
+    id: 100,
+    firstName: "Tom",
+    lastName: "Cruise",
+    emailId: "tom@gmail.com"
+  }];
+  
+-----------------
+
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr> 
+  <tr *ngFor="let user of users">
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.emailId}}</td>
+      </tr>
+	  
+  <ul>
+    <li *ngFor="let user of users; let i = index">
+      {{i}}. {{user.firstName}}, {{user.lastName}}
+    </li>
+  </ul>
+---------------------------
+ Index-Based :=
+~~~~~~~~~~~~~~
+	<ul>
+		<li *ngFor="let user of users; let i = index">
+			{{i}}. {{user.firstName}}, {{user.lastName}}
+		</li>
+	</ul>
+ 
+ O/p :=
+~~~~~
+  0. Ramesh, Fadatare
+  1. Tony, Stark
+  2. Tom, Cruise 
+  
+--------------
+
+	<!-- ngFor - first and last variable example  -->
+	<b>ngFor - first and last variable example </b>
+	<div *ngFor="let user of users; let i = index; let f=first; let l=last;">
+		Row {{i}} : Name: {{user.firstName}} {{user.lastName}} , is first row: {{f}}, is last row: {{l}}
+	</div>  
+	
+	
+		<b>nfFor - even and odd variable example </b>
+	<div *ngFor="let user of users; let i = index; let e=even; let o=odd;">
+		Row {{i}} : Name: {{user.firstName}} {{user.lastName}} , is even row: {{e}}, is odd row: {{o}}
+	</div>
+	
+================================================================================================================
+
+ ngSubmit :=
+~~~~~~~~~~~~
+   (ngSubmit)="onSubmit(loginForm.value)"
+
+=================================================================================================================
+
+ ngModelChanges :=
+~~~~~~~~~~~~~~~~~
+  
+     <div class="col-3 col-sm-3 col-md-3 col-lg-3">
+         <input type="text" class="form-control" maxlength="1"
+		       formControlName="otp3" (ngModelChange)="onChange2($event)"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+								
+===================================================================================================================
+

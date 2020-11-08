@@ -1,0 +1,46 @@
+ 
+ 
+ 
+ Model:=
+ ~~~~~~
+ 
+ @javax.persistence.Entity
+@Table(name = "emptab") // table name111111111
+
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+public class Employee {
+//===============================================
+
+@Entity
+@Table(name="desgtab")
+public class Designation extends Employee{
+
+	@Column(name="erank")
+	private int empRank;
+	@Column(name="efeedback")
+	private String empFeedback;
+//==============================================
+
+@Entity
+@Table(name = "addrtab")
+public class Address extends Employee {
+
+	@Column(name = "addloc")
+	private String addrLoc;
+	@Column(name = "addpin")
+	private long addrPin;
+	
+=================================================================================
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

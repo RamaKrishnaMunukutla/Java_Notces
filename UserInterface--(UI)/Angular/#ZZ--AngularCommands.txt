@@ -1,0 +1,340 @@
+ 
+  
+    
+   .......Tutorials770.........
+ 
+    Angular ----> Client Side Application, TypeScript-Based && Produces SPA.
+   
+====================================================================================================
+
+  PropertyBinding[] :: [ hidden,isDisabled ] ~~~~ To HTML 
+  2-WayBinding~~~~[(ngModel)] ...Both  
+  Interpolation{{}} ~~~~ To HTML 
+
+
+    --flat true/false -----> Dedicated-Folder.
+	 --spec==true/false ----> for Spects.
+	
+	Dynamic ----> ${} ++ ` `  ==  `${}`
+	
+	
+ ConcretePage :=
+~~~~~~~~~~~~~~~ 
+	https://www.concretepage.com/angular/  //////  https://angular.io/guide/animations
+	
+	https://www.concretepage.com/angular-material/
+	
+
+ Angular CLI :=
+~~~~~~~~~~~~~~
+ ---It is used to create  ready made Angular-Project.
+ 
+ 
+ 
+ 
+	 
+=================================================================================================================
+
+----> ng new Hello --skip-tests /// ng new Hello -si -st ..../// Skips the "-Test-"(Spects) files. code
+   
+----> npm i || npm update || npm audit fix  || npm i @angular-devkit/build-angular  ---> for Cloned Projects (******)
+  
+----> npm i -g @angular/core        /// npm i -g @angular/core --force    ///  npm i -g typescript   
+ 
+----> npm i -g @angular/cli         /// npm i @angular/cli                ///  npm update @angular/cli@latest  
+
+----> npm uninstall(i) -g @angular/cli /// npm i --save-dev @angular/cli@latest  
+
+
+ npm uninstall -g @angular/cli                                                            
+ npm i   -g @angular/cli@latest  
+ npm i --save-dev @angular/cli@latest   
+
+               VERSION ----> ng --version 
+
+
+ npm i bootstrap@3 --save          /// npm i --save bootstrap@3   ///   npm i ngx-bootstrap --save  /// npm install bootstrap@latest
+ npm i bootstrap@3 jquery --save  ///  npm i bootstrap jquery --save 
+ 
+ 
+ npm uninstall @angular-devkit/build-angular
+ npm i @angular-devkit/build-angular@latest
+ npm i @angular-devkit/build-angular@0.13.0
+ npm i -g @angular-devkit/schematics-cli
+ npm i --save-dev @angular-devkit/build-angular
+ 
+ Port :=
+~~~~~~~
+ ng s --port 4201 //Change Port 
+ ng s -o //Opens Browser Automatically.
+
+  Http  :=  npm i @angular/http@latest                                           
+~~~~~~~~
+ 
+ Forms :=   npm i --save forms-angular  ///  npm install @angular/forms --save
+~~~~~~~
+
+ Route :=   npm i angular-route 
+~~~~~~~
+ 
+ Pagination :=   npm install ngx-pagination --save
+~~~~~~~~~~~~~~
+ 
+  Full-Stack ----> npm install --save cors
+  
+
+ Others :=
+~~~~~~~~~
+   npm i express body-parser --save
+                   
+===================================================================================
+ 
+  ng new HelloWorld -d        //Tells which files are created in CMD
+ ng new Hello2 --skip-tests  // To skip test files.
+ 
+ Component :=
+~~~~~~~~~~~~
+ ng g c Hello11   //component
+ ng g c admin/users ........../// In a "-Admin-" Folder.
+ ng g c  users --flat ......./// Create Component without-Folder.
+ ng g c  hello -it -s ....../// for In-Line (Styles & Template)
+ ng g module mod ..../// Generates Module
+ 
+ ng g c Hello/login        --nospec --flat=true 
+ ng g c Hello/department   --nospec --flat=true  //Creates-Components under 1 folder.
+ ng g c Hello/Employee
+ 
+ 
+ Class && Interface :=
+~~~~~~~~~~~~~~~~~~~~~
+ ng g class Upload (Or) ng g class display/Upload --spec=true-d   //Class
+ ng g Interface Uppload //Interface.
+ ng g s    ImageService   //service
+ ng g s ImageService --spec=false -d
+  
+  
+ Enums && Pipe :=
+~~~~~~~~~~~~~~
+ ng g e Upload  ........// Enums
+ ng g pipe my-new-pipe
+ ng g pipe ImageFilter //Pipes
+ 
+ 
+ Guards && Router :=
+~~~~~~~~~~~~~~~~~~~
+ ng g g <guardName> /// Guards
+ ng g m app-routing --flat=true --module=app  //Router 
+ 
+ 
+Json (db.json):=
+~~~~~~~~~~~~~~~
+ npm install -g json-server
+ npm install json-server --save
+ npm install -g json-server --save 
+ json-server --watch db.json      ///  json-server -p 4000 db.json
+ 
+ 
+======================================================================================================
+ 
+ rxjs:=
+ ~~~~~
+ npm install -g rxjs
+ npm install --save rxjs-compat
+ npm install -g typescript
+ npm install -g webpack
+ 
+ import { Observable } from 'rxjs';
+ import { map } from "rxjs/operators";
+ import 'rxjs/add/operator/map';
+ 
+ import 'rxjs/add/operator/catch';
+ import 'rxjs/add/operator/toPromise';
+ 
+================================================================================== ==============
+ 
+ angular-material :=         // <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+~~~~~~~~~~~~~~~~~~~
+ npm i -s @angular/material@latest
+ ng add @angular/material
+ npm install angular-material --save
+ npm install angular-material-datepicker
+ npm install --save @angular/material @angular/cdk
+ npm install material-design-icons
+
+ Animation :=
+~~~~~~~~~~
+ npm install --save @angular/material @angular/animations
+ npm install @angular/animations --save
+ npm install ng-pick-datetime --save
+
+ pagination :=
+~~~~~~~~~~
+  npm install ngx-pagination --save
+  npm install primeng font-awesome
+  import {NgxPaginationModule} from 'ngx-pagination';
+  
+
+ Drag-Drop :=
+~~~~~~~~~~~
+   npm install angular-firebase --save
+   npm install firebase @angular/fire --save
+   npm install angularfire2@latest --save
+   
+ Image Upload :=
+~~~~~~~~~~~~~~
+ npm i ng2-file-upload --save
+ npm i image-compressor.js --save
+ npm i ngx-image-compress
+ npm install ng2-image-compress --save
+
+ Spinner :=
+~~~~~~~~~
+npm install --save-dev @types/core-js
+ npm install -g typescript 
+ npm install -g typescript
+ npm install ngx-spinner --save
+ 
+ Date Picker :=
+~~~~~~~~~~~~~
+ npm i -g igniteui-cli
+ import { IgxDatePickerModule } from 'igniteui-angular';
+ ng add ngx-bootstrap  --component datepicker
+
+ Download-file :=
+~~~~~~~~~~~~~~~~
+ng new angular-downlaod-file
+npm i @types/file-saver
+npm install angular-file-saver
+
+
+ Session :=
+~~~~~~~~~~
+npm install --save @ng-idle/core @ng-idle/keepalive angular2-moment
+
+import { Idle, DEFAULT_INTERRUPTSOURCES } from '@ng-idle/core';
+import { Keepalive } from '@ng-idle/keepalive';
+
+===================================================================================================================
+
+Imports :=
+---------
+  
+  
+  import {HttpClientModule,HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+  import {Http, Response, RequestOptions, Headers,Http,HttpModule} from '@angular/http';
+  import {Response, RequestOptions, Headers} from '@angular/http';
+ 
+
+  import { Component, OnInit, Inject, HostListener, NgModule,OnChanges,Input,Output,Injectable } from '@angular/core';
+  import { Observable } from 'rxjs';
+ 
+  
+  import {FormGroup ,FormControl,FormsModule,ReactiveFormsModule,Validators} from '@angular/forms';  
+  import {BrowserModule} from '@angular/platform-browser';
+  import { AppRoutingModule } from './app-routing.module'; 
+
+  import { ToastrManager } from 'ng6-toastr-notifications';
+  import { SubSink } from 'subsink';  
+  
+ ////MODULES
+
+
+ import {ActivatedRoute, Router,RouterModule} from '@angular/router';
+ import { Router, ActivatedRoute } from '@angular/router';
+
+  import { ImageCompressService, ResizeOptions, ImageUtilityService, IImage, SourceImage } from  'ng2-image-compress';
+  import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+  import { DOCUMENT,Location } from '@angular/common';  
+  import {DataTablesModule} from 'angular-datatables';  
+
+  import { FoodNode } from '../food-node';
+  import { ExampleFlatNode } from '../example-flat-node';
+  import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
+  import {FlatTreeControl} from '@angular/cdk/tree';
+  import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+  import {MatTreeModule} from '@angular/material/tree';
+
+  Important :=
+~~~~~~~~~~~~~
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+	ReactiveFormsModule
+	
+====================================================================================
+  
+  db.json:=
+~~~~~~~~~~~~
+
+
+=========================================================================
+ 
+ app.component.ts :=
+~~~~~~~~~~~~~~~~~
+
+========================================================================= 
+ 
+ app.component.html:=
+~~~~~~~~~~~~~~~~~~~~
+
+=============================================================================
+
+ employee.service.ts :=
+~~~~~~~~~~~~~~~~~~~~~~
+
+
+================================================================================
+
+ app.component.css :=
+~~~~~~~~~~~~~~~~~~~~
+
+
+==========================================================================================
+ 
+ Tutorials770 :=
+~~~~~~~~~~~~~~~
+ 
+ Angular-2 :=
+~~~~~~~~~~~~
+	  https://github.com/gopinav/Angular-2-Tutorials
+	  https://github.com/gopinav/Angular-Tutorials
+	  https://github.com/gopinav/Angular-2-Routing
+	  https://github.com/gopinav/Angular-2-Services-and-Http
+	  https://github.com/gopinav/Angular-2-Forms
+	  https://github.com/gopinav/Angular-2-Animations  
+ 
+ 
+ Angular && Forms :=
+~~~~~~~~~~~~~~~~~~~
+
+	  https://github.com/gopinav/Angular-Tutorials
+	  https://github.com/gopinav/Angular-Component-Interaction-Tutorial
+	  https://github.com/gopinav/Angular-Forms-Tutorial
+	 
+	 
+ Material && Security :=
+~~~~~~~~~~~~~~~~~~~~~~
+	 https://github.com/gopinav/Angular-Authentication-Tutorial
+	 https://github.com/gopinav/Angular-Material-Tutorial
+	 	 
+		 
+ JavaScript :=
+~~~~~~~~~~~~~
+      https://github.com/gopinav/Problem-solving-with-Javascript
+      https://github.com/gopinav/javascript-algorithms
+		 
+		 
+ TypeScript :=
+~~~~~~~~~~~~~~
+      https://github.com/gopinav/TypeScript-Tutorial
+      https://github.com/gopinav/ES2015-Typescript-Tutorial
+  
+============================================================================================
+
+ 
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,77 @@
+
+ Location:=
+ 
+ /SpringDone/src/applicationContext.xml := (Copyed from javaTpoint)............
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-3.0.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util-3.0.xsd
+">
+
+<bean id="emp" class="com.java.resource.Employee">
+		<property name="empName" value="Ram"></property>
+	</bean>
+	
+		<bean id="emp" class="com.java.resource.Employee">
+		<constructor-arg name="empName" value="Rama" />
+		<constructor-arg name="id" value="1" type="int" />
+	</bean>
+
+	<bean class="com.app.core.Employee" name="empObj" c:empId="10"
+		c:empName="Vicky Raj">
+	</bean>
+
+
+</beans> 
+
+======================================================================================
+<bean id="FileNameGenerator" class="com.mkyong.common.FileNameGenerator">
+		<property name="name" value="mkyong" />
+		<property name="type" value="txt" />
+	</bean>
+	
+P-Type :=
+~~~~~~~
+            xmlns:p="http://www.springframework.org/schema/p"
+			
+			<bean id="FileNameGenerator" class="com.mkyong.common.FileNameGenerator" 
+             p:name="mkyong" p:type="txt" />
+		   
+==========================================================================================================
+Test :=
+~~~~
+  ApplicationContext ctx= new ClassPathXmlApplicationContext("applicationContext.xml");
+		Employee emp=(Employee) ctx.getBean("emp");
+
+==========================================================================================================
+
+ No Version :=
+~~~~~~~~~~~~~~
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+ 	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+ 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+ 
+ 
+ </beans>
+ 
+ 
+==========================================================================================================
+
+
+
+

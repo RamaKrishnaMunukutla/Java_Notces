@@ -1,0 +1,2111 @@
+ 
+
+                
+		..........ConnectionProperties..........SessionFactory.........keyComponentsofHibernate........
+		
+		.............GetVsLoad..............ObjectStateInHibernate.......Collections123..........PrimaryKeyGenerate
+		
+		 .............HQL456..................HQLParameters(***).........HibernateValidatorAPI.....DirtyChecking480......
+		 
+		 .........CriteriaQueries220............NamedQueries888..........NativeSQLQueries770.........
+		
+		........HibernateOverJDBC.................Auto123..................JPA111.....HQLExamples.........
+		
+		.........ConnectionPool330........TransactionManagement..........
+
+=========================================================================================================
+
+              Hibernate-ORM  ----> https://github.com/RameshMF/Hibernate-ORM-Tutorials
+			  
+			  [----- http://localhost:8965 ------]
+                                   
+  
+ Others  :=
+~~~~~~~~~
+
+       https://www.concretepage.com/hibernate/
+       https://www.java4s.com/hibernate/
+       http://javainfinite.com/hibernate-codes/
+	   
+	   
+       https://programmertoday.com/hibernate-simplified/
+       https://www.javaspringclub.com/hibernate/
+	   https://www.candidjava.com/category/hibernate-tutorial/
+	   
+	   
+       CRUD    -----> https://github.com/kishanjavatrainer/HibernateCRUDExample
+  Lazy-Loading -----> https://github.com/kishanjavatrainer/LazyAndEagerLoadingExample
+
+===============================================================================================================================
+  
+----> Model class ......./////........ hibernate.cfg.xml 
+						   
+----> @Column(name = "ACC_NO", unique = false, nullable = false, length = 100)
+				  
+----> @OneToMany(mappedBy="accounts", cascade=CascadeType.ALL, fetch = FetchType.LAZY,  orphanRemoval = true)
+      @JoinColumn(name="EMPLOYEE_ID")
+	   
+----> @Column(unique = true) is a shortcut to UniqueConstraint when it is only a single field.
+
+        @Table(name = "EMPLOYEE", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "ID"),
+        @UniqueConstraint(columnNames = "EMAIL") })
+
+--->feild that not allows null && allows unique
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID", unique = true, nullable = false)
+    private Integer id;
+
+	
+                Primary Key ----> Applied On Only-One-Column // Does-Not-Allows Null-Values.  
+               
+                 Unique Key ----> Applied On More-Than One-One-Column // Allows Only-One Null-Value.
+
+		
+  fetch=”select” or @Fetch(FetchMode.SELECT) ----> This is the default fetching strategy. 
+                                                   It enabled the lazy loading of all it’s related collections
+		
+  fetch="join" or @Fetch(FetchMode.JOIN) ----> This is the default fetching strategy. 
+                                                   It enabled the lazy loading of all it’s related collections
+											   
+		
+----> @OrderColumn(name = "order_id") --- column will not created.
+		
+----> @GeneratedValue(strategy=GenerationType.IDENTITY) ----> Id==1  ( starts from '1' )    
+
+----> person.getBooks().add(book1);.........................@OneToMany
+      employee1.setDepartment(department1);	................@ManyToOne	  
+
+----> System.out.println(employeeName+"\t"+sal+"\t"+city+"\t"+pincode);
+
+---->	@Id
+	    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	    private long assectid;
+	    @Temporal(TemporalType.DATE)
+	    private Date warrentEndDate;
+	    private Double cost;
+	    @Lob
+	    private Byte[] invoiceDoc;
+	    @Lob
+	    private Byte[] warantyDoc;	
+		@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+	    private Date updatedOn;
+ 
+----> how to convert detached state to persist state in hibernate??
+ Using Session.merge()
+ 
+ 
+---->Hibernate 5.2 or later requires minimum Java 1.8 and JDBC 4.2
+
+     Hibernate 5.1 or older requires Java 1.6 and JDBC 4.0
+	 
+===============================================================================
+
+	 
+    Transactional-Table  ----> Performing 'CUD' Operations
+ Non-Transactional-Table ----> Performing Only 'READ' Operations (CACHE --> Used if SAME-Data i.e frequently used to display )
+ 
+ 
+     Cache for Monolithic ---->    Local-Cache
+  Cache for MicroServices ----> Distributed-Cache (Global-Cache)
+
+ REDIS-db := [ https://www.tutorialspoint.com/redis/redis_commands.htm ]
+~~~~~~~~~~
+ --- It is In-Memory DB used as a Cache & Message-Broker.
+ 
+    Redis-Client ----(Comunicate(-PING-with)-----> Redis-Server.(-PONG-)
+
+
+
+====================================================================================================
+
+Cascading := Opertation performed on <Parent> has to reflect to it's child.
+~~~~~~~~~~
+
+---->@OneToMany( cascade=CascadeType.PERSIST).......///applied at Parent level. ( PARENT-CHILD ) (useful in One-Many )
+  
+  --Session.Persist() "--Parent--" persist entity in main file, child-data updated automatic
+  
+  --performing Session.save() on "--Parent--" persist entity in main file, will throw Exception [ TransientObjectException ].
+  
+----> cascade=CascadeType.DELETE	---- Session.delete();
+
+---->Session.merge() --- used to update present state with previous Object changes.	
+
+----> OneTo*** means that entity doesn't create extra column.  
+
+----> ManyTo*** means that entity create extra-column(FK) having PK of other entity. 
+
+---->Lazy loading in hibernate improves the performance. It loads the child objects on demand. (********)
+
+---->Lazy loading fetches the child entities lazily ( not fetch the result assosiated with Sub-class.loads parent-class Only )
+
+----> eager loading when it is possible, because it optimizes the performance of your application. So when querying lazy loading is much slower loading all the reference objects, but eager loading query and select only the object which are relevant
+
+
+==============================================================================================================	
+ Templates444 :=
+ ~~~~~~~~~~~~~ 
+
+ JDBC --- loading-driver && connect-D/b(Repeated) ,Handling-Exceptions, writing-logic, Closing-conection, Manual-table-create.
+ 
+ JDBCTemplate(C) ---loading-driver && connect-D/b(Repeated) , writing-logic, Manual-table-create.
+ 
+ HibernateTemplate --- loading-driver && connect-D/b(Once), writing-logic.
+ 
+ JPARepositary ---- Performs CRUD Operations with D/B.
+
+======================================================================================================
+
+						                              NOTCES
+                                                     =========
+													 
+--->Hibernate framework is java based ORM tool which implements JPA specification that provides mapping for application domain objects to the relational database tables and vice versa.
+  ---Simplifies the development of Java App to interact with database.
+  
+
+----> Hibernate5.0 (or) later version supports only Java 8 && JDBC 4.2 .
+
+----> Jdbc is faster than Hibernate. It is Build as follows :: 
+
+     DB -------> JDBC ----> ORM ----> JPA  (Base :: JDBC )
+	 
+----> Hibernate Supports XML and JPA annotations.
+
+---> SessionFactory is very Expensive to create, One App consists of One SessionFactory only.
+
+---> It Supports Inheritence , Assosiation, Collection.
+
+---> It Wraps exceptions and throws JDBCExceptions which are checked Exceptions.
+
+----> key components of Hibernate.cfg Object -- D/b Connection, class mapping Setup.
+
+Use of HibernateTemplate :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+ used to ---Automated Session closing ability
+         ---Interaction with Hiberate-Session is simplified
+         ---Automated Exceptional handling		 
+
+ 
+----->ORM (Object Relational Mapping): -
+It is theory concept followed by Hibernate. In case of JDBC it will perform operations in primitive’s format even Java Application gives object.
+
+---->Transaction(I) assosiated with session(I) responsible for managing set of commands/statements and instantiated by calling
+  session.beginTransaction();
+  
+
+Hibernate + Servlet Integration:=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ----Register a custom "--ServletContextListner--".
+  ---- Initialize session and store it in Servlet-Context.
+  --- Model class can perform action by getting Hiberate-Session.
+
+
+--->Hibernate Supports "-Proxy-" Object in order to support Lazy Loading.
+
+=====================================================================================================
+
+  Session.save() --- Returns serializable ( generated Primary-Key of Entity. (EXP may Thrown considering state )
+  
+  Session.Persist() --- Make a transient instance persistent. This operation cascades to associated instances if the          association is mapped ( EXP may Thrown considering state )
+  
+  Session.Merge() --- (Returns  Nothing) Merges Modification at any time without considering state of Object.(No EXP)
+  
+  Session.Update() ---  updates Persitance-Instance (With same ID) .
+  
+  Session.SaveOrUpdate() --- Performs both Save/Update Operations on Persistant Object.
+
+
+=====================================================================================================
+
+
+----> ORM will convert object to row and row to object, but to get this we [programmer] should follow mapping rule. I.e. class name-mapped with –Table Name, Variable-mapped with-column
+
+
+--->Hibernate provides a powerful query language (HQL) that is similar to SQL. However, HQL is fully object-oriented and understands concepts like inheritance,  association
+
+---->Hibernate framework having below Java Technologies for DB Programing:
+              ----JDBC       ----JTA    ----JNDI(handles operations coming to D/b)
+			  
+			   String constant pool = Set of String Objects.
+			   Connection pool = Set of Connection objects.
+
+			  
+JTA:=
+~~~~
+----> It provides two operations commit(confirm changes) and rollback(cancel changes) on DB operation.
+  --If set of queries executed without any problem exception or error then commit operations is used. Else we can cancel all queries using Rollback operation
+
+
+JNDI :=
+~~~~
+This concept is used to maintain “Connection-Pool” (Set of Connection Object) that provides faster services for DB operations                                                                                                                    
+
+
+Pool and Cache: -
+~~~~~~~~~~~~~~~
+Both are temporary memories.
+1. Pool: - It is set of same type objects.
+Ex: Employee objects set = Employee Connection Pool
+
+2. Cache: - It is the Collection of different type of objects.
+Ex: employee, student, admin objects as one memory
+
+-------------------------------------------(Model, hibernate.cfg.xml)---------------------------------
+
+ConnectionProperties(4) :=   [.....LoadDriver, ConnMySQL-URL, Username, Password....]
+~~~~~~~~~~~~~~~~~~~~~~~~
+1. driverClassName 2. url 3.userName 4.Password
+
+
+ Hibernateproperties(4) :=
+ ~~~~~~~~~~~~~~~~~~~~~~~
+5. dialect: - It is a class, generates SQL queries when programmer performs operations based on DB details.
+Ex. OracleDialect, MySQLDialect, SybaseDialect, etc.  Dialect makes Hibernate Application as DB independent.
+
+6.show_sql: - It is a Boolean property, default value is false. If it is true then Hibernate Framework prints Generated SQL’s on console.
+
+7.hbm2ddl.auto: - Possible values are
+a) create b) update c) **validate d) create-drop
+  
+  (a) create: - On every operation it (Hibernate) creates new table if Table exist then it will dropped and creates new Table.
+  (b) update: - If exists uses same else creates new table.
+  (c) validate: - It is only default value, In this case hibernate will not create/modify any table only programmer can perform DDL operation.
+  (d) create-drop :- It will creates a table , performs operations and drops the table.
+
+8.format_sql (boolean): - It is a boolean property, default value is false. If it is true it will be display SQL query in clause by clause (part by part).
+To enable this add below key in hibernate.cfg.xml.
+
+                      <property name=”hibernate.format_sql”>true</property>
+					  
+It works if show_sql is “true”,else above line has meaningless
+               
+			   ----Dialect    ----show_sql   ----format_sql      ---hbm2ddl.auto
+
+------------------------------------------------------------------------------------------------------
+
+---->Model class can have annotations.
+ ---Core Annotations (java.lang package).
+ ---JPA Annotations (Java Persistency API
+                 
+				 
+toString :=This method is from java.lang.Object class and it is non-final, non-static, and non-private also
+~~~~~~~~
+
+
+---->toString() method can be overridden in child (or any) class. If not overridden, it prints by default fullClassName@hashCode in HexaDecimal format
+
+---->@TRANSCIENT-----not mapped  with any column.
+
+---->If toSring() method is not overridden then it returns @hashCode in HexaDecimal format.
+
+---->SessionFactory(I) in cfg.xml  will perform:-
+1. Loading driver class
+2. Connection Management (create, maintain, close connection object)
+3. Statement objects management.
+4. Preparing statement using cfg Object.
+
+
+SessionFactory :=
+~~~~~~~~~~~~~~~~
+   ---SessionFactory is an interface. 
+   ---SessionFactory can be created by providing Configuration object, which will contain all DB related property details     pulled from either hibernate.cfg.xml file or hibernate.properties file. 
+   ---SessionFactory is a factory for Session objects.
+   ---provides the instance of Session. It is a factory of Session. 
+   ---It holds the data of second level cache that is not enabled by default.
+   ---SessionFactory is a thread-safe object, many threads can access it simultaneously.
+
+  
+Session :=
+~~~~~~~~
+ ---maintains a connection between the hibernate application and database.
+ ---Session object is lightweight and designed to be instantiated each time an interaction is needed with the database. ---Persistent objects are saved and retrieved through a Session object.
+ ---Session is not a thread-safe object, many threads can't access it simultaneously. In other words, you cannot share it     between two threads.
+ 
+=======================
+
+----> If we talk about SessionFactory.openSession()
+
+--- It always creates a new Session object.
+--- You need to explicitly flush and close session objects.
+--- In single threaded environment it is slower than getCurrentSession().
+--- You do not need to configure any property to call this method.
+
+----> And If we talk about SessionFactory.getCurrentSession()
+
+It creates a new Session if not exists, else uses same session which is in current hibernate context.
+--- You do not need to flush and close session objects, it will be automatically taken care by Hibernate internally.
+--- In single threaded environment it is faster than openSession().
+--- You need to configure additional property. "hibernate.current_session_context_class" to call getCurrentSession() method, otherwise it will throw an exception.
+
+
+     Design-Pattern ----->  Proxy // Factory // Facade // DAO 
+
+       To Log-Generated SQL-Queriees ----->  logging.level.org.hibernate.SQL= DEBUG 
+
+=======================
+ 
+------>Session(I) supports two types of operations in Hibernate.
+ Those are select operations----save,update,saveOrUpdate,delete  //Obj--->Row
+ non-select operations-----get(T.class,Id), load(T.class,Id)        //Row --->Obj
+ 
+  Eg :=
+~~~~~~
+			Object obj = ses.load(Employee.class,101);.... Here 101(ID) should be there in D/b.
+			Employee e = (Employee)obj;
+			System.out.println(e);
+ 
+=============================================================================================
+
+keyComponentsofHibernate :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ Configuration
+ SessionFactory
+ Session
+ Transaction
+ commit/Rollback
+ close
+ 
+----------------------------------------------------------------------------------
+
+        ///.......Create Configuration class object.(org.hibernate.cfg)
+				  
+   Configuration cfg= new Configuration().configure(); //Load Configuration XML File into cfg object using cfg.configure();
+   
+   SessionFactory sf = cfg.buildSessionFactory();    //holds the data of second level cache
+   
+   Session ses = sf.openSession(); //maintains a connection between the hibernate application and database.
+   
+   Transaction tx = ses.beginTransaction();
+   
+    .............Perform operation using session object[ Ex: save(), update(), delete(), get(), load()….]
+	
+   tx.commit() / tx.rollback();  //Commit/Rollback Tx if created
+   
+   ses.close();
+   
+----------------------------------------------------------------------------------
+   
+
+---->SQL query created in Hibernate (syntax)~~~~~~~ Session.createQuery
+
+---->add criteria to a SQL query~~~~~~~~ Session.createCriteria
+
+===========================================================================================================
+
+Session(I) supports two types of operations in Hibernate. Those are select operations and non-select operations.
+Non-select example operations are: -
+
+1) save(obj) : serializable
+2) update(obj) : void
+3) saveOrupdate(obj) : void
+4) delete(obj) : void
+
+Select operations are:
+1) get(T.class, Id): T object (T=Model className)
+2) load(T.class, Id): T object (T=Model className
+
+==========================================================================================
+
+Constraints:=
+--------------
+Unique  Column----@Column(name="ename",unique=true)
+NotNull Column---@Column(name="ename",nullable=false)
+
+==========================================================================
+
+------>Hibernate supports 2 types of memories to improve performance.
+                         no.of opeartions= no.of request calls
+						 
+1. Cache------to reduce network calls between Hibernate app and Database.
+          A) Session (I Level) Cache ---handled by Hibernate only.
+		                             ---It is assosiated with Session-Object && Session-closed means  Cache-Objects are lost.
+		                             ---On performing any session operation that goes to Session cache only on commit() operation, data will be send to Database.
+		  
+          B) SessionFactory (II Level) Cache-----handled by Programmer(enable it)
+		  
+
+--->To disable 2nd Level in hibernate.cfg.xml ,
+
+        <property name="cache.use_second_cache level"> false </property>
+
+2. Pool:=Group(similar types) of objects i.e all objects connected to one datatype
+
+Second level cache := [ https://www.javatpoint.com/hibernate-second-level-cache ]
+~~~~~~~~~~~~~~~~~~~
+----> For 1st          Select-Query,                       Record comes from Database.
+      For 2nd-Same     Select-Query,                       Record comes from Cache. (**********)
+	  For Another      Select-Query form Another-Session , Record comes from Database.
+                                                              
+															  
+==================================================================
+
+selectOperation: - 
+~~~~~~~~~~~~~~~~~
+
+Data select using get(): -
+~~~~~~~~~~~~~~~~~~~~~~~
+Session supports selecting one row based on Primary key column get() will select one row and that is converted to one object.
+                               
+							   row> get() > Object
+							   
+If row is not exist for given primary key then returns “null”data.
+get() works only based on primary key, not other.
+Syntax: get(T.class, ID): Object
+
+          Here, T = Model class Name, Type ID = Primary Key value. Object = row is converted to java.lang.Object
+
+
+get() Execution Flow: -  [ https://github.com/kishanjavatrainer/HibernatePersistenceContextExample_3 ]
+~~~~~~~~~~~~~~~~~~~~
+get() is a select Operation so,“Tx” is not required while writing this operation.
+get() always connected to DB to fetch data every time. It never goes to Cache directly.
+
+    Object obj = ses.get(Employee.class,124);
+    Employee e = (Employee)obj;
+    System.out.println(e);
+
+
+---->casting null data will throw any exception or not?
+Ans: If reference has null performing operation like method call, property call returns NullPointerException(NPE).
+
+
+Data select using load(): -
+~~~~~~~~~~~~~~~~~~~~~~~~
+This method creates one proxy (dummy/fake object) in Session cache and returns same to application. On performing any operation using object after casting then it goes to DB and fetch the data, fills to object variable.
+If row is not available in DB then it returns “ObjectNotFoundException.
+
+    Object obj = ses.load(Employee.class,124);
+    Employee e = (Employee)obj;
+    System.out.println(e);
+
+-------------------------------------------------------------------------------------------
+
+GetVsLoad :=
+~~~~~~~~~~~~~
+1.always hits D/b.
+ Always hits cache.
+ 
+2.throws null if record not exits
+ throws Exception if record not exits (ObjectNotFoundException) even though "try/catch" is used.
+ 
+3.Takes Network call everytime.
+  Takes Network call only on reading data.
+
+-------------------------------------------------------------------------------------------
+
+
+ObjectStateInHibernate:= a newly created Object exits in---------memory
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+ (1) Transient State: An object is in heap memory and not connected to any cache then Object State is Transient.
+
+Ex: Employee emp = new Employee();   Object created in Heap (JVM/RAM) But not in cache.
+
+ (2) Persistence State: On Performing Session operations like save(),update(),saveOrUpdate(),delete(),get(), load() then Object will be placed (Connected) to Cache, then Object is in Persistence State.
+Ex: Employee e = ses.get(Emp.class,55);
+
+
+ (3) Detached State: An Object removed from Cache, which is eligible for “garbage collection”, is in Detached State.
+ Ex: ses.delete(emp);
+  GarbageCollector (GC) follows “Mark&Sweep” algorithm.
+
+================================================================================================
+
+Date and Time:=
+-----------------                                                  //private date dteA;
+craete date variable and  apply 
+ @TEMPORAL(TemporalType.DATE/TIME/TIMESTAMP)
+
+@Column(name="dta")
+private Date dteA;
+
+Test:=   e.setDteA/B/C(new Date()):
+-----
+=======================================================
+BLOB--binary large Object ( byte[] + @LOB)  //stores high level data files.
+
+CLOB----Character large Object ( char[] + @LOB)
+
+@Id
+private int empId;
+--- -- --
+@lob
+private byte[] abc;
+ 
+   Eg :=  [ https://github.com/kishanjavatrainer/BinaryDataAndBLOBMappingExample ]
+  ~~~~~
+  
+=======================================================
+
+ Collections123 :=
+~~~~~~~~~~~~~~~~
+Index Based----- List, Map, IdBag   
+			   
+Non-index Based---- Set,Bag
+              
+			  Bag ~~~~~ List - index   
+			  IdBag ~~~ List – index + ID Column
+			  
+ 
+(a) Key column--------PK column
+(b)indexColumn-------positions
+(c)Element column----data
+
+
+List:=
+----- 
+@Id
+private int empId;
+--- -- --
+ @ElementCollection
+@CollectionTable(name="emptab2", //child table
+                 joinColumns=@JoinColumn(name="eidFk")) //key columns
+
+ @OrderColumn(name="pos")  //** Index column**
+@Column(name="data")   //Element col
+private List<String> prjs=new ArrayList<String>(0);
+
+=========================================================================
+
+Map:=
+-----
+@Id
+private int empId;
+--- -- --
+@ElementCollection
+@CollectionTable(name="emaptab2", //Child table
+                joinColumns=@JoinColumn(name="eidFk")) //key col
+
+@MapKeyColumn(name="pos") //** Index column**
+@Column(name="data") //element col
+private Map<Integer,String> prjs=new HashMap<Integer, String>(0);
+
+==========================================================================
+
+Set:=
+----- 
+@Id
+private int empId;
+--- -- --
+@ElementCollection
+@CollectionTable(name="emptab2", //child table
+               joinColumns=@JoinColumn(name="eidFk")) //key column
+@Column(name="data")   //Element col
+private Set<String> prjs =new HashSet<String>(0);
+
+
+
+Bag:=
+~~~
+@ElementCollection
+@CollectionTable(name="emp_data", //table
+joinColumns=@JoinColumn(name="eidFk")) //key col
+@Column(name="prjs") //element col
+private List<String> data=new ArrayList<String>(0);
+
+=====================================================
+
+IdBag :=
+~~~~~~~
+@GenericGenerator(name="sample",strategy="increment")
+@Entity
+@Table(name="emp_tab")
+class Employee{
+@ElementCollection
+@CollectionTable(name="emp_data", //table
+joinColumns=@JoinColumn(name="eidFk")) //key col
+@CollectionId (columns=@Column(name="unqPos"),
+generator = "sample",
+type = @Type(type="long"))
+@Column(name="prjs") //element col
+private List<String> data=new ArrayList<String>(0);
+}
+
+=====================================================
+
+Test class:=
+----------
+Data(element)-----e.getPrjs.add("p1"); 
+======================================================================================================
+Collections-Eg :=
+~~~~~~~~~~~~~~ 
+
+Model:=
+----
+@Entity
+@Table(name = "emptab")
+public class Employee {
+	@Id
+	@Column(name = "eid")
+	private int empId;
+	@Column(name = "ename")
+	private String empName;
+	@Column(name = "esal")
+	private double empSal;
+//===================================================
+	@ElementCollection
+	@CollectionTable(name = "set-tab", joinColumns = @JoinColumn(name = "eid"))// key column
+	@Column(name = "prjs") // element column
+//no index column
+private Set<String> empPrjs = new HashSet<String>();
+//=============================================
+	@ElementCollection
+	@CollectionTable(name = "map-tab", joinColumns = @JoinColumn(name = "eid") // key
+	)
+	@MapKeyColumn(name = "pos") // index column
+	@Column(name = "model") // element column
+	private Map<Integer, String> models = new HashMap<Integer, String>();
+//========================================== 
+	@ElementCollection
+	@CollectionTable(name = "list-tab", joinColumns = @JoinColumn(name = "eid"))// key column
+	@Column(name = "list") // element column
+//no index column
+private List<String> list = new ArrayList<String>();
+//===================================================
+
+Test:=
+~~~~
+      Employee e=new Employee();
+			e.setEmpId(100);
+			e.setEmpName("ABCD");
+			e.setEmpSal(12.3);
+			//set data
+			e.getEmpPrjs().add("P1");
+			e.getEmpPrjs().add("P2");
+			e.getEmpPrjs().add("P3");
+			// map data
+			e.getModels().put(10, "M1");
+			e.getModels().put(20, "M2");
+			e.getModels().put(30, "M3");
+			
+			e.getList().add("Rama1");
+			e.getList().add("Rama1");
+			e.getList().add("Rama1");
+		    ses.merge(e);
+
+
+D/B:=
+~~~
+
+ select * from test.emptab; 
+ 
+ select * from test.list-tab; 
+ 
+ select * from test.map-tab; 
+ 
+ select * from test.set-tab;
+ 
+===========================================================================================================
+Has-A Relation::=
+~~~~~~~~~~~~~~~
+
+  		Address addr1=new Address();
+			addr1.setAddrId(1);
+			addr1.setLoc("HYD");
+			addr1.setPinCode(500);
+			
+			Address addr2=new Address();
+			addr2.setAddrId(2);
+			addr2.setLoc("BAN");
+			addr2.setPinCode(600);		 
+//========================================			 
+			
+			Employee emp1=new Employee();
+			emp1.setEmpId(10);
+			emp1.setEmpName("A");
+		    emp1.setEmpSal(1.1);
+		    emp1.setAddr(addr1);
+		    
+			Employee emp2=new Employee();
+			emp2.setEmpId(11);
+			emp2.setEmpName("B");
+			emp2.setEmpSal(2.2);
+			emp2.setAddr(addr2);
+//================================================	 
+	
+		    ses.save(addr1);
+			ses.save(addr2);
+			
+			ses.save(emp1);
+			ses.save(emp2);
+ 
+==================================================================
+
+
+ Multi-level Classes----Tables Operations :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+(1) Secondary Table Mapping (1 class--MultiTables):=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ PK shared by all tables.
+
+@Entity
+@Table(name="emptab")
+@SecondaryTables(
+    @SecondaryTable(name = "emptab2",
+      pkJoinColumns=@PrimaryKeyJoinColumn(
+           name="eidFk",referencedColumnName="eid"))
+  )
+public class Employee{
+  @Column(name="ename", table="empchild2")
+    private String empName;   //to set columns to various tables.
+ }     
+
+
+(2) Component Mapping (Multiple classes--- 1Table):=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+If child and parent are fully dependent then,
+----Their should be Has-A relation
+----child should not have PK
+---@EMBEDDABLE ~~~at child class level
+---@EMBEDDED~~~~~~in parent at Has-A level
+
+Test :=add before saving Objects~~~~~~~ emp.setAddr(addr);
+
+
+(3) Inheritance Mapping (IS-A):=designed in 3 ways.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+(3)(a)  Table Per Class:= No of columns in table = no of variables in all classes +    -----------------------                                                        1  extra column.
+
+----(Extra column)  Discriminator column(descripti on row classes)
+----(Enum) InheritanceType{ SINGLE-TABLE , TABLE-PER-CLASS , JOIN }
+----(Enum) DiscriminatorType{ STRING,  CHAR,  INT }
+----(Annotations)  @DiscriminatorColumn & @DiscriminatorValue
+----(Annotations)  @Inheritance
+
+@Entity
+@Table(name="empttab")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="obtype",discriminatorType=DiscriminatorType.STRING)
+@DiscriminatorValue("EMP")
+public class CEO{
+------
+------  }
+
+@Entity
+@DiscriminatorValue("REG")
+public class Manager extends CEO {-----------}
+
+@Entity
+@DiscriminatorValue("REG")
+public class Employee extends CEO {----------}
+
+Test := Set and save data.
+
+=========================================
+(3)(b) Table Per Subclass:=
+-------------------------------
+----(Extra Column) @PrimaryKeyJoinColumn
+----CEO no annotation except @Id , @column
+
+@Entity
+@Table(name="mtab")
+@Inheritance(strategy=InheritanceType.JOINED)
+public class Manager extends CEO{-------} 
+
+
+@Entity
+@Table(name="emptab")
+@PrimaryKeyJoinColumn(name="eidFk")
+class Employee exntends CEO {----------}
+
+Test := create Objects, set data and  save data for 3 classes.
+-----
+==========================================
+(3)(c) Table Per Concrete:=
+----------------------------
+-----Only one PK at Super class.
+-----no linking tables(No extra columns)
+-----provides data to their own table separatley
+
+@Entity
+@Table(name="emp")
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+class Employee{
+       @Id 
+        @Column  }
+
+
+@Entity
+@Table(name="reg_emp")
+class RegEmployee exntends Employee {
+   @Column                             }
+
+
+@Entity
+@Table(name="cnt_emp")
+class ContractEmployee extends Employee {
+            @Column                   }
+
+
+Test := create Objects, set data and  save data for 3 classes.
+-----
+=======================================================
+Multiplicity:= Linking rows b/w 2 tables,can be implemented in 4 ways.
+--------------
+    ---OneToOne          ----OneToMany					    ---ManyToOne        ----ManyToMany
+
+----Apply Has-A relation
+----Choose one Multiplicity and 
+----Add Annotation over has-A relation in parent class.
+               @oneToMany.... & @JoinColumn(name="pidFK",unique=true)
+----Design tables output.
+
+(Eg) ManyToMany (Collection) :=
+ ------------------------------     // Employee Has-A with Project
+@Entity
+@Table(name="emptab")
+public class Employee{
+  @Id
+  @Column(name="eid")
+  private string empName;
+    -----  ---- -  ----
+  @ManyToMany
+  @JoinCloumn(name="pidFK" , unique=true)  //extra table created 
+  private List<Project> prj=new ArrayList<Project>(0); 
+   }
+
+Cascading (Non-select):= Changes apply parent Object---effects Overall it's child  Object  ---------------------                                 
+
+                ----ALL   ----MERGE    ---DETACH    ---PERSIST                            
+
+----->To  acheive Composition(Strong relationship) ,apply cascading over Multiplicity
+
+Fetch :=     ----LAZY(only parent data loaded)     -----EAGER(both loaded)
+-------
+ --(Enum)cascade=CascadingType, fetch=FetchType in Multiplicity annotation
+ 
+  Eg := [ https://github.com/kishanjavatrainer/LazyAndEagerLoadingExample ]
+ ~~~~
+
+
+ (Eg) ManyToMany (Collection) using Cascade & Fetch :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
+@Entity
+@Table(name="emptab")
+public class Employee{
+  @Id
+  @Column(name="eid")
+  private string empName;
+    -----  ---- -  ----
+  @ManyToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+  @JoinTable(  name="emptab2",
+        joinColumns=@JoinColumn(name="eidFk"),
+      inverseJoinColumns=@JoinColumn(name="aidFk")    ) 
+  private List<Project> prj=new ArrayList<Project>(0); //extra table
+}
+
+
+(Eg) OneToMany (Collection) using Cascade & Fetch :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
+//after annotation
+ @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+ @JoinColumn(name="pidFK")
+  private List<Project> prj=new ArrayList<Project>(0);
+  
+=======================================================
+
+Bidirectional-Mapping (Multiplicity):=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Suports 2 ways data selection without creating extra columns means,
+    Parent data child can access and Viceversa.
+
+----Reverse Has-A
+----Reverse Multiplicity
+----provide "Mapped By" to avoid extra column and to say it's bidirectional.
+        i.e @ManyToMany(mappedBy="abc") 
+
+@1--1 ~~~~~~~~~~@ManyToOne(Uni)~~~~@OneToOne(Bi-direc)
+@OneToMany~~~~~@OneToMany(Uni)~~~~@OneToOne(Bi-direc)
+
+============================================================
+
+=========================/\/\\/\/\==========\/\\/\/\\/==============================
+
+ PrimaryKeyGenerate :=
+~~~~~~~~~~~~~~~~~~~~
+ (1)GenerationType.AUTO: Hibernate selects the generation strategy based on the used dialect.
+ 
+ (2)GenerationType.IDENTITY: Hibernate relies on an auto-incremented database column to generate the primary key.
+ 
+ (3)GenerationType.SEQUENCE: Hibernate requests the primary key value from a database sequence.
+ 
+ (4)GenerationType.TABLE: Hibernate uses a database table to simulate a sequence.
+ 
+ Eg :=
+~~~~~
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id", updatable = false, nullable = false)
+    private Long id;
+ 
+ 
+ Enums :=
+~~~~~~~~
+ public enum ProjectStatus {
+    OPEN,
+    INPROGESS,
+    RESUME,
+    COMPLETED,
+    CLOSED;
+ }
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "project_status")
+    private ProjectStatus projectStatus;
+
+
+=========================/\/\\/\/\==========\/\\/\/\\/==============================
+
+
+ HQL456 :=
+~~~~~~~~~
+---->By using Session operations like save(), update(), saveOrUpdate(), delete(), get(), and load() at a time we can work with one Row/Object.
+To work with multiple Row/Object environments , Hibernate has provided two special concepts. Those are
+ 1. Query API [HQL]
+ 2. Criteria API
+  --works for all databases
+  --Hql is partially case sentitive and does not support "select * " in Query
+  --SQL is database dependent and HQL IS  database independent.	
+  --HQL supports both select and non-select operations.
+  --HQL is partially case-sensitive and insensitive.
+
+--->HQL is Object Oriented Query language (OoQL) and it is D/b Independent.
+
+
+   SQL-----select eid, ename from emp;
+
+  HQL----select empId, empName from com.app.Employee;
+
+  select *  from emp <-----> from  com.app.Employee
+
+  HQL select   ---- select
+ HQL Non select---- update, copy, delete (to copy rows from one table to another table)
+
+---> Loading based on columns.
+
+ Select :=   [ https://github.com/kishanjavatrainer/HibernateHQLExample_1_2 ]
+~~~~~~~~~~
+  String hql = "From com.java.hibernate.Employee";
+			//Create Query Object with Session
+			Query q = ses.createQuery(hql);
+			//Call List<>() method
+			List<Employee> emps = q.list();  // List<Object[]> ......... List<String>
+			for(Employee e:emps) {
+			System.out.println(e);
+
+Update() := [ https://github.com/kishanjavatrainer/HibernateHQLExample_3 ]
+~~~~~~~~
+    String hql = "update com.java.hibernate.Employee set empName=:empName, empSal=:empSal where empId=:empId";
+			//Create Query Object with Session
+			Query q = ses.createQuery(hql);
+			//Set query to setParametersList
+			q.setParameter("empName", "ABC");
+			q.setParameter("empSal", 44.44);
+			q.setParameter("empId", 10);
+			//Call executeUpdate() method
+			int count = q.executeUpdate();
+			System.out.println("Updated Records are :: "+count);
+
+
+ Copy() :=  //Here create "--EmployeeBackUp--" Model ,change "-XML-" file && RUN
+~~~~~~~~~
+	String hql = "insert into com.java.hibernate.EmployeeBackUp(bkpId,bkpName,bkpSal) select empId,empName,empSal from     com.java.hibernate.Employee";
+			//Create Query Object with Session
+			Query q = ses.createQuery(hql);
+			//Call executeUpdate() method
+			int count = q.executeUpdate();
+			System.out.println("Copied Records are :: "+count);
+			
+   [https://github.com/kishanjavatrainer/HibernateHQLExample_2]
+			
+			 
+delete :=
+~~~~~~
+		String hql = "delete from com.java.hibernate.Employee where empId=:empId";
+			//Create Query Object with Session
+			Query q = ses.createQuery(hql);
+			//Set query to setParametersList
+			q.setParameter("empId", 20);
+			//Call executeUpdate() method
+			int count = q.executeUpdate();
+			 
+			System.out.println("Deleted Records are :: "+count);
+			
+
+ GroupBy ----> [ https://github.com/kishanjavatrainer/HQLWithGroupByExample ]
+ Having -----> [ https://github.com/kishanjavatrainer/HQLWithHavingClauseExample ]
+
+================================================================================================
+
+HQL select Operations:=   //no transaction required.On executing HQL select query it returns data in List format
+~~~~~~~~~~~~~~~~~~~~~~
+(1)  Full Loading--------List<T>  //selecting all columns
+2(a) partial Loading-----List<DataType>  //selecting exactly one column
+2(b) partial Loading-----List<Object[]>  //selecting more than one column
+
+    ........list():LIST.........uniqueResult():int.....executeUpdate():int...........
+	
+============================================
+
+HQLParameters :=
+~~~~~~~~~~~~~~~
+To provide a value to HQL to where class only at runtime, hibernate provided parameters concept.
+It supports 2 types of Parameters, Those are
+
+1] Positional Parameter (:?) :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ----It is concept from JDBC, also supports in Hibernate.
+ ---It provides index number starts from zero(0) to every ? symbol in HQL.
+ ---Set data using q.setParameter(index,data) method
+ ---This method must be called after query object and before list() method.
+
+
+2]NamedParameter  (:a) := 
+~~~~~~~~~~~~~~~~~~~~~~~~
+These are used to provide a name to parameter that will be replaced with a value at runtime.
+**Even where clause changed, names will not get affected.
+
+So, it is better than Positional Parameter.
+**Use “setParameter(name,data)” to set value at runtime to named Parameter.
+
+Ex: Below HQL is written with Positional Parameters
+from com.app.Employee where empId > ? and empName = ? or empSal < ?
+? Replaced with:[Named Parameter]
+
+from com.app.Employee where empId >: a and empName : b or empSal < : c
+
+---->After Named Parameter, no Positional Parameters are accepted (*********)
+
+If we use Positional Parameter after Named Parameter in HQL, then Hibernate throws, QuerySyntaxException:cannot define positional parameter after any named parameters have been defined.
+
+Examples Orders for Parameters:
+#1 ? ? :a :b (Valid)
+#2 ? :a ? ? (Invalid)
+#3 :a :b :c :d (Valid)
+#4 ? ? ? ? (Valid)
+#5 :a ? :b ? (Invalid)
+
+Eg ( Positional && Named ):=
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+//Create HQL String
+			String hql = "from com.java.hibernate.Employee where empId =? or empName= :a and empSal= :b";
+			//Create Query Object with Session
+			Query q = ses.createQuery(hql);
+			//Set query to setParametersList
+			q.setParameter(0, 10);
+			q.setParameter("a", "A");
+			q.setParameter("b", 2.2);
+			//Call List<>() method
+			List<Employee> emps = q.list();
+			for(Employee e:emps) {
+			System.out.println(e);
+			}
+
+=================================================================
+
+"In" Clause(or):= 
+~~~~~~~~~~~~~~        
+in clause is used to selected random rows (specific rows, not a range).
+ 
+         setParameterList("---",Arrays.asList(1,2,3))		 
+
+Eg :=
+--
+String hql = "from com.java.hibernate.Employee where empId in (:ab)";
+			/* List<Integer> data = new ArrayList<Integer>();
+			data.add(11);
+			data.add(12);
+			data.add(13); */
+		 
+			List<Integer> list = Arrays.asList(10,20,30);
+			//Create Query Object with Session
+			Query q = ses.createQuery(hql);
+			//Set query to setParametersList
+			q.setParameterList("ab", list);
+			//Call List<>() method
+			List<Employee> emps = q.list();
+			for(Employee e:emps) {
+			System.out.println(e);
+			}
+=====================================================================
+
+------>If query returns only [exactly]one value/row, then use uniqueResult() in place of list() method
+
+------>IF query returns more than one value, while using uniqueResult() method, Hiberate throws exception: NonUniqueResultException:query did not return a unique result
+
+===================================================================
+Pagination:=
+--------------
+To select rows in a range without using external where clause (by programer), Pagination methods are given from hibernate with Query and Criteria API.
+Methods are:
+setFirstResult(int): Starting index number
+setMaxResult(int): max rows to be selected.
+
+Eg :=
+~~~
+	String hql = "from com.java.hibernate.Employee";
+			Query q = ses.createQuery(hql);
+			q.setFirstResult(0);
+			q.setMaxResults(3);
+			List<Employee> emps = q.list();
+			for(Employee e:emps){System.out.println(e);}
+
+===========================================================================
+
+Generators:=
+~~~~~~~~~~~
+----These are used to generate one Primary Key value on save or insert operation.
+Ex: Aadhar Card Id, Voter Id, Pan No, Driving Lic are primary keys which are generated on registration (save) operations
+
+----Few more Ex: Amazon OrderId, Tracking Id, Mobile No, Recharge Ref No, bar code of Product.
+
+----These id’s are generated when those records are created in application.
+***Generators works only when save(insert) operation is done. Not application for other operations.
+
+========================================================================================================
+NativeSQL :=
+~~~~~~~~~~~
+---> But native SQL has no conversion. So, SQL is faster in execution if compared with HQL/Criteria.
+**SQL is DB Dependent, where HQL and Criteria is DB Independent
+
+			String sql = "select ename,esal from emp where eid>?";
+			//Create SQL Query
+			SQLQuery q = ses.createSQLQuery(sql);
+			q.setParameter(0, 10);
+			//Call list()/uniqueResult() method
+			List<Object[]> emps = q.list();
+			 
+			//Print Data
+			for(Object[] ob:emps) {
+			System.out.print(ob[0]+" "+ob[1]);
+			 
+			}
+
+======================================================================================================
+
+HibernateValidatorAPI && MVC :=  
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+---> Validations are used to check data, before processing operation.
+Ex: Is EmpName valid? It should not be null, should have 4-6 chars only.
+*Validations can be done using:
+        1] Scripting (Java Script/JQuery/AJS)
+		2] Spring Form Validation
+        3] Bootstrap Validation API
+		
+---> In same way “Hibernate Validation API”.
+   This API will not be given as default in Hibernate CORE F/W.
+  *It must be taken as Add-On (extension)
+
+String Type Validations In Hibernate: -
+I] not null check
+Ii] size check
+Iii] pattern/format check
+
+   https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/HttpStatus.html
+   
+
+  @past(message="...") ---->used when value which is falling in-Future, Shows BindingError.
+  @Max(2222)
+  @Size(min=2, max=200, message="Plase enter values from {min} to {Max} values Only.")....Can define in Properties-files.
+  
+                  <validation-Name>. <Obj-Ref-Name>.<value>= .....MSG....
+				  
+				  Size.Student1.studentHobby = Enter Valid values!!!!!!! 
+				  
+				  
+  [ @NotNull/Empty(message="...")............@Past&&@Future(message="XX")......@Size(message="XX")
+  
+  [ @Min&&@Max(value=20,message="...")...........@Pattern(message="XX")............@Valid(message="XX") ]
+  
+                     
+					 @Validated ----> At Class Level.
+					  @Valid -----> This annotation goes inside with Pojo-Class && Check with validation-Annotation.
+
+
+Eg1 :=
+~~~
+
+@Entity
+@Table(name = "emptab")
+public class Employee {
+	@Id
+	@Column(name = "emp_Id")
+	private int empId;
+---------------------------------
+	@Column(name = "emp_Name")
+	@Pattern(regexp = "[a-z] {2,6}", message = "Enter only lowe 2-6 chars only!")
+	private String empName;
+---------------------------------
+	@Column(name = "emp_Sal")
+	@Min(value = 6, message = "Salary must be 6 or higher!")
+	private double empSal;
+---------------------------------
+	@AssertTrue(message = "Employee must be activated before register")
+	@Column(name = "status")
+	private boolean status;
+---------------------------------
+	@Past
+	@NotNull
+	@Column(name = "dob")
+	private Date dob;
+---------------------------------
+    @Column(name = "state")
+    @Size(min = 3, max = 40)
+    @Pattern(regexp = "^[a-zA-Z\\s]+$")
+    private String state;
+--------------------------------------
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @NotNull
+    private List<CartItem> cartItemList;
+-----------------------------------------------
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    @JsonIgnoreProperties("productList")
+    private ProductCategory productCategory; 
+------------------------------------------------
+
+Eg2 :=
+~~~
+    @NotNull(message = "Please enter id")
+    private Long id;
+ 
+    @Size(max = 20, min = 3, message = "{user.name.invalid}")
+    @NotEmpty(message = "Please enter name")
+    private String name;
+ 
+    @Email(message = "{user.email.invalid}")
+    @NotEmpty(message = "Please enter email")
+    private String email;
+	
+	user.name.invalid=Invalid Username
+   user.email.invalid=Invalid Email
+   
+ Eg3 :=
+~~~~~~
+public class User {
+	@NotEmpty(message="Name can't be empty")
+	private String name;
+	
+	@Min(value = 12,message="Age can't be lessthan 12")
+	@Max(value = 120,message="Age can't be greater than 120")
+	@NotNull(message="Age can't be null")
+	private Integer age;
+	
+	@NotEmpty(message="Email can't be empty")
+	@Email(message="Enter valid email")
+	private String email;
+	
+	@NotEmpty(message="Country can't be empty")
+	private String country;
+ }
+
+ Dot-Properties(ResourceBundleMessageSource--Validations) :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  NotEmpty.user.name=Name can't be empty
+  Min.user.age=Age can't be less than 12
+  Max.user.age=Age can't be greater than 120
+  
+  NotNull.user.age=Age can't be null
+  NotEmpty.user.email=Email can't be empty
+  
+  Email.user.email=Enter valid email
+  NotEmpty.user.country=Country can't be empty
+  
+   <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+	<property name="basename" value="/WEB-INF/messages"></property>
+	</bean>
+	
+		<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<array>
+				<value>/WEB-INF/database.properties</value>
+			</array>
+		</property>
+	</bean>
+ 
+=======================================================================================
+
+HQL Joins := fetches data from multiple tables..
+-------------
+appled at Has-A level---@ManytoOne   @JoinColumn(name"eidFk")            
+
+---INNER/JOIN      ----OUTER   ----LEFT    ----RIGHT    ---FULL
+
+Test~~~~~create object nad set data.
+
+Eg :=
+~~~~
+			String hql=" select emp.empName,addr.loc "
+					+ " from com.app.model.Employee emp "
+					+ " full join "
+					+ " emp.addr as addr ";
+					Query q=ses.createQuery(hql);
+					List<Object[]> list=q.list();
+					for(Object[] ob:list) {
+					System.out.println(ob[0]+","+ob[1]);
+					}
+					
+======================================================================================
+
+
+The Hibernate Query object is used to retrieve data from database. You can use either SQL or Hibernate Query Language (HQL). A Query instance is obtained by calling Session.createQuery().
+
+The Query object is used to bind query parameters, limit query results and execute the query.
+
+Here is the list of Query methods which will be used very often in Hibernate implementations:
+
+list()
+Return the query results as a List. If the query contains multiple results pre row, the results are returned in an instance of Object[].
+
+executeUpdate()
+Execute the update or delete statement. It returns the number of entities updated or deleted.
+
+setParameter()
+Bind a value to a JDBC-style query parameter. The Hibernate type of the parameter is first detected via the usage/position in the query and if not sufficient secondly guessed from the class of the given object.
+
+uniqueResult()
+Convenience method to return a single instance that matches the query, or null if the query returns no results.
+
+setMaxResults()
+Set the maximum number of rows to retrieve. If not set, there is no limit to the number of rows retrieved.
+
+setFirstResult()
+Set the first row to retrieve. If not set, rows will be retrieved beginning from row 0.
+
+=====================================================================================================
+
+NamedQueries888 := (It is JPA Query, It's syntax is checked when SessionFactory is created. )
+~~~~~~~~~~~~~~~~
+Named queries in hibernate is a technique to group the HQL statements in single location
+
+----> Once defined , can be used through-out application.
+
+---->Apart from above, below are some minor advantages of named queries:
+  Fail fast: Their syntax is checked when the session factory is created, making the application fail fast in case of an error.
+  Reusable: They can be accessed and used from several places which increase re-usability.
+  
+---->We can create Named-Queries for both HQL && Native-SQL queries.
+
+---->Named-Queries can be created by either Mapping-file (or) JPA-Annotations.
+
+---->named query really make code less readable and sometimes debugging becomes more hard.
+
+---->You can not have two named queries with same name in hibernate. Hibernate shows fail fast behavior in this regard and will show error in application start up itself.
+
+---->Use named queries preferably only for selecting records based on complex conditions. Do not use them excessively, otherwise there is no use of using ORM over simple JDBC.
+
+---->Performance wise named queries done not make much difference, nor put any excessive cost.
+The cost of transforming a HQL query to SQL is negligible compared to the cost of actually executing the query.
+The memory cost of caching the query is really small. Remember that Hibernate needs to have all the entities meta-data in memory anyway.
+
+---->"--name--" in @namedQueries should be Unique (**********)
+
+
+Eg :=  [https://github.com/kishanjavatrainer/NamedNativeQueryInHibernateExample]
+~~~~
+@Entity
+@Table(name="emp")
+@NamedQueries(value = { 
+		@NamedQuery(name = "getTotalSalarOfEmployeesByDept", query = "SELECT dept.departmentName,SUM(emp.salary) FROM Department dept"
+				+ " LEFT JOIN dept.employees emp GROUP BY dept"
+				+ " HAVING SUM(emp.salary)>200000"),
+		@NamedQuery(name = "Employee.byId", query = "FROM Employee WHERE employeeId=:empId") 
+		})
+		
+Method :=
+~~~~~~~
+private static void getTotalSalaryOfEmployeesByDept() {
+		Session session = null;
+		try {
+			session = HibernateUtil.getSessionFactory().openSession();
+			Query<Object[]> query = session.getNamedQuery("getTotalSalarOfEmployeesByDept"); .........(**********)
+			List<Object[]> list = query.list();
+			for (Object[] objects : list) {
+				String departmentName=(String)objects[0];
+				Double totalSalByDept = (Double)objects[1];
+				System.out.println("Department Name:"+departmentName);
+				System.out.println("Total Sal By Dept:"+totalSalByDept);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(session != null)
+				session.close();
+		}
+	}
+
+================================================================================================================
+
+ NativeSQLQueries770 :=  (....scalar()....addEntity().....)
+~~~~~~~~~~~~~~~~~~~~
+
+---->Used to utilize Database Specific-features.
+
+---->executing these Queries controlled by NativeQuery-(I), obtained by 
+
+                          "--Session.createNativeQuery()::List<Object[]>-" method in JPA.
+
+ Eg :=
+~~~~
+	private static void getPersonInfoV1() {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()) {
+			List<Object[]> list = session.createNativeQuery(" SELECT * FROM per ").list();
+			for (Object[] objects : list) {
+				BigInteger id  =(BigInteger)objects[0];
+				String name=(String)objects[3];
+				
+				System.out.println("Person Id:"+id);
+				System.out.println("Person Name:"+name);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+--------------------------------------------------------------------
+	
+	//Hibernate native query selecting entities with explicit result set
+	private static void getPersonEntityV2() {
+
+		try(Session session = HibernateUtil.getSessionFactory().openSession()) {
+			 List<Person> list = session.createNativeQuery("SELECT id, name, nickName, address, createdOn, version FROM Person").addEntity(Person.class).list();...///any-col missed leads to Error.
+			 list.forEach(System.out::println);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	
+	}
+--------------------------------------------------------------------
+	// Hibernate native query selecting entities
+	private static void getPersonEntityV1() {
+
+		try(Session session = HibernateUtil.getSessionFactory().openSession()) {
+			 List<Person> list = session.createNativeQuery("SELECT *FROM Per").addEntity(Person.class).list();
+			 list.forEach(System.out::println);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	
+	}
+
+=================================================================================================================
+CriteriaQueries220 := [ https://github.com/kishanjavatrainer/CriteriaQueryJoinExample2 ] 
+~~~~~~~~~~~~~~~~~~~
+
+---->Criteria API helps us build criteria query objects dynamically. 
+
+              HCQL ----> Adds Criteria to Filter Data
+
+---->Criteria is a another technique of "--data-retrieval--" apart from HQL and native SQL queries.
+
+---->The primary advantage of the Criteria API is that it is intuitively designed to manipulate data without using any hard-coded SQL statements
+
+----> "--org.hibernate.Criteria--" interface defines the available methods for one of these objects. The Hibernate Session interface contains several overloaded createCriteria() methods.
+
+                                               <---------
+                        Session.getCriteriaBuilder() : CriteriaBuilder cb (I)
+					       cb.createQuery(<T>,class) : CriteriaQuery<T> cq
+					             cq.from(<T>.class); :  Root<T> root 
+									 
+ Eg (Entire) :=
+~~~~~~~~~~~~~
+		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+			CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaQuery<Employee> criteriaQuery = builder.createQuery(Employee.class);
+			Root<Employee> root = criteriaQuery.from(Employee.class);
+			criteriaQuery.select(root);
+			
+			criteriaQuery.where(builder.equal(root.get("employeeId"), 2));
+			
+			Query<Employee> query = session.createQuery(criteriaQuery);
+			List<Employee> empList = query.list();
+			empList.forEach(System.out::println);
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}
+
+ Eg (Type) :=
+~~~~~~~~~~~~
+		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+			
+			CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaQuery<String> criteriaQuery = builder.createQuery(String.class);
+			Root<Employee> root = criteriaQuery.from(Employee.class);
+			criteriaQuery.select(root.get("employeeName"));
+			
+			//criteriaQuery.where(builder.equal(root.get("employeeId"), 1));
+			
+			Query<String> query = session.createQuery(criteriaQuery);
+			List<String> empList = query.list();
+			empList.forEach(System.out::println);
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		} 
+		
+---->
+
+---->
+
+---->
+
+---->
+
+---->
+
+=============================================================================================================
+
+ DirtyChecking480 :=
+ ~~~~~~~~~~~~~~~~
+ It saves developer's time and effort in updating of database when
+
+----> states of objects are modified inside a transaction
+
+---->Hibernate automatically detects the object states whenever changed and synchronized with the database in order to update.
+
+----> all necessary updating and changes are done without affecting the other fields.
+Only the changed fields of database are updated and the remaining unchanged fields are left untouched.
+ 
+---->Before Performing "--Update--" Operation, we have to perform "--Select--" Operation.
+
+----> while performing Select( load()/get() ), "ID" can get from Sessioncache.
+
+
+---->https://github.com/kishanjavatrainer/HibernateDirtyCheckingExample
+
+
+===============================================================================================================
+JPA Cascade Types :=
+~~~~~~~~~~~~~~~~~ 
+ CascadeType.PERSIST : cascade type presist means that save() or persist() operations cascade to related entities.
+
+ CascadeType.MERGE : cascade type merge means that related entities are merged when the owning entity is merged.
+
+ CascadeType.REFRESH : cascade type refresh does the same thing for the refresh() operation.
+
+ CascadeType.REMOVE : cascade type remove removes all related entities association with this setting when the owning entity is deleted.
+
+ CascadeType.DETACH : cascade type detach detaches all related entities if a “manual detach” occurs.
+
+ CascadeType.ALL : cascade type all is shorthand for all of the above cascade operations.
+
+=============================================================================================================
+
+=====================================================================================
+
+                             ===/\==/\==/\==  END NOTCES===/\==/\==/\==
+                                                        
+														
+Hibernate:=
+-----------
+ORM is the programming technique to map application domain model objects to the relational database tables. Hibernate is java based ORM tool that provides framework for mapping application domain objects to the relational database tables and vice versa.
+
+
+---->Java Persistence API (JPA) provides specification for managing the relational data in applications. Current JPA version 2.1 was started in July 2011 as JSR 338. JPA 2.1 was approved as final on 22 May 2013.JPA specifications is defined with annotations in javax.persistence package. Using JPA annotation helps us in writing implementation independent code.
+=======================================================
+
+Benefits of Hibernate :=
+~~~~~~~~~~~~~~~~~~~~~
+
+---->Hibernate framework provides support for XML as well as JPA annotations, that makes our code implementation independent.
+
+---->Hibernate provides a powerful query language (HQL) that is similar to SQL. However, HQL is fully object-oriented and understands concepts like inheritance, polymorphism and association.
+
+---->Hibernate is an open source project from Red Hat Community and used worldwide. 
+
+---->Hibernate is easy to integrate with other Java EE frameworks, it’s so popular that Spring Framework provides built-in support for integrating hibernate with Spring applications.
+
+---->Hibernate cache helps us in getting better performance. For database vendor specific feature, hibernate is suitable because we can also execute native sql queries.
+
+=======================================================
+
+HibernateOverJDBC:= (--Oops-Support, --HQL(No-Native), --SQL-E, --Table-Creates, ---Cache , --Conn-Pooling , --Integration)
+~~~~~~~~~~~~~~~~~~~~
+
+-----Hibernate supports inheritance, associations and collections. These features are not present with JDBC API.
+
+-----JDBC API throws SQLException that is a checked exception, so we need to write a lot of try-catch block code. Most of the times it’s redundant in every JDBC call and used for transaction management. Hibernate wraps JDBC exceptions and throw JDBCException or HibernateException un-checked exception, so we don’t need to write code to handle it. 
+
+-----Hibernate Query Language (HQL) is more object oriented and close to java programming language. For JDBC, we need to write native sql queries.
+
+-----Hibernate supports caching that is better for performance, JDBC queries are not cached hence performance is low.
+
+-----Hibernate provide option through which we can create database tables too, for JDBC tables must exist in the database.
+
+-----Hibernate configuration helps us in using JDBC like connection as well as JNDI(java naming directory interface) DataSource for connection pool. This is very important feature in enterprise application and completely missing in JDBC API.
+
+-----Hibernate supports JPA annotations, so code is independent of implementation and easily replaceable with other ORM tools. JDBC code is very tightly coupled with the application.
+
+=======================================================
+
+@GENERATEDVALUE----Used to define the strategy to be used for generation of primary key. 
+
+@ACCESS-----Used to define the access type, either field or property. Default value is field and if you want hibernate to use getter/setter methods then you need to set it to property
+
+@CASCADE----Used to define the cascading between two entity beans, used with mappings.
+
+=======================================================
+
+------>Internal state of SessionFactory is immutable, so it’s thread safe. Multiple threads can access it simultaneously to get Session instances.
+
+------>Hibernate Session object is not thread safe, every thread should get it’s own session instance and close it after it’s work is finished.
+
+------>EHCache is the best choice for utilizing hibernate second level cache. 
+
+------>Hibernate merge can be used to update existing values.
+
+=======================================================
+
+Query Cache:= This is only useful for queries that are run frequently with the same parameters
+------------                                                         
+
+   XML:=
+   ----
+            property name="hibernate.cache.use_query_cache">true</property>
+
+   Code:=
+   -----
+                    Query query = session.createQuery("from Employee");
+                    query.setCacheable(true);
+                    query.setCacheRegion("ALL_EMP");
+
+=======================================================
+
+------>Native SQL Query comes handy when we want to execute database specific queries that are not supported by Hibernate API such as query hints or the CONNECT keyword in Oracle Database.
+
+------>Named Query that we can define at a central location and use them anywhere in the code. 
+             ----@NamedQuery and @NamedNativeQuery.
+			 
+=======================================================
+
+CascadeType enum are:=
+~~~~~~~~~~~~~~~~~~~~
+
+None: No Cascading, it’s not a type but when we don’t define any cascading then no operations in parent affects the child.
+
+ALL: Cascades save, delete, update, evict, lock, replicate, merge, persist. Basically everything
+
+SAVE_UPDATE: Cascades save and update, available only in hibernate.
+
+DELETE: Corresponds to the Hibernate native DELETE action, only in hibernate.
+
+DETATCH, MERGE, PERSIST, REFRESH and REMOVE – for similar operations
+
+LOCK: Corresponds to the Hibernate native LOCK action.
+
+REPLICATE: Corresponds to the Hibernate native REPLICATE action.
+
+=======================================================
+
+------>benefit of HibernateTemplate was exception translation but that can be achieved easily by using @Repository annotation with service classes
+
+------>ServletContextListner integrates Hibernate with Servlet or Struts2 web applications
+
+------>The scope of cache objects is of session. Once session is closed, cached objects are gone forever. First level cache is enabled by default and you can not disable it. When we query an entity first time, it is retrieved from database and stored in first level cache associated with hibernate session.
+
+
+----->first level cache associated with session object is available only till session object is live
+
+---->First level cache is associated with “session” object and other session objects in application can not see it.
+
+---->The whole session cache can be removed using clear() method. It will remove all the entities stored in cache.
+
+---->session.evict() is used to remove a particular object from cache associated with session, and 
+
+---->session.clear() method is used to remove all cached objects associated with session
+
+---->Whenever hibernate session try to load an entity, the very first place it look for cached copy of entity in first level cache (associated with particular hibernate session) which returned as result of load method.
+    
+   ----If there is no cached entity in first level cache, then second level cache is looked up for cached entity
+   
+   
+
+------>merge() should be used if you don't know the state of the session, means you want to make the modification at any time.
+
+------>update() should be used if the session doesn't contain an already persistent state with the same id. It means an update should be used inside the session only. After closing the session, it will throw the error.
+
+------>If you mark a class as mutable="false", the class will be treated as an immutable class.(********)
+
+
+---->What is difference between getCurrentSession () and openSession () in hibernate?
+
+openSession : When you call SessionFactory.openSession , it always creates a new Session object and give it to you. ... When you call SessionFactory.getCurrentSession , it creates a new Session if it does not exist, otherwise use same session which is in current hibernate context.
+
+----> session opens a single database connection when it is created, and holds onto it until the session is closed
+
+---->SessionFactory is a heavyweight object; it is usually created during application start up and kept for later use. The SessionFactory is a thread safe object and used by all the threads of an application. ... The main difference is that "There will be only one session factory object per hibernate client application
+
+----> DAO provides some specific data operations without exposing details of the database.
+
+---->Each EntityManager manages a set of persistent objects, and has APIs to insert new objects and delete existing ones. ... You obtain Query instances from an EntityManager
+
+---->EntityManager instances are not thread-safe. EntityManagerFactory instances are thread-safe.
+
+----> application programming interface (API) is a list of all classes that are part of the Java development kit (JDK). It includes all Java packages, classes, and interfaces, along with their methods, fields, and constructors. These prewritten classes provide a tremendous amount of functionality to a programmer.
+
+====================================================================================================
+
+---->session.refresh() method to re-populate the entity with latest data available in database.
+   ---- It is used to synchronize database data with session data.
+ 
+ Eg:=
+~~~~
+		try(Session session = HibernateUtil.getSessionFactory().openSession() ) {
+			Person person = session.byId(Person.class).load(1L);
+			session.doWork(connection->{
+				try(Statement statement = connection.createStatement()){
+					statement.executeUpdate("UPDATE per SET name=UPPER(name)");
+				}
+			});
+			session.refresh(person);
+			System.out.println(person.getName());
+
+
+---->Hibernate provides three different ways to retrieve data from database. i.e HQL and native SQL queries,criteria-queries.
+
+===========================================================================================================
+StatelessSession ::=
+~~~~~~~~~~~~~~~~~~
+---->A stateless session does not implement a first-level cache nor interact with any second-level cache, nor does it implement transactional write-behind or automatic dirty checking, nor do operations cascade to associated instances. Collections are ignored by a stateless session.  
+
+----> Stateless-Session does not provide Cache , so hits D/b always.
+
+----> Stateless-Session should be used to read data Only Once. to perform other Operations go for Statefull-Session.
+
+==========================================================================================
+
+----->Newly created POJO object will be in the transient state. Transient object doesn’t represent any row of the database
+
+----->Persistent object represent one row of the database and always associated with some unique hibernate session. Changes to persistent objects are tracked by hibernate and are saved into database when commit call happen.
+
+----->Detached objects are those who were once persistent in past, and now they are no longer persistent. To persist changes done in detached objects, you must reattach them to hibernate session.
+
+----->Removed objects are persistent objects that have been passed to the session’s remove() method and soon will be deleted as soon as changes held in the session will be committed to database.
+
+==============================================================================================
+
+Auto123 :=
+~~~~~~~
+----> Autowiring feature of spring framework enables you to inject the object dependency implicitly. It internally uses setter or constructor injection. Autowiring can't be used to inject primitive and string values. It works with reference only.
+
+---->Spring @Bean Annotation is applied on a method to specify that it returns a bean to be managed by Spring context. Spring Bean annotation is usually declared in Configuration classes methods.
+
+---->@component:= Spring Component annotation is used to denote a class as Component. It means that Spring framework will autodetect these classes for dependency injection when annotation-based configuration and classpath scanning is used
+
+---->What is Hibernate mapping file?
+An Object/relational mappings are usually defined in an XML document. ... The mapping document is an XML document having <hibernate-mapping> as the root element, which contains all the <class> elements. The <class> elements are used to define specific mappings from a Java classes to the database tables.
+
+
+---->show_sql ---to show all the generated SQL statements to the console. 
+
+----> Abstraction is about hiding unwanted details while giving out most essential details
+
+
+---->Encapsulation means hiding the code and data into a single unit e.g. class or method to protect inner working of an object from outside world,....used to  provides your code - security, flexibility and its easy maintainability 
+
+---->@RequestParam annotation is used to read the form data and bind it automatically to the method parameter.
+
+----> /SpringMVCCRUDSimple/src/main/webapp/WEB-INF/spring-servlet.xml
+      /SpringMVCCRUDSimple/src/main/webapp/WEB-INF/web.xml
+  
+    /SpringMVCCRUDSimple/src/main/webapp/WEB-INF/jsp/viewemp.jsp
+	
+	/SpringMVCCRUDSimple/src/main/webapp/index.jsp
+	
+	                                ...................................In JavaTpoint.
+
+====================================================================================================
+
+============/\/\\/\/\\/===========\/\/\\/\/\/\==========\/\/\\/\/\\/============\/\/\\/\/\\/======================
+  
+  
+ JPA111 := [ http://www.thejavageek.com/jpa-tutorials/ ]  [ JPA ----> Poss.Appr(ORM) ]
+~~~~~~~~
+
+--->Java Persistence API (JPA) is the Java standard for mapping Java objects to a relational database. 
+ --Mapping Java objects to database tables and vice versa is called Object-relational mapping (ORM). 
+ --The Java Persistence API (JPA) is one possible approach to ORM. (**********)
+ --JPA the developer can map, store, update and retrieve data from relational databases to Java objects and vice versa.
+ --JPA is a source to store business entities as relational entities. It shows how to define a PLAIN OLD JAVA OBJECT (POJO) as an entity and how to manage entities with relations.(*************)
+ --JPA is a specification and several implementations are available. Popular implementations are Hibernate, EclipseLink and Apache OpenJPA etc.
+ 
+ 
+----> It is a Set of Specification , Independent of ORM Framework. 
+
+ 
+Following are the other development versions released under JPA specification :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----> JPA 2.0 - This version was released in the last of 2009. Following are the important features of this version: -
+ --It supports validation
+ --It expands the functionality of object-relational mapping
+ --It shares the object of cache support
+ 
+----> JPA 2.1 - The JPA 2.1 was released in 2013 with the following features: -
+ --It allows the fetching of objects
+ --It provides support for criteria update/delete
+ --It generates a schema
+ 
+---->JPA 2.2 - The JPA 2.2 was released in 2017. Some of its important features are: -
+ --It supports Java 8 Date and Time
+ --It provides @Repeatable annotation that can be used when we want to apply the same annotations to a declaration or type use
+ --It allows JPA annotation to be used in meta-annotations
+ --It provides an ability to stream a query result
+ 
+ What are the advantages of JPA ? 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --The advantages of JPA are given below.
+ --The burden of interacting with the database reduces significantly by using JPA
+ --The user programming becomes easy by concealing the O/R mapping and database access processing
+ --The cost of creating the definition file is reduced by using annotations
+ --We can merge the applications used with other JPA providers
+ --Using different implementations can add the features to the standard Implementation which can later be the part of JPA specification
+
+
+----> @Table is optional. @Entity is needed for annotating a POJO class as an entity, but the name attribute is not mandatory.
+
+----> A persistence context is a set of entities such that for any persistent identity there is a unique entity instance.
+
+---->A persistence context handles a set of entities which hold data to be persisted in some persistence store (e.g. a database). In particular, the context is aware of the different states an entity can have (e.g. managed, detached) in relation to both the context and the underlying persistence store.
+
+---->Entities are managed by javax.persistence.EntityManager instance using persistence context.
+ --Each EntityManager instance is associated with a persistence context.
+ --Within the persistence context, the entity instances and their lifecycle are managed.
+ --Persistence context defines a scope under which particular entity instances are created, persisted, and removed.
+ --A persistence context is like a cache which contains a set of persistent entities , So once the transaction is finished, all persistent objects are detached from --the EntityManager's persistence context and are no longer managed.
+
+ EntityManagerFactory (C) extends  EntityManager(I) :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --This is a factory class of EntityManager. It creates and manages multiple EntityManager instances.
+
+
+ EntityManager (I) :=
+~~~~~~~~~~~~~~~~~~~
+ --It is an Interface, it manages the persistence operations on objects. It works like a factory for Query instance.
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("PERSISTENCE");
+        EntityManager eM = emf.createEntityManager();
+        EntityTransaction entityTransaction = eM.getTransaction();
+        entityTransaction.begin();
+        Student student = new Student("Ramesh", "Fadatare", "rameshfadatare@javaguides.com");
+        eM.persist(student);
+        eM.getTransaction().commit();
+        eM.close();
+        emf.close();
+
+        --EntityManagerFactory interface present in java.persistence package is used to provide an entity manager.
+		 
+	    --Persistence - This class contains static methods to obtain EntityManagerFactory instance.
+		 
+	    --createEntityManagerFactory() method -- used tocreate and return an EntityManagerFactory for the named persistence unit. Thus, this method contains the name of persistence unit passed in the Persistence.xml file.
+		
+		--createEntityManager() method - It creates new application-managed EntityManager
+		
+		--getTransaction() method - This method returns the resource-level EntityTransaction object.
+		
+		--persist() - This method is used to make an instance managed and persistent. An entity instance is passed within this method.
+		
+		--close() - This method is used to releasing the factory resources.
+		
+		
+ Update :=
+~~~~~~~~~
+  Employee employee = em.find(Employee.class, 1);
+  em.getTransaction().begin();
+  employee.setNickname("Ram");
+  em.getTransaction().commit();
+
+ Delete :=
+~~~~~~~~
+  Employee employee = em.find(Employee.class, 1);
+  em.getTransaction().begin();
+  em.remove(employee);
+  em.getTransaction().commit();
+  
+ JpaTransactionManager :=
+~~~~~~~~~~~~~~~~~~~~~~~
+This transaction manager is appropriate for applications that use a single JPA EntityManagerFactory for transactional data access. JTA (usually through JtaTransactionManager) is necessary for accessing multiple transactional resources within the same transaction. Note that you need to configure your JPA provider accordingly in order to make it participate in JTA transactions. Of course, JtaTransactionManager does require a full JTA-supporting application server, rather than a vanilla servlet engine like Tomcat.
+
+
+ @Transactional :=
+~~~~~~~~~~~~~~~~~
+ --Classes are DAO classes which use the entity manager to perform CRUD operations using hibernate entities, and specifying methods which support transactions through @Transactional annotation. In our case, we have applied @Transactional annotation at class level, making all public methods transactional.
+ 
+           
+		    EntityManager(I) ---> createQuery......createNativeQuery.....createNamedQuery....Persist...find.....Remove
+		   ~~~~~~~~~~~~~~
+		   
+  Eg :=
+~~~~~~
+ @Override
+    public List<DepartmentEntity> getAllDepartments() {
+        List<DepartmentEntity> depts = manager.createQuery("Select a From DepartmentEntity a", DepartmentEntity.class).getResultList();
+        return depts;
+    }
+			
+ Relations :=
+~~~~~~~~~~~
+The relationship between EntityManagerFactory and EntityManager is one-to-many. It is a factory class to EntityManager instances.
+The relationship between EntityManager and EntityTransaction is one-to-one. For each EntityManager operation, there is an EntityTransaction instance.
+The relationship between EntityManager and Query             is one-to-many. Many numbers of queries can execute using one EntityManager instance.
+The relationship between EntityManager and Entity            is one-to-many. One EntityManager instance can manage multiple Entities.
+
+---->JPA is just a specification that facilitates object-relational mapping to manage relational data in Java applications. It provides a platform to work directly with objects instead of using SQL statements.
+
+---->The Java Persistence API (JPA) is a specification of Java. It is used to persist data between Java object and relational database. JPA acts as a bridge between object-oriented domain models and relational database systems.
+
+
+---->To establish a dependency between related entities, JPA provides javax.persistence.CascadeType enumerated types that define the cascade operations. These cascading operations can be defined with any type of mapping i.e. One-to-One, One-to-Many, Many-to-One, Many-to-Many.
+
+                                            @OneToOne(cascade=CascadeType.PERSIST)  
+
+
+---->What Are Some Design Patterns Used In The Hibernate Framework?
+   DomainModelPattern........DatMapper.......Proxy.......factory
+   
+   
+---->What are Cascading types?
+ --cascade={DETACH, MERGE, PERSIST, REFRESH, REMOVE}
+   DETACH - If the parent entity is detached from the persistence context, the related entity will also be detached.
+   MERGE - If the parent entity is merged into the persistence context, the related entity will also be merged.
+
+
+---->What is the difference between JDBCTemplate, HibernateTemplete and mongoTemplete and why we use those?
+ ---Spring has provided multiple ways to store data into database in which we have this 3 way to store data.
+ ---JdbcTemplete is internally use jdbc to connect with data  base and perform some CURD operations. 
+ ---HibernateTemplete is same like session object in hibernate. 
+ ---Above two classes are use to store data into RDBMS database, but mongoTemplete is get used for mongodb database( Internally use Mongodb java drivers.
+ 
+ 
+ JPA-Named-Queries :=  [https://www.codejava.net/java-ee/jpa/jpa-named-query-examples]
+~~~~~~~~~~~~~~~~~~~~
+ 
+  Eg :=
+ ~~~~   @Entity 
+        @Table(name = "USERS")
+        @NamedQueries({
+          @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u ORDER BY u.fullname"),
+          @NamedQuery(name = "User.count", query = "SELECT COUNT(*) FROM User u"),
+          @NamedQuery(name = "User.removeAll", query = "DELETE FROM User u")
+      })
+        entityManager.getTransaction().begin();
+        Query query = entityManager.createNamedQuery("User.removeAll");
+        query.executeUpdate();
+        entityManager.getTransaction().commit();
+  
+=================================================================================================
+HQLExamples :=
+~~~~~~~~~~~~
+ private static void getAllEmployeesIdAndName(SessionFactory sf) {
+
+		try(Session session = sf.openSession() ) {
+			String HQL = "SELECT employeeId,employeeName FROM Employee";
+			Query query = session.createQuery(HQL);
+			List<Object[]> list = query.list();
+			for (Object[] objects : list) {
+				Integer employeeId =(Integer)objects[0];
+				String employeeName =(String)objects[1];
+				System.out.println(employeeId+"\t"+employeeName);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static void getAllEmployeesName(SessionFactory sf) {
+
+		try(Session session = sf.openSession() ) {
+			String HQL = "SELECT employeeName FROM Employee";
+			
+			Query<String> query = session.createQuery(HQL);
+			query.list().forEach(System.out::println);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static void getEmployeeByIdAndEmail(SessionFactory sf) {
+
+		try(Session session = sf.openSession() ) {
+			int empId=2;
+			String email="martin.b2017@gmail.com";
+			String HQL = "FROM Employee WHERE employeeId=:empId AND email=:email";
+			Query<Employee> query = session.createQuery(HQL, Employee.class);
+			query.setParameter("email", email);
+			query.setParameter("empId", empId);
+			
+			Employee employee = query.uniqueResult();
+			System.out.println(employee);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static void getEmployeeById(SessionFactory sf) {
+		int empId=2;
+		try(Session session = sf.openSession() ) {
+			String HQL = "FROM Employee WHERE employeeId=?";
+			Query<Employee> query = session.createQuery(HQL, Employee.class);
+			query.setParameter(0, empId);
+			
+			Employee employee = query.uniqueResult();
+			System.out.println(employee);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	
+	}
+
+	private static void getAllEmployees(SessionFactory sf) {
+		try(Session session = sf.openSession() ) {
+			
+			String HQL = "FROM Employee";
+			//String HQL ="FROM com.infotech.entities.Employee";
+			Query<Employee> query = session.createQuery(HQL, Employee.class);
+			List<Employee> list = query.list();
+			list.forEach(System.out::println);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+==================================================================================================
+ ConnectionPool330 :=
+~~~~~~~~~~~~~~~~~~~
+----> Connection pool is good for performance, as it prevents Java application create a connection each time when interact with database and minimizes the cost of opening and closing connections.
+ 
+---->Hibernate comes with internal connection pool, but not suitable for production use.we can integrate third party connection pool – C3P0, with Hibernate.
+
+
+
+==================================================================================================
+
+ HibernateCache :=  [ https://github.com/kishanjavatrainer/HibernateFirstLevelCacheExample ]
+~~~~~~~~~~~~~~~~~ 
+ ---Here for First-call, Persisted-Object is coming from DataBase
+ ---But, from Second-call Persisted-Object will comes from Cache.
+Hibernate: 
+    select
+        employee0_.id as id1_0_0_,
+        employee0_.accress_level as accress_2_0_0_,
+        employee0_.employee_name as employee3_0_0_,
+        employee0_.password as password4_0_0_,
+        employee0_.user_name as user_nam5_0_0_ 
+    from
+        employee employee0_ 
+    where
+        employee0_.id=?
+Employee [id=1, employeeName=Sean Murphy, username=seanm, password=pass#123, accessLevel=1]
+-------------------------------------------------------------
+Employee [id=1, employeeName=Sean Murphy, username=seanm, password=pass#123, accessLevel=1]
+
+
+==================================================================================================
+
+
+
+

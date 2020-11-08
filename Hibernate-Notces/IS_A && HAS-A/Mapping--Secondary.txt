@@ -1,0 +1,46 @@
+
+Secondary Table in Hibernate: -
+By default one class can be connected to one table only. But Hibernate supports few variables in class can be stored with 2nd table also called as “Secondary Table”.
+
+Specially fields like sum, total, avg, final grades, export data, logical values are stored in another table instead using main table, for these concept we use Secondary Table.
+
+@Entityand @Tableprovides mapping to main tablealso called as “PrimaryTable”.
+@SecondaryTableis used to provide mapping to 2nd, 3rd, 4th, 5th, …table also called as Secondary Table.
+
+
+Mapping (1 classes~~~~~~~multiple table) if Child class is Fully Dependent on Parent
+==============================================================================================================
+Model:=
+~~~~~~
+
+@javax.persistence.Entity
+//@Table(name="emptab")
+@SecondaryTables({@SecondaryTable(name="empinfo"),@SecondaryTable(name="empData")})
+//@SecondaryTables({@SecondaryTable(name="empdata")})
+public class Employee {
+	
+	@Id
+    @Column(name="eid",table="empData")
+	private int empId;
+	@Column(name="ename",table="empData")
+	private String empName;
+	@Column(name="esal",table="empData")
+	private long empSal;
+	@Column(name="empbns",table="empinfo")
+	private double empBonus;
+	@Column(name="ehike",table="empinfo")
+	private double empHike;
+
+=======================================================================================================================
+Test:=
+~~~~
+Employee emp = new Employee();
+			emp.setEmpId(144);
+			emp.setEmpName("Rathode");
+			emp.setEmpSal(17800);
+			emp.setEmpBonus(300.02);
+			emp.setEmpHike(4000.89);
+			
+			ses.save(emp);
+
+=======================================================================================================================

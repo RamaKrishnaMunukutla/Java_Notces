@@ -1,0 +1,419 @@
+
+
+
+    DependencyInjectionDesign..........DAODesign..........FacadeDesign.............MVCDesign
+    
+           SingletonDesign.........ProtoTypeDesign........
+		   
+		   FactoryDesign..........ProxyDesign550.........TemplateDesign566
+
+
+===========================================================================================================
+
+---->What is Design Pattern? .........[CSB]...........
+It is a pre-defined solution to write program in better way which reduces memory usage and increase the performance
+  ---Software template (or) description to solve a problem that occur in multiple instances while designing a software App's
+
+===========================================================================================
+
+Creational Design Patterns :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creational design patterns provide solution to instantiate a object in the best possible way for specific situations.
+
+
+Structural Design Patterns :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Structural patterns provide different ways to create a class structure, for example using inheritance and composition to create a large object from small objects.
+
+
+Behavioral Design Patterns :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ These design patterns are specifically concerned with communication between objects.
+
+============================================================================================================
+
+DependencyInjectionDesign :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- It allows us to remove the hard-coded dependencies and make our application loosely coupled, extendable and maintainable.
+ --- We can implement this to move "--Dependency-Resolution--" from compile-time to Run-Time.
+                                    
+									
+						loosely coupled ----> Changes in one-Layer cannot affect Other (separation-Of-Concerns) &&
+                       						  Unit-Testing is Easy
+									
+									
+
+---->Dependency Injection in java requires at least the following:
+ (1)Service components should be designed with base class or interface. It’s better to prefer interfaces or abstract classes that would define contract for the services.
+ (2) Consumer classes should be written in terms of service interface.
+ (3) Injector classes that will initialize the services and then the consumer classes.
+    
+---->Dependency Injection in Java is a way to achieve Inversion of control (IoC) in our application by moving objects binding from compile time to runtime. We can achieve IoC through Factory Pattern, Template Method Design Pattern, Strategy Patter.....
+
+---->Disadvantages of Java Dependency Injection
+ If overused, it can lead to maintenance issues because the effect of changes are known at runtime.
+    Dependency injection in java hides the service class dependencies that can lead to runtime errors that would have been caught at compile time.
+	
+==========================================================================================================
+ 
+DAODesign := https://www.tutorialspoint.com/design_pattern/data_access_object_pattern.htmc
+~~~~~~~~~~
+Data Access Object (DAO) pattern is a structural pattern that allows us to separate the App's business layer from the persistence layer.Only one instance is used.
+
+==========================================================================================================
+
+ FrontController :=  https://www.tutorialspoint.com/design_pattern/front_controller_pattern.htm
+~~~~~~~~~~~~~~~~~    https://www.javatpoint.com/front-controller-pattern
+
+---->provide the centralized request handling mechanism so that all the requests will be handled by a single handler". 
+
+---->This handler can do the authentication or authorization or logging or tracking of request and then pass the requests to corresponding handlers.
+ 
+ ---It maintains and controls a web application more effectively.
+
+==========================================================================================================
+
+ MVCDesign := (known as the principle of Separation of Concern.) 
+~~~~~~~~~~~~ https://www.tutorialspoint.com/design_pattern/mvc_pattern.htm
+      
+
+----> It oldest architectural pattern for web applications, used to separate the logic of different layers in a program in independent units.
+
+---->Used to separate domain-objects and presentation-layer layers && work Independently.
+
+---->The model which is transferred from one layer to the other.
+    The View which is responsible to show the data present in the application.
+    The controller is responsible to accept a request from a user, modify a model and send it to the view which is shown to the user.
+
+   client ---> Controller ----> Model --->View ---> Client (Cyclic)
+   
+---->MVC pattern emphasis on the low coupling between different components of an application. So, the View layer have no dependency on service layer and only Controller depends on it, even that with the interfaces and not from concrete implementation.
+ 
+ 
+============================================================================================================
+
+=============================================================================================================
+
+=============================================================================================================
+
+SingletonDesign (NOO) :=   [....Creational-design-pattern....] 
+~~~~~~~~~~~~~~~~~~~~~  
+
+    https://www.concretepage.com/design-pattern/example-singleton-design-pattern-java 
+    https://www.youtube.com/watch?v=170M8gV_GWE&list=PLzS3AYzXBoj8t5hPykr5VU7jG-kEim-LX&index=3
+    
+    https://medium.com/swlh/a-complete-guide-on-singleton-design-pattern-in-java-846c2f8df5fc
+    https://www.tutorialspoint.com/design_pattern/singleton_pattern.htm
+					   
+
+Singleton pattern restricts the instantiation of a class and ensures that only one instance of the class exists in the java virtual machine.
+
+Define a class that has only one instances ,provide global point of access to it.
+
+   ---It  that it creates only One instance and used by all other class
+   
+   eg := Performing CRUD using one instance only.
+   ~~~
+
+To implement a Singleton pattern :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Private constructor ~~~~~~~~~~   to restrict instantiation of the class from other classes.
+    Private static variable ~~~~~~~~ is the only instance of the class.
+    Public static method ~~~~~~~~~~ (global access point for outer world ) returns the instance of the singleton class,  
+
+---->Singleton pattern is used for logging, drivers objects, caching and thread pool.
+
+----> Singleton classes are created for resources such as File System, Database connections, etc. 
+
+---->In "--eager-initialization--" , the instance of Singleton Class is created at the time of class loading.But drawback that instance is created even though client application might not be using it.
+  ----So,We should avoid the instantiation until unless client calls the getInstance method. Also, this method doesn’t provide any options for exception handling.
+
+----> "--Static-block-initialization--" implementation is similar to eager initialization, except that instance of class is created in the static block that provides option for exception handling.
+
+---->"--Lazy-initialization--" ,  the instance is in the global access method. works fine in case of the single-threaded environment Only.
+  ----The easier way to create a thread-safe singleton class is to make the global access method synchronized, so that only one thread can execute this method at a time
+  
+ Double checked locking looks like in Java := 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   [ https://www.java67.com/2015/09/thread-safe-singleton-in-java-using-double-checked-locking-pattern.html ]
+               [ https://www.geeksforgeeks.org/singleton-design-pattern/ ]
+	
+	[ https://medium.com/swlh/a-complete-guide-on-singleton-design-pattern-in-java-846c2f8df5fc ]
+	         [ https://dzone.com/articles/singleton-in-java ]
+    [ https://www.journaldev.com/171/thread-safety-in-java-singleton-classes ]
+	 
+	 
+ --- Singleton class has two responsibility, first to ensure that only instance of the class gets created and second, provide a method getInstance() so that everyone can get access to that single instance i.e. global access. 
+ 
+ --- One of the issue, faced by Singelton design pattern in the multi-threading program is to ensure that just one instance of the class gets created, even if multiple clients called getInstance() method same time.  (************)
+ 
+ --- Many programmers solved this problem by making whole getInstance() method synchronized, which results in poor performance because every time a thread enters a synchronization method, it acquires the lock and while it's been inside the method, no other thread are allowed to enter, even if they are not creating instance and just accessing already created instance.
+  
+  --- Intention is to minimize cost of synchronization and  improve performance, by only locking critical section of code, the code which creates
+ instance of Singleton class.
+
+
+  private static volatile Singleton _instance;
+  
+  public static Singleton getInstanceDC() {
+        if (_instance == null) {
+            synchronized (Singleton.class) {
+                if (_instance == null) {
+                    _instance = new Singleton();
+                }
+            }
+        }
+        return _instance;
+    }
+                     
+      ---- prevents from two instances being created when two thread simultaneously calls the getInstance() method (***********)
+ 
+
+(**) Threadsafe Singleton using Double Checked Locking Idiom ??
+  --- Double checked locking idiom solves this problem by allowing you to eat your cake and have it as well, it ensures synchronization is used only when instance of Singleton is created, when getInstance() method is called first time and all other time, same instance is returned without any synchronization overhead. 
+  
+  --- As the name suggests, it's double-checked, which means it checked two times whether _instnace (the singleton instance) is initialized or not, one without synchronization and other with synchronization. 
+  
+  ---  This double check ensures that locking is only used when  an instance is null i.e. when first time someone calls getInstance(), all subsequent call will see _instnace not null hence they will not enter into synchronization block.
+ 
+  
+ Implementations (Possible-Solution) := ***Medium***   
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     [***** https://howtodoinjava.com/design-patterns/creational/singleton-design-pattern-in-java/ ]
+	 
+	 
+     ******** Eager-Initialization (Normal, Static) // lazy-Initialization (Normal, Sync, Double-check) ***********
+
+
+There are several ways a singleton design pattern can be implemented. Each of these has its own benefits and limitations. We can implement a Singleton design pattern through the following ways:-
+
+(1)
+--- Eager Initialization  
+
+   private static final EagerInitialization INSTANCE = new EagerInitialization();
+      
+	  public static EagerInitialization getInstance() {
+        return INSTANCE;
+    }
+
+ Pros :=
+~~~~~~
+Thread safety without synchronization
+Easy to implement
+ 
+ Cons:=
+~~~~~~
+Early creation of resource that might not be used in the application.
+The instance is created irrespective of it is required in runtime or not.
+
+================================
+	
+(2)
+--- Eager Initialization with static block
+
+  public static EagerInitialization getInstance() {
+        return INSTANCE;
+    } 
+
+===============================
+	
+(3)
+--- Lazy Initialization (Not Thread Safe)   
+   
+      public static LazyInit getInstance() {
+        if (Objects.isNull(INSTANCE)) {
+            synchronized (LazyInit.class) {
+                INSTANCE = new LazyInit();
+            }
+        }
+
+
+============================
+
+(4)
+--- Thread Safe Lazy Initialization
+ 
+ 		  public synchronized static LazyInitialization getInstance() {
+		        if (Objects.isNull(INSTANCE)) {
+		            INSTANCE = new LazyInitialization();
+		        }
+		        return INSTANCE;
+		    }
+
+ Pros :=
+~~~~~~
+Thread safety is guaranteed.
+Client application can pass parameters
+Lazy initialization achieved
+
+ 
+ Cons :=
+~~~~~~
+Slow performance because of locking overhead.
+Unnecessary synchronization that is not required once the instance variable is initialized
+	
+===============================
+	
+(5)
+--- Thread Safe Lazy Initialization with Double Check 
+
+     public static DoubleCheckSingleton getInstance(){
+        if(Objects.isNull(INSTANCE)){
+            synchronized (DoubleCheckSingleton.class){
+                if(Objects.isNull(INSTANCE)){
+                    INSTANCE = new DoubleCheckSingleton();
+                }
+            }
+        }
+		
+ Pros :=
+~~~~~~
+Thread safety is guaranteed
+Client application can pass arguments
+Lazy initialization achieved
+Synchronization overhead is minimal and applicable only for first few threads when the variable is null.
+
+ Cons :=
+~~~~~~
+Extra if condition
+
+=================================
+
+ FAQs := [ https://www.geeksforgeeks.org/prevent-singleton-pattern-reflection-serialization-cloning/ ]
+~~~~~~~
+(Q)How to prevent cloning of Singleton object? 
+(A)Well, we can throw an exception from the clone method of the Singleton class.
+
+(Q)How to prevent duplicate instance via Serialization/Deserialization of Singleton? 
+(A)We have to override/implement the readobject() method and have to return the same singleton instance of the class. Otherwiase, Implement SingletonClass as enum; That's the best way for thie case.  
+
+(Q) Is the spring singleton bean thread safe?
+(A) Spring framework does not do anything under the hood concerning the multi-threaded behavior of a singleton bean. It is the developer’s responsibility to deal with concurrency issue and thread safety of the singleton bean.
+
+(Q) How to Overcome Cloning issue in Singleton ?? 
+(A) To overcome this issue, override clone() method and throw an exception from clone method that is CloneNotSupportedException. Now whenever user will try to create clone of singleton object, it will throw exception and hence our class remains singleton.
+
+           Singleton instance2 = (Singleton) instance1.clone(); 
+          
+		   @Override
+		   protected Object clone() throws CloneNotSupportedException  
+ 		    { 
+   		      throw new CloneNotSupportedException(); 
+ 		   }
+
+===============================
+  
+ Disadvantages of singletons :=  It make unit testing very hard.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ProtoTypeDesign :=    [....Creational-design-pattern....]
+~~~~~~~~~~~~~~~
+It provides a mechanism to copy the original object(which loads data from D/b ) to a new object by copying it (Or)using cloning technique && then modify it according to our needs. 
+
+---> It is mandates that the Object which you are copying should provide the copying feature. It should not be done by any other class. However whether to use shallow or deep copy of the Object properties depends on the requirements and its a design decision. 
+
+---->clone method is overridden to provide a deep copy.
+
+
+ Injecting ProtoType in SingleTon :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Can be done using @lookup anotation.
+
+
+==========================================================================================================
+
+FactoryDesign :=    [....Creational-design-pattern....] (##SubClass-Decides##")
+~~~~~~~~~~~~~    https://www.java2novice.com/java-design-patterns/factory-pattern/
+                 https://www.tutorialspoint.com/design_pattern/factory_pattern.htm
+				 https://www.javatpoint.com/factory-method-design-pattern
+
+It used when we have a superclass having multiple sub-classes and based on input, we need to return one of the sub-class.
+
+--- Any Method is called by using it's Class-Name && Returns It's Instance is called as "Factory-Method" .
+
+ Eg :=
+~~~~
+        Runtime r = Runtime.getRunTime();
+	
+	DateFormat df = DateFormat.getInstance();
+
+  
+   Eg for SingleTon :=  java.lang.Runtime.getRuntime()
+~~~~~~~~~~~~~~~~~~~~~
+
+---->define an interface or abstract class for creating an object but let the subclasses-decide which class to instantiate.
+  ---It promotes the loose-coupling by eliminating the need to bind application-specific classes into the code.
+  ---That means the code interacts solely with the resultant interface or abstract class, so that it will work with any classes that implement that interface or that extends that abstract class.
+
+----> Here, Super class in factory-design-pattern can be an interface, abstract class or a normal java class.
+
+---->This pattern takes out the responsibility of the instantiation of a class from the client moved to the factory class.
+
+============================================================================================================
+
+=============================================================================================================
+
+=============================================================================================================
+
+ FacadeDesign := [....Structural-design-pattern....] (##Interface##")
+~~~~~~~~~~~~~  https://www.tutorialspoint.com/design_pattern/facade_pattern.htm
+
+----> Protects end-user from complex subSytem component.
+  
+----> It hides the complexities of the system by provides an "##Interface##" throug which client can access .(********)
+ 
+---->its purpose is to provide a single interface rather than multiple interfaces that does the similar kind of jobs
+
+---------------------------------------------------------------------------------------------
+
+ ProxyDesign550 := [....Structural-design-pattern....] 
+~~~~~~~~~~~~~~~    [https://www.java2novice.com/java-design-patterns/proxy-design-pattern/]
+                    https://www.javatpoint.com/proxy-pattern
+
+ ---a class represents functionality of another class. (provides access-Control to the original object) 
+ ---proxy design pattern is used when we want to provide controlled access of a functionality. 
+ --- Proxy means 'On behalf of' && 'in place of'.
+ ---We can Initialize heavy Objects like "-JDBC,SESSIONFACTORY-" Only when Required && re-use them with help of Proxy-Pattern.
+ 
+============================================================================================================
+
+=============================================================================================================
+
+=============================================================================================================
+
+TemplateDesign566 :=  [....Behavioral-design-pattern....]   (##Abstract-Class##")
+~~~~~~~~~~~~~~~~~~   https://www.tutorialspoint.com/design_pattern/template_pattern.htm
+                     [https://www.youtube.com/watch?v=84-MPg063Gc&list=PLzS3AYzXBoj8t5hPykr5VU7jG-kEim-LX&index=27]
+
+    In Concrete-Class,  template-method (Common-IMpl), we should make it final.(*******)
+	
+ Usage --- Reusing the code. (********)
+
+---->Template method defines the steps to execute an algorithm and it can provide default implementation that might be common for all or some of the subclasses.
+
+Eg::-  Now building the foundation for a house is same for all type of houses, whether its a wooden house or a glass house. So we can provide base implementation for this, if subclasses want to override this method, they can but mostly it’s common for all the types of houses. [........Plan to Build-House.......]
+
+---->make sure that subclasses don’t override the template(Common-IMpl) method, we should make it final.
+
+---->Most of the times, subclasses calls methods from super class but in template pattern, superclass template method calls methods from subclasses, this is known as Hollywood Principle – “don’t call us, we’ll call you.”.
+
+==========================================================================================================
+ 
+ InteratorDesign := [....Behavioral-design-pattern....]
+~~~~~~~~~~~~~~~~~~~   https://www.tutorialspoint.com/design_pattern/iterator_pattern.htm
+ 
+ 
+==========================================================================================================
+ 
+ ChainOfResponsibility  := [....Behavioral-design-pattern....] 
+~~~~~~~~~~~~~~~~~~~~~~~ 
+---->In this, sender sends a request to a chain of objects. The request can be handled by any object in the chain.
+   
+   Eg :: ATM, uses the Chain of Responsibility design pattern in money giving process.
+
+
+=========================================================================================
+ 
+ 
+

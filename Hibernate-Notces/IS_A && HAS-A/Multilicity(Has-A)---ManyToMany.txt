@@ -1,0 +1,85 @@
+
+
+Model:=
+~~~~~~
+@Entity
+@Table(name = "addrtab1")
+public class Address  {
+
+	@Id
+	@Column(name = "addpin")
+	private long addrPin;
+	
+	@Column(name = "addloc")
+	private String addrLoc;
+//=====================================
+
+
+@Entity
+@Table(name = "emptab1")
+public class Employee {
+
+	@Id
+    @Column(name = "eid")
+	private int empId;
+	@Column(name = "ename")
+	private String empName;
+	@Column(name = "esal")
+	private long empSal;
+	@ManyToMany
+	@JoinTable(name="empadrtab",
+	joinColumns=@JoinColumn(name="eidFK"),
+	inverseJoinColumns=@JoinColumn(name="pidFK"))
+	private List<Address> addr;
+==================================================================================
+Test:=
+~~~~~
+     Address ad = new Address();
+			ad.setAddrLoc("Pune");
+			ad.setAddrPin(989562);
+			
+			
+			Address ad1 = new Address();
+			ad1.setAddrLoc("Banglore");
+			ad1.setAddrPin(226533);
+
+			Address ad2 = new Address();
+			ad2.setAddrLoc("Chennai");
+			ad2.setAddrPin(1107823);
+			
+			
+			List<Address> ll = new LinkedList<Address>();
+			ll.add(ad1);
+			ll.add(ad2);
+			
+			 Employee emp = new Employee();
+				emp.setEmpId(45);
+				emp.setEmpName("Rama");
+				emp.setEmpSal(1206000);
+				emp.setAddr(ll);
+				
+				Employee emp1 = new Employee();
+				emp1.setEmpId(22);
+				emp1.setEmpName("Krishna");
+				emp1.setEmpSal(1206000);
+				emp.setAddr(ll);
+				
+				Employee emp2 = new Employee();
+				emp2.setEmpId(333);
+				emp2.setEmpName("Kalyan");
+				emp2.setEmpSal(123452);
+				emp.setAddr(ll);
+			
+			
+				ses.save(ad);
+				ses.save(ad1);
+				ses.save(ad2);
+========================================================================== 
+
+ SELECT * FROM rama.emptab1;
+
+   SELECT * FROM rama.addrtab1;
+
+   SELECT * FROM rama.empadrtab;    //cfg.cml~~~~~~~~~~~~~~~~~~ create
+
+=====================================================================

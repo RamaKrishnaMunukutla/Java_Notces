@@ -1,0 +1,386 @@
+
+ 
+
+=======================================================================================================
+
+ app.module.ts :=
+~~~~~~~~~~~~~~~
+       
+	   Declarations(Components)........Imports(Modules)........Providers(Services)
+
+
+========================================================================================================
+
+
+
+---->A angular component controls a part of the screen called view. The application logic to support various functions like data binding, event binding, etc. in the view is written inside a class file most commonly named as ‘app.component.ts‘.
+
+---->Angular is a TypeScript-based open-source web application framework.Angular 7 is a platform and framework which is used to create client applications in HTML and TypeScript. Angular 7 is written in TypeScript.
+
+---->Instead of scope and controller in AngularJS, Angular uses hierarchy of components as its primary architectural characteristic.
+
+---->AngularJS is a browser side JavaScript which was used within HTML code .
+
+---->Angular is a complete framework of JavaScript. It provides Testing, animation and Accessibility. It provides full stack development along with Node.js, Express.js, and MongoDB.
+
+---->Angular provides Karma and Jasmine for unit testing.
+
+---->Karma is a JavaScript test runner tool created by Angular team.
+
+---->HttpClient~~~~~~more powerful library for making HTTP Requests.
+
+---->Components and services both are simply classes with decorators that mark their types and provide metadata which guide Angular to do things.
+
+---->Every Angular application always has at least one component known as root component that connects a page hierarchy with page DOM. Each component defines a class that contains application data and logic, and is associated with an HTML template that defines a view to be displayed in a target environment.
+
+---->The metadata for a component class associates it with a template that defines a view. 
+
+---->A template combines ordinary HTML with Angular directives and binding markup that allow Angular to modify the HTML before rendering it for display.The metadata for a service class provides the information Angular needs to make it available to components through dependency injection (DI).
+
+---->. Every Angular 7 app has a root module known as AppModule. It provides the bootstrap mechanism that launches the application.NgModules allow their own functionality to be exported and used by other NgModules. For example, if you want to use the router service in your app, you can import the Router NgModule.
+
+----> template is used to combine HTML with Angular Markup and modify HTML elements before displaying them. Template directives provide program logic, and binding markup connects your application data and the DOM.
+
+---->Jasmine is the testing framework form unit testing in Angular apps, and Karma provides helpful tools that make it easier to us to call our Jasmine tests whilst we are writing code.
+
+Selector: A CSS selector helps Angular to create and insert an instance of the component wherever it finds the corresponding tag in template HTML.
+
+templateUrl: The module-relative address of the component’s HTML template.
+
+template: The inline HTML template defined in `//html stuff goes here`.
+
+styleUrls: One or more URLs for files containing CSS style-sheets specific only to this component.
+
+styles: One or more inline CSS style-sheets specific only to this component.
+
+=====================================================================================================================
+
+app.component.spec.ts: This file is a unit testing file related to app component. This file is used along with other unit tests. It is run from Angular CLI by the command ng test.
+
+
+app.component.ts: This is the most important typescript file which includes the view logic behind the component.
+
+
+app.module.ts: This is also a typescript file which includes all the dependencies for the website. This file is used to define the needed modules to be imported, the components to be declared and the main component to be bootstrapped.
+
+
+package.json: This is npm configuration file. It includes details about your website's package dependencies along with details about your own website being a package itself.
+
+
+package-lock.json : This is an auto-generated and modified file that gets updated whenever npm does an operation related to node_modules or package.json
+
+
+---->in "index.html" ~~~ <base href="/"> Does angular router how to compose navigation url 
+
+......  https://www.javatpoint.com/angular-7-files-explanation
+
+===========================================================================================
+There are two types of data binding:
+
+Event Binding: Event binding is used to bind events to your app and respond to user input in the target environment by updating your application data.
+
+Property Binding: Property binding is used to pass data from component class and facilitates you to interpolate values that are computed from your application data into the HTML.
+===================================================================================================
+
+---->A template is an HTML snippet that tells Angular how to render the component in angular application.The template is immediately associated with a component defines that component’s view.
+
+Service:=  
+~~~~~~~~
+      ---To inject as global service, inject the service into root module.
+	  ---To inject as local service, inject the service into component directly.
+
+================================================================================================
+service.ts:=
+~~~~~~~~~~
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class Serv11Service {
+
+
+  public add(...params: number[]): number {
+    let result = 0;
+    for (let val of params) {
+        result += val;
+    }
+    return result;
+  }
+
+  
+  constructor() { }
+}
+===============================================================
+import { Component } from '@angular/core';
+import { Serv11Service } from './serv11.service';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+ 
+  title = 'app';
+  sum: number = 0;
+  constructor(calc:Serv11Service){  //Insert "Service" here in "app.component.ts"
+    this.sum = calc.add(1,2,3,4);   //Calls method in "Service" class 
+  }
+  
+}
+===================================================
+app.component.html:=
+~~~~~~~~~~~~~~~~<h1>
+  Welcome to {{ title }}!
+  Sum is {{sum}}
+</h1>
+====================================================================================
+
+----> "HttpClient" service to fetch data from online REST APIs and return it as Observable object/array. Upon any data event, the subscribers of observable will react. [ service-->Obs[].subscriber will react ]
+
+---->HTTPClient Setup
+Create service which return Observable
+Create observer which subscribe to Observable
+View HTML Template
+
+=====================================================================================
+
+--->To make each product name a link to product details, add the <a> element and set its title to be the product's name by using the property binding [ ] syntax, as follows:
+
+<div *ngFor="let product of products">
+
+  <h3>
+    <a [title]="product.name + ' details'">
+      {{ product.name }}
+    </a>
+  </h3>
+
+</div>
+==================================================================================================
+Interpolation
+Property
+Attribute
+Class
+Style   
+ 
+{{expression}}  // One-way from data source to view target
+[target]="expression"   // One-way from data source to view target
+bind-target="expression"  // One-way from data source to view target
+
+=====================================================================================================
+Event :=
+~~~~~
+(target)="statement"  //One-way from view target to data source
+on-target="statement"
+
+========================================================================================================
+Two-way:=
+~~~~~
+[(target)]="expression"      //
+bindon-target="expression"
+
+=====================================================================================================
+Property:=
+~~~~~~~~~
+Element property
+Component property
+Directive property
+
+//src, hero, and ngClass in the following:
+
+<img [src]="heroImageUrl">
+<app-hero-detail [hero]="currentHero"></app-hero-detail>
+<div [ngClass]="{'special': isSpecial}"></div>
+===============================================================================
+Event:=
+~~~~~~~~~
+Element event
+Component event
+Directive event
+
+//click, deleteRequest, and myClick in the following:
+
+<button (click)="onSave()">Save</button>
+<app-hero-detail (deleteRequest)="deleteHero()"></app-hero-detail>
+<div (myClick)="clicked=$event" clickable>click me</div>
+
+
+===========================================================================================
+Two-way:=
+~~~~~~~~~   //Event and property
+
+ <input [(ngModel)]="name">
+=====================================================================================
+Class:=
+~~~~~~~~~
+ <div [class.special]="isSpecial">Special</div>
+=================================================================================================
+Style:=
+~~~~~~~~~
+ <button [style.color]="isSpecial ? 'red' : 'green'">
+=====================================================================================
+
+---->*ngFor is a "structural directive". Structural directives shape or reshape the DOM's structure, typically by adding, removing, and manipulating the elements to which they are attached. Any directive with an asterisk, *, is a structural directive.
+
+----> Interpolation {{ }} lets you render the property value as text; property binding [ ] lets you use the property value in a template expression.
+
+---->A component class that handles data and functionality.An HTML template that determines the UI. 
+
+---->@Component() Decorator that marks a class as an Angular component and provides configuration metadata that determines how the component should be processed, instantiated, and used at runtime.
+
+---->The selector is the name you give the Angular component when it is rendered as an HTML element on the page. By convention, Angular component selectors begin with the prefix app-, followed by the component name.
+
+---->@Input() decorator indicates that the property value passes in from the component's parent
+
+---->template~~~~An inline template for an Angular component. If provided, do not supply a template file using templateUrl.
+
+---->styles~~~~~~~One or more inline CSS stylesheets to use in this component.
+
+---->styleUrls~~~~One or more relative paths or absolute URLs for files containing CSS stylesheets to use in this component.
+
+---->templateUrl~~~~~The relative path or absolute URL of a template file for an Angular component. If provided, do not supply an inline template using template.
+
+---->viewProviders~~~~~~~~Defines the set of injectable objects that are visible to its view DOM children
+
+---->Angular makes use of observables as an interface to handle a variety of common asynchronous operations. For example:
+You can define custom events that send observable output data from a child to a parent component.
+The HTTP module uses observables to handle AJAX requests and responses.
+The Router and Forms modules use observables to listen for and respond to user-input events.
+
+---->Angular’s HttpClient returns observables from HTTP method calls. For instance, http.get(‘/api’) returns an observable. This provides several advantages over promise-based HTTP APIs:
+
+---->HTTP requests are cancellable through the unsubscribe() method.
+
+---->Template binding works with properties and events, not attributes.
+
+---->Property binding flows a value in one direction, from a component's property into a target element property.
+You can't use property binding to read or pull values out of target elements. Similarly, you cannot use property binding to call a method on the target element. If the element raises events, you can listen to them with an event binding.
+
+---->Router is an NgModule which provides a service that facilitates developers to define a navigation path among the different application states and view hierarchies in their app.
+
+
+=====================================================================================================================
+---->In one-way databinding, the value of the Model is used in the View (HTML page) but you can't update Model from the View. Angular Interpolation / String Interpolation, Property Binding, and Event Binding are the example of one-way databinding.
+
+---->In two-way databinding, automatic synchronization of data happens between the Model and the View. Here, change is reflected in both components. Whenever you make changes in the Model, it will be reflected in the View and when you make changes in View, it will be reflected in Model.
+
+---->Angular facilitates us to bind the events along with the methods. This process is known as event binding. Event binding is used with parenthesis ().
+
+  <button class="btn btn-primary" [disabled]="!allowNewServer"(click)="onCreateServer()">Add Server</button>  
+  
+---->data flow from class to template ~~~~~~~~~~~~~ "DataBinding"
+
+---->To  respond to user event(like mouseclick,keyboard events) we need data flow on other direction as well i.e from template to class.To capture those events we make use of "EventBinding".
+
+----> "$event" in "EventBinding" gives  all information about DOM-event(like mouseclick,keyboard events) that was raised.
+
+ onFileSelected(event) {
+    console.log(event);
+  }
+  
+  
+  <input type="file" (click)="onFileSelected($event)"> 
+  
+  //On Conosle we can ...it is mouse event.
+=============================================================================================================================
+Services and Dependency Injection
+
+In Angular 7, developers create a service class for data or logic that isn't associated with a specific view, and they want to share across components.
+
+Dependency Injection (DI) is used to make your component classes lean and efficient. DI doesn't fetch data from the server, validate user input, or log directly to the console; it simply renders such tasks to services.
+
+=============================================================================================================================
+
+---->Angular injector creates instance of "Service" and injects in "component.ts" files.that is the reason "@injectable" is required.
+
+---->Property Binding && Event Binding
+    
+	 <div>  
+  <button [disabled]='isDisabled'>Disable me</button>  
+                   </div>
+
+
+                   <div>  
+                    <button disabled='{{isDisabled}}'>Disable Me</button>  
+                                     </div>
+									 
+==============================================================================
+ allowNewServer = true;  
+  serverName = '';  
+     
+  
+  onCreateServer(){
+    this.allowNewServer = false;  
+  }
+   
+  OnUpdateServerName(event: Event) {  
+    this.serverName = (<HTMLInputElement>event.target).value;  
+  }  
+
+----------------------
+<button class="btn btn-primary"  
+          [disabled]="!allowNewServer" (click)="onCreateServer()" >Add Server</button>  <br>
+  <!--<h3 [innerText]= "allowNewServer"></h3>-->  
+    <br>
+  {{serverCreationStatus}}  
+
+
+  <label>Server Name</label>  
+<input type="text"  
+       class="form-control"  
+       (input)="OnUpdateServerName($event)">  
+<p>{{serverName}}</p> 
+
+========================================================================================
+
+---->Property binding is an example of one-way databinding where the data is transferred from the component to the class.
+
+---->Reactive Forms
+Reactive forms are more robust.
+Reactive forms are more scalable, reusable, and testable.
+They are most preferred to use if forms are a key part of your application, or your application is already built using reactive patterns. In both cases, reactive forms are best to use.
+
+
+Template-driven Forms
+Template-driven forms are best if you want to add a simple form to your application. For example: email list signup form.
+Template-driven forms are easy to use in the application but they are not as scalable as Reactive forms.
+Template-driven forms are mainly used if your application's requires a very basic form and logic. It can easily be managed in a template.
+
+
+
+---->here are some building blocks which are shared by both reactive and template-driven forms:
+
+FormControl: It is used to track the value and validation status of an individual form control.
+FormGroup: It is used to track the same values and status for a collection of form controls.
+FormArray: It is used to track the same values and status for an array of form controls.
+ControlValueAccessor: It is used to create a bridge between Angular FormControl instances and native DOM elements.
+
+
+
+---->Form model setup is used to track value changes between Angular forms and form input elements. Let's take an example to see how the form model is defined and created.
+
+---->Angular component should be used when an application is based on component based architecture and the user interface is divided into smaller web components where each component serves different functionality.
+
+ formControlName --->Binds input element to from-Group instance.
+
+---->
+
+---->
+
+---->
+
+---->
+
+---->
+
+---->
+
+---->
+
+
+===========================================================================================
+
+
+
+

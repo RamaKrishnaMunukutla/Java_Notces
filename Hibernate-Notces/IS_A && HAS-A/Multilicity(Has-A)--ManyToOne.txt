@@ -1,0 +1,67 @@
+
+
+Model:=
+~~~~~~
+@Entity
+@Table(name = "addrtab1")
+public class Address  {
+
+	@Id
+	@Column(name = "addpin")
+	private long addrPin;
+	
+	@Column(name = "addloc")
+	private String addrLoc;
+//====================================
+
+@Entity
+@Table(name = "emptab1")
+public class Employee {
+
+	@Id
+    @Column(name = "eid")
+	private int empId;
+	@Column(name = "ename")
+	private String empName;
+	@Column(name = "esal")
+	private long empSal;
+	@ManyToOne
+	@JoinColumn(name="pidFK")
+	Address addr;
+=================================================================================================================================
+Test:=
+~~~~~
+//First Child Always	
+			
+			Address ad = new Address();
+			ad.setAddrLoc("HYD");
+			ad.setAddrPin(223693);
+			
+			
+			Employee emp = new Employee();
+			emp.setEmpId(77);
+			emp.setEmpName("Kiran");
+			emp.setEmpSal(846211);
+			emp.setAddr(ad);
+			
+			Employee emp1 = new Employee();
+			emp1.setEmpId(232);
+			emp1.setEmpName("Rama");
+			emp1.setEmpSal(13132);
+			emp1.setAddr(ad);
+			
+			Employee emp2 = new Employee();
+			emp2.setEmpId(653);
+			emp2.setEmpName("ramesh");
+			emp2.setEmpSal(1206000);
+			emp2.setAddr(ad);
+			
+			ses.save(ad);
+			ses.save(emp);
+			ses.save(emp1);ses.save(emp2);
+================================================================================================================================= 
+
+ 		<mapping class="com.ojas.hibernate.Address" />
+		<mapping class="com.ojas.hibernate.Employee" />
+
+=================================================================================================================================

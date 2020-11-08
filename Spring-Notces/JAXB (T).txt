@@ -1,0 +1,295 @@
+
+
+ HowToDoInJava :=
+ ~~~~~~~~~~~~
+                 JAXB -----> https://howtodoinjava.com/jaxb/jaxb-annotations/
+				 
+				 GJON -----> https://howtodoinjava.com/learningpaths/gson/
+
+           To
+   Object ----> JSON && XML(Marshaller) 
+
+        To
+  JSON && XML(UnMarshaller) ---->  Object
+ 
+=============================================================================================================================
+ 
+                                                  JAXB(Java Architecture for XML Binding)
+												 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+ @XmlRootElement ~~~~~~~ (Scope--> Class) Defines the XML root element(root tag). Root Java classes need to be registered with the JAXB context when it is created.
+ 
+                                            Eg:= <employees>
+                                            -- 
+										   
+										   
+@XmlAttribute ~~~~~~~(Scope-->Field)  Maps a field or property to an XML attribute
+
+                            Eg:=  <employees id="1">
+                            --
+							
+							
+@XmlElement ~~~~~~~(Scope-->Field)  Maps a field or property to an XML element
+
+                            Eg:=  <firstName>Lokesh</firstName>
+                             --    <lastName>Gupta</lastName>
+                                  <email>howtodoinjava@gmail.com</email>
+						     
+@XmlAccessorType ~~~~~~~(Scope--> Package) Defines the fields and properties of your Java classes that the JAXB engine uses for binding. It has four values: PUBLIC_MEMBER, FIELD, PROPERTY and NONE.
+
+
+@XmlAccessorOrder ~~~~~~ (Scope--> Package) , Defines the sequential order of the children.
+
+ It defines the fields or properties of your Java classes that the JAXB engine uses for including into generated XML. It has four possible values.
+
+FIELD – Every non static, non transient field in a JAXB-bound class will be automatically bound to XML, unless annotated by XmlTransient.
+NONE – None of the fields or properties is bound to XML unless they are specifically annotated with some of the JAXB annotations.
+PROPERTY – Every getter/setter pair in a JAXB-bound class will be automatically bound to XML, unless annotated by XmlTransient.
+PUBLIC_MEMBER – Every public getter/setter pair and every public field will be automatically bound to XML, unless annotated by XmlTransient.
+Default value is PUBLIC_MEMBER.
+
+
+@XmlType ~~~~~~~ (Scope-->Class, Enum) ,Maps a Java class to a schema type. It defines the type name and order of its children.
+
+
+@XmlTransient ~~~~~~~(Scope-->Field)  Prevents mapping a field or property to the XML Schema.Prevents the mapping of a JavaBean property/type to XML representation. When placed on a class, it indicates that the class shouldn’t be mapped to XML by itself. 
+
+
+@XmlValue ~~~~~~~(Scope-->Field)  Maps a field or property to the text value on an XML tag.
+
+@XmlList ~~~~~~~ (Scope-->Field Parameter) Maps a collection to a list of values separated by space.
+
+@XmlElementWrapper ~~~~~~~ (Scope-->Field) Generates a wrapper element around XML representation(creates extra-tag after Root-tag). This is primarily intended to be used to produce a wrapper XML element around collections. So, it must be used with collection property.
+
+ @XmlRootElement(name = "employee")
+ @XmlAccessorType(XmlAccessType.FIELD)
+public class Employee implements Serializable 
+{
+    @XmlElementWrapper(name="hobbies")
+    @XmlElement(name="hobby")  .............///If you comment this.
+    private List<String> hobbies;
+}
+
+
+<employee>
+    <id>1</id>
+    <firstName>Lokesh</firstName>
+    <lastName>Gupta</lastName>
+ 
+    <hobbies>
+        <hobby>Swimming</hobby>   ............./// <hobbies> will get instead of  <hobby>
+        <hobby>Playing</hobby>
+        <hobby>Karate</hobby>
+    </hobbies>
+ 
+</employee>
+
+---->Here we are relying on the Spring MVC HttpMessageConverter to convert an object to the xml representation requested by the user. 
+
+---->Instead of returning the java objects directly, you can wrap them inside ResponseEntity. The ResponseEntity is a class in Spring MVC that acts as a wrapper for an object to be used as the body of the result together with a HTTP status code.
+
+
+====================================================================
+
+
+----> "--Marshaller--" interface is responsible for governing the process of serializing Java content trees i.e. Java objects to XML data. This marshalling to XML can be done to variety of output targets.
+
+
+UnMarshaling(LIST) :=
+~~~~~~~~~~~~~~~~~ 
+           	JAXBContext jaxbContext = JAXBContext.newInstance(Employees.class);
+    *** 	Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		Employees emps = (Employees) jaxbUnmarshaller.unmarshal( new File("E:/ZZZ-RoughWork/employees.xml") );
+		for (Employee emp : emps.getEmployees()) {
+			System.out.println(emp.getId());
+			System.out.println(emp.getFirstName());
+		}
+		
+		
+UnMarshaling(MAP) :=
+~~~~~~~~~~~~~~~~
+               jaxbContext = JAXBContext.newInstance(EmployeeMap.class);
+		    Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		 EmployeeMap empMap = (EmployeeMap) jaxbUnmarshaller.unmarshal( new File("E:/ZZZ-RoughWork/employeestwo.xml") );
+		 for(Integer empId : empMap.getEmployeeMap().keySet())
+		{
+			System.out.println(empMap.getEmployeeMap().get(empId).getFirstName());
+			System.out.println(empMap.getEmployeeMap().get(empId).getLastName());
+		}
+		
+
+Marshaling(LIST) :=
+~~~~~~~~~~~~~~~~
+          JAXBContext jaxbContext = JAXBContext.newInstance(Employees.class);
+   ***	 Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+		jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+		jaxbMarshaller.marshal(employees, System.out);
+		jaxbMarshaller.marshal(employees, new File("E:/ZZZ-RoughWork/employees.xml"));
+
+ 
+
+===============================================================================
+Marshal Without JAXB Annotations :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+ 
+ public class JaxbExample 
+{ public static void main(String[] args) 
+  { Employee employee = new Employee(1, "Lokesh", "Gupta", new Department(101, "IT"));
+     
+    jaxbObjectToXML( employee );
+  }
+   private static void jaxbObjectToXML(Employee employeeObj) 
+  {
+      try {
+          JAXBContext jaxbContext = JAXBContext.newInstance(Employee.class);
+          Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+ 
+          // To format XML
+          jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE); 
+ 
+          //If we DO NOT have JAXB annotated class
+          JAXBElement<Employee> jaxbElement = 
+            new JAXBElement<Employee>( new QName("", "employee"), 
+                      Employee.class, 
+                      employeeObj);
+      jaxbMarshaller.marshal(jaxbElement, System.out);
+          //If we have JAXB annotated class
+          //jaxbMarshaller.marshal(employeeObj, System.out);  
+           
+      } catch (JAXBException e) {
+          e.printStackTrace();
+      } }}
+============================================================================================================================
+UnMarshal Without JAXB Annotations :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  public class JaxbExample 
+{ public static void main(String[] args) 
+    { String fileName = "employee.xml";
+  jaxbXmlFileToObject(fileName);  }
+  private static void jaxbXmlFileToObject(String fileName) 
+    {   File xmlFile = new File(fileName);
+        JAXBContext jaxbContext;
+        try
+        {
+            jaxbContext = JAXBContext.newInstance(Employee.class);
+            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+             
+            JAXBElement<Employee> jaxbElement = (JAXBElement<Employee>) jaxbUnmarshaller
+                    .unmarshal(new StreamSource(xmlFile), Employee.class);
+         Employee employee = jaxbElement.getValue();
+             
+            System.out.println(employee);
+        }
+        catch (JAXBException e) 
+        {
+            e.printStackTrace();
+        }}}
+============================================================================================================================
+
+----> Use objectMapper.writeValueAsString() method to convert pojo to JSON
+
+----> Use objectMapper.readValue() method to convert JSON to POJO
+
+=============================================================================================================================
+
+
+Model :=
+~~~~~
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Employee {
+//@XmlTransient
+	@XmlAttribute
+	private int empId;
+	@XmlElement(name = "employee-name", required = true)
+	private String empName;
+	@XmlElement(name = "employee-salary")
+	private double empSal;
+	@XmlElementWrapper(name = "projects")
+	@XmlElement(name = "proj-name")
+	private Set<String> projs;
+	@XmlElementWrapper(name = "proj-version")
+	private Map<String, Integer> versions;
+
+
+
+Test :=
+~~~~~
+ public class Test {
+
+	public static void main(String[] args) {
+		objectToXml();
+		xmlToObject();
+	}
+
+	public static void xmlToObject() {
+		try {
+			JAXBContext jb = JAXBContext.newInstance(Employee.class);
+			Unmarshaller um = jb.createUnmarshaller();
+			Employee emp = (Employee) um.unmarshal(new File("E:/ZZZZZ--RoughWork/emp.xml"));
+			System.out.println(emp);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void objectToXml() {
+		try {
+
+			Employee e = new Employee();
+			e.setEmpId(10);
+			e.setEmpName("A");
+			e.setEmpSal(3.3);
+
+			Set<String> projs = new HashSet<>();
+			projs.add("HTC1");
+			projs.add("HTC2");
+			projs.add("HTC3");
+			e.setProjs(projs);
+			Map<String, Integer> map = new HashMap<>();
+
+			map.put("V11", 1);
+			map.put("AA", 2);
+			map.put("BB", 3);
+			e.setVersions(map);
+			JAXBContext context = JAXBContext.newInstance(Employee.class);
+			Marshaller m = context.createMarshaller();
+			m.marshal(e, new File("E:/ZZZZZ--RoughWork/emp.xml"));
+			System.out.println("done");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+========================================================================================
+O/P :=
+~~~~
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<employee empId="10">
+<employee-name>A</employee-name>
+<employee-salary>3.3</employee-salary>
+<projects>
+   <proj-name>HTC2</proj-name>
+   <proj-name>HTC1</proj-name>
+   <proj-name>HTC3</proj-name>
+</projects>
+<proj-version>
+    <entry>
+		<key>AA</key>
+		<value>2</value>
+		</entry>
+	<entry>
+		<key>BB</key>
+		<value>3</value>
+	</entry>
+	<entry>
+        <key>V11</key>
+		<value>1</value>
+	 </entry>
+</proj-version>
+</employee>
+
+================================================================================================
+
+

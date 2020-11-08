@@ -1,0 +1,210 @@
+
+
+  https://csharp-video-tutorials.blogspot.com/2018/09/angular-6-tutorial-for-beginners.html
+
+
+================================================================================
+
+createemployee.component.ts :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, Validator } from '@angular/forms';
+@Component({
+  selector: 'app-createemployee',
+  templateUrl: './createemployee.component.html',
+  styleUrls: ['./createemployee.component.css']
+})
+export class CreateemployeeComponent implements OnInit {
+
+  employeeForm: FormGroup;
+
+  constructor(private formBulder: FormBuilder) { }
+
+  validationMessages = {
+    'fullName': {
+      'required': 'This feild id required',
+      'minlength': 'Minimum 2 Characters has to enter ',
+      'maxlength': 'Maximum 4 Characters has to enter '
+    },
+
+    'email': {
+      'required': 'Email is required'
+    },
+    'skillName': {
+      'required': 'skill name is required'
+    },
+    'experienceInYears': {
+      'required': 'experience In Years is required'
+    },
+    'proficiency': {
+      'required': 'proficiency is required'
+    }
+  };
+
+  formErrors = {
+    'fullName': '',
+    'email': '',
+    'skillName': '',
+    'experienceInYears': '',
+    'proficiency': ''
+  };
+
+  //employeeForm: FormGroup;
+  //private formBulder: FormBuilder
+  //group: FormGroup
+  ngOnInit() {
+    this.employeeForm = this.formBulder.group({
+      fullName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(4)]],
+      email: ['', Validators.required],
+      skills: this.formBulder.group({
+        skillName: ['', Validators.required],
+        experienceInYears: ['', Validators.required],
+        proficiency: ['', Validators.required]
+      })
+    });
+
+    this.employeeForm.valueChanges.subscribe((data) => {
+      this.logValidationErrors(this.employeeForm);
+
+    });
+
+
+  }
+
+  logValidationErrors(group: FormGroup = this.employeeForm): void {
+    Object.keys(group.controls).forEach((key: string) => {
+      const abstractControl = group.get(key);
+      if (abstractControl instanceof FormGroup) {
+        this.logValidationErrors(abstractControl);
+      } else {
+        this.formErrors[key] = ' ';
+        if (abstractControl && !abstractControl.valid && (abstractControl.touched || abstractControl.dirty)) {
+          const messaegs = this.validationMessages[key];
+
+          for (const errorKey in abstractControl.errors) {
+            if (errorKey) {
+              this.formErrors[key] += messaegs[errorKey] + ' ';
+            }
+
+          }
+
+        }
+      }
+    });
+  }
+
+  onLoadDataClick(): void {
+    // this.logValidationErrors(this.employeeForm);
+    // console.log(this.formErrors)
+  }
+
+}
+
+=====================================================================================
+
+createemployee.component.html :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ <form [formGroup]="employeeForm" class="form-horizantal">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h2 class="panel-title">Create Employee</h2>
+        </div>
+
+        <div class="panel-body">
+            <div class="form-group" [ngClass]="{'has-error': formErrors.fullName}">
+                <label class="col-sm-2 control-label" for="fullName">FullName</label>
+                <div class="col-sm-8">
+                    <input id="fullName" formControlName="fullName" type="text" class="form-control"
+                        (blur)="logValidationErrors()">&nbsp;
+                    <span style="color:red" class="help-block" *ngIf="formErrors.fullName">
+                        {{formErrors.fullName}}
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group" [ngClass]="{'has-error': formErrors.email}">
+                <label class="col-sm-2 control-label" for="email">Email</label>
+                <div class="col-sm-8">
+                    <input id="email" type="text" class="form-control" formControlName="email"
+                        (blur)="logValidationErrors()">
+                    <span style="color:red" class="help-block" *ngIf="formErrors.email">
+                        {{formErrors.email}}
+                    </span>
+                </div>
+            </div>
+
+            <div class="well">
+                <div formGroupName="skills">
+
+                    <div class="form-group" [ngClass]="{'has-error': formErrors.skillName}">
+                        <label class="col-sm-2 control-label" for="skillName">
+                            Skill
+                        </label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="skillName" formControlName="skillName"
+                                (blur)="logValidationErrors()" placeholder="C#, Java, Angular etc...">
+                            <span style="color:red" class="help-block" *ngIf="formErrors.skillName">
+                                {{formErrors.skillName}}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group" [ngClass]="{'has-error': formErrors.experienceInYears}">
+                        <label class="col-sm-8 control-label" for="experienceInYears">
+                            Experience
+                        </label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="experienceInYears"
+                                formControlName="experienceInYears" placeholder="In Years"
+                                (blur)="logValidationErrors()">
+                            <span style="color:red" class="help-block" *ngIf="formErrors.experienceInYears">
+                                {{formErrors.experienceInYears}}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group" [ngClass]="{'has-error': formErrors.proficiency}">
+                        <label class="col-md-2 control-label">Proficiency</label>
+                        <div class="col-md-8">
+                            <label class="radio-inline">
+                                <input type="radio" value="beginner" formControlName="proficiency"
+                                    (blur)="logValidationErrors()">Beginner
+                            </label>&nbsp;
+                            <label class="radio-inline">
+                                <input type="radio" value="intermediate" formControlName="proficiency"
+                                    (blur)="logValidationErrors()">Intermediate
+                            </label>&nbsp;
+                            <label class="radio-inline">
+                                <input type="radio" value="advanced" formControlName="proficiency"
+                                    (blur)="logValidationErrors()">Advanced
+                            </label>&nbsp;
+                            <span style="color:red" class="help-block" *ngIf="formErrors.experienceInYears">
+                                {{formErrors.proficiency}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-footer">
+                <button class="btn btn-primary" type="submit">Submit</button> &nbsp; &nbsp;
+                <button class="btn btn-primary" type="button" (click)="onLoadDataClick()">SaveData</button>
+            </div>
+        </div>
+
+=====================================================================================
+app.component.html :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<div class="container">
+  <nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+      <li><a routerLinkActive="active" routerLink="list"><h1>List</h1></a></li>
+      <li><a routerLinkActive="active" routerLink="create"><h1>Create</h1></a></li>
+    </ul>
+  </nav>
+<router-outlet></router-outlet>
+</div>
+=====================================================================================
+

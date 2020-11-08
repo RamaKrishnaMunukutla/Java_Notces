@@ -1,0 +1,746 @@
+
+
+
+   .....CREATE123.....ALTER123........INSERT123.....DROP550
+   .....UPDATE123.....SELECT123.......DELETE550.....SHOW660
+					 
+	Constraints440.....				 
+					  
+					 
+ 
+Key-Words :=
+~~~~~~~~~~~
+  
+       .......OrderBy........GroupBy............HAVING...........AND.........OR......... ASC/DESC...........
+	
+	    ..............UPPER.........SubString
+
+       ........AND....IN( check ,'or')........NOT-IN.......BETWEEN( Range )..........NOT-BETWEEN.........
+	   
+	  .....LIKE ('%.%' && '_ _ _' && '_ _e%').........round()........
+	   
+
+==================================================================================
+	   
+ drop database test;
+
+ create database test;
+
+ use test;
+ 
+==============================================================
+
+ Tranasaction ACID Properties :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- It is About "-Tranasaction-" Interats with DB && maintains DB-Consistancy.
+ 
+ (1) Atomocity ----> Either all transaction should be Sucessfully Executed (Or) None .
+ 
+ (2) Consistancy ----> After the transaction commits, data should be in consistency state logically.
+ 
+ (3) Isolation ----> One Transaction Should not affect Other. 
+ 
+ (4) Durability ----> Changes must be Accepted inn DB Irrespective H/w (Or) S/w failure. . 
+                      The committed data should not lose by any system failure.
+ 
+
+====================================================================
+ 
+ CREATE123 :=
+~~~~~~~~~~~~
+
+----->CREATE TABLE IF NOT EXISTS  emptab(eid int(10) primary key, ename varchar(30) not null, esal int(10) CHECK(MAX_SALARY<=25000));
+                                                                                 
+																				 ......./// create table
+
+
+---->CREATE TABLE IF NOT EXISTS dup_countries LIKE countries;    ........///Same Structure copied with No Data...
+
+
+---->CREATE TABLE IF NOT EXISTS country_new AS SELECT * FROM countries;     ........///Same Structure copied With Data..
+
+----> CREATE TABLE IF NOT EXISTS jobs ( 
+  JOB_ID varchar(10)  NOT NULL UNIQUE  AUTO_INCREMENT PRIMARY KEY,  (************)
+  JOB_TITLE varchar(35)   DEFAULT NOT NULL  ' ', 
+  MIN_SALARY decimal(6,0) DEFAULT 8000, 
+  MAX_SALARY decimal(6,0) DEFAULT NULL
+  );                               ..................///table with default values.
+
+
+---> CREATE TEMPORARY TABLE empDup SELECT * FROM emptab ; 
+
+---> CREATE TABLE IF NOT EXISTS emp_tab2 LIKE emptab ; 
+     INSERT emp_tab2 SELECT * FROM emptab;   
+
+---> CREATE VIEW empView AS SELECT empname, empsal FROM emptab;  
+     ALTER VIEW  empView AS SELECT empname, empsal FROM emptab;
+     CREATE VIEW empView AS SELECT empname, empname,deptName FROM emp_tab emp, dept_tab dept WHERE emp.id= dept.id; 	 
+
+==============================
+
+ALTER123:=
+~~~~~~~~
+
+-----> ALTER TABLE employee RENAME TO employee_table;                             ....///Rename table name
+
+       ALTER TABLE emptab CHANGE  COLUMN enmae ename varchar(20)  ;     ....///Rename  column name
+	   
+       ALTER TABLE emptab  ADD COLUMN empname VARCHAR(30) NOT NULL;                  ....///add-column name
+	   ALTER TABLE emptab  ADD COLUMN empname VARCHAR(30) DEFAULT NULL After Name;   ....///add-column name
+	   
+	   ALTER TABLE emptab CHANGE COLUMN empName eName varchar(20) NOT NULL;  ....///  Change Column-Name
+	
+	   ALTER TABLE emptab modify phone bigint(5);                            ..../// Change Column-DataType
+		 
+	   ALTER TABLE emptab ADD  qual varchar(20) First;                      ..../// add-column at first
+	   
+	   ALTER TABLE emptab ADD  qual varchar(20) AFTER state_province;       ..../// add-column at Specified Location
+	   
+	   ALTER TABLE emptab DROP  column qual ;                               ..../// Drop Column 
+	   
+       ALTER TABLE emptab MODIFY  year <CN> <dataType> ;
+
+--------------------------	
+   
+	   ALTER TABLE locations ADD PRIMARY KEY(location_id);           ..../// Adds Primary-Key to Table
+	   
+	   ALTER TABLE locations DROP PRIMARY KEY;                      ..../// Drops Primary Keys.
+
+       ALTER TABLE job_history ADD FOREIGN KEY(job_id) REFERENCES jobs(job_id); ..../// Adds FOREIGN-KEY( accept only one NULL)
+	   
+       ALTER TABLE job_history DROP FOREIGN KEY fk_job_id;              ............./// Drops FOREIGN-KEY
+	  
+=====================================
+
+INSERT123:=
+~~~~~~~~~
+
+----> insert into customers values(101,'rahul','delhi');      ........./// Insert Single records.
+
+
+     INSERT INTO cus_tbl  (cus_id, cus_firstname, cus_surname) VALUES (5, 'Ajeet', 'Maurya'),  (6, 'Deepika', 'Chopra') ; 
+ 
+                                                              ........./// Insert multiple records.
+ 
+	
+---> INSERT INTO countries SELECT * FROM country_new;   ......///copy rows from  one table to another.
+
+
+---> INSERT INTO table_name (column_date) VALUES ('2008-7-04');  .../// Insert-date
+
+
+---> UPDATE employees SET salary= CASE department_id 
+                          WHEN 40 THEN salary+(salary*.25) 
+                          WHEN 90 THEN salary+(salary*.15)
+                          WHEN 110 THEN salary+(salary*.10)
+                          ELSE salary
+                        END
+             WHERE department_id IN (40,50,50,60,70,80,90,110);
+
+
+---> UPDATE jobs,employees
+SET jobs.min_salary=jobs.min_salary+2000,
+jobs.max_salary=jobs.max_salary+2000,
+employees.salary=employees.salary+(employees.salary*.20),
+employees.commission_pct=employees.commission_pct+.10
+WHERE jobs.job_id='PU_CLERK'
+AND employees.job_id='PU_CLERK';
+
+
+ INSERT IGNORE :=
+~~~~~~~~~~~~~~~~
+ --- Preferred when we are trying to insert records in bulk, and resulting errors can interrupt the execution process. 
+ --- As a result, it does not store any record into a table. 
+ --- In such a case, the INSERT IGNORE statement only generates the "-warnings-".
+ --- STRICT-MODE   ON ---  throws Error.
+                  OFF ---  throws Warnings.
+ 
+      Eg := INSERT IGNORE INTO Student(Stud_ID, Name, Email, City) VALUES (4,'Donald', 'donald@javatpoint.com', 'New York'),   
+ 
+	  
+
+ 
+====================================
+
+ UPDATE123 :=
+~~~~~~~~~~~~
+
+---> UPDATE employees SET email='not available', commission= 10  WHERE  department_id=110 AND commission_pct<20;
+
+
+---> UPDATE employees  SET email='not available'  WHERE department_id=(
+                                       SELECT department_id FROM departments WHERE department_name='Accounting');
+
+
+---> UPDATE employees SET SALARY = 8000 WHERE employee_id = 105 AND salary < 5000;
+
+---> UPDATE employees SET SALARY = 8000 WHERE employee_id = 105 AND salary < 5000 AND NOT JOB_ID LIKE 'SH%';
+
+
+ REPLACE :=  [ https://www.javatpoint.com/mysql-replace ] // 
+~~~~~~~~~~~
+ --- Row is updated based on Primary-Key. (Alternate to INSERT to avoid PRIMARY KEY or a UNIQUE key error.)
+ --- Row is updated based on Primary-Key.  (performs two standard functions, DELETE and INSERT.}
+ 
+         Eg := REPLACE INTO Person (id, city)  VALUES(4,'Amsterdam');  
+		
+
+
+=======================================================
+ 
+SELECT123 :=
+~~~~~~~~~~
+
+---> SELECT DISTINCT department_id  FROM employees;
+
+---> SELECT *  FROM employees ORDER BY first_name DESC;
+
+---> SELECT employee_id, first_name, last_name, salary  FROM employees  ORDER BY salary;
+
+---> SELECT *  FROM officers  WHERE address = 'Lucknow'  OR address = 'Mau';
+   
+       select distinct qual from emptab;
+	   
+	   select ename from emptab where  qual='Mtech' and esal>10000;
+      
+	  SELECT *  FROM officers  WHERE (address = 'Mau' AND officer_name = 'Ajeet')  OR (officer_id < 5);  
+	  
+	  SELECT DISTINCT expressions  FROM tables  [WHERE conditions];
+  
+      SELECT officer_name, address  FROM officers  WHERE officer_id < 5  ORDER BY officer_name DESC, address ASC; 
+
+
+----> SELECT TRIM(first_name) FROM employees;
+
+----> SELECT * FROM employees WHERE  first_name REGEXP  '[0-9]';     .....///// REGEXP
+ 
+----> SELECT employee_id, first_name  FROM employees  LIMIT 10;    .....//// First 10 Records.	  
+
+----> round(salary/12,2)
+
+---> SELECT first_name, last_name, salary, department_id FROM employees WHERE salary NOT BETWEEN 10000 AND 15000 AND   department_id IN (30, 100);
+
+---> SELECT first_name FROM employees WHERE first_name LIKE '%b%'  AND first_name LIKE '%c%';
+
+---> SELECT last_name FROM employees WHERE last_name LIKE '______';
+
+---> SELECT first_name, last_name, salary, salary*.15 PF from employees;
+
+  DISTINCT clause :=
+~~~~~~~~~~~~~~~~~~~~
+ --- It is used to remove duplicate records from the table and fetch only the unique records. Used with SELECT.
+ 
+                  Eg ---> SELECT DISTINCT officer_name, address  FROM officers; 
+
+
+ Control-Flow Functions := [ https://www.javatpoint.com/mysql-if ]
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  --- SELECT lastname, IF(age>20,"Mature","Immature") As Result  FROM student; 
+
+
+ Conditional := [ https://www.javatpoint.com/mysql-and ]
+~~~~~~~~~~~~~~~~
+  
+  --- AND(AND emp_id > 3;) // OR (OR cus_id > 100;) // AND OR // BOOLEAN // 
+  
+  --- NULL(empname IS NULL) // NOT NULL // LIKE( LIKE 'Luck%';) // IN(Replaces 'OR') // 
+  
+  --- EXISTS // NOT // NOT LIKE (NOT LIKE 'A%';) 
+  
+  --- NOT EQUALS(WHERE city != "England";) // BETWEEN (retrieve  within a specific range) 
+
+
+ EXISTS :=
+~~~~~~~~~
+  --- It is used to check the existence of data in a subquery.
+             
+			   Eg ---> SELECT EXISTS(SELECT * from customer WHERE cust_id=104) AS Result;  
+
+
+
+===============================
+
+ DROP550 :=
+~~~~~~~~~~~~
+
+   Drop-Column ----> ALTER TABLE emptab DROP COLUMN empname;  
+                     ALTER TABLE emptab DROP COLUMN empname, DROP COLUMN empsal ;  
+
+   Drop-Table ----> DROP Table emptab; 
+   
+   DROP-TEMPORARY TABLE  table_name; 
+   
+   DROP TEMPORARY TABLE table_name;
+
+   DROP VIEW trainer;   
+
+===============================
+
+ SHOW660 :=
+~~~~~~~~~~
+  
+  SHOW TABLES; // SHOW TABLES FROM database_name; // SHOW TABLES FROM database_name; //
+  
+              // SHOW TABLES FROM mystudentdb LIKE "stud%";  
+			  
+================================
+ 
+ View :=  View is a virtual table created by a query by joining one or more tables.  
+~~~~~~~
+
+================================
+
+ JOINS230 :=
+~~~~~~~~~~~
+
+ INNER-JOIN :=
+~~~~~~~~~~~
+  SELECT officers.officer_id, students.student_name  FROM students  INNER JOIN officers  ON    students.student_id   = officers.officer_id;  
+
+                --- WHERE cellphone IS NULL  ORDER BY cellphone;
+
+
+
+
+
+=========================================================================================================================
+ 
+ 
+                                  *****************NOTCES*******************
+                                                ~~~~~~~~~~~
+ 
+---->MySQL is the world's most widely used open-source relational database management system (RDBMS), enabling the cost-effective delivery of reliable, high-performance and scalable Web-based and embedded database applications. It is widely-used as the database component of LAMP (Linux, Apache, MySQL, Perl/PHP/Python) web application software stack.
+
+
+---->What are the advantages of MySQL when compared with Oracle?
+MySQL is open source software which is available at any time and has no cost involved.
+MySQL is portable
+GUI with command prompt.
+Administration is supported using MySQL Query Browser
+
+
+---->Differentiate CHAR_LENGTH and LENGTH ?
+CHAR_LENGTH is character count whereas the LENGTH is byte count. The numbers are same for Latin
+characters but they are different for Unicode and other encodings
+
+
+---->Difference between CHAR and VARCHAR?
+Following are the differences between CHAR and VARCHAR:
+CHAR and VARCHAR types differ in storage and retrieval
+CHAR column length is fixed to the length that is declared while creating table. The length
+value ranges from 1 and 255
+When CHAR values are stored then they are right padded using spaces to specific length.
+Trailing spaces are removed when CHAR values are retrieved
+
+
+----> SELECT ROUND(MAX(salary),0) 'Maximum',
+ROUND(MIN(salary),0) 'Minimum',
+ROUND(SUM(salary),0) 'Sum',
+ROUND(AVG(salary),0) 'Average'
+FROM employees;
+
+---->What do you mean by % and _ in the LIKE statement?
+% corresponds to 0 or more characters, _ is exactly one character in the LIKE statement
+
+----> All the database names, table names and table fields name are case sensitive.You cannot DB Once it is created.
+
+----> To filter the returned database using different pattern matching with LIKE and WHERE clause.
+         The LIKE clause list the database name that matches the specified pattern. 
+         The WHERE clause provides more flexibility to list the database that matches the given condition in the SQL statement.
+
+ Eg := SHOW DATABASES LIKE "%ram";  
+~~~~   SELECT empname FROM test.emp WHERE empname LIKE 's%';
+ 
+ 
+ TRUNCATE :=
+~~~~~~~~~~~~
+ --- statement removes the complete data without removing its structure.
+ --- used when you want to delete the complete data from a table without removing the table structure.
+ --- Drop table command can also be used to delete complete table but it deletes table structure too. TRUNCATE TABLE doesn't delete the structure of the table.
+
+
+ Drop :=
+~~~~~~~~~ 
+ --- It removes the complete data of a table along with the whole structure or definition permanently from the database. 
+ --- we cannot recover the lost data after deleting it.
+
+
+ Temporary-Table :=  // accessible only for the current session
+~~~~~~~~~~~~~~~~~~
+ 
+ View := It is a virtual table created by a query by joining one or more tables.
+~~~~~~
+ 
+ Constraints440 := [ https://www.javatpoint.com/mysql-constraints ]
+~~~~~~~~~~~~~~~~~
+  
+---        NOT NULL  //  CHECK   //    DEFAULT   // PRIMARY KEY
+
+--- AUTO_INCREMENT  //  UNIQUE // INDEX // ENUM // FOREIGN KEY
+
+
+ Foreign-Key Constraint :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- This constraint is used to link two tables together.
+ --- This coloumn references to the primary-key field of another table.
+ 
+      Eg ---> CREATE TABLE Persons (Person_ID int NOT NULL PRIMARY KEY,Name varchar(45) NOT NULL);
+              CREATE TABLE  Orders (Order_ID  int NOT NULL PRIMARY KEY, Order_Num int NOT NULL,  Person_ID int,  
+                  FOREIGN KEY (Person_ID) REFERENCES Persons(Person_ID));  
+ 
+ 
+ Clauses :=
+~~~~~~~~~~
+ ---- Where // Order by[ORDER BY officer_name DESC, address ASC; ]   
+    Group by // Having. 
+	
+ --- MySQL always evaluates the FROM clause first(1), and then the SELECT clause will be evaluated. (******)
+ 
+ 
+ GROUP BY := It collects data from multiple records and grouped them by one or more columns.
+~~~~~~~~~~~
+ 
+ HAVING := It works with the GROUP BY clause and returns only those rows whose condition is TRUE.
+~~~~~~~~~~ 
+ 
+ Control-Flow Functions := IF // IFNULL // NULLIF // CASE
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+ ALIAS-Name :=  // SELECT col_name AS alias_name FROM table_name;  
+~~~~~~~~~~~~
+ --- It is very useful when the table or column name is not user-friendly in real-time. 
+ --- It makes the name of a column more readable. 
+ --- MySQL aliases can exist only for the duration of a query.
+
+  
+  Date ----> https://www.javatpoint.com/mysql-date-and-time
+
+Send Table-data into CSV with HEADINGS :=  // File Will be created automatically.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  SELECT 'Id', 'Name', 'Email', 'Phone', 'City'  
+    UNION ALL  
+    SELECT Id, Name, Email, Phone, City FROM employee_detail  
+    INTO OUTFILE 'D:/Rama Krishna/DB/employee_detail.csv'   
+    FIELDS TERMINATED BY ';'  
+    ENCLOSED BY '"'   
+    ESCAPED BY '"'  
+    LINES TERMINATED BY '\r\n';
+
+=====================================================================================================================
+
+
+  Subqueries :=
+~~~~~~~~~~~~~
+ -- Subqueries should always use in parentheses.
+ -- If the main query does not have multiple columns for subquery, then a subquery can have only one column in the SELECT command.
+ -- We can use various comparison operators with the subquery, such as >, <, =, IN, ANY, SOME, and ALL. A multiple-row operator is very useful when the subquery returns more than one row.
+
+
+ The following are the advantages of using subqueries :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ -- The subqueries make the queries in a structured form that allows us to isolate each part of a statement.
+ -- The subqueries provide alternative ways to query the data from the table; otherwise, we need to use complex joins and unions.
+ -- The subqueries are more readable than complex join or union statements.
+
+
+  Correlated Subqueries :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- A correlated subquery in MySQL is a subquery that depends on the outer query.
+ --- Both EXISTS and NOT EXISTS used with correlated subqueries. 
+
+ 
+ Union := (******)
+~~~~~~~~
+ --- Used to combine the result-set of two or more '-SELECT-' statements. 
+ --- Always combines the result set '-vertically-' . (****) 
+ --- returns only the distinct values. (**)
+ --- Performance is slow because it takes time to find and then remove duplicate records.	
+ --- Most database users prefer to use this operator.
+
+
+ Union All :=
+~~~~~~~~~~~~
+ --- The UNION ALL operator combines two or more results from multiple SELECT queries and returns all records into a single result set. 
+ --- It does not Remove the duplicate rows from the output of the SELECT statements.
+ --- Its performance is fast because it does not eliminate the duplicate rows.
+
+
+ JOIN := (******)
+~~~~~~~~
+ --- combines data from many tables based on a matched condition between them.
+ --- Number of columns selected from each table may not be same.
+ --- while the join appends the output '-horizontally-' .  (****) 
+ 
+
+ CHAR :=
+~~~~~~~ 
+ --- It stands of character.	
+ --- It stores the values in a variable-length string with one or two-byte length prefix.
+ --- It cannot hold more than 255 characters.
+ --- It supports static memory allocation.
+	
+	
+ VARCHAR :=
+~~~~~~~~~~	
+ --- It stands for variable character.
+ --- It stores the values in fixed length that we declare while creating a table.	
+ --- It can hold up to 65535 characters.
+ --- It supports dynamic memory allocation.
+
+
+
+ Wildcards := ( % , _ , alpha-Num )
+~~~~~~~~~~~~~
+ --- It improves the performance of an application.
+ --- It saves time in filtering records from the table.
+ --- It makes the use of complex queries into simple ones very easily and quickly.
+ --- It allows us to develop powerful search engines into the large data-driven application.
+ 
+ 
+ Data- Export :=
+ ~~~~~~~~~~~~~~
+  https://dev.mysql.com/downloads/installer/
+
+  , consumes = "application/json", produces = "application/json"
+ 
+  Server ---> data Export ----> 
+  
+--- Database export and import in MySQL is a process of moving data from one place to another place. 
+
+--- Export and import are useful methods for backing up essential data or transferring our data between different versions. 
+
+--- For example, we have a contact book database that is essential for our business. 
+
+--- It is necessary to keep it in a secure place. So we need to export it in a safe place, and whenever it lost from the original location, we can restore it using import options.
+
+
+ Data-Import from CSV :=   [ https://www.javatpoint.com/mysql-import-csv-file-in-database ]
+~~~~~~~~~~~~~~~~~~~~~~~~
+ before importing a file into the database table:
+
+-- An empty table where the data from the file will be imported.
+-- A CSV file that matches the order, number of columns, and data type in each column of the table. 
+-- The user account connected with the database server in MySQL has a FILE and INSERT privileges.
+
+ Note :=
+~~~~~~!
+ --- Table-Name && Col_Name && DataType should be Same to Import from CSV  into DataBase. (***************)
+
+
+  Insert CSV into Table-data :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ LOAD DATA INFILE 'D:\Rama Krishna\DB\address_book.csv'   
+    INTO TABLE address_book   
+    FIELDS TERMINATED BY ','  
+    OPTIONALLY ENCLOSED BY '"'  
+    LINES TERMINATED BY '\r\n'   
+  IGNORE 1 ROWS; 
+  
+                 select * from Demo; 
+
+
+
+ Send Table-data into CSV :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ LOAD DATA INFILE 'D:\Rama Krishna\DB\employee_detail.csv'   
+    INTO TABLE address_book   
+    FIELDS TERMINATED BY ','  
+    OPTIONALLY ENCLOSED BY '"'  
+    LINES TERMINATED BY '\r\n'   
+  IGNORE 1 ROWS; 
+  
+=======================================================================================
+
+  AVG – calculates the average of a set of values.
+   COUNT – counts rows in a specified table or view.
+   MIN – gets the minimum value in a set of values.
+   MAX – gets the maximum value in a set of values.
+   SUM – calculates the sum of values.
+
+
+
+
+
+----->update customers set name='bob', city='london' where id=101;   
+ 
+  --- update emptab set  
+
+----->delete from emptab where eid=101;    
+
+=========Select====================
+
+
+----> select min(esal), max(esal), avg(esal) from rama.emptab;
+
+----->select ename, sum(esal) from rama.emptab group by ename order by esal asc;
+
+----->select ename, sum(esal) from rama.emptab group by ename order by sum(esal) asc;   //same as above
+
+----->select ename, sum(esal) from rama.emptab having sum(esal)>2000 order by sum(esal) desc;
+
+-----> select ename, sum(esal) from rama.emptab group by ename having sum(esal)>2000 order by sum(esal) desc;
+
+----->select ename, sum(esal) from rama.emptab group by ename having sum(esal)>2000 ;  //sal above 2000
+
+----->select ename, sum(esal) from rama.emptab group by ename  ;
+
+----->  (groupBy -- where)  && (where ---GroupBy)
+
+----->select ename, sum(esal) from rama.emptab where eid="101" group by ename having sum(esal)>5000 order by sum(esal) desc;
+
+----->select  emptab.eid, emptab.ename, addrtab.emploc from emptab inner join addrtab on emptab.eid= addrtab.eid where ename="rama";
+     
+	 //Here employee "rama" record is retrived from both tables based on queries.
+
+----->select  emptab.eid, emptab.ename, addrtab.emploc from emptab inner join addrtab on emptab.eid= addrtab.eid where emptab.ename is null;
+
+===============================================================================================
+
+Constraints:=
+~~~~~~~~~~~
+
+   UNIQUE
+   Not Null
+   CHECK
+   AUTO_INCREMENT
+   DEFAULT
+   NoT NULL
+   NULL
+   
+
+==================================================================================================
+
+-----> CREATE [OR REPLACE] VIEW view_name AS  SELECT columns  FROM tables  [WHERE conditions];
+
+
+ IFnULL :=
+~~~~~~~~~
+MySQL Control Flow Functions and Expressions
+The control flow functions allow you to add if-then-else logic to SQL queries without using the procedural code. The following show the most commonly used MySQL control flows functions:
+
+CASE – return the corresponding result in THEN branch if the condition in the WHEN branch is satisfied, otherwise, return the result in the ELSE branch.
+
+IF – return a value based on a given condition.
+
+IFNULL– return the first argument if it is not NULL , otherwise returns the second argument.
+
+NULLIF– return NULL if the first argument is equal to the second argument, otherwise, returns the first argument.
+
+
+ //Date Functions
+ //String Functions
+ //aggregate-functions  from "http://MYSQLtutorial.org"
+
+
+----->"OR" operator combines two Boolean expressions and returns true when either condition is true.
+     
+	 SELECT customername, country, state FROM customers WHERE country = 'USA' OR state = 'CA';
+    SELECT    customername, country, creditLimitFROM    customersWHERE country = 'USA'OR country = 'France'AND creditlimit > 10000;
+
+
+----->"AND" operator is a logical operator that combines two or more Boolean expressions and returns true only if both expressions evaluate to true. The AND operator returns false if one of the two expressions evaluate to false.
+
+      SELECT customername, country, state FROM customers WHERE country = 'USA' AND state = 'CA';
+
+
+---->What is the different between NOW() and CURRENT_DATE()?
+NOW () command is used to show current year,month,date with hours,minutes and seconds.
+CURRENT_DATE() shows current year,month and date only.
+
+---->What is InnoDB?
+lnnoDB is a transaction safe storage engine developed by Innobase Oy which is a Oracle Corporation
+now.
+
+
+---> What are the objects can be created using CREATE statement?
+Following objects are created using CREATE statement:
+DATABASE
+EVENT
+FUNCTION
+INDEX
+PROCEDURE
+TABLE
+TRIGGER
+USER
+VIEW
+	  
+	
+-----> "IN" operator allows you to determine if a specified value matches any value in a set of values or returned by a subquery.
+
+        SELECT officeCode, city, phone, countrY FROM offices WHERE country IN ('USA' , 'France');
+		 SELECT orderNumber FROM orderDetails GROUP BY orderNumber HAVING SUM(quantityOrdered * priceEach) > 60000;
+
+
+
+----->"BETWEEN" operator is a logical operator that allows you to specify whether a value in a range or not. The BETWEEN operator is often used in the WHERE clause of the SELECT, UPDATE, and DELETE statements.
+
+   SELECT productCode, productName, buyPrice FROM products WHERE buyPrice BETWEEN 90 AND 100;
+   
+     
+
+----->"LIKE" operator is a logical operator that tests whether a string contains a specified pattern or not.
+
+ 
+=============================================================================================================
+
+
+   CREATE TABLE IF NOT EXISTS  employee(employeeId int(10) primary key, 
+                                     employeeName varchar(30) not null,
+                                     email varchar(30) not null,
+                                     salary int(10)  not null,
+                                     gender varchar(30) not null );
+
+========================================================================================================
+
+Disadvantages/Drawback of MySQL :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--- MySQL version less than 5.0 doesn't support ROLE, COMMIT, and stored procedure.
+--- MySQL is accused that it doesn't have a good developing and debugging tool compared to paid databases.
+--- MySQL doesn't support SQL check constraints.
+
+ 
+ User-Defined Variable := 
+~~~~~~~~~~~~~~~~
+--- It  enables us to store a value in one statement and later can refer it to another statement. 
+--- MySQL provides a SET and SELECT statement to declare and initialize a variable. 
+--- The user-defined variable name starts with @ symbol.
+--- These are not case-sensitive such as @name and @NAME; both are the same. 
+
+   Eg  :=  SET @name='peter';  
+ ~~~      SELECT @maxage:= MAX(age) FROM students;  
+               SELECT firstname, lastname, age FROM students WHERE age = @maxage;  
+
+
+ Data Import && Export  :=  [ https://www.javatpoint.com/mysql-workbench ]
+~~~~~~~~~~~~~~~~                 
+  
+ Server --->  Data Export ---> Select DB && Table -----> Export
+ 
+==================================================================================================
+
+ MS SQL :=
+~~~~~~~~
+    MySQL 8.0.21 (February 2020)	MongoDB 4.2 (February 2020)
+  
+  
+  MS SQL is developed and supported by Microsoft Company and cannot be used in free. 
+   MS SQL is managed and supported by Microsoft Company that mainly runs on the Windows operating system. 
+   However, Microsoft recently announced that this database could also support Linux and Mac OS X operating system.
+  
+  
+  MySQL database comes in three editions that are MySQL Community Edition, MySQL Enterprise Edition, and MySQL Standard Edition.
+  MS SQL is developed and supported by Microsoft Company and cannot be used in free. 
+  MySQL and MS SQL always use different IDE tools for development. 
+  MS SQL uses SQL Server Management Studio (SSMS) interface tool. 
+  
+  
+  In the MySQL database system, we can use various programming languages such as C, C++, Ada, Perl, Java, etc. 
+  Whereas in MS SQL, we can use .Net, PHP, Ruby, Visual Basic, Java, VB, and Python programming languages.
+  
+
+==================================================================================================
+
+
+
+

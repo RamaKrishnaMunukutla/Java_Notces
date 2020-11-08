@@ -1,0 +1,147 @@
+
+
+ 
+============================================================================================
+ 
+ Routing :=
+~~~~~~~~~~~
+const routes: Routes = [
+  { path: '', redirectTo: 'employee', pathMatch: 'full' },
+  { path: 'employees', component: EmployeeListComponent },
+  { path: 'add', component: CreateEmployeeComponent },
+  { path: 'update/:id', component: UpdateEmployeeComponent },
+  { path: 'details/:id', component: EmployeeDetailsComponent },
+];
+
+
+  <div class="container"> (Or) [header,footer]
+  
+    <a routerLinkActive="active" routerLink="/login">Login</a> |
+    <a routerLinkActive="active" routerLink="/home">Home</a> | 
+    <a routerLinkActive="active" routerLink="/catalog">Catalog</a> 
+      
+    <router-outlet></router-outlet>
+  </div>
+
+=====================================================================================================
+ 
+ Service.ts :=
+~~~~~~~~~~~~~
+
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class EmployeeService {
+
+  private baseUrl = 'http://localhost:8965/springboot-crud-rest/api/v1/employees';
+
+  constructor(private http: HttpClient) { }
+
+  getEmployeesList(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`);
+  }
+  
+  getEmployee(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${id}`);
+  }
+
+  createEmployee(employee: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl}`, employee);
+  }
+
+  updateEmployee(id: number, value: any): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/${id}`, value);
+  }
+
+  deleteEmployee(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+  }
+}
+
+======================================================================================================
+
+ (ts && Services) :=
+~~~~~~~~~~~~~~~~~~
+		 employee: Employee = new Employee(); ......./// Here "-employee-" Stores entered Data using form-control.
+		 
+		 submitted = false;                  ......./// this will hide-form.
+		 
+---->employee: Employee = new Employee();
+     heroes: Hero[];
+     selectedHero: Hero;
+	 
+---->listOfPeople = ['Stephen', 'Elana', 'Kara'];
+     this.listOfPeople.push(newPerson);
+	 <div *ngFor="let person of listOfPeople;let i = index">{{person}}</div>
+		 
+		 
+----> getRestItems().subscribe(restItems => {
+          this.restItems = restItems;
+          console.log(this.restItems);
+        })
+		
+---->   getAll() {
+    return this.http
+      .get<any[]>(this.url)
+      .pipe(map(data => data));
+  }
+  
+----> save() {
+      this.employeeService.createEmployee(this.employee).subscribe(data => console.log(data), error => console.log(error));
+      this.employee = new Employee();
+      this.gotoList();
+      }
+  
+----> gotoList() {
+     this.router.navigate(['/employees']);
+	 this.router.navigate(['/detail', this.selectedHero.id]);
+     }
+	
+	
+  service :=
+~~~~~~~~~~  
+		restItemsServiceGetRestItems() {
+    return this.http
+      .get<any[]>(this.restItemsUrl)
+      .pipe(map(data => data));
+  }
+    
+-------------------
+
+ (2) :=
+~~~~~~
+  
+  <div [hidden]="submitted" style="width: 600px;">
+  <form (ngSubmit)="onSubmit()">	 
+  <div class="form-group">
+        <input type="text" class="form-control" id="emailId" required [(ngModel)]="employee.emailId" name="emailId">
+		<input type="text" class="form-control" id="emailId" required [(ngModel)]="employee.emailId" name="emailId">
+	
+-------------------	
+	
+  (3) :=
+~~~~~~~ 
+
+ <div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Employee List</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+		
+-------------------	
+ 
+ (4) :=
+~~~~~~
+       Last Name: <input type="text" [formControl]="lastNameControl">
+   
+	 (To-Ts) firstNameControl = new FormControl('First');	
+		
+====================================================================================
+
+	
+

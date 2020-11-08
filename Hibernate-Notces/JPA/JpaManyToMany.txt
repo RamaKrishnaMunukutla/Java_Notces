@@ -1,0 +1,243 @@
+
+Nooo Spring.element (Maven)
+=============================================================================================================================
+package com.java.jpa;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "lib")
+public class Library {
+
+	public Library() {
+		super();
+	}
+
+	@Id
+	 
+	private int b_id;
+	private String b_name;
+
+	@ManyToMany(targetEntity = Student.class)
+	private List<Student> stud;
+
+	public Library(int b_id, String b_name, List<Student> stud) {
+		super();
+		this.b_id = b_id;
+		this.b_name = b_name;
+		this.stud = stud;
+	}
+
+	public int getB_id() {
+		return b_id;
+	}
+
+	public void setB_id(int b_id) {
+		this.b_id = b_id;
+	}
+
+	public String getB_name() {
+		return b_name;
+	}
+
+	public void setB_name(String b_name) {
+		this.b_name = b_name;
+	}
+
+	@Override
+	public String toString() {
+		return "Library [b_id=" + b_id + ", b_name=" + b_name + "]";
+	}
+
+}
+
+===============================================================================================================================
+package com.java.jpa;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "std")
+public class Student {
+
+	@Id
+	 
+	private int s_id;
+	private String s_name;
+
+	@ManyToMany(targetEntity = Library.class)
+	private List<Library> lib;
+
+	public Student() {
+		super();
+	}
+
+	public Student(int s_id, String s_name, List<Library> lib) {
+		super();
+		this.s_id = s_id;
+		this.s_name = s_name;
+		this.lib = lib;
+	}
+
+	public int getS_id() {
+		return s_id;
+	}
+
+	public void setS_id(int s_id) {
+		this.s_id = s_id;
+	}
+
+	public String getS_name() {
+		return s_name;
+	}
+
+	public void setS_name(String s_name) {
+		this.s_name = s_name;
+	}
+
+	public List<Library> getLib() {
+		return lib;
+	}
+
+	public void setLib(List<Library> lib) {
+		this.lib = lib;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [s_id=" + s_id + ", s_name=" + s_name + ", lib=" + lib + "]";
+	}
+
+	 
+}
+
+===============================================================================================================================
+Persistence.xml (under <Project-Name>/src/main/resources/META-INF/persistence.xml):=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+            http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	version="2.1">
+	<persistence-unit name="kk">
+		<properties>
+			<property name="javax.persistence.jdbc.driver"
+				value="com.mysql.jdbc.Driver"/>
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost:3306/test" />
+			<property name="javax.persistence.jdbc.user" value="root"/>
+			<property name="javax.persistence.jdbc.password"
+				value="root" />
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.hbm2ddl.auto" value="create"/>
+
+		</properties>
+	</persistence-unit>
+</persistence>
+
+===============================================================================================================================
+package com.java.jpa;
+
+import java.util.ArrayList;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+public class Test {
+
+	public static void main(String[] args) {
+
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("kk");
+		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
+
+		ArrayList<Student> arrayStd = new ArrayList<Student>();
+		ArrayList<Library> arrayLib = new ArrayList<Library>();
+
+		Student st1 = new Student(1, "Vipul", arrayLib);
+		Student st2 = new Student(2, "Vimal", arrayLib);
+
+		arrayStd.add(st1);
+		arrayStd.add(st2);
+
+		Library lib1 = new Library(101, "Data Structure", arrayStd);
+		Library lib2 = new Library(102, "DBMS", arrayStd);
+
+		arrayLib.add(lib1);
+		arrayLib.add(lib2);
+
+		em.merge(st1);
+		em.merge(st2);
+		em.merge(lib1);
+		em.merge(lib2);
+
+		em.getTransaction().commit();
+		em.close();
+		emf.close();
+	}
+
+}
+===============================================================================================================================
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+ 
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.example</groupId>
+  <artifactId>JPA_OnetoOneMapping</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>JPA_OnetoOneMapping</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+  
+  <dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.3.7.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.17</version>
+		</dependency>
+  
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
+
+===============================================================================================================================
+
+================================================================================================================================
+
+===============================================================================================================================

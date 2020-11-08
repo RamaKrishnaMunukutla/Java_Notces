@@ -1,0 +1,1665 @@
+
+
+  
+   ........Profiles333............SpringBootServletInitializer330......Profiles444.....LOMBOK770....FileUpload......
+   
+   .....SpringBootJDBC440.........SpringbootMVCHibernate660............Runner740.........PropertiesGet.....SpringBootActuator
+  
+   ........YAML660...............HATEOAS780.....Thymeleaf890..........Multipart444....Projects450........NamedQueries660....
+   
+   ......RestTemplate660.........Swagger220.....Chache440..........ErrorHandling490.....SpringTransactional
+	
+   ......SpringBatch660..........RedisDB........PCF660.....SpringBatch880.....SpringBootActuator
+   
+   ....SpringBootFaceBook995.....Conditional880...SpringBootCache880.....
+
+===========================================================================================================
+	
+	        Core-Java ----> https://github.com/RameshMF/object-oriented-design/tree/master/oops-concepts
+						    https://github.com/RameshMF/java-io-guide
+						    https://github.com/RameshMF/project-lombok-tutorial
+												  
+	            SERVLET --> https://github.com/RameshMF?tab=repositories&q=SERVLET&type=&language=
+	             JSP -----> https://github.com/RameshMF?tab=repositories&q=JSP&type=&language=
+				 
+				 
+		Servelt + JSP ----> https://github.com/RameshMF/todo-application-jsp-servlet-jdbc-mysql
+		                    https://github.com/RameshMF/jsp-servlet-jdbc-mysql-crud-tutorial
+							https://github.com/RameshMF/jsp-servlet-hibernate-mysql-tutorial
+		
+	    
+	        Spring-Core ---> https://github.com/RameshMF/spring-core-tutorial
+			                 https://github.com/in28minutes/spring-interview-guide
+							
+							
+	        Spring-MVC ----> https://github.com/RameshMF/spring-mvc-tutorial
+						     https://github.com/RameshMF?tab=repositories&q=MVC&type=&language=	
+
+	    MVC + Unit-Test ---> https://github.com/Java-Techie-jt/spring-mockito-example
+						     https://github.com/Java-Techie-jt/spring-boot-mockito
+						     https://github.com/Java-Techie-jt/spring-security-integration-test	
+							 https://github.com/in28minutes/spring-unit-testing-with-junit-and-mockito
+							 
+
+		  SpringBoot -----> https://github.com/RameshMF/spring-boot-tutorial
+                            https://github.com/in28minutes/spring-boot-examples		
+                         ........							
+		                    https://github.com/RameshMF/todo-management-spring-boot
+							https://github.com/RameshMF/registration-login-springboot-security-thymeleaf
+			 	            https://github.com/RameshMF?after=Y3Vyc29yOjMw&language=&q=boot&tab=repositories
+							https://github.com/in28minutes/JavaInterviewQuestionsAndAnswers
+  
+  
+     SpringBoot-Session.M -----> https://www.techgeeknext.com/spring-boot/spring-boot-session-management  
+  SpringBoot-Transaction.M ----> https://www.techgeeknext.com/spring-boot/spring-boot-transaction-management  
+					
+					
+  SpringBoot-Thymeleaf  -----> https://github.com/RameshMF?tab=repositories&q=Thymeleaf&type=&language=
+                               https://github.com/RameshMF/registration-login-spring-boot-security-thymeleaf-hibernate
+								 
+											  
+	     SpringDataJPA ----> https://github.com/RameshMF?tab=repositories&q=JPA&type=&language=
+		                     https://github.com/Java-Techie-jt/spring-data-Jpa
+							 
+   SpringBoot + Angular ----> https://github.com/RameshMF?tab=repositories&q=angular&type=&language=
+							 			
+			
+		   JPA + Junit ----> https://github.com/kishanjavatrainer/SpringBootDataJPAJunitTesting_1
+		                     https://github.com/kishanjavatrainer/SpringBootDataJPAJunitTesting_2
+							 https://github.com/kishanjavatrainer/TicketBookingServiceJunitTesting 
+                             https://github.com/kishanjavatrainer/TicketBookingRestControllerJunitTesting
+							 https://github.com/kishanjavatrainer/SpringBootRestControllerIntegrationTesting
+							 
+ 
+		    Security ------> https://github.com/RameshMF?tab=repositories&q=security&type=&language=
+ 
+
+=========================================================
+
+ Projects450 :=
+~~~~~~~~~~~~~
+
+  https://www.javaguides.net/2019/03/java-mini-projects-with-source-code.html
+  https://www.javaguides.net/2019/06/jsp-servlet-projects-with-source-code-free-download.html
+  
+  
+  https://www.javaguides.net/2018/10/20-free-open-source-projects-using-spring-framework.html
+  https://www.javaguides.net/2018/10/free-open-source-projects-using-spring-boot.html
+  
+  
+  https://www.javaguides.net/2020/06/free-spring-boot-microservices-open-source-projects-github.html
+  https://www.javaguides.net/2019/04/free-open-source-angular-projects-or-templates.html
+  https://www.javaguides.net/2020/06/free-spring-boot-angular-open-source-projects-github.html
+  
+  
+
+ MVC :=
+~~~~~~
+ https://github.com/RameshMF/hotel-reservation-springmvc
+
+
+ Boot22 :=
+~~~~~~~~
+ https://github.com/RameshMF/Spring-Boot-2.0-Projects
+ https://github.com/RameshMF/SpringAll
+ https://github.com/RameshMF/Spring-5.0-Projects
+ 
+ 
+ MicroServices :=
+~~~~~~~~~~~~~~~
+ https://github.com/RameshMF/learn-microservices-w-spring-boot
+ 
+ 
+ FullStack :=
+~~~~~~~~~~~~
+ https://github.com/RameshMF/Angular8-SpringBoot-CRUD-Tutorial
+ https://github.com/RameshMF/Angular9-SpringBoot-CRUD-Tutorial
+ https://github.com/RameshMF/spring-boot-angular-fullstack-examples
+ 
+ 
+ Demo-Projects :=
+~~~~~~~~~~~~~~~~
+ https://github.com/RameshMF/spring-security-react-ant-design-polls-app
+ https://github.com/RameshMF/spring-boot-websocket-chat-demo
+ https://github.com/cf-platform-eng/spring-boot-cities
+ 
+ https://github.com/RameshMF/todo-management-spring-boot
+ https://github.com/RameshMF/registration-login-springboot-security-thymeleaf
+
+
+======================================================================
+
+ NamedQueries660 :=
+~~~~~~~~~~~~~~~~~
+
+		   https://github.com/kishanjavatrainer/-SpringDataNamedQueryDemo       --------- @NamedQueries
+		   https://github.com/kishanjavatrainer/SpringDataQueryAnnotation_1      --------- @Query
+		   https://github.com/kishanjavatrainer/SpringDataQueryAnnotation_2      --------- @Query
+     	   https://github.com/kishanjavatrainer/QueryAnnotaionWithUpdateDataStoreDemo ---- 
+		   https://github.com/kishanjavatrainer/SpringDataNamedNativeQueryDemo  --------- @NamedNativeQueries
+		   https://github.com/kishanjavatrainer/-SpringDataPaginationDemo --------------- Pagination.
+		   https://github.com/kishanjavatrainer/MethodQueryInSpringDataUsingNamedParameters 
+ 
+ 
+ (1) FindByName := 
+~~~~~~~~~~~~~~~~
+    
+	 Add (Model) ---> @NamedQuery(name = "Job.getDetailsBySkillName",
+                            query = "SELECT job FROM Job job WHERE job.skills=?1")
+
+
+ Pagination :=
+~~~~~~~~~~~~~~
+ -- We can do Pagiantion by using  "--PageRequest--"
+ 
+    PageNo ...... PageSize ...... Sort
+
+=======================================================================
+
+ Others :=
+~~~~~~~~~~ 
+											 
+    GSON ------> https://github.com/RameshMF?tab=repositories&q=JAXB&type=&language=
+                 https://github.com/RameshMF/gson-tutorial
+								
+								
+   Jersey ------> https://github.com/RameshMF/jersey-tutorial
+    JSON  ------> https://github.com/RameshMF/jackson-json-tutorial
+
+							 
+  Design-Pattern ----> https://github.com/RameshMF/gof-java-design-patterns
+		
+  JUnit5 ----> https://github.com/RameshMF/junit-developer-guide
+               https://github.com/RameshMF?tab=repositories&q=JUNIT&type=&language=
+ 
+							 
+  Boot-Tutorials(****)-----> https://www.candidjava.com/spring-boot-tutorial/spring-boot-beginner-to-expert-guide/
+      Mongo-DB ------------> https://github.com/RameshMF/springboot-angular-mongodb-crud-tutorial
+	  
+	MicroServices ---------> https://github.com/RameshMF/learn-microservices-w-spring-boot
+                                             
+											 
+=========================================================================			  
+			 
+ SpringSecurity :=
+~~~~~~~~~~~~~~~~~     	
+
+        Java-Techie ----> https://github.com/Java-Techie-jt?q=spring-security&type=&language=
+		Tech-Primer ----> https://github.com/TechPrimers?q=security&type=&language= (****)
+		
+		Java-Brains ----> https://github.com/koushikkothagal?tab=repositories&q=security&type=&language=
+		RameshMF ------->https://github.com/RameshMF?tab=repositories&q=security&type=&language=
+		
+          RequestBody ---> https://www.concretepage.com/spring-5/spring-restcontroller                      					 
+
+
+		 .....MySql....DevTools....JPA....Web.....
+	  
+   src/static/css ----> CSS Files. ///// http://localhost:8965/
+	   
+	   src/template ------> HTML Files
+	   
+ Profiles, XML-Files -----> @ Application.properties.,  
+                       Import using @ImportResource("classpath: Beans.xml") in Main-Class
+			
+			
+ Start333 := [----- http://localhost:8965 ------]
+~~~~~~~~~~
+@SpringBootApplication
+@ComponentScan("com.example.demo.*")
+@EnableAutoConfiguration(exclude = { DataSourceAutoConfiguration.class })
+@EnableJpaRepositories("com.example.demo.jpa") 
+ 
+ 
+ 
+   @ComponentScan({                  // implements CommandLineRunner(I)
+             "com.example.demo.*" , 
+			  "com.naresh.it.*" ,
+			  "com.ashok.it.*"
+			 })
+ 
+ 
+ @Order(20) := Used to define our own Order of Exception using Runners. 
+~~~~~~~~~~~~~
+
+      @Controller ------> Maps Model and Find the View. 
+ 
+    @RestController ----> Sends Object as HTTP Response in XML / JSON Format. 
+ 
+======================================================================================================================	   
+
+  ...StereoTypeAnnotation, @autowired(@Qualifier).....Scopes .....@Component.....@Configuration,@Bean,@ComponentScan.......
+
+    .........Spring-MVC, Model, ModelAndView, @ModelAttribute, @ExceptionalHandler, @ControllerAdvice.............
+	
+	        ........@Profiles, @Transactional, @Import, @ImportResource..............
+ 
+======================================================================================================================
+   
+   
+
+---->SpringBoot is a Spring module which provides RAD (Rapid Application Development) feature to Spring framework.
+It is used to create stand alone spring based application that you can just run because it needs very little spring configuration. 
+ 
+----> SpringBoot avoid all the boilerplate code and configurations that we had to do previously. Spring boot thus helps us use the existing Spring functionalities more robustly and with minimum efforts.
+
+
+----> Spring Boot aims to simplify Java development with the Spring framework. (********)
+
+
+---->SpringBoot provides opinionated 'starter' POMs to simplify your Maven configuration.
+It automatically configure Spring whenever possible.
+
+---->Spring Boot Features
+1. Create stand-alone Spring applications
+2. Embed Tomcat, Jetty or Undertow directly (no need to deploy WAR files)
+3. Provide opinionated 'starter' dependencies to simplify your build configuration
+4. Automatically configure Spring and 3rd party libraries whenever possible
+5. Absolutely no code generation and no requirement for XML configuration
+
+
+---->What are the Advantages of using Spring Boot?
+1.It is very easy to develop Spring Based applications with Java.
+2.It reduces lots of development time and increases productivity.
+3.It avoids writing lots of boilerplate Code, Annotations and XML Configuration.
+4.It is very easy to integrate Spring Boot Application with its Spring Ecosystem like
+Spring JDBC, Spring ORM, Spring Data, Spring Security etc
+
+---->How to create Spring Boot application using Maven?
+There are multiple approaches to create Spring Boot project. We can use any of the following approach to create application.
+ 
+ ---Spring Maven Project (Configuration)
+ ---Spring Boot CLI
+ ---Spring Initializr
+ ---Spring Starter Project Wizard
+
+
+---->How to create Spring Boot project using Spring Initializer?
+It is a web tool which is provided by Spring on official site. You can create Spring Boot project by providing project details.
+
+
+----> SpringBoot uses of HttpSession to achieve Session management.
+
+----> Repetetive-code(DB-Connection) is known as boilerplate code.  (*********)
+
+
+ Advantages of SpringBoot :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+--- DevTools to autorestart server on code/config updates
+--- Embedded Tomcat/Jetty/Undertow support
+
+--- Plenty of SpringBoot Starter to quickly get up and running
+--- Easier dependency management using platform-bom
+
+--- No need of creating boilerplate configuration
+--- Easier customization of application properties
+--- Easy management of profile specific properties
+
+--- Provide production-ready features such as metrics, health checks and externalized configuration
+
+
+============================================================================================
+
+ Profiles333 :=  
+~~~~~~~~~~~~~~~~
+ [ https://github.com/Java-Techie-jt/spring-profile ]
+ [ https://github.com/TechPrimers/spring-boot-profiles-example ]
+ [ https://github.com/kishanjavatrainer/SpringBootProfilesApp2 ]
+ [ https://www.concretepage.com/spring-boot/spring-boot-profiles-example ]
+ 
+---->Why Profiles Are Necessary?
+Profiles provide ability for application developers to specify different application configuration for different environments
+
+ ---we have different application.properties for differnt App development Life-Cycle.
+ 
+ ---used to change the configuration-Properties(App.Properties) based on environment( dev, testing, production, deployment )
+ 
+                        Spring-<Name>.Extension (yaml/Properties/XML)
+ 
+ ---provide default application.properties specifying which profile Spring-Boot has to consider while starting Application.
+ 
+                     "-- spring.profile.active=dev --" ...... ( prod (or) test etc... )
+ 
+ --- we can also define it with annotaion "--@Profile("dev")--"
+
+======================================================================================================
+
+ LOMBOK770 :=
+~~~~~~~~~~~~
+  --- Annotate These Annotations Above Class (******)
+ 
+ --- Goto <Jar-maven-Path> ---> Double-Click(Install) // 
+                   Open-CMD in <Same-path>, Command :: java -jar lombok-1.18.12.jar  ----> Restart-STS //
+   
+   https://howtodoinjava.com/automation/lombok-eclipse-installation-examples/
+   
+            
+ PATH -----> C:\Users\DELL\.m2\repository\org\projectlombok\lombok\1.18.10
+             C:\Users\rm19403\.m2\repository\org\projectlombok\lombok
+				
+
+   ......@NotNull[applied On parameter(method) or constructor].......@getter.......@Setter........@AllArgsConstructor
+   
+  .......@NoArgsConstructor..........@ToString.......................@EqualsAndHashCode
+  
+  .....@RequiredArgsConstructor(+ @NonNull //  Contructor with NotNull)..................@ConfigurationProperties
+   
+   
+ @Data :=
+~~~~~~~~~
+ --- It is a convenient shortcut annotation that bundles the features of @ToString, @EqualsAndHashCode, @Getter / @Setter, and @RequiredArgsConstructor together.  
+
+ @Cleanup :=
+~~~~~~~~~~~
+ --- It to ensure a given resource is automatically cleaned up before the code execution path exits your current scope
+ 
+ Class :=
+~~~~~~~~~ 
+@ConfigurationProperties (prefix="demo")
+@EnableConfigurationProperties 
+@Component
+ Class Demo {
+   
+   private String Location;
+ }  
+ 
+ application.yml  
+~~~~~~~~~~~~~~~~~
+
+ demo:
+    Location : location is Hyderabad.
+ 
+
+=================================================================================================================
+
+ FileUpload  :=
+~~~~~~~~~~~~
+ 
+    https://github.com/chargeahead/SpringBootFileUpload
+
+=================================================================================================================
+
+ SpringBootJDBC440 := [ https://github.com/kishanjavatrainer/SpringBootJdbc ]
+~~~~~~~~~~~~~~~~~~~
+---->Datasource bean gets initialized automatically if not mentioned explicitly.
+
+--->If user does not want this then it can be done by setting the property "-spring.datasource.initialize-" to false.
+
+--->If JdbcTemplate, NamedParameterJdbcTemplate not registered, then Spring Boot will register them automatically
+
+--->Spring Boot will detect spring-jdbc on the classpath and mysql and will create a DataSource and a JdbcTemplate for us automatically.
+	 
+========================================================================================================
+ 
+ SpringbootMVCHibernate660 :=   [ https://github.com/kishanjavatrainer/SpringBootHibernateProject ]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~  
+
+https://www.codejava.net/frameworks/spring-boot/spring-boot-crud-example-with-spring-mvc-spring-data-jpa-thymeleaf-hibernate-mysql
+   
+  [https://github.com/RameshMF/springboot2-webapp-jsp 
+   
+----> https://www.concretepage.com/spring-boot/spring-boot-thymeleaf-maven-example
+
+   
+  /src/main/resources/templates/ ~~~~~> edit_product.html
+
+
+============================================================================================================
+
+ SpringDataJPA :=
+~~~~~~~~~~~~~~~~~
+ ---used to provide JPA based repositary that aims to simplify  implementations of Data-Access-Layer using JPA.
+
+                    extends                       extends                                  extends
+    Repository(I) <--------- CRUDRepository(I) <--------- PagingAndSortingRepository(I) <--------- JPARepository
+
+===========================================================================================================
+ 
+ @ConfigurationProperties :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Used to pull-up Group-of-Configuration files at Once.&& make it avialble through out application.
+
+===========================================================================================================
+ 
+ CommandLineRunner560 (I) := [ https://www.youtube.com/watch?v=qhihLoCfFvY&list=PLzS3AYzXBoj8UcLsBN3UXd7Nf1T4ZyJa0&index=47 ]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ---Used to execute Any task before Boot executes it.
+ ---has Method "Run()" takes String[] as argument.
+ 
+ 
+ AllicationRunner  (I) :=
+~~~~~~~~~~~~~~~~~~~~~~~
+ ---Used to execute Any task before Boot executes it.
+ ---has Method "Run()" takes ApplicationArguments as argument.
+
+
+==================================================================================================== 
+ 
+ PropertiesGet :=
+~~~~~~~~~~~~~~~
+----> We can inject Class-Properties into Applcation.properties usng  'ApplicationProperties'
+
+
+
+
+=============================================================================================
+
+ YAML660 (Yet Another Markup Language) :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --YAML is a superset of JSON.
+ --Spring Boot YAML as an alternative to the application.properties file to define your project properties.
+ --The SpringApplication class automatically supports YAML as an alternative to properties whenever you have the SnakeYAML library on your classpath.
+
+---->Follows indentation for more Readability. (= ---> : )
+
+Let’s take the following example of the application.properties file.
+
+environments.dev.url=https://dev.javadevjournal.com
+environments.dev.name=Developer Setup
+Copy
+
+It can represent the YAML files as follows ::
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+environments:
+   dev:
+       url: https://dev.javadevjournal.com
+       name: Developer Setup
+	   
+==================================================================================================================
+
+ To Avoid "White-label-Error" :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Whitelabel Error Page
+This application has no explicit mapping for /error, so you are seeing this as a fallback.
+
+
+@RestController
+public class MyController implements ErrorController{
+
+	private static final String PATH="/error";
+	@RequestMapping(value="/welcome",method=RequestMethod.GET)
+	public String hello(){
+		return "Hello World";
+	}
+
+	@RequestMapping(value=PATH,method=RequestMethod.GET)
+	public String defaultErrorMessage(){
+		return "Requested Resource is not found!!!";
+	}
+	@Override
+	public String getErrorPath() {
+		return PATH;
+	}
+}
+
+============================================================================================================
+ HATEOAS780 :=
+~~~~~~~~~~
+ ---It is known as Hypermedia As The Engine Of Application State. 
+ ---It is used to present the REST API information to the client allowing better API understanding and documentation
+ 
+ --- It library of APIs that you can use to create links that point to Spring MVC controllers, build up resource representations,
+ 
+
+===========================================================================================================================
+
+ Runner740 :=
+~~~~~~~~~~~~~~~~
+
+----> ApplicationRunner(I) and CommandLineRunner(I) interfaces lets you to execute the code after the Spring Boot application is started. 
+
+---->You can use these interfaces to perform any actions immediately after the application has started.
+
+==========================================================================================================
+
+----> How to create Spring Boot project using boot CLI?
+It is a tool which you can download from the official site of Spring Framework. Here, we are explaining steps.
+
+---->The main goal of Spring Boot Framework is to reduce Unit Test and Integration Test time and to ease the development of Production ready web applications very easily compared to existing Spring Framework.
+
+---->mvn clean install used to create an executable JAR file to run the Spring Boot application by using Maven
+
+
+
+
+CORS(Cross-Origin-Resource-Sharing) :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ---Provides security to application by adding Restriction to API who are Accessing it.
+
+
+ 
+SpringBootDependencyManagement := (...aggregates common dependencies together and improve productivity....)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+Spring Boot manages dependencies and configuration automatically. You don't need to specify version for any of that dependencies.
+Spring Boot upgrades all dependencies automatically when you upgrade Spring Boot.
+
+
+SpringBootActuator := (.....provide help while running spring boot appliaction)
+~~~~~~~~~~~~~~~~~~~
+ ---Spring Boot provides actuator(Tool) to monitor and manage our application health when you push it to production.
+ ---It can be done through HTTP endpoints.  (***)
+ --- Actuator module exposes set of REST endpoints that can be directly accessed as a HTTP URL to check the status. (***)
+ 
+ --- 2 Endpoints are exposed without Security (1) /health  (2) /info
+ --- To Expose all Endpoints
+                   
+				       management.endpoints.web.expose.include = *  ( http://localhost:89965/actuator ) 
+					   
+ --- To change base-Path of Actuator Endpoints ::
+ 
+                      management.endpoints.web.base-path = /rama 
+  
+ --- Actuator endpoints to monitor metrics of individual microservices. 
+ ---when application is pushed to production, you can choose to manage and monitor your application using HTTP endpoints.
+ ---Spring Actuator which allows provides all that information in  a running application.
+ ---Provides information about which beans are created in Spring's Application Context and how Controllers are mapped.
+
+
+ Spring Boot Actuator Features ::=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+There are three main features of Spring Boot Actuator:
+Endpoints
+Metrics
+Audit
+
+
+ I/O ----> It's a webApp that creates internal Project Structure for you
+
+ AutoConfiguration ----> helps in loading default configuration
+
+
+SpringBootStarter :=
+~~~~~~~~~~~~~~~~~~
+---deal with dependency management.
+---When you are adding more than one starters spring automatically detects the compatible version for integrating it.
+Ex: if you add spring boot web and spring boot JPA starters, spring automatically detects the right version of spring, JPA and hibernate.
+
+                        Eg := spring-boot-starter-data-jpa dependency 
+
+ 
+ spring-boot-starter-parent :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ---The spring-boot-starter-parent is a special starter that makes Maven or Gradle dependency-management easier by adding jars to your classpath.
+ ---It adds a basic set of spring jars needed for any type of spring based applications.
+
+=============================================================================================
+
+ SpringBootServletInitializer330 (MKYONG) := // extended by MAIN class && Override "-configure()-" method.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ---In Spring-Boot, to create a WAR for deployment and deploy to a Tomcat-servlet-container, It is used.
+ ---Marked the embedded servlet container as provided.
+ ---Update packaging to war.
+ ---In Spring Boot, the new final executable JAR file with embedded server solution may not suitable in all production environments, especially the deployment team.
+ 
+  POM.xml :=
+~~~~~~~~~~~
+  <packaging>war</packaging>........
+	
+	 <properties> 
+      <!-- The main class to start by executing java -jar -->
+      <start-class>com.mkyong.SpringBootWebApplication</start-class>
+  </properties>
+  
+  	<!-- marked the embedded servlet container as provided -->
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-tomcat</artifactId>
+		<scope>provided</scope>
+	</dependency>
+ 
+ 
+ Eg :=
+~~~~~
+ @SpringBootApplication
+ public class StartWebApplication extends SpringBootServletInitializer {
+
+    public static void main(String[] args) {
+        SpringApplication.run(StartWebApplication.class, args);
+    }
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(StartWebApplication.class);
+    }
+ }
+ 
+========================================================================
+
+---->The @EnableAutoConfiguration is used to enable auto-configuration
+ ---@Configuration and @ComponentScan annotations to enable Java-based configuration and component scanning in your project.
+
+ 
+---->Tomcat-Jasper will convert JSP file  to Servlet file  (....Add Dependency)
+
+----> @ResponseBody will return SpecificData Only . Not return Webpages (Servlet,JSP, HTML)
+
+
+----> HTTPServletRequest req
+    
+	  HttpSession ses= req.getSession();
+	  
+	 String name= req.getParameter("cname");  ....//fetches  name from Client-webpage.
+	 
+	 ses.setAttribute("cname", cname");  .....//Adding "cname" value to Session.
+	 
+	 In JSP ---> ${cname} ...../// Displaying in JSP
+	 ~~~~~~~
+
+
+----> ModelMap ----> map values from Client-webpages to Model
+  
+
+---->   <form method="pst" action ="details"/>
+                                    ......// here "--details--" should same as @RequestMapping("/details")  
+  
+
+---->@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
+                      ..........used to remove need the datasource, simply remove it from the auto-config process
+
+----> URI --- uniquely Identifies the resource
+     Body --- holds the state of requestingResource.
+	 
+----------------------------------------------------------------------------------------------
+	 
+---->Possible sources of external Configuration ::=
+      
+	  ApplicationProperties ------ (Default)
+	   CommandLineProperties ------- converts commandline argument to properties.
+	   ProfileSpecificProperties --- Profiles
+	   
+Expose Custom Application configuration :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+<packaging>
+@ConfigurationProperties("Eg")
+public class Simple{
+private int eid;
+private String ename;
+}
+</packaging>
+
+    In AppProperties ---> eg.name="rama"
+	                      eg.eid=101;
+
+----------------------------------------------------------------------------------------------
+			  
+---->If you run BootProject as JavaApplication, it automatically launches up "--tomcat--" server. 
+
+
+----> Spring-boot-starter (jdbc, JPA, web, security, test)
+
+----> thymleaf is a java template used for web Apps to bring natural template. data stored in hierarchical-Format.
+
+---->To deply Spring-Boot JAR (or) WAR files add plugin 
+
+             <packaging>war/jar</packaging>
+			 
+			 <plugin>
+			 <groupId>org.springframework.boot</groupId>
+			 <artifactId>spring-boot-maven-plugin</artifactId>
+			 </plugin>
+
+
+Profiles ---> segregate the parts of AppConfigurationas and make it available in environment.  
+
+=====================================================================================================
+
+ ThymLeaf :=
+~~~~~~~~~~~~
+ ---To use in SpringBoot, use <spring-boot-starter-thymleaf> dependency.
+ ---It is Server-side template engine that can process XML, HTML etc...
+ ---It can access Class feilds && bind it with form-fields.
+ ---It can use CSS-files && Perform Validations && displays i18n-Messages.
+
+=====================================================================================================
+ 
+----> What is @RestController annotation in Spring Boot?
+The @RestController is a stereotype annotation. It adds @Controller and @ResponseBody annotations to the class. We need to import org.springframework.web.bind.annotation package in our file, in order to implement it.
+
+---->Where do you need @EnableWebMVC? (answer)
+The @EnableWebMvc annotation is required to enable Spring MVC when Java configuration is used to configure Spring MVC instead of XML. It is equivalent to <mvc: annotation-driven> in an XML configuration.
+
+
+----> What is the View Resolver pattern? how it works in Spring MVC
+View Resolver pattern is a J2EE pattern that allows a web application to dynamically choose its view technology, e.g. HTML, JSP, Tapestry, JSF, XSLT, or any other view technology.
+
+
+---->When do you need @ResponseBody annotation in Spring MVC? (answer)
+The @ResponseBody annotation can be put on a method to indicate that the return type should be written directly to the HTTP response body
+ 
+ @RequestMapping(path = "/hello", method = RequestMethod.PUT)
+ @ResponseBody
+ public String helloWorld() {
+   return "Hello World";
+ }
+
+---->Spring Boot uses Commons Logging for all internal logging and you can change log levels by adding following lines in the application.properties file:
+
+ logging.level.org.springframework=DEBUG
+ logging.level.com.demo=INFO
+
+
+---->How to Disable a Specific Auto-Configuration?
+   @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+   public class MyConfiguration { }
+
+
+----> spring-boot-maven-plugin, to package a web application as an executable JAR. To include this plugin, just add a plugin element to pom.xml:
+<plugin>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+</plugin>
+
+
+---->In case we want to build a WAR file, change the packaging element to war:
+                        <packaging>war</packaging>
+
+
+---->Applications using DevTools restart whenever a file on the classpath changes. This is a very helpful feature in development, as it gives quick feedback for modifications.
+
+
+---->The most commonly used and important spring boot annotations are as below:
+
+---->@EnableAutoConfiguration – It enable auto-configuration mechanism.
+
+---->@ComponentScan – enable component scanning in application classpath.
+
+----> @SpringBootApplication annotation is used to mark a configuration class that declares one or more @Bean methods and also triggers auto-configuration and component scanning. It's same as declaring a class with @Configuration, @EnableAutoConfiguration and @ComponentScan annotations.
+
+---->@ImportAutoConfiguration ~~ imports and apply only the specified auto-configuration classes. We should use this when we don’t want to enable the default auto-configuration.
+
+
+---->@AutoConfigureBefore, @AutoConfigureAfter, @AutoConfigureOrder – shall be used if the configuration needs to be applied in a specific order (before of after).
+
+---->@Conditional – annotations such as @ConditionalOnBean, @ConditionalOnWebApplication or @ConditionalOnClass allow to register a bean only when the condition meets.
+
+
+---->To create an executable jar, we shall add spring-boot-maven-plugin in pom.xml. By default, this plugin package the application as .jar file only.
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+    </plugins>
+</build>
+
+
+----> To create war file, first logical step is to declare the packaging type ‘war’ in pom.xml file.Second thing, set scope of embedded server dependency to ‘provided’ because server dependencies will be provided by application server where war file will be deployed.
+
+pom.xml
+<packaging>war</packaging>
+ 
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-tomcat</artifactId>
+    <scope>provided</scope>
+</dependency>
+
+
+---->10. How to enable debug logging?
+To enable debug logging,
+
+we can start the application with the --debug switch.
+we can set the logging.level.root=debug property in application.properties file.
+We can set the logging level of root logger in supplied logging configuration file.
+
+
+---->To perform unit testing in Spring-Boot, we can take help of specialized annotations such as :
+   ---@JdbcTest – can be used for a typical jdbc test when a test focuses only on jdbc-based components.
+   ---@JsonTest – It is used when a test focuses only on JSON serialization.
+   ---@RestClientTest – is used to test REST clients.
+   ---@WebMvcTest – used for Spring MVC tests with configuration relevant to only MVC tests.
+
+
+
+---->What are the requirements of Spring boot 2 System?
+Spring Boot 2.1.3.RELEASE requires
+
+ Java 8 + (compatible up to Java 11) && Spring 5
+
+ For build support ---> Maven 3.3+ && Gradle 4.4+
+
+ Container Support ---> Tomcat 9 && Jetty 9.4
+
+
+
+---->How do you change JDK version in spring boot?
+<properties>
+    <java.version>1.8</java.version>
+</properties>
+
+
+---->What are Profiles in spring boot?
+Spring Profiles provide a way to segregate parts of your application configuration and make it only available in certain environments. Any @Component or @Configuration can be marked with @Profile to limit when it is loaded.
+
+
+---->How do you run and stop spring boot executable jar?
+Open cmd or shell window and use java -jar as shown below
+$ java -jar my project-0.0.1-SNAPSHOT.jar
+To stop use ctrl+C
+
+
+
+---->How to disable specific auto-configuration in spring boot?
+You can use exclude property as shown below to disable specific auto-configuration.
+                
+				 @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
+ 
+
+============================================================================================================
+
+
+  
+How to execute Spring Batch jobs on startup?
+Spring Batch auto-configuration is enabled by adding @EnableBatchProcessing (from Spring Batch) somewhere in your context. By default, it executes all Jobs in the application context on startup.
+
+
+32. Does spring boot need Logging? What is the default one?
+Spring Boot has no mandatory logging dependency, except for the Commons Logging API.
+
+
+33. How do you configure Configure Logback for logging?
+If you put a logback.xml in the root of your classpath it will be picked up from there.
+
+
+34. How do you Configure Log4j for logging?
+Spring Boot supports Log4j 2 for logging configuration if it is on the classpath. If you are using the starters for assembling dependencies that means you have to exclude Log back and then include log4j 2 instead.
+
+
+35. How do you write a JSON REST service in spring boot?
+Any Spring @RestController in a Spring Boot application should render JSON response by default as long as Jackson2 is on the classpath.
+
+
+36. How do you Write an XML REST service in spring boot?
+If you have the Jackson XML extension (Jackson-dataformat-XML) on the classpath, it will be used to render XML responses.
+
+
+37. What is the default Multipart444 File Uploads size in spring boot?
+By default, Spring Boot configures Spring MVC with a maximum file of 1MB per file and a maximum of 10MB of file data in a single request.
+  
+   Git ----> https://github.com/ramram43210/Java_Spring_2019/tree/master/JavaEE_2019/SpringBootDemo_file_upload
+
+
+38. How do you Enable HTTP response compression in spring boot?
+HTTP response compression is supported by Jetty, Tomcat, and Undertow. It can be enabled by adding server.compression.enabled=true in application.properties.
+
+
+39. How do you add Add a Servlet, Filter or Listener to an application?
+There are two ways to add Servlet, Filter, ServletContextListener and the other listeners supported by the Servlet spec to your application. You can either provide Spring beans for them or enable scanning for Servlet components.
+
+===========================================================================================
+ 
+ Thymeleaf890 := [ https://www.javatpoint.com/spring-boot-thymeleaf-view ]
+~~~~~~~~~~~~~~~
+----> Thymeleaf is an server-side Java Template-Engine that is licensed under the Apache License 2.0.
+      It is a HTML5/XHTML/XML.
+
+
+
+==============================================================================================
+
+
+---->Can we use Spring Boot for non-Spring application?
+No, Spring Boot has limited to Spring based application only. We can not use Spring Boot for non Spring applications.
+
+
+---->How can we create a custom endpoint in Spring Boot Actuator?
+To create a custom endpoint using Spring Boot 1.x, we should expose the instance of the custom endpoint class as a bean. We need to implement Endpoint<T> interface.
+
+@Component
+public class CustomEndpoint implements Endpoint {
+ //method implimentation
+}
+Copy
+Spring Boot 2.x changed it by introducing @Endpoint annotation. Spring Boot expose endpoints with @Endpoint, @WebEndpointor @WebEndpointExtension over HTTP using Jersey, Spring MVC, or Spring WebFlux.Read Custom Endpoint in Spring Boot Actuator for more detail.
+
+ 
+
+
+---->What is a shutdown in the actuator?
+Spring Boot actuator provides a shutdown endpoint. This endpoint allows the graceful shutdown of the application. This end point disabled by default and we need to enable this in case we need to use this service. We can enable this end point using project.properties 
+
+management.endpoint.shutdown.enabled=true
+
+-------------------------------------------------------------------------------------------------------------
+
+
+----> How to configure database using Spring Boot?
+The Spring Framework provides extensive support for working with SQL databases, from direct JDBC access using JdbcTemplate to complete “object-relational mapping” technologies such as Hibernate. To connect configure the database for your Spring Boot application, use the spring-boot-starter-jdbc or spring-boot-starter-data-jpa “starters”.To configure datasource configuration, use the application.properties file in your application.
+
+spring.datasource.url=jdbc:mysql://localhost/javadevjournal
+spring.datasource.username=root
+spring.datasource.password=
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+
+-------------------------------------------------------------------------------------------------------------
+
+---->How can we use Jetty instead of the tomcat in our web application?
+Spring Boot web starters use Tomcat as the default embedded servlet container. When switching to a different HTTP server, we need to exclude the default dependencies besides including the one we need. Spring Boot provides separate starters for HTTP servers to help make this process as easy as possible. To use Jetty, we need to exclude Tomcat and include Jetty in our application’s pom.xml file.
+
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-web</artifactId>
+	<exclusions>
+		<!-- Exclude the Tomcat dependency -->
+		<exclusion>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+		</exclusion>
+	</exclusions>
+</dependency>
+<!-- Use Jetty instead -->
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-jetty</artifactId>
+</dependency>
+
+
+-------------------------------------------------------------------------------------------------------------
+
+---->Why do we need spring-boot-maven-plugin?
+Spring Boot Maven plugin provides Spring Boot support in the maven. This plugin provides options to create an executable jar or war files. Here are goals for this plugin.
+
+boot: run runs your Spring Boot application.
+spring-boot:repackage repackages your jar/war to be executable.
+spring-boot:start and spring-boot:stop to manage the lifecycle of your Spring Boot application (i.e. for integration tests).
+spring-boot:build-info generates build information that can be used by the Actuator.
+To include this plugin in your project, add XML in the plugins section of your pom.xml
+
+
+
+---->How to disable specific auto-configuration in spring boot?
+To exclude specific auto-configuration classes, use the exclude attribute of @EnableAutoConfiguration to disable them. Here is a sample code for the same.
+
+@Configuration
+@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
+public class CustomConfiguration {
+}
+
+=============
+
+To work with interceptor, you need to create @Component class that supports it and it should implement the HandlerInterceptor interface.
+  
+  preHandle() method − This is used to perform operations before sending the request to the controller. This method should return true to return the response to the client.
+
+  postHandle() method − This is used to perform operations before sending the response to the client.
+
+ afterCompletion() method − This is used to perform operations after completing the request and response. 
+
+ 
+=========================================================================================
+ 
+
+---->How to enable HTTP/2 support in Spring Boot
+You can enable the HTTP/2 support in Spring Boot by: server.http2.enabled=true
+
+
+ Profiles444 :=  [ https://github.com/TechPrimers/spring-boot-profiles-example ]
+~~~~~~~~~~~~~~   [ https://github.com/kishanjavatrainer/SpringBootProfilesApp2 ]
+
+There are two ways to set the active profile in Spring Boot.
+Pass in the active profile as an argument while launching the application.
+Use the application.properties file to set the active profile.
+java -jar -Dspring.profiles.active=production application-1.0.0-RELEASE.jar //pass as command line argument
+
+ Save file as  application-dev.properties
+               application-test.properties
+			   application-prod.properties
+ 
+ 
+ In Application.Properties :=  spring.profiles.active=production
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+---->What is the Spring Boot Initilizr?
+Spring Boot Initilizr is a web interface which to rapidly create spring boot projects. Using this tool you can
+create Maven and Gradle projects.
+
+==============
+
+ Building a 'WAR' :=
+~~~~~~~~~~~~~~~~~~~
+ --- We like launchable JARs, but you can still use WAR format if you prefer. Spring Boot Tools take care of repackaging a WAR to make it executable. 
+ --- If you want a WAR to be deployable (in a "normal" container), then you need to use "--SpringBootServletInitializer--" instead of or as well as SpringApplication
+ --- We need to extend the class "-SpringBootServletInitializer-" to support WAR file deployment (***********)
+
+=================
+
+--->Spring MVC framework can be used to create web applications as well as restful web services capable of returning XML as well as JSON response.
+
+---->Spring Bean configuration file is used to define all the beans that will be initialized by Spring context.
+
+
+---->How to disable the web server configuration in your Spring Boot application?
+Spring Boot automatically starts an application in web server mode if it finds the web module in the classpath. To disable the web server configuration, set the webApplicationType to none in the application.properties file.
+
+                   spring.main.web-application-type=none
+
+
+---->How to enable HTTP Response Compression in Spring Boot?
+Spring Boot supports the HTTP response compression for the following application servers:
+Tomcat
+Jetty
+Undertow
+To enable this feature, set the server.compression.enabled property to true in the application.properties
+server.compression.enabled=true
+
+===========================================================================================
+
+ MultiModuleProject := [https://www.javatpoint.com/spring-boot-multi-module-project]
+~~~~~~~~~~~~~~~~~~~~~~~
+ --- It is built from a parent pom that manages a group of submodules.
+ --- Splitting the project into multiple modules is useful and easy to maintain.
+ --- The child modules are actual Spring Boot projects that inherit the maven properties from the parent project.
+ --- When we run the multi-module project, all the modules are deployed together in an embedded Tomcat Server.
+ --- We can deploy an individual module, also.
+ 
+                      EAR > WAR > JAR
+					  
+		WAR ---> Web module contains servlet classes, JSP files, HTML files, JavaScripts, etc.(loads in WebContainer)
+		
+		 The Java Application Server has two containers: (1) Web Container and (2) EJB Container.
+
+  (1) Web-Container ---> hosts the web applications based on Servlet API and JSP. The web container requires the web module to be packaged as a WAR file. It is a WAR file special JAR file that contains a web.xmlv file in the WEB-INF folder.
+
+  (2) EJB-Container ----> An EJB Container hosts Enterprise Java beans based on EJB API. It requires EJB modules to be packaged as a JAR file. It contains an ejb-jar.xml file in the META-INF folder.
+		
+   
+ 
+============================================================================================
+
+ Swagger220 :=  https://dzone.com/articles/spring-boot-restful-api-documentation-with-swagger
+~~~~~~~~~~~~~
+ 
+  https://github.com/kishanjavatrainer/SpringBootSwaggerApp
+  https://github.com/dpgupta1989/RestAPIDemo
+  
+  https://github.com/TechPrimers/spring-boot-swagger-example
+  https://github.com/Java-Techie-jt/spring-swagger
+  
+    https://github.com/SimpleProgramming/spring-boot-ehCache-CacheManager
+  https://github.com/SimpleProgramming/spring-boot-swagger-ui
+  https://github.com/SimpleProgramming/spring-boot-swagger-codegen-maven-plugin
+  
+  
+---->What is Swagger2?
+ --- Defined as Accessing One-Service of one application from another using Documentation (created by Swagger [WSDL] ) .
+ 
+         App1 -----> WSDL -----> App2
+       (Consumer)             (Provider)
+
+    Swagger ---> generate doucmentation for Rest-API
+	
+	Swagger-UI ----> test Rest-API functionality
+	
+	Swagger-Documentation ----> to Develop rest-Client
+	
+	
+	  WSDL ----> Provide Documentation && Details if Producer-/-(Provider) is a SOAP-Based.  // Documentation in XML-based
+	
+	Swagger ---> Provide Documentation && Details if Producer-/-(Provider) is a REST-Based. //  Documentation in JSON-based
+	
+	             It is UI-Component to test REST-API.
+				 
+		SwaggerConfig ---> generates Configuration for API. (--@EnableSwagger2--)
+		
+		
+  Annotations :=  [ https://www.javainuse.com/spring/boot_swagger_annotations ]
+~~~~~~~~~~~~~~~		
+    @API            ----> provides   details   of   Method.
+    @APIOperation   ----> describes the endpoint and its response type
+	@APIParam       ----> describes the exposed REST API.
+    @ApiModelProperty ----> describes the properties of the Product model.
+ 
+    @ApiOperation  ----> 
+    @ApiResponses  ----> describe the expected responses for the REST API. 
+                           It describes an operation or typically a HTTP method against a specific path.
+  
+  
+   Eg :=  @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
+  ~~~~
+ 
+   http://localhost:8965/swagger-ui.html
+   
+    http://localhost:8965/v2/api-docs
+ 
+  Dependencies ----> springfox-swagger2 // springfox-swagger-ui
+  
+ Eg :=
+~~~~~~
+
+@EnableSwagger2
+@Configuration
+public class SwaggerConfig {
+
+	@Bean
+	public Docket docket() {
+
+		return new Docket(DocumentationType.SWAGGER_2).select()
+				.apis(RequestHandlerSelectors.basePackage("com.techprudent")).paths(PathSelectors.any()).build()
+				.apiInfo(apiInfo());
+	}
+	
+ 
+Dependencies :=
+~~~~~~~~~~~~~~
+ <dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.6.1</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.6.1</version>
+			<scope>compile</scope>
+		</dependency>
+
+=============================================================================================
+
+ Chache440 :=
+~~~~~~~~~~~
+
+ --- https://www.javatpoint.com/spring-boot-cache-provider
+ --- https://www.javatpoint.com/spring-boot-caching
+ --- https://www.javatpoint.com/spring-boot-ehcaching
+
+=================================================================================================
+ 
+ ErrorHandling490 :=  [ http://zetcode.com/springboot/controlleradvice/ ]
+~~~~~~~~~~~~~~~~~~  [ https://mkyong.com/spring-boot/spring-rest-error-handling-example/ ]
+ 
+  src/main/resources/template/error/ 4xx.html
+ 
+ 
+ catch (Exception e) {
+			logger.error("error createEmployee EmployeeServiceImpl ::::" + e.getMessage());
+			response.setTimestamp(LocalDateTime.now());
+			response.setStatusCode("422");
+			response.setStatusMessage(e.getMessage());
+			return new ResponseEntity<Object>(response, HttpStatus.UNPROCESSABLE_ENTITY);
+		}
+
+=================================================================================================
+
+ SpringBootCache880 := [ https://github.com/sumitMultani/spring-boot ]
+~~~~~~~~~~~~~~~~~~~~~
+ --- Subsequent Request will receive Copy-Of-Request called "-CACHE-". 
+ 
+ --- Acts like a "-Temporary-Memory-" between DB && Aplication && Reduces DB-Hits by storing Recently(Frequently) used data.  
+
+                  @EnableCaching ----> At Main-Method Level
+				  
+				  @CacheConfig(cacheNames= "studentcaChe", key="student.id") ----> At method level.
+				  
+				  @EnablePut(cacheNames= "studentcaChe", key="student.id") ----> At method level.
+
+===================================================================================================
+
+ SpringTransactional := [ https://github.com/PlayProCode/PlayJava/tree/master/transactionPractice ]
+~~~~~~~~~~~~~~~~~~~~~~
+
+  [ https://www.youtube.com/watch?v=z7Tqo4ppNm4&list=PLn2GH4dN5i2BjapGeQ8mkuu2SklDMpsx1&index=3&ab_channel=PlayJava ]
+  
+  
+----> Applied at Service-Layer at method-Level where we write Business-Logic
+
+---> It is applied, in-Order-to treat Bunch of Transaction as Single-Unit as Proxy.
+
+              @Tranasactional(RollBackFor=NumberFormatException.class)
+
+
+
+===================================================================================================
+
+   SpringBatch660 :=
+ ~~~~~~~~~~~~~~~~~
+ 
+   https://github.com/TechPrimers/spring-batch-example-1
+  
+   https://github.com/kishanjavatrainer/SpringBootBatchCvsToDb
+   https://github.com/kishanjavatrainer/SpringBootBatchDbToCsv
+   
+   https://github.com/kishanjavatrainer/SpringBootBatchDbToXml
+   https://github.com/kishanjavatrainer/SpringBootBatchXmlToDb
+   
+   https://github.com/kishanjavatrainer/MultiResourceItemReaderSpringBatch
+   https://github.com/kishanjavatrainer/SpringBootBatchSchedulerProject
+   
+   
+  Spring Batch :=  [ https://github.com/sumitMultani/spring-batch-example ]
+~~~~~~~~~~~~~~
+
+  --- @EnabelBatchProcessing //
+  --- JobRepositary has 
+                       (1) JobLauncher
+                       (2) Job
+					   (3) Step [   (a) ItemReader ----> Reads Data from CSV file.
+    
+	                                (b) ItemProcessor ---> Process Data.
+									
+									(c) ItemWriter ----> Saves Data in Database. ]
+   
+   
+===============================================================================================================
+
+ RedisDB :=
+~~~~~~~~~
+---> Acts as a Cache which is used to display Same-Data(Read-Only) multiple times
+ 
+---> Start Redis-Server(6379) && Redis-Client (PING --- PONG)
+
+---> Add dependencies 'Spring-boot-starter-data-redis' && 
+     Configure JedisConnectionFactory as Bean to eastablish connection wirh Redis-Server.
+ 
+  @Bean
+  JedisConnectionFactory jedisConnectionFactory(){
+     JedisConnectionFactory jcf = new JedisConnectionFactory();
+	 return jcf;
+ }
+
+---> Configure RedisTemplates as a Bean by Injecting JedisConnectionFactory Bean Obj. 
+
+            JedisTemplate ----> RedisTemplate ----> HashOperations ---> DAO .           
+
+---> Perform Operations using '-HashOperations<HK,K,V>-' .
+
+=================================================================================================
+
+ SpringBatch880  :=
+~~~~~~~~~~~~~~~~~
+   https://examples.javacodegeeks.com/enterprise-java/spring/batch/spring-batch-itemreaders-and-itemwriters-example/
+  
+  
+ (Q).What is the need of BatchUpdates?  
+ (A) The BatchUpdates feature allows us to group SQL statements together and send to database server in one single trip. 
+
+  
+ SpringBootFaceBook995 :=
+~~~~~~~~~~~~~~~~~~~~~~~
+ https://www.youtube.com/watch?v=-A3I4KxzYyI&list=PLZdfbI_OZWAOSwOLb1Q45YEApKMRspez2&ab_channel=AlmightyJava
+
+=================================================================================================
+ 
+ PCF660 :=
+~~~~~~~~
+
+----> It is a Server that support Spring-boot application deployment in cloud env.
+
+Steps to work with PCF:
+1. Create Account in PCF
+2. Download and Install PCF CLI(Client App)
+3. Write Boot Application and convert to jar/war
+4. Login using PCF client and Push App to PCF
+-----------------------------------
+1. Create Account in PCF
+Gmail:
+raghusnithyd2020@gmail.com
+raghu2020nit
+
+> Goto https://run.pivotal.io/
+> Click on SIGN UP FOR FREE
+> Fill Form with all details
+raghusnithyd2020@gmail.com
+<YourPWd>
+> Come back to Gmail account and activate PCF.
+> TO login next time , enter URL:
+  https://login.run.pivotal.io/
+> Click on Pivotal Web Services Option
+> Enter company name : nit-hyd-new (ex)
+> Next > Enter Mobile number for verification
+> Enter OTP > Next
+> Create one org-name : raghu-nit-test
+
+For Login next time:
+ https://login.run.pivotal.io/login
+
+=======================================
+2. Download and Install PCF CLI(Client App)
+> Goto https://console.run.pivotal.io/tools
+> Choose OS and Click SAME
+> It will download on ZIP
+> Extract and install : cf_installer
+> Next > Next > Finish
+
+=======================================
+3. Write Boot Application and convert to jar/war
+
+a. Create one Spring Boot application (ex: web app)
+b. Write one rest controller
+package in.nit.controller;
+
+import java.util.Date;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HomeRestController {
+
+@GetMapping("/")
+public String showMsg() {
+return "Hello From App: RAGHU!"+new Date();
+}
+}
+
+c. Convert project into jar file
+> Right click on project > Run As > Maven Install
+> Once Build success > Right click on Project > Refresh
+> YOu can find jar file in 'target' folder.
+ ex: springapp-1.0.jar
+==================================================
+4. Login using PCF client and Push App to PCF
+
+a. Create one manifest.yml file inside project
+> Right click on project name
+> File > enter name 'manifest.yml' > next > finish
+
+--manifest.yml---
+applications:
+- name: SpringBootCloudApp
+  memory: 500M
+  path: target/SpringBoot2CloudApp-1.0.jar
+----------------
+
+b. open cmd prompt, move to Project location
+C:\Users\User>cd E:\Boot6PM\SpringBoot2CloudApp
+C:\Users\User>e:
+E:\Boot6PM\SpringBoot2CloudApp>
+
+c. Login to PCF
+type cmd > cf login -a https://api.run.pivotal.io/
+Enter username and password
+
+d. push application to PCF
+cmd > cf push
+
+e. come back to PCF account
+> click on org name > click on development
+> click on Project link
+-----------------------------------------------
+************************************************
+Application with DB
+
+1. Write one application with MySQL Db code
+2. Right click on project > Run as > maven install
+3. create manifest.yml
+
+applications:
+- name: SpringBootWeb
+  memory: 1024M
+  path: target/SpringBootWeb-1.0.jar
+  services:
+  - mysqldb
+
+4. Come back to PCF account and click on services
+ > Add a service
+ > choose ClearDb MySQL DB
+ > choose Free Option Spark DB
+ > click on Choose Plan
+ > Enter Instance name : mysqldb
+ > Add Service
+
+5. come to cmd and move to project folder
+   and push application
+   
+==================================================================================================
+
+---->What are the other Starter Project Options that Spring Boot provides?
+Spring Boot also provides other starter projects including the typical dependencies to develop specific type of applications
+
+ spring-boot-starter-web-services - SOAP Web Services
+ spring-boot-starter-web - Web & RESTful applications
+ spring-boot-starter-test - Unit testing and Integration Testing
+ spring-boot-starter-jdbc - Traditional JDBC
+ spring-boot-starter-hateoas - Add HATEOAS features to your services
+ spring-boot-starter-security - Authentication and Authorization using Spring Security
+ spring-boot-starter-data-jpa - Spring Data JPA with Hibernate
+ spring-boot-starter-data-rest - Expose Simple REST Services using Spring Data REST
+
+
+---->How can I add custom JS code with Spring Boot?
+Create a folder called static under resources folder. You can put your static content in that folder.
+For your example the path to myapp.js would be resources\static\js\myapp.js
+You can refer to it in jsp using
+<script src="/js/myapp.js"></script>
+
+---->What happens if H2 is not in the classpath?
+You get this error
+Cannot determine embedded database driver class for database type NONE
+
+-------------------------------------------------------------------------------------------------------------
+\
+
+---->What is the need for Profiles?
+Enterprise application development is complex. You have multiple environments
+
+Dev
+QA
+Stage
+Production
+You want to have different application configuration in each of the environments.
+
+Profiles help to have different application configuration for different environments.
+
+Spring and Spring Boot provide features where you can specify
+
+What is the configuration for various environments in different profiles?
+Set the active profile for a specific environment.
+Spring Boot would pick up the application configuration based on the active profile that is set in a specific environment.
+ 
+
+
+
+SpringBootStarterParent :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ---parent pom declarations allows us to manage following things for multiple child projects.
+
+ ---Configuration: It allows us to maintain consistancy in terms of java version and other related properties across all sub projects.
+Depedency Management: This will control all versions of the dependencies to avoid dependency version conflicts.
+ 
+
+
+---->How to implement exception handling using Spring Boot?
+Spring provides a very useful way to handle exceptions using ControllerAdvice. We handle all exceptions thrown by the controller class by implementing a ControlerAdvice class.
+
+
+---->Can Spring Boot be compatible with older Spring projects? How do I do this?
+A) Compatible, use @ImportResourceannotations to import old Spring project configuration file.
+
+-------------------------------------------------------------------------------------------------------------
+
+
+---->What are few frequently used Spring Boot annotations?
+@SpringBootApplication : mark the main class of a Spring Boot application
+@SpringBootTest : used for Integration testing
+@Configuration : used to provide bean configurations
+@Conditional: You can create custom auto configuration classes
+@ConditionalOnBean
+@Bean
+@DataJpaTest :Slice test you JPA layer
+@WebMVCTest : Slice test you MVC layer
+@Value : Use to bind the property quickly
+@ControllerAdvice : Good for handling exception
+@ConditionalOnMissingBean
+@ConditionalOnClass
+@ConditionalOnMissingClass
+
+
+
+
+===================/\\/\/\/\\/====================\/\\/\\//==================\/\\/\/========================================
+
+ 
+---->How to configure the Logger(logging) in Spring Boot? How to change default logging level?
+Spring Boot uses Commons Logging for all internal logging but leaves the underlying log implementation open. Default configurations are provided for Java Util Logging, Log4J2, and Logback. Also By default, if we use the Starters, Logback is used for logging.
+
+Enable a debug mode by starting your application with a --debug flag.
+$ java -jar myapp.jar — debug
+
+From application.properties
+debug=true
+
+By default, Spring Boot logs only to the console and does not write log files. If we want to write log files, we can set alogging.file or logging.path property in your application.properties.
+Changing the log level
+
+logging.level.root=WARN
+logging.level.com.myapp=DEBUG
+logging.level.org.thirdpary.app=ERROR
+
+-------------------------------------------------------------------------------------------------------------
+
+
+---->Explain how Spring Boot Profiles works? How to configure multiple Profiles?
+Spring Profiles provide a way to segregate parts of your application configuration and make it be available only in certain environments. For example, we can use a separate profile for testing. Any @Component or @Configuration can be marked with @Profile to limit when it is loaded.
+@Configuration
+@Profile(“production”)
+public class MySecurityConfiguration{
+}
+
+We can use a spring.profiles.active Environment property to specify which profiles are active.
+                
+				   spring.profiles.active=test
+
+From the command-line, we pass the following parameters
+                            $java -jar myapp.jar  — spring.profiles.active=dev
+
+
+
+-------------------------------------------------------------------------------------------------------------
+
+---->How to depoy Spring Boot application as a WAR?
+spring-boot-maven-plugin added in ourpom.xmlautomatically tries to rewrite archives to make them executable by using the spring-boot:repackage goal.
+we can change the default packaging from pom.xml by
+<packaging>war</packaging>
+And, we initialize the Servlet context required by Tomcat context. we can implement the SpringBootServletInitializer interface.
+@SpringBootApplication
+public class MainClass extends SpringBootServletInitializer {
+}
+
+
+---->How to disable the Spring Security in Spring Boot application?
+we can disable security auto-configuration by excluding the SecurityAutoConfiguration class from Spring Boot application.
+
+  @SpringBootApplication(exclude={SecurityAutoConfiguration.class})
+  public class SpringSecurityConfig{
+  }
+
+
+---->What is Thymeleaf?
+ --Thymeleaf is a java based server-side template engine for the web application. The main advantage of Thymeleaf is to bring stylish natural templates to your web application.
+ --Thymeleaf is a server-side template engine that can process XML, HTML etc.
+ --Thymeleaf can access a class fields, message properties from i18n messages files.
+ 
+
+----> What are the different ways to externalize configurations in Spring Boot?
+There are 4 ways to externalize configurations in Spring Boot.
+
+a. Using properties files
+b. Using YAML files
+c. Environment variables
+d. Command line arguments
+
+-------------------------------------------------------------------------------------------------------------
+
+
+---->CommandLineRunner gives access to the application arguments as a simple String[] array where as ApplicationRunner uses the ApplicationArguments interface that provides access to both raw String[] arguments as well as parsed non-option and option arguments.
+
+---->What is YAML?
+Yaml Ain’t a Markup Language
+– Recursive acronym
+• Created in 2001
+• Alternative to .properties files
+– Allows hierarchical configuration
+• Java parser for YAML is called SnakeYAML
+– Must be in the classpath
+– Provided by spring-boot-starters
+
+YAML for Properties
+• Spring Boot support YAML for Properties
+– An alternative to properties files
+application.properties
+
+database.host = localhost
+database.user = admin
+application.yml
+
+database:
+    host: localhost
+    user: admin
+• YAML is convenient for hierarchical configuration data
+– Spring Boot properties are organized in groups
+– Examples: server, database, etc
+
+----> What is a shutdown in the actuator?
+A shutdown is an endpoint that helps application to be shut down properly. This feature is not enabled by default.
+However, you can use it by setting command:
+
+        ......management.endpoint.shutdown.enabled=true.......... in your application.properties file.
+
+-------------------------------------------------------------------------------------------------------------
+
+---->Explain Docker in Spring Boot.
+It is a tool designed to create, deploy, and run a project by using containers.
+
+
+---->What is mean by spring batch?
+Spring Boot Batch provides code reusability which is important when working with large numbers of records, including transaction management, logging, skipping, job processing statistics, and job restarts.
+
+---->Explain Apache Kafka.
+Apache Kafka is an open-source messaging platform. LinkedIn develops it. Apache Kafka enables the user to build distributed applications and handle real-time data feeds. Kafka is suitable for both offline and online messaging.
+
+
+---->. What is Spring Cloud?
+According to the official website of Spring Cloud, Spring Cloud provides tools for developers to quickly build some of the common patterns in distributed systems
+
+-------------------------------------------------------------------------------------------------------------
+@XmlAccessorType(XmlAccessType.NONE)
+@XmlRootElement(name = "users")
+public class Users {
+  
+    @XmlElement(name="user")
+    private ArrayList<User> users;
+  
+    public ArrayList<User> getUsers() {
+        return users;
+    }
+  
+    public void setUsers(ArrayList<User> users) {
+        this.users = users;
+    }
+}
+
+-------------------------------------
+
+    @GET
+    @Produces("application/json")
+    public Users getAllUsers() {
+        Users users = new Users();
+        users.setUsers(new ArrayList<>(map.values())); ........///Adding values in "map" to Aray-List.
+        return users;
+    }
+ 
+-------------------------------------
+ 
+   @PostConstruct
+    public void initUsers() {
+        List<User> users = Stream.of(
+                new User(101, "javatechie", "password", "javatechie@gmail.com"),
+                new User(102, "user1", "pwd1", "user1@gmail.com"),
+                new User(103, "user2", "pwd2", "user2@gmail.com"),
+                new User(104, "user3", "pwd3", "user3@gmail.com")
+        ).collect(Collectors.toList());
+        repository.saveAll(users);
+    }
+	
+===============================================================================================================
+
+
+
+
+
+
+
+

@@ -1,0 +1,196 @@
+
+
+==========================================================================================================================
+Services:=
+~~~~~~~~~
+---used to reuse logic across multiple components
+---we have to call service from ngOninit life-cycle hook.
+
+---To Communicate with external server.
+---To distribute data between multiple components.
+
+---->A call constructor calls automatically when Instance of class is created. generally used to initialzes feilds of class and subclasses.
+
+----> "ngOnInit()" used for angular bindings.....to fetch data from remote server.
+
+---->With the help of constructor ,it is time cosuming  to call constructor.In this scenario,  "ngOnInit()" is used.
+
+
+ Dependency-injection :=
+~~~~~~~~~~~~~~~~~~~~~~~
+  ---Class receives it's dependency from external sources rather than creating itself.
+  
+ POST :=
+~~~~~~~~
+           post(url: string, body: any, options?: RequestOptionsArgs) : Observable<Response> 
+		 
+--url: This is the REST web service URL to create article.
+--body: This is of any type object that will be passed to REST web service server. In our example we will create an Angular class as Article and pass its instance to body parameter.
+--options: This is optional. This accepts the instance of Angular RequestOptions that is instantiated using Angular RequestOptionsArgs. Using RequestOptions we pass request parameter, request headers etc.
+
+--Http.post() returns instance of Observable. Observable is a representation of any set of values over any amount of time.
+
+
+==========================================================================================================================
+employee.ts:=
+~~~~~~~~~~~~
+export interface Employee {
+    id:number,
+    name:string;
+    age:number;
+    gender:string;
+}
+
+==========================================================================================================================
+employee.service.ts:=
+~~~~~~~~~~~~~~~~~~~~~
+@Injectable({
+  providedIn: 'root'
+})
+export class EmployeeService {
+
+  constructor() { }
+
+    getEmployees() :Employee[]{
+      return[
+      { id: 103, name: 'Seeta', age: 24, gender: 'female' },
+      { id: 101, name: 'Rama', age: 27, gender: 'male' },
+      { id: 105, name: 'Radha', age: 25, gender: 'female' },
+      { id: 102, name: 'Krishna', age: 26, gender: 'male' },
+      { id: 104, name: 'RK', age: 23, gender: 'male' },
+      { id: 107, name: 'Syana', age: 23, gender: 'other' },
+      { id: 108, name: 'libana', age: 20, gender: 'other' }
+
+    ];
+  }
+  
+}
+==========================================================================================================================
+employeelist.component.ts:=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+@Component({
+  selector: 'app-employeelist',
+  templateUrl: './employeelist.component.html',
+  styleUrls: ['./employeelist.component.css'],
+  providers:[EmployeeService]
+})
+export class EmployeelistComponent implements OnInit {
+
+  employees: Employee[];
+  constructor(private employeeServ:EmployeeService) {
+    
+} 
+  
+  ngOnInit() {
+    this.employees=this.employeeServ.getEmployees();
+  }
+  
+   bikes: Bike[];
+  selectedBike: Bike;
+
+------------------------------
+ 
+  constructor(private bikeService: BikeService) {
+ 
+  }
+ 
+  ngOnInit() {
+    this.bikes = this.bikeService.getBikes();
+  }
+ 
+  onSelect(bike: Bike): void {
+    this.selectedBike = bike;
+	
+	
+==========================================================================================================================
+
+CRUD-Example :=
+~~~~~~~~~~~~~
+
+  addBook(book: Book){
+        let body = JSON.parse(JSON.stringify(book));
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        if(book.id){    
+            console.log("Inside addBook update service():::::::");
+            return this._httpService.put("http://localhost:8080/api/book/"+book.id, body, options);
+        }else{
+            console.log("Inside addBook add service():::::::");
+            return this._httpService.post("http://localhost:8080/api/book", body, options);
+        }
+	}
+	
+	
+    getAllBooks(): Observable<Book[]>{
+        console.log("inside the service getAllBooks():::::::");
+        return this._httpService.get("http://localhost:8080/api/book")
+                .map((response: Response) => response.json())
+                .catch(this.handleError);
+    }
+
+    getBookById(bookId: string): Observable<Book>{
+        console.log("Inside the getBookById() service::::::");
+        return this._httpService.get("http://localhost:8080/api/book/"+bookId)
+                .map((response: Response) => response.json())
+                .catch(this.handleError);
+    }
+	
+  deleteBook(bookId: string){
+        console.log("Inside the service deleteBook():::::book id:::"+bookId);
+        return this._httpService.delete("http://localhost:8080/api/book/"+bookId);
+    }
+	
+	
+	--- get("XXX").map( resp:Response) => resp.json() );
+	
+	  addPerson(person: Person): Observable<Person> {
+        return this.http.post<Person>(this.url, person);
+      }
+
+==========================================================================================================================
+ 
+ read Id from Route :=
+~~~~~~~~~~~~~~~~~~~~
+  
+  let id = parseInt(this.route.snapshot.paramMap.get('id'));
+  this.deptId=id;
+
+
+==========================================================================================================================
+
+==========================================================================================================================
+
+
+==========================================================================================================================
+
+==========================================================================================================================
+
+
+==========================================================================================================================
+
+
+==========================================================================================================================
+
+
+==========================================================================================================================
+
+==========================================================================================================================
+
+==========================================================================================================================
+
+==========================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

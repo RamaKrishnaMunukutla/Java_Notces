@@ -1,0 +1,81 @@
+Dispaly Data in Table-Format:=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+public employees=[
+    {"id":101,"name":"rama","age":22},
+    {"id":102,"name":"krishna","age":26},
+    {"id":103,"name":"rk","age":23}
+    ];
+=================================	
+<table>
+    <thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Age</th>
+</tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of employees">
+        <td>{{emp.id}}</td> 
+        <td>{{emp.name}}</td> 
+        <td>{{emp.age}}</td> 
+        </tr>
+		<tr *ngIf="!employees || employees.length==0">
+            <td colspan="3">No Data Found</td>
+        </tr>
+    </tbody>
+</table>
+
+============//\\/\\/\/\\/========\\\.\\/\/\\/\/\\==================\/\/\\/\/\/===============================
+
+
+
+Angular ngFor trackBy:=
+~~~~~~~~~~~~~~~~~~~~~~
+Display data in Table Format on Clickig Buton:=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+constructor() {
+
+    this.employees = [
+      { "id": 101, "name": "rama", "age": 22 },
+      { "id": 102, "name": "krishna", "age": 26 },
+      { "id": 103, "name": "rk", "age": 23 }
+    ];
+
+  }
+
+  getEmployees():void{
+
+  this.employees = [
+    { "id": 101, "name": "rama", "age": 22 },
+    { "id": 102, "name": "krishna", "age": 26 },
+    { "id": 103, "name": "rk", "age": 23 },
+    { "id": 104, "name": "radhakrishna", "age": 27 }
+  ];
+
+}
+=====================================
+<table>
+    <thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Age</th>
+</tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of employees">
+        <td>{{emp.id}}</td> 
+        <td>{{emp.name}}</td> 
+        <td>{{emp.age}}</td> 
+           
+        </tr>
+        <tr *ngIf="!employees || employees.length==0">
+            <td colspan="3">No Data Found</td>
+        </tr>
+    </tbody>
+</table><br>
+
+<button (click)="getEmployees()">Employee list</button>
+
+==============================================================================================================

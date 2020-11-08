@@ -1,0 +1,64 @@
+
+
+
+
+
+    
+	
+============================================================================================
+
+   Tables ----> Collection
+      Row ----> Document
+   Column ----> Feilds
+
+ 
+      https://www.javaguides.net/p/java-mongodb-tutorial.html
+
+================================================================================================
+
+----> Mongo DB is a document-oriented database in which data is written in BSON format which is a JSON like format. 
+      MongoDB is schema less. 
+	  It is a document database in which one collection holds different documents.
+
+---->It is an open source product, developed and supported by a company named 10gen.
+
+---->MongoDB is available under General Public license for free, and it is also available under Commercial license from the manufacturer.
+
+---->first ready production of MongoDB has been considered from version 1.4 which was released in March 2010.
+     Stable release	4.2.7 / 26 May 2020
+	 
+---->MongoDB is a document oriented database. It is a key feature of MongoDB. It offers a document oriented storage. It is very simple you can program it easily.
+
+
+----->MongoDB is a NoSQL(non-SQL or non relational database.) Database which doesn't use tables for storing data. It is generally used to store big data and real-time web applications.
+
+----->NoSQL provides a mechanism for storage and retrieval of data other than tabular relations model used in relational databases. NoSQL database doesn't use tables for storing data. It is generally used to store big data and real-time web applications.
+
+
+
+ DataTypes :=
+~~~~~~~~~~~~~
+
+        String.........Integer.........Boolean...........Double 
+
+     Min/Max Keys......Arrays...........Object.............Null........Symbol......Date	 
+
+
+
+
+================================================================================================
+
+
+	   NoSQL ----> No Schema, Query && Table but handles Huge-data.
+	          --- Document // Key-Value // Graph //  Wide-Column Stores  Databases
+			  --- Not good for Complex-Queries.
+	          --- It is Horizontal-Scaling.
+			  --- It is Opposite to SQL -- 'UQL'
+			  ---  follows 'CAP' theorem.
+			 
+==========================================================================================			 
+
+			 
+			 
+			 
+

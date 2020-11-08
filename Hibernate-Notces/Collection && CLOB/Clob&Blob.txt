@@ -1,0 +1,34 @@
+
+
+Model:=
+~~~~~~
+@Entity
+@Table(name="emptab")
+@Id
+@Column(name="emp_Id")
+private int empId;
+@Lob
+@Column(name="my_Details")
+private char[] myDetails;
+@Lob
+@Column(name="my_Image")
+private byte[] myImage;
+
+=====================================================================
+Test:=
+~~~~
+File f = new File("C:/Users/Jarvis/Desktop/sexobeat.jpg");
+FileInputStream fis = new FileInputStream(f);
+byte[] arr = new byte[fis.available()];
+fis.read(arr);
+String data = "Hello, How are you!!";
+Employee emp = new Employee();
+emp.setEmpId(7174);
+emp.setMyDetails(data.toCharArray());
+emp.setMyImage(arr);
+//save Object
+ses.save(emp);
+
+========================================================
+
+

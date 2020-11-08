@@ -1,0 +1,217 @@
+
+package com.java.jpa;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "emp")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public class Employee implements Serializable {
+
+ 
+	private static final long serialVersionUID = 1L;
+	@Id
+	private int e_id;
+	private String e_name;
+
+	public int getE_id() {
+		return e_id;
+	}
+
+	public void setE_id(int e_id) {
+		this.e_id = e_id;
+	}
+
+	public String getE_name() {
+		return e_name;
+	}
+
+	public void setE_name(String e_name) {
+		this.e_name = e_name;
+	}
+
+	public Employee(int e_id, String e_name) {
+		super();
+		this.e_id = e_id;
+		this.e_name = e_name;
+	}
+
+	
+
+	public Employee() {
+		super();
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [e_id=" + e_id + ", e_name=" + e_name + "]";
+	}
+
+}
+
+==============================================================
+package com.java.jpa;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "aemp")
+public class ActiveEmployee extends Employee {
+
+	private static final long serialVersionUID = 1L;
+
+	private int e_salary;
+	private int e_experience;
+
+	public ActiveEmployee(int e_id, String e_name) {
+		super(e_id, e_name);
+	}
+
+	public ActiveEmployee() {
+		super();
+	}
+
+	public ActiveEmployee(int e_id, String e_name, int e_salary, int e_experience) {
+		super(e_id, e_name);
+		this.e_salary = e_salary;
+		this.e_experience = e_experience;
+	} 
+
+	public int getE_salary() {
+		return e_salary;
+	}
+
+	public void setE_salary(int e_salary) {
+		this.e_salary = e_salary;
+	}
+
+	public int getE_experience() {
+		return e_experience;
+	}
+
+	public void setE_experience(int e_experience) {
+		this.e_experience = e_experience;
+	}
+
+	@Override
+	public String toString() {
+		return "ActiveEmployee [e_salary=" + e_salary + ", e_experience=" + e_experience + "]";
+	}
+
+}
+
+===========================================================================
+package com.java.jpa;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity  
+@Table(name="remp")
+public class RetiredEmployee extends Employee {  
+  
+   
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int e_pension;
+	/**
+	 * 
+	 */
+	public RetiredEmployee(int e_id, String e_name, int e_pension) {  
+        super(e_id, e_name);  
+        this.e_pension = e_pension;  
+    }  
+  
+    public RetiredEmployee() {  
+        super();  
+      
+    }  
+
+	 public int getE_pension() {
+		return e_pension;
+	}
+
+	public void setE_pension(int e_pension) {
+		this.e_pension = e_pension;
+	}
+
+	@Override
+	public String toString() {
+		return "RetiredEmployee [e_pension=" + e_pension + "]";
+	} 
+	
+	
+}
+
+====================================================================
+/JpaExample/src/main/resources/META-INF/Persistence.xml := 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+            http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	version="2.1">
+	<persistence-unit name="kk" >
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/test" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="root" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.hbm2ddl.auto" value="create" />
+			 
+		</properties>
+	</persistence-unit>
+</persistence>
+
+================================================================
+package com.java.jpa;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+public class Test {
+
+	public static void main(String[] args) {
+
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("kk");
+		EntityManager em = emf.createEntityManager();
+
+		em.getTransaction().begin();
+
+		ActiveEmployee ae1 = new ActiveEmployee(101, "Karun", 10000, 5);
+		ActiveEmployee ae2 = new ActiveEmployee(102, "Rishab", 12000, 7);
+
+		RetiredEmployee re1 = new RetiredEmployee(103, "Ramesh", 5000);
+		RetiredEmployee re2 = new RetiredEmployee(104, "Raj", 4000);
+
+		em.merge(ae1);
+		em.merge(ae2);
+
+		em.merge(re1);
+		em.merge(re2);
+
+		em.getTransaction().commit();
+		em.close();
+		emf.close();
+
+	}
+}
+===============================================================================================================================
+
+==============================================================================================================================
+
+===============================================================================================================================

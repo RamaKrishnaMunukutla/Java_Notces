@@ -1,0 +1,1069 @@
+ 
+  
+  ....ArrayList234(In)........LinkedList333(In).............CopyOnWriteArrayList890(FS**)......
+ 
+  ....HashSet443(Un)..........LinkedHashSet830(In)..........TreeSet338(Sor).........CopyOnWriteArraySet990(FS**)......
+	
+  ....HashMap889(Un)...........HashTable335(Un)..............TreeMap333(Sor).........ConcurrentHashMap449(Un,TS,FS**)......
+	 
+  ...LinkedHashMap667(In).....IdentityHashMap500....Queue590....Deque300...........ConcurrentModificationException444......
+	 
+	  .........ReadOnlyCollection.......CollectionsBestPractises.......
+	 
+=============================================================================================================
+             
+
+---->  int marks = Integer.valueOf(studentDetail[1]); ...... Value-inString[] to INT.
+
+---->Collections.sort(numbersList, Collections.reverseOrder());
+
+----> Integer[] ii= new Integer[]{1,2,3,4,5,6,7,8,9};
+
+----> List<Integer> ll= Arrays.asList(1,2,3,4,5);
+
+----> List<Employee> listEmployees = new ArrayList<>(Arrays.asList(
+                new Employee(1, "A", 100),
+                new Employee(2, "B", 200),
+                new Employee(3, "C", 300)));
+							
+----> List<String> valuesList = TreeSet.stream().collect(Collectors.toList()); ..... Set-To-List
+							
+----> List<String> list = Arrays.asList(str.split(" ")); ............... String-To-List
+
+----> String[] myArray = new String[list.size()]; list.toArray(myArray); (or) set.toArray(myArray); ...... List-To-[]
+      String[] strArray = arrayList.stream().toArray(String[]::new);....JAVA-8
+
+----> List<Integer> list = Arrays.asList(spam);  ........................[]-To-List 
+
+----> List<String> namesList = Arrays.asList( Arrays.copyOfRange(names, 0, 2) );  ........ []-To-SubList
+
+----> Set<Integer> set1 = new  HashSet<>( Arrays.asList(arr) );.........[]-To-Set
+
+----> String[] array = new String[hset.size()];   hset.toArray(array); ........... []-To-Set
+
+----> Integer[] ii = set1.toArray(new Integer[] {});................Set-To-[]
+
+----> String blogName1 = String.join("", tokens);................ []-To-String
+
+---->  System.out.println(Arrays.toString(names));......... to-Print-Array.
+
+----> return String.format("HelloWorldBean [message=%s]", message);
+
+
+Arrays :=
+~~~~~~
+       .........asList(-)......toString()......copyOf(arr,arr.length).....copyOfRange(arr, 0, 2);............
+	   
+---->    String[] cloneOfNames = names.clone();
+
+----> Collection<Person> listOfPersons = Arrays.asList(lokesh,brian,alex,lokesh,brian,lokesh);
+
+----> List<Integer> sortedList = list.stream().sorted().collect(Collectors.toList());
+
+----> Iertaor (or) enumerations are used to transverse elements over Collection-Objects..
+
+
+ MostIMP-Library :=
+~~~~~~~~~~~~~~~~~~
+   
+   Arrays //// String(Buffer,Builder) //// Characters /// Collections /// 
+   
+       --- navigable && Sorted && Identity && Weak --- Collection  (*****************)
+
+========================================
+
+  O---> Order
+  D---> Duplicate
+  N---> Null,
+
+  S ---> Synchronized
+  TS ---> Thread-Safe
+  
+  HashSet && LinkedHashSet ----> Only one-Null
+  TreeSet    ---->No Null
+   
+   HashMap ----------->  Key(One) &  Values(Many)
+   LinkedHashMap ---->  Key(One) &  Values(Many)
+   TreeMap  ----------->  Key(No)  &  Values(One) 
+  
+   HashTable   ----> No Null Key & & Values
+   
+   STACK(LIFO) ----> DD from CD-CASE
+   QUEUE(FIFO) ----> line in Movie Theater
+   
+=================================================================================
+
+   Arrays ---> Fixed in Nature // Consumes More Memory // Performance is Good // Holds Homogeneous data // // Holds Primitives && Objects
+   
+   Collections ----> Growable in Nature //Consumes Less Memory // Performance is Not-Good // // Holds Hetrogeneous data && Objects
+   
+
+ 			   QUEUE ---- FIFO ( horizantal-Jar )
+			   STACK --- LIFO ( vertical-Jar )
+			   DEQUE ---
+			   
+
+  Collection ----> Can Increase Size , can store Hetrogeneous Eelments.
+                   Memory --- Good, Performance --- Not-Good
+  
+  Array ----> No UnderLine Data_Structure, hence no Ready-made-Methods are available.
+              Memory --- Not-Good, Performance --- Good
+			  
+
+----> In Java-8 After some Threshold value, HashMap Stores-Objects in Binary-Tree instead of Linked-List in same-Bucket.
+
+    SortedSet(I) ---> Insert element in Soted Order without duplicate.   
+   
+   	Collections ---> Class having Static methods
+   
+   Collection(1.2)(I) ----> Represents Group of Individual Object as Single Unit.
+                         Every Collection-Class implements  Serializable && Clonenable (I) Internally. 
+   
+   Collection-Framework ---> Defines Several of Classes and Interface which can be used to represent Collection 
+   
+   
+     Legacy Classes are Introduced in java 1.0. 
+  
+  
+=====================================================================================================
+
+ArrayList234:=  (It is a class implements List interface.(linear list data strcuture) [......ODN, S&TS.......]
+~~~~~~~~~~~~
+
+---->Index based Elements can be randomly accessed using index positions sinse implement RandomAccess interface
+
+---->Non-synchronized(Explict has to done) , Not Thread-safe, Duplicates allowed, Null allowed
+
+---->It implements RandomAccess interface, So we can access elements in randomly. 
+
+----> should not be used in concurrent environment
+  ---(1)Collections.synchronizedList() method – It returns synchronized list backed by the specified list.
+  
+  ---CopyOnWriteArrayList class – It is a thread-safe variant of ArrayList.
+  
+---->(1) This method returns a synchronized thread-safe list backed by the specified list. It is recommended that we should manually synchronize on the returned list when traversing it via Iterator, Spliterator or Stream
+
+     
+          Marker-Interface -----> RandomAcess , Cloneable, Serializable (************)  [ array-list impl)
+		  
+	
+	Iterator :: hasnext()......next()......remove()......forEachRemaining() (*******)
+    
+  
+ArrayList -----> Growable in Nature, when element added & Previous ArrayList is eligible for Grabage-Collection.\
+                   Initial Capacity 10.
+				   11th element inserted , then New ArrayList is created with Capacity ::
+
+           New Capacity = (CC * 3)/2 + 1   /// Increased through "-ensureCapacity()-"  Method Internally (**********)
+
+           ArrayList al = new ArrayList(int initialCapacity); // Performance-Improved. (&*********)		 
+				  
+           ArrayList al = new ArrayList(Collection c);  // InterConversion in Collection
+		   
+		   ArrayList implements  Serializable & Clonenable && RandomAccess (I). 
+		   
+		   ArrayList Best  for Retreival since it Implements RandomAccess (I). 
+			
+		   ArrayList Worst for Insertion && Deletion Operatios due to Multiple Shift-Operations are required in Array.
+		 
+
+listIterator():=
+~~~~~~~~~~~~~~
+returns a list-iterator over the elements in forward and backward direction. It is a bi-directional iterator which is fail-fast in nature. 
+
+----> Exeption will be thrown if "-add-" && "-(itr.next) are not in sequence
+
+Eg :=
+~~~~
+     ListIterator<String> listItr = alphabets.listIterator();
+	  System.out.println("===========Forward=========");
+		while (listItr.hasNext()) {
+			System.out.println(listItr.next());
+		}
+        System.out.println("===========Backward=========");
+		while (listItr.hasPrevious()) {
+			System.out.println(listItr.previous());
+		}
+---------------------
+		System.out.println("Iteration from specified position");
+         //Start iterating from index 2
+		listIterator = list.listIterator(2);
+        while(listIterator.hasNext()) {
+		System.out.print(listIterator.next() + ",");
+		}
+----------------------------------------------------------------------------------
+
+ITERATOR && LISTITERATOR :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+1.Can be used to iterate all collection classes.	
+Can be used to iterate only List implemented classes.
+
+2.Supports only forward direction only iteration.	
+Supports both forward and backward direction iterations.
+
+3.Supports only READ and DELETE operations.	
+Supports all CRUD operations.
+
+4.Obtained through iterator() method.	
+Obtained through listIterator() method.
+
+---->Unlike enumeration, Iterator has remove() method through which it removes last element in Collection.
+
+
+Split-Iterator :=  (Sorted, Ordered || tryAdvance()......forEachRemaining().......trySplit() )
+~~~~~~~~~~~~~~
+It returns the Split-iterator which is used for traversing(travel across ) and partitioning (divide into parts.) elements of a source such as array, Set, List or IO channel. It is also fail-fast.
+
+---->Java collection classes provide default stream() and parallelStream() methods which internally use the Spliterator through the call to the spliterator(). It helps in processing the collection data in parallel.
+
+---->It provides tryAdvance() method to iterate elements individually in different threads. It helps in parallel processing.
+  ---To iterate elements sequentially in a single Thread, use forEachRemaining() method.
+  ---The trySplit() method is used partition the spliterator, if it is possible.
+It helps in combining the hasNext() and next() operations into one method.
+
+
+Eg :=
+~~~~
+		ArrayList<Integer> digits = new ArrayList<>(Arrays.asList(1,2,3,4,5,6));
+		Spliterator<Integer> sItr = digits.spliterator();
+        sItr.tryAdvance( d -> System.out.println( d ) ); //1
+        sItr.tryAdvance( d -> System.out.println( d ) ); //2
+        sItr.forEachRemaining( d -> System.out.println( d ) );   //3,4,5,6
+		
+Eg2 :=
+~~~~
+		ArrayList<Integer> digits = new ArrayList<>(Arrays.asList(1,2,3,4,5,6));
+		Spliterator<Integer> sItr1 = digits.spliterator();
+        Spliterator<Integer> sItr2 = sItr1.trySplit();  ............//Divides Array into 2-equal size .
+         System.out.println(sItr1.getExactSizeIfKnown());            //3
+        sItr1.forEachRemaining( d -> System.out.println( d ) );      //4,5,6
+        System.out.println("===========");
+         System.out.println(sItr2.getExactSizeIfKnown());            //3
+        sItr2.forEachRemaining( d -> System.out.println( d ) );      //1,2,3
+		
+		
+ITERATOR && SPLITERATOR :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+Since Java 1.2.	
+Since Java 8.
+
+Can be used to iterate all collection classes.	
+Can be used to iterate array, stream, list and set. Not possible with map.
+
+Does not support parallel processing.	
+Supports parallel processing.
+		
+
+----->ArrayList.subList() method
+This method returns a view of the portion of this list between the specified fromIndex (inclusive) and toIndex (exclusive).
+
+      ArrayList<Integer> sublist = new ArrayList<Integer>( list.subList(2, 6) );
+
+---->Comparators are most useful when we want to sort a given list of objects – but not in natural order.
+   -----For example, an employee list can be sorted by their name, age or their any other such field. Comparator are best fit in these types of requirements.
+
+   
+ArrayList.indexOf():= returns index of first occurrence of a element in the ArrayList [ index (or) -1 ]
+~~~~~~~~~~~~~~~~~~
+
+---->before adding any new element with add() method, ArrayList perform a check whether there is any space left in array or not using "--ensureCapacity()--" method. If space is available then element is added; else a new backing array is created first.   
+   
+---->But if we do not pass any size, the default size is used which is 10.
+
+---->"--ensureCapacity()--" method increases the capacity of the ArrayList instance, if necessary, to ensure that it can hold at least the number of elements specified by the minimum capacity argument to the method. It internally uses grow() method.
+
+---->  list1.addAll(2, list2); //Elements will be inserted from index 2 
+
+---->Where external iteration mixes the “what” (uppercase) and the “how” (for loop/iterator), internal iteration lets the client to provide only the “what” but lets the library control the “how”.
+
+
+ Internal Working :=
+~~~~~~~~~~~~~~~~~~~
+ --- Default Capacity == 10.  
+ --- Can Increase-Size by List<String> ll = new ArrayList<String>(20);
+
+
+========================================================================================================
+
+
+LinkedList333 := It is a class implements List interface.(double linked list data strc) [......ODN, S&TS.......]
+~~~~~~~~~~~~~
+
+---->It does not implement RandomAccess interface. So does not support accessing elements randomly. It we can access elements in sequential order only.
+
+----->Frequent insertion/removal of elements is faster.It support insertion && deletion.
+
+---->Non-synchronized(Explict has to done) , Not Thread-safe, Duplicates allowed, Null allowed && fail-fast
+
+----> Unlike ArrayList each index only holds data, In LinkedList each node holds both data and address of next and previous node.
+
+
+PeekFirst() && peekLast()---- prints first and last element in linked-list.
+
+push() && pop()--Removes and returns firstelement in linked-list.
+
+================================================================================================
+
+CopyOnWriteArrayList890 :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+---->CopyOnWriteArrayList is a thread-safe variant of ArrayList and used when we do not want to synchronize the traversals and still want thread safety while updating the list.
+
+---->CopyOnWriteArrayList class implements following interfaces – List, RandomAccess, Cloneable and Serializable.
+
+---->Because it creates a new copy of array everytime iterator is created, performance is slower than ArrayList.
+
+---->used in concurrent environment.
+
+============================================================================================================
+
+Vector880 := It is a class implements List interface.(linear list data strc) [......ODN, S&TS.......]
+~~~~~~~~~
+
+----add("rama")         FirstElement("rama")      LastElement() 
+----RemoveElement()     addElement("rama")        get(1)
+----indexOf("rama",2)   lastIndexOf("rama",2)
+
+
+----> /*Display Vector elements*/
+      Enumeration en = vec.elements();
+      System.out.println("\nElements are:");
+      while(en.hasMoreElements())
+         System.out.print(en.nextElement() + " ");
+
+
+---->//Display Vector elements after sorting using Collection.sort
+    System.out.println("Vector elements after sorting: :");
+    for(int i=0; i < vector.size(); i++){
+       System.out.println(vector.get(i));
+    }
+
+----->//Copying all the elements of Vector va to Vector vb
+       Collections.copy(vb, va);
+
+=========================================================================================
+
+HashSet443:=   //Default initial capacity is 16 && Default load factor is 0.75. [......ODN, S&TS.......]
+~~~~~~~~~
+----> HashSet doesn’t maintain any order, HashSet is non-synchronized, fail-fast && Not-ThreadSafe.
+
+----> HashSet doesn’t allow duplicates and  One-NULL element is allowed in HashSet.
+
+----> Use Collections.synchronizedSet(new HashSet()) method to get the synchronized hashset.
+
+----> HashSet also implements Searlizable and Cloneable interfaces.
+
+---->  // Creating an Array
+     String[] array = new String[hset.size()];
+     hset.toArray(array);
+
+---->// Converting HashSet to TreeSet
+     Set<String> tset = new TreeSet<String>(hset);
+
+---->// Creating a List of HashSet elements
+     List<String> list = new ArrayList<String>(hset);
+	 
+  HashSet, it internally creates a HashMap and if we insert an element into this HashSet using add() method, it actually call put() method on internally created HashMap object with element you have specified as it’s key and constant Object called “PRESENT” as it’s value.
+  
+    “PRESENT”  is  defined as private static final Object PRESENT = new Object();
+	
+	
+ If the method map.put(key, value) returns null, then the method map.put(e, PRESENT)==null will return true internally, and the element added to the HashSet.
+ 
+If the method map.put(key, value) returns the old value of the key, then the method map.put(e, PRESENT)==null will return false internally, and the element will not add to the HashSet.
+  
+  
+   Only way to get object from HashSet is via Iterator, Since there is no Get method present. (***********)
+ 
+ 
+ https://www.geeksforgeeks.org/internal-working-of-sethashset-in-java/
+ https://www.java67.com/2014/01/how-hashset-is-implemented-or-works-internally-java.html
+ https://javaconceptoftheday.com/how-hashset-works-internally-in-java/
+
+	 
+=======================================================================================================
+
+LinkedHashSet830 := [......ODN, S&TS.......]
+~~~~~~~~~~~~~~~~
+
+----> LinkedHashSet class extends HashSet and implements Set interface. 
+
+----> It is very similar to HashSet class, except if offers the "--Insertion-Order--" order.
+
+---->Performance is likely to be just slightly below that of HashSet, due to the added expense of maintaining the LinkedList, with one exception of iteration.
+
+==============================================================================================
+
+TreeSet338:= [......ODN, S&TS.......]
+~~~~~~~~~~
+---->it is very similar to HashSet class, except it stores the element in "--sorted--" order.
+
+---->The sort order is either natural order or by a Comparator provided at treeset creation time, depending on which constructor is used
+
+---->Duplicate&& NULL values are not allowed in TreeSet
+
+---->Use Collections.synchronizedSortedSet(new TreeSet()) method to get the synchronized TreeSet
+
+----Not synchronized, not Thread safe &  should be synchronized explicitly when there is a need of thread-safe operations.
+
+--->TreeSet also implements Searlizable and Cloneable interfaces.
+
+====================================================================================================
+
+CopyOnWriteArraySet990 :=
+~~~~~~~~~~~~~~~~~~~~~~~
+---->Java CopyOnWriteArraySet is a thread-safe version of HashSet.
+
+---->CopyOnWriteArraySet class implement Serializable interface and extends AbstractSet class.
+
+---->It allows duplicate elements and heterogeneous Objects (use generics to get compile time errors).
+
+---->Because it creates a new copy of underlying array everytime iterator is created, performance is slower than HashSet.
+
+==============================================================================================================
+EnumSet660 :=
+~~~~~~~~~~~
+----> It is the specialized Set implementation for use with enum types
+
+==============================================================================================================
+
+ HashMap889:= [......ODN, S&TS.......]  [ Key(id),value(key-value)  && value,hash,value[] ]
+~~~~~~~~~~~~~
+
+---->HashMap in Java in a collection class which implements Map interface. It is used to store key & value pairs. Each key is mapped to a single value in the map. NOT extends COLLECTION(I) INTERFACE.  (***********)
+
+---->Maps work with key/value pairs, while the other collections work with just values.It allows its content to be viewed as a set of keys, a collection of values and a set of key-value mappings (**********)
+
+---->HashMap implements Map interface and extends AbstractMap class.
+
+----> If keys are duplicate, the it takes last-Overridden-Key && it's value pair. (********)
+
+---->Strings are used as Key which are having  Id-Same(Calculated by HashCode()) for all  Same-Strings. (********)
+
+
+----> HashCode() method is called automatically-EveryTime when "get()-put()" methods are used. (*******)
+      HashCode() method is called automatically-Once      when   "Strings"           are used. (*******)
+	   
+	   
+----> It is similar to the Hashtable class except that it is unsynchronized and permits nulls (null values and null key).
+
+----> It is not an ordered collection which means it does not return the keys and values in the same order in which they have been inserted into the HashMap.
+
+---->Non-synchronized(Explict has to done) , Not Thread-safe, Duplicates(values) allowed, Null allowed && fail-fast
+
+----> To get the synchronized version of HashMap.
+
+                     Collections.synchronizedMap(hashMap)
+					 
+---->HashMap implements Cloneable and Serializable interfaces.
+
+======================================
+
+---- hashCode , Key & Value, Reference // 
+--- get() && put() Operations Calculation is done through  Hashcode-Of-Key.
+---  Collection.unmodifiedMap(map);
+
+  Composite Primary-Key ---> https://github.com/ByteProgramming/Composite-PK
+
+   Functional Interface ----> Comparator, Comaparable, Runnable 
+                         8 ---> predicate, Supplier, Consumer
+
+=====================================
+
+    //FOR LOOP
+        System.out.println("For Loop:");
+        for (Map.Entry me : hmap.entrySet()) {
+          System.out.println("Key: "+me.getKey() + " & Value: " + me.getValue());
+        }
+
+
+    //WHILE LOOP & ITERATOR
+  Iterator<Entry<Integer, String>> entryIterator = map.entrySet().iterator();
+  while (entryIterator.hasNext()) {
+     Entry<Integer, String> entry = entryIterator.next();
+     System.out.println("The key is :: " + entry.getKey() + ", and value is :: " + entry.getValue());
+		}	
+
+
+     Map<String, String> map = new HashMap<String, String>();
+     map.put("A", "Alex");
+     map.put("B", "Brian");
+     map.put("C", "Charles");
+     map.forEach((k, v) -> System.out.println("Key = " + k + ", Value = " + v));
+
+=======================================
+
+----> Our first choice should always be using the ConcurrentHashMap class if we wish to use a Map in concurrent environment. ConcurrentHashMap support concurrent access to it’s key-value pairs by design.
+
+----> SynchronizedHashMap is allows only one thread to perform read/write operations at a time because all of its methods are declared synchronized. 
+
+----> ConcurrentHashMap allows multiple threads to work independently on different segments in the map, allows higher degree of concurrency in ConcurrentHashMap and thus improve performance of the application in whole
+
+----> Iterators from both classes should be used inside synchronized block but the iterator from SynchronizedHashMap is fail-fast. ConcurrentHashMap iterators are not fail-fast. (********)
+
+----> Multiple threads can add/remove key-value pairs from ConcurrentHashMap, while only one thread is allowed to make change in case of SynchronizedHashMap. This results higher degree of concurrency in ConcurrentHashMap.
+
+----> Even though the object is specified as key in hashmap, it does not have any reference and it is not eligible for garbage collection if it is associated with HashMap i.e. HashMap dominates over Garbage Collector. (*********)
+
+
+Internal-Working-HashMap :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+----> Each Bucket acts as a "-Node-"(Linked-List) having [HashCode,Key,Value,Next] 
+ --- (last-index of Node stores Address of NextNode ).
+
+----> Put method  "HashCode()" calculates Hashcode for Every "Key" to store in Bucket.
+
+----> HashCode furthur computes && calculates  "-Index-" Bucket. 
+
+----> If Key is "Null", the it goes-into ZERO-th Bucket (***********)
+
+----> Loadfactor--0.75 && Threshold--12.
+
+----> When LoadFactory is 75%, Map.size() && Table-capacity() going to be "-Doubled-" after 12th Entry. (12*2=24)
+
+----> To calculate Total-Capacity (Loadfactor * TableCapacity)
+
+
+(Q) Why Map is not a part of collection ??
+-- Maps work with key/value pairs, while the other collections work with just values.
+-- Map maps keys to values. It allows its content to be viewed as a set of keys, a collection of values and a set of key-value mappings.
+-- Map is three collections: Keys, values and key-value pairs.
+-- It's not easy to decide which one should be the default to iterate over, so it implements the interface three times (keySet(), values() and entrySet())
+
+
+  https://www.javatpoint.com/load-factor-in-hashmap
+ 
+ Initial Capacity :=
+~~~~~~~~~~~~~~~~~~
+ The Initial Capacity Means number of buckets in the HashMap which by default created i.e  2Pow(4) = 16. 
+ The capacity of the HashMap is doubled each time it reaches the threshold.
+ 
+                   Threshold = (Current Capacity) * (Load Factor)
+ 
+ 
+ Load Factor := decides "when to increase the number of buckets."
+~~~~~~~~~~~~~~
+
+ The load factorrepresents at what level the HashMap capacity should be doubled. For example product of capacity and load factor as 16 * 0.75 = 12 . Every time 12 more elements added to map.
+ 
+ HashMap almost gives constant time performance for most frequent operations – insertion and retrieval. That’s why HashMap is the first choice for the big sized data having requirement of faster retrieval and faster insertion operations
+
+    initial capacity of the hashmap (*) Load factor of the hashmap
+	
+	Size of hashmap (m)/number of buckets (n) 
+ 
+ 
+ We do not need to increase the size of hashmap up to 12th element, because
+
+                    12/16=0.75
+
+This load factor is equal to the default load factor, i.e., 0.75.
+
+As soon as we insert the 13th element in the hashmap, the size of hashmap is increased because:
+
+                    13/16=0.8125
+
+Which is greater than the default hashmap size.
+
+                    0.8125>0.75
+
+Now we need to increase the hashmap size.
+
+If you want to keep get and put complexity O(1), it is advisable to have a load factor around 0.75.
+
+
+=======================================================================================================
+HashTable335:=  (key && Vlaue) ( Slow && not fail-fast.)  [......ODN, S&TS.......]
+~~~~~~~~~~~~
+---->Hashtable is synchronized (i.e. methods defined inside Hashtable), whereas HashMap is not. If you want to make a HashMap thread-safe, use Collections.synchronizedMap(map) or ConcurrentHashMap class.
+
+---->Hashtable does not allow null keys or values. HashMap allows one null key (other null keys will simply overwrite first null key) and any number of null values.
+
+---->It does not accept duplicate keys. && Enumerator in Hashtable is not fail-fast.
+
+---->Hashtable is legacy class and was not part of the initial Java Collections Framework (later it was included in JDK 1.2). HashMap is part of Collections since it’s birth
+
+---->Iterator in the HashMap is fail-fast and throw ConcurrentModificationException.The enumerator for the Hashtable is not fail-fast.
+
+---> Hashtable internally synchronized, can't be Unsynchronized.
+
+----> traversed by Interator && Enumeration.
+
+                  Order--------- no, it does not. it only knows the "hash" order
+				  Duplicates --- No
+				  Null --------- No
+				  
+
+Jackson convert Map to JSON :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ObjectMapper mapper = new ObjectMapper();
+        try
+        {
+            //Convert Map to JSON
+            String json = mapper.writeValueAsString(hashmap);
+             
+            //Print JSON output
+            System.out.println(json);
+        }
+
+=================================================================================================================
+TreeMap333 :=  [......ODN, S&TS.......]
+~~~~~~~~~~
+
+---->TreeMap in Java is used to store key-value pairs very similar to HashMap class. 
+
+---->Difference is that TreeMap provides an efficient way to store key/value pairs in "--sortedOrder--".
+
+---->It stores the keys in sorted order (natural order) or by a Comparator provided at map creation time.
+
+---->It is not synchronized. Use Collections.synchronizedSortedMap(new TreeMap()) to work in concurrent environment.
+
+---->The iterators returned by the iterator method are fail-fast.
+
+---->HashMap performs much better than TreeMap.
+
+---->In HashMap, array size is determined while initialization or resizing which if is often more than needed at the time. It waste the memory. There is no such problem with TreeMap.
+
+  
+          Map ----> Represnt Group of Objects as Key && Value
+   
+   TreeSet & TreeMap ----> Hetrogeneous-Elements are not allowed.
+
+
+===============================================================================================
+
+ConcurrentHashmap449 :=   [......ODN, S&TS.......]
+~~~~~~~~~~~~~~~~~~~~~
+
+----> ConcurrentHashMap is Thread-safe in nature && performance is low sometimes compared to HashMap.
+
+----> ConcurrentHashMap do not preserve the insertion order 
+
+----> Inserting null objects is not-possible in ConcurrentHashMap as key or value. (********) 
+
+----> ConcurrentHashMap was introduced to improve the performance while ensuring thread safety.
+
+----> An initial capacity of 16 ensures a reasonably good number of elements before resizing happens. Load factor of 0.9 ensures a dense packaging inside ConcurrentHashMap.
+
+         Initial capacity (16) /// load factor (0.75) /// concurrencyLevel (16) 
+
+
+----> Any number of threads are applicable for a read operation without locking the ConcurrentHashMap object which is not there in HashMap.
+
+----> The major advantage is in case of synchronizedMap every write operation acquires lock on entire SynchronizedMap while in case of ConcurrentHashMap the lock is only on one of the segments. (*********)
+
+
+ SynchronizedHashMap :=
+~~~~~~~~~~~~~~~~~~~~~
+ --- SynchronizedHashMap is at Object level	, for read/write operation at object level.
+ --- Allows Null Key  && Value. 
+ ---  performance is less when compared to ConcurrentHashmap.
+ 
+   map<String, Integer> sortedAlt = Collections.synchronizedMap(new hashMap<String, Integer>()); 
+
+
+=====================================================================================
+
+ LinkedHashMap667 :=  [......ODN, S&TS.......]
+~~~~~~~~~~~~~~~~~~
+---->LinkedHashMap maintains the order of elements "--insertedOrder--" into it while HashMap is unordered.
+
+---->It may have one null key and multiple null values.
+
+---->fault LinkedHashMap implementation with the default initial capacity (16) and load factor (0.75).
+
+---->LinkedHashMap performs a little wose than HashMap because it has to maintain a doubly-linkedlist and HashMap maintain only linked list.
+
+----> Both HashMap and LinkedHashMap are not thread-safe.
+
+---->always better to choose HashMap over LinkedHashMap in most of the scenarios. We can prefer LinkedHashMap only when we have certain requirement or usecase which requires to maintain the order of elements added to the map.
+
+=================================================================================================
+WeakHashMap480 :=
+~~~~~~~~~~~~~~~
+It is almost same as HashMap except in case of WeakHashMap, if object is specified as key doesn’t contain any references- it is eligible for garbage collection even though it is associated with WeakHashMap. i.e Garbage Collector dominates over WeakHashMap.
+
+Eg :=
+~~~~
+public class Test {
+	public static void main(String args[]) throws Exception {
+		WeakHashMap m = new WeakHashMap();
+		Demo d = new Demo();
+
+		// puts an entry into WeakHashMap
+		m.put(d, " Hi ");
+		System.out.println(m);
+
+		d = null;
+
+		// garbage collector is called
+		System.gc();
+
+		// thread sleeps for 4 sec
+		Thread.sleep(4000);
+
+		System.out.println(m);
+	}
+}
+
+class Demo {
+	public String toString() {
+		return "demo";
+	}
+
+	// finalize method
+	public void finalize() {  ................................////It is called and null Object are garbage-collected.
+		System.out.println("finalize method is called");
+	}
+}
+
+
+---->WeakHashMap does not implement Cloneable interface , it only implements Map interface. Hence , there is no clone() method in the WeakHashMap class
+ 
+
+==========================================================================================================
+IdentityHashMap500 :=  it compares the objects by reference 
+~~~~~~~~~~~~~~~~~~~
+---->IdentityHashMap uses equality operator “==” for comparing keys and values while HashMap uses equals method for comparing keys and values inside Map.
+
+---->Since IdentityHashMap doesn’t use equals() its comparatively faster than HashMap for object with expensive equals()
+
+======================================================================================================================
+Queue590 :=   [......ODN, S&TS.......]
+~~~~~~~~~
+Queue interface orders the element in FIFO(First In First Out) manner. In FIFO, first element is removed first and last element is removed at last.
+
+PriorityQueue  :=
+~~~~~~~~~~~~~~
+PriorityQueue class provides the facility of natural-ordering, which not allow NULL objects .
+
+---->Objects added to PriorityQueue MUST be comparable.
+
+----> PriorityQueue is not thread safe. 
+
+======================================================================================================
+Deque300 :=
+~~~~~~~~
+It is linear collection that supports element insertion and removal at both ends. Deque is an acronym for "double ended queue".
+
+---->Null elements are not allowed in the ArrayDeque.Not Thread-safe.
+
+---->ArrayDeque is faster than LinkedList and Stack.
+
+================================================================================================================
+ConcurrentModificationException444 :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+ --- Occurs when when we try to modify the Structure-of-collection using "-add()-" // "-remove()-" // "-put(-,-)-"   Methods of collections class.(*******)
+ 
+ --- For "-set(-,-)-" method will not throw ConcurrentModificationException, because it does not Modifying the Structure.
+ 
+ --- It's just Manipulating the Content-Of-Collection. 
+ 
+ --- Exception will not thrown when we are using "remove()" method form "-Iterator-" (***********)
+
+
+		ArrayList<Integer> cl = new ArrayList<>();
+		cl.add(12);
+		cl.add(14);
+		cl.add(44);
+
+		Iterator<Integer> it = cl.iterator();
+		while (it.hasNext()) {
+			System.out.println(it.next());
+			cl.add(40);
+		}
+		
+----> use CopyOnWriteArrayList in palce of ArrayList.
+
+==============================================================================================================================
+ 
+ ReadOnlyCollection :=  [ https://javaconceptoftheday.com/make-collection-read-only-in-java/ ]
+~~~~~~~~~~~~~~~~~~~~~
+
+---->Read only collection or unmodifiable collection is a collection which can not be modified once created
+
+---->If you try to perform other operations on read only collection, you will get java.lang.UnsupportedOperationException
+
+---->java.util.Collections class provides some unmodifiable wrapper methods to create read only collections in java. 
+
+       ----- unmodifiableList(List l),  unmodifiableSet(Set s),   unmodifiableMap(Map m) 
+	   
+	   ----- List readOnlyList = Collections.unmodifiableList(originalList); (*********)
+
+---->These methods take the Collection type as an argument and returns read only view of the specified collection.
+
+---->you can perform any modification operations on original collection and those modifications are reflected in the returned collection (********)
+
+
+---->Performing Modifications on one Collections (List, Set, Map) are reflected to readOnlyCollections also. (**********)
+
+=========================================================================================
+
+ CollectionsBestPractises := [https://www.codejava.net/java-core/collections/18-java-collections-and-generics-best-practices]
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+----> When you use a collection of a custom type, e.g. a list of Student objects, remember to override the equals() and hashCode() methods in the custom type properly, in order to allow the collection manages the elements efficiently and properly, especially in Set collections which organize elements based on their hash code values.
+
+ ProducersANDConsumers ----> [https://www.codejava.net/java-core/collections/java-producer-consumer-examples-using-blockingqueue]
+
+
+=======================================================================================
+
+Difference between Iterator and Enumeraton :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1) Iteator (JDK-1.2) can be used on legacy(Vector etc.) classes as well as non-legacy classes (ArrayList, LinkedList etc.),   and Enumeration (JDK-1.0) is basically used for legacy classes such as Vector.
+
+2) Iterator is comparatively slower than Enumeration.
+
+3) Iterator is fail-fast wheras Enumeration is not.
+
+4) Interator provides remove() method whcih is not present in Enumeration.
+
+
+------>Deque is an interface and has two implementations: LinkedList and ArrayDeque. 
+
+------>fail-fast Iterators throw ConcurrentModificationException when there is a structural modification in underlying collection whereas fail-safe doesn’t throw any exception when they detect structural modification as fail-safe iterators works with clones of underlying collection.
+
+------> Conversion using Arrays.asList()
+Syntax:
+       ArrayList<T> arraylist= new ArrayList<T>(Arrays.asList(arrayname));
+
+------>ArrayList is faster than Vector. The reason is synchronization. Vector is synchronized. As we know synchronization reduces the performance.
+
+------>//convert string array to list
+        List<String> lst = Arrays.asList(strArr);
+
+------>create a treeset with the list, which used to eliminates duplicates
+
+------>Find duplicate value from array 
+                      if(!unique.add(str)){
+                                     System.out.println("Duplicate Entry is: "+str);  }
+
+===========================================================================================================================
+
+---->What will happen if you add a new mapping in ConcurrentHashMap while one thread is iterating over it? (answer)
+This is one of the tricky questions related to ConcurrentHashMap. Since iterator's of ConcurrentHashMap are weekly consistent and fail-safe they will not fail with ConcurrentModificationException but it's also possible that they won't see any modification once iteration started. Even though it's implementation dependent, JDK generally creates a separate copy of ConcurrentHashMap for iteration, instead of iterating over original copy.  
+ 
+---->Does Iterator of ConcurrentHashMap is fail-safe or fail-fast? (answer)
+Iterator of ConcurrentHashMap is a fail-safe iterator which means it will not throw a ConcurrentModificationException, thus, eliminating the need to lock the map during iteration.
+
+The Iterator returned by ConcurrentHashMap are also weakly consistent which means if the Map is modified during iteration, it may or may not reflect the recent modification. Generally, it creates a copy of collection before iterating.
+
+
+---->Both HashSet and TreeSet implements java.util.Set interface which means they follow contract of Set interface and doesn't allow any duplicates.
+
+---->Both HashSet and TreeSet are not thread-safe and not synchronized. Though you can make them synchronized by using Collections.synchronizedSet() method.
+
+---->The third similarity between TreeSet and HashSet is that Iterator of both classes is fail-fast in nature. They will throw ConcurrentModificationException if Iterator is modified once Iterator is created.
+
+----> HashSet is faster than TreeSet and should be preferred choice if sorting of elements is not required. 
+
+---->Second difference between HashSet and TreeSet is that HashSet allows null object but TreeSet doesn't allow null Object and throw NullPointerException, Why, because 
+        TreeSet uses compareTo() method to compare keys and compareTo() will throw java.lang.NullPointerException.
+		HashSet uses equals() method to compare . 
+
+  HashSet<String> hashSet = new HashSet<String>();
+		hashSet.add("Java");
+		hashSet.add(null);
+		System.out.println(hashSet);
+		       
+		TreeSet<String> treeSet = new TreeSet<String>();
+		treeSet.add("C++");
+		treeSet.add(null); //Java.lang.NullPointerException
+		System.out.println(treeSet);
+		
+
+---->You can make HashMap synchronized by wrapping it on Collections.synchornizedMap(HashMap) which will return a collection which is almost equivalent to Hashtable, where every modification operation on Map is locked on Map object while in case of ConcurrentHashMap, thread-safety is achieved by dividing whole Map into different partition based upon Concurrency level and only locking particular portion instead of locking the whole Map.
+
+
+========================================================================
+
+Collections:=
+~~~~~~~~~~~
+
+     LinkedHashMap /Set ~~~~ insertion Order,may have one null key and multiple null values.
+      Hashmap /Set ~~~~~~~~~~~ No Order
+	  TreeMap /Set ~~~~~~~~~~ Descending Order.
+	  
+	  
+------> A HashSet (stores null values) uses equals() method for comparison.
+          //Speed: A HashSet is better
+          A TreeSet (not stores null) uses compareTo() method for comaprison
+          //A TreeSet has more features
+
+------->ListIterator can be used to traverse only a List. But Iterator can be used to traverse List, Set, and Queue etc. 
+         //Iterator cannot provide us index of an element
+        // ListIterator provides us methods like nextIndex() and previousIndex()
+
+------->Enumeration is an older interface. 
+            Iterator is a newer interface.
+           // Enumeration can only traverse legacy collections. 
+            //Iterator can traverse both legacy as well as newer collections.
+Method names in Iterator are shorter than in an Enumeration.
+
+
+
+----->What is difference between Synchronized and Concurrent Collections in Java? ... Main reason for this slowness is locking; synchronized collections locks the whole collection e.g. whole Map or List while concurrent collection never locks the whole Map or List.
+
+------->In a Hashing scenario, at times two different objects may have same
+HashCode but they may not be equal. Therefore, Java will face issue while storing the two different objects with same HashCode in a HashMap. This kind of situation is Hash Collision.
+
+====================================================================================
+
+------>Generics allow us to provide the type of Object that a collection can contain.
+
+------>Collection doesn’t extend Cloneable and Serializable interfaces because Collection is an abstract representation. What matters is the implementation.
+
+------>Iterator is a interface provides methods to iterate over any Collection. We can get iterator instance from a Collection using iterator() method. Iterator takes the place of Enumeration
+
+---->use SerializationUtils.clone() method to create a deep copy of given array.
+
+======================================================
+
+Difference between fail-fast and fail-safe:=
+--------------------------------------------------
+Iterator fail-safe property work with the clone of underlying collection, hence it’s not affected by any modification in the collection. By design, all the collection classes in java.util package are fail-fast whereas collection classes in java.util.concurrent are fail-safe.
+Fail-fast iterators throw ConcurrentModificationException whereas fail-safe iterator never throws ConcurrentModificationException
+
+=======================================================
+
+------> java.util.Collections.UnmodifiableCollection throws this exception for all add and remove operations.
+
+------> HashMap works on hashing algorithm and uses hashCode() and equals() method in put and get methods.
+
+------> hashCode() and equals() method to determine the index to put the key-value pair. These methods are also used when we try to get value from HashMap.Similarly all the collection classes that doesn’t store duplicate data use hashCode() and equals() to find duplicates,
+
+------>HashMap   provides Set of keys to iterate and hence it’s fail-fast 
+       Hashtable   provides Enumeration of keys that doesn’t support this feature.
+
+
+------>Similarities between ArrayList and Vector are
+   ---Both are index based and backed up by an array internally.
+   ---Both maintains the order of insertion and we can get the elements in the order of insertion.
+
+-----> ArrayList, HashMap, TreeMap, Hashtable classes provide random access to it’s elements. 
+
+-----> Vector, Hashtable, Properties and Stack are synchronized classes, so they are thread-safe and can be used in multi-threaded environment.
+
+------>java.util.concurrent() contains thread-safe collection classes that allow collections to be modified while iterating. 
+
+------>java.util.concurrent.BlockingQueue is a Queue that supports operations that wait for the queue to become non-empty when retrieving and removing an element, 
+
+------>Queue-----FIFO(entry--rareEnd and delete---front end)  & 
+          Stack-------LIFO (entry and delete at TopEnd) 
+          Deque----(entry and delete at Anyend)
+
+
+) Another difference between ArrayList and HashSet is that ArrayListallow duplicates while HashSet doesn't allow duplicates. This is the side effect of fist difference and property of implementing List and Set interface.
+
+3) Third difference between ArrayList and HashSet is that ArrayList is an ordered collection and maintains insertion order of elements while HashSet is an unordered collection and doesn't maintain any order.
+
+4) Fourth difference between ArrayList and HashSet is that ArrayList is backed by an Array while HashSet is backed by an HashMap instance. See how HashSet internally works in Java for more details.
+
+5) Fifth difference between HashSet and ArrayList is that its index based you can retrieve object by calling get(index) or remove objects by calling remove(index) while HashSet is completely object based. HashSet also doesn't provide get() method.
+(**********)
+
+
+NoSuchElementException := (**************)
+~~~~~~~~~~~~~~~~~~~~~~
+The NoSuchElementException is thrown by an Iterator's next() method which indicates that there are no more elements left in the enumeration.
+
+ Eg::=     exampleleSet.iterator().next();  
+~~~~~
+  ---- avoid this exception, we can put a check before iterating over the set.
+  
+ Eg::    while(it.hasNext()) {  
+~~~~~       System.out.println(it.next());  
+         } 
+
+
+---->Finalize method in Java also called finalizer is a method defined in java.lang.Object and called by Garbage collector before collecting any object which is eligible for GC. Finalize() method provides last chance to object to do cleanup and free any remaining resource,
+ 
+---->you can not force Garbage collection in Java. Though you can request it by calling Sytem.gc() or its cousin Runtime.getRuntime().gc(). It’s not guaranteed that GC will run immediately as result of calling these method.
+  
+  
+---->Fail-fast Iterators throws ConcurrentModificationException when one Thread is iterating over collection object and other thread structurally modify Collection either by adding, removing or modifying objects on underlying collection.
+   
+   
+---->Synchronization in Java is an important concept since Java is a multi-threaded language where multiple threads run in parallel to complete program execution. In multi-threaded environment synchronization of Java object or synchronization of Java class becomes extremely important. Synchronization in Java is possible by using Java keywords "synchronized" and "volatile”. 
+
+=========================================================================================
+
+// Get iterator
+		Iterator<String> iterator = list.iterator();
+
+		// Iterate over all elements
+		while (iterator.hasNext()) {
+			
+			// Get current element
+			String value = iterator.next();
+			 
+          // Remove element
+			if (value.equals("B")) {
+				iterator.remove();
+			}
+		}
+
+		System.out.println(list);
+		
+==============================================================================================
+
+What is Programming Language?
+A pre defined application software
+Standalone Application
+Used to develop applications.
+
+Need of programming Language?
+Used to communicate with Machines
+To Develop applications.
+
+What is Platform?
+Platform is Operating System
+It can be Virtual like JVM(Java virtual Machine).
+It is the head of Machine and runs any application from its environment.
+
+What is the Standalone application?
+Runs on Single OS
+Must be Installed on machine
+Examples.. Media players, anti-virus, notepad, Browsers..
+
+Is C language Standalone or Web application?
+Every programming language is Standalone application
+We need to download and install programming language software to develop applications
+
+Why C applications become standalone apps?
+C and C++ compilers are platform dependent.
+These compilers convert source code into a specific OS understandable code only.
+Hence compiler code becomes standalone
+
+What is a Web application?
+An application which runs on a network where more than one system is connected.
+No need to install web application on any machine
+Generally, these applications deployed in Servers.
+
+What is IDE?
+Stands for Integrated Development Environment
+Used to write, compile and run programs easily using any programming language.
+
+Why we use Blue screen software to develop C applications?
+As a basic programmer, it is bit complex process of writing, compiling and executing the application from OS environment(DOS). Hence we use IDE(blue screen) to develop C applications easily.
+
+
+What is Modular Programming?
+Dividing the entire application into blocks is Called Modular programming.
+De bugging and Implementation become easy with modular programming.
+
+What is Compiler?
+A pre-defined application software.
+Serves the programmer to convert source code into machine code.
+sub software in a programming language.
+
+What is an interpreter ?
+A pre-defined program
+converts byte code into a specific OS understandable instruction set.
+C doesn’t contain interpreters.
+
+=======================================================================================
+
+

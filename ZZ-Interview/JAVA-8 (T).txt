@@ -1,0 +1,700 @@
+
+
+
+        .....LAMBDAEXPRESSIONS123........FUNCTONALINTERFACE123............METHODREFERENCE123
+   
+   ..........DEFAULTMETHOD123............STREAMS123...........OPTIONAL123.......StringJoiner890.......
+			
+	  ........Predicate335...............MultipleInheritance555..........LocalDateTime3430
+	  
+	    7337019199 Online team
+		
+	  https://www.concretepage.com/java/java-8/
+			 
+	
+ Java 7 :=-
+~~~~~~~~~~
+ --- Try with Resource) ----> Avoids Memory Leaks      //////  Eg :: Files .
+ --- Underscore for Numeric Literals (Between Digits)
+ --- String in Switch-case. (Case-Sensitive)
+ --- Catching Multiple Exceptions in catch Block
+
+	
+=================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
+
+======================================================================================================
+
+LAMBDAEXPRESSIONS123 :=  [ https://www.javaguides.net/2018/07/java-8-lambda-expressions.html ]
+~~~~~~~~~~~~~~~~~~
+ 
+--->Lambda Expression is an anonymous function which accepts a set of input parameters and returns results. (or) passed (mostly) to other functions as parameters. 
+
+
+--->A Lambda Expression contains 3 parts:
+Parameter List:= A Lambda Expression can contain zero or one or more parameters. It is optional.
+Lambda Arrow Operator:= “->” is known as Lambda Arrow operator. It separates parameters list and body.
+Lambda Expression Body
+
+--->This Lambda Expression does not have parameters and does return any results. So it’s type is “java.lang.Runnable” Functional Interface.
+
+--->A lambda expression is an instance of a functional interface. (********) 
+
+--->functional programming is not a part of Object (In Isolation), So "-Public-" is not required
+
+
+ Eg1 :=
+~~~~~~
+  interface ABCInter { int addNum(int a, int b); }
+  
+  Class Demo{
+          Main{
+     
+    ABCInter lam=(int a, int b) -> a+b; .........//LambdaExpression, Error Occurs when change in Method-Arguments.
+
+-----------------------------------------------
+
+        Sayable sayable = (msg) - > {
+            System.out.println(msg);
+        };
+        sayable.say("Say something ..");
+		
+=================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
+======================================================================================================
+ 
+FUNCTONALINTERFACE123 (I) :=   [ https://www.javaguides.net/2018/07/java-8-functional-interfaces.html ]
+~~~~~~~~~~~~~~~~~~~~~~  
+
+ [ https://www.youtube.com/watch?v=o384gHvf22Y&list=PLn2GH4dN5i2By9n1Nd6UzCJeyu4W84r4e&index=7&ab_channel=PlayJava ]
+ 
+
+ 4-Types := [ Youtube ---> Play-Java ] //  [ import java.util.* ]
+~~~~~~~~~~
+
+  --- Predicate(Returns Boolean value)...............test(str))
+  --- Function (Has Input and Output)
+  --- Producer (Only Input and  No  Output) 
+  --- Supplier (No Input and Only Output) 
+    
+        Functional Interface ----> Comparator, Comaparable, Runnable 
+                            8 ---> predicate, Supplier, Consumer
+
+--->contains only one abstract method. These interfaces are also called Single Abstract Method interfaces (SAM Interfaces).Functional interfaces were introduced in Java 8 in order to implement lambda expressions.
+
+--->In Java 8, functional interfaces can be represented using lambda expressions, method reference and constructor references as well.
+
+--->Before Java 8, Functional-Interfaces can be represented as Comparable, Comparator. (****************)
+
+
+--->A functional interface is valid even if the @FunctionalInterface annotation would be omitted. It is only for informing the compiler to enforce single abstract method inside interface.
+
+====================================
+
+ --- If we remove @FunctionInterface annotation then we are allowed to add another abstract method, but it will make the interface non-functional interface.
+
+   @FunctionalInterface
+   public interface MyFirstFunctionalInterface 
+  {
+    public void firstWork();
+  }
+  
+ --- If we add @FunctionInterface , then Compiler Strictly Check for Only One-AM. If it found two, then throws 
+ 
+            Invalid '@FunctionalInterface' annotation; FunctionInter is not a functional interface
+   
+   @FunctionalInterface
+   public interface MyFirstFunctionalInterface 
+  {
+    public void firstWork();
+	
+	public void demo();  // CompileTime-Error
+  }
+
+====================================
+
+--->Conceptually, a functional interface has exactly one abstract method. Since default methods have an implementation, they are not abstract. Since default methods are not abstract you’re free to add default methods to your functional interface as many as you like.We can define any number of other methods like Default methods, Static methods.
+
+ Eg :=
+ ~~~
+ @FunctionalInterface
+public interface MyFirstFunctionalInterface 
+{
+    public void firstWork();
+ 
+    default void doSomeMoreWork1(){
+    //Method body
+    }
+ 
+    default void doSomeMoreWork2(){
+    //Method body
+    }
+}
+
+
+
+--->If an interface declares an abstract method overriding one of the public methods of java.lang.Object, that also does not count toward the interface’s abstract method count since any implementation of the interface will have an implementation from java.lang.Object or elsewhere. e.g. Comparator is a functional interface even though it declared two abstract methods. Why? Because one of these abstract methods “equals()” which has signature equal to public method in Object class.
+e.g. Below interface is a valid functional interface.
+
+@FunctionalInterface
+public interface MyFirstFunctionalInterface 
+{
+    public void firstWork();
+ 
+    @Override
+    public String toString();                //Overridden from Object class
+ 
+    @Override
+    public boolean equals(Object obj);        //Overridden from Object class
+}
+
+ Eg2 :=
+~~~~~~
+
+@FunctionalInterface
+public interface MyFunctionalInterface {
+	
+	public void functionTest();
+
+}
+
+
+public class Demo {
+
+	public static void main(String[] args) {
+
+		MyFunctionalInterface myFunctionalInterface = new MyFunctionalInterface() {
+
+			public void functionTest() {
+				System.out.println("FI Implemented Here !!!!!!");
+
+			}
+		};
+
+		MyFunctionalInterface myFunctionalInterface2 = () -> System.out.println("Implementation of LM ");
+
+	}
+
+}
+
+
+
+---->If we override java.lang.Object class’s method as an abstract method, which does not count as an abstract method.
+
+---->In Java 8, java.lang.Runnable and java.util.concurrent.Callable are two very popular Functional interfaces
+
+
+---> What is the difference and similarities between Function and Predicate in java 8?
+
+ Difference :=
+~~~~~~~~~~~~
+1. Return Type : Function returns an Object and it is a single argument function.
+Predicate return type is boolean (i.e true or false) and it is also a single argument function.
+
+ Similarities :=
+~~~~~~~~~~~~~
+1. Both are functional interfaces i.e both contain single abstract method.
+
+=================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
+
+======================================================================================================
+
+METHODREFERENCE123 :=
+~~~~~~~~~~~~~~~~~~~
+
+--->Method references help to point to methods by their names. A method reference is described using :: (double colon) symbol. A method reference can be used to point the following types of methods −
+
+ ---Static methods
+ ---Instance methods
+ ---Constructors using new operator (TreeSet::new)
+
+
+--->Method reference is represented by using double colon operator "::".  Lambda expressions are used to create method anonymously. Sometimes, the sole purpose of lambda expressions is to call existing methods.
+
+Here is the syntax of method reference :
+
+Object :: nameOfTheMethod
+
+
+---->used for referencing a method without invoking it.it. It is used for treating methods as Lambda Expressions.
+
+--->we can refer a method from class or object using class::methodName type syntax
+
+  ---Class::staticMethodName    ----ClassInstance::instanceMethodName          ---Reference to constructor – Class::new
+
+Eg :=
+~~~
+   List<String> strings = Arrays
+        .asList("how", "to", "do", "in", "java", "dot", "com");
+ 
+List<String> sorted = strings
+        .stream()
+        .sorted((s1, s2) -> s1.compareTo(s2))
+        .collect(Collectors.toList());
+ 
+  System.out.println(sorted);
+ 
+  List<String> sortedAlt = strings
+        .stream()
+        .sorted(String::compareTo)
+        .collect(Collectors.toList());
+ 
+  System.out.println(sortedAlt);
+ 
+------------------------------------------------------------------------------------------ 
+Eg :=
+~~~
+    List<Integer> integers = Arrays.asList(1,12,433,5);
+         
+    Optional<Integer> max = integers.stream().reduce( Math::max ); 
+ 
+    max.ifPresent( System.out::println ); 
+
+------------------------------------------------------------------------------------------ 
+Eg:=
+~~~
+  List<Integer> integers = IntStream
+                .range(1, 100)
+                .boxed()
+                .collect(Collectors.toCollection( ArrayList::new ));
+                Optional<Integer> max = integers.stream().reduce(Math::max); 
+                max.ifPresent(System.out::println); 
+
+=================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
+======================================================================================================
+
+DEFAULTMETHOD123 :=
+~~~~~~~~~~~~~~~~
+
+    --- default-static-method.
+	--- default-instance-method.
+
+--->It is a  non abstract method i.e have body, which can be declared inside interface.Default method is introduced in Java 8 for backward compatibility. 
+
+--->That is if you add a new abstract method to the interface, all the implementing classes shall break. Implementing classes need to implement the added abstract method. This problem is solved by default method of java 8.
+
+
+Eg:=  .....////Using super keyword along with interface name.
+--
+interface Vehicle {
+   default void print() {
+      System.out.println("I am a vehicle!");
+   }
+}
+class Car implements Vehicle {
+   public void print() {
+      Vehicle.super.print();                  
+   }
+}
+
+-------------------------------------
+interface Vehicle {
+   static void blowHorn() {
+      System.out.println("Blowing horn!!!");
+   }
+}
+class Car implements Vehicle {
+   public void print() {
+      Vehicle.blowHorn();                  
+   }
+----------------------------------------
+
+
+----> "-- <(I).super.<MN> --" used to accesss default methods in Interface which Cannot use super in a static context (main-Method)
+  ---This line  should be used in Instance-Method Only.(*******)
+
+---->Us of default methods in java 8 is to enable the functionality of lambda expression in java (**********)
+
+---->Default methods allow adding support for functional interface in core classes
+
+---->
+
+=================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
+======================================================================================================
+
+STREAMS123:=   [https://howtodoinjava.com/java8/java-streams-by-examples/]
+~~~~~~~~~~~    [ https://www.concretepage.com/java/java-8/ ]
+
+--->It is defined as a sequence of elements from a source that supports aggregate operations on them. (Eg :: Youtube)  
+
+--->A Stream in Java can be defined as a sequence of elements from a source that supports aggregate operations on them. 
+
+--->Java 8 Streams are designed in such a way that most of the stream operations returns streams only. This help us creating chain of the stream operations. This is called as pipe-lining.
+
+--->Stream is a conceptually fixed data structure, in which elements are computed on demand
+  --- This gives rise to significant programming benefits. The idea is that a user will extract only the values they require from a Stream, and these elements are only produced—invisibly to the user—as and when required. This is a form of a producer-consumer relationship.
+  
+ Difference between Streams && Collections :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Elements are Computed on Demand-Basis , which is not possible using '-COLLECTIONS-'.
+ --- Elements can accessed using Index && Iteration is done Internally ,  which is not possible using '-COLLECTIONS-'. 
+ 
+ 
+Stream, they will be as follows :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ---Not a data structure
+ ---Designed for lambdas
+ ---Do not support indexed access
+ ---Can easily be outputted as arrays or lists
+ ---Lazy access supported
+ ---Parallelizable
+
+
+Examples ::=
+~~~~~~~~~
+---> ll.stream() :: Stream<Integer>();  //// collect(Collectors.toList());
+	  ll.filter() :: List<Integer>()  [OR]  Integer[]
+
+---> Stream<Integer> stream = Stream.of(1,2,3,4,5,6,7,8,9);
+      stream.forEach(p -> System.out.println(p));
+
+================================================================		 
+
+Methods := [ Youtube ---> Play Java ********]
+~~~~~~~
+
+Intermediate-Operations :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+    ------filter():List<T>.......map():List<T>.......flatMap():List<T>.......distinct()List<T> -----
+  
+               ------sorted().......peek().......limit().......skip()----------- 
+
+Terminal-Operations :=
+~~~~~~~~~~~~~~~~~~~
+
+         ----toArray():[].......collect():List<T>....... reduce():Optional<T> ----------- 
+
+          ------min():Optional<T>.......max():Optional<T>.......count():Long ----------
+	   
+      ------forEach():<T>.......findFirst():String.......findAny().....forEachOrdered()---------
+
+      ------anyMatch():boolean.......allMatch():boolean.......noneMatch():boolean ------------
+
+=====================================================
+ 
+--->Stream.map() function to convert a stream of strings to stream of integers. Here the function Integer::valueOf() takes one string from stream at a time, and convert the string to integer and put in another stream of integers, which is then collected using Collectors.toList().
+
+--->flatMap() operation has the effect of applying a one-to-many transformation to the elements of the stream, and then flattening the resulting elements into a new stream.
+ ----The function used for transformation in flatMap() is a stateless function and returns only a stream of new values.
+
+
+---->peek(Consumer action) method which returns a new stream consists of all the elements of original stream after applying the method argument Consumer action.
+
+---->Stream.peek() without any terminal operation does nothing
+
+---->Stream.limit(long maxSize) method to retrieve elements while they must not be greater than a certain maximum count.
+
+----> Stream.skip(long n) method to skip first 'n' elements from a stream. skip() method returns a stream consisting of the remaining elements of this stream, after the specified n elements have been skipped.
+   
+   ----This method may throw IllegalArgumentException if n is negative.
+
+Eg :=
+~~~
+        Stream<Integer> evenNumInfiniteStream = Stream.iterate(0, n -> n + 2);
+        List<Integer> newList = evenNumInfiniteStream.skip(5).limit(10).collect(Collectors.toList());
+        System.out.println(newList);
+
+---->Stream.skip() method can be a useful in certain cases where we need to get the elements from a stream but first we need to skip few elements from the stream. 
+
+=====================================================
+
+---->Stream.forEach(Consumer action) method to traverse all the elements of stream and performs an action for each element of this stream.
+
+Eg:=
+~~~~
+   List<Integer> list = Arrays.asList(2, 4, 6, 8, 10); 
+   list.stream().sorted(Comparator.reverseOrder()).forEach(System.out::println);
+
+---->Stream.forEachOrdered(Consumer action) method to traverse all the elements and performs an action for each element of this stream
+
+---->The behavior of forEach() operation is explicitly non-deterministic. ( No Guaranty of Ordering-elements )
+    The behavior of forEachOrdered() operation respects the the encounter order of the stream if the stream has a defined encounter order whether it is parallel stream or sequential.
+	
+ Eg:=
+ ~~~
+        List<Integer> list = Arrays.asList(2, 4, 6, 8, 10);
+        list.stream().parallel().forEach( System.out::println );         // 6,10,8,4,2
+        list.stream().parallel().forEachOrdered( System.out::println );  //2,4,,6,8,10
+		list.stream().sorted(Comparator.reverseOrder()).forEachOrdered(System.out::println);  // 10,8,6,4,2
+
+
+---->Stream.toArray() to convert stream to array
+
+Eg1:=
+~~~
+        Stream<String> tokenStream = Arrays.asList("A", "B", "C", "D").stream();  //stream
+        String[] tokenArray = tokenStream.toArray(String[]::new);   //array
+        System.out.println(Arrays.toString(tokenArray));
+
+Eg2:=
+~~~~
+        Employee[] employeesArray = employeeList.stream().filter(e -> e.getSalary() < 400).toArray(Employee[]::new);		
+
+		
+---->Stream min() method returns an Optional describing the smallest element of this stream, or an empty Optional if the stream is empty.
+   ----It may throw NullPointerException if the smallest element is null.
+   
+ Eg :=         Optional<Integer> minNumber = list.stream().min((i, j) -> i.compareTo(j));
+ ~~~~
+
+---->Stream.max() method to select the largest element in the stream according to the comparator provided in its argument.
+
+Eg:=
+~~
+  List<Integer> list = Arrays.asList(2, 4, 1, 3, 7, 5, 9, 6, 8);
+         
+        Comparator<Integer> maxComparator = new Comparator<Integer>() {
+             
+            @Override
+            public int compare(Integer n1, Integer n2) {
+                return n1.compareTo(n2);
+            }
+        };
+ 
+        Optional<Integer> maxNumber = list.stream()
+                                .max(maxComparator);
+ 
+        System.out.println(maxNumber.get());
+
+---->count the number of elements in stream in Java 8, use either the Stream.count() or Collectors.counting() methods.
+
+ Eg:=
+~~~~
+     long count = Stream.of("how","to","do","in","java").count();
+    System.out.printf("There are %d elements in the stream %n", count);
+	
+	
+	
+---->Stream.anyMatch (Predicate predicate) is terminal-short-circuiting operation which is used to check if the stream contains any matching element with provided predicate.
+
+ Eg1:=
+~~~~
+		 Stream<String> stream = Stream.of("one", "two", "three", "four");
+		 boolean match = stream.anyMatch(s -> s.contains("four"));
+		   
+		 Stream<String> stream = Stream.of("one", "two", "three", "four");
+         boolean match = stream.allMatch(s -> s.contains("\\d+") == false );
+		 
+		 Stream<String> stream = Stream.of("one", "two", "three", "four");
+		 boolean match = stream.noneMatch( s -> s.contains("\\d+") );
+
+--->you want to particular job using multiple threads in parallel cores, all you have to call method parallelStream() method instead of stream() method.
+
+--->Stream interface has three more similar methods which produce IntStream, LongStream and DoubleStream respectively after the map operation
+
+
+--->
+
+--->
+
+=================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
+======================================================================================================
+
+OPTIONAL123 := 
+~~~~~~~~~~~~
+  (.....empty(), of(),  ofNullable(), isPresent(),  get(), ofNullable(),  orElseThrow()......)  (******)
+
+---->Optional is a final Class introduced as part of Java SE 8. It is defined in java.util package.
+
+---->It provides methods which are used to check the presence of a value for the particular variable. (***********)
+
+----> Optional<T> acts like a container for type T. 
+      If it's value inside container is not null. It will return Value-Of-Object.
+	  If it's value inside container is null, It allows doing some predefined-Actions returns Empty Optional i.e
+	  and Not throws NullPointerException.
+
+---->It is a bounded collection that is it contains at most one element only. It is an alternative to “null” value.
+
+Main Advantage of Optional is:
+
+It is used to avoid null checks.
+It is used to avoid “NullPointerException”.
+
+---->always initialize your object references with some value, and never with null. 
+
+---->Optional is a way of replacing a nullable T reference with a non-null value. An Optional may either
+ contain a "--non-null--" T reference (in which case we say the reference is “present”), or it may 
+ contain "--nothing--" (in which case we say the reference is “absent”).
+ 
+ Eg:=
+~~~~
+        Optional<Integer> canBeEmpty1 = Optional.of(5);
+        canBeEmpty1.isPresent();                    // returns true
+        canBeEmpty1.get();                          // returns 5
+ 
+        Optional<Integer> canBeEmpty2 = Optional.empty();
+        canBeEmpty2.isPresent();                    // returns false
+		
+		
+----> to retrieve a record by id or some fields from the database, basically, we are not sure whether the record exists or not, in that case, the method returns the null reference.Code to avoid such null pointer exception
+
+===============================================================================================================
+
+ StringJoiner890 := [https://www.javaguides.net/2018/07/java-8-stringjoiner-class.html]
+~~~~~~~~~~~~~~~~~
+
+
+
+=================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
+======================================================================================================
+
+TYPEINTERFERENCE123 :=
+~~~~~~~~~~~~~~~~~~~~
+
+---->Type Inference means determining the Type by compiler at compile-time.It is not new feature in Java SE 8. It is available in Java 7 and before Java 7 too.
+
+
+==================================================================================================================
+
+Explain Differences between Collection API and Stream API?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+1.	It’s available since Java 1.
+2	It is introduced in Java SE8
+
+2.	It is used to store Data(A set of Objects).	
+It is used to compute(Count) data(Computation on a set of Objects).
+
+3.	Collection Object is constructed Eagerly.
+Stream Object is constructed Lazily.
+
+4.	We can use both Spliterator and Iterator to iterate elements. 
+We can use forEach to performs an action for each element of this stream.	 
+
+5.	Typically, it uses External Iteration concept to iterate Elements such as Iterator.	
+Stream API uses internal iteration to iterate Elements, using forEach methods.
+
+7.	We add elements to Collection object only after it is computed completely.	
+We can add elements to Stream Object without any prior computation. That means Stream objects are computed on-demand.
+
+8.	We can iterate and consume elements from a Collection Object at any number of times.	
+We can iterate and consume elements from a Stream Object only once.
+
+
+
+
+What is Spliterator in Java SE 8?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Spliterator stands for Splitable Iterator. It is newly introduced by Oracle Corporation as part Java SE 8.
+Like Iterator and ListIterator, It is also one of the Iterator interface.
+
+
+---->Differences between Spliterator and Iterator  in Java SE 8? 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1.	It is introduced in Java SE 8.	
+It is available since Java 1.2.
+
+2. Splitable Iterator	
+  Non-Splitable Iterator
+  
+3.	It is used in Stream API.	
+ It is used for Collection API.
+ 
+4. It uses Internal Iteration concept to iterate Streams.	
+   It uses External Iteration concept to iterate Collections.
+   
+5. We can use Spliterator to iterate Streams in Parallel and Sequential order.
+ We can use Iterator to iterate Collections only in Sequential order.
+	
+6.We can get Spliterator by calling spliterator() method on Stream Object.	
+  We can get Iterator by calling iterator() method on Collection Object.
+  
+7.Important Method: tryAdvance()	
+  Important Methods: next(), hasNext()
+
+
+ External-Iterator := 
+~~~~~~~~~~~~~~~~~~~~~
+ ---control over the iteration of elements lies with the iterator itself. 
+ ---programmer only declares what is to be done and does not manage and control how the iteration of individual elements take place
+ 
+   Eg :=  items.forEach(item -> System.out.println(item));
+  ~~~~
+
+======================================
+
+Predicate335 :=
+~~~~~~~~~~~~
+---->Predicate is a functional interface and can therefore be used as the assignment target for a lambda expression or method reference
+
+---->use predicates anywhere where you need to evaluate a condition on group/collection of similar objects such that evaluation can result either in true or false.
+
+Eg :=
+~~~~~
+    public static Predicate<Employee> isAdultFemale() {
+     return p -> p.getAge() > 18 && p.getGender().equalsIgnoreCase("F");
+   }
+
+=================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
+======================================================================================================
+
+  Abstract Class && Interface in Java 8 :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Abstract Class ----> Having (1)variables          (2)Constructor  
+                               (3)Concrete-Methods   (4)Abstract-Method .
+
+
+   Interface ---->   PSF   (1) Final-Variables                                           (2) Abstract-Methods
+                           (3) Default-Methods [No-Need to write in Impl-Class]          (4) Static-Methods 
+
+
+=================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
+======================================================================================================
+
+ MultipleInheritance555 := 
+~~~~~~~~~~~~~~~~~~~~~~~~~
+---> Single, Multi-Level, Hierarchiral Inheritabce are suported in java.
+
+     A--B, || A--B && B--C || B-A & C-A
+	   
+	   
+      Multi-Level --->  A(class) --- B&C ( implements Interfaces )
+      ~~~~~~~~~~~
+
+In Java 8, we can realize the concept of multiple inheritance through use of default methods without getting into diamond problem.
+
+--->Java does not support multiple inheritance using classes.
+
+---->Multiple inheritance by interface occurs if a class implements multiple interfaces or also if an interface itself extends multiple interfaces.
+
+ Default-Methods :=
+~~~~~~~~~~~~~~~~~~~
+ --- Default methods enable you to add new functionality to the interfaces and  reduces Burden to classes .
+ --- Default-Methods  – will not override, So No-Impact in implementing classes (*******************)
+
+---->But some class specifically wants to override "--default-Method--"  method to add custom logic
+
+----> "--default-Method--" cannot call in Static-block/method, has to call in instance-Block.
+
+                                 <I>.super.<MN>
+								 
+ Static Methods :=
+~~~~~~~~~~~~~~~~~
+ ---  To Provide default implementation which should not be Overiden by SubClass. 
+ 
+              // Calling the static method of interface 
+              Interface.hello(); 
+  
+              // Calling the abstract method of interface 
+              InterfaceImpl.overrideMethod("Hello, Override Method here"); 
+
+
+----> Multiple inheritance is a feature of some object-oriented computer programming languages in which an object or class can inherit characteristics and behavior from more than one parent object or parent class
+
+----> if a class implement two interfaces and both defines default methods, then it is essentially inheriting behaviors from two parents which is multiple inheritance. (************)
+
+
+=================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
+======================================================================================================
+ 
+ LocalDateTime3430 :=
+~~~~~~~~~~~~~~~~~~~~
+ ---  Supports TimeZone for different Countries.
+
+ --- LocalDate(),  LocalTime(), LocalDateTime(),  
+
+
+==================================================================================================
+
+

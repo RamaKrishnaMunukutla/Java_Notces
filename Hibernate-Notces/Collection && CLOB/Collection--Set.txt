@@ -1,0 +1,47 @@
+
+ Model:=
+ ~~~~~~
+@javax.persistence.Entity
+@Table(name = "emptab")
+
+public class Employee {
+
+	@Id
+    @Column(name = "eid")
+	private int empId;
+	@Column(name = "ename")
+	private String empName;
+	@Column(name = "esal")
+	private long empSal;
+
+	@ElementCollection // child table-required
+	@CollectionTable( // optional
+			name = "emp_proj", joinColumns = @JoinColumn(name = "emp_Id") // key-column -optional
+	)
+	@Column(name = "proj") // element column-optional
+	private Set<String> projects;
+
+==================================================================================================================== 
+ Test:=
+ ~~~~
+Set<String> projects = new HashSet<String>();
+			projects.add("p1");
+			projects.add("p2");
+			projects.add("p3");
+			// Creating Employee object and adding Collection obj
+			Employee emp = new Employee();
+			emp.setEmpId(100);
+			emp.setEmpName("RAVI");
+			emp.setEmpSal(78945);
+			emp.setProjects(projects);
+			//save Object
+			ses.save(emp);
+			
+		System.out.println(emp.toString());
+			
+		System.out.println(projects.toString());
+
+
+==============================================================================================================================
+
+  Two Tables are created~~~~~~~~~~~~~  emptab ,  emp_prjs

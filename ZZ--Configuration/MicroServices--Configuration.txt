@@ -1,0 +1,230 @@
+
+
+
+==============================================================================
+
+ feign.hystrix.enabled=true
+ 
+ spring.application.name =
+  
+ eureka.client.register-with-eureka =false
+
+ eureka.client.fetch-registry =false
+
+
+=============================================================================== 
+
+ Services-Configuration :=  [ http://localhost:8761/ ]
+~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+ Order-Service :=
+~~~~~~~~~~~~~~~~~
+server:
+  port: 9192
+spring:
+  h2:
+    console:
+      enabled: true
+  application:
+    name: ORDER-SERVICE   # Used in API-GateWay
+    
+logging:
+  file : C:/users/basan/Desktop/logs/microservice.log
+
+
+
+
+ Product-Service :=
+~~~~~~~~~~~~~~~~~~
+server:
+  port: 9191
+spring:
+  h2:
+    console:
+      enabled: true
+  application:
+    name: PAYMENT-SERVICE   # Used in API-GateWay
+    
+    
+logging:
+  file : C:/users/basan/Desktop/logs/microservice.log
+
+===============================================================
+ 
+ Service-Registry(Eureka) :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+eureka:
+  client:
+    register-with-eureka: false  #Not-Client
+    fetch-registry: false
+server:
+  port: 8761    #Default-Port
+  
+===============================================================
+ 
+ GateWay :=
+~~~~~~~~~~
+spring:
+  application:
+    name: GATEWAY-SERVICE
+  cloud:
+    gateway:
+      routes:
+        - id: order-service
+          uri: lb://ORDER-SERVICE  #Same in Order-Service. 
+          predicates:
+            - Path=/order/**       #Any-Request coming with "/order" has to follow "above-uri".
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: order-service
+                fallbackuri: forward:/orderFallBack  #For fall-back Message
+        - id: payment-service
+          uri: lb://PAYMENT-SERVICE
+          predicates:
+            - Path=/payment/**      #Any-Request coming with "/payment" has to follow "above-uri".
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: payment-service
+                fallbackuri: forward:/paymentFallback
+                
+
+server:
+  port: 8989
+  
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000   # Fall-backs after 5-seconds
+
+===============================================================
+
+ CloudConfig-Service :=
+~~~~~~~~~~~~~~~~~~~~
+
+spring:
+  application:
+    name: CONFIG-SERVER
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Java-Techie-jt/cloud-config-server
+
+server:
+  port: 9196
+
+ POM.Xml :=
+~~~~~~~~~
+  		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+
+===============================================================
+
+ (GIT) :=  [ https://github.com/Java-Techie-jt/cloud-config-server ]
+~~~~~~~~~~
+
+ #Common-in Product-service && Order-service && GateWay-service which are registered with Eureka-Server.
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
+    
+    
+microservice:
+  payment-service:
+    endpoints:
+      endpoint:
+        uri: http://PAYMENT-SERVICE/payment/doPayment
+  order-service:
+    endpoints:
+      endpoint:
+        uri: http://ORDER-SERVICE/order/bookOrder   
+		
+===============================================================
+ 
+ POM.xml :=
+~~~~~~~~~
+ 
+  <properties>
+		<java.version>1.8</java.version>
+		<spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+	</properties>
+	
+   <dependencies>
+   
+ 		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		
+ </dependencies>
+ 
+ 
+ <dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+ 
+ 
+===================================================================================================  
+  Routing :=
+~~~~~~~~~~~
+@Configuration
+public class SpringCloudConfig {
+
+    @Bean
+    public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
+        return builder.routes()
+                .route(r -> r.path("/employee/**")
+                        .uri("http://localhost:8081/")
+                        .id("employeeModule"))
+
+                .route(r -> r.path("/consumer/**")
+                        .uri("http://localhost:8082/")
+                        .id("consumerModule"))
+                .build();
+    }
+
+}
+
+==============================================================================================================================
+
+ Zull-Proxy :=
+~~~~~~~~~~~~~
+zuul: 
+routes:      
+     product:             
+	       path: /item-api/**             
+		   service-id: ITEM-SERICE      
+    student:             
+		   path: /std-api/**            
+		   service-id: STD-SERVICE
+
+==============================================================================================================================
+ 
+ 
+ 

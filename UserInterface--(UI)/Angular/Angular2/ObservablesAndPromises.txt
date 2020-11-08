@@ -1,0 +1,72 @@
+
+
+
+==========================================================================================================================
+Step1:=
+~~~~~~
+---->Without root module, import HTTpModule 
+
+Step2:=
+~~~~~~~
+---->Modify Service to issue get request using built-in http session
+
+---->"Http" service used to issue webservice callover http.
+
+---->to inject  any service in "service.ts" class file , use constructor.
+
+---->Injected dependency
+                    constructor(private h:Http){}
+
+---->Cannot bind Observable to class variabels directly.
+
+Step3::=
+~~~~~~
+---->In "component.ts" ,subscribe to Observable returned by "service.ts"  using "subscribe" method in "ngOnInit()" life-cycle method.
+ 
+---->Specify "callback" function as paremeter in "subscribe" method which is  notified when Observable emits data.
+
+----> "=>" used to  receive data && transfrom response
+
+     		   ngonInit(){ 
+           this.employeeService.getemployees.subscribe((rrr)=>this.employees=rrr);
+		               }
+
+---->
+
+---->
+
+---->
+==========================================================================================================================
+Promises:=
+~~~~~~~~~
+----> import 'rxjs/add/operator/toPromise'
+              "toPromise()" to transform Observable to promise()
+
+----> use "then()" instead "subscribe()"
+
+---->
+
+---->
+
+---->
+==========================================================================================================================
+Differences betwwen Promises && Observables :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---->A promise emits a single value.////
+   where as Observable emits multiple values over period of time, same call-back function("each---next()")("last---complete()") is called for item emitted.with Observable ,we can use same API to hadle Asynchronous data.
+
+---->Not lazy,//////
+  Observable is lazy ,not called until we subscribe to it.
+  No Subscribe for Observable ------- No call to Service class.
+
+----->Promise cannot be cancelled///
+ can cancel Observable by using "unSubcribe()" method.
+  Provide operations like map,filter,reduce,retry,forEach,retry,retryWhen....etc
+  
+==========================================================================================================================
+
+
+==========================================================================================================================
+
+
+

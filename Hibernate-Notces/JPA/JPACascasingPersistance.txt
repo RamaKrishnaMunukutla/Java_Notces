@@ -1,0 +1,276 @@
+
+package com.java.jpa;
+
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "std1")
+public class StudentEntity {
+
+	public StudentEntity() {
+		super();
+	}
+
+	@Id
+	private int s_id;
+	private String s_name;
+	private int s_age;
+   @OneToOne(cascade = CascadeType.PERSIST)
+	private Subject subj;
+
+	public StudentEntity(int s_id, String s_name, int s_age, Subject subj) {
+		super();
+		this.s_id = s_id;
+		this.s_name = s_name;
+		this.s_age = s_age;
+		this.subj = subj;
+	}
+
+	public int getS_id() {
+		return s_id;
+	}
+
+	public void setS_id(int s_id) {
+		this.s_id = s_id;
+	}
+
+	public String getS_name() {
+		return s_name;
+	}
+
+	public void setS_name(String s_name) {
+		this.s_name = s_name;
+	}
+
+	public int getS_age() {
+		return s_age;
+	}
+
+	public void setS_age(int s_age) {
+		this.s_age = s_age;
+	}
+
+	public Subject getSubj() {
+		return subj;
+	}
+
+	public void setSubj(com.java.jpa.Subject sb1) {
+		this.subj = sb1;
+	}
+
+	@Override
+	public String toString() {
+		return "StudentEntity [s_id=" + s_id + ", s_name=" + s_name + ", s_age=" + s_age + ", subj=" + subj + "]";
+	}
+
+}
+
+===============================================================================================================================
+package com.java.jpa;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "sub1")
+public class Subject {
+
+	public Subject() {
+		super();
+	}
+	
+	
+	@Id
+	private int s_id;
+	private String name;
+	private int marks;
+	
+
+	public Subject(String name, int marks, int s_id) {
+		super();
+		this.name = name;
+		this.marks = marks;
+		this.s_id = s_id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getMarks() {
+		return marks;
+	}
+
+	public void setMarks(int marks) {
+		this.marks = marks;
+	}
+
+	public int getS_id() {
+		return s_id;
+	}
+
+	public void setS_id(int s_id) {
+		this.s_id = s_id;
+	}
+
+	@Override
+	public String toString() {
+		return "Subject [name=" + name + ", marks=" + marks + ", s_id=" + s_id + "]";
+	}
+
+}
+
+==============================================================================================================================
+/JPA_OnetoOneMapping/src/main/resources/META-INF/persistence.xml:=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+            http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	version="2.1">
+	<persistence-unit name="kk">
+		<properties>
+			<property name="javax.persistence.jdbc.driver"
+				value="com.mysql.jdbc.Driver"/>
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost:3306/test" />
+			<property name="javax.persistence.jdbc.user" value="root"/>
+			<property name="javax.persistence.jdbc.password"
+				value="root" />
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.hbm2ddl.auto" value="create"/>
+
+		</properties>
+	</persistence-unit>
+</persistence>
+
+
+===============================================================================================================================
+package com.java.jpa;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+public class Test {
+
+	public static void main(String[] args) {
+
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("kk");
+		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
+
+		StudentEntity s1 = new StudentEntity();
+		s1.setS_id(11);
+		s1.setS_name("Vipul");
+		s1.setS_age(20);
+
+		Subject sb1 = new Subject();
+		sb1.setName("ENGLISH");
+		sb1.setMarks(80);
+		sb1.setS_id(s1.getS_id());
+
+		s1.setSubj(sb1);
+
+
+   //Here we are Persisiting Only Parent table only.........Child table will be created automatically with "CASCADING"
+		em.persist(s1);
+
+		em.getTransaction().commit();
+		em.close();
+		emf.close();
+	}
+
+}
+==============================================================================================================================
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+ 
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.example</groupId>
+  <artifactId>JPA_OnetoOneMapping</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>JPA_OnetoOneMapping</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+  
+  <dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.3.7.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.17</version>
+		</dependency>
+  
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
+
+===============================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==============================================================================================================================
+ CriteriaBuilder cb=em.getCriteriaBuilder();  
+         CriteriaQuery<StudentEntity> cq=cb.createQuery(StudentEntity.class);  
+           
+        Root<StudentEntity> stud=cq.from(StudentEntity.class);  
+          
+        cq.multiselect(stud.get("s_name"));   
+          
+         CriteriaQuery<StudentEntity> select = cq.select(stud);  
+         TypedQuery<StudentEntity> q = em.createQuery(select);  
+         List<StudentEntity> list = q.getResultList();  
+ 
+         System.out.println("s_id");  
+              
+           
+         for(StudentEntity s:list)  
+         {  
+         System.out.println(s.getS_id());  
+     
+       }  
+===============================================================================================================================

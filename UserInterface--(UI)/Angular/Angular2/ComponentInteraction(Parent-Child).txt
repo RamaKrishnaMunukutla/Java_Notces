@@ -1,0 +1,94 @@
+
+
+
+ Inline Template := template : ` `;
+~~~~~~~~~~~~~~~~~~
+   
+   styles :[``]
+
+ Attribute && properties :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ---Attribute values defined by HTML , initializes DOM properties and cannot change.
+  ---properties values defined by DOM and can change.
+  
+     @Input --->  (data from) Parent to child && 'Name'  can   change
+	@Output --->  (data from) Child to Parent && 'Name' cannot change  
+
+ Eg :=
+~~~~~       C-Same-P
+ <child (informParent)="parentWillTakeAction($event)"></child>
+ <child (nameChanged)="this.name = $event">           
+  
+  parentWillTakeAction(message){
+    this.messageFromChild = message;
+  }
+
+===============================================================================================
+
+ App.Component.TS :=
+~~~~~~~~~~~~~~~~~~~~`
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'Angular';
+  public name="RamaKrishna";
+  
+  public message=""; [Emitted-Captured-Data ****]
+}
+
+=======================================================================================================
+
+App.Component.HTML:= [https://www.youtube.com/watch?v=BGy8DdGw_WE&list=PLC3y8-rFHvwhBRAgFinJR8KHIrCdTkZcZ&index=15]
+~~~~~~~~~~~~~~~~
+<div style="text-align:center">
+ <h1>
+   {{message}}
+ </h1>
+ </div>           [Other####-Class]
+ <app-test (childEvent)="message22=$event" [parentData]="name"></app-test>
+  
+  
+      [####] ----> Captured data-Emitted from Child by Parent && here "-message22" has data . (***********)
+  
+=======================================================================================================
+
+ Test.component.ts := (TS && HTML) 
+~~~~~~~~~~~~~~~~~~~
+ import { Component, OnInit,Input,EventEmitter,Output } from '@angular/core';
+
+ @Component({
+  selector: 'app-test',
+  template: `
+               <h2>{{"Hello "+parentData}}</h2>
+               <button (click)="fireEvent()">ClickHere</button>
+   `,
+   styles: []
+  })
+
+  
+export class TestComponent implements OnInit {
+
+   @Input()  
+   public parentData;  [OR]  @Input('parentData')  public name;
+
+   @Output() 
+   public childEvent= new EventEmitter();  ......../// From Emits-Data from Chid-To-Parent (*********)
+
+
+constructor() { }
+
+  ngOnInit() {
+  }
+  
+  fireEvent(){
+    this.childEvent.emit('Hey Code Evolution'); 
+  }
+
+}
+
+==============================================================================================================

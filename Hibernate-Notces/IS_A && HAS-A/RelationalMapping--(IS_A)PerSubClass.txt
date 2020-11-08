@@ -1,0 +1,83 @@
+
+In this design, hibernate creates one child table for one sub class, which is connected to parent table using Join column (key column) that behaves like
+Pk-FK.
+Note:
+1. No of classes = no. of tables with connected columns.
+2. Every child table connected to parent table using key column
+(or PKJoinColumn).
+3. If we save one object then parent
+
+====================================================================
+ Model:=
+ ~~~~~~
+ @javax.persistence.Entity
+@Table(name = "emptab") // table name111111111
+
+@Inheritance(strategy=InheritanceType.JOINED)
+public class Employee {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "eid")
+	private int empId;
+	@Column(name = "ename")
+	private String empName;
+//=============================================
+ 
+ 
+@Entity
+@Table(name="addrtab")
+@PrimaryKeyJoinColumn(name="pidFK")
+public class Address extends Employee{
+
+	@Column(name = "addloc")
+	private String addrLoc;
+	@Column(name = "addpin")
+	private long addrPin;
+//============================================
+ 
+ @Entity
+@Table(name="desgtab")
+@PrimaryKeyJoinColumn(name="pidFK")
+public class Designation extends Employee{
+
+	@Column(name="erank")
+	private int empRank;
+	@Column(name="efeedback")
+	private String empFeedback;
+=================================================================
+Test:=
+~~~~
+Employee emp = new Employee();
+			emp.setEmpId(130);
+			emp.setEmpName("gangadhar");
+			//emp.setEmpSal(13300);
+			
+			
+			Address ad= new Address();
+	         ad.setAddrLoc("Del");
+			ad.setAddrPin(507400);
+			
+			
+			
+			Designation dg= new Designation();
+			dg.setEmpFeedback("Good");
+			dg.setEmpRank(32);
+		
+			
+			ses.save(emp);  
+			ses.save(ad);
+			ses.save(dg);
+			
+			
+			System.out.println(emp.toString());
+			System.out.println(ad.toString());
+			System.out.println(dg.toString());
+			
+			
+====================================================================================
+
+
+
+
+  

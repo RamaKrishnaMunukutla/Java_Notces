@@ -1,0 +1,1468 @@
+
+
+   KudVenkat ---> https://csharp-video-tutorials.blogspot.com/2014/11/javascript-tutorial.html 
+   Local --- https://csharp-video-tutorials.blogspot.com/
+   
+
+	
+	
+
+======================================================
+	
+	........DataTypes660............Strings889...............WindowObject..........DocumentObject.......Functions335......
+	
+	.........Form123......Input123..............CreatingOBJECTSinJavaScript.......CreatingARRAYSinJavaScript.......
+	
+	.........ExceptionalHandling330.............FunctionHoisting...............Events445............JSONmethods
+	
+	.........RegularExpression779..............Closures550............Page330..........DOM550..............Storage336
+	
+	.........BestPractises770..................Oops888	
+	
+==========================================================
+
+ ComputerProgram := It is a list of "instructions"-(statements) are executed by a computer, one by one, in the same order as ~~~~~~~~~~~~~~~~ they are written.  
+
+  
+   1. HTML to define the content of web pages
+
+   2. CSS to specify the layout of web pages
+
+   3. JavaScript to program the behavior of web pages
+   
+   
+----> JavaScript is used to create client-side dynamic pages. JavaScript programs are executed by the web browser.
+
+----> ECMAScript is a subset of JavaScript && TypeScript is a Super-Set of JavaScript
+
+---->JavaScript (Lightweight and Cross-Platform) is object-based scripting language and also light-weight object-oriented programming language which is used by several websites for scripting the webpages.
+
+---->JavaScript is not a compiled language, but it is a translated language. The JavaScript Translator (embedded in the browser) is responsible for translating the JavaScript code for the web browser.
+
+---->JavaScript follows the syntax and structure of the C programming language. Thus, it is a structured programming language.
+
+---->JavaScript is used to create interactive websites. It is mainly used for:
+
+--Displaying clocks etc.
+--Displaying date and time,
+--Displaying pop-up windows and dialog boxes (like an alert dialog box, confirm dialog box and prompt dialog box),
+--Dynamic drop-down menus,
+--Client-side validation.
+
+
+ 
+---->The "script" tag specifies that we are using JavaScript.
+
+     The "text/javascript" is the content type that provides information to the browser about the data.
+
+
+---->We can create external JavaScript file and embed it in many html page.It provides code re-usability because single JavaScript file can be used in several html pages.
+
+-----> navigator property is used to obtain browser vendor and version information. 
+
+
+---->To declare JavaScript global variables inside function, you need to use window object. 
+
+ Eg:= window.value=90;  
+~~~~
+
+---->Ending statements with semicolon is not required, but highly recommended. (*******)
+
+---->A good practice is to put spaces around operators ( = + - * / ):
+
+---->   JavaScript Special Operators ~~~~~~~ new, typeOf, instanceOf, Conditional(?:), in, delete,  yeild,  Void.
+ 
+----> Script “tag” is used to include the JavaScript code.
+ 
+--->Modules are powerful way to share code between files.By using modules effectively in your project you can
+keep you file size small and dependencies clear
+
+--->Internal Modules are known as namespaces in Typescript.Namespaces are used to maintain the legacy code of
+typescript interally
+
+--->Decorators are function that supports annotating or modifying classes its members
+
+---->External scripts cannot contain <script> tags.
+
+  <p id="demo"></p>
+  document.getElementById("demo").innerHTML = fruits;
+  
+===========================================================================
+
+Java Vs JavaScript:=
+~~~~~~~~~~~~~~~~~~
+1.OOP programming language which Run on VM && Browser. //////////// Static Type checking
+  Oo Scrpting programming language which Run Browser only. ////////// Dynamic Type Checking.
+
+2. code compiled before execution .
+   code Intepreted  before execution
+   
+Differences between Typescript and JavaScript are :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. JavaScript don’t support Es6 while Typescript supports .
+
+2. JavaScript build up reusable components by using unctions and prototype-based inheritance while
+Typescript supports Classes that allow programmer to think in more object oriented way .
+
+3. JavaScript don’t have any interfaces while Typescript has interfaces.
+
+4. There is no static typing in JavaScript whereas there is static typing in Typescript.
+
+5. JavaScript has no optional parameter feature while Typescript has optional parameter feature.
+
+================================================================================================
+
+ JavaScript-Identifiers :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+ ---In JavaScript, identifiers are used to name variables (and keywords, and functions, and labels).
+ ---The rules for legal names are much the same in most programming languages. Identifiers are case sensitive
+ ---In JavaScript, the first character must be a letter, or an underscore (_), or a dollar sign ($).
+ ---Subsequent characters may be letters, digits, underscores, or dollar signs.
+
+======================================================================================
+ 
+ DataTypes660 :=
+~~~~~~~~~~~~~~~
+
+---->JavaScript provides different data types to hold different types of values. There are two types of data types in JavaScript.
+
+  (1) Primitive data type ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ String, Number, Boolean, any (Null ,Undefined ) (Var, Let,const)
+      Primitive values are immutable (they are hardcoded and therefore cannot be changed).
+  
+  (2) Non-primitive (reference) data type ~~~~~~~~~~~~~ Object, Array, RegEX.
+  
+  (3) Objects in JavaScript ~~~~~~~~~~~~~   String,  Number,  Boolean,  Array, Object,  Date.
+
+  
+----> 'const' must be assigned a value when they are declared. (******)
+
+---->Variables declared with the 'var' keyword Can used  Outside Block-Scope.(Both)
+
+---->Variables declared with the 'let' keyword Cannot used Outside Block-Scope.(Not-Both)
+
+---->Global variables defined with the 'var' keyword belong to the window object.
+
+ Eg :=
+~~~~~
+      var carName = "Volvo";
+   // code here can use window.carName
+   
+---->Redeclaring a var variable with let, in the same scope, or in the same block, is not allowed.
+
+ Eg :=
+~~~~~
+    var x = 2;       // Allowed
+    let x = 3;       // Not allowed
+
+---->Re-declaring a 'let' variable with 'let', in the same scope, or in the same block, is not allowed:
+ 
+ Eg :=
+~~~~~
+    let x = 2;       // Allowed
+    let x = 3;       // Not allowed
+
+---->Variables defined with     'var'       are hoisted to the top  
+ ---Variables defined with 'let' && 'const' are Not-hoisted to the top
+
+---->ES2015 introduced two important new JavaScript keywords: 'let' and 'const'.(provide Block-Scope-Variables && Constants)
+
+---->To check 'a' Not-Equal to 'null' ====> if(a!==null)
+
+---->undefined and null are equal in value but different in type:
+
+ Eg :=
+~~~~~~
+         typeof undefined           // undefined
+         typeof null                // object
+         null === undefined         // false
+         null == undefined          // true
+
+---->Local-variables are deleted when the function is completed.
+    Global-variables are deleted when you close the browser window. (***********)
+
+----> 'ceil' ---- Next-Higher-Closest [2.99 to 3]   ////   'floor' ---- Next-Lowest-Closest [2.99 to 2] 
+
+---->JavaScript is a dynamic type language, means you don't need to specify type of the variable because it is dynamically used by JavaScript engine. You need to use 'var' here to specify the data type. It can hold any type of values such as numbers, strings etc. 
+
+ For example :=
+~~~~~~~~~~~~~~
+         var a =40;               // holding number && 'a' is Idetifier( Must begin with (A-Z or a-z) (or) $ (Or) (_) )
+         var b ="Rahul";          // holding string  
+		 var carName;             // Undefined when try to Access-it.  
+		 
+         var c ="5"+2+3;(523);    // number in quotes, the rest of the numbers will be treated as strings && concatenated.	
+         var x = "Volvo" + 16 + 4; // Volvo164(*********) 
+		 var x =  16 + 4+ "Volvo" // 20Volvo  
+
+---->Objects are variables too. But objects can contain many values.
+ --This code assigns many values (Fiat, 500, white) to a variable named car:
+ 
+  Eg := var car = {type:"Fiat", model:"500", color:"white"};
+ ~~~~
+ 
+---->You can use quotes inside a string, as long as they don't match the quotes surrounding the string:
+
+ Eg :=
+~~~~~
+    var answer1 = "It's alright";
+    var answer2 = "He is called 'Johnny'";
+    var answer3 = 'He is called "Johnny"';
+
+ EscapeCharacter := backslash (\) escape character turns special characters into string characters:
+~~~~~~~~~~~~~~~~~~
+     \'	 '\     '	          Single quote
+      \" "\	    "	          Double quote
+       \\	\                 Backslash 
+ 
+ 
+ Strings Can be Objects :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+---->Normally, JavaScript strings are primitive values, created from literals:
+  --But strings can also be defined as objects with the keyword 'new' :
+  
+  var x = "John";              // typeof x will return string
+ var y = new String("John");   // typeof y will return object && new keyword complicates the code
+ 
+ Date :=
+~~~~~~~
+ Different variant of Date() constructor to create date object is/are
+ ii.  new Date(milliseconds)
+ iii. new Date(date string)
+ iv.  new Date(year, month, date[hour, minute, second, millisecond])
+ 
+ SubSets :=
+~~~~~~~~~~~
+    var set = new Set();  
+	 set.add("AngularJS");  
+	 set.add("Bootstrap");  
+     document.writeln(set.has("Bootstrap"));	 
+	 set.delete("Bootstrap");  
+	 set.clear(); 
+	 var itr=set.values();  
+	document.writeln(set.size);
+	
+
+ Eg :=
+ ~~~~
+   var num = 5.56789;
+   var n = num.toExponential();  ////  5.56789e+0
+   
+ Eg :=
+~~~~~
+  var x = "100";
+  var y = "10";
+  var z = x * y; //// 1000    because  JavaScript convert strings to numbers when multiplying
+  Math.trunc(8.76); /// 8.00  because "trunc" method returns Integer Part.
+  
+  
+  
+
+
+===================================================================================================================
+
+ Strings889 :=  (Coated in " ")  [ https://www.w3schools.com/js/js_string_methods.asp ]
+~~~~~~~~~~~~~
+---->All string methods return a new string. 
+ ---They don't modify the original string.
+ ---Strings are immutable: Strings cannot be changed, only replaced.
+
+ Substr() -----  Difference from Slice() because,  second parameter specifies the length of the extracted part.
+ 
+ SubString() --- Difference from Slice() because , cannot accept negative indexes.
+ 
+ Slice():String --- Unlike Substring, If ( Start > stop ) parameters Substring will Not-Swap 2 parameters.
+ 
+ Replace():String --- does not change the string it is called on.  
+ 
+ Pop() --- removes last element in array nad returrn that element.
+ 
+ Push() --- adds elements to Beginning of array.
+ 
+ unshift() --- adds elements in beginning of array.
+ 
+
+ Splice() && Slice() :=
+~~~~~~~~~~~~~~~~~~~~~~
+----> The splice() method takes 'n' number of arguments  &&  affects the original array  
+      The slice()  method take only two arguments        && doesn’t affect the original array. 
+
+          Syntax of splice(): str.splice(index, howmany, item1, ....., itemX)
+          Syntax of slice(): str.slice(start, end)
+
+----> parameter is negative, the position is counted from the end of the string.
+
+ 
+ JSON-Stringify() :=
+~~~~~~~~~~~~~~~~~~
+ ---Used to convert it into a string
+   
+   Eg :=
+  ~~~~~
+        var obj = {"name":"John", "age":30, "city":"New York"};
+		var myJSON = JSON.stringify(obj);.......///Here myJSON is Converted to String
+ 
+ 
+============================================================================================
+
+  
+ WindowObject :=  ( Global object which holds variabes, functions, location ..etc ) (VAR && LET)
+~~~~~~~~~~~~~~
+The window object represents a window in browser. An object of window is created automatically by the browser. Window is the object of browser, it is not the object of javascript. The javascript objects are string, array, date etc.
+ 
+             //------- alert(),  prompt()--->TakesValue,  confirm()--->Yes/No,  Open()--->PopUp, 
+
+               //------- Close(),  Onerror(),  setInterval(f,time), setTimeout(f,time)
+
+
+---->The Window object is the main entry point to all client-side JavaScript features and APIs.
+
+
+window.open() :=
+~~~~~~~~~~~~~~~
+ <input type="button" value="Open popup"
+       onclick="window.open('http://google.com', '_self')" />
+
+
+
+setTimeout(  
+function(){  
+alert("Welcome to Javatpoint after 2 seconds")  
+},2000);  
+
+
+ Onerror := (Raised when Undeclared "-Function-" is used.)
+~~~~~~~~~~
+If the error is handled by a try/catch statement, then the onerror event is not raised. onerror event is raised only when there is an unhandled exception. ( In the absence of try/catch )
+
+   window.onerror = function (message, url, line)
+   {
+    alert("Message : " + message + "\nURL : " + url + "\nLine Number : " + line);
+    return true;
+   }
+
+=================================================================================================
+
+ DocumentObject :=  (Sub-set of Window && One of the property of window )     (VAR && LET)
+~~~~~~~~~~~~~~~~
+Document Object Model (DOM) is a platform and language-neutral interface that allows programs and scripts to dynamically access and update the content, structure, and style of a document.
+
+----> document.write() will overwrite the document.
+                 
+    ......write().......getEelementBy[Id, Name, TagName, ClassName]....(.Value("xx"))....innerHTML
+
+   .......<textarea id="txtArea" rows="4" cols="30"></textarea>..........
+
+ <script type="text/javascript">  
+   function printvalue(){  
+      var name=document.form1.name.value;   //here "name" wiil receive value of text filed through "Document" Object.
+      alert("Welcome: "+name);  
+     }  
+ </script>  
+  
+ <form name="form1">  
+   Enter Name:<input type="text" name="name"/>  
+   <input type="button" onclick="printvalue()" value="print name"/>  
+ </form> 
+
+================================================================================================================
+ 
+ Functions335 :=
+~~~~~~~~~~~~~~~
+
+---->The function definitions in JavaScript begins with Return type, Function keyword, Identifier and Parenthises
+
+---->A class can have Many functions. Scope of Function is called as "-Module-" function.
+
+---->function name become Optional in JavaScript When the function is defined as expressions.
+
+----> setTimeout() method is used to Register a function to be invoked after a certain time.
+
+---->setTimeout() and setInterval() allow you to register a function to be invoked once or repeatedly after a specified amount of time has elapsed. Both belongs to Window object
+
+---->purpose of a return statement in a function is to Stop executing the function and returns the value.
+
+---->A function with no return value is called Procedures.
+
+ Eg1 :=
+~~~~~
+ function emp(name,salary)
+ {  
+     this.name=name;  
+     this.salary=salary;  
+ 
+     this.changeSalary=changeSalary;  
+     function changeSalary(otherSalary)
+     {  
+         this.salary=otherSalary;  
+     }  
+  }  
+ e=new emp("Rahul",30000);  
+ e.changeSalary(45000);  
+ document.write("e.name+" "+e.salary);
+ 
+  
+ Anonymous-Function :=
+~~~~~~~~~~~~~~~~~~~~~
+  (function (){
+     var a=10;
+     var b=20;
+	 console.log(a+b);
+  })(); ...................// IIFE (Immediate-Invoke Function-Expression)
+
+
+=================================================================================================================
+
+ Form123 :=
+~~~~~~~~~~
+
+ <FORM -----> name......onsubmit......action..........method
+       
+-----> <form name="myform" method="post" action="abc.jsp" onsubmit="return validateform()" >  
+					   
+			var num=document.myform.num.value;  //To get Feilds-input values.
+
+ Input123 := ///
+~~~~~~~~~~~
+----> type="SOOO-MANY"
+----> Default width of an input field is 20 characters
+
+ <INPUT ----> ...type....id......value[See]..........name..........onclick.........onerror......onChanges()........
+
+       .....maxlength="4" size="14" step="3".........class........placeholder....required(**)....autofocus.........
+				
+				.....Min="1"........Max="3".......pattern="[A-Za-z]{3}"..........disabled........readonly.........
+ 
+  
+ From JS to HTML :=
+~~~~~~~~~~~~~~~~~~
+    document.getElementById("txtArea").value = result + "\r\n";
+
+
+
+---->  "--onerror--" event handler method can also be used with HTML elements 
+  
+---->  <input type="button" value="click" onclick="msg()"/>  
+				   
+			document.getElementById("numloc").innerHTML="Enter Numeric value only";   
+ 
+ 
+  Label :=   <label for="fname">First name:</label>
+ ~~~~~~~~
+ 
+
+=============================================================================================================
+
+ Functions :=
+~~~~~~~~~~~~
+--->function is a block of JavaScript code,  can be called when an event Occured.
+
+--->JavaScript function is defined with the function keyword, followed by a name, followed by parentheses ().
+
+  Eg :=
+ ~~~~~  
+  var x = myFunction(4, 3);   // Function is called, return value will end up in x
+ function myFunction(a, b) {
+  return a * b;             // Function returns the product of a and b
+ }
+
+========================================================================================== 
+
+ CreatingObjectsinJavaScript := (VAR && LET)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There are 3 ways to create objects.
+
+ (1)By object literal ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ emp={id:102,name:"Shyam Kumar",salary:40000}  
+ 
+ 
+ (2)By creating instance of Object directly (using new keyword)~~~~~~~~~~~~  var person=new Object(); 
+                                                                              person.firstName = "John";
+                                                                              person.lastName = "Doe";
+                                                                              person.age = 50;
+                                                                              person.eyeColor = "blue";
+ 
+   function Employee(empId, empName, empSal, empLoc){
+        var obj={};
+		obj.empId=empId;
+		obj.empName=empName;
+		obj.empSal=empSal;
+		obj.empLoc=empLoc;
+		return obj;
+   }
+ var emp= new Employee(101,"rama",1000,"HYD");
+  
+    function Employee(empId, empName, empSal, empLoc){
+       // var this={};
+		this.empId=empId;
+		this.empName=empName;
+		this.empSal=empSal;
+		this.empLoc=empLoc;
+	 // return this;
+   }
+ var emp= new Employee(101,"rama",1000,"HYD"); ....../// "Function" should be called in Constructor-Mode with "NEW" Keyword.
+                                                     /// Without NEW , It is "-Undefined-".
+ 
+ 
+ 
+ 
+ (3)By using an object constructor (using new keyword):=
+         
+		    function emp(id,name,salary){  
+            this.id=id;  
+            this.name=name;  
+            this.salary=salary;  
+              }  
+            e=new emp(103,"Vimal Jaiswal",30000); 
+
+ Methods :=
+~~~~~~~~~
+   typeof ----> if(typeof user.firstName === 'undefined'){ } 	
+   
+  Ob.create ----> var employee1 = Object.create(Employee);
+   
+   
+   
+----> Here "-1" indicating end of file (***********)
+
+---->JavaScript objects are written with curly braces  {}.
+  --JavaScript arrays are written with square brackets [].
+  --The typeof operator returns "object" for arrays because in JavaScript arrays are objects. (*********)
+  
+  
+   Eg := var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+  ~~~~       person = null;        // Now value is null, but type is still an object
+             person = undefined;   // Now both value and type is undefined
+         var cars   = ["Saab", "Volvo", "BMW"];
+		 
+
+---->You can access object properties in two ways: (1) objectName.propertyName  (2) objectName["propertyName"]
+
+----> two JavaScript objects will always return false. Objects cannot be compared.
+
+  Eg :=
+ ~~~~~
+   var x = new Number(500);             
+   var y = new Number(500);
+   
+--->valueOf() returns a number as a number
+
+---->Objects are Mutable . (**********)
+ ---Should use person[x] in the loop.
+  
+  Eg :=
+ ~~~~
+ var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"}
+ var x = person;
+ x.age = 10;           // This will change both x.age and person.age
+ 
+ 
+---->"-delete-" keyword deletes a property&&Value from an object.
+ --- "-delete-" operator is designed to be used on object properties. It has no effect on variables or functions.
+  ---"-delete-" operator should not be used on predefined JavaScript object properties. It can crash your application
+
+ Eg :=
+~~~~
+    var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+    delete person.age;   // or delete person["age"];
+	
+--->object can be converted to an array using Object.values().	
+
+ Eg :=
+~~~~~
+    var person = {name:"John", age:50, city:"New York"};
+    var myArray = Object.values(person);
+    document.getElementById("demo").innerHTML = myArray;
+	
+ THIS := Note that this is not a variable. It is a keyword. You cannot change the value of this.
+~~~~~~~
+function Person(first, last, age, eyecolor) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eyecolor;
+  this.name = function() {return this.firstName + " " + this.lastName;};
+}
+
+---> you cannot add a new property to an existing object constructor.
+
+ Eg :=
+~~~~~
+    person.nation="India"; //Undefined.
+	
+ IN :=  The “in” operator checks for the presence of a particular property in object.
+~~~~~
+ 
+  Eg :=
+ ~~~~~
+   var  obj=
+  {
+	 length:20,
+	 height:35,
+  }
+  if (‘breadth' in obj === false) { }
+  
+
+---->The four kinds of class members are Instance fields, Instance methods, Class fields, Class methods.
+
+---->Object.entries() method is used to return an array of a given object’s own [key, value] pairs.
+
+	
+=======================================================================================================
+
+ CreatingArraysinJavaScript :=  [ var points = []; ]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+---->Object:: var person = {firstName:"John", lastName:"Doe", age:46};
+
+ There are 3 ways to construct array in JavaScript ::
+
+---By array literal ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ var emp=["Sonoo","Vimal","Ratan"];  
+
+
+---[Using new keyword-- complicates the code.] ~~~~~~~~~~~~~~~~~~~~~~~~~~~  var emp=new Array("Jai","Vijay","Smith");  
+
+
+---By creating instance of Array directly (using new keyword) :=
+
+ var emp = new Array();  
+ emp[0] = "Arun";  
+ emp[1] = "Varun";  
+ emp[2] = "John";  
+ 
+---->Array can be defined with a null value. If you omit a value from an array literal, the omitted element is given an undefined value.  Eg := var num=[1, ,3];
+                 ---
+ 
+---->adds a new element to an array is using the "-push()-" method. (Last-Index).
+
+---->New element can also be added to an array using the "-length-" property.
+
+---->Adding elements with high indexes can create undefined "holes"(UN-DEFINED) in an array.
+
+---->In JavaScript, arrays use numbered indexes && Objects use named indexes.
+
+
+---->How do I know if a variable is an array?
+ JavaScript Provides::  (1)Array.isArray()   (2) typeof: Object  (3) instanceof : Object
+ 
+ 
+---->POPPING(  pop() ) --- removes the 'Last' element && Returns array.
+     PUSHING(  push() ) --- 'Adds' a new element to an array (at the end).
+	 SHIFTING( shift()) --- removes the 'First' element && Returns array.
+   UNSHIFTING( shift()) --- 'Adds' a new element to an array (at the Start).
+	 
+ Eg :=  [https://www.w3schools.com/js/js_array_methods.asp]
+~~~~~
+   var fruits = ["Banana", "Orange", "Apple", "Mango"];
+   fruits[fruits.length] = "Kiwi";          // Appends "Kiwi" to fruits
+	
+
+ ForEach (Eg1) :=
+~~~~~~~~~~~~~~~~~
+    const days= [ "Mon", "Tue", "Wed", "Thrus", "Fri", "Sat" ];    
+	
+	days.forEach( function (day){
+	   console.log(day);
+	 })
+	 
+
+ ForEach (Eg2) :=
+~~~~~~~~~~~~~~~~~
+    const days= [ "Mon", "Tue", "Wed", "Thrus", "Fri", "Sat" ];    
+	
+	days.forEach( function (day, index){
+	   console.log(` Starts with ${index+1} -- ${day}`);
+	 })
+	 
+=================================================================================================
+
+ Classes660 := [https://www.w3schools.com/js/js_classes.asp]
+~~~~~~~~~~~~~
+ ---Use the keyword 'class' to create a class, and always add the 'constructor()' method.
+ ---class declarations are not hoisted. you must declare a class before you can use it.
+ 
+  Eg :=
+ ~~~~
+ //You cannot use the class yet.
+ //mycar = new Car("Ford")
+ //This would raise an error.
+  class Car { }
+ 
+ Constructor() :=
+~~~~~~~~~~~~~~~
+ ---The constructor method is called each time the class object is initialized.
+ ---If you do not have a constructor method, JavaScript will add an invisible and empty constructor method.
+ 
+ StaicMethods && Inheritance :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ---call methods by using "Class-Name".
+  ---a class inheritance, use the 'extends' keyword.
+  
+ Super() :=
+~~~~~~~~~~
+  ---super() method in the constructor method, we call the parent's constructor method and gets access to the parent's properties and methods.
+ 
+ Eg :=
+~~~~~
+ class Car {
+   constructor(brand) {
+     this.carname = brand;
+   }
+  present(x) {
+    return x + ", I have a " + this.carname;
+  }
+ }
+  mycar = new Car("Ford");
+ document.getElementById("demo").innerHTML = mycar.present("Hello");
+ 
+ Setters && Getters :=
+~~~~~~~~~~~~~~~~~~~~~~~
+ ---add getters and setters in the class, use the 'get' and 'set' keywords
+
+ class Car {
+  constructor(brand) {
+    this.carname = brand;
+  }
+  get cnam() {
+    return this.carname;
+  }
+  set cnam(x) {
+    this.carname = x;
+  }
+}
+
+  mycar = new Car("Ford");
+  document.getElementById("demo").innerHTML = mycar.cnam;
+  
+  
+  Eg2 :=
+ ~~~~~
+ var person = {
+  firstName: "John",
+  lastName : "Doe",
+  language : "NO",
+  set lang(value) {
+    this.language = value.toUpperCase();
+  }
+};
+
+// Set an object property using a setter:
+person.lang = "en";
+
+// Display data from the object:
+document.getElementById("demo").innerHTML = person.language;
+  
+  
+=======================================================================================================
+ 
+ ExceptionalHandling330 :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+----> try.......catch........throw( create custom errors.).......finally.
+---->throw used to raise custom exception.
+
+----> "-onerror-" handler method can be registered to be invoked when uncaught JavaScript exceptions occur
+
+ Eg1 :=
+~~~~~~
+try {
+   adddlert("Welcome guest!");
+  }catch(err) {
+  document.getElementById("demo").innerHTML = err.message;
+ }
+ 
+  Eg2 :=
+~~~~~~
+try { 
+    if(x == "")  throw "empty";
+    if(isNaN(x)) throw "not a number";
+    if(x < 5)  throw "too low";
+    if(x > 10)   throw "too high";
+  }
+  catch(err) {
+    message.innerHTML = "Input is " + err;
+  }
+  finally {
+    document.getElementById("demo").value = "";
+  }
+
+  Eg3 ::=
+ ~~~~
+       function divide() {
+            var numerator = Number(prompt("Enter numerator"));
+            var denominator = Number(prompt("Enter denominator"));
+
+            try {
+                if (denominator == 0) {
+                    throw {
+                        error: "Divide by zero error",
+                        message: "Denominator cannot be zero"
+                    };
+                }
+                else {
+                    document.write("Result = " + (numerator / denominator));
+                }
+            }
+            catch (e) {
+                document.write(e.error + "<br/>");
+                document.write(e.message + "<br/>");
+            }
+        }
+
+        divide();
+		
+====================================================================================
+
+  FunctionHoisting := (Can call '-function-' before defining it. function automatically moves to Top )
+~~~~~~~~~~~~~~~~~~~~
+ ---By default, JavaScript moves all the function declarations to the top of the current scope. 
+ ---This is called function hoisting. 
+ ---This is the reason JavaScript functions can be called before they are declared.
+ ---For Variables, because only the declaration (var y), not the initialization (=7) is hoisted to the top. (**********)
+ 
+ ---Here, "use strict"; at Top for Strict-Checking.
+ ---In Strict, Objects are variables too. Using an object, without declaring it, is not allowed:
+  
+   Eg :=
+  ~~~~~   
+    "use strict";
+    x = {p1:10, p2:20};      // This will cause an error
+   
+  Note:: Functions defined using a function expression are not hoisted.
+   
+
+---->function_Expression 
+                ----Anonymous function expression
+				----Named function expression
+				----Self invoking function expression
+				
+=========================================================================================================
+
+ Events445 :=
+~~~~~~~~~~~
+
+---->When events occur, we can execute JavaScript code or functions in response to those events. To do this we need to associate JavaScript code or functions to the events. The function that executes in response to an event is called event handler.
+
+----> In JavaScript, there are several ways to associate an event handler to the event
+1. Using the attributes of an HTML tag
+2. Using DOM object property
+3. Using special methods
+
+
+ Onmouse Events:=
+~~~~~~~~~~~~~~~
+         <input type="button" value="Click me" id="btn"
+         onmouseover="this.style.background= 'red'; this.style.color = 'yellow'"
+         onmouseout="this.style.background= 'black'; this.style.color = 'white'" />
+
+Other Dom-Events :=
+~~~~~~~~~~~~~~~~
+     onkeyup(Focuson feild).......onblur(control looses focus)......
+
+---->If an event handler is assigned using both, i.e an HTML attribute and DOM object property, the handler that is assigned using the DOM object property overwrites the one assigned using HTML attribute. 
+
+   <input type="button" value="Click me" id="btn" onclick="clickHandler1()" />
+        function clickHandler1() {
+            alert("Handler set using HTML attribute");
+        }
+
+        function clickHandler2() {
+            alert("Handler set using DOM object property");
+        }
+
+ Eg :=
+~~~~~
+<!DOCTYPE html>
+<html>
+  <body>
+    <button onclick="document.getElementById('demo').innerHTML=Date()">The time is?</button>
+    <h2 id="demo"></h2>
+  </body>
+</html> 
+
+--------------------------------------------------------------------------------------------
+
+To Disbale ContextMenu(Right Click) :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Using oncontextmenu attribute of the body element to disable right click.
+	 
+  Eg := 
+  ~~~
+  <body oncontextmenu="return false">
+    <h1>On this page right click is disabled</h1>   </body>
+
+--------------------------------------------------------------------------------------------
+
+ mouseover ~~~~~~ Occurs when the mouse pointer is moved over an element
+ 
+ mouseout  ~~~~~~  Occurs when the mouse pointer is moved out of an element
+ 
+ mousemove  ~~~~~~  Occurs when the mouse pointer is moving while it is over an element
+ 
+ mouseup  ~~~~~~  Occurs when the mouse button is released over an element
+ 
+ mousedown  ~~~~~~  Occurs when the mouse button is pressed over an element
+ 
+ click  ~~~~~~  Occurs when the mouse button is clicked. mousedown, mouseup & click events occur in sequence
+ 
+ dblclick  ~~~~~~  Occurs when the mouse button is double-clicked. mousedown, mouseup, mousedown, mouseup, click & dblclick events occur in sequence
+ 
+ contextmenu  ~~~~~~  Occurs when the mouse right button is clicked. mousedown, mouseup & contextmenu events occur in sequence
+
+
+=================================================================================================================
+ 
+ JSONmethods :=  [https://www.javaguides.net/2019/04/javascript-json-methods-guide.html]
+~~~~~~~~~~~~~~
+----> JSON object provides two methods to convert Javascript-Object to JSON and vice versa:
+  
+ (1) JSON.parse() :=  Convert a JavaScript-object to a JSON  
+~~~~~~~~~~~~~~~~~~
+
+  Eg := var text = JSON.parse( '{ "firstName" : "Ramesh", "lastName" : "Fadatare",  "emailId" : "ramesh@gmail.com",  "age" : "29"  }');
+ ----   console.log(text);
+
+
+ (2) JSON.stringify() := Convert a  JSON  to a  JavaScript-Object
+~~~~~~~~~~~~~~~~~~~~~~
+
+    Eg :=  JSON.stringify({ uno: 1, dos: 2 }, null, '\t');
+   ----
+
+====================================================================================================================
+
+ Storage336 :=  [https://www.javaguides.net/2019/07/javascript-localstorage-object-api-guide.html]
+~~~~~~~~~~~~
+ 
+ LoalStorage :=
+~~~~~~~~~~~~~~
+----> "-localStorage-" object is a type of web storage that allows Javascript websites and apps to store and access data right in the browser with no expiration date. 
+
+----> This means the data stored in the browser will persist even after the browser window has been closed. The localStorage property object is read-only.
+
+ --- setItem("key", "value") : Add key and value to LocalStorage
+ 
+ --- getItem("key")          : Retrieve a value by the key from LocalStorage
+ 
+ --- removeItem("key")       : Remove an item by key from LocalStorage
+ 
+ --- clear()                 : Clear all LocalStorage
+ 
+ ---key(): Passed a number to retrieve nth key of a LocalStorage
+ 
+----> LocalStorage can only store strings.
+ ---To store arrays or objects you would have to convert them to strings.
+ ---To do this we use the JSON.stringify() method before passing to setItem() .
+ 
+ var user = {
+  firstName : "Ramesh",
+  lastName : "Fadatare"
+ }
+localStorage.setItem("id", JSON.stringify(user));
+
+  Eg :=
+~~~~~~
+
+    private activatedRoute: ActivatedRoute, private http: HttpClient, private toaster: ToastrManager) {
+      console.log(localStorage.getItem('userMail'),"susajkfsabk");
+      if(localStorage.getItem('userMail')) {
+        this.loginForm.controls.username.setValue(localStorage.getItem('userMail'));
+        this.loginForm.controls.domain.setValue(localStorage.getItem('Domain'));
+      }
+  }
+  
+============================
+
+ (2) Session-Storage :=
+~~~~~~~~~~~~~~~~~~~~~~~
+--->sessionStorage object stores data for only one session (the data is deleted when the browser tab is closed).
+ 
+--->The localStorage property object is read-only.
+
+ --- setItem("key", "value") : Add key and value to LocalStorage
+ 
+ --- getItem("key")          : Retrieve a value by the key from LocalStorage
+ 
+ --- removeItem("key")       : Remove an item by key from LocalStorage
+ 
+ --- clear()                 : Clear all LocalStorage
+ 
+ ---key(): Passed a number to retrieve nth key of a LocalStorage
+ 
+ 
+====================================================================================================================
+
+
+RegularExpression779:=  It is a sequence of characters that forms a search pattern. 
+~~~~~~~~~~~~~~~~~~~~
+
+
+ HTML DOM mouse events :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+onclick
+ondblclick
+mousemove
+mousedown
+mouseover
+mouseout
+mouseup
+ 
+==================================================================================
+ Page330 :=
+~~~~~~~~~~~
+ <html>
+ 
+ <head><script>
+     
+ </script></head> <body>
+
+ </body></html>
+
+===============================================================================================================
+
+ Closures550 := [ https://csharp-video-tutorials.blogspot.com/2014/12/closures-in-javascript.html ]
+~~~~~~~~~~~~~
+---->A closure is an inner function that has access to the outer function’s variables in addition to it's own variables and global variables. 
+
+---->The inner function has access not only to the outer function’s variables, but also to the outer function’s parameters. You create a closure by adding a function inside another function. (************)
+
+---->If inner-function parentheses is removed.....then It Returns Expression without executing it.
+
+----> Used to restrict/convert Global-scope to local-scope. Can be done by Wrapping-Functions.
+
+ Eg with Anonymous-Function :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ <script type="text/javascript">
+    var incrementClickCount = (function () ............Outer-Anonymous-Function Executed Only Once.
+    {
+        var clickCount = 0;
+        return function ()
+        {
+            return ++clickCount;
+        }
+    })();
+</script>
+
+<input type="button" value="Click Me" onclick="alert(incrementClickCount());" /> .....Since Anonymous.
+
+
+================================================================================================================= 
+ 
+  DOM550 :=
+ ~~~~~~~~~
+---->It is a platform and language-neutral interface that allows programs and scripts to dynamically access and update the content, structure, and style of a document.
+
+---->In the DOM, all HTML elements are defined as objects.
+
+  Eg :=
+ ~~~~~
+   document.getElementById("myBtn").addEventListener("click", function() {
+   alert("Hello World!");
+ });
+ 
+ 
+ EventListner :=
+~~~~~~~~~~~~~~~
+ <script>
+    var x = document.getElementById("myBtn");
+    x.addEventListener("mouseover", myFunction);
+    x.addEventListener("click", mySecondFunction);
+    x.addEventListener("mouseout", myThirdFunction);
+ function myFunction() {
+  document.getElementById("demo").innerHTML += "Moused over!<br>";
+ }
+ 
+ function mySecondFunction() {
+  document.getElementById("demo").innerHTML += "Clicked!<br>";
+ }
+ 
+ function myThirdFunction() {
+  document.getElementById("demo").innerHTML += "Moused out!<br>";
+ }
+</script>
+</script>
+ 
+==========================================================================================================
+ JSON330 :=
+~~~~~~~~~
+ ---We can Exchang data between a browser and a server, the data can only be text.(JSON is text)
+ ---we can convert any JavaScript object into JSON, and send JSON to the server.
+ ---JSON is language independent.
+ ---Date Objects && functions are not-allowed in JSON.
+
+ ---JSON.parse() used to   convert  Object.
+ ---JSON.Stringify() used  convert to a string. 
+
+ For-In Loop :=
+~~~~~~~~~~~~~~
+   myObj = { "name":"John", "age":30, "car":null };
+   for (x in myObj) {
+     document.getElementById("demo").innerHTML += x;
+   }
+
+  Eg2 := [https://www.w3schools.com/js/js_json_arrays.asp]
+ ~~~~~~~
+ var myObj, i, x = "";
+  myObj = {
+   "name":"John",
+   "age":30,
+   "cars":[ "Ford", "BMW", "Fiat" ]
+ };
+
+ for (i in myObj.cars) {
+   x += myObj.cars[i] + "&nbsp";
+ }
+ document.getElementById("demo").innerHTML = x;
+
+==========================================================================================================
+
+ BestPractises770 :=    [https://www.w3schools.com/js/js_best_practices.asp]
+~~~~~~~~~~~~~~~~~~~
+ ---put all declarations at the TOP of each script or function.
+ ---Avoid global variables, avoid "-NEW-", avoid ==, avoid eval()
+ 
+ ---Avoid Global Variables && Always Declare Local Variables must be declared with the 'var' keyword (Or) 'let' keyword.
+ ---Initialize-Variables when you declare them
+ ---Good naming Convention with Intentation.
+ 
+ ---Always treat numbers, strings, or booleans as primitive values. Not as objects.
+ ---JavaScript is loosely typed. A variable can contain different data types, and a variable can change its data type:
+ 
+ ---In Functions, it is a GoodHabit to assign default values to arguments.(if any missing)
+
+ Eg :=
+~~~~~~
+  function myFunction(x, y) {
+    if (y === undefined) {
+      y = 0;
+    }  
+  }
+  
+ ---Statements or assignments that can be placed outside the loop will make the loop run faster.
+ 
+  Eg :=
+ ~~~~~
+     var i;
+     for (i = 0; i < arr.length; i++) { }
+
+======================================================================================================================
+ 
+ Oops888 :=
+~~~~~~~~~~
+
+ Inherientence && Abstract-Class := [https://www.javaguides.net/2019/09/typescript-classes-tutorial-with-examples.html]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  [https://www.javaguides.net/2019/09/typescript-abstraction-example.html]
+ class Animal {
+    name: string;
+    constructor(theName: string) { this.name = theName; }
+    move(distanceInMeters: number = 0) {
+        console.log(`${this.name} moved ${distanceInMeters}m.`);
+    }
+}
+
+class Snake extends Animal {
+    constructor(name: string) { super(name); }
+    move(distanceInMeters = 5) {
+        console.log("Slithering...");
+        super.move(distanceInMeters);
+    }
+}
+
+class Horse extends Animal {
+    constructor(name: string) { super(name); }
+    move(distanceInMeters = 45) {
+        console.log("Galloping...");
+        super.move(distanceInMeters);
+    }
+}
+
+let sam = new Snake("Sammy the Python");
+let tom: Animal = new Horse("Tommy the Palomino");
+
+sam.move();
+tom.move(34);
+
+------------------------------------
+
+
+
+======================================================================================================================
+
+
+---->The Browser Object Model (BOM) is used to interact with the browser. The default object of browser is window means you can call all the functions of window by specifying window or directly.
+
+
+
+---->The document object represents the whole html document. When html document is loaded in the browser, it becomes a document object. It is the root element that represents the html document. It has properties and methods. By the help of document object, we can add dynamic content to our web page.
+
+===================================================================
+
+---->The innerHTML property can be used to write the dynamic html on the html document. It is used mostly in the web pages to generate the dynamic html such as registration form, comment form, links etc.
+
+--->JavaScript doesn't have function overloading.
+
+--->var is function scoped whereas let is block scoped.
+
+--->const: It is used to create an immutable variable. Immutable variables are variables whose value is never
+changed in the complete life cycle of the program.
+
+--->let: let is used to create a mutable variable. Mutable variables are normal variables like var that can be changed
+any number of time
+
+---> In the same global-Namespace, we cannot have 2-functions (or) 2-variables with same-Name because it will cause functions Overriding. (considers latest function) called as "--GlobalNameSpace-Pollution---".
+
+---->valueOf() method is used to get the primitive value of a string.
+
+---->The substr() function has the form substr(startIndex,length). It returns the substring from startIndex and returns
+‘length’ number of characters.
+
+var s = "hello";
+( s.substr(1,4) == "ello" ) // true
+
+
+---->The substring() function has the form substring(startIndex,endIndex). It returns the substring from startIndex up
+to endIndex – 1.
+
+ var s = "hello";( s.substring(1,4) == "ell" ) // true
+
+---->There are two types of Inherientence in OOPS Classic and Prototypical Inheritance. Javascript follows
+Prototypical Inheritance
+
+---->Host objects: These are those objects which environment gives. It means they are different for different
+environments. For example, browsers include objects such as windows but Node.js environments give objects
+such as Node List.
+
+
+---->Native Objects: these are built-in objects in JavaScript. They are also known as Global Objects because they
+will be available to you independent of ay environment if you working in JavaScript.
+
+---->The spread operator expands an expression in places where multiple argument/variables/elements are needed to
+present. It represents with three dots (…).
+
+---->In JavaScript, we use the function setInterval() to call any function in every x seconds.
+
+                     Syntax: setInterval(function, milliseconds, param1, param2, ...)
+
+
+---->A promise is an object in JavaScript which is used to produce a value that may give results in the future. The
+value can be resolved value or it can be a reason which tells why the value is not resolved.
+A promise can be of three states:
+
+ --Fulfilled: The operation is completed and the promise has a specific value.
+ --Rejected: The operation is failed and promise has a reason which shows why the operation failed.
+ --Pending: Th operation is not fulfilled or rejected, which means it has not completed yet.
+
+----------------------------------------------------------------------------------------------
+
+Design Pattern Supported in JavaScript :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The design pattern is a general reusable solution to a commonly occurring problem in software design. Some of
+the design patterns are:
+ 1. Creational design pattern: These patterns dealt with the mechanism of object creation which optimize
+object creation with the basic approach.
+
+ 2. Structural design pattern: these patterns deal with different classes and objects to provide new
+functionality.
+
+ 3. Behavioral Patterns: These patterns are to improve communication between objects and to recognize
+patterns.
+
+ 4. Concurrency design patterns: These patterns handle with multi-thread programming paradigms.
+
+ 5. Architectural design patterns: These patterns used to deal with architectural designs.
+
+---->JavaScript is single-threaded
+ 
+
+---->There are three types of errors available in JavaScript
+   Load time errors: Errors which come up when loading a web page like improper syntax errors are
+                       known as Load-time errors and it generates the errors dynamically.
+
+   Run time errors: Errors that come due to misuse of the command inside the HTML language.
+   
+   Logical Errors: These are the errors that occur due to the bad logic performed on a function which is
+                      having a different operation.
+ 
+
+==========================================================================================================
+
+
+
+Un.Named-Class :=
+~~~~~~~~~~~~~
+<script>  
+var emp = class {  
+  constructor(id, name) {  
+    this.id = id;  
+    this.name = name;  
+  }  
+};  
+document.writeln(emp.name);  
+</script>
+
+
+
+---->A JavaScript constructor method is a special type of method which is used to initialize and create an object. It is called when memory is allocated for an object.
+
+---->If we declare more than one static method with a similar name, the JavaScript always invokes the last one.
+
+---->We can use this keyword to call a static method within another static method.
+
+
+Anonymous function :=
+~~~~~~~~~~~~~~~~~~~
+It is a function that has no name. These functions are declared dynamically at runtime using the function operator instead of the function declaration. The function operator is more flexible than a function declaration. It can be easily used in the place of an expression. For example:
+
+var display=function()  ....///function having noName
+{  
+  alert("Anonymous Function is invoked");  
+}  
+display();
+-----------------------------------------------------------
+
+----> we can assign an anonymous function to a variable
+
+---->function can have parameters at Signature level
+     function can have return-Type inside function body.
+
+===========================================================================
+
+--->Local Variable :: are declared inside function. scope ---> within function.
+    Global variable:: all scipts and functions can access && Scope ---> deleted when page closed.
+	
+---->Unlike Java, Braces do not create scope in JavaScript
+	
+
+---->If you assign a value to a variable that has not been declared, it will automatically become a global variable, even if it is present inside a function.
+
+           Eg:: greeting = "Hello JavaScript";
+		   
+
+---->Variable hoisting in JavaScript means to move all variable declarations to top of function. This means that if we declare a variable at the end of a function, the runtime will hoist it to the top and we will not have any error if we would have used that variable before being declared.
+
+  ---Please note that variables declared with the 'var' keyword are subject to hoisting. 'let' and 'const' (introduced in ES6) does not have hoisting effect.
+   
+
+---->In below code, data is declared as well as initialized also. In this case, hoisting will happen and it will not move upto top. So value of data will be available only after it is declared and initialized; not before.
+
+Variable declaration
+function fun() 
+{
+    console.log(data);  //Outputs 'undefined'
+ 
+    var data = 1;
+ 
+    console.log(data);  //Outputs 1
+}
+ 
+fun();           
+================================================================================
+
+Loop over Map :=
+~~~~~~~~~~~~~
+Example of using 'for...of' to iterate over map entries.
+
+Map Iteration Example
+let map = new Map();
+map.set("A",1);
+map.set("B",2);
+map.set("C",3); 
+ 
+//Iterate over map keys
+for (let key of map.keys()) {
+    console.log(key);                   //A B C
+}
+ 
+//Iterate over map values
+for (let value of map.values()) {
+    console.log(value);                 //1 2 3
+}
+ 
+//Iterate over map entries
+for (let entry of map.entries()) {
+    console.log(entry[0], entry[1]);    //"A" 1 "B" 2 "C" 3
+}
+ 
+//Using object destructuring
+for (let [key, value] of map) {
+    console.log(key, value);            //"A" 1 "B" 2 "C" 3
+} 
+
+=================================================================
+
+----> 'this' always refers to Object it belongs to.
+
+----> Attribute :: more detailed information about element ( id ,type, value )
+      Property :: Value assigned to property. (name)
+
+----> getElementBy....(class, id, Tagname) are different ways HTML elements are accesed.
+
+----> declare variable using  '..... Var, let, const....'
+
+ Typed-Languages :=
+~~~~~~~~~~~~~~~~~~~
+in this, values are assiosiated with values, not with variables
+
+  Static-Typed ---> can hold Only one value. (int a=10;)
+  Dynamic-Typed ---> can hold multiple  values. (var x =90; x="Rama";)
+
+
+----> Session-Storage ---> will leave when Browser is closed.
+      Local-Storage ---> explicitly close it through Settings / Program.
+
+
+----> "===" compares values && Types also    ////////    "==" compares values Only.
+
+
+innerHTML := will process an HTML tag if found in a String.
+~~~~~~~~~~
+
+================================================================================
+
+
+===================/\/\\/\/\=========\/\\/\/\/\\/\==========\//\/\/\/\\/\=========/\/\\/\\/\/\==========
+
+ Filter() := creates a new array and prints all elements in arry that meet the condition specified in a callback function.
+~~~~~~~~~~
+
+function IsEven(value, index, array) {
+            if (value % 2 == 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        // Source array
+        var myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        // Pass the callback function as argument to the filter method
+        var result = myArray.filter(IsEven);
+
+        document.write(result);.......//Return elements Which satisfy Condition
+		
+---------------------------------------------------------------------------------------------------
+ 
+
+----> 10 +Undefined --->NaN, additional parameters are ignored.
+
+closure := ['f' inside 'f' ] which has aceess to its Own-Access && has Access to Outer Fuction variable & parameters
+~~~~~~~~~
+A closure is an inner function that has access to the outer function’s variables in addition to it's own variables and global variables. The inner function has access not only to the outer function’s variables, but also to the outer function’s parameters. You create a closure by adding a function inside another function.
+
+
+---->    Onclick="x"...>      var x=( function(){....} )
+
+---->In Closures, Outer-Anonymous function executes Only Once.
+
+
+Argument Object := can pass '--n--' number of arguemnts to a function. by using "--arguments.length--" in loop.
+~~~~~~~~~~~~~~~
+It contains all the function parameters that are passed to the function and can be indexed like an array. The length property of the arguments object returns the number of arguments passed to the function.
+
+
+=============================================================================================================
+ 
+
+
+

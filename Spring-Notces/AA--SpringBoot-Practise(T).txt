@@ -1,0 +1,714 @@
+
+
+ 
+
+     ........Mapping123........RestAnnotations555...............Param123............... 
+ 
+      ........Response11.........Autowiring123...........JpaRepositaryWithStreams123.......DownLoadImageRest......
+ 
+    ......ErrorMessage123.......ResponseEntity123..........Rest11........
+	
+	...........ADDHTML.............Notces888..............
+
+                            
+   
+============================================================================================================   
+ src/main/resource :=  [  http://localhost:8181/ ]
+~~~~~~~~~~~~~~~~~~~
+ 
+  static/css ------------> CSS files
+  
+  template/fragments ----> Header && Footer Files
+  
+  template --------------> HTML Files
+  
+  
+    @GetMapping("/home")
+    public String home() {
+        return "/home";
+    } .............................template/home.html
+	  ............................. <a th:href="@{/admin}">Admin page  </a></h2>
+	
+
+  @GetMapping("/403")
+    public String error403() {
+        return "/error/403";   ......... template/error/403.html
+    }
+
+============================================================================================================
+ 
+@SpringBootApplication :=
+~~~~~~~~~~~~~~~~~~~~~~~
+It is a combination of three annotations @EnableAutoConfiguration, @ComponentScan, and @Configuration.
+Spring MVC and REST Annotations
+
+
+---->  The difference between @ImportAutoConfiguration and @EnableAutoConfiguration is that later attempts to configure beans that are found in the classpath during scanning, whereas @ImportAutoConfiguration only runs the configuration classes that we provide in the annotation.
+
+       ---We should use @ImportAutoConfiguration when we don’t want to enable the default auto-configuration.
+	   
+==========================================================================================
+
+Mapping123:=
+~~~~~~~~~~~~
+
+ @RequestMapping := (MV**)
+~~~~~~~~~~~~~~~~~~~
+ ---It is used to map web requests onto specific handler classes and/or handler methods.
+ ---It has many optional elements like 
+          
+		  method......value......consumes......produces....header......name......params......path
+ 
+  Eg1 :=  @RequestMapping(method = RequestMethod.GET, value="/{id}", produces=MediaType.APPLICATION_JSON_VALUE )
+ ~~~~
+ 
+  Eg2 :=  @RequestMapping(value="/method6", produces={"application/json","application/xml"}, consumes="text/html")
+ ~~~~~~
+ 
+  Eg3 := Multi-Path ----> @RequestMapping(value={"/method1","/method1/second"})
+~~~~~~~
+  
+  
+ @ResponseBoby := 
+~~~~~~~~~~~~~~~~ 
+ ---Returns Objects/Text that displays on Browser, but does not returns Views (*******).
+ 
+ 
+ @RestController := 
+~~~~~~~~~~~~~~~~ 
+ --- (Controller in MVC + @ResponseBody)
+ --- It eliminates the need for annotating each method with @ResponseBody.
+
+
+ @PostMapping :=
+~~~~~~~~~~~~~~
+ ---It maps the HTTP POST requests on the specific handler method. 
+ ---It is annotated methods handle the HTTP POST requests matched with given URI expression. 
+ 
+ 
+ @GetMapping :=
+~~~~~~~~~~~~~
+ ---Composed annotation that acts as a shortcut for @RequestMapping(method = RequestMethod.GET)
+ ---It maps the HTTP GET requests on the specific handler method. 
+ ---It is annotated methods handle the GET POST requests matched with given URI expression.
+ 
+ 
+ @PutMapping :=
+~~~~~~~~~~~~~
+ ---It maps the HTTP PUT requests on the specific handler method. 
+ ---It is annotated methods handle the PUT POST requests matched with given URI expression. 
+ 
+===============================================================
+
+ @DeleteMapping :=
+~~~~~~~~~~~~~~~~~~
+ ---It maps the HTTP DELETE requests on the specific handler method. 
+ ---It is annotated methods handle the DELETE POST requests matched with given URI expression.
+
+
+
+
+===============================================================
+
+RestAnnotations555(JAX-RS) := It maps the HTTP DELETE requests on the specific handler method.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~   @RequestBody: It is used to bind HTTP request with an object in a method parameter
+         @RequestParam: It is used to extract the query parameters form the URL. It is also known as a query parameter
+
+ @GET~~~~~~~~~~~~~specifies method responds to GET request.
+
+ @POST~~~~~~~~~~~~specifies method responds to POST request.
+
+ @PUT~~~~~~~~~~~~~specifies method responds to PUT request.
+
+ @HEAD~~~~~~~~~~~~specifies method responds to HEAD request.
+
+ @DELETE~~~~~~~~~~specifies method responds to DELETE request.
+
+ @OPTIONS~~~~~~~~~specifies method responds to OPTIONS request.
+
+ @Path~~~~~~~~~~~~specify the URL path on which this method will be invoked.
+
+===================================================================
+
+ Param123 :=
+~~~~~~~~~~~
+
+   @Queryparam -----> used to access Key-value pairs in Query-String of URL.
+   
+   @pathparam -----> Match a  part of URL as a parameter.
+
+
+ (1)@PathVariable (Spring-Web) :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ---It is used to extract(*****) the values from the URI.
+ ---It is most suitable for the RESTful web service, where the URL contains a path variable. 
+ ---We can define multiple @PathVariable in a method.
+
+
+ @RequestAttribute :=
+~~~~~~~~~~~~~~~~~~~~
+ ---It binds a method parameter to request attribute. 
+ ---It provides convenient access to the request attributes from a controller method. 
+ ---With the help of @RequestAttribute annotation, we can access objects that are populated on the server-side.
+   
+     @Min(value = 1, message = "id must be greater than or equal to 1") 
+							 @Max(value = 1000, message = "id must be lower than or equal to 1000")
+
+
+----> @ResponseStatus(HttpStatus.NOT_FOUND)
+
+=======================================================	
+
+(2) @PathParam  :=   // (READs)    // [RaghuWebServiceLatest -- 133 (******)]  /// JAVA2N-VOICE
+~~~~~~~~~~~~~~~
+   ---Follows Without key && No Default-Keys Provided (***********)
+   ---It injects(*****) value from URI to your method input parameters.
+   ---can access multiple values at Path-level which will not work for @Pathvariable..
+   
+ 
+ Eg := 
+~~~~~~
+    @GET
+    @Path("{branch}/{department}")
+    public Response getEmployeeList(@PathParam("branch") String branchName,
+                                    @PathParam("department") String deptName){
+         
+        String resp = "Total number of employees in the "+deptName+" department from "
+                        +branchName+" is 100";
+        return Response.status(200).entity(resp).build();
+    }
+	
+=================================================================== 
+
+(3) @RequestParam :=
+~~~~~~~~~~~~~~~~~~~
+ ---used to extract(******) the query parameters form the URL. It is also known as a query parameter. mostly in GET requests 
+ 
+ ---It is most suitable for web applications. It can specify default values if the query parameter is not present in the URL.
+ 
+ ---(Mandatary by default in JAX-RS), can make Optional(NULL) in Rest-Controller by using 
+          
+		  Eg :: (@Requestparam (value="ss" required=false defaultValue="999") Long ss )
+
+ 
+---->One major difference is @RequestParam will always expect a value to bind. Hence, if value is not passed, it will give error. This is not the case in @QueryParam.(************)
+
+  To explicitly give the option, use required = false while using @RequestParam
+			  
+			  
+	Eg := @RequestParam(required=false, value = "name", defaultValue = "World") String name)
+   ~~~~~~
+
+
+ Eg:= URL:: http://localhost:8965/hello?name=abc
+~~~~
+   @GetMapping("/hello")
+    public String mainWithParam(
+            @RequestParam(name = "name", required = false, defaultValue = "") String name, Model model) {
+
+        model.addAttribute("message", name);
+
+        return "welcome"; }
+		
+=======================================================	
+
+(4) @QueryParam :=  // JAVA2N-VOICE(eG1) && MKYONG(Eg2) // Pattern ---> (?x=x&x=x&x=x)
+~~~~~~~~~~~~~~~~~
+ ---Used to send data in URL in form-of  Key-Value pair. ( Eg: ?id=101, ?id=101&name=rama )
+ --- It should be at End-of URL.
+ --- Mandatary in RestController // Optional in JAX-RS.  
+ 
+ 
+  @DefaultValue :=
+ ~~~~~~~~~~~~~~~
+ 
+  Eg1 := http://localhost:8963/RESTfulExample/users/query?branch=hydrabad&dept=finance
+ ~~~~~~
+    @GET
+    @Path("/query")
+    public Response getEmployeeQuery(@QueryParam("dept") String department,
+                                    @QueryParam("branch") String branch){
+        String resp = "Query parameters are received. 'dept' value is: "
+                        +department+" and branch value is: "+branch;
+         
+        return Response.status(200).entity(resp).build();
+    }
+
+
+ Eg2 :=  http://localhost:8965/users/query?from=100&to=200&orderBy=age&orderBy=name  
+~~~~~~
+    @GET
+	@Path("/query")
+	public Response getUsers(@DefaultValue("1000") @QueryParam("from") int from,
+			@DefaultValue("999") @QueryParam("to") int to,
+			@DefaultValue("name") @QueryParam("orderBy") List<String> orderBy) {
+
+		return Response.status(200)
+				.entity("getUsers is called, from : " + from + ", to : " + to + ", orderBy" + orderBy.toString())
+				.build();
+
+	}
+
+============================================================================
+
+(5) @matrixParam:=   // JAVA2N-VOICE(eG1) && MKYONG(Eg2) // Pattern ---> (;x=x;x=x)
+~~~~~~~~~~~~~~~~~~~
+ ---Matrix parameters are a set of “name=value” in URI path.
+
+
+
+ Eg1 :=  http://localhost:8963/RESTfulExample/users/quer;company=XX;model=XX
+~~~~~~~
+	@GET
+	@Path("/quer")                                     ***
+	public Response getInventoryDetails(@PathParam("deviceType") String deviceType,
+			@MatrixParam("company") String company, @MatrixParam("model") String model) {
+                            ***
+		String resp = "Received request for device: " + deviceType + ", comany: " + company + " and model: " + model;
+		return Response.status(200).entity(resp).build();
+	}
+        //......... Here *** refers to Should be same in POSTMAN.
+
+
+ Eg2 := http://localhost:8965/RestAPIbooks/2022;country=malaysia;author=mkyong
+~~~~~
+    @GET
+    @Path("/{year}")
+	public Response getBooks(@PathParam("year") String year,
+			@MatrixParam("author") String author,
+			@MatrixParam("country") String country) { }
+			
+=============================================================================
+
+(6) @FormParam := 
+~~~~~~~~~~~~~~~~~
+ ---Used to bind bind HTML-form Parameters-Value to your Method-inputs. 
+ ---It works for http method POST. (gets i/p Forms Values)
+ 
+  Eg :=
+~~~~~~~
+ 
+ <body>
+    <h1>Input User Details</h1>
+    <form action="rest/user-form/register" method="post">
+        <p>Name : <input type="text" name="name" /></p>.............."-name-" will be binded to Method-Parameter.
+        <p>Address : <input type="text" name="address" /></p>
+        <input type="submit" value="Enter Details" />
+    </form>
+ </body>
+
+----------------------------------
+
+ @Path("/user-form")
+ public class UserRegService {
+ 
+    @POST
+    @Path("/register")
+    public Response registerUserInfo(@FormParam("name") String name,
+                                    @FormParam("address") String address){
+         
+        String response = "Successfully added user details, name: "+
+                            name+" and address: "+address;
+        return Response.status(200).entity(response).build();
+    } 
+ }
+  
+=========================================================================================================
+
+ (7)@HeaderParam := [ RaghuWebServiceLatest --- 86 ]
+~~~~~~~~~~~~~~~~~~
+  ---Used to send Secure-Data like UserName && Password.  (Credentials In PostMan-Headers)
+
+ Eg :=  http://localhost:8965/RestAPI/http-header/query"
+~~~~~
+
+===========================================================================================================
+
+ (8) @CookieParam ---> Represents the parameter of the cookie.
+
+
+ (9) @FormDataParam (Rest) := //MKYONG
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- In Jersey, use @FormDataParam to receive the uploaded file.
+ --- To get the uploaded file name or header detail, match it to “FormDataContentDisposition"
+ 
+ 
+ (10) @MultipartForm (Rest):=  //MKYONG
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- To Map uploaded file to a POJO class.
+ 
+ 
+-----> Jersey uses "--Jackson--" to convert object to / form JSON (********)
+ 
+ 
+ Jersey adds below to support JSON/object mapping :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<init-param>
+	<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+	<param-value>true</param-value>
+</init-param>
+
+
+ Note1 :=  ///JAVA2N-VOICE
+~~~~~~~~
+ ---Java support for Json using using (1)Jersey  (2)Jackson, (3)APIsRESTEasy (4)Jettison and (5)JAXB APIs. 
+ ---Jettison is a collection of Java APIs which read and write JSON.
+ ---Jackson is a multi-purpose Java library for processing JSON data format.
+ 
+ 
+ Note2 :=  ///JAVA2N-VOICE
+~~~~~~~~~
+ ---To convert Order object to json format use :: @JsonProperty("...") on fields.
+
+
+@ConfigurationProperties:=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+ ---It allows developer to map the entire property file into an object easily.
+ ---helps to load a family of related properties, say in this specific case namespaced by the prefix conveniently named.
+        
+ 
+=============================================================================
+
+(11) @Produces ( will Generate-Content ) (JAX-RS) :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+----> Defines media type for the response such as XML, PLAIN, JSON etc. It defines the media type that the methods of a resource class or MessageBodyWriter can produce.his annotation should have the file MIME type as a value. 
+
+----> For example, if you are downloading pdf file then MIME type should be "application/pdf", incase if you are downloading png image file, then MIME type should be "image/png".
+
+
+      ........@Produces("application/xml")...... @Produces("application/pdf") 
+	 
+       .......@Produces("application/img")........@Produces(MediaType.APPLICATION_JSON)
+			 
+
+Eg:=
+~~~
+@Path("/download")
+public class RestDownloadService {
+ 
+    @GET
+    @Path("/service-record")
+    @Produces("application/pdf")
+    public Response getFile() {
+  
+        File file = new File("C:\java2novice\employee_1415.pdf");
+  
+        ResponseBuilder response = Response.ok((Object) file);
+        response.header("Content-Disposition",
+            "attachment; filename=\"employee_1415.pdf\"");
+        return response.build();
+    }
+  }
+
+---->You can declare a shared produces attribute at the class level. When used at the class level, a method-level produces attribute will override the class level declaration.
+
+               @RequestMapping(path = "/", produces = MediaType.APPLICATION_JSON_VALUE)
+    
+===================================================================================
+
+ (12) @Consumes (JAX-RS) :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----> It defines the media type that the methods of a resource class or MessageBodyReader can produce.
+
+---->The consumes and produces attributes also support negation expressions?  e.g::  " !text/plain" means any media type other than text/plain.
+
+      .......@Consumes("application/img")........@Consumes(MediaType.APPLICATION_JSON)
+
+
+ @XmlRootElement :=
+~~~~~~~~~~~~~~~~~~~	
+JAXB is used for mapping java classes to equivalent xml documents and vice versa. It is done using marshalling and and unmarshalling features of JAXB. In this example we will convert Order object to xml format.
+
+  https://www.java2novice.com/restful-web-services/xml-resteasy-jaxb/
+  
+  
+   @XmlRootElement(name = "order")----> Root-Tag (Applied at class level)
+	 
+   @XmlAttribute(name = "order-no")---> Root Tag Attribute (Applied at getter level)
+	 
+    @XmlElement----------------------->  Root-Tag Properties Tags (Applied at getter level)
+	 
+	 @JsonProperty("order-no")--------> Json values
+	 
+==================================================================================================
+
+ Response11 :=  UserResource
+~~~~~~~~~~~~~
+
+  --- @ResponseStatus(value = HttpStatus.NOT_FOUND)    ......./// At Class-Level
+  
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+public class RecordNotFoundException extends RuntimeException 
+{
+    public RecordNotFoundException(String exception) {
+        super(exception);
+    }
+
+  
+  ---return Response.status(404).entity(exception.getMessage()).type("text/plain").build();
+  
+  ---return Response.status(200).entity(responseStr).build();
+  
+  ---  else { return new ArrayList<EmployeeEntity>(); }       ......./// Returns Empty Array.
+ 
+ 	
+ResponseEntity123 :=
+~~~~~~~~~~~~~~~~~~
+     from (import org.springframework.http.ResponseEntity;) ...... 
+	 
+	 ---- @ResponseStatus(HttpStatus.CREATED)
+	 
+	 ----return Response.status(200).entity(result).build();
+	 
+	 ----return new ResponseEntity<EmployeeVO>(HttpStatus.NOT_FOUND);
+	 
+	 ----return new ResponseEntity<EmployeeVO>(empVO, HttpStatus.NOT_FOUND);
+	 
+	 ----return new ResponseEntity<>("registration successfully", HttpStatus.OK);
+
+     ----return new ResponseEntity<EmployeeEntity>(updated, new HttpHeaders(), HttpStatus.OK);
+	 
+	 ----ErrorResponse errorResponse = new ErrorResponse();
+	     errorResponse.setStatusMessage("FirstName Should Not Given Numbers and Special Characters ");
+		 errorResponse.setStatusCode("422");
+		 return new ResponseEntity<>(errorResponse, HttpStatus.UNPROCESSABLE_ENTITY);
+
+=============================================================================================
+
+JpaRepositaryWithStreams123 :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+ // Save
+  @PostMapping("/books")
+  @ResponseStatus(HttpStatus.CREATED)
+   Book newBook(@Valid @RequestBody Book newBook) {
+        return repository.save(newBook);
+    }
+
+    // Find
+  @GetMapping("/books/{id}")
+ Book findOne(@PathVariable @Min(1) Long id) {
+   return repository.findById(id)
+   .orElseThrow(() -> new BookNotFoundException(id));
+    }
+	
+ // Save or update	
+	@PutMapping("/employees/{id}")
+ Employee updateEmployee(@RequestBody Employee newEmployee, @PathVariable Long id) {
+
+		return repository.findById(id).map(employee -> {
+			employee.setFirstName(newEmployee.getFirstName());
+			employee.setLastName(newEmployee.getLastName());
+			employee.setEmail(newEmployee.getEmail());
+			return repository.save(employee);
+		}).orElseGet(
+				() -> {
+			newEmployee.setId(id);
+			return repository.save(newEmployee);
+		});
+	}
+	
+ // Save or update
+  @PutMapping("/books/{id}")
+  Book saveOrUpdate(@RequestBody Book newBook, @PathVariable Long id) {
+
+        return repository.findById(id)
+                .map(x -> {
+                    x.setName(newBook.getName());
+                    x.setAuthor(newBook.getAuthor());
+                    x.setPrice(newBook.getPrice());
+                    return repository.save(x);
+                })
+                .orElseGet(() -> {
+                    newBook.setId(id);
+                    return repository.save(newBook);
+                }).                })
+                .orElseGet(() -> {..................................Any '1' orElseGet Only.
+                    throw new BookNotFoundException(id);
+                });
+    }
+	
+    @DeleteMapping("/books/{id}")
+    void deleteBook(@PathVariable Long id) {
+        repository.deleteById(id);
+    }
+	
+=======================================================================================
+
+ DownLoadImageRest :=
+~~~~~~~~~~~~~~~~~~~~
+ @Path("/pdf")
+ public class PdfService {
+
+	private static final String FILE_PATH = "c:\\Android-Book.pdf";
+
+	@GET
+	@Path("/get")
+	@Produces("application/pdf")
+	public Response getFile() {
+
+		File file = new File(FILE_PATH);
+
+		ResponseBuilder response = Response.ok((Object) file);
+		response.header("Content-Disposition",
+				"attachment; filename=new-android-book.pdf");
+		return response.build();
+
+	}
+
+====================================================================================================
+
+ErrorMessage123 :=
+~~~~~~~~~~~~~~
+
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class RecordNotFoundException11 extends Exception
+{
+	private static final long serialVersionUID = 1L;
+
+	public RecordNotFoundException(String message) {
+        super(message);
+    }
+}
+
+@ResponseStatus(HttpStatus.BAD_REQUEST)
+public class MissingHeaderInfoException extends RuntimeException
+{
+	private static final long serialVersionUID = 1L;
+
+	public MissingHeaderInfoException(String message) {
+        super(message);
+    }
+}
+
+====================================================================================
+
+ 
+ Rest11 := (jAVA2NvOICE)
+~~~~~~~~~~
+
+@SprinbBootApplication~~~ This single annotation combines three annotations like @Configuration, @EnableAutoConfiguration,@ComponentScan
+
+         ----return Response.status(200).entity("Your order is in-progress").build();-------------
+
+ 
+
+ @Lazy := (....lazy-init="true" in XML)
+~~~~~~~~~
+
+--By default, Spring “application context” eagerly creates and initializes all "Singleton-Scoped" beans during application startup itself.
+
+--It helps in detecting the bean configuration issues at early stage, in most of the cases. 
+ 
+--But sometimes, you may need to mark some or all beans to be lazy initialized due to different project requirements.
+
+-- To lazy load only specific beans, use @Lazy annotation along with @Bean annotation in java config.
+ 
+-- To enable lazy loading for all beans, use default-lazy-init=”true” attribute on beans tag in bean configuration xml files
+
+    <beans default-lazy-init="true">
+ 
+         <bean id="employeeManager" class="com.howtodoinjava.spring.service.impl.EmployeeManagerImpl" />
+ 
+<beans>
+
+
+@PostConstruct~~~~~~~~~~tHIS annotation to detect when bean is created.
+
+
+----> JSR-250 Annotations : Spring supports JSR-250 based annotations which include @Resource, @PostConstruct and @PreDestroy annotations.
+
+
+=======================================================
+
+How do you turn on annotation based autowiring?
+To enable @Autowired, you have to register AutowiredAnnotationBeanPostProcessor, and you can do it in two ways.
+
+1. Include <context:annotation-config> in bean configuration file.
+
+<beans>
+    <context:annotation-config/>
+</beans>
+2. Include AutowiredAnnotationBeanPostProcessor directly in bean configuration file.
+
+<beans>
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+</beans>
+
+==================================================================
+
+ Name some of the design patterns used in Spring Framework?
+There are loads of different design patterns used, but there are a few obvious ones:
+
+Proxy – used heavily in AOP, and remoting.
+Singleton – beans defined in spring config files are singletons by default.
+Template method – used extensively to deal with boilerplate repeated code e.g. RestTemplate, JmsTemplate, JpaTemplate.
+Front Controller – Spring provides DispatcherServlet to ensure an incoming request gets dispatched to your controllers.
+ 
+Dependency injection – Center to the whole BeanFactory / ApplicationContext concepts.
+Factory pattern – BeanFactory for creating instance of an object.
+ 
+
+=================================================================================
+   
+ ADDHTML :=
+~~~~~~~~~
+   
+   <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+----------------------
+		<ol>
+			<li th:each="task : ${tasks}" th:text="${task}"></li>
+		</ol>
+-----------------------
+  <a th:href="@{/admin}">Admin page  </a></h2>
+------------------------
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+-------------------------
+
+====================================================================================================================
+
+                                                    Notces888 
+												~~~~~~~~~~~~~~~
+ 
+----> In Spring Boot, to create a non-web application, implements CommandLineRunner and override the run
+
+ Eg:=
+~~~~~
+    @Override
+    public void run(String... args) throws Exception {
+
+        //do something
+
+    }
+================================================================================================
+ RestJSONConfiguration :=
+~~~~~~~~~~~~~~~~~~~~~~~
+   <!-- Auto scan REST service -->
+    <context-param>
+        <param-name>resteasy.scan</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <listener>
+        <listener-class>
+            org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap
+        </listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>resteasy-servlet</servlet-name>
+        <servlet-class>
+            org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher
+        </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>resteasy-servlet</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+	
+======================================================================================================
+ 
+ 
+ 	 

@@ -1,0 +1,418 @@
+
+
+   // /?name=
+employee.....employee-count.........employeelist~~~~~~Components
+
+employee(I) //////// Employee(S) ///////  Employeetitle (pipe)
+
+db.json:=
+~~~~~~~~~
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "RamaKrishna",
+      "age":22,
+      "gender": "male"
+    
+    },
+    {
+      "id": 2,
+      "name": "Rama",
+      "age":22,
+      "gender": "male"
+      
+    },
+    {
+      "id": 3,
+      "name": "Krishna",
+      "age":22,
+      "gender": "male"
+     
+     
+    },
+    {
+      "id": 4,
+      "name": "Radha",
+      "age":22,
+      "gender": "female"
+      
+     
+    },
+    {
+      "id": 5,
+      "name": "Seetha",
+      "age":22,
+      "gender": "female"
+     
+     
+    }
+  ]
+}
+=====================================================================================================================
+employee.service.ts:=
+~~~~~~~~~~~~~~~~~~~~
+import { Injectable } from '@angular/core';
+import { Employee } from './employee';
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs';
+import { map } from "rxjs/operators";
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+@Injectable({
+  providedIn: 'root'
+})
+export class EmployeeService {
+
+  constructor(private http: Http) { }
+
+  getEmployees(): Observable<Employee[]> {
+    return this.http.get(" http://localhost:3000/employees").
+    pipe(map(res => <Employee[]>res.json())).catch(this.handleError);
+
+}
+
+getEmployeeByCode(name:string): Observable<Employee> {
+  return this.http.get(" http://localhost:3000/employees"+"/?name="+ name).
+  pipe(map(res => <Employee>res.json())).catch(this.handleError);
+ 
+}
+
+handleError(error:Response){
+console.error(error);
+return Observable.throw(error);
+
+}
+
+}
+======================================================================================================================
+employee.component.ts:=
+~~~~~~~~~~~~~~~~~~~~~~~
+import { Component, OnInit } from '@angular/core';
+import { Employee } from '../employee';
+import { ActivatedRoute } from '@angular/router';
+import { EmployeeService } from '../employee.service';
+import { error } from 'util';
+
+@Component({
+  selector: 'app-employee',
+  templateUrl: './employee.component.html',
+  styleUrls: ['./employee.component.css'],
+  
+})
+export class EmployeeComponent implements OnInit {
+
+employee:Employee;
+statusMessage:string='Loading data.....Please wait.';
+
+//use "ActivateRoute" service to retrieve parameter value from URL
+
+constructor(private employeeServ:EmployeeService,private activatedRoute:ActivatedRoute) { }
+
+ngOnInit() {
+ 
+ let empName:string=this.activatedRoute.snapshot.params['name'];
+  this.employeeServ.getEmployeeByCode(empName).subscribe(
+    (empData22)=>{
+    // if(empData22==null){
+    //   this.statusMessage='Employee with Specified Id does not exits........';
+    // }else{
+    //   this.employee=empData22
+    // }
+    this.employee=empData22;
+  },
+    (error)=>{  
+    
+      this.statusMessage='Please Try again.......';
+      console.log(error);
+    }
+
+  );
+}
+}
+
+===========================================================================================================================
+employee.component.html:=
+~~~~~~~~~~~~~~~~~~~~~~~
+<table *ngIf="employee">
+    <thead>
+        <tr>
+            <th colspan="2">Employee Details</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                    <td> Id</td>
+                    <td>{{employee.id}}</td>
+                </tr>
+                <tr>
+                        <td> Name</td>
+                        <td>{{employee.name}}</td>
+                    </tr>
+        <tr>
+            <td>Age</td>
+            <td>{{employee.age}}</td>
+        </tr>
+        <tr>
+                <td>Gender</td>
+                <td>{{employee.gender}}</td>
+            </tr>
+    </tbody>
+    <div *ngIf="!employee">
+        {{statusMessage}}
+    </div>
+==============================================================================================================================
+employeelist.component.html:=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<!--   Here EmployeeList--Parent EmployeeCount---Child      -->
+<!-- To Nest "Employee-Count" component  into "Employee-List" component  ((Below))-->
+<!-- To  bind @input class properties(all,male,female) in employeeCount.ts<==(to)=>
+                                                Methods in EmployeeList.ts  -->
+<!-- Bind custom event raised by child(employeecount) component  @7th line-->
+<app-employee-count *ngIf="employees" [all]="getTotalEmployeeCount()" [male]="getTotalMaleEmployeeCount()"
+    [female]="getTotalFemaleEmployeeCount()"
+    (countRadioButtonSelectionChanged)="onEmployeeCountRadioButtonChange($event)">
+</app-employee-count>
+<!-- Here $event gets selected radiobuttonvalue, updates "selectedEmployeeCountRadioButton"  in TS file-->
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let emp of employees;">
+            <tr *ngIf="selectedEmployeeCountRadioButton=='all'||selectedEmployeeCountRadioButton==emp.gender">
+                <td>{{emp.id}}</td>
+                <td><a [routerLink]="['/employees',emp.name]">{{emp.name |employeetitle:emp.gender}}</a></td>
+                <td>{{emp.age}}</td>
+                <td>{{emp.gender}}</td>
+            </tr>
+        </ng-container>
+        <tr *ngIf="!employees">
+            <td colspan="4">
+                {{statusMessage}}
+            </td>
+        </tr>
+        <tr *ngIf="employees && employees.length==0">
+            <td colspan="4">No data Found</td>
+        </tr>
+    </tbody>
+</table>
+=======================================================================================================================
+
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { AppComponent } from './app.component';
+import { EmployeelistComponent } from './employeelist/employeelist.component';
+import { EmployeeCountComponent } from './employee-count/employee-count.component';
+import { EmployeetitlePipe } from './employeetitle.pipe';
+import { FormsModule } from '@angular/forms';
+import { Http, HttpModule} from '@angular/http';
+import { HomeComponent } from './home/home.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { EmployeeService } from './employee.service';
+
+const appRoutes:Routes=[
+  {path:'home', component:HomeComponent},
+  {path:'employees', component:EmployeelistComponent},
+  // route with parameter
+  {path:'employees/:name', component:EmployeeComponent},
+  {path:'', redirectTo:'/home',pathMatch:'full'},
+  {path:'**',component:PagenotfoundComponent }
+  
+  ];  
+@NgModule({
+  declarations: [
+    AppComponent,
+    EmployeelistComponent,
+    EmployeeCountComponent,
+    EmployeetitlePipe,
+    HomeComponent,
+    PagenotfoundComponent,
+    EmployeeComponent
+  ],
+  imports: [
+    BrowserModule,FormsModule,HttpModule,RouterModule.forRoot(appRoutes)
+  ],exports:[RouterModule] ,
+  providers:[EmployeeService],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+
+
+===========================================================================================================================
+Pipe:=
+~~~~~
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'employeetitle'
+})
+export class EmployeetitlePipe implements PipeTransform {
+
+  transform(value: string,gender:string): string {
+    if(gender.toLowerCase()=='male'){
+      return "Mr. "+value;
+    }
+    else if(gender.toLowerCase()=='female'){
+      return "Miss. "+value;
+    }
+    else if(gender.toLowerCase()=='other'){
+      return value;
+    }
+  }
+
+}
+=======================================================================================================================
+employee-count.component.ts:=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+
+@Component({
+  selector: 'app-employee-count',
+  templateUrl: './employee-count.component.html',
+  styleUrls: ['./employee-count.component.css']
+})
+export class EmployeeCountComponent implements OnInit {
+
+  //To tarck value of radio button selected && Default value is "all"
+  selectedRadioButtonValue: string = 'all';
+  //=============================================================
+
+  // To Pass Values from Parent component to Child Component
+  //To use values in Parent from child component
+  @Input()
+  all: number;
+  @Input()
+  male: number;
+  @Input()
+  female: number;
+ 
+ 
+
+  //Custom event
+  @Output()
+  countRadioButtonSelectionChanged: EventEmitter<string> = new EventEmitter<string>();
+
+
+ // =====================================================================
+  //below method will Raise custom event
+  //emit method used to raise event by passing selectedRadioButtonValue as  payload
+  onRadioButtonSelectionChange() {
+    this.countRadioButtonSelectionChanged.emit(this.selectedRadioButtonValue);
+    //To test the changes
+    //  
+  } 
+  
+ constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+==============================================================================================================
+employeelist.component.ts:=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Employee } from '../employee';
+import { EmployeeService } from '../employee.service';
+@Component({
+  selector: 'app-employeelist',
+  templateUrl: './employeelist.component.html',
+  styleUrls: ['./employeelist.component.css'],
+  providers:[EmployeeService]
+})
+export class EmployeelistComponent implements OnInit {
+
+  employees: Employee[];
+  statusMessage:string="Loading data....Please wait.";
+  //Here "employees" name should be same as specified in db.json.
+
+  constructor(private employeeServ:EmployeeService) {
+    
+} 
+
+
+//Below used subscribe method for Observable and .....
+   //specified callback method as parameter arrow function and populated to class property "employees"
+//Here "=>" receives response employee array data.
+  ngOnInit() {
+    this.employeeServ.getEmployees().subscribe((empData)=>this.employees=empData,(error)=>{
+      this.statusMessage='There is error in URL.pLase Check';
+    });
+  }
+
+
+
+  //track which radio button is selected
+  //To determine which employee display in table
+  selectedEmployeeCountRadioButton: string = "all";
+
+ 
+  //================================================================================
+  //Below event-handler method (Has event-data) called when custom-event within our child component is raised....
+  //If raised selected-radio-button value passed here
+  //this  method will TRACK "radio" button value && update it's value
+  onEmployeeCountRadioButtonChange(selectedRadioButtonValue: string): void {
+    this.selectedEmployeeCountRadioButton = selectedRadioButtonValue;
+    console.log(this.selectedEmployeeCountRadioButton);
+  }
+
+  //=======================================================================
+
+  getTotalEmployeeCount(): number {
+
+    return this.employees.length;
+  }
+
+  getTotalMaleEmployeeCount(): number {
+
+    return this.employees.filter(e => e.gender === "male").length;
+  }
+
+  getTotalFemaleEmployeeCount(): number {
+
+    return this.employees.filter(e => e.gender === "female").length;
+  }
+}
+====================================================================================================================
+export interface Employee {
+    id:number,
+    name:string;
+    age:number;
+    gender:string;
+}
+
+
+======================================================================================================================
+
+======================================================================================================================
+
+======================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,68 @@
+
+import { Component, OnInit, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-simple',
+  template: `
+ 
+ <h2>You Entered::  {{simpleInput}}</h2>
+ `,
+ 
+  styleUrls: ['./simple.component.css']
+})
+export class SimpleComponent implements OnInit {
+
+  @Input()
+  simpleInput: string;
+
+constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+
+================================================================================================
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+
+Your Text: <input type='text' [(ngModel)]='userText'/>&nbsp;
+<app-simple [simpleInput]='userText'></app-simple>
+  `,
+  styleUrls: ['./app.component.css']
+})
+//Here "simpleText"(i/p)  is put in Property Binding ("[]")  to display on console 
+//Input given is "userText" and binded with 2-way-data-binding to flow from Component<====>Class
+export class AppComponent {
+
+  userText:string="";  
+}
+==================================================================================================
+Error Handling:=
+~~~~~~~~~~~~~~~
+..... .catch(this.handleError) 
+
+
+handleError(){
+
+ console.error(error);
+ return Observable.throw(error);
+
+}
+
+==========================================================================================================================
+
+==========================================================================================================================
+
+==========================================================================================================================
+
+==========================================================================================================================
+
+==========================================================================================================================
+
+
+
+

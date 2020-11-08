@@ -1,0 +1,710 @@
+   
+      
+     AshokIt22............Repositaries990........Technologies
+	 
+	 Repositaries990......Websites450............TechnicalVideos440 (*********)
+	  
+	 FULLSTACK500......JavaPath ...........Learn990....
+		  
+	Baledung440........Install440
+
+
+    
+   ramakrishnamunukutla910@gmail.com  // ramakrishna.munukutla@ojas-it.com
+   
+  https://github.com/NamaniPhani/ // phaniratna.namani@ojas-it.com //  Ojas$1234
+   
+   C:\Users\DELL\Videos
+   
+   
+   Videos(Druken-Egineer) // Some-BooksMarks // Drive-Files // Coding
+   
+      Java-8 // DevOps
+	  
+	********** 81-DAYS-TO-GO !!!! ************* ( Coding // Business(News) // GN //  Investment )
+	
+	https://www.springboottutorial.com/
+	  
+
+ Equals() && HashCode()
+ SOILD principles
+ Hash--Collision.
+==========================================================
+
+    https://www.youtube.com/watch?v=DMmp5TanmD0&list=PLzS3AYzXBoj8kjn4sD1_TDYH2DC0oupJi&ab_channel=KKJavaTutorials
+ https://www.youtube.com/watch?v=XUTJZZDZG8k&list=PLzS3AYzXBoj8XCaW6-o73-FkvZPMas41L&ab_channel=KKJavaTutorials
+ https://www.youtube.com/watch?v=1RmzYPO0z_s&list=PLzS3AYzXBoj8Fm19MdV3jqZOCLOh984xK&ab_channel=KKJavaTutorials
+ https://www.youtube.com/watch?v=KnfYq136bWw&list=PLzS3AYzXBoj81AIcYmKJqNI8DD3zJMzHU&ab_channel=KKJavaTutorials
+https://www.youtube.com/watch?v=XUTJZZDZG8k&list=PLzS3AYzXBoj8XCaW6-o73-FkvZPMas41L&ab_channel=KKJavaTutorials
+https://www.youtube.com/watch?v=BUaGXxUJ7Zg&list=PLzS3AYzXBoj84LfxRFAuM-eDlPRWvhGeJ&ab_channel=KKJavaTutorials 
+ 
+ 
+===================================================
+ 
+ how to apply LazyLoading in springBoot Application?
+how to read external properties file in spring?
+what are springboot starters?
+explain spring profile?
+what is use of devtool dependecy?
+how to Encript the properties file?
+how many way to comminucate with microservices?
+@Autowire Types?
+how to do setter Injection using Autowire.?
+what is difference betweeen collection api and StreamApi.?
+how to iterate the hashMap values using streams.?
+how to bind properties values to bean Object.?
+Annotation in spring boot?
+@bean and @component Annotation?
+stream api?
+differnce between api getWay and service mesh?
+function interface?
+multiple interface having same method name ?
+=======================================
+	 
+   
+=========================================================================================================  
+ 
+
+   tomorrow at 05:00 PM
+ 
+ 25 Sep, 03:00 PM onwards
+
+=======================
+//1111111111111111
+
+ DevOps := // 21st September to 1st October  -----> 7:00 AM IST Onwards 
+~~~~~~~~
+
+====================================
+
+//222222222222222
+
+ Full Stack with Web Development  := // 17th September to 23rd September  -----> 9:00 AM IST Onwards
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ Data Structure := // 21st September to 31st September  -----> 2:00 AM IST Onwards
+~~~~~~~~~~~~~~~~~
+  
+    9460 1698 034
+
+====================================
+//3333333333333333 
+ 
+ AWS Demo := //16th September to 18th September -----> 7:30 PM IST Onwards
+~~~~~~~~~~~
+ 
+ AZure :=  //16th September to 20th September  -----> 9:00 PM IST Onwards
+~~~~~~~~
+ 
+========================================================================================
+
+ AshokIt22 :=
+~~~~~~~~~~~~
+  https://www.mediafire.com/folder/z55fv7rjl4g69/03-SBMS
+  http://www.mediafire.com/file/qxa9prinv9jq5uf/SpringBoot7AMWorkspace_28102020.zip/file
+  
+  
+   ID ----> 11JRTP-71
+  
+  https://classroom.google.com/h // czpysz3
+  
+  
+  venugopalboddu88@gmail.com // Udemy@888
+  
+  
+ challanaveen521   // 8985352910
+  
+=================================================
+
+ NareshIT33 :=
+~~~~~~~~~~~~~~
+  Notces-Password ---> 460621 
+  
+=============================================================================================
+ 
+ Repositaries990 :=
+~~~~~~~~~~~~~~~~
+    In28Minutes --------> https://github.com/in28minutes?tab=repositories
+	
+	Tech-Primeer -------> https://github.com/TechPrimers
+	 Java-Techie -------> https://github.com/Java-Techie-jt	 
+	  Ramesh MF --------> https://github.com/RameshMF?tab=repositories
+   KK-Java-Tutorial ----> https://github.com/kishanjavatrainer?tab=repositories
+   
+	javadevjournal -----> https://github.com/javadevjournal/javadevjournal
+     DineshOnJava ------> https://github.com/dineshonjava?tab=repositories
+       BezKoder --------> https://github.com/bezkoder?tab=repositories   
+    
+   Okta-Developer ------> https://github.com/oktadeveloper
+		hargeahead -----> https://github.com/chargeahead?tab=repositories
+   talk2amareswaran ----> https://github.com/talk2amareswaran?tab=repositories
+						 
+	 Spring-Guru -------> https://github.com/springframeworkguru?tab=repositories
+	  Baledung ---------> https://github.com/eugenp/tutorials
+	Almighty  java -----> https://github.com/mightyjava?tab=repositories
+  
+  SimpleProgramming ----> https://github.com/SimpleProgramming?tab=repositories
+  Gain Java Knowledge --> https://github.com/sumitMultani?tab=repositories 
+                          
+
+     
+ Websites450 :=
+~~~~~~~~~~~
+ 
+  https://www.javadevjournal.com/
+  https://www.studytonight.com/rest-web-service/
+  https://www.guru99.com/restful-web-services.html
+ 
+ https://www.restapitutorial.com/
+  https://www.sivalabs.in/categories/microservices/
+  
+  https://www.callicoder.com/
+  https://www.javainterviewpoint.com/spring-data-rest-example/
+  https://www.javamadesoeasy.com/
+  
+  https://www.onlinetutorialspoint.com/
+  https://www.concretepage.com/
+  https://www.javatpoint.com/jquery-slideup
+  https://hellokoding.com/spring-boot-tutorial-series/
+  
+  
+ TechnicalVideos440 :=
+~~~~~~~~~~~~~~~~~~~~~~
+      
+		        TeluguBrains ~~~~~~~~~~~~~ https://www.youtube.com/channel/UCXqtZ06pfb1kOd6iEpFoW7A/videos
+		           Telusko ~~~~~~~~~~~~~~~ https://www.youtube.com/user/javaboynavin/videos
+		        Hitesh Choudhary ~~~~~~~~~ https://www.youtube.com/user/hiteshitube/videos
+		  
+		  
+		        Edureka ~~~~~~~~~~~~~~~~ https://www.youtube.com/c/edurekaIN/videos
+		        Intellipaat ~~~~~~~~~~~~ https://www.youtube.com/c/Intellipaat/videos
+		 
+		
+		        Naresh IT ~~~~~~~~~~ https://www.youtube.com/c/NareshIT/videos
+		        Durga Soft ~~~~~~~~~ https://www.youtube.com/c/DurgaSoftwareSolutions/videos
+		        Ashok IT ~~~~~~~~~~ https://www.youtube.com/c/AshokIT/videos	  
+		  
+		  
+		   KK-Tutorials ~~~~~~~~~~~~~~~ https://www.youtube.com/channel/UC9aUqnxhYLge4tLdBI50Cwg/playlists
+           Ram N Java Tutorial ~~~~~~~~ https://www.youtube.com/user/ramram43210/videos
+        Sundeep Saradhi Kanthety ~~~~~~ https://www.youtube.com/c/SundeepSaradhi/videos
+	
+	
+ 		    UiBrains Technologies ~~~~~~~ https://www.youtube.com/c/UiBrains/videos
+	         Talk2 Amareswaran ~~~~~~~~~~ https://www.youtube.com/c/Talk2Amareswaran/videos
+                  B2Tech ~~~~~~~~~~~~~~~~ https://www.youtube.com/channel/UCff5tZ-js4bu68GQB_EhW9w/videos
+            learnby bhanu ~~~~~~~~~~~~~~~ https://www.youtube.com/c/learnbybhanu/videos
+             
+			 
+		    Drunken Engineer ~~~~~~~~~~~ https://www.youtube.com/c/DrunkenEngineer/videos 
+			Byte Programming ~~~~~~~~~~~ https://www.youtube.com/c/ByteProgrammingVedantHarish/videos
+            Simple Programming ~~~~~~~~~ https://www.youtube.com/c/SimpleProgramming/videos 
+            Gain Java Knowledge ~~~~~~~~ https://www.youtube.com/channel/UCM9SA8hzCTfaDinwb_vU_5Q/videos
+               Java Wave ~~~~~~~~~~~~~~~ https://www.youtube.com/channel/UCuH4HjG0CdEX43HT18UrUow/playlists
+    
+	
+	 Learnprograming byluckysir ~~~~ https://www.youtube.com/c/learnprogramingbyluckysir/videos	   
+           Almighty  java ~~~~~~~~~~ https://www.youtube.com/c/AlmightyJava/playlists
+	         Siva Reddy ~~~~~~~~~~~  https://www.youtube.com/c/SivaReddyJavaTechie/videos
+	     //ARC Tutorials ~~~~~~~~~~~ https://www.youtube.com/channel/UCSqAIRXiW8qMrUKbGvLpXKw/videos
+	      Mahika Tutorials ~~~~~~~~~ https://www.youtube.com/c/MahikaTutorials/videos
+	   
+	   
+          Product Engineer ~~~~~~~ https://www.youtube.com/channel/UCKLrvwglZb6h9SEM__fgSjg/playlists
+              Play Java ~~~~~~~~~~ https://www.youtube.com/channel/UCq2kXUtnqL9eEyTi9TNfX6w/videos
+	        Green Learner ~~~~~~~~ https://www.youtube.com/c/GreenLearner/videos
+			Akshay Saini ~~~~~~~~~ https://www.youtube.com/c/akshaymarch7/playlists 
+			  techsith ~~~~~~~~~~~ https://www.youtube.com/c/Techsithtube/playlists
+              Gaurav Sen ~~~~~~~~~ https://www.youtube.com/c/GauravSensei/playlists
+			
+			
+			Mithun Technologies ~~~~~~~~~ https://www.youtube.com/channel/UC-Jr307MbEREy8bG6McwD6w/videos
+			  Mahika Tutorials ~~~~~~~~~~ https://www.youtube.com/c/MahikaTutorials/playlists
+			 Kindson The Tech Pro ~~~~~~~ https://www.youtube.com/c/KindsonTheTechPro/playlists
+			   Dinesh Varyani ~~~~~~~~~~~ https://www.youtube.com/c/hubberspot/playlists
+			                           
+									   
+					https://www.youtube.com/channel/UC73I6o4GTfCnxr2Q8f4FhfQ/playlists
+					https://www.youtube.com/c/SadaLearningHub/playlists
+					https://www.youtube.com/user/springhibernatetutes/playlists
+					https://www.youtube.com/c/CodingSimplified/playlists
+					https://www.youtube.com/c/iZenBridge1/playlists
+					
+					
+        SDET - QA Automation Techie ~~~~~~~ https://www.youtube.com/c/pavanoltraining/playlists
+         Naveen AutomationLabs ~~~~~~~~~~~~ https://www.youtube.com/c/NaveenAutomationLabs/playlists
+          Rahul Shetty Academy ~~~~~~~~~~~~ https://www.youtube.com/c/RahulShettyAcademy/playlists
+           The Testing Academy ~~~~~~~~~~~~ https://www.youtube.com/c/TheTestingAcademy/playlists
+         Software Testing Material ~~~~~~~~ https://www.youtube.com/c/SoftwareTestingMaterialWebsite/playlists
+          SoftwaretestingbyMKT ~~~~~~~~~~~~ https://www.youtube.com/channel/UCKliIabx-RsHYTqjOiYegSg/playlists
+  
+  
+===================================================================================================================
+
+ Technologies := By which we develop Application.
+~~~~~~~~~~~~~~~
+
+ Introduction := 
+~~~~~~~~~~~~~~~
+---->Greeting(Morning) && Thank you for the providing Opportunity  to Introduce  about myself. // Short-Listing-me  
+
+---->My name is MVS rama Krishna, working as Java-Devloper in Ojas innovative technologies. //
+    I have 3+ years of experience in developing web applications on Java-domain using J2EE-Technologies like(???) 
+  
+---->I have done 3 projects (Related Work,SDLC, Aims)  through which I gained knowledge on Realtime implementation of J2EE technologies.
+ 
+     (**)                                                            (**)  
+    Project --->  Introduction  //    Module   // functionality // Tool&&Tech // Personal.Contribution // challenges //
+                     People     // Time-Taken // Improvments && Drawbacks 
+					 
+ Strengths :=
+~~~~~~~~~~~
+ --- Responsible includes design and development of user interface using Java/J2EE Technologies.
+ --- providing technical support and knowledge transfer to my co-workers.
+              
+---->Coming to my educational qualification, i have completed my graduation in ECE from Mahaveer-College in 2017.
+   
+===========================================================================================
+
+ Today :=    [  "------manas ekam vachas ekam karmanyekam---------" ]  (***********) 
+~~~~~~~~~
+    
+  ---WatchLater
+  
+  ---Notces && DevOps
+  
+  ---Docker, RestAPI, JWT in MC
+  
+  ---types of java based web application architecture
+  
+  ---@loadbalanced spring boot
+  
+  
+ Strings :=
+~~~~~~~~~~
+ --- all-possible-subsets-of-a-string
+ 
+ --- Longest-Subtring  String[] && Int[].
+ 
+ --- Missing Number in Seuencial Aray.
+ 
+ --- Permutaion && Combination of Strings
+ 
+ --- possible-subsets-of-a-string
+ 
+ --- Longest repeating sequence(with and without duplicates)
+ 
+ --- maximum-and-minimum-occurring-character-in-a-string
+ 
+ --- Most-repeated-word-in-a-text-file
+ 
+=================================================================================================
+	
+Basics of garbage collection.
+How to manage JVM memory for better performance.
+How to manage heap memory and permgen space.
+How to handle out of memory error.
+How to identify memory leak and how to handle.
+
+ was asked to write a program for singelton design pattern and how to avoid violation of its validity using java reflection.
+How hashmaps works internally and when is resizing done.
+Write a program to find one/two/three missing number in given series.
+How java garbage collector works in detail.
+Arraylist vs linklist.when to use stack/queue.
+Given stack array write program to convert it to queue.
+How ajax works.write equivalent jQuery.
+When we use throwable in exception. Answer is in logging.
+Factory design pattern.
+Sql query to find 2/3/nth highest.
+What are subquesries how is it diffrent from correlated query.
+Given array write optimised code to find two number such that there sum is k.
+Overloading overloading and method hiding.
+Static methods when to use
+Java enums
+Overriding rules of user defined exception
+How java classloader works.
+Write a program to count number of character occurance in words
+How hashset use hashmap internally
+Find 10th prime number.
+What are types of mapping possible in spring-MVC controller and annotation based.
+Architecture of spring MVC.
+multiple dispatcher servlet.
+implement LRU in java.
+implement producer-consumer problem.
+
+----> Push code from local to Remote Repositary.
+      git checkout // git pull,update
+
+   
+    Sites........Core-Tasks......JIRA......Docker.......MySQL.....MongoDB......
+   
+   ...Distributed Messaging.........ApacheCamel ......BootStrap(Cards)
+    
+   rk@gmail.com /// Rama100@
+   
+   JavaGuides ----> Spring (Core, MVC, Boot, Security))  
+   
+   https://stackoverflow.com/questions/55328569/posting-onetomany-in-a-rest-call-via-spring-boot-api
+   
+====================================
+   
+     solid principle
+  Singleton && Prototype && it's conversion
+  Interface && marker Interface diference.
+  Class Loaders in java
+  volatile keyword in java
+  finalize & garbage collection in java
+  why string is Immutable
+  memory leaks 
+  equlas and hashcode()
+ Shutdown Hooks in java
+ 
+ 
+ laptop turn-off when baterry 30
+   observable params angular stackblitz
+   reactive form with model class stackblitz
+   relative navigation in angular stackblitz
+   optional route parameters angular stackblitz
+ 
+   
+   https://www.edureka.co/blog/interview-questions/typescript-interview-questions/
+   https://www.edureka.co/blog/interview-questions/top-angularjs-interview-questions-2016/
+   https://www.edureka.co/blog/interview-questions/javascript-interview-questions/
+   https://www.interviewbit.com/angular-interview-questions/
+   
+ JWT in Microservices //// How to Secure MicroServices
+ 
+  Mutual SSL Certificate ///  What is oAth && It's 'f' in MicroServices.
+  
+  Master-Branch  && /// Deploy Boot in AWS.
+  
+  Diff between JWT && Cookie (StackOver , Quora) // Diff between Session-based && Cookie-based
+  
+  
+  
+  .......RaceCondition.........Deadlock..........code for getInstance() method of a Singleton class.............
+   
+   ---lazy and early loading of Singleton and how will you implement it..................
+   
+   ........HashMap Internal Working.............
+   
+   https://javarevisited.blogspot.com/2011/02/how-hashmap-works-in-java.html
+   https://javarevisited.blogspot.com/search/label/Maven
+   
+   https://javarevisited.blogspot.com/2015/10/133-java-interview-questions-answers-from-last-5-years.html
+   ///Interview (2 to 7)
+  https://www.java67.com/2012/09/top-10-tricky-java-interview-questions-answers.html
+   //Tricky
+    https://javarevisited.blogspot.com/2011/12/difference-between-wait-sleep-yield.html
+   https://javarevisited.blogspot.com/2012/05/how-to-use-threadlocal-in-java-benefits.html
+   https://www.java67.com/2015/07/how-to-join-two-threads-in-java-example.html
+   https://javarevisited.blogspot.com/2018/08/how-to-avoid-deadlock-in-java-threads.html
+   https://javarevisited.blogspot.com/2014/07/top-50-java-multithreading-interview-questions-answers.html
+   https://javarevisited.blogspot.com/2011/06/volatile-keyword-java-example-tutorial.html
+   //Threads
+ https://javarevisited.blogspot.com/2011/04/difference-between-concurrenthashmap.html
+ //Concurrency
+ https://javarevisited.blogspot.com/2014/10/how-to-use-locks-in-multi-threaded-java-program-example.html
+ ///Locks
+ 
+  Role based && Persmission based Authentication 
+   
+        https://www.javatpoint.com/jax-rs-tutorial
+     https://www.javatpoint.com/restful-web-services-exception-handling
+   
+     https://www.javatpoint.com/spring-boot-multi-module-project
+     https://www.javatpoint.com/spring-boot-auto-configuration
+	 https://www.javatpoint.com/spring-boot-project-deployment-using-tomcat
+     https://www.javatpoint.com/spring-boot-aop
+
+==================================================================================================
+
+ Programs := ( )
+ ~~~~~~~~~
+   pattern.....Arrays......Strings...........Datatypes.....MCQ's (FULL)........CodeSnippets
+
+Angular :=
+~~~~~~~~
+   ............Practises..........MCQ's-(FULL)........CodeSnippets........InterviewQ&A.........
+   
+===============================================================================================================
+JavaScript :=
+~~~~~~~~~~
+    ......Adv.JavaScript............Practises..........MCQ's (FULL)........CodeSnippets......InterviewQ&A.
+  
+   ........Callback........closure......TypeOf.........cookies.......Local & Session storage......
+   
+ ...eventBubbling....call&&Apply...........Inline&&External.......Closures.........Event Delegation,bubbling,capturing
+   
+   negative infinity.........function hoisting......module.exports.....Strict....
+   
+   .....Prototypical Inheritance...ObjectClone......Host & Native Objects.......Modules....NameSpace....
+   
+   Decorator.......... Javascript Google Firebase (****).....Promises && Subscribe....Callback....
+   
+  
+===========================================================================================================
+ 
+ Sites :=
+~~~~~~~
+
+   ---JavaTpoint(*******) ---->  (Everything ***, Files)
+
+   ---JavaConceptOfday ----> (MultiThreading)
+    
+   ---Java2nVoice ---->  (Spring // RestAPI) 
+   
+   ---Howtodoinjava(*******) ----> Java-8, (RESTEasy && Jersey // JAXB && JackSon // SpringSecurity // JUnit //  AOP)
+   
+   ---Mkyong (*******) ---->  (SpringFULL includng MVC-TagsLibrary // RestAPI)
+
+---------------
+   
+   --- (YOUTUBE)::= KK-Tutorials ------->  (Hibernate--Youtube)
+   
+   --- (YOUTUBE)::= SeleniumExpress ----> (Spring-IOC // DI // HashMap-Internal)
+   
+   --- (YOUTUBE)::= JavaTechie-(MicroServices)............TechPrimes-(MicroServices) 
+   
+   --- (YOUTUBE)::= LearnByBhanu-(GIRA) 
+----------------
+   
+   ---JavaInUse ---------> (Transactional, FullStack, Spring-Cloud, Spring-Security ) ///  CodePrimers ----> MicroServices.
+   
+   ---JournalDev --------> Design-Patterns
+     
+   ---Codeforjava.net ---> Spring-MVC, Servlets,  
+   
+   ---DineshonJava ----> Design-Pattern
+   
+   ---JavaGuides ---->  Front-End, GIt-Links(Full) 
+
+   ---ConcretePage ----> Spring-Security, 
+   
+   
+----------------
+
+   ---JavaInterviewPoint ----> (MVC-Form && Full****)
+   
+   ---bezkoder -----> Full-Stack. 
+   
+-------------------------
+
+   --- java2blog  /// theJavaGeek /// WebSparrow /// JavaGyanSite /// Java4s /// TechGeeknext ///  RoseIndia.net
+
+   --- programmertoday  /// hellokoding /// CodingRaja /// adnjavainterview /// JavaInSimpleway /// websystique
+   
+-----------------------
+
+    --- Apache-Kafka && camel.....Pivotal Cloud Foundry........
+	
+    
+========================================================================================================
+
+ Levels :=
+~~~~~~~~
+ 
+    ......Spring-Core.......Spring-MVC...........Spring-Boot ............
+  
+    ..........Hibernate........JPA...............DB..........
+   
+    ....... Servlet............JSP.................JSTL.............
+ 
+    ...........Oops.........Collections..........JDBC...............
+
+============================================================================================
+
+ FullStackFlow :=
+~~~~~~~~~~~~~~~~
+ Html ---> TS ---> Service (API) (req/resp BACK-END to perform "-CRUD-" based on Data && API)
+				     |
+				     |
+				     |
+				     |
+				     |
+				     |
+						
+				     |---> Controller ---> Service ---> DAO (req/resp FRONT-END to perform "-CRUD-" based on Data && API)  
+					 |
+					 |
+				     |---> DaTAbASe (DB)
+
+
+============================================================================================
+ 
+ FULLSTACK500 :=
+~~~~~~~~~~~~~~~
+
+ CRUD :=
+~~~~~~~
+ JavaTechie -----> https://github.com/Java-Techie-jt/springboot-angular8-crud-example
+ 
+  Ramesh MF -----> https://github.com/RameshMF/Angular8-SpringBoot-CRUD-Tutorial
+  
+ In28Minutes ----> https://github.com/in28minutes/spring-boot-angular-fullstack-examples
+                    https://github.com/in28minutes/full-stack-with-angular-and-spring-boot
+  
+========================================
+
+ JavaPath :=
+~~~~~~~~~~~
+ 
+   classpath ----> C:\Program Files\Java\jdk1.8.0_241\lib\tools.jar
+   
+   Path ----> C:\Program Files\Java\jdk1.8.0_241\bin
+
+=========================================
+ 
+ Learn990 :=
+~~~~~~~~~~~
+  
+  ---- Docker && Kubernates
+  ---- DevOps
+  ---- AWS
+  ---- Digital-Marketing.
+
+===========================================================
+
+  spring boot + angular  :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+Ecommerce // Enterprise // Projects // Examples cards example github
+supply chain management projects github
+ inventory management  github
+File-Upload //  
+ forgot password  spring boot + spring mvc + junit + spring security + github
+ how it outsourcing companies strategy  quora
+
+
+Angular  github =
+~~~~~~~~~~~~~~
+Ecommerce // Enterprise // Projects // Examples   Cards // websites project 
+dashboard example 
+Authentication 
+Enterprise Project 
+display Row fromTable in another Component
+display Row fromTable in Console for regular intervals. 
+
+===============================================================
+
+ Baledung440 :=
+~~~~~~~~~~~~~
+https://www.baeldung.com/java-tutorial
+https://www.baeldung.com/get-started-with-java-series
+https://www.baeldung.com/java-collections
+https://www.baeldung.com/java-streams
+.......
+https://www.baeldung.com/spring-dependency-injection
+https://www.baeldung.com/spring-mvc
+https://www.baeldung.com/spring-boot
+https://www.baeldung.com/persistence-with-spring-series
+.........
+https://www.baeldung.com/rest-with-spring-series
+https://www.baeldung.com/jackson
+https://www.baeldung.com/httpclient-guide
+......
+https://www.baeldung.com/security-spring
+https://www.baeldung.com/spring-cloud-series
+
+
+===========================================
+ 
+ Install440 :=
+~~~~~~~~~~
+   
+   https://downloads.mysql.com/archives/installer/
+   https://www.zdsoft.com/
+   https://dev.mysql.com/downloads/installer/
+
+  .......NodeJs.....Visual-Studio-Code(Node -v && npm -v).......WindRar.....WPS-Office.....Nodepad++
+  
+  .......PostMan......... Team-Viewer // Zoom ...........Max Audio pro.....
+
+  
+==================================================================================================
+Browser:=
+~~~~~~~~~
+    WindowKey + UpAraow ~~~~~~~~Maximize window
+   Cntrl + tab ~~~~~~~~~~~~~~~~~ Swtch between Tabs
+   
+   Cntrl +T ~~~~~~~~~~~~~~~~~~ Open new Current Tab
+   Cntrl + W ~~~~~~~~~~~~~~~~~ Close Current Tab
+   Reopen the last closed tab~~~~~~~~~~ Cntrl + Shift + T
+   
+    Cntrl + N ~~~~~~~~~~~~~~Open Current Window
+	Alt + F4 ~~~~~~~~~~~~~~~~~~~~Close Current Window
+	
+	Virtual Desktop ----------> Ctrl + WindowsKey + D
+  close  Virtual Desktop -----> Ctrl + WindowsKey + F4
+	
+==================================================================================== 
+
+   Alt + Tab ~~~~~~~~~~~~~~~~~~ Task View
+	Alt + Esc~~~~~~~~~~~~~~~~~~~~ Switch between Programs
+	
+   WindowKey + D ~~~~~~~~~~~~~~ Desktop
+   WindowKey + I ~~~~~~~~~~~~~~ Settings
+   
+	Run--- msinfo32 ~~~~~~~~~~~~~ About System
+	
+================================================================================================
+
+ Off:=
+~~~~~   // L....URS)
+
+    WindowKey +L ~~~~~~~~~~~~~~ Lock Screen
+	Windowskey +X followed by U, then U again~~~~~~Turn-off
+	Windowskey +X followed by U, then R again~~~~~~Restart
+	Windowskey +X followed by U, then S again~~~~~~Sleep
+	Windowskey +X followed by U, then H again~~~~~~Hibernate
+==================================================================================
+ 
+Eclipse Shortcut:=
+~~~~~~~~~~~~~~~~~
+
+Ctrl + Shift:=
+~~~~~~~~~~~
+     R~~~~~~~~Search Files In Project
+	 T~~~~~~~~Search  API  In Library
+	 O~~~~~~~Imports
+	 F~~~~~~~Format
+	 S~~~~~~~Save
+	 W~~~~~Close all.
+	 P~~~~~ to find closing brace. Place the cursor at the opening brace and use this.
+	 
+	 
+	 ALT+ Up/Down ~~~~~~~~~~~~~~~Move lines
+	 CNTRL+BACKSPACE//D~~~~~~~~~ Delete line.
+	 CNTRL+O~~~~~~~~~~~~~~~~~~~~~Methods
+	 CNTRL+Page Up/Down ~~~~~~~~~Scrolling in view-bar
+	 
+	 Ctrl+Shift+/ ~~~~~~~~~ Add Block Comment around selection ( adds '/... */' )
+     Ctrl+Shift+\ ~~~~~~~~~ Remove Block Comment
+	 
+     Ctrl+W ~~~~~~~~~~~~~~~ Close current file 
+     Ctrl+Shift+W ~~~~~~~~~ Close all files
+	 
+    F5 ~~~~~~~~~~ Step Into function
+    F6 ~~~~~~~~~  Next step (line by line) 
+	F7 ~~~~~~~~~~ Step out
+    F8 ~~~~~~~~~~ Skip to next Breakpoint
+	
+	 
+	CNTRL+Q~~~~~~Resently closed file.
+	CNTRL+F4~~~~Close tab       //////   CNTRL+Shift+F4~~~~Close all tab
+	ALT+ <-- ~~~Reopen closed file
+	
+	CNTRL+1~~~~~~~~~~for quick fix
+	CNTRL+Shift+L~~~~~~~to view the listing for all Eclipse keyboard shortcuts.
+	
+	CNTRL+= ~~~~~~~~~zOOM-In
+	CNTRL+- ~~~~~~~ZOOM-OUT
+	 
+=======================================================================================
+
+
+
+
+
+
+
+

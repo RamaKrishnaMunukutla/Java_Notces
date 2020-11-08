@@ -1,0 +1,97 @@
+
+Relational Mappings Hibernate Between two models classes we can provide
+
+   ----IS-A Relation   -----HAS-A Relation
+
+IS-A Relation between model classes are handled in hibernate using “Inheritance Mapping”.
+HAS-A Relation between model classes are handled in Hibernate using “Association Mapping”.
+
+---->It creates one table for all classes. Every class object will be stored as one row with its info column called as “Discriminator Column”.
+
+No of columns in table = no of variables in all classes + 1 extra column
+
+================================================================
+Model:=
+~~~~~~
+ import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
+
+@javax.persistence.Entity
+@Table(name = "emptab") // table name111111111
+
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="info",discriminatorType=DiscriminatorType.STRING)
+@DiscriminatorValue("PER")
+public class Employee {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "eid")
+	private int empId;
+	@Column(name = "ename")
+	private String empName;
+	
+	
+//================================================
+ @Entity
+@DiscriminatorValue("STD")
+public class Address extends Employee{
+
+	@Column(name = "addloc")
+	private String addrLoc;
+	@Column(name = "addpin")
+	private long addrPin;
+	
+	
+//===================================================
+@Entity
+@DiscriminatorValue("EMP")
+public class Designation extends Employee{
+
+	@Column(name="erank")
+	private int empRank;
+	@Column(name="efeedback")
+	private String empFeedback;
+	
+========================================================
+Test:=
+~~~~
+Employee emp = new Employee();
+			emp.setEmpId(130);
+			emp.setEmpName("gangadhar");
+			emp.setEmpSal(13300);
+			
+			
+			Address ad= new Address();
+	         ad.setAddrLoc("Del");
+			ad.setAddrPin(507400);
+			
+			
+			
+			Designation dg= new Designation();
+			dg.setEmpFeedback("Good");
+			dg.setEmpRank(32);
+		
+			
+			ses.save(emp);  
+			ses.save(ad);
+			ses.save(dg);
+			
+			
+			System.out.println(emp.toString());
+			System.out.println(ad.toString());
+			System.out.println(dg.toString());
+=============================================================
+
+       Only One Table Created ~~~~~~~~~~~~~~~~ Combination of Tables
+ 
+=======================================================================

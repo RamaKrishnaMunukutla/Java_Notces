@@ -1,0 +1,83 @@
+
+
+ASSOCIATION MAPPING In Hibernate (HAS-A Relational Mapping):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To handle multiplicity in Hibernate, we choose ASSOCIATION MAPPING concept.
+
+-----> It supports easy configuration with Annotation, like @OneToMany, @ManyToMany, @ManyToMany etc.
+To get Multiplicity coding steps are: -
+1. Create Two Model Class
+2. Apply HAS-A Relation between Models
+3. Apply multiplicity Annotation.
+
+**In Case of CollectionType multiplicity we must make HAS-A Type variable one collection.[Set,List,Map]
+ 
+=============================================================================
+
+Model:=
+~~~~~~
+@Entity
+@Table(name = "addrtab3")
+public class Address  {
+
+	@Id
+	@Column(name = "addpin")
+	private long addrPin;
+	
+	@Column(name = "addloc")
+	private String addrLoc;
+//=====================================
+
+
+@Entity
+@Table(name = "emptab3")
+public class Employee {
+
+	@Id
+    @Column(name = "eid")
+	private int empId;
+	@Column(name = "ename")
+	private String empName;
+	@Column(name = "esal")
+	private long empSal;
+	@OneToOne
+	@JoinColumn(name="pidFK",unique=true)
+	private Address addr;
+============================================================
+Test:=
+~~~~~
+  
+			Address ad1 = new Address();
+			ad1.setAddrLoc("Allhabad");
+			ad1.setAddrPin(11654651);
+
+			Address ad2 = new Address();
+			ad2.setAddrLoc("Mysore");
+			ad2.setAddrPin(1654465);
+			
+			Employee emp1 = new Employee();
+			emp1.setEmpId(123);
+			emp1.setEmpName("Krishna");
+			emp1.setEmpSal(4096545);
+			emp1.setAddr(ad1);
+			
+			Employee emp2 = new Employee();
+			emp2.setEmpId(133);
+			emp2.setEmpName("Ramaraju");
+			emp2.setEmpSal(4140465);
+			emp2.setAddr(ad3);
+		
+			 
+			ses.save(ad1);
+			ses.save(ad2);
+			ses.save(emp1);
+			ses.save(emp2);
+=================================================== 
+
+SELECT * FROM rama.emptab3;
+
+SELECT * FROM rama.addrtab3;
+
+SELECT * FROM rama.empadrtab;
+
+====================================

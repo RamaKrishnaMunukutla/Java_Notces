@@ -1,0 +1,57 @@
+
+ @Embeddable ---------------------Selecting class[required]
+  @Embedded ------------This is connecting with Employee (required)
+ 
+ For Selection  @Embeddable
+ For Connection  @Embedded
+
+Mapping (1 table~~~~~~~~~multiple classes) if Child class is Fully Dependent on Parent
+=========================================================================================
+ Model:=
+~~~~~~
+
+@Embeddable
+public class Address {
+
+	@Column(name = "addloc")
+	private String addrLoc;
+	@Column(name = "addpin")
+	private long addrPin;
+	
+----------------------------------
+
+@javax.persistence.Entity
+@Table(name = "emptab")
+
+public class Employee {
+
+	@Id
+
+	@Column(name = "eid")
+	private int empId;
+	@Column(name = "ename")
+	private String empName;
+	@Column(name = "esal")
+	private long empSal;
+	
+	@Embedded
+	@AttributeOverrides({ @AttributeOverride(name = "addrLoc", column = @Column(name = "emp_AddLoc")),
+			@AttributeOverride(name = "addrPin", column = @Column(name = "emp_Pin")) })
+	private Address addr;
+===============================================
+ 
+ Address ad= new Address();
+			
+			ad.setAddrLoc("HYD");
+			ad.setAddrPin(500400);
+			
+			
+			Employee emp = new Employee();
+			emp.setEmpId(104);
+			emp.setEmpName("RamK");
+			emp.setEmpSal(10080);
+			
+			emp.setAddr(ad);
+		
+			ses.save(emp);
+=============================================================================================

@@ -1,0 +1,209 @@
+
+
+        Input123.....Events440........CSS333
+
+
+
+=================================================================================================================
+
+ HTML :=
+~~~~~~~
+  ---HTML stands for Hyper Text Markup Language
+  ---HTML describes the structure of a Web page
+  ---HTML elements tell the browser how to display the content.
+  ---HTML elements are represented by tags
+  ---Browsers do not display the HTML tags, but use them to render the content of the page
+
+----><!DOCTYPE> declaration represents the document type, and helps browsers to display web pages correctly.
+
+---> The language is declared with the lang attribute.
+ 
+   Eg :=  <html lang="en-US">
+  ----
+  
+    <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  "http://www.w3.org/TR/html4/loose.dtd">
+    <html>
+      <head>
+       
+	   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <title>Upload Result</title>
+    </head>
+
+===================================================================================================
+
+  Form123 :=
+~~~~~~~~~~
+
+       <FORM -----> name......onsubmit......action..........method......enctype="multipart/form-data"
+ 
+ Input123 :=
+~~~~~~~~~~~
+
+ <INPUT ----> ...type....id......value[See]..........name..........onclick.........onerror......onChanges()........
+
+       .....maxlength="4" size="14" step="3".........class........placeholder....required(**)....autofocus.........
+				
+		.....Min="1".....Max="3"......pattern="[A-Za-z]{3}"......autofocus........readonly.......disabled........
+				
+				
+============================================================================================================
+				
+ Formatting-Tags :=
+~~~~~~~~~~~~~~~~~~
+
+    ........<h1> To <h6>..............<p>, <b>.......<tr>, <th>, <td>.........<li> <ul> <ol>..........
+
+    .......<small> ,<strong>.........<sub>, <sup>, <i>(Italic), <mark>(Yellow) ,<del>........
+	
+	       List-Types ----> [https://www.w3schools.com/html/html_examples.asp]
+		
+		
+ <hr> := Thin-Line   &&  <br> := Line-Break  &&  <pre> := (Pre-Formatted-Text) Data inside displayed in a fixed-width font.
+~~~~~~~                 ~~~~~~                   ~~~~~~~	
+
+  <dl> && <dt> :=  [https://www.w3schools.com/tags/tag_dl.asp]
+~~~~~~~~~~~~~~~~
+		
+
+ Form- <feildset> && <legend> := Dabba with Name
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ Eg :=
+~~~~~
+ <form action="/action_page.php">
+  <fieldset>
+    
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname" value="John"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname" value="Doe"><br><br>
+    <input type="submit" value="Submit">
+  </fieldset>
+</form>
+
+
+ Order && UnOrdered-List :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+  <ol type="I"> ......... (1,a,A,I,i)  /// <ol list="list-style-type:circle"> </ol> (Circle, Square,disc)
+   <li>Coffee</li>
+   <li>Tea</li>
+   <li>Milk</li>
+ </ol>
+ 
+     <datalist> -----> [https://www.w3schools.com/tags/tag_datalist.asp]
+     ~~~~~~~~~~~
+===================================================================================================
+
+ Styles :=
+~~~~~~~~~ 
+  --- <h1 style="font-size:60px;">Heading 1</h1>
+  --- <p style="color:red">This is a red paragraph.</p>
+  
+  --- <h2 style="text-align: center;">{{title}}</h2>
+  
+  --- <h1 style="font-family:verdana;">This is a heading</h1>
+  --- <h1 style="text-align:center;">Centered Heading</h1>
+  
+  --- <body style="background-color:powderblue;">
+  
+  
+  --- <h1 style="background-color:Tomato;">Tomato</h1>    [BACKGROUND :: https://www.w3schools.com/html/html_colors.asp]
+
+
+ Image :=
+~~~~~~~~
+ Image ----> <img src="w3school44s.jpg" alt="W3Schools.com" style="width:500px;height:600px;">......onerror="myFunction()"....
+             
+			 <img src="\assets\component 6.png" style="width:290px;height:170px;" class="signinlogo2">
+			  
+ 
+ --- "-alt-" attribute is also useful if the image cannot be displayed (e.g. if it does not exist).
+        
+	    	Link -----> <a href="https://www.w3schools.com">This is a link</a>
+
+
+=========================================================================================================	 
+
+ Form-DropDown :=  [https://www.w3schools.com/html/html_form_elements.asp]
+~~~~~~~~~~~~~~~~
+   <select id="cars" name="cars"> ...........///  size="23" add-Here
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="fiat">Fiat</option>
+    <option value="audi">Audi</option>
+  </select>
+ 
+ 
+ Form- <textarea> := element defines a multi-line input field 
+~~~~~~~~~~~~~~~~~~~
+    
+	 Eg :=  <textarea name="message" style="width:200px; height:600px;">
+	----  </textarea>
+
+ 
+ Form--MinANDMax && Step :=  [https://www.w3schools.com/html/html_form_attributes.asp]
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ---Displays Restricted-Range
+ ---"-step-" attribute specifies the legal number intervals for an input field.
+ 
+     Eg := <input type="number" id="quantity" name="quantity" min="1" max="5" step="3"> <br> <br>
+	----   <input type="date"   id="datemax"  name="datemax"  max="1979-12-31"><br><br>
+ 
+  Eg2 :=
+ ~~~~~~
+  <form>
+    <label for="quantity">Quantity (between 1 and 5):</label>
+    <input type="number" id="quantity" name="quantity" min="1" max="5">
+ </form>
+    
+=========================================================================================================
+  
+  Events440 :=  [https://www.w3schools.com/tags/ref_eventattributes.asp]
+ ~~~~~~~~~~~
+  -- Events are written in <body> Tag.
+  
+  Eg :=  <body onoffline="myFunction()">
+ ----
+ 
+=====================================================================================
+
+===========/\/\/\/\===============\/\/\/\=================\/\/\/\==============\/\/\/\/\=============
+ 
+ CSS333 :=
+~~~~~~~~
+  
+  Links ---> https://getbootstrap.com/docs/4.0/components/buttons/
+  
+  
+
+   style="color:#000000;"
+   
+   <h1 style="color:rgb(240, 131, 73);">Awesome</h1>
+   
+   <label for="domain" style="font-size:14px;">Domain</label>
+   
+   <h6 class="mt-2" routerLink="/forgotpassword" style="color: cornflowerblue; cursor: pointer;">Forgot Password?</h6>
+
+
+
+
+
+
+
+
+
+
+
+
+=====================================================================================
+
+===========/\/\/\/\===============\/\/\/\=================\/\/\/\==============\/\/\/\/\=============
+
+
+
+
+
+
+ 
+ 

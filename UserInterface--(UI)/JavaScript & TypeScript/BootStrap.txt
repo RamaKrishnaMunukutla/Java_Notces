@@ -1,0 +1,171 @@
+
+ 
+ 
+     ........Buttons239..........Forms440......
+
+
+
+============================================================================================================ 
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+ Missed :=
+~~~~~~~~~
+   ........Collapse........Dropdown........Pager........Pills(Links)........Navigation-Bars.........
+   
+   .......ProgressBar......Spinner......Pagination.....
+  
+=============================================================================================================
+ 
+ BootStrap-Styles :=
+~~~~~~~~~~~~~~~~~~~
+
+   .......Container....container-fluid.....col-sm-4 && col-sm-8(Feild-Size).......
+   
+  Page-Header ----> page-header
+  
+  Jumbotron-(Big GreyBox) ------>  jumbotron.......
+  
+  Tables --------->  table......table table-bordered......table table-dark......<thead class="thead-dark">  (thead-light)   
+                            
+					 table table-bordered table-sm......  <div class="table-responsive">  [..-sm,md,lg,x] (Scroll-Bar)
+					                                     <table class="table table-bordered">
+  
+  Images ---------> img-rounded (circle, thumbnail ).....rounded-circle......
+  
+       Eg :=  <img src="cinqueterre.jpg" class="img-rounded" alt="Cinque Terre" width="304" height="236"> 
+      ----
+	   
+  Alert(Text) -----> alert alert-success(-info, -warning, -danger) (-primary, -secondary, -dark, -light)
+  
+  Label -----------> <label for="email">Email:</label>
+  
+==========================================================================================================
+
+ Buttons239 :=
+~~~~~~~~~~~
+  Buttons ---------> btn btn-primary (Success, info, warning, danger, basic,link) /// <input type="button">
+  Button-Size ----->  btn btn-primary btn-sm(lg,xs) (btn-block)
+  
+  
+  Disable/Active ---->  <button type="button" class="btn btn-primary" disabled>Disabled Primary</button>
+                        <button type="button" class="btn btn-primary active">Active Primary</button>
+						
+  
+  Group-Button ----> btn-group [No-Gap] && btn-group btn-group-xs (sm,lg) [Size] && btn-group btn-group-justified
+    
+	
+	Eg :=   <div class="btn-group">
+   ~~~~  <button type="button" class="btn btn-primary">Apple</button>
+   
+  
+  Group-Button(Verical) ----> btn-group-vertical [No-Gap]
+  
+   Eg :=        <div class="btn-group-vertical">
+  ~~~~~    <button type="button" class="btn btn-primary">Apple</button>
+           <button type="button" class="btn btn-primary">Samsung</button>
+  
+  cHECK-bOX ----> checkbox && checkbox disabled
+  
+  
+ Nested-Button :=
+~~~~~~~~~~~~~~~~
+     <div class="btn-group">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+      Sony <span class="caret"></span></button> ....../// Down-Arrow
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#">Tablet</a></li>
+        <li><a href="#">Smartphone</a></li>
+      </ul>
+    </div> 
+  
+=============================================================================================================
+
+  Forms440 :=
+ ~~~~~~~~~~~
+         .......form-group.......form-control......checkbox.........
+	
+	           Eg :=  <input class="form-control input-lg" id="inputlg" type="text">
+              -----
+	  
+	  HEIGHT -----> form-control input-lg(input-sm)...........
+	  WIDTH ------> col-xs-2(4,6,8...)
+	    
+		      Eg :=
+			 ----
+			                <div class="col-xs-8">
+			                   <label for="ex3">col-xs-4</label>
+			                   <input class="form-control" id="ex3" type="text">
+			                </div>
+  
+
+=============================================================================================================
+
+  Glyphicons-Icons := [https://getbootstrap.com/docs/3.3/components/]
+ ~~~~~~~~~~~~~~~~~~~
+  
+ Badgets(Number-RoundUp) := [https://www.w3schools.com/bootstrap4/bootstrap_badges.asp]
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+   <button type="button" class="btn btn-primary">Primary <span class="badge">7</span></button>
+
+
+ prvious && next := At page end.
+~~~~~~~~~~~~~~~~~~
+ 
+ Navigation-Bars.(Page-Top) :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li>
+    </ul>
+  </div>
+</nav>
+
+=============================================================================================================
+
+   col-md-6...col-md-12 .......text-muted..........
+
+     form-group && form-control ---->
+
+ Eg :=
+~~~~~
+   <div class="row">
+    <div class="col-sm-4" style="background-color:lavender;">.Hello</div> <br>
+    <div class="col-sm-8" style="background-color:lavenderblush;">Java World</div>
+  </div>
+</div>
+
+=================================================================================================================
+
+
+Constraint Validation HTML Input Attributes :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Attribute	      Description
+ disabled	  Specifies that the input element should be disabled
+   max	     Specifies the maximum value of an input element
+   min		 Specifies the minimum value of an input element
+ pattern     Specifies the value pattern of an input element
+ required	 Specifies that the input field requires an element
+   type 	 Specifies the type of an input element
+ 
+
+Constraint Validation CSS Pseudo Selectors :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Selector	  Description
+ :disabled	   Selects input elements with the "disabled" attribute specified
+ :invalid	   Selects input elements with invalid values
+ :optional	   Selects input elements with no "required" attribute specified
+ :required	   Selects input elements with the "required" attribute specified
+ :valid	       Selects input elements with valid values
+ 
+=================================================================================================================
+ 

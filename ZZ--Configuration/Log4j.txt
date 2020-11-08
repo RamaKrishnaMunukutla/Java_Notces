@@ -1,0 +1,138 @@
+
+
+log4j.rootLogger=DEBUG, CA
+
+
+log4j.rootLogger=DEBUG,stdout
+# Redirect log messages to console
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.Target=System.out
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%d{yyyy-MM-dd} %p %c:%L - %m%n
+
+
+# Root logger option
+log4j.rootLogger=DEBUG, file
+# Redirect log messages to a log file
+log4j.appender.file=org.apache.log4j.FileAppender
+log4j.appender.file.File=logs/myapp.log
+log4j.appender.file.layout=org.apache.log4j.PatternLayout
+log4j.appender.file.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %p %c:%L - %m%n
+
+
+# Root logger option
+log4j.rootLogger=DEBUG, db
+# Define the Jdbc appender
+log4j.appender.db=org.apache.log4j.jdbc.JDBCAppender
+log4j.appender.db.driver=com.mysql.jdbc.Driver
+log4j.appender.db.URL=jdbc:mysql://localhost:3306/test
+log4j.appender.db.user=root
+log4j.appender.db.password=root
+log4j.appender.db.layout=org.apache.log4j.PatternLayout
+log4j.appender.db.sql=INSERT INTO LOGS VALUES ('%M', now() ,'%C','%p','%m')
+
+
+# Root logger option
+log4j.rootLogger=DEBUG, email
+#configuring the SMTP appender
+log4j.appender.email=org.apache.log4j.net.SMTPAppender
+log4j.appender.email.SMTPHost=smtp.gmail.com log4j.appender.email.SMTPUsername=raghusirjava@gmail.com log4j.appender.email.SMTPPassword=abdeyhfk@33 log4j.appender.email.From=raghusirjava@gmail.com log4j.appender.email.To=<your email id>@gmail.com log4j.appender.email.Subject=Log of messages
+log4j.appender.email.Threshold=DEBUG
+log4j.appender.email.layout=org.apache.log4j.PatternLayout
+
+
+=====================================================================================================
+
+# AdminFileAppender - used to log messages in the admin.log file.
+log4j.appender.AdminFileAppender=org.apache.log4j.FileAppender
+log4j.appender.AdminFileAppender.File=admin.log
+log4j.appender.AdminFileAppender.layout=org.apache.log4j.PatternLayout
+log4j.appender.AdminFileAppender.layout.ConversionPattern= %-4r [%t] %-5p %c %x - %m%n
+
+#Define rolling file appender
+log4j.appender.file=org.apache.log4j.RollingFileAppender
+log4j.appender.file.File=logs/main.log
+log4j.appender.file.Append=true
+log4j.appender.file.ImmediateFlush=true
+log4j.appender.file.MaxFileSize=10MB
+log4j.appender.file.MaxBackupIndex=5
+log4j.appender.file.layout=org.apache.log4j.PatternLayout
+log4j.appender.file.layout.ConversionPattern=%d %d{Z} [%t] %-5p (%F:%L) - %m%n
+
+# ReportFileAppender - used to log messages in the report.log file.
+log4j.appender.ReportFileAppender=org.apache.log4j.FileAppender
+log4j.appender.ReportFileAppender.File=report.log
+log4j.appender.ReportFileAppender.layout=org.apache.log4j.PatternLayout
+log4j.appender.ReportFileAppender.layout.ConversionPattern= %-4r [%t] %-5p %c %x - %m%n
+
+======================================================================================================
+
+# ConsoleAppender
+log4j.appender.CA=org.apache.log4j.ConsoleAppender
+log4j.appender.CA.layout=org.apache.log4j.PatternLayout
+log4j.appender.CA.layout.ConversionPattern= %-4r [%t] %-5p %c %x - %m%n
+
+
+#Define console appender
+log4j.appender.console=org.apache.log4j.ConsoleAppender
+logrj.appender.console.Target=System.out
+log4j.appender.console.layout=org.apache.log4j.PatternLayout
+log4j.appender.console.layout.ConversionPattern=%-5p %c{1} - %m%n
+
+
+#Define loggers
+log4j.logger.com.journaldev.log4j=WARN, file, console
+log4j.logger.com.journaldev.log4j.logic=DEBUG, file, console
+
+#setting additivity
+log4j.additivity.com.journaldev.log4j=false
+log4j.additivity.com.journaldev.log4j.logic=false
+
+
+===========================================================================================================
+
+ # Root logger option  
+ log4j.rootLogger=INFO, file, stdout  
+   
+# Direct log messages to a log file  
+log4j.appender.file=org.apache.log4j.RollingFileAppender  
+log4j.appender.file.File=test_logfile.log  
+log4j.appender.file.MaxFileSize=5MB  
+log4j.appender.file.MaxBackupIndex=1 
+log4j.appender.file.layout=org.apache.log4j.PatternLayout  
+log4j.appender.file.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n  
+   
+# Direct log messages to stdout  
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender  
+log4j.appender.stdout.Target=System.out  
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout  
+log4j.appender.stdout.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L
+
+=====================================================================================================
+
+----> Logback supports ERROR, WARN, INFO, DEBUG, or TRACE as logging level. By default, logging level is set to INFO. It means that code>DEBUG and TRACE messages are not visible.
+
+
+=======================================================================================================
+
+ log4j.rootCategory=ALL, logFile, log
+log4j.appender.logFile=org.apache.log4j.RollingFileAppender
+log4j.appender.log=org.apache.log4j.ConsoleAppender
+log4j.appender.log.layout=org.apache.log4j.PatternLayout
+log4j.appender.log.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %m%n
+log4j.appender.logFile.File=src/main/resources/reg.log
+log4j.appender.logFile.layout=org.apache.log4j.PatternLayout
+log4j.appender.logFile.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %m%n
+log4j.appender.logFile.MaxFileSize=100KB
+log4j.appender.logFile.append=true
+
+
+log4j.logger.com.vaannila.admin=WARN,AdminFileAppender 
+log4j.logger.com.vaannila.report=DEBUG,ReportFileAppender 
+
+
+======================================================================================================
+
+
+
+

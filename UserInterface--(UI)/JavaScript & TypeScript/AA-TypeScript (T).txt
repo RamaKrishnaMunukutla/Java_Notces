@@ -1,0 +1,306 @@
+
+
+ 
+                DataTypes......  Touple................Functions.................Undefined123   ............Null-123
+				
+				Var && Let......Type-Operators.........Type-Annotations..........Generic-Array.........Loops880
+
+
+-----------
+
+   BitWise && Increment operator
+
+=======================================================================================
+
+                                                       NOTCES
+													  ~~~~~~~~~
+
+
+---->TypeScript is an open-source, object-oriented programing language, which is developed and maintained by Microsoft under the Apache 2 license. 
+
+---->Typescript can be compiled to all major versions of Javascript(ES3,ES5,ES6,ES7).
+Typescript can be used for cross–browser development and is an open source project.
+Typescript is a superset of JavaScript that provides typed nature to your code.
+It is used to avoid the disadvantages of JavaScript like Typescript is designed to handle the needs of
+complex programs.
+Typescript was debuted as a beta programming language on October 1, 2012 and since then has gone
+through many versions with improved capabilities.
+Another key feature of Typescript is in version Typescript 2.6 that covers error suppression comments.
+Typescript is more predictable and is generally easier to debug.
+
+benefits of using Typescript :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. One of the biggest advantages of Typescript is its code completion and intelligence.
+2. It provides the benefits of optional static typing .Here Typescript provides types that can be added to
+variables, functions, properties etc.
+3. Typescript has the ability to compile down to a version of JavaScript that runs on all browsers.
+4. Typescript tries to extend JavaScript. Compiler generates JavaScript.
+5. Typescript is a backward compatible version of JavaScript that compiles to pure JavaScript which makes
+their writing easier and faster.
+6. Typescript is purely object oriented programming which means it is a programming paradigm based on
+the concepts of objects.
+7. Most important advantage is it offers a “compiler” that can convert to JavaScript equivalent code. And it
+has a concept of namespace defined by a “module”.
+
+-----------------------------------------------------------------------------------------------------------------
+
+---->TypeScript is the ES6 version of JavaScript with some additional features.
+
+---->TypeScript is not directly run on the browser. It needs TSC (TypeScript Compiler) compiler to compile and generate in JavaScript file.
+
+---->It is a language designed for large-scale JavaScript application development, which can be executed on any browser, any Host, and any Operating System. The TypeScript is a language as well as a set of tools. TypeScript is the ES6 version of JavaScript with some additional features.
+
+---->TypeScript always highlights errors at compilation time during the time of development, whereas JavaScript points out errors at the runtime.
+
+---->TypeScript has a namespace concept by defining a module.
+
+---->TypeScript supports strongly typed or static typing, whereas this is not in JavaScript.
+
+---->TypeScript takes a long time to compile the code.
+
+---->TypeScript does not support abstract classes.
+
+---->If we run the TypeScript application in the browser, a compilation step is required to transform TypeScript into JavaScript.
+
+---->TypeScript supports object-oriented programming concept like classes, interfaces, inheritance, generics, etc.
+
+---->It supports optional parameters, modules.TypeScript, generics.
+
+----> TypeScript is portable because it can be executed on any browsers, devices, or any operating systems. It can be run in any environment where JavaScript runs on. It is not specific to any virtual-machine for execution.
+
+---->TypeScript does not support abstract classes, and Supports Oop's Concept.
+
+---->TypeScript are stored as floating-point values. These numeric values are treated like a number data type. The numeric data type can be used to represents both integers and fractions. TypeScript also supports Binary(Base 2), Octal(Base 8), Decimal(Base 10), and Hexadecimal(Base 16) literals.
+
+let first: number = 12.0;             // number   
+let second: number = 0x37CF;          // hexadecimal  
+let third: number = 0o377 ;           // octal  
+let fourth: number = 0b111001;        // binary   
+
+
+---->TypeScript is a superset of JavaScript. 
+ It is a strongly typed language. 
+ So unlike JavaScript we know if some syntax is wrong while typing itself and not at runtime. 
+ In Angular it is compiled to JavaScript while rendering application in browser.
+
+ 		 
+"Any"---->type is useful when we do not know about the type of value (which might come from an API or 3rd party library), and we want to skip the type-checking on compile time.
+
+
+"void"---->is a return type of the functions which do not return any type of value. It is used where no data type is available. A variable of type void is not useful because we can only assign undefined or null to them. An undefined data type denotes uninitialized variable, whereas null represents a variable whose value is undefined.
+
+   Syntax := let unusable: void = undefined;  
+   ~~~~~~~
+
+
+"Null"---->represents a variable whose value is undefined. Much like the void, it is not extremely useful on its own. The Null accepts the only one value
+
+
+"Undefined"---> primitive type denotes all uninitialized variables in TypeScript and JavaScript. It has only one value, which is undefined. The undefined keyword defines the undefined type in TypeScript, but it is not useful because we can only assign an undefined value to it.
+
+Example::
+
+let num: number = undefined;  
+let bool: boolean = undefined;  
+let str: string = undefined;  
+
+ 
+ DataTypes:=
+ ~~~~~~~~~~
+             
+			  Built-In Type ~~~~~~~~~ Number, String, Boolean, Void, Null
+			  
+			  User-Defined Type ~~~~~~~~~~ Class, Interfaces, Functions, Aray, Tuple, Enum.
+
+
+=====================================================================================================
+
+Var && Let:=
+~~~~~~~~~~
+----> "var"(>>) is function scoped and  It can be said that a variable declared with var is defined throughout the program .  
+
+
+-----> let"(<<) is block scoped, i.e to nearest enclosing block which can be smaller than a function block.
+
+============================================================================================================
+
+Arrays:=
+~~~~~~
+
+An array can be written in two ways:
+
+1. Use the type of the elements followed by [] to denote an array of that element type:
+
+var list : number[] = [1, 3, 5];  
+
+2. The second way uses a generic array type:
+
+var list : Array<number> = [1, 3, 5];  
+
+=======================================================================
+
+Touple:=
+~~~~~~~
+
+The Tuple is a data type which includes two sets of values of different data types. It allows us to express an array where the type of a fixed number of elements is known, but they are not the same. For example, if we want to represent a value as a pair of a number and a string, then it can be written as:
+
+// Declare a tuple  
+let a: [string, number];  
+  
+// Initialize it  
+a = ["hi", 8, "how", 5]; // OK  
+
+
+==============================================================================
+Functions:=
+~~~~~~~~~~~
+Function is the logical blocks of code to organize the program. Like JavaScript, TypeScript can also be used to create functions either as a named function or as an anonymous function. Functions ensure that our program is readable, maintainable, and reusable. A function declaration has a function's name, return type, and parameters.
+
+Eg:=
+~~~~~
+//named function with number as parameters type and return type  
+function add(a: number, b: number): number {  
+            return a + b;  
+}  
+  
+//anonymous function with number as parameters type and return type  
+let sum = function (a: number, y: number): number {  
+            return a + b;  
+};  
+
+===============================================================================
+
+
+Undefined123:=
+~~~~~~~~~~~~~
+ --If a Variable is defined and not initialized,when we try to access it....w'll get Undefined.
+   
+  --In simple...UnIntialized variables is called as "Undefined".
+  
+  --It is not an assignment value. It means a variable has been declared but has not yet been assigned a value.
+  
+  --Undefined indicates the absence of the variable itself.
+ 
+ 
+ 
+Null-123 :=
+~~~~~~~~
+ --Null is used to represent an intentional absence of value. It accepts only one value, which is null.
+
+ --It is an assignment value. It can be assigned to a variable which indicates that a variable does not point any object.
+ 
+ --Null indicates the absence of a value for a variable.
+
+============================================================================
+
+
+
+---->A variable is the storage location, which is used to store value/information to be referenced and used by programs. 
+
+
+Type-Operators:=
+~~~~~~~~~~~~~~~
+There are a collection of operators available which can assist you when working with objects in TypeScript.
+ 
+             Operators such as         .......typeof......instanceof.......in.......delete.
+
+
+================================================================================
+
+Type-Annotations:=
+~~~~~~~~~~~~~~~~~
+These are annotations which can be placed anywhere when we use a type. The use of Type annotation is not mandatory in TypeScript. It helps the compiler in checking the types of variable and avoid errors when dealing with the data types.
+
+
+
+Type assertion :=  (https://www.javatpoint.com/typescript-type-assertion)
+~~~~~~~~~~~~~~~
+It works like typecasting, but it does not perform type checking or restructuring of data just like other languages can do like C# and Java. The typecasting comes with runtime support, whereas type assertion has no impact on runtime. However, type assertions are purely a compile-time construct and provide hints to the compiler on how we want our code to be analyzed.
+
+Eg:=
+---
+let empCode: any = 111;   
+let employeeCode = <number> code;   
+console.log(typeof(employeeCode)); //Output: number  
+
+
+=================================================
+
+Generic-Array:=  (https://www.javatpoint.com/typescript-arrays)
+~~~~~~~~~~~~~
+           let fruits: Array<string> = ['Apple', 'Orange', 'Banana'];  
+
+=====================================================================================================================
+ 
+ Loops880 :=   tsc loops.ts  //// node loops.js
+~~~~~~~~~~
+let programmingLangs : string[] = ['C', 'C++', 'Java', 'JavaScript'];
+
+// using forEach() method
+programmingLangs.forEach(element => {
+    console.log(element);
+});
+ 
+====================================================================================================
+
+
+Tuple:=  let empTuple = ["Rohit Sharma", 25, "JavaTpoint"];  
+~~~~~~
+
+
+Switch-Case:=
+~~~~~~~~~~
+
+There can be N number of cases inside a switch statement.
+The case values must be unique.
+The case values must be constant.
+Each case statement has a break statement at the end of the code. The break statement is optional.
+The switch statement has a default block which is written at the end. The default statement is optional.
+
+
+Indefinite Loop~~~~~ While && do-While (Since we don't know how many times it will iterate)
+
+definite Loop~~~~~ While && do-While (Since we don't know how many times it will iterate)
+
+======================================================================
+
+---->arrow function which is the shorthand syntax for defining the anonymous function, i.e., for function expressions. It omits the function keyword. We can call it fat arrow (because -> is a thin arrow and => is a "fat" arrow). It is also called a Lambda function. The arrow function has lexical scoping of "this" keyword.
+
+
+---->Function/Method overloading is allowed when:
+The function name is the same
+The number of parameters is different in each overloaded function.
+The number of parameters is the same, and their type is different.
+The all overloads function must have the same return type
+
+
+---->Advantage of function overloading
+It saves the memory space so that program execution becomes fast.
+It provides code reusability, which saves time and efforts.
+It increases the readability of the program.
+Code maintenance is easy.
+
+
+---->Unlike JavaScript, the TypeScript compiler will throw an error if we try to invoke a function without providing the exact number and types of parameters as declared in its function signature. To overcome this problem, TypeScript introduces optional parameter. We can use optional parameters by using the question mark sign ('?').
+
+---->The Ambient declarations allow us to safely and easily use existing popular JavaScript libraries like jquery, angularjs, nodejs, etc.
+
+---->A variable is said to be “undefined” if it has been declared but not initialized. Whereas “null” is assigned to a variable whose value is absent at that moment.
+
+=====================================================================================
+  
+  $ npm i typescript --save-dev ~~~~~~~~~As dev dependency  
+  $ npm i typescript -g    ~~~~~~~~~~~~~~Install as a global module  
+  $ npm i typescript@latest -g ~~~~~~~~~~Install latest if you have an older version
+
+
+ To Run:=
+ ~~~~~~
+ tcs Hello.ts ----> node Hello.js
+ 
+ 
+=============================================================
+ 
+ 
+ 
+ 

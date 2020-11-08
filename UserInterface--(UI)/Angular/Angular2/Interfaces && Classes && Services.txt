@@ -1,0 +1,181 @@
+
+
+==========================================================================================================================
+
+Interface (ng g interface Employee) :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+export interface Employee {
+   constructor( id:number,
+    name:string;
+    age:number;
+    gender:string;
+  ){}
+
+ }
+
+
+ select "id" && RightClick ---> Refractor ---> Setter && getter
+ 
+ In TS-file :=
+~~~~~~~~~~~~~
+  employeData= new employee(101, "rama", 22, "male");
+  
+ Binding Data to a Model :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+            [ngModel] ="employeData.id"
+ 
+ 
+=======================================================================================
+Ts File:=  (We get intellisense in TS file)
+~~~~~~~~
+export class EmployeelistComponent implements OnInit {
+
+  employees: Employee[];  //Previous---> employees: any[]; 
+  
+constructor() {
+   this.employees = [
+      { id: 103, name: 'Seeta', age: 24, gender: 'female' },
+      { id: 101, name: 'Rama', age: 27, gender: 'male' },
+      { id: 105, name: 'Radha', age: 25, gender: 'female' },
+      { id: 102, name: 'Krishna', age: 26, gender: 'male' },
+      { id: 104, name: 'RK', age: 23, gender: 'male' },
+      { id: 107, name: 'Syana', age: 23, gender: 'other' },
+      { id: 108, name: 'libana', age: 20, gender: 'other' }
+
+    ]; }
+==========================================================================================================================
+ Class :=
+~~~~~~~~~
+
+export class Employee {
+  constructor(
+    public empId: string,
+    public name: string,
+    public designation: string,
+    public salary: string,
+  ) { }
+
+}
+
+
+---->protected modifier acts much like the private modifier with the exception that members declared protected can also be accessed within deriving classes
+
+
+export class MessageModel {
+    protected name: string;
+               id : number;
+          content : string;
+	----
+	private id: number;
+    public firstName: string;
+    public lastName: string;
+	----
+	readonly id: number;  (**********)
+	----
+    constructor(private _id: number, public message: string) {
+        this.id = _id;
+        this.content = message;
+    }
+}
+
+----------------------------
+
+interface Employee {
+
+    name: string;
+    paymentPerHour: number;
+    workingHours: number;
+    calculateSalary(): number;
+}
+
+class Contractor implements Employee {
+    name: string;
+    paymentPerHour: number;
+    workingHours: number;
+	
+    constructor(name: string, paymentPerHour: number, workingHours: number) {
+        this.name = name;
+        this.paymentPerHour = paymentPerHour;
+        this.workingHours = workingHours;
+    }
+
+    calculateSalary(): number {
+        return this.paymentPerHour * this.workingHours;
+    }
+}
+
+  let  contractor = new Contractor('Ramesh contractor', 10, 5);
+  console.log(employee);
+ console.log(employee.getFullName());
+
+-------------------------------------
+
+ class Employee {
+    constructor(firstName, lastName, emailId, age){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.emailId = emailId;
+        this.age = age;
+    }
+	
+	//// select "id" && RightClick ---> Refractor ---> Setter && getter
+
+    getFullName(){
+        return this.firstName + " " + this.lastName;
+    }
+
+    getFirstName(){
+        return this.firstName;
+    }
+	
+	 set lastName(lastName) {
+        this._lastName = lastName;
+    }
+}
+
+
+const employee = new Employee('Ramesh', 'Fadatare', 'ramesh@gmail.com', 29);
+console.log(employee.getFirstName());
+console.log(employee.getFullName());
+
+
+==========================================================================================================================
+ Dependency-Injection :=  // declare Services in Provider[] (app.module.ts)
+~~~~~~~~~~~~~~~~~~~~~~~
+
+ ---Components consume services; that is, you can inject a service into a component, giving the component access to that service class.
+
+ ---To define a class as a service in Angular, use the @Injectable() decorator to provide the metadata that allows Angular to inject it into a component as a dependency. Similarly, use the @Injectable() decorator to indicate that a component or other class (such as another service, a pipe, or an NgModule) has a dependency.
+
+ ---An "-injector-" creates dependencies, and maintains a container of dependency instances that it reuses if possible.
+
+ ---A "-provider-" is an object that tells an injector how to obtain or create a dependency.
+ 
+ 
+ 
+ 
+==========================================================================================================================
+
+ Ng-Module :=
+~~~~~~~~~~~~
+---contain components, service providers, and other code files whose scope is defined by the containing NgModule. 
+ 
+ ---They can import functionality that is exported from other NgModules, and export selected functionality for use by other NgModules.
+ 
+  Eg :=
+ ~~~~~
+import { NgModule }      from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+@NgModule({
+  imports:      [ BrowserModule ],
+  providers:    [ Logger ],
+  declarations: [ AppComponent ],
+  exports:      [ AppComponent ],
+  bootstrap:    [ AppComponent ]
+})
+export class AppModule { }
+
+==========================================================================================================================
+
+==========================================================================================================================

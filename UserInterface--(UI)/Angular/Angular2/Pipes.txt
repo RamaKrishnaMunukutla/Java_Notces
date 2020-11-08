@@ -1,0 +1,85 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-employeelist',
+  templateUrl: './employeelist.component.html',
+  styleUrls: ['./employeelist.component.css']
+})
+export class EmployeelistComponent implements OnInit {
+
+  employees: any[];
+
+  constructor() {
+
+    this.employees = [
+      { "id": 101, "name": "rama", "age": 22,gender:'male' },
+      { "id": 102, "name": "krishna", "age": 26,gender:'male' },
+      { "id": 103, "name": "rk", "age": 23,gender:'male' }
+    ];
+
+  }
+
+  getEmployees(): void {
+
+    this.employees = [
+      { id: 101, name: 'rama', age: 22,gender:'male'},
+      { id: 102, name: 'krishna', age: 26 ,gender:'male'},
+      { id: 103,name: 'rk', age: 23 ,gender:'male'},
+      { id: 104, name: 'radhakrishna', age: 27,gender:'female' }
+    ];
+
+  }
+trackByEmpcode(index: number, employee: any): string {
+
+    return employee.name;
+  }
+
+ngOnInit() {
+  }
+
+}
+=====================================================
+import { Pipe, PipeTransform } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+
+@Pipe({
+  name: 'employeeTitle'
+})
+export class EmployeeTitlePipe implements PipeTransform {
+
+  transform(value: string,gender:string): string {
+    if(gender.toLowerCase()=='male'){
+      return "Mr. "+value;
+    }
+    else if(gender.toLowerCase()=='female'){
+      return "Miss. "+value;
+    }
+    
+  }
+
+}
+
+==============================================================
+<table>
+    <thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Age</th>
+<th>Gender</th>
+</tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of employees;trackBy:trackByEmpcode;">
+        <td>{{emp.id}}</td> 
+        <td>{{emp.name |employeeTitle:emp.gender}}</td> 
+        <td>{{emp.age}}</td> 
+        <td>{{emp.gender}}</td>
+        </tr>
+        <tr *ngIf="!employees || employees.length==0">
+            <td colspan="4">No Data Found</td>
+        </tr>
+    </tbody>
+</table><br>
+
+<button (click)="getEmployees()">Employee list</button>

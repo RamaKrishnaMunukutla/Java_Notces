@@ -1,0 +1,175 @@
+
+Relational DataBase Management Systems(RDBMS):=
+----------------------------------------------
+It is a software system, which can be used to represents data in the form of tables. RDBMS will use SQL2 as a Queries  language.
+
+
+Object Oriented DataBase Management Systems(OODBMS):= 
+----------------------------------------------------
+ It is a software system, which can be used to represent the data in the form of objects. This DBMS will use OQL as a Query language.
+
+
+Object Relational DataBase Management Systems(ORDBMS):=
+------------------------------------------------------
+ It is a DBMS which will represents some part of the data in the form of tables and some other part of the data in the form of objects. This management system will use SQL3 as a Query Language, it is a combination of  SQL2 and OQL.
+ 
+======================================================
+Class.forName("oracle.jdbc.driver.OracleDriver");
+Connection con=DriverManager.getConnection("jdbc:oracle:thin:
+                                             @localhost:1521:xe", "system","rama");
+======================================================
+Foreign key:=
+--------------
+------>Represents relation between 2 tables.It is a column (or a group of           columns) whose values are derived from Primary Key of some other           values.
+=======================================================
+Joins:=
+------                       
+   --Equi  --Non-Equi   --Outer(Left,Right,Full)  --Self    --Natural   --Cross/Cartisian
+
+Equi(inner/simple):=Equal operator in where clause of select statement(one  -----------------------  cloumn common mandatory). no common values ---not                                         displayed in output.
+
+-----select e.eid , e.ename, e.sal , d.deptno from emp e Inner join dept d on ( e.deptno= d.deptno) // combine tables.
+
+-----select e.eid , e.ename, e.sal , d.deptno from emp e Inner join dept d on ( e.deptno= d.deptno) where sal in (select max(sal) from emp)
+////////Highest sal empname and dept no///////
+
+-----select e.eid , e.ename, e.sal , d.deptno from emp e Inner join dept d on ( e.deptno= d.deptno) where sal in (select max(sal) from emp group by deptno)
+///////// Highest salary of emp in each dept/////////
+===========================================
+
+
+ Equi Join := Common columns are displayed from 2-tables based on Primary-Key .
+ ~~~~~~~~~~~
+
+non-Equi:=Joins 2 tables even thought there is no common columns.
+------------
+
+Outer:=information lost in equi join is recovered in this.
+------
+                        Left----(Equi) + (Information lost in Left hand side table)
+                        Right----(Equi) + (Information lost in Right hand side table)
+                        Full----(Equi) + (Information lost in Left+Right hand side table)
+
+
+Self:= Joining itself when ther is realtion between 2 columns of same table.
+------   Primary and foreign keys in same table
+
+
+Natural:= Here common columns are displayed at starting position
+------
+
+Cross:=Combination/Product of 2 tables ('m' rows in table1 * 'n' rows in table 2)
+-------
+
+======================================================
+Normalisation is the process to remove data redundancy from data base
+=======================================================
+Foreign key is nothing but a Primary Key of another Table, Which make the relation between that table;
+=======================================================
+
+------>Count(*) function is used to count the number of rows in a SQL query
+
+------>SQL TRUNCATE command is used to delete all the rows from the table and free the space containing the table.
+
+------> DELETE does not free the space containing the table and TRUNCATE free the space containing the table.
+
+------>AS SQL clause is used change the name of a column in the result set or to assign a name to a derived column.
+
+------>SELECT * FROM Persons ORDER BY FirstName DESC
+
+------>ORDER BY SQL keyword is used to sort the result-set 
+
+------>SELECT city, temperature, condition FROM weather WHERE condition NOT IN (‘sunny’, ‘cloudy’)
+
+
+=======================================================
+Nth highest salary:=
+----------------------
+select * from(
+select ename, sal, dense_rank() 
+over(order by sal desc)r from Emp) 
+where r=&n;
+=======================================================
+------>Index~~~~~~Select instr(ename,'r') from emp where ename='ram'
+
+------>Length~~~~~select length(ename) from emp
+
+------>Replace~~~~select REPLACE(ename,'r','$') from emp
+
+------>Combine~~~select eid+ '_'+ename as RRR from EMP
+
+------>Translate~~~~~Select translate(ename,   ' % ',   ' ') from employee
+
+------>Denormalization is used to access the data from higher or lower normal form of database. It also processes redundancy into a table by incorporating data from the related tables.
+
+------>SQL or Structured Query Language is a language which is used to communicate with a relational database. It provides a way to manipulate and create databases. On the other hand, PL/SQL is a dialect of SQL which is used to enhance the capabilities of SQL. It was developed by Oracle Corporation in the early 90's. It adds procedural features of programming languages in SQL.
+
+------>Union, Intersect or Minus operators are called set operators.
+
+------>To give rank 
+select eid, ename,sal, rank() over(order by sal desc) as rankkk from emp
+
+select eid, ename,sal, rank() over(partition by deptno order by sal desc) as rankkk from emp
+
+select eid, ename,sal, dense_rank() over(partition by deptno order by sal desc) as rankkk from emp
+
+------>Procedures have in & out parameters and precompiled
+
+------>Functins can have only in parameters and not precompiled
+
+------>Without using subQuries~~~~~Minus
+
+------>Oracle supports all OS
+
+------>MS SQl is P-Sql nas Ansi-SQL
+
+------>MySql is open source DBMS , supports various OS (has free and paid V)
+
+------>DB2 (RDB product)developed in 1983 by  IBM
+
+
+================/\/\/\/\/\=====/\/\/\/============\/\/\/\==========
+
+                                      NEW VERSION JAVA(1.8)
+                                     ------------------------------------
+
+
+------>Lambda expressions used  represent one method interface using an expression, treated as a function, so compiler does not create .class file.
+
+------>PARTITION BY will not raise error if not used
+
+------>Foreign key constraint(total  6)  does not enforce uniqueness
+
+------>“SELECT” clause cannot used without the clause “FROM”
+
+------>MODIFY command that lets you change one or more fields in a record .
+
+------>DDL is the subset of SQL commands used to manipulate Oracle Database structures, including tables
+
+------> SELECT *; // error----No table mentioned
+
+------>SELECT DISTINCT command is used to SELECT only one copy of each set of duplicable rows
+
+------>Modify used with "Alter"
+
+------>Where clause  used to “Filters out unwanted data”
+
+------>Modify , Alter, From are Query clause.
+
+------>SQL server can join the indexes when only multiple indexes combined can cover the query
+
+------>All aggregate functions except Count(attribute) ignore null values in their input collection.
+
+=======================================================
+
+----Find all the cities with temperature, condition and humidity whose humidity is in the range of 63 to 79.
+
+SELECT * FROM weather WHERE humidity BETWEEN 63 AND 79
+
+=======================================================
+-----.Find the name of those cities with temperature and condition whose condition is either sunny or cloudy but temperature must be greater than 70.
+
+SELECT city, temperature, condition FROM weather WHERE condition = ‘sunny’ OR condition = ‘cloudy’ AND temperature > 70
+
+
+=======================================================

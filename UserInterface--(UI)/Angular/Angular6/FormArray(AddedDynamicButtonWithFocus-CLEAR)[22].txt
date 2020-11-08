@@ -1,0 +1,372 @@
+
+
+  https://csharp-video-tutorials.blogspot.com/2018/09/angular-6-tutorial-for-beginners.html
+
+
+================================================================================
+
+createemployee.component.ts :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl, FormArray } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, Validator } from '@angular/forms';
+import { CustomValidators } from '../custom-validators';
+@Component({
+  selector: 'app-createemployee',
+  templateUrl: './createemployee.component.html',
+  styleUrls: ['./createemployee.component.css']
+})
+export class CreateemployeeComponent implements OnInit {
+
+  employeeForm: FormGroup;
+
+  constructor(private formBulder: FormBuilder) { }
+
+  formErrors = {
+    'fullName': '',
+    'email': '',
+    'phone': '',
+    'confirmEmail': '',
+    'skillName': '',
+    'experienceInYears': '',
+    'proficiency': ''
+  };
+
+  // Include required error message for phone form control
+  validationMessages = {
+    'fullName': {
+      'required': 'Full Name is required.',
+      'minlength': 'Full Name must be greater than 2 characters',
+      'maxlength': 'Full Name must be less than 10 characters.',
+    },
+    'email': {
+      'required': 'Email is required.',
+      'emailDomain': 'Email domian should be aa.com'
+    },
+    'confirmEmail': {
+      'required': 'Confirm Email is required.'
+    },
+    'emailGroup': {
+      'emailMismatch': 'Email and Confirm Email do not match.'
+    },
+    'phone': {
+      'required': 'Phone is required.'
+    },
+    'skillName': {
+      'required': 'Skill Name is required.',
+    },
+    'experienceInYears': {
+      'required': 'Experience is required.',
+    },
+    'proficiency': {
+      'required': 'Proficiency is required.',
+    },
+  };
+
+  //employeeForm: FormGroup;
+  //private formBulder: FormBuilder
+  //group: FormGroup   CustomValidators
+  ngOnInit() {
+    this.employeeForm = this.formBulder.group({
+      fullName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(10)]],
+      contactPreference: ['email'],
+      emailGroup: this.formBulder.group({
+
+        email: ['', [Validators.required, CustomValidators.emailDomain('aa.com')]],
+        confirmEmail: ['', [Validators.required]],
+      }, { validator: matchEmails }),
+      phone: [''],
+      skills: this.formBulder.array([ //"Skills" is a Fomr-Array having Form-Group ai index posituon zero.
+        this.addSkillFormGroup()
+      ])
+    });
+
+    this.employeeForm.valueChanges.subscribe((data) => {
+      this.logValidationErrors(this.employeeForm);
+    });
+
+    this.employeeForm.get('contactPreference').valueChanges.subscribe((data: string) => {
+      this.onContactPrefernceChange(data);
+    });
+  }
+  //=========================================================
+
+ //Dynamic adds-Form on Clicking && Pushing into Form-Array(skills)
+  addSkillButtonClick(): void {
+    (<FormArray>this.employeeForm.get('skills')).push(this.addSkillFormGroup());
+
+  }
+  //=========================================================
+
+
+  //New Form-Control are generated Dynamically...
+  addSkillFormGroup(): FormGroup {
+    return this.formBulder.group({
+      skillName: ['', Validators.required],
+      experienceInYears: ['', Validators.required],
+      proficiency: ['', Validators.required]
+    })
+    console.log((<FormArray>this.employeeForm.get('skills')).push(this.addSkillFormGroup()))
+  }
+  //=========================================================
+
+
+
+  //Resposible for Displaying/Hinding validationMessages
+
+  logValidationErrors(group: FormGroup = this.employeeForm): void {
+    Object.keys(group.controls).forEach((key: string) => {
+      const abstractControl = group.get(key);
+      this.formErrors[key] = '';
+      // Loop through nested form groups and form controls to check
+      // for validation errors. For the form groups and form controls
+      // that have failed validation, retrieve the corresponding
+      // validation message from validationMessages object and store
+      // it in the formErrors object. The UI binds to the formErrors
+      // object properties to display the validation errors.
+      if (abstractControl && !abstractControl.valid
+        && (abstractControl.touched || abstractControl.dirty)) {
+        const messages = this.validationMessages[key];
+        for (const errorKey in abstractControl.errors) {
+          if (errorKey) {
+            this.formErrors[key] += messages[errorKey] + ' ';
+          }
+        }
+      }
+
+      if (abstractControl instanceof FormGroup) {
+        this.logValidationErrors(abstractControl);
+      }
+
+      if (abstractControl instanceof FormArray) {//Checking Instance of FormArray
+        for (const control of abstractControl.controls) {
+          if (control instanceof FormGroup) {
+            this.logValidationErrors(control);
+          }
+        }
+
+      }
+
+    });
+  }
+  //=========================================================
+
+
+
+  //ChangingValidation onClicking RadioButton
+  onContactPrefernceChange(selectedValue: string) {
+    const phoneFormControl = this.employeeForm.get('phone');
+    if (selectedValue === 'phone') {
+      phoneFormControl.setValidators(Validators.required);
+    } else {
+      phoneFormControl.clearValidators();
+    }
+    phoneFormControl.updateValueAndValidity();
+  }
+  //=========================================================
+
+
+
+  onLoadDataClick(): void {
+    this.logValidationErrors(this.employeeForm);
+    console.log(this.formErrors)
+  }
+  //=========================================================
+ 
+
+}
+
+//Custom-Validation
+function matchEmails(group: AbstractControl): { [key: string]: any } | null {
+  const emailControl = group.get('email');
+  const confirmEmailControl = group.get('confirmEmail');
+
+  if (emailControl.value === confirmEmailControl.value || confirmEmailControl.pristine) {
+    return null;
+  } else {
+    return { 'emailMismatch': true };
+  }
+}
+
+
+=====================================================================================
+
+createemployee.component.html :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  <form [formGroup]="employeeForm" class="form-horizantal">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h2 class="panel-title">Create Employee</h2>
+        </div>
+
+        <div class="panel-body">
+            <div class="form-group" [ngClass]="{'has-error': formErrors.fullName}">
+                <label class="col-sm-2 control-label" for="fullName">FullName</label>
+                <div class="col-sm-8">
+                    <input id="fullName" formControlName="fullName" type="text" class="form-control"
+                        (blur)="logValidationErrors()">&nbsp;
+                    <span style="color:red" class="help-block" *ngIf="formErrors.fullName">
+                        {{formErrors.fullName}}
+                    </span>
+                </div>
+            </div>
+            <!-- ====================================================================================== -->
+
+            <div class="form-group">
+                <label class="col-md-2 control-label">Contact Preference</label>
+                <div class="col-md-8">
+                    <label class="radio-inline">
+                        <input type="radio" value="email" formControlName="contactPreference">Email
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" value="phone" formControlName="contactPreference">Phone
+                    </label>
+                </div>
+            </div>
+
+            <div formGroupName="emailGroup">
+                <div class="form-group" [ngClass]="{'has-error': formErrors.email}">
+                    <label class="col-sm-2 control-label" for="email">Email</label>
+                    <div class="col-sm-8">
+                        <input id="email" type="text" class="form-control" formControlName="email"
+                            (blur)="logValidationErrors()">
+                        <span style="color:red" class="help-block" *ngIf="formErrors.email">
+                            {{formErrors.email}}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group" [ngClass]="{'has-error': formErrors.confirmEmail
+                                                || formErrors.emailGroup}">
+                    <label class="col-sm-2 control-label" for="confirmEmail">
+                        Confirm Email
+                    </label>
+                    <div class="col-sm-8">
+                        <input id="confirmEmail" type="text" class="form-control" formControlName="confirmEmail"
+                            (blur)="logValidationErrors()">
+                        <span style="color:red" class="help-block"
+                            *ngIf="formErrors.confirmEmail || formErrors.emailGroup">
+                            {{formErrors.confirmEmail ? formErrors.confirmEmail
+          : formErrors.emailGroup}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- ====================================================================================== -->
+
+            <!-- Phone input element -->
+            <div class="form-group" [ngClass]="{'has-error': formErrors.phone}">
+                <label class="col-sm-2 control-label" for="email">Phone</label>
+                <div class="col-sm-8">
+                    <input id="phone" type="text" class="form-control" formControlName="phone"
+                        (blur)="logValidationErrors()">
+                    <span style="color:red" class="help-block" *ngIf="formErrors.phone">
+                        {{formErrors.phone}}
+                    </span>
+                </div>
+            </div>
+            <!--   <!-- -===========Skill Button============== -->  
+            <div class="well">
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-4">
+                        <button type="button" class="btn btn-primary" (click)="addSkillButtonClick()">
+                            Add Skill
+                        </button>
+                    </div>
+                </div>
+
+                <!-- -===========Dynamically Adds Skills Form============== -->
+
+                <div formArrayName="skills" *ngFor="let skill of employeeForm.get('skills').controls; let i=index">
+                    <div [(formGroupName)]="i">
+
+
+
+                        <div class="form-group" [ngClass]="{'has-error': formErrors.skillName}">
+                            <label class="col-sm-2 control-label" [attr.for]="'skillName'+i">
+                                Skill
+                            </label>
+                            <div class="col-sm-4">
+                                <!-- =======Here "ID && FOR" is binded(pROPERTY) to get Focus for FormControl in FormGroup of FromArray======= -->
+                                <input type="text" class="form-control" [id]="'skillName'+i" formControlName="skillName"
+                                    (blur)="logValidationErrors()" placeholder="C#, Java, Angular etc...">
+                                <span style="color:red" class="help-block" *ngIf="formErrors.skillName">
+                                    {{formErrors.skillName}}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" [ngClass]="{'has-error': formErrors.experienceInYears}">
+                            <label class="col-sm-8 control-label" [for]="'experienceInYears'+i">
+                                Experience
+                            </label>
+                            <div class="col-sm-4">
+                                <!-- =======Here "ID && FOR" is binded(PROPERTY) is binded to get Focus for FormControl in FormGroup of FromArray======== -->
+                                <input type="text" class="form-control" [id]="'experienceInYears'+i"
+                                    formControlName="experienceInYears" placeholder="In Years"
+                                    (blur)="logValidationErrors()">
+                                <span style="color:red" class="help-block" *ngIf="formErrors.experienceInYears">
+                                    {{formErrors.experienceInYears}}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" [ngClass]="{'has-error': formErrors.proficiency}">
+                            <label class="col-md-2 control-label">Proficiency</label>
+                            <div class="col-md-8">
+                                <label class="radio-inline">
+                                    <input type="radio" value="beginner" formControlName="proficiency"
+                                        (blur)="logValidationErrors()">Beginner
+                                </label>&nbsp;
+                                <label class="radio-inline">
+                                    <input type="radio" value="intermediate" formControlName="proficiency"
+                                        (blur)="logValidationErrors()">Intermediate
+                                </label>&nbsp;
+                                <label class="radio-inline">
+                                    <input type="radio" value="advanced" formControlName="proficiency"
+                                        (blur)="logValidationErrors()">Advanced
+                                </label>&nbsp;
+                                <span style="color:red" class="help-block" *ngIf="formErrors.experienceInYears">
+                                    {{formErrors.proficiency}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="panel-footer">
+                    <button class="btn btn-primary" type="submit">Submit</button> &nbsp; &nbsp;
+                    <button class="btn btn-primary" type="button" (click)="onLoadDataClick()">SaveData</button>
+                </div>
+=====================================================================================
+
+import { AbstractControl } from '@angular/forms';
+
+export class CustomValidators {
+    static emailDomain(domainName: string) {
+        return (control: AbstractControl): { [key: string]: any } | null => {
+            const email: string = control.value;
+            const domain = email.substring(email.lastIndexOf('@') + 1);
+            if (email === '' || domain.toLowerCase() === domainName.toLowerCase()) {
+                return null;
+            } else {
+                return { 'emailDomain': true };
+            }
+        };
+    }
+}
+=====================================================================================
+app.component.html :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<div class="container">
+  <nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+      <li><a routerLinkActive="active" routerLink="list"><h1>List</h1></a></li>
+      <li><a routerLinkActive="active" routerLink="create"><h1>Create</h1></a></li>
+    </ul>
+  </nav>
+<router-outlet></router-outlet>
+</div>
+=====================================================================================
+

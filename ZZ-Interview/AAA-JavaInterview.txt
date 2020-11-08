@@ -1,0 +1,1079 @@
+ 
+
+ 
+==========================================================================================================
+
+SEARCH:=
+~~~~~~~
+                  ...........thisANDSuper123..............RegularExpressions123....................... 
+
+    .....I/O11...............Serialization123.............SERIALIZABLEandEXTERNALIZABLE.........FoundException
+	
+	.......GarbageCollection123.............StringBufferBuilder123.............ASCII-123 ............
+	 
+	 ......UpcastingANDDownCasting.........Enum123.......JDBC876.............Arrays-123..........
+	  
+	......Learn111............InterfacesJDBC123............	Association123................		 
+			 
+==========================================================================================================
+
+
+--->           DAO == RESPOSITORY 
+               SERVICE == FACADE
+			   RESOURCE == CONTROLLER
+			   
+
+-----> Concurrency --- Multiple-Operation At a time 
+       Synchronization ---  One After Other.(only one thread will be able to execute the code) 
+                                                      	   On (Class, Methods, Blocks, Final-Variables)
+			   
+			   
+----> Heap-Memory ---- Objects, Strings, String-Constant-Pool && isn’t thread-safe
+	              ---- [needs Garbage Collector to-free-up unused objects]
+				  ---- If heap space is full, Java throws java.lang.OutOfMemoryError
+
+      Stack-Memory --- Local && references variables, Methods (access One-Thread only) 
+				   ---[fast when compared to heap memory. This memory is thread-safe ]
+				   --- If this memory is full, Java throws java.lang.StackOverFlowError  
+	  
+      Method-Area --- Static variables & Methods
+	  
+	 
+	 PC Registers --- Each thread has a Program Counter (PC) register associated with it. 
+	              --- PC register stores the return address or a native pointer. 
+				  --- It also contains the address of the JVM instructions currently being executed.
+				   
+  Native Method Stack --- It is also known as C stack. 
+                      --- It is a stack for native code written in a language other than Java
+
+===============================================================================================================
+
+
+---> "==" is a binary operator used to compare primitives && Object-References
+
+---> "equals" used to compare Object-values.
+
+---> cloneable && Serializable Interfaces are MarkerInterface.
+
+
+ Marker-Interface :=
+~~~~~~~~~~~~~~~~~~
+ --- It does not contain any methods or fields by implementing these interfaces a class will exhibit a special behavior with respect to the interface 
+
+----> you can make an array volatile in Java but only the reference which is pointing to an array, not the whole array.if one thread changes the reference variable to points to another array, that will provide a volatile guarantee, but if multiple threads are changing individual array elements they won't be having happens before guarantee provided by the volatile modifier.
+
+----> No "++" not a thread safe operator because its involve multiple instructions like reading a value, incriminating it and storing it back into memory which can be overlapped between multiple threads.
+
+
+---->An Integer object will take more memory an "int" since it is object and it  store meta data overhead about the object and int is primitive type so its takes less space.
+
+
+---->The String is Immutable in java because java designer thought that string will be heavily used and making it immutable allow some optimization easy sharing same String object between multiple clients. (*********)
+
+---->When you call one constructor from other than it's known as constructor chaining in Java. This happens when you have multiple overloaded constructor in the class.
+
+
+---->The size of an int variable is constant in Java, it's always 32-bit irrespective of platform. Which means the size of primitive int is same in both 32-bit and 64-bit Java virtual machine.
+ 
+ 
+---->Though both WeakReference and SoftReference helps garbage collector and memory efficient, WeakReference becomes eligible for garbage collection as soon as last strong reference is lost but SoftReference even thought it can not prevent GC, it can delay it until JVM absolutely need memory.
+
+
+---->A class is a blueprint on which objects are created. A class has code and behavior but an object has both the state and behavior. You cannot create an object without creating a class to represent its structure. The class is also used to map an object in memory, in Java, JVM does that for you.
+
+
+---->WeakHashMap works like a normal HashMap but uses WeakReference for keys, which means if the key object doesn't have any reference then both key/value mapping will become eligible for garbage collection.
+
+
+---->A mock object is very useful to test an individual unit in your Software.In Java world, there are a lot of frameworks which can create powerful mock objects for you e.g. Mockito and PowerMock.
+
+
+--->Singleton is a class which has only one instance in whole application and provides a getInstance() method to access the singleton instance. 
+ 
+
+What is loose-coupling?
+Loose coupling is a desirable quality of software, which allows one part of the software to modify without affecting another part of the software. For example, in a loosely coupled software, a change in UI layout should not affect the back-end class structure.
+
+
+Association123:= (Has-A) (*********)
+~~~~~~~~~~~~~~
+ --- Relationship between two objects is known as the association.Both Composition and Aggregation are the form of association between two objects
+     
+	 ---- example of Aggregation(weak) is Library & Students
+	 ---- example of Composition is Library && Books 
+ 
+--->Encapsulation allows you to change one part of code without affecting other parts of code
+
+
+---->How to write immutable class in Java??
+ --- making class FINAL && variables as PRIVATE && FINAL.
+ --- Immutable objects are by default thread safe, can be shared without synchronization in concurrent environment.
+ --- Another important benefit of Immutable objects is reusability, you can cache Immutable object and reuse them, much like String literals
+ --- Immutable object has disadvantage of creating garbage as well.
+ 
+ 
+----> asynchronous - not synchronous; not occurring or existing at the same time or having the same period or phase.
+
+
+Why strings are immutable in Java What are its benefits?
+Immutable objects are naturally thread-safe Because immutable objects can not be changed, they can be shared among multiple threads freely.
+
+
+---->you can find out how many percents of the heap is used and how much heap space is remaining. /
+   Runtime.freeMemory() return amount of free memory in bytes, 
+   Runtime.totalMemory() returns total memory in bytes and 
+   Runtime.maxMemory() returns maximum memory in bytes.
+   
+----> Please note that we can use synchronized keyword in the class on defined methods or blocks. synchronized keyword can not be used with variables or attributes in class definition. (*******)
+ 
+ 
+ public class DemoClass
+{
+    public synchronized void demoMethod(){}
+}
+ 
+or
+ 
+public class DemoClass
+{
+    public void demoMethod(){
+        synchronized (this)
+        {
+            //other thread safe code
+        }
+    }
+}
+
+---->Object level lock is mechanism when we want to synchronize a non-static method or non-static code block such that only one thread will be able to execute the code block on given instance of the class. This should always be done to make instance level data thread safe.
+
+public class DemoClass
+{
+    //Method is static
+    public synchronized static void demoMethod(){
+ 
+    }
+}
+ 
+or
+ 
+public class DemoClass
+{
+    public void demoMethod()
+    {
+        //Acquire lock on .class reference
+        synchronized (DemoClass.class)
+        {
+            //other thread safe code
+        }
+    }
+}
+
+
+
+---->synchronized keyword can be used only with methods and code blocks. These methods or blocks can be static or non-static both.
+
+It’s possible that both static synchronized and non static synchronized method can run simultaneously or concurrently because they lock on different object. (********)
+
+According to the Java language specification you can not use synchronized keyword with constructor. It is illegal and result in compilation error. (*********)
+
+Do not synchronize on non final field on synchronized block in Java. because reference of non final field may change any time and then different thread might synchronizing on different objects i.e. no synchronization at all. (*********)
+
+
+---->volatile variable, which will instruct JVM threads to read the value of the volatile variable from main memory and don’t cache it locally.
+ 
+=====================================================================================
+
+---->if you know size in advance and you don't need re-sizing than use array, otherwise use ArrayList to Storing object.
+ 
+---->How do you find if JVM is 32-bit or 64-bit from Java Program? (answer)
+You can find that by checking some system properties like sun.arch.data.model or os.arch
+ 
+
+---->JDBC simplifies the use of JDBC and helps to
+             --avoid common errors.
+			 --It executes core JDBC workflow, leaving application code to provide SQLand extract results. 
+			 --This class executes SQL queries or updates, initiating iteration over ResultSets and catching JDBC exceptions and translating them to the generic, more informative exception hierarchy defined in the org.springframework.dao package. 
+
+---->String is not a primitive data type in java. When a string is created in java, it's actually an object of Java.Lang.String class that gets created. After creation of this string object, all built-in methods of String class can be used on the string object.
+
+----> Runnable interface is used in java for implementing multi threaded applications. Java.Lang.Runnable interface is implemented by a class to support multi threading.
+
+----> When a lot of changes are required in data, which one should be a preference to be used? String or StringBuffer?.....Since StringBuffers are dynamic in nature and we can change the values of StringBuffer objects unlike String which is immutable, it's always a good choice to use StringBuffer when data is being changed too much. If we use String in such a case, for every data change a new String object will be created which will be an extra overhead.
+
+----> if no explicit constructor is defined in a java class, objects get created successfully as a default constructor is implicitly used for object creation. This constructor has no parameters.
+
+----> Main method is an entry point of Java class and is required for execution of the program however; a class gets compiled successfully even if it doesn't have a main method. It can't be run though.
+
+----> Non-Static methods are owned by objects of a class and have object level scope and in order to call the non-Static methods from a static block (like from a static main method), an object of the class needs to be created first. Then using object reference, these methods can be invoked.
+
+---->Static methods can't be overridden in any class while any methods in an interface are by default abstract and are supposed to be implemented in the classes being implementing the interface. So it makes no sense to have static methods in an interface in Java.
+
+---->If we declare the constructor of a class as private, it will not be accessible by any other class and hence, no other class will be able to instantiate it and formation of its object will be limited to itself only.
+
+---->anonymous class is a class defined without any name in a single line of code using new keyword.
+
+---->To persist data for future use is to use the concept of serialization.
+
+===============================================================================================
+ 
+ FoundException :=
+~~~~~~~~~~~~~~~~~
+
+
+ ClassNotFoundException :=  ( Youtube ----> SHIVA-REDDY [**********] )
+~~~~~~~~~~~~~~~~~~~~~~~~
+ ---ClassNotFoundException is a run time exception which is thrown when an application tries to load a class at run time using Class.forName() or loadClass() or findSystemClass() methods and the class with specified name are not found in the classpath. 
+  
+ ---For example, you may have come across this exception when you try to connect to MySQL or Oracle databases and you have not updated the classpath with required JAR files. 
+
+
+ NoClassDefFoundError :=
+~~~~~~~~~~~~~~~~~~~~~~~
+ ---Occurs when Dot-Class-file is deleted (Or) Renamed (Or) different-Package 
+       (which is present at Compile-Time mayNot ar RunTime) from directory. 
+	   
+	   
+	          ClassNotFoundException ---->  Unable to find / Load Class in Given Path
+   
+	          NoClassDefinationFound ----> SomeOne deleted Dot-Class File. 
+
+===============================================================================================
+
+
+---->If a method is capable of throwing an exception that it could not handle, then it should specify that exception using "throws" keyword.
+
+---->Multiple exceptions can be declared using throws keyword separated by commas.The main use of throws keyword in java is that an exception can be propagated through method calls.
+
+----> local inner class can not be declared as private or protected or public.
+
+---->If you are checking multidimensional arrays for equality, then use deepEquals() method of Arrays class instead of equals() method. Because, deepEquals() performs deep comparison of both the arrays.
+
+====================================================================================
+
+String:= [...returns the reference of that object. It doesn’t create new object...]
+~~~~~~~
+---->String is a derived type.There are two ways to create string objects in java. One is using new operator and another one is using string literals. The objects created using new operator are stored in the heap memory and objects created using string literals are stored in string constant pool.
+
+---->String Constant Pool is one such arrangement. String Constant Pool is the memory space in heap memory specially allocated to store the string objects created using string literals. In String Constant Pool, there will be no two string objects having the same content.
+
+---->Whenever you create a string object using string literal, JVM first checks the content of the object to be created. If there exist an object in the string constant pool with the same content, then it returns the reference of that object. It doesn’t create a new object. If the content is different from the existing objects then only it creates new object.
+
+---->The objects of String class are immutable in nature. i.e you can’t modify them once they are created. If you try to modify them, a new object will be created with modified content. This may cause memory and performance issues if you are performing lots of string modifications in your code. To overcome these issues, StingBuffer and StringBuilder classes are introduced in java.
+
+---->I prefer equals() method because it compares two string objects based on their content. That provides more logical comparison of two string objects. If you use “==” operator, it checks only references of two objects are equal or not. It may not be suitable in all situations. So, rather stick to equals() method to compare two string objects
+
+---->String s1 = new String("abc");
+ String s2 = "abc";
+Here, two string objects will be created. Object created using new operator(s1) will be stored in the heap memory. The object created using string literal(s2) is stored in the string constant pool.
+
+
+---->StringBuffer class gives better performance in this scenario. As String class is immutable, if you use this class, a new object will be created after every string concatenation or string modification. This will lower the performance of the code. You can use StringBuilder also, but it is not thread safe. So, StringBuffer will be optimal choice here.
+
+---->strings are not terminated with null character. Strings are treated as objects in java.
+
+---->String s1 = new String("abc");
+String s2 = new String("abc");
+Two objects will be created and they will be stored in the heap memory.
+
+----> we can call String class methods using string literals.
+
+---->What do you think about string constant pool? Why they have provided this pool as we can store string objects in the heap memory itself?
+String constant pool increases the reusability of existing string objects. When you are creating a string object using string literal, JVM first checks string constant pool. If that object is available, it returns reference of that object rather creating a new object. This will also speed up your application as only reference is returned and also saves the memory as no two objects with same content are created.
+
+---->What is the similarity and difference between String and StringBuffer class?
+The main similarity between String and StringBuffer class is that both are thread safe. The main difference between them is that String objects are immutable where as StringBuffer objects are mutable. (***********)
+
+---->In Java, strings are special. Java gives some special attention to string types that no other types enjoy such attention. For example, to create the string objects you need not to use ‘new‘ keyword. Where as to create other type of objects you have to use ‘new’ keyword. Like this, strings enjoy some special attention by the java. This attention is worth the while, because the strings are used almost everywhere while developing any kind of applications.
+
+---->We all know that JVM divides the allocated memory to a Java program into two parts. one is Stack and another one is heap. Stack is used for execution purpose and heap is used for storage purpose. In that heap memory, JVM allocates some memory specially meant for string literals. This part of the heap memory is called String Constant Pool.
+Whenever you create a string object using string literal, that object is stored in the string constant pool and whenever you create a string object using new keyword, such object is stored in the heap memory.
+
+---->One more interesting thing about String Constant Pool is that, pool space is allocated to an object depending upon it’s content. There will be no two objects in the pool having the same content.
+
+---->When you create a string object using string literal, JVM first checks the content of to be created object. If there exist an object in the pool with the same content, then it returns the reference of that object. It doesn’t create new object. If the content is different from the existing objects then only it creates new object.
+(*************************)
+
+---->But, when you create string objects using new keyword, a new object is created whether the content is same or not.
+(**********************)
+
+---->   String s1 = "abc";
+		 
+        String s2 = "abc";
+ 
+        System.out.println(s1 == s2);       
+ 
+        //Creating string objects using new operator
+ 
+        String s3 = new String("abc");
+ 
+        String s4 = new String("abc");
+ 
+        System.out.println(s3 == s4);    //true and false
+
+---->there cannot be two string objects with same content in the string constant pool. But, there can be two string objects with the same content in the heap memory.
+
+---->String intern or simply intern refers to string object in the String Constant Pool. Interning is the process of creating a string object in String Constant Pool which will be exact copy of string object in heap memory.
+
+----> You can change the contents of StringBuffer and StringBuider objects at any time of execution. When you change the content, new objects are not created. Instead of that the changes are applied to existing object. Thus solving memory issues may caused by String class.
+
+---->You have to use ‘new‘ operator to create objects to StringBuffer and StringBuilder classes. You can’t use string literals to create objects to these classes. For example, you can’t write StringBuffer sb = “JAVA” or StringBuilder sb = “JAVA”. It gives compile time error. But, you can use both string literals and new operator to create objects to String class.
+
+---->As objects of StringBuffer and StringBuilder are created using only new operator, they are stored in heap memory. Where as objects of String class are created using both string literals and new operator, they are stored in string constant pool as well as heap memory. (********)
+
+---->Any immutable object in java is thread safety. Because they are unchangeable once they are created. Any type of thread can’t change the content of immutable object. This applies to objects of String class also. Of the StringBuffer and StringBuilder objects, only StringBuffer objects are thread safety. All necessary methods in StringBuffer class are synchronized so that only one thread can enter into it’s object at any point of time. Where as StringBuilder objects are not thread safety.
+
+---->String is a sequence of characters. But in Java, string is an object that represents a sequence of characters. The java.lang.String class is used to create a string object.
+
+
+---->After a string literal, all the will be treated as string concatenation operator.
+
+
+---->String class overrides the equals() method of Object class. So you can compare the contents of two strings by equals() method.	
+ 
+           StringBuffer class doesn't override the equals() method of Object class.
+	  
+	  StringBuffer ~~~~~ Multiple Threads (synchronized)
+	  StringBuilder ~~~~ Only One Thread (Non-Synchronized)
+	  
+
+---->Java StringBuilder class is used to create mutable (modifiable) string. The Java StringBuilder class is same as StringBuffer class except that it is non-synchronized. It is available since JDK 1.5. (***********)
+
+===================================================================================
+                                                    JDBC876
+													~~~~~~~~
+
+---->You can call static methods through reference variable which is pointing to null
+
+----> ODBC drivers are entirely written in C language. Therefore, they are platform dependent and cause the portability issues. They are also unsecured. That is why Java has defined its own API – JDBC API and it uses JDBC drivers, which are written entirely in java language, to interact with the databases.
+
+  JDBC Driver is a software component that enables java application to interact with the database. There are 4 types of JDBC drivers:
+ --JDBC-ODBC bridge driver
+ --Native-API driver (partially java driver)
+ --Network Protocol driver (fully java driver)
+ --Thin driver (fully java driver)
+
+---->Type 1 JDBC Drivers provide the bridge between JDBC and ODBC API and hence the name ‘JDBC-ODBC Bridge Drivers’. This type of drivers translate all JDBC calls into ODBC calls and sends them to ODBC driver which interacts with the database.
+
+---->Type 2 JDBC Driver translates all JDBC method calls into database specific calls using native API of the database.
+
+---->Type 3 JDBC Drivers make use of middle ware or application server that translates all JDBC calls into database specific calls. One of the main advantage of this driver is that it is entirely written in java language. So no portability issues. But it is costly as extra application server or middle ware component has to be maintained.
+
+---->Type 4 driver is preferred over Type 3 Driver as it removes extra layer of communication (Application Server / Middle ware) and this makes it faster than the Type 3 JDBC Driver. And also, like Type 3 JDBC Driver, It is also entirely written in java language and hence portable.
+
+---->Connecting the java application with any database using JDBC API involves 5 steps.
+
+Step 1 : Register The Driver Class
+
+Step 2 : Create The Connection Object
+
+Step 3 : Create The Statement Object
+
+Step 4 : Execute The Queries
+
+Step 5 : Close The DB Resources
+
+----> java.sql.ResultSet object which contains all the records returned by a query. You can use this ReultSet object to process the records.
+
+---->DriverManager class is a member of java.sql package which is a part of JDBC API. DriverManager class acts as the primary mediator between your java application and the drivers of the database you want to connect with. Every Driver class of the database you want to connect with, first has to get registered with DriverManager before you start interacting with the database.
+
+---->The main job of DriverManager class is loading the driver class of the database and establishing the connection with the database. DriverManager class has all appropriate methods to register and deregister the driver class of the database and to establish the connection between database and java application.
+
+---->Select ----> executeQuery(String sql) :ResultSet (here "ResultSet" contains objects results returned by Query)
+
+    U,D,I -----> executeUpdate(String sql) : int     (here "int" contains no.of rows affected by Query)
+	
+	Any -------> execute(String sql) : boolean  (TRUE indicates that statement has returned a ResultSet object and FALSE indicates that 
+	                                   statement has returned an int value or returned nothing)
+	
+	
+---->PreparedStatement is a special type of Statement object which is used to execute parameterized SQL queries.
+
+       Eg:: select * from STUDENT where ID = ?;
+
+---->Statement interface is used for DDL statements like CREATE, ALTER, DROP etc. 
+
+    Statement stmt = con.createStatement();
+    stmt.executeUpdate("CREATE TABLE STUDENT(ID NUMBER NOT NULL, NAME VARCHAR)");
+
+---->ResultSetMetaData is an interface in java.sql package of JDBC API which is used to get the metadata about a ResultSet object. Whenever you query the database using SELECT statement, the result will be stored in a ResultSet object. Every ResultSet object is associated with one ResultSetMetaData object. This object will have all the meta data about a ResultSet object like schema name, table name, number of columns, column name, datatype of a column etc. You can get this ResultSetMetaData object using getMetaData() method of ResultSet.
+
+---->creating the DAO interface to perform database related operations.
+
+---->creating a service layer interface that acts as a bridge between DAO and Entity classes.
+
+---->@componentScan is used to inform to locate and register all the Spring components with the application context when the application starts.
+
+
+---->If think about the responsibilities of a web application, we notice that a web application has the following “concerns”:
+
+It needs to process the user’s input and return the correct response back to the user.
+It needs an exception handling mechanism that provides reasonable error messages to the user.
+It needs a transaction management strategy.
+It needs to handle both authentication and authorization.
+It needs to implement the business logic of the application.
+It needs to communicate with the used data storage and other external resources.
+
+InterfacesJDBC123 :=
+~~~~~~~~~~~~~~~~~
+---> A list of popular interfaces of JDBC API are given below:
+ 
+  Driver interface (C) --------- public static void forName(String className)throws ClassNotFoundException
+  
+  DriverManager (C) ---- Acts as an interface between user and drivers. It keeps track of the drivers that are available and handles establishing a connection between a database and the appropriate driver. 
+  
+ Connection interface (I) ------ A Connection is the session between java application and database. The Connection interface is a factory of Statement, PreparedStatement, and DatabaseMetaData
+ 
+       public static Connection getConnection(String url,String name,String password) throws SQLException
+ 
+ Statement interface (I) -------- It provides methods to execute queries with the database. The statement interface is a factory of ResultSet i.e. it provides factory method to get the object of ResultSet.
+                
+				public Statement createStatement()throws SQLException 
+
+                       Statement stmt=con.createStatement(); 
+ 
+ executeQuery() method of Statement interface is used to execute queries to the database. This method returns the object of ResultSet that can be used to get all the records of a table.
+ 
+                            public ResultSet executeQuery(String sql)throws SQLException
+							
+							ResultSet rs=stmt.executeQuery("select * from emp"); 
+
+
+===========================================================
+
+                                                        Mockito
+													    ~~~~~~~~
+
+---->Mockito is a mocking framework. It is a Java-based library used to create simple and basic test APIs for performing unit testing of Java applications.
+
+----> spy():=  it overrides the specific methods of the real object. One of the functions of the spy() method is it verifies the invocation of a certain method
+
+mock():=used to create mock objects of a given class or interface. Mockito contains five mock() methods with different arguments. When we didn't assign anything to mocks, they will return default values.
+
+verify():=verify() method is used to check whether some specified methods are called or not. In simple terms, it validates the certain behavior that happened once in a test. It is used at the bottom of the testing code to assure that the defined methods are called.
+
+when():=used when we want to mock to return specific values when particular methods are called. In simple terms, "When the XYZ() method is called, then return ABC." It is mostly used when there is some condition to execute.
+
+doThrow() := used when to stub a void method to throw an exception. It creates a new exception instance for each method invocation. 
+
+atLeastOnce():= used to verify the invocation at-least-once that means the method should be invoked at least once.
+ 
+atLeast() := used to verify the invocation at least x number of times. For eg., given atLeast(3) means the method will invoke a minimum of three times.
+ 
+atMost():= used to verify the invocation at most x number of times. For eg., given atMost(3) means the method will invoke a maximum of three times.
+
+
+timeout():= allows Mockito to perform verification with a timeout. It instructs a verify to wait for a specific period of time for a particular interaction rather than to fail immediately. It may be useful for testing in existing situations.
+
+
+ 
+Example of BDD style:=
+~~~~~~~~~~~~~~~~~~~~
+Here, we are going to create an example of a BDD style test. Switching to BDD style makes a minor difference only in the test syntax. It splits the test syntax into three parts: given, when, and then that makes the code more readable.
+
+Given: We can use the setup part and the given kind of syntax.
+When: We can do the actual invocations of the test.
+Then: We can use the readable asserts like assertThat() and can also check whether the post-conditions are satisfied or not.
+
+
+---->In Mockito, annotations are useful when we want to use the mocked object at different places to avoid calling the same methods multiple times.
+
+@RunWith: It is a class-level annotation. It is used to keep the test clean and improves debugging. It also detects the unused stubs available in the test and initialize mocks annotated with @Mock annotation. The @RunWith annotation is available in the org.mockito.junit package.
+
+@Mock: It is used to mock the objects that helps in minimizing the repetitive mock objects. @Mock annotation is used to create the mock object to be injected
+
+@Spy - It allows the creation of partially mock objects. In other words, it allows shorthand wrapping of the field instances in a spy object.
+
+@InjectMocks: It marks a field or parameter on which the injection should be performed. It allows shorthand mock and spy injections and minimizes the repetitive mocks and spy injection. In Mockito, the mocks are injected either by setter injection, constructor injection, and property injection.
+                                   @InjectMocks annotation is used to create and inject the mock object
+
+
+
+---->Stubs: Stubs are the objects that hold predefined data. It acts as a temporary object for a called module and gives the same output as the original software.
+
+Mocks: Mocks are the clone or dummy objects that simulate the behavior of the real objects.
+
+Spies: Spies are the partial mock objects of the real one.
+
+
+---->The main function of using mocks is that it gives full control over the behavior of the mocked objects. The mock objects are generally used for behavior verification. The term behavior means to check the correct methods and paths that are applied to the objects.
+
+
+
+---->Mocks are mostly created by using a library or a mocking framework like Mockito, JMock, and EasyMock. It is used for testing a large suite of tests where stubs are not sufficient. One of the essential functions of mock is, we can verify how many times a given method is called.
+
+
+---->Stubs are the objects that hold predefined data and uses it to give responses during tests. In other words, a stub is an object that resembles a real object with the minimum number of methods needed for a test. Stubs are used when we don't want to use objects that would give a response with real data. A stub is referred to as the lightest, and the most static version of the test doubles.
+The main functions of the stubs are:
+
+
+It always returns the predefined output regardless of the input.
+It can be used to resemble the database objects.
+Stubs are used to reduce the complexities that occur during the creation of the real objects. They are mainly used for performing state verification.
+
+
+---->Spies are known as partially mock objects. It means spy creates a partial object or a half dummy of the real object by stubbing or spying the real ones. In spying, the real object remains unchanged, and we just spy some specific methods of it. In other words, we take the existing (real) object and replace or spy only some of its methods.
+In Mockito, spy() method is used for creating spy objects. It allows us to call the normal methods of the real object. The following code snippet shows how to use the spy() method.
+
+---->A test suite bundles a few unit test cases and runs them together. In JUnit, both @RunWith and @Suite annotation are used to run the suite test.
+
+====================================================================================================================
+		
+---->Java uses compiler and interpreter both. Java source code is converted into bytecode at compilation time. The interpreter executes this bytecode at runtime and produces output. Java is interpreted that is why it is platform independent.
+	
+	
+---->The main method is executed by the JVM, so it doesn't require to create an object to invoke the main method. So it saves memory.
+
+---->System.out.println() is used to print statement. Here, System is a class, out is the object of PrintStream class, println() is the method of PrintStream class. We will learn about the internal working of System.out.println statement later.
+
+---->JDK stands for Java Development Kit. It contains the tools andlibraries for development of Java programs. 
+
+---->JRE stands for Java Runtime Environment. This is included in JDK.JRE provides libraries and JVM that is required to run a Java  
+
+----> Java Virtual Machine (JVM) is an abstract machine that executesJava Bytecode. There are different JVM for different hardware andsoftware platforms. So JVM is platform dependent. JVM isresponsible for loading, verifying and executing the Bytecode on a platform.
+                 
+                            				 JDK > JRE > JVM
+
+
+---->  Instane~~~Heap Area
+       Static ~~~~ Method(Class) area
+	   local ~~~~~ Stack area
+
+---->Primitive data types: The primitive data types include boolean, char, byte, short, int, long, float and double.
+Non-primitive data types: The non-primitive data types include Classes, Interfaces, and Arrays,String
+
+---->There are many ways to create an object in java. They are:
+
+By new keyword
+By newInstance() method
+By clone() method
+By deserialization
+By factory method etc.
+
+
+
+----> constructor,which  constructs the values at the time of object creation.
+
+---->A constructor is used to initialize the state of an object.	
+   A method is used to expose the behavior of an object.
+   
+A constructor must not have a return type.	
+A method must have a return type.
+
+---->There is no copy constructor in Java. However, we can copy the values from one object to another like copy constructor in C++.
+ 
+ 
+---->The static method can not use non static data member or call non-static method directly.
+this and super cannot be used in static context.
+
+===========================================================================================================================
+this&&Super123:=
+~~~~~~~~~~~~~~
+THIS:=
+~~~~
+
+---->Here is given the 6 usage of java this keyword.
+
+this can be used to refer current class instance variable.
+
+this can be used to invoke current class method (implicitly). If you don't use the this keyword, compiler automatically adds this keyword while invoking the method. 
+
+this() can be used to invoke current class constructor. It is used to reuse the constructor. In other words, it is used for constructor chaining.
+
+this can be passed as an argument in the method call.
+
+this can be passed as argument in the constructor call.
+
+this can be used to return the current class instance from the method.
+
+
+SUPER:=
+~~~~~
+
+---->Usage of Java super Keyword
+
+super can be used to refer immediate parent class instance variable.
+
+super can be used to invoke immediate parent class method.
+
+super() can be used to invoke immediate parent class constructor.
+
+ 
+ 
+Rules for instance initializer block :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+There are mainly three rules for the instance initializer block. They are as follows:
+The instance initializer block is created when instance of the class is created.
+The instance initializer block is invoked after the parent class constructor is invoked (i.e. after super() constructor call).
+The instance initializer block comes in the order in which they appear.
+
+            STATIC /// NON-STATIC /// DEFAULT-CONSTRUCTOR
+
+==============================================================================================================================
+
+
+
+---->Single, multilevel and hierarchical Inheritance Supported in Java.
+
+---->The super keyword in Java is a reference variable which is used to refer immediate parent class object.
+
+----> Whenever you create the instance of subclass, an instance of parent class is created implicitly which is referred by super reference variable.
+
+
+---->Use of instance initializer block?
+ to perform some operations while assigning value to instance data member 
+
+---->final method is inherited but you cannot override it.
+
+---->A static final variable that is not initialized at the time of declaration is known as static blank final variable. It can be initialized only in static block.
+
+---->Runtime polymorphism or Dynamic Method Dispatch is a process in which a call to an overridden method is resolved at runtime rather than compile-time. (**************)
+
+In this process, an overridden method is called through the reference variable of a superclass. The determination of the method to be called is based on the object being referred to by the reference variable. (**************)
+
+                     Eg:== Bike b = new Splendor();//upcasting  
+
+
+---->Runtime polymorphism can't be achieved by data members.
+
+
+
+---->When type of the object is determined at compiled time(by the compiler), it is known as static binding.If there is any private, final or static method in a class, there is static binding.
+
+class Dog{  
+ private void eat(){System.out.println("dog is eating...");}  
+  
+ public static void main(String args[]){  
+  Dog d1=new Dog();  
+  d1.eat();  
+ }  
+} 
+
+
+
+
+---->When type of the object is determined at run-time, it is known as dynamic binding.
+
+class Animal{  
+ void eat(){System.out.println("animal is eating...");}  
+}  
+  
+class Dog extends Animal{  
+ void eat(){System.out.println("dog is eating...");}  
+  
+ public static void main(String args[]){  
+  Animal a=new Dog();  
+  a.eat();  
+ }  
+}  
+
+
+In the above example object type cannot be determined by the compiler, because the instance of Dog is also an instance of Animal.So compiler doesn't know its type, only its base type.
+
+
+----> java instanceof operator is used to test whether the object is an instance of the specified type (class or subclass or interface).
+
+class Animal{}  
+class Dog1 extends Animal{//Dog inherits Animal  
+  
+ public static void main(String args[]){  
+ Dog1 d=new Dog1();  
+ System.out.println(d instanceof Animal);//true  
+ }  
+}  
+------------------------------------------------------------------------------------
+
+---->There are four types of Java access modifiers:
+
+Private: The access level of a private modifier is only within the class. It cannot be accessed from outside the class.
+
+Default: The access level of a default modifier is only within the package. It cannot be accessed from outside the package. If you do not specify any access level, it will be the default.
+
+Protected: The access level of a protected modifier is within the package and outside the package through child class. If you do not make the child class, it cannot be accessed from outside the package.
+
+Public: The access level of a public modifier is everywhere. It can be accessed from within the class, outside the class, within the package and outside the package.
+
+
+---->The clone() method saves the extra processing task for creating the exact copy of an object. If we perform it by using the new keyword, it will take a lot of processing time to be performed that is why we use object cloning.
+
+Student18 s1 = new Student18(101, "amit");
+
+			Student18 s2 =  (Student18) s1.clone();
+
+			System.out.println(s1.rollno + " " + s1.name);
+			System.out.println(s2.rollno + " " + s2.name);
+			
+			
+
+---->wrapper class in Java provides the mechanism to convert primitive into object and object into primitive..The automatic conversion of primitive data type into its corresponding wrapper class is known as autoboxing.
+
+----> If we call a method passing a value, it is known as call by value. The changes being done in the called method, is not affected in the calling method.
+
+---->Java strictfp keyword ensures that you will get the same result on every platform if you perform operations in the floating-point variable.
+
+
+==============================================================================================================
+RegularExpressions123 :=
+~~~~~~~~~~~~~~~~~~~~~~~
+---->It is a sequence of characters  that constrcts a search pattern
+
+----> java Regex API is define a pattern for searching (or) manipulating on strings, to define constraints on strings such as Password & Email validation.
+
+----->Matcher && Pattern class are used.
+
+             Pattern pp = Pattern.compile(".xx.");.../// compiles given Regex and returns instance of pattern.
+			 
+			 Matcher mm= pp.matcher("1xxR");......//create a matcher that matches given input with pattern.
+			 
+			 Sysout (mm.matches());..............///Return boolean value          			 
+ 
+---->The start and end are represented with '^' (caret) and '$' (dollar) signs. [ “^cat”, “cat$”]
+
+-----------------------------------------------------------------------------------------------
+
+ [0-9] --->Range from '0' to '9'  ///////// [789]-->should start with any number 
+  
+     [^abc]--->Except 'abc'  ////////// {1}--->how many should pick-up  
+   
+     [a-z A-Z]----->'a' to 'd' [OR] 'm' to 'p' (inclusive)
+
+     [a-d[m-p]]-----> 'a' to 'd' [OR] 'm' to 'p' (Union)
+	 
+	  []*    ---->  Min=0 && Max=n
+	  []+    ---->  Min=1 && Max=1
+	  []?    ---->  Min=0 && Max=1
+	  
+	  []{x}   ----> Exactly 'x'
+	  []{x,y} ----> Min=x && Max=y
+	  []{,x} ---->  Min=n && Max=n
+	 
+--------------------------------------------------------------------	  
+	  
+	            "x?" -->Only '1'or not at all ( ==1 )
+				
+				"x+" --->Occures more than one time ( >=1 )
+				
+				"x*" ---> ( = >0 )
+				
+				"x{n}" ---> 'x' Occures 'n' times Only.
+				
+				"x{n, }" ---> 'x' Occures 'n' or more times.
+				
+				"x{y,z}" ---> 'x' Occures 'atleast 'y' times but less than 'z' times.
+				
+				 ?=.*[A-Z] ----> altleast One character.   \\--->goes   ()----> mustContain
+       
+------------------------------------------------------------------------------------------------------
+	    
+	 \d~~~~~~~~~Any digits [0-9]                                      \\ ---> Followed by...
+     \D~~~~~~~~~Any non-digit  [^0-9]                                 [...+] ----> Must have atleast '+' symbol	 
+     \s~~~~~~~~~Any whitespace character  [\t\n\x0B\f\r]              [...]+ ----> Concatination.
+     \S~~~~~~~~~Any non-whitespace character [^\s]
+	 
+     \w~~~~~~~~~Any word character [a-zA-Z_0-9]
+     \W~~~~~~~~~Any non-word character [^\w]
+	 
+     \b~~~~~~~~~A word boundary
+     \B~~~~~~~~~A non word boundary 
+	   
+	    
+  \\d{3} -----> \\d = only digit allow &&& {3} = length
+  
+  
+      Email-validation ---> ^[_A-Za-z0-9-]*@[A-Za-z0-9_-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$
+	  
+	  Password-Validation ----> ^[_A-Za-z0-9-]*@[A-Za-z0-9_-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$  
+
+=============================================================================================
+ 
+ASCII-123:=
+~~~~~~~~~~
+   int chr = '#';
+   System.out.println("The ASCII value of Z is :"+chr);
+
+
+---->The Java throw keyword is used to explicitly throw an exception.We can throw either checked or uncheked exception in java by throw keyword. The throw keyword is mainly used to throw custom exception. We will see custom exceptions later.
+
+---->The Java throws keyword is used to declare an exception. It gives an information to the programmer that there may occur an exception so it is better for the programmer to provide the exception handling code so that normal flow can be maintained.
+
+---->If you are calling a method that declares an exception, you must either caught or declare the exception.
+
+----> If the superclass method does not declare an exception, subclass overridden method cannot declare the checked exception. but can declare unchecked exception.
+
+
+====================================================================================================================
+
+I/O11:=  (Buffer,File,Object)
+~~~~~
+
+To Wrte words in file:=
+~~~~~~~~~~~~~~~~~~~~~~~~
+         FileWriter ~~~~ To Write into file
+         BufferWriter~~~ To write more lines
+		 PrintWriter ~~~~ To write more lines in multiple lines.
+
+
+To Find Number Of Characters, Words And Lines In File :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               BufferedReader,FileReader ~~~~~~ reads the text file line by line till end.....
+			    
+	   BufferedReader reader = new BufferedReader(new FileReader("E:\\ZZZZZ--RoughWork\\Hello.txt"));
+	   
+	                     String str= reader.readLine();  //Reads only one line.
+	   
+	                      BufferedWriter wirter;  // to write into a file
+			  
+			              writer.write(str);
+			 
+=========================================================================================================
+
+ Serialization123 := ( uses ObjectOutputStrem )
+~~~~~~~~~~~~~~~~~~	  
+----> Converting Object-state into Persistance-state, in which data is in Binary-Format known called as serialization.
+
+
+----> The serialization and deserialization process is platform-independent, it means you can serialize an object in a platform and deserialize in different platform.
+
+For serializing the object, we call the writeObject() method ObjectOutputStream, and for deserialization we call the readObject() method of ObjectInputStream class.
+
+
+---->If a class implements serializable then all its sub classes will also be serializable.
+
+---->If a class has a reference to another class, all the references must be Serializable otherwise serialization process will not be performed. In such case, NotSerializableException is thrown at runtime.
+
+---->If there is any static data member in a class, it will not be serialized because static is the part of class not object.
+
+---->The Externalizable interface provides the facility of writing the state of an object into a byte stream in compress format. It is not a marker interface.
+
+The Externalizable interface provides two methods:
+
+public void writeExternal(ObjectOutput out) throws IOException
+public void readExternal(ObjectInput in) throws IOException
+
+===========================================================================
+
+ GarbageCollection123 :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+---->Garbage collection is the mechanism used in Java to deallocate unused memory. Essentially, it is tracking down all the objects that are still used and marks the rest as garbage.
+
+---->Java’s garbage collection is considered an automatic memory management schema because programmers do not have to designate objects as ready to be deallocated. The garbage collection runs on low-priority threads.
+
+
+================================================
+
+ StringsImmutable :=  [concat()]
+~~~~~~~~~~~~~~~~~~~
+  Eg := String str="Rama";
+ ~~~~~  String str2= str.concat("krishna"); 
+		 System.out.println(str);         ........// Here "str" will contains "Rama" Only as it is Immutable.
+		 System.out.println(str2);         ..... // Here "str2" will point to Modified String. (RamaKrishna)
+		 
+----> Strings are Immutable because, in String-Constant-Pool if we change value of "-One-String-Object" that leads to changing to "-Other-String-Objects" which are pointing to that String. 
+
+---->Internally String uses Char[] to Store elements. [https://www.youtube.com/watch?v=wytkyBx4JIc]
+ 
+----> String-Constant-Pool will Optimize Memory && Not allows Duplicates.
+
+ StringBufferBuilder123 :=   [ Builder ---> append()]
+~~~~~~~~~~~~~~~~~~~~~~~~~
+---->If the Object value will not change in a scenario use String Class because a String object is immutable. 
+
+If the Object value can change and will only be modified from a single thread, use a StringBuilder because StringBuilder is unsynchronized(means faster), not thread-safe.
+
+If the Object value may change, and can be modified by multiple threads, use a StringBuffer because StringBuffer is thread safe(synchronized= OneByOne) means thread-safe.
+
+
+----> thread ID  remains unique and unchanged during the lifetime of the thread. When a thread is terminated then its thread ID may be reused.
+
+There are two ways to get thread ID in Java , one is by getting the reference of the current thread i.e Thread.currentThread() and the other is using Thread.get
+
+
+ NOTE :=  String str = new String("rama").intern();
+~~~~~~~~   
+                   // Here 'str' points to String-Constant-Pool , not to Object in Heap. 
+
+  
+currentThread() method in Java :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+currentThread() is a static method , returns a reference to the currently executing thread object.
+
+After getting the reference of the current thread , we will call the getId() method on Thread class.
+
+
+getId() method in Java
+~~~~~~~~~~~~~~~~~~~~~
+getId() will return the unique identifier of current-thread which is a positive long value.
+
+---->ResultSet also an interface and is used to retrieve SQL select query results.
+
+
+ Arrays-123:=
+~~~~~~~~~~~~~
+
+      binarySearch....copyOf...........copyOfRange.......equal
+	  
+	  fill..........hashcode...........parllel...........sort...........stream.......toString()
+
+=====================================================================================================================
+ UpcastingANDDownCasting :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ Upcasting :=   casting a subClass to a superClass-type.
+~~~~~~~~~~~ -- Upcasting always Valid and done Implicitly.
+               
+			      <--------
+    Eg :=  Animal anim = new Cat(); 	
+   ----    
+
+
+ Downcasting  :=   casting a superClass to subClass-Type.
+~~~~~~~~~~~~~  -- Downcasting always need Upcasting and done Explicitly.
+               -- Downcasting is used more frequently than upcasting.
+
+ 			       <--------
+     Eg :=   Animal anim = new Cat();
+    ----     Cat cat = (Cat) anim;
+           
+		   
+		   
+================================================================
+	
+ Enum123 :=
+~~~~~~~~~~~~ 
+
+---->Java enum, also called Java enumeration type, is a type whose fields consist of a fixed set of constants. The very purpose of enum is to enforce compile time type safety. enum keyword is reserved keyword in Java.
+
+---->enum in Java is reserved keyword. It means you cannot define a variable of name enum. e.g. It will result in compile time error "invalidVariableDeclaratorId".
+
+---->The ordinal() method returns the order of an enum instance. It represents the sequence in the enum declaration, where the initial constant is assigned an ordinal of '0'. It is very much like array indexes.
+
+---->enum values() method returns all the enum values in an enum array.
+
+---->enum valueOf() method helps to convert string to enum instance.
+
+===============================================================================
+
+ Serializable123 :=
+~~~~~~~~~~~~~~~~~~ 
+
+---->Java serialization is the process of converting an object into a stream of bytes so we can do stuff like store it on disk or send it over the network or Store in datbase. Deserialization is the reverse process – converting a stream of bytes into an object in memory.
+
+---->The serialVersionUID is a universal version identifier for a Serializable class. Deserialization uses this number to ensure that a loaded class corresponds exactly to a serialized object. If no match is found, then an InvalidClassException is thrown.
+
+---->This number called serialVersionUID, which is used during deserialization to verify that the sender and receiver of a serialized object have loaded classes for that object that are compatible with respect to serialization. If the receiver has loaded a class for the object that has a different serialVersionUID than that of the corresponding sender’s class, then deserialization will result in an InvalidClassException.
+
+                              private static final long serialVersionUID = 4L;
+											   
+
+---->If a serializable class does not explicitly declare a serialVersionUID, then the serialization runtime will calculate a default serialVersionUID value for that class based on various aspects of the class.
+
+
+
+---->Concurrency is about dealing with lots of things at once. Parallelism is about doing lots of things at once.
+
+
+---->object is eligible for garbage collection when no live thread can access it. The garbage collector considers that object as eligible for deletion. (*********)
+
+
+--->When static block in executed/called?
+At the time of loading class and only once.
+
+--->When instance block is executed/called?
+For every object creation and before constructor code.
+When Object is created, First Class Loaded-> static block called (one time) -> then instance block is called -> next constructor is called.
+
+--->Can we write multiple blocks (instance/static) in one class?
+Yes, Possible. We can define multiple blocks anywhere in class
+
+--->Block never takes input like methods or constructor.
+
+
+--->Can a block return value?
+.No Parameters and return type.
+
+--->A constructor can have Can have only Parameters, no return type.
+
+--->Block can be created/defined in abstract class also
+   Blocks are never defined in interfaces. 
+   
+--->Block are called after creating object only
+   Method call is not possible in block
+
+--->Multiple blocks are executed in coding order
+   Instance block is called one time per object
+    Before main() method static block is called
+
+--->instance keyword is used to create instance block
+   instance block name must be same as class name
+  instance block can also be defined in inner classes
+
+--->static block cannot be defined in inner class
+
+
+=================================================================================
+ 
+  Basics:=
+  ~~~~~~~
+   Decimal(base-10)~~~~~~~~~  1,2,3.......8,9,10,11,12.........
+   
+   Binary(base-2)~~~~~~~~~~~ [.....,8,4,2,1]  
+   
+=========================================================================================
+ Octal(base-8):=  [.....,8,4,2,1] 
+ ~~~~~~~~~~~~~
+
+tO bINARY
+DIV(BINARY)--->3
+ 
+=========================================================================================
+Hexa-Decimal(base-16):=  [.....,8,4,2,1] 
+~~~~~~~~~~~~~~~~~~~~
+
+tO bINARY
+DIV(BINARY)--->4
+  
+	  1,2,3...........A(10),B,C...........
+
+======================================================================================
+
+   36 ---->  100100(Binary) 
+   Octal--------> 100 100    --> 44
+  HexaDecimal--> 0010 0100  --> 24
+
+=========================================================================
+ 
+ EclipseShortcut:=
+~~~~~~~~~~~~~~~~~
+
+Ctrl + Shift:=
+~~~~~~~~~~~
+     R~~~~~~~~Files in project
+	 T~~~~~~~~About class/Interface details 
+	 O~~~~~~~Imports
+	 F~~~~~~~Format
+	 S~~~~~~~Save
+	 W~~~~~Close all.
+	 P~~~~~ to find closing brace. Place the cursor at the opening brace and use this.
+	 
+	 
+	 ALT+ Up/Down ~~~~~~~~~~~~~~~Move lines
+	 CNTRL+BACKSPACE//D~~~~~~~~~ Delete line.
+	 CNTRL+O~~~~~~~~~~~~~~~~~~~~~Methods
+	 CNTRL+Page Up/Down ~~~~~~~~~Scrolling in view-bar
+	
+	 
+	CNTRL+Q~~~~~~Resently closed file.
+	CNTRL+F4~~~~Close tab       //////   CNTRL+Shift+F4~~~~Close all tab
+	ALT+ <-- ~~~Reopen closed file
+	
+	CNTRL+1~~~~~~~~~~for quick fix
+	CNTRL+Shift+L~~~~~~~to view the listing for all Eclipse keyboard shortcuts.
+	
+	CNTRL+= ~~~~~~~~~zOOM-In
+	CNTRL+- ~~~~~~~ZOOM-OUT
+==================================================================================== 
+
+	 
+	 
+	 
+	 

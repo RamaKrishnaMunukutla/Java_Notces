@@ -1,0 +1,40 @@
+
+---->create table etab (eid int(10) primary key, enmae varchar(30) not null);
+     //PK~~~~~~eid
+	 
+----->create table etab2 (eid int , ename varchar(30) not null,primary key(eid,ename));
+      //PK~~~~~~eid,ename(2 columns)
+	  
+----->create table ntab (eid int , ename varchar(30));
+      //PK~~~~~~Nothing
+
+----->alter table ntab add primary key (eid);
+      //PK~~~~~~eid
+=================================================================
+Foreign key:=
+~~~~~~~~~~~
+
+Syntax:=             Foreign key(colName) references parentTable(colName)  
+~~~~~~~           
+
+----->used to maintain referential integrity.
+    
+
+----->A table can have more than 1 FK , each Fk in child table may refer to a different parent table 
+
+----->create table e1(eid int primary key) engine=InnoDB;
+      create table d1(eid int ,foreign key(did) references e1(eid)) engine=InnoDB;
+
+----->insert into e1 values(1);
+      insert into e1 values(2);
+	  insert into d1 values(1);
+	  insert into d1 values(1);
+	  insert into d1 values(3);           //Shows Error,saying "Cannot update.....FK has refernece with PK
+
+
+ ======================================================================
+  
+  select ename from emptab where eid=(select eid from emptab where qual='Msc');
+  
+  
+  

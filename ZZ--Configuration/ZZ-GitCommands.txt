@@ -1,0 +1,80 @@
+ 
+ 
+  git init
+ 
+  git clone <link>
+ 
+  go to Folder && paste the files.
+ 
+  git add *
+		
+  git commit -m "Added"
+		
+  git push 
+ 
+---------------
+
+ git remote add Notces https://github.com/RamaKrishnaMunukutla/Notces.git
+ 
+ git push  Notces
+ 
+ git push --set-upstream Notces  master
+ 
+===========================================================================
+Java (1.8) "=
+~~~~~~~~~~~
+ 
+ classpath ~~~~~ C:\Program Files\Java\jdk1.8.0_211\lib\tools.jar
+ 
+ Path ~~~ C:\Program Files\Java\jdk1.8.0_211\bin .....saiRAMA1996@ [or] 521191ramak
+ 
+=======================================================================================
+ 
+ Eclipse Shortcut:=
+~~~~~~~~~~~~~~~~~
+
+Ctrl + Shift:=
+~~~~~~~~~~~
+     R~~~~~~~~Files in project
+	 T~~~~~~~~About class/Interface details 
+	 O~~~~~~~Imports
+	 F~~~~~~~Format
+	 S~~~~~~~Save
+	 W~~~~~Close all.
+	 P~~~~~ to find closing brace. Place the cursor at the opening brace and use this.
+	 
+	 
+	 ALT+ Up/Down ~~~~~~~~~~~~~~~Move lines
+	 CNTRL+BACKSPACE//D~~~~~~~~~ Delete line.
+	 CNTRL+O~~~~~~~~~~~~~~~~~~~~~Methods
+	 CNTRL+Page Up/Down ~~~~~~~~~Scrolling in view-bar
+	
+	 
+	CNTRL+Q~~~~~~Resently closed file.
+	CNTRL+F4~~~~Close tab       //////   CNTRL+Shift+F4~~~~Close all tab
+	ALT+ <-- ~~~Reopen closed file
+	
+	CNTRL+1~~~~~~~~~~for quick fix
+	CNTRL+Shift+L~~~~~~~to view the listing for all Eclipse keyboard shortcuts.
+	
+	CNTRL+= ~~~~~~~~~zOOM-In
+	CNTRL+- ~~~~~~~ZOOM-OUT
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,1954 @@
+
+
+  
+       ...........Jersey390............RESTEasy330............JAXB123............JSONIgnore660.........
+	   
+	   ...........InPOSTMAN...........ObjectToJSONJ660.......JSONtoObject880......ExceptionHandling660
+	   
+	   ...........postmanHASA.........JerseyClient450..........RestTemplate440....JSONProperty890
+	   
+	   ..........Response660..........HATEOS880.......WSDL770
+	   
+	     
+=======================================================================================================================       
+
+         https://javahungry.blogspot.com/2015/07/web-services-interview-questions-and-answers.html
+		 https://www.javaspringclub.com/webservices/
+		 
+  Jersey ----> https://examples.javacodegeeks.com/enterprise-java/rest/jax-rs-tutorial-jersey-restful-web-services/
+               https://examples.javacodegeeks.com/enterprise-java/rest/jax-rs-annotations-explained/
+		 
+		            Rest-API -----> Acts like a Interface between 2-Apps
+			  Rest-Webservice ----> Provides Interaction communicating with each other Over a Network via world wide web.
+			                           
+									   (EXCHANGE-DATA in JSON/XML format)
+     JAX-WS (Java API for XML Web Services) is a set of APIs for creating web services in XML format.
+	 JAX-RS (Java API for XML Web Services) is a set of APIs for creating web services in JSON/XML format.
+
+
+   no contract defined between service and client
+   Loose-Coupling
+   transfer data in Multiple-formats.
+   lightweight protocol &&  methods can be tested easily over browser.
+   
+   PUT and GET are idempodent (******)
+   
+   
+   stateless it means that the server does not store any state about the client session on the server side
+   
+   ‘Resource’ is defined as an object of a type which can be an image, HTML file, text data
+   Each resource in REST architecture is identified by its URI
+   
+   GET && PUT are idempodent.
+   
+   Payload means data that passed inside the request body
+   
+                     Boot+Jersey  ----> https://github.com/Java-Techie-jt/spring-boot-jersey-example
+   Exceptional-Handling in Jersey ----> https://github.com/Java-Techie-jt/spring-jersey-exception-handling
+   
+                    KK-Tutorials -----> https://github.com/kishanjavatrainer/SpringBootJerseyWebServiceWithMySql
+					                    https://github.com/kishanjavatrainer/SpringJerseyClientProject
+   
+                        REST-API -----> https://www.baeldung.com/rest-with-spring-series
+   
+
+================================================================== 
+   
+ StandAlone-Applications := Application that need install on System (Eg:: Microsoft-Office, Eclipse)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+ Web-Applications (C-2-B) :=  //Customer-To-Business
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+ --- Application that No-need install on System && can access-Anywhere with Browser && Runs Over Internet.
+  
+  Eg:: IRCTC, Facebook, Gmail
+ 
+ 
+ Distributed-Applications (B-2-B) :=  //Business-To-Business   // Intere-Operbility ( Irrespective[OS+Language] )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- One-Application communicating with Another-Application tto use Reuse Business-Service.
+ 
+  Eg:: PayRoll-App(Devloped for 3Y && Spends 10CR) Developed my One-Company & Used by Multiple-Companies which serves same-Purpose. For this, Multiple-Companies will pay some-money for App-Developed-Company.
+  
+   (1)Producer ----> Provides Business-Service to Another-Application.
+   (2)Consumer ----> Consumes Business-Service from Another-Application.
+   
+ ----- (1) && (2) communicate with each Other by Exchanging-data in-form of XML (Or) JSON. (***********)
+ 
+ 
+
+=============================================================================================================
+
+ WebService :=
+~~~~~~~~~~~~~~~
+ ---It is a service offered by an electronic device to another electronic device, communicating with each other via world wide web.
+ --- Web services are the types of internet software that uses standardized messaging protocol over the distributed environment.
+ 
+                    ************ORR*****************
+					
+ --- It is a Medium that works over the Network to  Supports Client-Server Communication (**********)
+ 
+      All Web-Services are APIs, But ViceVersa Not-Possible (********)
+	  
+ REST ----> It is Architectural-Design to develop Services which are Light-Weight && East to MainTain. 
+
+
+ WebService :=
+~~~~~~~~~~~~~~~
+  ---  It is collection of Open-Protocols used to exchange data between Client and Server. ****************)
+
+ HTTP :=
+~~~~~~~~
+ --- It is Protocol and acts like a medium between Client and Server. 
+ 
+ Messaging :=
+~~~~~~~~~~~~~
+  --- Sending data && receives data in form of HTTP.
+  
+
+ Request Core Components :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Verb // 
+     HTTP Version[Specifies HTTP Protocols] , 
+     Request Header[MetaData for HTTP Request-Mesage as Key-Value Pair :: Content-Type (XML/JSON) //    
+     Request Body
+ 
+ 
+ Response Core Components :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  --- Request code, Response body 
+
+---->A resource can be considered as an object in an application. 
+
+
+ SOAP / REST :=
+~~~~~~~~~~~~~~~~~~
+ --- Based on Content-Type (XML, JSON ,TExt) && Based on Protocol( HTTP,SMTP,FTP,UDP)
+ 
+ Resource :=
+~~~~~~~~~~~
+ --- Treats every Content as Resource [Text, Html, Images] .
+ 
+         415 -----------> requested-Media-Type not matched with endPoint-Media-Type. (******************)
+ 
+    @ResponseStatus ----> used to send Specific Business-Exception / message with Http-StatusCode in Response.  (******)
+
+
+ Service Provider(Producer) := From an architectural perspective, it is the platform that hosts the services.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ Service Requestor (Consumer) := 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+ --- Service requestor is the application that is looking for and invoking or initiating an interaction with a service.
+ --- The browser plays the requester role, driven by a consumer or a program without a user interface.
+
+
+ Service Registry := Service requestors find service and obtain binding information for services during development.
+~~~~~~~~~~~~~~~~~~
+
+  Other than 'HTTP' ---->  FTP (File Transfer Protocol) and SMTP(Simple Mail Transfer Protocol),
+~~~~~~~~~~~~~~~~~~~~~
+
+ @ResponseBody: It binds the method return value to the response body. It tells the Spring Boot Framework to serialize a return an object into JSON and XML format.
+	
+ @RequestParam: It is used to extract the query parameters form the URL. It is also known as a query parameter. 
+	
+	 Horizontal-Scaling ---> Adding More Servers into Clusters
+	 Vertical-Scaling ----->  Increasing RAM, CPU && Speed for One-Server.
+	
+	@RequestAttribute: It binds a method parameter to request attribute.
+ 
+
+================================
+
+----> What is the difference between a Web service and an API?
+The only difference is that a Web service facilitates interaction between two machines over a network. An API acts as an interface between two different applications so that they can communicate with each other. ... Web service also uses SOAP, REST, and XML-RPC as a means of communication.
+
+
+---->Main characteristics of the Web Services  are :
+1. Interoperability
+2. Extensibility
+3. Machine processable descriptions.
+
+
+---->What are the advantages of Web Services?
+Some of the advantages of web services are:
+
+Interoperability: Web services are accessible over network and runs on HTTP/SOAP protocol and uses XML/JSON to transport data, hence it can be developed in any programming language. Web service can be written in java programming and client can be PHP and vice versa.
+Reusability: One web service can be used by many client applications at the same time.
+Loose Coupling: Web services client code is totally independent with server code, so we have achieved loose coupling in our application.
+Easy to deploy and integrate, just like web applications.
+Multiple service versions can be running at same time.
+
+
+----> What is SOAP and REST Web services?
+Web services are of two kinds: Simple Object Access Protocol (SOAP) and Representational State Transfer (REST). SOAP defines a standard communication protocol (set of rules) specification for XML-based message exchange. SOAP uses different transport protocols, such as HTTP and SMTP.
+
+---->Request can be made three ways using Web Browser.
+i. Enter URL in Address Bar (GET)
+ii. Submit HTML form (GET / (POST)
+iii. Hyper Links (<a> tags) (GET)
+
+
+MediaTypes:=
+~~~~~~~~~~~
+ In Webservices two applications (Consumer and Provider) will exchange data in global format.
+ Example JSON or XML are global formats.
+
+ ReSTWebservices has given two annotations to automate data conversion and exchange between Provider and Consumer.
+ Those are @Consumes and @Produces from javax.ws.rs package.
+
+ @Consumes: This annotation is used to convert Request data (Global Format) to Object in Provider.
+ @Produces: This annotation is used to convert Object in Provider to Response data (Global Format).
+
+
+-----> In HttpRequest Body send JSON of Employee, this must be converted to object format and store in DB as a Row.
+
+
+
+---->ReST can be Integrated with any Java API like Servlets , JDBC, JSP, Hibernate , Spring … etc
+ It supports even special concept {and API} like CODEC (Coding and DECoding) Mail Service(Java Mail) … etc.
+ ReST Architecture supports Easy Modifications in Project like Adding / removing will not affect other code.
+ Where in SOAP, any modification we must re-publish, re-generate stubs, re-write bind.
+ ReST uses Document concept to provide all resource details of Service Provider to Service Consumer
+
+
+---->ReST/ReSTFul stands for Representation State (Data format) Transfer.
+ It means transfer data in same format between two applications (It should be represented in same type)
+ ReST uses HTTP to transfer data between two applications.
+ ReST follows Client-Server with Front Controller Design, which behaves like Web Application.
+
+---->What is WSDL?
+WSDL (Web Services Description Language) is an XML format for describing web services and how to access them. 
+
+
+8  What is JAX-WS?
+JAX-WS (Java API for XML Web Services) is a set of APIs for creating web services in XML format.
+
+
+Q9 What is JAXB?
+JAXB (Java Architecture for XML Binding) is a Java standard that defines how Java objects are converted from and to XML. It makes reading and writing of XML via Java relatively easy.
+
+
+---->What are disadvantages of SOAP Web Services?
+Some of the disadvantages of SOAP protocol are:
+Only XML can be used, JSON and other lightweight formats are not supported.
+SOAP is based on the contract, so there is a tight coupling between client and server applications.
+SOAP is slow because payload is large for a simple string message, since it uses XML format.
+Anytime there is change in the server side contract, client stub classes need to be generated again.
+Can’t be tested easily in browser
+
+What are the advantages of SOAP web services?
+These are some of the important advantages of SOAP web services:
+ ---WS Security - SOAP defines its security known as WS Security. 
+ ---Language Independent - Its web services can be written in any programming language
+ ---Platform Independent - Its web services can be executed on any platform.
+
+
+
+What is WSDL?
+The WSDL stands for Web Services Description Language. It is an XML document containing information about web services such as method name, method parameter. The Client needs a data dictionary which contains information about all the web services with methods names and parameters list to invoke them for the web services. The Web Service Description Language bridge up this gap, by providing all necessary information to the client.
+
+Some Important elements used in Web Services Description language are as follows:
+
+<message>: The message element in WSDL is used to define all different data elements for each operation performed by the web service.
+<portType>: The port type element is used to determine the operation which can be performed by the web service. This operation can have two messages one is input and the second one is the output message.
+<binding>: This element contains the used protocol.
+
+
+
+What is UDDI?
+The UDDI stands for Universal Description, Discovery and Integration. It is a XML based framework for describing, discovering and integrating web services. It contains a list of available web services. WSDL is the part of UDDI.
+
+
+---->What tools are used to test web services?
+The tools used to test web services are:
+SoapUI tool for testing SOAP and RESTful web services
+Poster for firefox browser
+Postman extension for Chrome
+
+---->What is XOP?
+XOP (XML-binary Optimized Packaging) is a mechanism defined for the serialization of XML Information Sets that contain binary data, as well as deserialization back into the XML Information Set.
+
+
+---->What is JAX-WS API?
+JAX-WS stands for Java API for XML Web Services. JAX-WS is XML based Java API to build web services server and client application. It’s part of standard Java API, so we don’t need to include anything else which working with it. Refer to JAX-WS Tutorial for a complete example.
+
+
+---->Name important annotations used in JAX-WS API?
+Some of the important annotations used in JAX-WS API are:
+ --@WebService
+ --@SOAPBinding
+ --@WebMethod
+
+
+---->What is UDDI?
+UDDI is acronym for Universal Description, Discovery and Integration. UDDI is a directory of web services where client applications can lookup for web services. Web Services can register to the UDDI server and make them available to client applications.
+
+
+---->What is difference between REST and SOAP API?
+Differences: REST API has no has no official standard at all because it is an architectural style. SOAP API, on the other hand, has an official standard because it is a protocol. REST APIs uses multiple standards like HTTP, JSON, URL, and XML while SOAP APIs is largely based on HTTP and XML.
+
+
+----> Rest is Light-Weight && Json is mostly used than XML because It is Light-Weight.
+
+
+----->What is RESTFul Web Service?
+Answer: There is two popular way to develop web services, using SOAP (Simple Object Access Protocol) which is XML based way to expose web services and second REST-based web services which use the HTTP protocol. Web services developed using REST-style is also known as RESTful Web Services.
+
+
+----> What are advantages of REST web services?
+Some of the advantages of REST web services are:
+Learning curve is easy since it works on HTTP protocol
+Supports multiple technologies for data transfer such as text, xml, json, image etc.
+No contract defined between server and client, so loosely coupled implementation.
+REST is a lightweight protocol
+REST methods can be tested easily over browser.
+
+
+----> What are disadvantages of REST web services?
+Some of the disadvantages of REST are:
+ --- Since it works on HTTP, there can’t be asynchronous calls.
+ --- Sessions can’t be maintained.
+
+
+--->Mention what is JAX-WS and JAX-RS?
+Both JAX-WS and JAX-RS are libraries (APIs) for doing communication in various ways in Java. JAX-WS is a library that can be used to do SOAP communication in JAVA, and JAX-RS lets you do the REST communication in JAVA.   
+
+---->What does REST stand for? (answer)
+ ---REST stands for REpresentational State Transfer, which uses HTTP protocol to send data from client to server e.g. a book in the server can be delivered to the client using JSON or XML.What is REST?
+ ---REST is an architectural style of developing web services .
+
+
+---->Can you tell me which API can be used to develop the RESTFul web service in Java?
+Answer: There are many framework and libraries out there, which helps to develop RESTful web services in Java, JAX-RS is a standard way to build REST web services. Jersey is one of the popular implementations of JAX-RS
+
+---->Just like SOAP (Simple Object Access Protocol), which is used to develop web services by XML method, RESTful web services use web protocol i.e. HTTP protocol method.
+
+
+---->Name some implementations of JAX-RS API?
+There are two major implementations of JAX-RS API.
+  --- Jersey: Jersey is the reference implementation provided by Sun. For using Jersey as our JAX-RS implementation, all we need to configure its servlet in web.xml and add required dependencies. Note that JAX-RS API is part of JDK not Jersey, so we have to add its dependency jars in our application.
+  --- RESTEasy: RESTEasy is the JBoss project that provides JAX-RS implementation.
+  
+---->What is JAX-RS?
+ ---JAX-RS stands for RESTful Web Services. JAX-RS is a set of APIs to develop the REST services. 
+ ---There are two main implementations of the JAX-RS API::
+      (1)Jersey   (2)RESTEasy
+
+================================================================================================================
+ Jersey390 :=
+~~~~~~~~~~~
+
+---->It is popular framework for making RESTFul applications.
+
+                HelloWorld -----> https://howtodoinjava.com/jersey/jax-rs-jersey-hello-world-example/
+	FileUpload (MultiPart) -----> https://howtodoinjava.com/jersey/jersey-file-upload-example/
+	  Multi-FileUpload ---------> https://howtodoinjava.com/jersey/jax-rs-jersey-ajax-multi-file-upload-example/
+  
+
+========================================================================================================================
+
+ RESTEasy330 :=
+~~~~~~~~~~~~~~
+
+----->What is the RESTeasy framework?
+ ---RESTeasy is a JBoss project, which implements of the JAX-RS specification. It has benefits such as 
+fully certified JAX-RS implementation; supports HTTP 1.1 caching semantics including cache revalidation; 
+ ---JAXB marshalling into XML, JSON, Jackson, Fastinfoset, and Atom as well as wrappers for maps, arrays, lists, and sets of JAXB Objects; 
+ 
+ 
+  JAXB :=
+~~~~~~~~
+  ---- Used to Convert java-Objects to XML and vice versa. 
+  
+ Jackson := [ https://www.baeldung.com/jackson ]
+~~~~~~~~~~~
+ --- Jackson is a very popular and efficient java based library to Convert/Map java-Objects to JSON and vice versa. 
+ 
+ 
+ HTTP := [ https://www.baeldung.com/httpclient-guide ]
+~~~~~~
+
+ Jettison(RESTEasy) :=
+~~~~~~~~~~~~~~~~~~~~~~
+ ---Jettison is a collection of APIs that are used to read and write JSON formatted streams.
+ ---Jettison uses "-Badgerfish-", which is a convention for translating an XML document into a JSON object.
+ ---So, using Jettison alongside with JAXB, you can have your JAXB annotated Object mapped to JSON format. 
+ 
+
+=======================================================================================================================
+
+ JAXB123 :=
+~~~~~~~~~~
+ 
+ @XmlRootElement ~~~~~~~ (Scope--> Class) Defines the XML-root -element(root tag). Root Java classes need to be registered
+ with the JAXB context when it is created.
+ 
+       Eg:= <employees>		[AT-Class-Level]
+	   
+										   
+ @XmlAttribute ~~~~~~~(Scope-->Field)  Maps a field or property to an XML attribute
+
+                            Eg:=  <employees id="1">
+                            --
+										
+ @XmlElement ~~~~~~~(Scope-->Field)  Maps a field or property to an XML element
+
+                            Eg:=  <firstName>Lokesh</firstName>
+                            --    <lastName>Gupta</lastName>
+                                  <email>howtodoinjava@gmail.com</email>
+                          </employees>
+				
+				
+ @XmlAccessorType ~~~~~~~(Scope--> Package) Defines the fields and properties of your Java classes that the JAXB engine uses for binding. It has four values: PUBLIC_MEMBER, FIELD, PROPERTY and NONE.
+
+
+ @XmlAccessorOrder ~~~~~~ (Scope--> Package) , Defines the sequential order of the children.
+
+ @XmlType ~~~~~~~ (Scope-->Class, Enum) ,Maps a Java class to a schema type. It defines the type name and order of its children.
+
+ @XmlTransient ~~~~~~~(Scope-->Field)  Prevents mapping a field or property to the XML Schema
+
+ @XmlValue ~~~~~~~(Scope-->Field)  Maps a field or property to the text value on an XML tag.
+
+ @XmlList ~~~~~~~ (Scope-->Field Parameter) Maps a collection to a list of values separated by space.
+
+ @XmlElementWrapper ~~~~~~~ (Scope-->Field) Maps a Java collection to an XML wrapped collection
+
+
+---->Here we are relying on the Spring MVC HttpMessageConverter to convert an object to the xml representation requested by the user. 
+
+---->Instead of returning the java objects directly, you can wrap them inside ResponseEntity. The ResponseEntity is a class in Spring MVC that acts as a wrapper for an object to be used as the body of the result together with a HTTP status code
+ 
+=============================================================================================================
+
+ TwoApplication :=
+~~~~~~~~~~~~~~~~~
+  ---- When Request is sends from Consumer to Producer, 
+  
+                              The request will go to 'FC' in Web.xml (Producer), 
+							  
+							             then Service then Model then 'FC' && Response. 
+
+================================================================================================================
+
+ JSONIgnore660 :=
+~~~~~~~~~~~~~~~
+
+            @JsonIgnore -----------------------> Igonre Single-Property.
+   
+   @JsonIgnoreProperties({"name", "salary"}) ----> Ignores Multiple-Property.
+
+
+================================================================================================================
+
+ InPOSTMAN :=   https://www.youtube.com/watch?v=HiIJbmjeTPU&list=PL6iUkDSEH9SvsgM4zyFrTnaewN65NZHAG&index=8 [Valentin Despa]
+~~~~~~~~~~~~~ 
+
+  --- [ CC--PP && PA--G ]
+
+  --- Accept (produces) CLIENT :: application/xml ----> Accepts XML-Format. (GET)     //// ( from POSTMAN-VIEW )
+  
+  --- Content-Type (Consumes)  :: application/xml ----> Sending XML-Format. (POST,PUT) //// ( from POSTMAN-VIEW )
+  
+  --- If Accept(produces) (or)  Content-Type (Consumes) not equal, may throw ERROR.
+  
+  
+  
+   Eg1 ----> @RequestMapping(value = "/something", method = PUT, 
+                consumes = {APPLICATION_JSON_VALUE, APPLICATION_XML_VALUE}, 
+                produces = {APPLICATION_JSON_VALUE, APPLICATION_XML_VALUE})
+				
+				
+  Eg2 ----> @PostMapping(path = "/postjob", consumes = "application/json", produces = "application/json")
+  
+  Eg3 ----> @GetMapping(value=”/todos”,consumes=MediaType.APPLICATION_JSON_VALUE)
+  
+==================================================================================================================
+
+ ObjectToJSONJ660 :=
+~~~~~~~~~~~~~~~~~~
+       
+	   ObjectMapper obj= new ObjectMapper();
+	   String str = obj.writeValueAsString(emp);
+	   
+	   String str = obj.writerWithDefaultPrettyPrinter().writeValueAsString(emp); ///Prints in Format.
+		
+	   System.out.println(str);
+	   
+	   
+ JSONtoObject880 :=
+~~~~~~~~~~~~~~~~~
+    Employee employee = null;
+      ObjectMapper mapper = new ObjectMapper();
+      try
+      {
+	        Employee employee = null;
+      ObjectMapper mapper = new ObjectMapper();
+      try
+      {
+		   String str = "{\"name\":\"mkyong\",\"age\":37,\"skills\":[\"java\",\"python\"]}";
+         
+		     employee =  mapper.readValue(new File("c://temp/employee.json"), Employee.class); .... ///FromFile
+		 
+		     employee =  mapper.readValue(str, Employee.class);   .....//From String
+
+===================================================================================================================
+
+ ExceptionHandling660 :=
+~~~~~~~~~~~~~~~~~~~~~~
+ 
+ https://github.com/PlayProCode/PlayJava/tree/master/exception-framework
+ https://mkyong.com/spring-boot/spring-rest-error-handling-example/
+ 
+import java.time.LocalDateTime;
+import org.springframework.stereotype.Component;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+@Component
+public class Response {
+	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:mm:ss")
+	private LocalDateTime timestamp;
+	private String statusCode;
+	private String statusMessage;
+	
+	   // 	public static final LocalDateTime localDateTime = LocalDateTime.now();
+	 
+===================
+@ControllerAdvice
+//@RestControllerAdvice
+Class ExpHnalder {
+
+  @ExceptionHandler
+  public String handle (InvalidFeildException exp){  
+     //  return exp.getMessage();
+	   return ResponseEntity<Object>(exp.getMessage(),HttpStatus.422);
+   }
+ 
+ }
+
+======================  
+  Eg44 :=
+~~~~~~~~
+  @Override
+  public ResponseEntity<String> save(Employee e){
+  if(!Employee.getId()!=null){
+              throw new EmployeeNotFound("Id Not Required");
+       }	 
+  }
+
+  @Override
+  public ResponseEntity<String> findEmppById(Long id){
+    Optional<Employee> employees = repo.findById(id);
+  if(!employees.getId()==null){
+              throw new EmployeeNotFound("Id Not Found");
+       } 
+	    return ResponseEntity<String>(-,-); 
+  }
+
+  @Override
+  public ResponseEntity<String> update(Employee e){
+  Optional<Employee> employees = repo.findById(22);
+  if(!Employee.getId()!=null){
+              throw new EmployeeNotFound("Id Not Required);
+       }	 
+	    return ResponseEntity<String>(-,-); 
+  }
+
+ @Override
+  public ResponseEntity<Object> save (@RequestBody Employee emp){  
+        if(StringUtils.isBlank(emp.getUserName()){
+		    throw new InvalidFeildException("User Name is required");
+   }
+=========================
+ Eg55 :=
+~~~~~~
+@ControllerAdvice
+Class  ExceptionHandler{
+
+   @ExceptionalHandler(value=EmployeeNotFound.class)
+  public ResponseEntity<String> handle(EmployeeNotFound e){
+     HttpStatus hs =  HttpStatus.NOT_FOUND; 
+  }
+  return ResponseEntity<String>(-,-);
+
+ }	 
+
+
+===================================================================================================================
+
+  postmanHASA :=    [ RaghuWebService ---> 75 ]
+~~~~~~~~~~~~~~
+ {
+    "eid":101,
+	"ename":"rama",
+	"addr" :{
+	           "addrLoc": "Mumbai",
+			   "addrpin":607805
+			}
+  }
+
+==============================================================================================================
+
+ HATEOS880 ((Hypermedia as the Engine of Application State))  := (Ashok-IT) // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~     https://github.com/TechPrimers/rest-hateoas-example
+
+ ----> Sends Response to Client as list of Participants with HyperLinks--(href)//  Get Data && Action-To-Perform.
+
+  --- Model-Class Extends 'ResourceSupport'
+
+
+============================================================================================================
+
+ WSDL770 :=
+~~~~~~~~~
+ ---- This file Provides Information about Other Application-Method to access.
+
+    UDDI ----> through this Mechanism, we Can discovere WebService. 
+	
+ 
+
+=============================================================================================================
+  
+ JerseyClient450 :=
+~~~~~~~~~~~~~~~~
+ 
+     try{
+			Client client = Client.create();
+		
+		WebResource webResource = client.resource("http://localhost:8080/RESTfulExample/rest/json/metallica/get");
+
+		ClientResponse response = webResource.accept("application/json").get(ClientResponse.class);  ....GET-Type
+		
+		ClientResponse response = webResource.header("Content-Type","application/json").post(ClientResponse.class, json);
+
+		if (response.getStatus() != 200) {
+		   throw new RuntimeException("Failed : HTTP error code : "
+			+ response.getStatus());
+		}
+
+		String output = response.getEntity(String.class);
+
+		System.out.println("Output from Server .... \n");
+		
+		System.out.println(output);
+		System.out.println(output.getStatus()); ................./// 200
+		System.out.println(output.getStatusInfo());............../// OK
+		System.out.println(output.getType());..................../// application/json
+
+	  } catch (Exception e) {
+
+		e.printStackTrace();
+
+	  }
+
+ 
+ 
+===========================================================================================================
+
+  RestTemplate440 :=  [ https://www.concretepage.com/spring-5/ ]
+~~~~~~~~~~~~~~~~~~
+---->It used to create applications that consume RESTful Web Services. 
+  You can use the "-exchange()-" method to consume the web services for all HTTP methods.
+  
+---->to consume the API:
+  Autowired the RestTemplate Object.
+  Use HttpHeaders to set the Request Headers.
+  Use HttpEntity to wrap the request object.
+  Provide the URL, HttpMethod, and Return type for Exchange() method
+ 
+==================
+
+ Rest Template := [ https://github.com/mightyjava/spring-boot-microservices-eureka ]
+~~~~~~~~~~~~~~~ 
+ --- API // Method Type // Request // Expected-Response. 
+ 
+   restTemplate("http://localhots:8965/", HttpMethod.GET, null, String.class);
+ 
+ 
+ 
+ FeignClient := [ https://github.com/mightyjava/spring-boot-microservices-open-feign ]
+~~~~~~~~~~~~~~  [ https://github.com/mightyjava/almightyjava-ms-open-feign ]
+  In Eureka Service :=
+             
+ 			  at Eureka Service Class Level ----> @EnableFeignClients  
+	
+	         at Interface Level ----> @FeignClients(value="eureka-client-3" , url="ttp://localhots:8965/")
+
+================================
+
+ --- It is used to create applications that consume RESTful Web Services. 
+ --- You can use the exchange() method to consume the web services for all HTTP methods.
+
+  HttpHeaders headers = new HttpHeaders();
+      headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+      HttpEntity <String> entity = new HttpEntity<String>(headers);
+      
+      return restTemplate.exchange("http://localhost:8080/products", HttpMethod.GET, entity, String.class).getBody();
+
+===================  
+  
+		Map<String, String> map = new HashMap<>();
+		map.put("profile", "Developer");
+		map.put("tech", "Java");
+		
+		
+ GET --->  RestTemplate restTemplate = new RestTemplate();
+           Employee emp   = restTemplate.getForObject(url, Employee.class, empId); 
+           Employee[] emps = restTemplate.getForObject(url, Employee[].class, map); 
+		  
+		  ResponseEntity<Employee[]> responseEntity = restTemplate.getForEntity(url, Employee[].class, map);
+		  
+		  HttpEntity<Employee> httpEntity = new HttpEntity<>(objEmp, headers);
+		  Employee employee = restTemplate.postForObject(uri, httpEntity, Employee.class);
+
+===========================
+
+   @Autowired
+   RestTemplate restTemplate;
+
+ @RequestMapping(value = "/template/products")
+ public String getProductList() {
+
+     HttpHeaders headers = new HttpHeaders();
+     headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+	 
+     HttpEntity<String> entity = new HttpEntity<String>(headers);
+     return restTemplate.exchange("http://localhost:8080/products", HttpMethod.GET, entity, String.class).getBody();
+	  
+	  }
+	  
+
+    public String update(Student s) {
+       
+	   String url="http://localhost:9898/rest/student/update/";
+       RestTemplate rt=new RestTemplate();
+       
+	   HttpHeaders headers=new HttpHeaders();
+	   headers.setContentType(MediaType.APPLICATION_JSON);
+       
+	   HttpEntity<Student> request=new HttpEntity<Student>(s, headers);
+	   ResponseEntity<String> resp=rt.exchange(url,HttpMethod.PUT, request,String.class);
+       
+	   return resp.getBody();
+       }
+	   
+====================================================================================================================
+
+ JSONProperty890 :=    /// Youtube ::: SIMPLE PROGRAMMING  (****)
+~~~~~~~~~~~~~~~~~~
+   
+ --- @JsonProperty(value-"empName")  // Here "-empName-" is appeared as JSON-Response in POSTMAN .
+     private int employeenName;
+
+
+ --- @JsonProperty(access=Access.READ_ONLY))  // Here Firstly ,"-empName-"  appeared as NULL for POST-request. (DEBUG)
+     private int employeenName;              // "-empName-" can be set-Data using Setter in STS.  
+ 
+ --- @JosnIgonre   //  Igonred by Postman 
+
+====================================================================================================================
+ Response660 :=
+~~~~~~~~~~~~~~~
+
+----> HttpHeaders headers = new HttpHeaders();
+      headers.setLocation(builder.path("/article/{id}").buildAndExpand(article.getArticleId()).toUri());
+      return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+
+
+----> return Response.status(Status.CONFLICT).build();
+      return Response.ok(article).build();
+	  return Response.noContent().build();
+
+
+
+
+
+ ResponseEntity := // response class having 'Status' && 'Message'
+~~~~~~~~~~~~~~~~
+  ResponseEntity is a class which extends HttpEntity and HttpStatus class. It is defined in org.springframework.http.RequestEntity.
+  
+     return Response.status(200).entity(" Product added successfuly!<br> Id: "+id+"<br> Name: " + name+"<br> Price: "+price).build();
+
+ --- return new ResponseEntity<ArticleInfo>(ob, HttpStatus.OK);
+ --- return new ResponseEntity<>(response, HttpStatus.UNPROCESSABLE_ENTITY);
+ --- return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+ --- return new ResponseEntity<Employee>(employee, headers, HttpStatus.CREATED);
+ --- ResponseEntity<Employee> responseEntity = restTemplate.postForEntity(url, requestEntity, Employee.class, map);
+
+====================================================================================================================
+
+----->What is the difference between AJAX and REST?
+in Ajax, the request are sent to the server by using XMLHttpRequest objects; REST have a URL structure and a request/response pattern the revolve around the use of resources;
+Ajax eliminates the interaction between the customer and server asynchronously; REST requires the interaction between the customer and server;
+Ajax is a set of technology; REST is a type of software architecture and a method for users to request data or information from servers.
+
+
+---->What is the Jersey framework?
+ --Jersey is open source framework for developing RESTful Web Services in Java that provides support for JAX-RS APIs and serves as a JAX-RS (JSR 311 & JSR 339) Reference Implementation. It has advantages such as 
+ --contains support for Web Application Description Language (WADL); 
+ --contains Jersey Test Framework which lets run and test Jersey REST services inside JUnit;   
+ --supports for the REST MVC pattern, which would allow to return a View from Jersey services rather than just data.
+ 
+ 
+---->HTTP protocol. This serves as a medium of data communication between client and server. HTTP standard methods are used to access resources in RESTful web service architecture.
+
+
+---->HTTP protocol plays the role of message communication between the client and server through HTTP Request and Response methods. HTTP request is sent by the client who contains information about the data and in turn, receives HTTP Response from the server.
+
+
+
+---->core components that come under HTTP Request are:
+
+Verb: Includes methods like GET, PUT, POST, HTTP Request header,  HTTP Request body etc
+
+ 
+What is the meaning of stateless Web services? :=  //
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+By stateless it means that the server does not store any state about the client session on the server side. The client session is stored on the client. The server is stateless means that every server can service any client at any time, there is no session affinity or sticky sessions. 
+
+   [ https://www.youtube.com/watch?v=nLylZ08h60A&list=PLqq-6Pq4lTTY40IcG584ynNqibMc1heIa&index=6 ]
+   
+
+---->What is a ‘Resource’?
+Answer: Just like the ‘Object’ instance, we have learned in object orient programming Language, in the same way, ‘Resource’ is defined as an object of a type which can be an image, HTML file, text data, and any type of dynamic data. There are varieties of representation formats available in order to represent a resource.
+ ---A resource is how data is represented in REST architecture. By exposing entities as the resource it allows a client to read, write, modify, and create resources using HTTP methods e.g. GET, POST, PUT, DELETE etc.
+Some most common are enlisted below:
+ JSON
+ XML
+ HTML
+ JAVASCRIPT
+ TEXT
+
+
+What is URI?
+URI stands for Uniform Resource Identifier. Each resource in REST architecture is identified by its URI
+
+
+---->What is your understanding about JAX-RS?
+Answer: JAX-RS is defined as the Java API for RESTful web service. Among multiple libraries and framework, this is considered as the most suitable Java programming language based API which supports RESTful web service.
+
+Some of the implementations of JAX-RS are:
+Jersey
+RESTEasy
+
+
+---->What are idempotent operations? Why is idempotency important? (answer)
+There are some HTTP methods e.g. GET which produce same response no matter how many times you use them e.g. sending multiple GET request to the same URI will result in same response without any side-effect hence it is known as idempotent.
+ 
+ 
+---on the other hand, the POST is not idempotent because if you send multiple POST request, it will result in multiple resource creation on the server, but again, PUT is idempotent if you are using it to update the resource.Even, multiple PUT request to update a resource on a server will give same end result
+
+
+---->What are the advantages of the RestTemplate? (answer)
+The RestTemplate class is an implementation of Template method pattern in Spring framework. Similar to other popular template classes e.g. JdbcTemplate or JmsTempalte, it also simplifies the interaction with RESTful Web Services on the client side. 
+
+
+---->Which HTTP methods does REST use? (answer)
+REST can use any HTTP methods but the most popular ones are GET for retrieving a resource, POST for creating a resource, PUt for updating resource and DELETE for removing a resource from the server.
+
+
+---->What is an HttpMessageConverter in Spring REST? (answer)
+An HttpMessageConverter is a Strategy interface that specifies a converter that can convert from and to HTTP requests and responses. Spring REST uses this interface to convert HTTP response to various formats e.g. JSON or XML.
+
+
+---->Is REST normally stateless? (answer)
+Yes, REST API should be stateless because it is based on HTTP which is also stateless. A Request in REST API should contain all the details required it to process i.e. it should not rely on previous or next request or some data maintained at the server end e.g. Sessions. REST specification put a constraint to make it stateless and you should keep that in mind while designing your REST API.
+
+
+---->What does @RequestMapping annotation do? (answer)
+The @RequestMapping annotation is used to map web requests to Spring Controller methods. You can map request based upon HTTP methods  e.g. GET and POST and various other parameters.
+
+@RequestMapping (method = RequestMethod.POST, consumes="application/json")
+public Book save(@RequestBody Book aBook) {
+   return bookRepository.save(aBook);
+}
+
+
+---->@RestController is a specialization of @Controller for RESTful web service. It not only combines @ResponseBody and @Controller annotation but also gives more meaning to your controller class to clearly indicate that it deals with RESTful requests.
+
+
+----> The @Controller is actually a specialization of Spring's @Component stereotype annotation. This means that class annotated with @Controller will also be automatically be detected by Spring container as part of container's component scanning process.
+
+
+---->When do you need @ResponseBody annotation in Spring MVC? (answer)
+The @ResponseBody annotation can be put on a method to indicates that the return type should be written directly to the HTTP response body 
+
+
+---->Can we maintain user session in web services?
+Web services are stateless so we can’t maintain user sessions in web services.
+
+
+---->Where do you need @EnableWebMVC? (answer)
+The @EnableWebMvc annotation is required to enable Spring MVC when Java configuration is used to configure Spring MVC instead of XML. It is equivalent to <mvc: annotation-driven>  in XML configuration.
+
+
+---->When do you need @ResponseStatus annotation in Spring MVC? (answer)
+It is required during error handling in Spring MVC and REST. Normally when an error or exception is thrown at server side, web server return a blanket HTTP status code 500 - Internal server error.
+
+ ----That's where you can use @ResponseStatus annotation, which allows you to send custom HTTP status code along with proper error message in case of Exception.
+ 
+ ----Order to use it, you can create custom exceptions and annotated them using @ResponseStatus annotation and proper HTTP status code and reason.
+ 
+ ----When such exceptions are thrown from controller's handler methods and not handled anywhere else, then appropriate HTTP response with the proper HTTP status code, which you have set is sent to the client.
+    
+	    @ResponseStatus(value=HttpStatus.NOT_FOUND, reason="No such Book")  // 404
+         public class BookNotFoundException extends RuntimeException {
+                    // ...
+           }
+
+
+---->Do you need Spring MVC in your classpath for developing RESTful Web Service? (answer)
+This question is often asked to Java programmers with 1 to 2 years of experience in Spring. Short answer is Yes, you need Spring MVC in your Java application's classpath to develop RESTful web services using Spring framework. It's actually Spring MVC which provides all useful annotations e.g. @RestController, @ResponseCode, @ResponseBody, @RequestBody, and @PathVariable, hence you must spring-mvc.jar or appropriate Maven entry in your pom.xml
+
+----> What do you understand by the payload in RESTFul?
+Answer: Payload means data that passed inside the request body; also, the payload is not request parameters. So only you can do payload in POST  and not in GET and DELETE method
+
+
+---->Explain the architectural style for creating web API?
+The architectural style for creating web api are
+ HTTP for client server communication
+ XML/JSON as formatting language
+ Simple URI as the address for the services
+ Stateless communication
+
+
+---->JAXB stands for java arch for XML binding.
+
+
+---->What are the advantages of statelessness in RESTful Webservices?
+Following are the benefits of statelessness in RESTful web services −
+Web services can treat each method request independently.
+Web services need not to maintain client's previous interactions. It simplifies application design.
+As HTTP is itself a statelessness protocol, RESTful Web services work seamlessly with HTTP protocol.
+
+
+---->What do you mean by idempotent operation?
+Idempotent operations means their result will always same no matter how many times these operations are invoked.
+
+
+---->What is the difference between PUT and POST operations?
+PUT and POST operation are nearly same with the difference lying only in the result where PUT operation is idempotent and POST operation can cause different result.
+
+
+---->What is caching?
+Caching refers to storing server response in client itself so that a client needs not to make server request for same resource again and again. A server response should have information about how a caching is to be done so that a client caches response for a period of time or never caches the server response.
+
+===========================================
+
+---->What do you mean by idempotent operation?
+Idempotent operations means their result will always same no matter how many times these operations are invoked.
+
+
+---->Which type of Webservices methods are to be idempotent?
+PUT and DELETE operations are idempotent.
+
+---->Which type of Webservices methods are to be read only?
+GET operations are read only and are safe.
+
+---->What is the difference between PUT and POST operations?
+PUT and POST operation are nearly same with the difference lying only in the result where PUT operation is idempotent and POST operation can cause different result.
+
+---->What should be the purpose of OPTIONS method of RESTful web services?
+It should list down the supported operations in a web service and should be read only.
+
+---->What should be the purpose of HEAD method of RESTful web services?
+It should return only HTTP Header, no Body and should be read only.
+
+---->What is caching?
+Caching refers to storing server response in client itself so that a client needs not to make server request for same resource again and again. A server response should have information about how a caching is to be done so that a client caches response for a period of time or never caches the server response.
+
+---->Which header of HTTP response, provides the date and time of the resource when it was created?
+Date header provides the date and time of the resource when it was created.
+
+---->Which header of HTTP response, provides the date and time of the resource when it was last modified?
+Last Modified header provides the date and time of the resource when it was last modified.
+
+---->Which header of HTTP response provides control over caching?
+Cache-Control is the primary header to control caching.
+
+---->Which header of HTTP response sets expiration date and time of caching?
+Expires header sets expiration date and time of caching.
+
+---->Which directive of Cache Control Header of HTTP response indicates that resource is cachable by any component?
+Public directive indicates that resource is cachable by any component.
+
+---->Which directive of Cache Control Header of HTTP response indicates that resource is cachable by only client and server, no intermediary can cache the resource?
+Private directive indicates that resource is cachable by only client and server, no intermediary can cache the resource.
+
+---->Which directive of Cache Control Header of HTTP response indicates that resource is not cachable?
+no-cache/no-store directive indicates that resource is not cachable.
+
+==============================================================================
+StatusCode123 :=
+~~~~~~~~~~~~~~
+
+What HTTP Status Code 200 states?
+It means, OK, shows success.
+
+What HTTP Status Code 201 states?
+It means, CREATED, when a resource is successful created using POST or PUT request. Return link to newly created resource using location header.
+
+What HTTP Status Code 204 states?
+It means, NO CONTENT, when response body is empty for example, a DELETE request.
+
+What HTTP Status Code 304 states?
+It means, NOT MODIFIED, used to reduce network bandwidth usage in case of conditional GET requests. Response body should be empty. Headers should have date, location etc.
+
+What HTTP Status Code 400 states?
+It means, BAD REQUEST, states that invalid input is provided e.g. validation error, missing data.
+
+What HTTP Status Code 401 states?
+It means, FORBIDDEN, states that user is not having access to method being used for example, delete access without admin rights.
+
+What HTTP Status Code 404 states?
+It means, NOT FOUND, states that method is not available.
+
+What HTTP Status Code 409 states?
+It means, CONFLICT, states conflict situation while executing the method for example, adding duplicate entry.
+
+What HTTP Status Code 500 states?
+It means, INTERNAL SERVER ERROR, states that server has thrown some exception while executing the method.
+
+ In case of invalid request, return with error message
+i. 401 – UnAuthorization
+ii. 404 – Not Found
+iii.405 – Method not Support
+iv. 415 – Unsupported MediaType
+
+====================================================================================
+
+----> What are the core components of a HTTP Request?
+A HTTP Request has five major parts −
+Verb − Indicate HTTP methods such as GET, POST, DELETE, PUT etc.
+URI − Uniform Resource Identifier URI to identify the resource on server.
+HTTP Version − Indicate HTTP version, for example HTTP v1.1 .
+Request Header − Contains metadata for the HTTP Request message as key-value pairs.
+For example, client orbrowser type, format supported by client, format of message body, cache-settings etc.
+Request Body − Message content or Resource representation.
+
+
+----> What are the core components of a HTTP response?
+A HTTP Response has four major parts −
+Status/Response Code − Indicate Server status for the requested resource. For example
+404 means resource not found and 200 means response is ok.
+HTTP Version − Indicate HTTP version, for example HTTP v1.1 .
+Response Header − Contains metadata for the HTTP Response message as key-value pairs.
+For example, content length, content type, response date, server type etc.
+Response Body − Response message content or Resource representation.
+
+
+---->A HTTP Response has four major parts:
+Status/Response Code- Indicate Server status for the requested resource. For example 404
+means resource not found and 200 means response is ok.
+HTTP Version- Indicate HTTP version, for example HTTP v1.1 .
+Response Header- Contains metadata for the HTTP Response message as key-value pairs.
+For example, content length, content type, response date, server type etc.
+Response Body- Response message content or Resource representation.
+
+==================================================================================
+
+---->What is the use of Accept and Content-Type Headers in HTTP Request?
+ --These are important headers in Restful web services. 
+ --Accept headers tells web service what kind of response client is accepting, so if a web service is capable of sending response in XML and JSON format and client sends Accept header as “application/xml” then XML response will be sent. 
+ --For Accept header “application/json”, server will send the JSON response.
+
+ ----Content-Type header is used to tell server what is the format of data being sent in the request. If Content-Type header is “application/xml” then server will try to parse it as XML data. This header is useful in HTTP Post and Put requests.
+
+
+---->Which type of Webservices methods are to be idempotent?
+PUT and GET operations are idempotent.
+
+
+--->Which type of Webservices methods are to be read only?
+GET operations are read only and are safe.
+
+---->Name important annotations used in JAX-RS API?
+Some of the important JAX-RS annotations are:
+@Path: used to specify the relative path of class and methods. We can get the URI of a webservice by scanning the Path annotation value.
+@GET, @PUT, @POST, @DELETE and @HEAD: used to specify the HTTP request type for a method.
+@Produces, @Consumes: used to specify the request and response types.
+@PathParam: used to bind the method parameter to path value by parsing it.
+
+
+----> What is the use of @XmlRootElement annotation?
+XmlRootElement annotation is used by JAXB to transform java object to XML and vice versa. So we have to annotate model classes with this annotation.
+
+
+---->How to set different status code in HTTP response?
+For setting HTTP status code other than 200, we have to use javax.ws.rs.core.Response class for response. Below are some of the sample return statements showing it’s usage.
+
+              return Response.status(422).entity(exception).build();
+              return Response.status(422).entity(exception).build();
+              return Response.ok(response).build(); //200
+
+
+---->How to download file in JAX-RS?
+put @Produces(“?”) on service method, with a Response return type. Instead “?” write a type text/plain, image/png, etc. 
+set “Content-Disposition” in Response header to tell browser pop up a download box for user to download.
+
+
+---->Web Service Provider provides the web services to the various application irrespective of their background, and Web Service Requestor/ Consumer as the name suggests is the requestor for the web services.
+
+
+---->The role of a Web Service provider is to implement web service and make it available to the web service requestor/ consumer.
+
+
+---->What is meant by SOAP message?
+The SOAP message refers to the data sent to the application from web services. SOAP message is an XML document which is sent through web services to provide data to the client application written in any programming language.
+SOAP message sends via using hypertext transfer protocol.
+
+
+----> What is SOA?
+SOA stands for Service Oriented Architecture. It is a design pattern to provide services to other application through protocol.
+
+
+----> Why Put Methods Is Idempotent?
+PUT is used to create a resource and repeating the operation should never create another copy of the resource. 
+
+
+---->. What Is The Purpose Of Javax.ws.rs.httpmethod?
+HttpMethod annotation is used to associate the name of a HTTP method with an annotation.
+
+
+---->Define Root Resource Class?
+Root resource class is basically a POJO (Plain Old JAVA Objects) that is annotated with @Path and has at least one method annotated with @Path or have at least a single resource method.
+
+
+---->Question 24. How Can You Obtain The Value Of A Method Parameter In Restful Resource Method?
+@PathParam can be used on method parameter of a resource method to obtain the value for a method parameter. 
+@GET 
+@Produces("text/plain") 
+public String getWelcomeMsg(@PathParam("username") String userName) { 
+... 
+} 
+
+
+----> Is It True That @produces Can Only Be Applied At Method Level?
+False. It can be applied at both the class and method levels. 
+
+
+---->How Can You Declare More Than One Media Type In The Same @produces Declaration?
+@Produces({"application/plain","application/xml", "application/json"})
+
+
+---->Write A Method That Is Triggered On Post Request And Takes Text/plain As Input?
+@POST 
+@Consumes("text/plain") 
+public void postMessage(String message) { 
+... 
+} 
+
+
+---->Which type of Webservices methods are to be idempotent?
+PUT and DELETE operations are idempotent.
+
+
+---->What is WSDL?
+WSDL is an XML-based language for describing web services and how to access them. (*************)
+
+
+---->What do you mean by UDDI?
+Universal Description, Discovery, and Integration or also known as UDDI is an XML based standard used for describing, finding and publishing web services. It’s a specification for a distributed registry of web services and uses Web Service Definition Language (WSDL) to define interfaces of web services.
+
+
+---->What are the various annotations available from JAX-RS api specification, for sending data from client-side to service endpoint?
+A: JAX-RS has provided various annotations for passing data from client-side code
+to service are @PathParam, @FormParam, @MatrixParam, @QueryParam, @HeaderParam, @CookieParam.
+These annotations are also known as Injection Annotations from JAX-RS API
+
+
+---->How can you apply security to RESTful services  
+A: Some of the options available to use for securing a RESTful service, for now, are
+1. Basic Authentication
+   This type of Authentication will require transport level encryption(SSL), as user
+   credentials are to be sent via wire in plain text.
+  
+2. OAuth 1.0a / OAuth 2.0
+   OAuth 1.0a is using advanced encryption for passing token for authentication purposes.
+   OAuth 2.0 is using SSL for transport level security.
+  
+3. Custom/Third-party security protocol
+
+
+---->Can you write a very simple code showing resource being exposed as RESTful service?
+A:
+@Path("/book")
+public class Book {
+
+  @GET
+  @Path("{id}")
+  public Book getBookInfo(@PathParam("id") String bookId) {
+      //return Book Instance by using value bookId.
+      return new Book();
+  }
+}
+
+
+---->What are the annotations that can be used for specifying content-type that is supported by any RESTful service?
+A: @Produces("text/xml") and @Consumes("text/xml") are the annotations that are used for specifying
+ways of defining any restrictions that can be defined at method-level for any RESTful service.
+
+
+----> Is there any ways to code so as to provide HTTP headers to a method in the main RESOURCE class file?
+A:
+Yes, by using @Context as argument type for the method that is exposed as REST uri.
+
+import javax.ws.rs.core.HttpHeaders;
+...
+...
+ @GET
+ @Path("abc")
+ public void getValue(@Context HttpHeaders headers) {
+   ...
+   ...
+ }
+
+===================================================================================================
+
+       .......Jersey390.......RESTEasy330.......JAXB123.........RestCalling660
+  
+=======================================================================================================================       
+
+         https://javahungry.blogspot.com/2015/07/web-services-interview-questions-and-answers.html
+
+
+   no contract defined between service and client
+   Loose-Coupling
+   transfer data in Multiple-formats.
+   lightweight protocol &&  methods can be tested easily over browser.
+   
+   
+   stateless it means that the server does not store any state about the client session on the server side
+   
+   ‘Resource’ is defined as an object of a type which can be an image, HTML file, text data
+   Each resource in REST architecture is identified by its URI
+   
+   GET && PUT are idempodent.
+   
+   Payload means data that passed inside the request body
+   
+                     Boot+Jersey  ----> https://github.com/Java-Techie-jt/spring-boot-jersey-example
+   Exceptional-Handling in Jersey ----> https://github.com/Java-Techie-jt/spring-jersey-exception-handling
+
+===============================================================================================================================
+
+ WebService :=
+~~~~~~~~~~~~~~~
+ ---It is a service offered by an electronic device to another electronic device, communicating with each other via world wide web.
+
+
+---->A resource can be considered as an object in an application. 
+
+
+----> What is the difference between a Web service and an API?
+The only difference is that a Web service facilitates interaction between two machines over a network. An API acts as an interface between two different applications so that they can communicate with each other. ... Web service also uses SOAP, REST, and XML-RPC as a means of communication.
+
+
+---->Main characteristics of the Web Services  are :
+1. Interoperability
+2. Extensibility
+3. Machine processable descriptions.
+
+
+---->What are the advantages of Web Services?
+Some of the advantages of web services are:
+
+Interoperability: Web services are accessible over network and runs on HTTP/SOAP protocol and uses XML/JSON to transport data, hence it can be developed in any programming language. Web service can be written in java programming and client can be PHP and vice versa.
+Reusability: One web service can be used by many client applications at the same time.
+Loose Coupling: Web services client code is totally independent with server code, so we have achieved loose coupling in our application.
+Easy to deploy and integrate, just like web applications.
+Multiple service versions can be running at same time.
+
+
+----> What is SOAP and REST Web services?
+Web services are of two kinds: Simple Object Access Protocol (SOAP) and Representational State Transfer (REST). SOAP defines a standard communication protocol (set of rules) specification for XML-based message exchange. SOAP uses different transport protocols, such as HTTP and SMTP.
+
+---->Request can be made three ways using Web Browser.
+i. Enter URL in Address Bar (GET)
+ii. Submit HTML form (GET / POST)
+iii. Hyper Links (<a> tags) (GET)
+
+
+MediaTypes:=
+~~~~~~~~~~~
+ In Webservices two applications (Consumer and Provider) will exchange data in global format.
+ Example JSON or XML are global formats.
+
+ ReSTWebservices has given two annotations to automate data conversion and exchange between Provider and Consumer.
+ Those are @Consumes and @Produces from javax.ws.rs package.
+
+ @Consumes: This annotation is used to convert Request data (Global Format) to Object in Provider.
+ @Produces: This annotation is used to convert Object in Provider to Response data (Global Format).
+
+
+-----> In HttpRequest Body send JSON of Employee, this must be converted to object format and store in DB as a Row.
+
+
+
+---->ReST can be Integrated with any Java API like Servlets , JDBC, JSP, Hibernate , Spring … etc
+ It supports even special concept {and API} like CODEC (Coding and DECoding) Mail Service(Java Mail) … etc.
+ ReST Architecture supports Easy Modifications in Project like Adding / removing will not affect other code.
+ Where in SOAP, any modification we must re-publish, re-generate stubs, re-write bind.
+ ReST uses Document concept to provide all resource details of Service Provider to Service Consumer
+
+
+---->ReST/ReSTFul stands for Representation State (Data format) Transfer.
+ It means transfer data in same format between two applications (It should be represented in same type)
+ ReST uses HTTP to transfer data between two applications.
+ ReST follows Client-Server with Front Controller Design, which behaves like Web Application.
+
+---->What is WSDL?
+WSDL (Web Services Description Language) is an XML format for describing web services and how to access them. 
+
+
+8  What is JAX-WS?
+JAX-WS (Java API for XML Web Services) is a set of APIs for creating web services in XML format.
+
+
+Q9 What is JAXB?
+JAXB (Java Architecture for XML Binding) is a Java standard that defines how Java objects are converted from and to XML. It makes reading and writing of XML via Java relatively easy.
+
+
+---->What are disadvantages of SOAP Web Services?
+Some of the disadvantages of SOAP protocol are:
+Only XML can be used, JSON and other lightweight formats are not supported.
+SOAP is based on the contract, so there is a tight coupling between client and server applications.
+SOAP is slow because payload is large for a simple string message, since it uses XML format.
+Anytime there is change in the server side contract, client stub classes need to be generated again.
+Can’t be tested easily in browser
+
+What are the advantages of SOAP web services?
+These are some of the important advantages of SOAP web services:
+ ---WS Security - SOAP defines its security known as WS Security. 
+ ---Language Independent - Its web services can be written in any programming language
+ ---Platform Independent - Its web services can be executed on any platform.
+
+
+
+What is WSDL?
+The WSDL stands for Web Services Description Language. It is an XML document containing information about web services such as method name, method parameter. The Client needs a data dictionary which contains information about all the web services with methods names and parameters list to invoke them for the web services. The Web Service Description Language bridge up this gap, by providing all necessary information to the client.
+
+Some Important elements used in Web Services Description language are as follows:
+
+<message>: The message element in WSDL is used to define all different data elements for each operation performed by the web service.
+<portType>: The port type element is used to determine the operation which can be performed by the web service. This operation can have two messages one is input and the second one is the output message.
+<binding>: This element contains the used protocol.
+
+
+
+What is UDDI?
+The UDDI stands for Universal Description, Discovery and Integration. It is a XML based framework for describing, discovering and integrating web services. It contains a list of available web services. WSDL is the part of UDDI.
+
+
+---->What tools are used to test web services?
+The tools used to test web services are:
+SoapUI tool for testing SOAP and RESTful web services
+Poster for firefox browser
+Postman extension for Chrome
+
+---->What is XOP?
+XOP (XML-binary Optimized Packaging) is a mechanism defined for the serialization of XML Information Sets that contain binary data, as well as deserialization back into the XML Information Set.
+
+
+---->What is JAX-WS API?
+JAX-WS stands for Java API for XML Web Services. JAX-WS is XML based Java API to build web services server and client application. It’s part of standard Java API, so we don’t need to include anything else which working with it. Refer to JAX-WS Tutorial for a complete example.
+
+
+---->Name important annotations used in JAX-WS API?
+Some of the important annotations used in JAX-WS API are:
+ --@WebService
+ --@SOAPBinding
+ --@WebMethod
+
+
+---->What is UDDI?
+UDDI is acronym for Universal Description, Discovery and Integration. UDDI is a directory of web services where client applications can lookup for web services. Web Services can register to the UDDI server and make them available to client applications.
+
+
+---->What is difference between REST and SOAP API?
+Differences: REST API has no has no official standard at all because it is an architectural style. SOAP API, on the other hand, has an official standard because it is a protocol. REST APIs uses multiple standards like HTTP, JSON, URL, and XML while SOAP APIs is largely based on HTTP and XML.
+
+
+----> Rest is Light-Weight && Json is mostly used than XML because It is Light-Weight.
+
+
+----->What is RESTFul Web Service?
+Answer: There is two popular way to develop web services, using SOAP (Simple Object Access Protocol) which is XML based way to expose web services and second REST-based web services which use the HTTP protocol. Web services developed using REST-style is also known as RESTful Web Services.
+
+
+----> What are advantages of REST web services?
+Some of the advantages of REST web services are:
+Learning curve is easy since it works on HTTP protocol
+Supports multiple technologies for data transfer such as text, xml, json, image etc.
+No contract defined between server and client, so loosely coupled implementation.
+REST is a lightweight protocol
+REST methods can be tested easily over browser.
+
+
+----> What are disadvantages of REST web services?
+Some of the disadvantages of REST are:
+Since there is, it has to be communicated through other means such as documentation or emails.
+Since it works on HTTP, there can’t be asynchronous calls.
+Sessions can’t be maintained.
+
+--->Mention what is JAX-WS and JAX-RS?
+Both JAX-WS and JAX-RS are libraries (APIs) for doing communication in various ways in Java. JAX-WS is a library that can be used to do SOAP communication in JAVA, and JAX-RS lets you do the REST communication in JAVA.
+
+
+  Jersey ----> https://examples.javacodegeeks.com/enterprise-java/rest/jax-rs-tutorial-jersey-restful-web-services/
+               https://examples.javacodegeeks.com/enterprise-java/rest/jax-rs-annotations-explained/
+			   
+
+---->What does REST stand for? (answer)
+ ---REST stands for REpresentational State Transfer, which uses HTTP protocol to send data from client to server e.g. a book in the server can be delivered to the client using JSON or XML.What is REST?
+ ---REST is an architectural style of developing web services .
+
+
+---->Can you tell me which API can be used to develop the RESTFul web service in Java?
+Answer: There are many framework and libraries out there, which helps to develop RESTful web services in Java, JAX-RS is a standard way to build REST web services. Jersey is one of the popular implementations of JAX-RS
+
+---->Just like SOAP (Simple Object Access Protocol), which is used to develop web services by XML method, RESTful web services use web protocol i.e. HTTP protocol method.
+
+
+---->Name some implementations of JAX-RS API?
+There are two major implementations of JAX-RS API.
+  --- Jersey: Jersey is the reference implementation provided by Sun. For using Jersey as our JAX-RS implementation, all we need to configure its servlet in web.xml and add required dependencies. Note that JAX-RS API is part of JDK not Jersey, so we have to add its dependency jars in our application.
+  --- RESTEasy: RESTEasy is the JBoss project that provides JAX-RS implementation.
+  
+---->What is JAX-RS?
+ ---JAX-RS stands for RESTful Web Services. JAX-RS is a set of APIs to develop the REST services. 
+ ---There are two main implementations of the JAX-RS API::
+      (1)Jersey   (2)RESTEasy
+
+================================================================================================================
+ Jersey390 :=
+~~~~~~~~~~~
+
+---->It is popular framework for making RESTFul applications.
+
+                HelloWorld -----> https://howtodoinjava.com/jersey/jax-rs-jersey-hello-world-example/
+	FileUpload (MultiPart) -----> https://howtodoinjava.com/jersey/jersey-file-upload-example/
+	  Multi-FileUpload ---------> https://howtodoinjava.com/jersey/jax-rs-jersey-ajax-multi-file-upload-example/
+  
+
+========================================================================================================================
+
+ RESTEasy330 :=
+~~~~~~~~~~~~~~
+
+----->What is the RESTeasy framework?
+ ---RESTeasy is a JBoss project, which implements of the JAX-RS specification. It has benefits such as 
+fully certified JAX-RS implementation; supports HTTP 1.1 caching semantics including cache revalidation; 
+ ---JAXB marshalling into XML, JSON, Jackson, Fastinfoset, and Atom as well as wrappers for maps, arrays, lists, and sets of JAXB Objects; 
+ 
+ 
+  JAXB :=
+~~~~~~~~
+  ---- Used to Convert java-Objects to XML and vice versa. 
+  
+ Jackson :=
+~~~~~~~~~~~
+ --- Jackson is a very popular and efficient java based library to Convert/Map java-Objects to JSON and vice versa. 
+ 
+
+ Jettison(RESTEasy) :=
+~~~~~~~~~~~~~~~~~~~~~~
+ ---Jettison is a collection of APIs that are used to read and write JSON formatted streams.
+ ---Jettison uses "-Badgerfish-", which is a convention for translating an XML document into a JSON object.
+ ---So, using Jettison alongside with JAXB, you can have your JAXB annotated Object mapped to JSON format. 
+ 
+
+=======================================================================================================================
+
+ JAXB123 :=
+~~~~~~~~~~
+ 
+ 
+ @XmlRootElement ~~~~~~~ (Scope--> Class) Defines the XML root element(root tag). Root Java classes need to be registered with the JAXB context when it is created.
+ 
+       Eg:= <employees>			   
+										   
+ @XmlAttribute ~~~~~~~(Scope-->Field)  Maps a field or property to an XML attribute
+
+                            Eg:=  <employees id="1">
+                            --
+										
+ @XmlElement ~~~~~~~(Scope-->Field)  Maps a field or property to an XML element
+
+                            Eg:=  <firstName>Lokesh</firstName>
+                            --    <lastName>Gupta</lastName>
+                                  <email>howtodoinjava@gmail.com</email>
+                          </employees>
+				
+				
+ @XmlAccessorType ~~~~~~~(Scope--> Package) Defines the fields and properties of your Java classes that the JAXB engine uses for binding. It has four values: PUBLIC_MEMBER, FIELD, PROPERTY and NONE.
+
+
+ @XmlAccessorOrder ~~~~~~ (Scope--> Package) , Defines the sequential order of the children.
+
+ @XmlType ~~~~~~~ (Scope-->Class, Enum) ,Maps a Java class to a schema type. It defines the type name and order of its children.
+
+ @XmlTransient ~~~~~~~(Scope-->Field)  Prevents mapping a field or property to the XML Schema
+
+ @XmlValue ~~~~~~~(Scope-->Field)  Maps a field or property to the text value on an XML tag.
+
+ @XmlList ~~~~~~~ (Scope-->Field Parameter) Maps a collection to a list of values separated by space.
+
+ @XmlElementWrapper ~~~~~~~ (Scope-->Field) Maps a Java collection to an XML wrapped collection
+
+
+---->Here we are relying on the Spring MVC HttpMessageConverter to convert an object to the xml representation requested by the user. 
+
+---->Instead of returning the java objects directly, you can wrap them inside ResponseEntity. The ResponseEntity is a class in Spring MVC that acts as a wrapper for an object to be used as the body of the result together with a HTTP status code
+ 
+===============================================================================================================
+
+ TwoApplication :=
+~~~~~~~~~~~~~~~~~
+  ---- When Request is sends from Consumer to Producer, 
+  
+                              The request will go to 'FC' in Web.xml (Producer), 
+							  
+							             then Service then Model then 'FC' && Response. 
+
+====================================================================================================================
+
+ RestCall
+
+----->What is the difference between AJAX and REST?
+in Ajax, the request are sent to the server by using XMLHttpRequest objects; REST have a URL structure and a request/response pattern the revolve around the use of resources;
+Ajax eliminates the interaction between the customer and server asynchronously; REST requires the interaction between the customer and server;
+Ajax is a set of technology; REST is a type of software architecture and a method for users to request data or information from servers.
+
+
+---->What is the Jersey framework?
+ --Jersey is open source framework for developing RESTful Web Services in Java that provides support for JAX-RS APIs and serves as a JAX-RS (JSR 311 & JSR 339) Reference Implementation. It has advantages such as 
+ --contains support for Web Application Description Language (WADL); 
+ --contains Jersey Test Framework which lets run and test Jersey REST services inside JUnit;   
+ --supports for the REST MVC pattern, which would allow to return a View from Jersey services rather than just data.
+ 
+ 
+---->HTTP protocol. This serves as a medium of data communication between client and server. HTTP standard methods are used to access resources in RESTful web service architecture.
+
+
+---->HTTP protocol plays the role of message communication between the client and server through HTTP Request and Response methods. HTTP request is sent by the client who contains information about the data and in turn, receives HTTP Response from the server.
+
+
+
+---->core components that come under HTTP Request are:
+
+Verb: Includes methods like GET, PUT, POST, HTTP Request header,  HTTP Request body etc
+
+ 
+What is the meaning of stateless Web services? :=  //
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+By stateless it means that the server does not store any state about the client session on the server side. The client session is stored on the client. The server is stateless means that every server can service any client at any time, there is no session affinity or sticky sessions. 
+
+   [ https://www.youtube.com/watch?v=nLylZ08h60A&list=PLqq-6Pq4lTTY40IcG584ynNqibMc1heIa&index=6 ]
+   
+
+---->What is a ‘Resource’?
+Answer: Just like the ‘Object’ instance, we have learned in object orient programming Language, in the same way, ‘Resource’ is defined as an object of a type which can be an image, HTML file, text data, and any type of dynamic data. There are varieties of representation formats available in order to represent a resource.
+ ---A resource is how data is represented in REST architecture. By exposing entities as the resource it allows a client to read, write, modify, and create resources using HTTP methods e.g. GET, POST, PUT, DELETE etc.
+Some most common are enlisted below:
+ JSON
+ XML
+ HTML
+ JAVASCRIPT
+ TEXT
+
+
+What is URI?
+URI stands for Uniform Resource Identifier. Each resource in REST architecture is identified by its URI
+
+
+---->What is your understanding about JAX-RS?
+Answer: JAX-RS is defined as the Java API for RESTful web service. Among multiple libraries and framework, this is considered as the most suitable Java programming language based API which supports RESTful web service.
+
+Some of the implementations of JAX-RS are:
+Jersey
+RESTEasy
+
+
+---->What are idempotent operations? Why is idempotency important? (answer)
+There are some HTTP methods e.g. GET which produce same response no matter how many times you use them e.g. sending multiple GET request to the same URI will result in same response without any side-effect hence it is known as idempotent.
+ 
+ 
+---on the other hand, the POST is not idempotent because if you send multiple POST request, it will result in multiple resource creation on the server, but again, PUT is idempotent if you are using it to update the resource.Even, multiple PUT request to update a resource on a server will give same end result
+
+
+---->What are the advantages of the RestTemplate? (answer)
+The RestTemplate class is an implementation of Template method pattern in Spring framework. Similar to other popular template classes e.g. JdbcTemplate or JmsTempalte, it also simplifies the interaction with RESTful Web Services on the client side. 
+
+
+---->Which HTTP methods does REST use? (answer)
+REST can use any HTTP methods but the most popular ones are GET for retrieving a resource, POST for creating a resource, PUt for updating resource and DELETE for removing a resource from the server.
+
+
+---->What is an HttpMessageConverter in Spring REST? (answer)
+An HttpMessageConverter is a Strategy interface that specifies a converter that can convert from and to HTTP requests and responses. Spring REST uses this interface to convert HTTP response to various formats e.g. JSON or XML.
+
+
+---->Is REST normally stateless? (answer)
+Yes, REST API should be stateless because it is based on HTTP which is also stateless. A Request in REST API should contain all the details required it to process i.e. it should not rely on previous or next request or some data maintained at the server end e.g. Sessions. REST specification put a constraint to make it stateless and you should keep that in mind while designing your REST API.
+
+
+---->What does @RequestMapping annotation do? (answer)
+The @RequestMapping annotation is used to map web requests to Spring Controller methods. You can map request based upon HTTP methods  e.g. GET and POST and various other parameters.
+
+@RequestMapping (method = RequestMethod.POST, consumes="application/json")
+public Book save(@RequestBody Book aBook) {
+   return bookRepository.save(aBook);
+}
+
+
+---->@RestController is a specialization of @Controller for RESTful web service. It not only combines @ResponseBody and @Controller annotation but also gives more meaning to your controller class to clearly indicate that it deals with RESTful requests.
+
+
+----> The @Controller is actually a specialization of Spring's @Component stereotype annotation. This means that class annotated with @Controller will also be automatically be detected by Spring container as part of container's component scanning process.
+
+
+---->When do you need @ResponseBody annotation in Spring MVC? (answer)
+The @ResponseBody annotation can be put on a method to indicates that the return type should be written directly to the HTTP response body 
+
+
+---->Can we maintain user session in web services?
+Web services are stateless so we can’t maintain user sessions in web services.
+
+
+---->Where do you need @EnableWebMVC? (answer)
+The @EnableWebMvc annotation is required to enable Spring MVC when Java configuration is used to configure Spring MVC instead of XML. It is equivalent to <mvc: annotation-driven>  in XML configuration.
+
+
+---->When do you need @ResponseStatus annotation in Spring MVC? (answer)
+It is required during error handling in Spring MVC and REST. Normally when an error or exception is thrown at server side, web server return a blanket HTTP status code 500 - Internal server error.
+
+ ----That's where you can use @ResponseStatus annotation, which allows you to send custom HTTP status code along with proper error message in case of Exception.
+ 
+ ----Order to use it, you can create custom exceptions and annotated them using @ResponseStatus annotation and proper HTTP status code and reason.
+ 
+ ----When such exceptions are thrown from controller's handler methods and not handled anywhere else, then appropriate HTTP response with the proper HTTP status code, which you have set is sent to the client.
+    
+	    @ResponseStatus(value=HttpStatus.NOT_FOUND, reason="No such Book")  // 404
+         public class BookNotFoundException extends RuntimeException {
+                    // ...
+           }
+
+
+---->Do you need Spring MVC in your classpath for developing RESTful Web Service? (answer)
+This question is often asked to Java programmers with 1 to 2 years of experience in Spring. Short answer is Yes, you need Spring MVC in your Java application's classpath to develop RESTful web services using Spring framework. It's actually Spring MVC which provides all useful annotations e.g. @RestController, @ResponseCode, @ResponseBody, @RequestBody, and @PathVariable, hence you must spring-mvc.jar or appropriate Maven entry in your pom.xml
+
+----> What do you understand by the payload in RESTFul?
+Answer: Payload means data that passed inside the request body; also, the payload is not request parameters. So only you can do payload in POST  and not in GET and DELETE method
+
+
+---->Explain the architectural style for creating web API?
+The architectural style for creating web api are
+ HTTP for client server communication
+ XML/JSON as formatting language
+ Simple URI as the address for the services
+ Stateless communication
+
+
+---->JAXB stands for java arch for XML binding.
+
+
+---->What are the advantages of statelessness in RESTful Webservices?
+Following are the benefits of statelessness in RESTful web services −
+Web services can treat each method request independently.
+Web services need not to maintain client's previous interactions. It simplifies application design.
+As HTTP is itself a statelessness protocol, RESTful Web services work seamlessly with HTTP protocol.
+
+
+---->What do you mean by idempotent operation?
+Idempotent operations means their result will always same no matter how many times these operations are invoked.
+
+
+---->What is the difference between PUT and POST operations?
+PUT and POST operation are nearly same with the difference lying only in the result where PUT operation is idempotent and POST operation can cause different result.
+
+
+---->What is caching?
+Caching refers to storing server response in client itself so that a client needs not to make server request for same resource again and again. A server response should have information about how a caching is to be done so that a client caches response for a period of time or never caches the server response.
+
+===========================================
+
+---->What do you mean by idempotent operation?
+Idempotent operations means their result will always same no matter how many times these operations are invoked.
+
+
+---->Which type of Webservices methods are to be idempotent?
+PUT and DELETE operations are idempotent.
+
+---->Which type of Webservices methods are to be read only?
+GET operations are read only and are safe.
+
+---->What is the difference between PUT and POST operations?
+PUT and POST operation are nearly same with the difference lying only in the result where PUT operation is idempotent and POST operation can cause different result.
+
+---->What should be the purpose of OPTIONS method of RESTful web services?
+It should list down the supported operations in a web service and should be read only.
+
+---->What should be the purpose of HEAD method of RESTful web services?
+It should return only HTTP Header, no Body and should be read only.
+
+---->What is caching?
+Caching refers to storing server response in client itself so that a client needs not to make server request for same resource again and again. A server response should have information about how a caching is to be done so that a client caches response for a period of time or never caches the server response.
+
+---->Which header of HTTP response, provides the date and time of the resource when it was created?
+Date header provides the date and time of the resource when it was created.
+
+---->Which header of HTTP response, provides the date and time of the resource when it was last modified?
+Last Modified header provides the date and time of the resource when it was last modified.
+
+---->Which header of HTTP response provides control over caching?
+Cache-Control is the primary header to control caching.
+
+---->Which header of HTTP response sets expiration date and time of caching?
+Expires header sets expiration date and time of caching.
+
+---->Which directive of Cache Control Header of HTTP response indicates that resource is cachable by any component?
+Public directive indicates that resource is cachable by any component.
+
+---->Which directive of Cache Control Header of HTTP response indicates that resource is cachable by only client and server, no intermediary can cache the resource?
+Private directive indicates that resource is cachable by only client and server, no intermediary can cache the resource.
+
+---->Which directive of Cache Control Header of HTTP response indicates that resource is not cachable?
+no-cache/no-store directive indicates that resource is not cachable.
+
+==============================================================================
+StatusCode123 :=
+~~~~~~~~~~~~~~
+
+What HTTP Status Code 200 states?
+It means, OK, shows success.
+
+What HTTP Status Code 201 states?
+It means, CREATED, when a resource is successful created using POST or PUT request. Return link to newly created resource using location header.
+
+What HTTP Status Code 204 states?
+It means, NO CONTENT, when response body is empty for example, a DELETE request.
+
+What HTTP Status Code 304 states?
+It means, NOT MODIFIED, used to reduce network bandwidth usage in case of conditional GET requests. Response body should be empty. Headers should have date, location etc.
+
+What HTTP Status Code 400 states?
+It means, BAD REQUEST, states that invalid input is provided e.g. validation error, missing data.
+
+What HTTP Status Code 401 states?
+It means, FORBIDDEN, states that user is not having access to method being used for example, delete access without admin rights.
+
+What HTTP Status Code 404 states?
+It means, NOT FOUND, states that method is not available.
+
+What HTTP Status Code 409 states?
+It means, CONFLICT, states conflict situation while executing the method for example, adding duplicate entry.
+
+What HTTP Status Code 500 states?
+It means, INTERNAL SERVER ERROR, states that server has thrown some exception while executing the method.
+
+ In case of invalid request, return with error message
+i. 401 – UnAuthorization
+ii. 404 – Not Found
+iii. 405 – Method not Support
+iv. 415 – Unsupported MediaType
+
+====================================================================================
+
+----> What are the core components of a HTTP Request?
+A HTTP Request has five major parts −
+Verb − Indicate HTTP methods such as GET, POST, DELETE, PUT etc.
+URI − Uniform Resource Identifier URI to identify the resource on server.
+HTTP Version − Indicate HTTP version, for example HTTP v1.1 .
+Request Header − Contains metadata for the HTTP Request message as key-value pairs.
+For example, client orbrowser type, format supported by client, format of message body, cache
+settings etc.
+Request Body − Message content or Resource representation.
+
+
+----> What are the core components of a HTTP response?
+A HTTP Response has four major parts −
+Status/Response Code − Indicate Server status for the requested resource. For example
+404 means resource not found and 200 means response is ok.
+HTTP Version − Indicate HTTP version, for example HTTP v1.1 .
+Response Header − Contains metadata for the HTTP Response message as key-value pairs.
+For example, content length, content type, response date, server type etc.
+Response Body − Response message content or Resource representation.
+
+
+---->A HTTP Response has four major parts:
+Status/Response Code- Indicate Server status for the requested resource. For example 404
+means resource not found and 200 means response is ok.
+HTTP Version- Indicate HTTP version, for example HTTP v1.1 .
+Response Header- Contains metadata for the HTTP Response message as key-value pairs.
+For example, content length, content type, response date, server type etc.
+Response Body- Response message content or Resource representation.
+
+==================================================================================
+
+---->What is the use of Accept and Content-Type Headers in HTTP Request?
+ ----These are important headers in Restful web services. Accept headers tells web service what kind of response client is accepting, so if a web service is capable of sending response in XML and JSON format and client sends Accept header as “application/xml” then XML response will be sent. For Accept header “application/json”, server will send the JSON response.
+
+ ----Content-Type header is used to tell server what is the format of data being sent in the request. If Content-Type header is “application/xml” then server will try to parse it as XML data. This header is useful in HTTP Post and Put requests.
+
+
+---->Which type of Webservices methods are to be idempotent?
+PUT and GET operations are idempotent.
+
+
+--->Which type of Webservices methods are to be read only?
+GET operations are read only and are safe.
+
+---->Name important annotations used in JAX-RS API?
+Some of the important JAX-RS annotations are:
+@Path: used to specify the relative path of class and methods. We can get the URI of a webservice by scanning the Path annotation value.
+@GET, @PUT, @POST, @DELETE and @HEAD: used to specify the HTTP request type for a method.
+@Produces, @Consumes: used to specify the request and response types.
+@PathParam: used to bind the method parameter to path value by parsing it.
+
+
+----> What is the use of @XmlRootElement annotation?
+XmlRootElement annotation is used by JAXB to transform java object to XML and vice versa. So we have to annotate model classes with this annotation.
+
+
+---->How to set different status code in HTTP response?
+For setting HTTP status code other than 200, we have to use javax.ws.rs.core.Response class for response. Below are some of the sample return statements showing it’s usage.
+
+              return Response.status(422).entity(exception).build();
+              return Response.status(422).entity(exception).build();
+              return Response.ok(response).build(); //200
+
+
+---->How to download file in JAX-RS?
+put @Produces(“?”) on service method, with a Response return type. Instead “?” write a type text/plain, image/png, etc. 
+set “Content-Disposition” in Response header to tell browser pop up a download box for user to download.
+
+
+---->Web Service Provider provides the web services to the various application irrespective of their background, and Web Service Requestor/ Consumer as the name suggests is the requestor for the web services.
+
+
+---->The role of a Web Service provider is to implement web service and make it available to the web service requestor/ consumer.
+
+
+---->What is meant by SOAP message?
+The SOAP message refers to the data sent to the application from web services. SOAP message is an XML document which is sent through web services to provide data to the client application written in any programming language.
+SOAP message sends via using hypertext transfer protocol.
+
+
+----> What is SOA?
+SOA stands for Service Oriented Architecture. It is a design pattern to provide services to other application through protocol.
+
+
+----> Why Put Methods Is Idempotent?
+PUT is used to create a resource and repeating the operation should never create another copy of the resource. 
+
+
+---->. What Is The Purpose Of Javax.ws.rs.httpmethod?
+HttpMethod annotation is used to associate the name of a HTTP method with an annotation.
+
+
+---->Define Root Resource Class?
+Root resource class is basically a POJO (Plain Old JAVA Objects) that is annotated with @Path and has at least one method annotated with @Path or have at least a single resource method.
+
+
+---->Question 24. How Can You Obtain The Value Of A Method Parameter In Restful Resource Method?
+@PathParam can be used on method parameter of a resource method to obtain the value for a method parameter. 
+@GET 
+@Produces("text/plain") 
+public String getWelcomeMsg(@PathParam("username") String userName) { 
+... 
+} 
+
+
+----> Is It True That @produces Can Only Be Applied At Method Level?
+False. It can be applied at both the class and method levels. 
+
+
+---->How Can You Declare More Than One Media Type In The Same @produces Declaration?
+@Produces({"application/plain","application/xml", "application/json"})
+
+
+---->Write A Method That Is Triggered On Post Request And Takes Text/plain As Input?
+@POST 
+@Consumes("text/plain") 
+public void postMessage(String message) { 
+... 
+} 
+
+
+---->Which type of Webservices methods are to be idempotent?
+PUT and DELETE operations are idempotent.
+
+
+---->What is WSDL?
+WSDL is an XML-based language for describing web services and how to access them.
+
+
+---->What do you mean by UDDI?
+Universal Description, Discovery, and Integration or also known as UDDI is an XML based standard used for describing, finding and publishing web services. It’s a specification for a distributed registry of web services and uses Web Service Definition Language (WSDL) to define interfaces of web services.
+
+
+---->What are the various annotations available from JAX-RS api specification, for sending data from client-side to service endpoint?
+A: JAX-RS has provided various annotations for passing data from client-side code
+to service are @PathParam, @FormParam, @MatrixParam, @QueryParam, @HeaderParam, @CookieParam.
+These annotations are also known as Injection Annotations from JAX-RS API
+
+
+---->How can you apply security to RESTful services  
+A: Some of the options available to use for securing a RESTful service, for now, are
+1. Basic Authentication
+   This type of Authentication will require transport level encryption(SSL), as user
+   credentials are to be sent via wire in plain text.
+  
+2. OAuth 1.0a / OAuth 2.0
+   OAuth 1.0a is using advanced encryption for passing token for authentication purposes.
+   OAuth 2.0 is using SSL for transport level security.
+  
+3. Custom/Third-party security protocol
+
+
+---->Can you write a very simple code showing resource being exposed as RESTful service?
+A:
+@Path("/book")
+public class Book {
+
+  @GET
+  @Path("{id}")
+  public Book getBookInfo(@PathParam("id") String bookId) {
+      //return Book Instance by using value bookId.
+      return new Book();
+  }
+}
+
+
+---->What are the annotations that can be used for specifying content-type that is supported by any RESTful service?
+A: @Produces("text/xml") and @Consumes("text/xml") are the annotations that are used for specifying
+ways of defining any restrictions that can be defined at method-level for any RESTful service.
+
+
+----> Is there any ways to code so as to provide HTTP headers to a method in the main RESOURCE class file?
+A:
+Yes, by using @Context as argument type for the method that is exposed as REST uri.
+
+import javax.ws.rs.core.HttpHeaders;
+...
+...
+ @GET
+ @Path("abc")
+ public void getValue(@Context HttpHeaders headers) {
+   ...
+   ...
+ }
+
+===================================================================================================
+
+
+
+
+
+
+
+
+

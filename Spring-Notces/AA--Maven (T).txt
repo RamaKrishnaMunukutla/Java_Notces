@@ -1,0 +1,318 @@
+
+
+
+
+
+
+==========================================================================
+
+---->Maven is a dependency management tool. It provides the developer a complete build lifecycle framework.
+
+--->maven lifeCycle -- Clean , Default &&  Site lifecycle.
+
+---> use of maven is dependency management. &&& setUp project quickly.
+
+----> "-ANT-" is procedural language that provides what to do && When to do ( no LifeCycle, toolbox)
+   ----"-MAVEN-" is declaractive language in which we define everything in POM.xml. ( has LifeCycle, Framework )
+   
+
+---> POM is fundamental unit of work in Maven, It is a XML file that contains information of Project and varoius Configuration details. 
+               (Project dependencies && Version, build, plugin, goals....etc)
+		
+
+Artifact ---> jar file that get deployed in  Maven dependencies.		 ( mvn archetype: generate )
+~~~~~~~~
+
+MavenBuildLifeCycle :=
+~~~~~~~~~~~~~~~~~~~
+that contains sequence of phases.It defined the Order in which Goals are to executed.
+
+MavenRepositary := place where all Maven Jars, Projects jars, library jars && Plugin are kept.
+~~~~~~~~~~~~~~~
+
+   SnapShot ---> indicates Current deployment copy.
+
+
+   clean lifeCycle --- Pre-clean ,clean, Post-Clean.
+
+
+---->Explain what is POM?
+POM (Project Object Model) is the fundamental unit of work. It is an XML file which holds the information about the project and configuration details used to build a project by Maven.
+
+---->what is Maven artifact?
+An artifact is a file, usually a JAR, that gets deployed to a Maven repository. A Maven build produces one or more artifacts, such as a compiled JAR and a "sources" JAR. Each artifact has a group ID (usually a reversed domain name, like com. example. foo), an artifact ID (just a name), and a version string
+
+---->Explain what is Maven Repository? What are their types?
+A Maven repository is a location where all the project jars, library jars, plugins or any other particular project related artifacts are stored and can be easily used by Maven. Their types are local, remote and central
+
+---->Why Maven Plugins are used?
+Maven plugins are used to
+Create a jar file
+Create war file
+Compile code files
+Unit testing of code
+Documenting projects
+Reporting
+
+---->Mention how profiles are specified in Maven?
+Profiles are specified in Maven by using a subset of the elements existing in the POM itself.
+
+---->List out the dependency scope in Maven?
+
+The various dependency scope used in Maven are:
+
+Compile: It is the default scope, and it indicates what dependency is available in the classpath of the project
+Provided: It indicates that the dependency is provided by JDK or web server or container at runtime
+Runtime: This tells that the dependency is not needed for compilation but is required during execution
+Test: It says dependency is available only for the test compilation and execution phases
+System: It indicates you have to provide the system path
+Import: This indicates that the identified or specified POM should be replaced with the dependencies in that POM’s section
+
+
+
+----> List out what are the build phases in Maven?
+Build phases in Maven are
+Validate
+Compile
+Test
+Package
+Install
+Deploy
+
+
+----> List out what are the Maven’s order of inheritance?
+The maven’s order of inheritance is
+Parent Pom
+Project Pom
+Settings
+CLI parameters
+
+
+
+----> For POM what are the minimum required elements?
+The minimum required elements for POM are project root, modelVersion, groupID, artifactID and version.
+
+
+---->Explain how to run test classes in Maven?
+To run test classes in Maven, you need "--surefire-plugin--", check and configure your settings in setting.xml and pom.xml for a property named "test."
+
+---->Maven supports project modularization.
+** Maven also supports dependency management and migration.
+
+----> What is the Projected Oriented Build in Maven?
+Maven tools are build on the model as POM i.e. Project Object Model.
+Supports single-inheritance tree like Java.
+Defined as XML in pom.xml
+Every pom extends the super POM
+
+
+----> Q: What are POM Files in Maven?
+All your code and resources are placed in the src directory.
+>> The main/Java directory holds your project code.
+>> Compiled code is placed in the largest directory.
+>> The test/Java directory holds your JUnit test code.
+
+
+
+---->How many repositories are there in Maven?
+There are three types of repository present in Maven. This includes Local Repository, Central Repository, and Remote Repository.
+
+ --Local Repository- This local repository is located on your local system and it works when you run a maven command. Maven local repository command is %USER_HOME%/.m2 directory. (local Folder)
+
+ --Central Repository- Installation from the repository is performed on creating a project from archetype or resolving the dependency. (Net)
+
+ --Remote Repository- This repository is located on the web. It is just a network accessible location that Maven downloads dependencies from. All the artifacts that remote repository contains are open source. (Custom Respositary OWN)
+
+
+---->How to install Maven?
+Make sure JDK is installed, and ‘JAVA_HOME’ variable is added as Windows environment variable.
+Add both M2_HOME and MAVEN_HOME variable in the Windows environment, and point it to your Maven folder
+
+
+
+---->What are the things you need to define for each external dependency?
+External Dependency plays an important part in the Maven software. It is an internal part of the system without which dependency cannot be located in a system. To specify the external dependency we need:
+1. It requires a group ID duplicate to the library name.
+2. It requires an artifact ID duplicate to the library name.
+3. Mentioning of dependency scope in the system
+4. Have to mention the system route corresponding to the project position.
+
+
+---->What is the command to check the maven version?
+            mvn -version 
+
+
+---------------------------------------------------------------------------------------------------------
+
+What is the use of the exclusion element?
+The element is used to exclude dependencies.
+
+11) Define SNAPSHOT in terms of maven.
+The snapshot indicates the current development copy.
+
+12) Define Archetype.
+It is a Maven plugin which is designed for the creation of project structure.
+
+7. What does central repository consist of?
+It consists of a large number of libraries that are frequently used.
+
+13) Give the command for installation of the JAR file in a local repository.
+        mvn install
+
+-------------------------------------------------------------------------------------------------------
+
+
+---->Mention the phases of cleaning lifecycle.
+The lifecycle of cleaning consist of:
+pre-clean
+clean
+post-clean
+
+---->What is a MOJO?
+A MOJO stands for Maven plain Old Java Object. Each MOJO is an executable goal in Maven, and a plugin is a distribution of one or more related MOJOs.
+
+---->
+
+
+---->What is the command to package maven project?
+               mvn -package  
+
+
+----> What is the fully qualified artifact name of maven project?
+<groupId>:<artifactId>:<version>
+
+
+---->What is an archetype?
+Archetype is the maven plugin. It creates the project structure.
+
+
+---->What is SNAPSHOT in Maven?
+SNAPSHOT is a special version that indicates a current development copy. Unlike regular versions, Maven checks for a new SNAPSHOT version in a remote repository for every build.
+
+
+---->What is Archetype?
+Archetype is a Maven plugin whose task is to create a project structure as per its template
+
+
+---->What is difference between Snapshot and Version?
+In case of Version, if Maven once downloaded the mentioned version say data-service:1.0, it will never try to download a newer 1.0 available in repository. To download the updated code, data-service version is be upgraded to 1.1.
+
+In case of SNAPSHOT, Maven will automatically fetch the latest SNAPSHOT (data-service:1.0-SNAPSHOT) everytime app-ui team build their project.
+
+
+---->What is archetype.
+Answer: We will use maven archetype to generate the maven folder structure based on the inputs.
+Ex: mvn archetype:generate.
+
+---->What is the version to use to check maven version
+Answer: mvn –version
+
+---->Which is the command will use to add jar manually in pom file under dependency.
+Answer: <systemPath></systemPath>
+
+------------------------------------------------------------------------------------------------
+
+what are the types of POM configuration?
+Answer: Mail List, Plugins, goals, projects version and build profile.
+
+Q53) what is GroupId refereces?
+Answer: GroupId is nothing but reverse domain access and it will referes which file location
+
+Q54) what is ArtifactsId refereces?
+Answer: ArtifactsId is nothing but file name to download in accessed domain and it will referes file name.
+
+Q55) what is Version and Scope refereces?
+Answer: Version which defines the version control and scope which referes the file name.
+
+Q56)What does the mvn clean command?
+Answer: mvn clean command is used to removes the target location file of before and after build starts.
+
+Q57) what is Maven Repository referred?
+Answer: where the place we can see all the project jars,plugins and library jar file and Store easily in maven
+
+How to exclude dependencies?
+Answer: By using the exclusion element. Exclusions are specific dependency in your POM, and are targeted at a specific groupId and artifactId.
+
+Q62) which command removes the target directory before the start of a build process?
+Answer: mvn clean command
+
+Q63 Processes involved in achieving the project?
+Answer: Maven helps in creating a Java-based project more easily. Accessibility of new feature created or added in Maven added to a project in Maven configuration.
+
+what is clean, default and site in maven?
+Answer:
+
+Clean represents cleans up artifacts achieved by previous builds.
+Default (or build): this can be customized to build the appliance.
+Site: generates site level documents for the project.
+
+Q77) What are the primary objectives of Maven?
+Answer: The primary objective of maven is to support the developer with key features following:
+To provide the developer an extensive model to set up projects to make it reusable, easily maintainable and easily understandable.
+To support with tools or plug-ins which interact with the demonstrative model.
+
+
+Q78) What is the command to know which version of Maven you are using?
+Answer: The command to know the version of Maven is:
+$mvn –version
+
+
+
+----------------------------------------------------------------------------------------------------------------------
+
+---->State the differences between Apache Ant and Maven?
+Apache ant is basically a tool box	
+Maven is a framework
+
+Apache Ant will not support any formal conventions such as project directory structure
+Maven supports formal conventions
+
+Apache Ant does everything procedurally	
+Maven does things in a declarative way
+
+It is not possible to reuse the scripts of Ant	
+The plug-ins of Maven were reusable
+
+Ant will not contain lifecycle. User has to manually add the sequence of tasks about to be performed	
+Maven contain a life cycle
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+---->Q94) Explain Clean life cycle in Maven?
+Answer: While executing the mvn post-clean command, Maven calls the clean life cycle. It consists of the following phases:
+Clean
+Pre-clean
+Post-clean
+
+
+----> What do you mean by build profile in Maven?
+Answer: Build profile in Maven refers to a set of configuration values through which user can set a default value or can override the default values of Maven build. User can customize build for several environments using a build profile. Profiles could be able to modify the POM at build time. They are also used to provide parameters for various target environments.
+
+
+
+---->Q99) What are the types of Build profile in Maven?
+Answer: The build profile of Maven is of three types. They are:
+Per-project: It is specified in the project file i.e POM file, pom.xml
+Per-user: Specified in the Maven settings XML file(settings.xml-can be accessed from root folder)
+Global: Specified in the Maven global settings XML file
+
+---->What are the types of Maven Plug-ins?
+Answer: There are two types of Plug-ins from Maven. They are:
+
+Build plug-ins: This type of plug-in is used to execute while build process is in progress and has to be configured in the <build/> element of pom.xml file.
+Reporting plug-ins: This type of plug-ins were executed while the site generation process is in progress and has to be configured in <reporting/> element of the pom.xml file.
+Q109) What are the common Plug-ins available in Maven?
+Answer: Maven supports some other common Plug-ins namely: Clean, Compiler, JAR, WAR, Surefire, Javadoc and  antrun.
+
+
+----> What are the configurations possible in Settings.xml file?
+Answer: The following configurations are possible in Settings.xml file:
+
+User can configure the proxy
+User can configure Local repository
+User can configure central repository
+User can configure remote repository
+
+
+
+

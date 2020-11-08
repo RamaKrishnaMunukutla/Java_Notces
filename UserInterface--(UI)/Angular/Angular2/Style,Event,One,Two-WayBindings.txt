@@ -1,0 +1,174 @@
+
+
+
+   ........Interpolation......PropertyBinding......EventBinding
+   
+   ........TwoWayBinding......ClassBinding.........StyleBinding
+  
+
+======================================================================================
+
+ (1) Interpolation :=
+~~~~~~~~~~~~~~~~~~~~~
+  ---Binds String Property.
+  
+  
+ Name:<input [value]="name"/><br>     //used property Binding
+ <h2>You Entered :: {{name}} </h2>    //used Interpolation
+
+ name:string="RamaKrishna";
+ 
+=====================================================================================================
+ 
+ (2) PropertyBinding :=  [ hidden,isDisabled ]
+~~~~~~~~~~~~~~~~~~~~~~
+  ---Binds Boolean Property.
+
+ <div [hidden]="submitted" style="width: 600px;">
+  submitted = false;
+ 
+  <input [disabled]="isDisabled" style="width: 600px; type="text">
+  isDisabled = true;
+  
+  <button [disabled]= "userForm.form.invalid" class="btn btn-primary" type="submit"> 
+  
+========================================================================================
+ 
+ 
+ (3) EventBinding :=  ( click,ngSubmit )
+~~~~~~~~~~~~~~~~~~~~
+  ----
+  
+  	  <button (click)="deleteEmployee(employee.id)" 
+	                class="btn btn-danger">Delete</button>  ....// goes to TS-file "-deleteEmployee(id)-" method 
+					
+--------------------
+					
+     <button (click)="add(heroName.value); heroName.value=''">Add</button> (************)
+     
+	 <button (click)='onClick()'>Click Me</button>
+	   onClick(): void {
+          console.log('Button Clicked');
+	  }
+	  
+-------------------------------
+	 
+	 <button (click)='onClick($event)'>Click Me</button>  ....../// prints which event has raised.
+	   onClick(event): void {
+           console.log(event);
+	   }
+	  
+	  <form (ngSubmit)="onSubmit()"> 
+
+================================================================================================================
+
+ (4) TwoWayBinding :=  
+~~~~~~~~~~~~~~~~~~~~~
+  ----Import "Forms-Module" for ngModel. (*********)
+ 
+ <input type="text" [(ngModel)]="name">
+    {{name}}
+	
+	public name:string="";
+	
+---------------
+
+<input type="text" [(ngModel)]="user.name" placeholder="name"> <br>
+<input type="text" [(ngModel)]="user.job" placeholder="job">
+ 
+ 
+ user:any
+ 
+  @Input()
+  get user() {
+    return this.user;
+  }
+  
+  
+----------------
+ 
+ <input type="text" class="form-control" id="lastName" required [(ngModel)]="employee.lastName" name="lastName" class="col-xs-2" lastName #lastName="ngModel">
+		 
+
+=========================================================================================================
+
+ (5) ClassBinding :=
+~~~~~~~~~~~~~~~~~~~
+  ----Binds Bootstrap-class in HTML.
+  
+  <h3 [class] ="successClass">Code evaluation</h3>
+  
+   public successClass="text=success"
+  
+  
+=========================================================================================================
+
+ (6) StyleBinding :=
+~~~~~~~~~~~~~~~~~~~
+  ----Binds Font-Styles.
+ 
+    <h2 [style.color] = "highlightColor" >Style-Binding22</h2>
+	    public highlightColor="orange";
+		
+-------------------
+		
+	<h2 [style.color] = " hasErrors ? 'bold' : 'normal' "> Check </h2><br>
+	    public hasErrors=true;
+		
+-------------------
+	 <h2 [ngStyle]="titleStyles">Static Binding</h2>
+	
+	 public titleStyles= {
+	      color: "blue",
+	   fontstyle: "italic"
+      }
+	  
+==========================================================================================================
+ 
+ (7) Template reference Variables :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ---- Takes "form-Feild" value to "TS-Method" as input. (**********)
+   
+   <input #Typedata type="text">
+   <button (Click)= " messageHere(Typedata.value)" >Click</button>
+   
+   messageHere(ip)[
+      console.log(ip);
+   }
+ 
+ 
+
+==========================================================================================================
+
+ Table :=
+~~~~~~~~~ 
+<table>
+    <thead>
+        <tr>
+            <th [attr.colspan]="colspan">Employee Details</th>
+        </tr>
+    </thead>
+    <tbody>
+<tr>
+    <td>First Name::</td>
+    <td>{{firstName}}</td>
+</tr>
+<tr>
+    <td>Last name:: </td>
+    <td>{{lastName}}</td>
+</tr>
+<tr *ngIf='showDetails'>
+    <td>Age::</td>
+    <td>{{age}}</td>
+</tr>
+<tr *ngIf='showDetails'>
+    <td>Gender::</td>
+    <td>{{gender}}</td>
+</tr>
+</tbody>
+</table>
+<button (click)="toogleDetails()">
+{{showDetails? 'show': 'hide'}}
+</button>
+======================================================================================================
+

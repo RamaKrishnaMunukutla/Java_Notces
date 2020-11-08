@@ -1,0 +1,194 @@
+ 
+   
+   emptab~~~~~~~~~~ eid, ename, esal, did
+   deptab~~~~~~~~~~ did, dloc, dprj
+
+ SELECT * FROM rama.addrtab;
+  select * from rama.addrtab;
+  desc rama.addrtab;
+  
+ ======================================================================================================
+ Inner Join:= common values are displayed from 2 tables.
+ ~~~~~~~~~~
+  
+======================================================================================
+ Left Join:=
+ ~~~~~~~~~~
+ returns all the records from left table and also those records which satisfy the condition from right table.If no matching found then ResultSet returns NULL.
+
+ 
+ Eg:= select  emptab.eid, emptab.ename, addrtab.emploc from emptab left join addrtab on emptab.eid= addrtab.eid;
+ 
+======================================================================================
+
+Right Join :=
+~~~~~~~~~~~~
+ returns all the records from Right table and also those records which satisfy the condition from left table.If no matching found then ResultSet returns NULL.
+
+ 
+ Eg:= select  emptab.eid, emptab.ename, addrtab.eloc from emptab right join addrtab on emptab.eid= addrtab.eid; 
+ 
+======================================================================================
+
+Full Join :=
+~~~~~~~~~~
+All the values from  left  table which satisfy the condition of right table and Viceversa.
+
+Eg:= select  emptab.eid, emptab.ename, addrtab.eloc from emptab  left join  addrtab on emptab.eid = addrtab.eid; 
+ union
+ select  emptab.eid, emptab.ename, addrtab.eloc from emptab  right join  addrtab on emptab.eid = addrtab.eid; 
+ 
+======================================================================================
+Left Outer Join:=
+~~~~~~~~~~~~~~~
+Retrives the matching  valves from all tables but unmatching data from left-hand-side only.
+
+                           ( unmatching rows at left~~ Null at right[missing] )
+
+Eg:=  select * from emptab e left outer join addrtab d on e.eid= d.eid;
+======================================================================================
+Right Outer Join:=
+~~~~~~~~~~~~~~~
+Retrives the matching  valves from all tables but unmatching data from right-hand-side only.
+          
+		                  ( unmatching rows at right~~~ Null at left[missing] )
+
+Eg:= select * from emptab e right outer join addrtab d on e.eid= d.eid;
+======================================================================================
+Full Outer Join:=
+~~~~~~~~~~~~~~~
+
+Retrive matching and unmatching data from all tables.
+
+Eg:=  select * from emptab e right outer join addrtab d on e.eid= d.eid;
+  union
+  select * from emptab e right outer join addrtab d on e.eid= d.eid;
+======================================================================================
+
+Natural Join:= (Inner join && Not supported in Mysql)
+~~~~~~~~~~~~
+---To avoid duplicate columns from join tables.
+ 
+===========================================================================
+Cross Join:= (Product of Rows----- M*N Rows)
+~~~~~~~~~~~~
+
+----> (6 Rows in emptab) * (5 rows in addrtab) ======> 30 Rows.
+
+To join more tables without join condition, without any common column.
+
+Eg:=  select * from emptab cross join addrtab;
+==============================================================================
+ 
+ (1) where (2) OrderBy
+  
+ 
+ (3)GROUP BY clause :=
+~~~~~~~~~~~~~~~~~~~~~~
+  Clause is used to collect data from multiple columns and group the result by one or more column. It is generally used in a SELECT statement.You can also use some aggregate functions like COUNT, SUM, MIN, MAX, AVG etc. on the grouped column.
+
+==============================================================================
+
+ (4) HAVING Clause :=
+~~~~~~~~~~~~~~~~~~~~
+ It is used with GROUP BY clause. It always returns the rows where condition is TRUE.
+
+
+
+----->"IN" condition is used to reduce the use of multiple OR conditions in a SELECT, INSERT, UPDATE and DELETE statement.
+   
+      SELECT *  FROM officers  WHERE officer_name = 'Ajeet'  OR officer_name = 'Vimal'  OR officer_name = 'Deepika';  
+	                                                 (as)
+	  SELECT *  FROM officers  WHERE officer_name IN ('Ajeet', 'Vimal', 'Deepika');  
+
+----->SELECT *  FROM officers  WHERE officer_id NOT BETWEEN 3 AND 5; 
+
+----->  SELECT count(*) FROM assign a 
+				INNER JOIN bdmreq br ON a.bdmReq_id=br.id INNER JOIN client c ON br.client_id = c.id 
+				INNER JOIN addcontact ac ON br.addcontact_id = ac.id 
+				INNER JOIN user ss ON ss.id = ac.lead_id  WHERE a.users_id = ? AND br.status = open
+
+=====================================================================
+
+-----> select ename from emptab where  qual='Mtech' or qual='Btech';
+       ///"In" is used in place of "or" to simplify
+       select ename from emptab where  qual in ('Mtech','Btech');
+
+      select ename from emptab where  qual  not in ('Mtech','Btech');
+
+----->select * from emptab where esal between 5000 and 7000;
+     //"Between" used to test in range
+	 select * from emptab where esal  not between 5000 and 7000;
+
+----->select * from emptab limit 4;
+      //returns in sequence order in specific range , 4th row to 8th row
+	  select * from emptab limit 4,8;
+
+----->select * from emptab order by esal desc  limit 1,1;   
+    //2nd Highest salary of a employee in table
+
+----->select * from emptab where ename like'r%';
+      select * from emptab where ename like'%i';
+	  select * from emptab where ename like'_a%';
+	  select * from emptab where ename like'r___';
+	  select * from emptab where ename not like'r%';
+	  
+
+----->select * from emptab order by esal desc,qual asc;
+      select * from emptab order by feild(qual, 'Btech','Mtech','MBA');
+	  ///To get records in order wise
+
+----> To count rows in table ~~~~~~~~~~~~~    select count(*) from rama.emptab;
+ 
+=============================================================================
+
+  
+  
+     
+	                  //create table (emptab)~~~~~~~~~~~eid, ename,esal,qual
+   
+
+
+ Group By:=
+~~~~~~~~
+Summaries identical rows into a Single /Distinct rows and returns a single row with summary for each group by using appropriate aggregate functions like SUM(), AVG(), COUNT(), MIN(), MAX()
+
+
+----->Works on rows returned by select query.
+  
+ Eg:=  select esal,count(*) from rama.emptab group by esal;  //counts esal number repeated times
+ 
+ ---- select qual,count(*) from emptab group by qual;
+     ///to count total qual in tables liek Btech,Mtech how many times repeated....etc
+ 
+ ---- select qual,sum(esal) from emptab group by qual having qual in('Btech','Mtech');
+ 
+ 
+ --- If you use the GROUP BY clause in the SELECT statement without using aggregate functions, the GROUP BY clause behaves like the DISTINCT clause.You can achieve a similar result by using the DISTINCT clause:
+ 
+ ----
+ 
+ ----
+ 
+ ----
+==============================================================================================================================
+
+
+  
+	
+	
+==============================================================================================================================
+Having clause:=
+~~~~~~~~~~~~~~
+---> works as a filter on top of grouped rows returned by group by clause, cannot be replaced by where clause and viceversa.
+       
+Order~~~~~~~~~~~  ( where [filters individual rows]  ----- GroupBy     ----Having [filters GroupBy(group of) column]  ---OrderBy )
+
+
+Eg:=   select ename, sum(esal) from rama.emptab group by ename having sum(esal)>2000 order by sum(esal) desc;
+==============================================================================================================================
+
+----> AND operator is a logical operator that combines two or more Boolean expressions and returns true only if both expressions evaluate to true. The AND operator returns false if one of the two expressions evaluate to false.
+
+ - 
+ ----

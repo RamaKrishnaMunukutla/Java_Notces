@@ -1,0 +1,80 @@
+
+Model:=
+~~~~~~
+ import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapKeyColumn;
+import javax.persistence.OrderColumn;
+import javax.persistence.Table;
+
+@javax.persistence.Entity
+@Table(name = "emptab")  // table name111111111
+
+public class Employee {
+
+	@Id
+
+	@Column(name = "eid")
+	private int empId;
+	@Column(name = "ename")
+	private String empName;
+	@Column(name = "esal")
+	private long empSal;
+ //============================================================================================
+	@ElementCollection // child table-required
+	@CollectionTable( // optional
+			name = "emp_proj", // table name222222222222
+			joinColumns = @JoinColumn(name = "emp_Id")// key-column
+	)
+	@OrderColumn(name = "pos") // index-column
+	@Column(name = "data") // element-column 1
+	private List<String> projects;
+ //============================================================================================
+	@ElementCollection // child table-required
+	@CollectionTable( // optional
+	name="emp_models", //table name3333333333333333
+	joinColumns=@JoinColumn(name="emp_Id") // key-column
+	)
+	@MapKeyColumn(name="pos") //index-column
+	@Column(name="data") // element-column
+	private Map<Integer,String> models;
+ 
+==============================================================================================================================
+Test:=
+~~~~
+  // Creating List Collection obj
+			List<String> projects = new ArrayList<String>();
+			projects.add("p1");
+			projects.add("p2");
+			projects.add("p3");
+			//Creating Map Coll Obj
+			Map<Integer,String> model = new LinkedHashMap<Integer,String>();
+			model.put(10, "A");
+			model.put(20, "B");
+			model.put(30, "C");
+			
+			// Creating Employee object and adding Collection obj
+			Employee emp = new Employee();
+			emp.setEmpId(100);
+			emp.setEmpName("RAVI");
+			emp.setEmpSal(78115);
+			emp.setProjects(projects);
+			emp.setModels(model);
+			//save Object
+			ses.save(emp);
+
+============================================================================================================================
+
+   3 tables are created ~~~~~~~~~~~~~~~emptab, emp_models,  emp_proj
+   
+   IN Pom.xml~~~~~~~~~~~~  <property name="hibernate.hbm2ddl.auto">create-drop</property>
+
+============================================================================================================
+

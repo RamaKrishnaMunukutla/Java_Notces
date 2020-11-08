@@ -1,0 +1,141 @@
+ 
+ Util55555555 :=
+~~~~~~~~~~~~~~
+ 
+import org.hibernate.SessionFactory;
+import org.hibernate.boot.Metadata;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+
+
+ private static StandardServiceRegistry standardServiceRegistry;
+  private static SessionFactory sessionFactory;
+
+  static{
+	    if (sessionFactory == null) {
+	      try {
+	        // Create StandardServiceRegistry
+	        standardServiceRegistry = new StandardServiceRegistryBuilder()
+	            .configure()
+	            .build();
+	        // Create MetadataSources
+	        MetadataSources metadataSources = new MetadataSources(standardServiceRegistry);
+	        // Create Metadata
+	        Metadata metadata = metadataSources.getMetadataBuilder().build();
+	        // Create SessionFactory
+	        sessionFactory = metadata.getSessionFactoryBuilder().build();
+	      } catch (Exception e) {
+	        e.printStackTrace();
+	        if (standardServiceRegistry != null) {
+	          StandardServiceRegistryBuilder.destroy(standardServiceRegistry);
+	        }
+	      }
+	    }
+  }
+  //Utility method to return SessionFactory
+  public static SessionFactory getSessionFactory() {
+	  return sessionFactory;
+  }
+  
+============================================================================================ 
+  
+Main55555555 :=
+~~~~~~~~~~~~~
+
+   try {
+			session = HibernateUtil.getSessionFactory().openSession();
+			Employee employee = session.get(Employee.class, 1);
+			if(employee != null){
+				session.beginTransaction();
+				
+				
+				
+				
+				
+				
+					session.getTransaction().commit();
+			   }else{
+				System.out.println("Employeedoesn't exist with provided Id..");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(session != null){
+				session.close();
+			}
+		}
+  
+============================================================================================  
+  
+ Version-Check :=
+ ~~~~~~~~~~~~~
+ 
+ String sql = "select version()";
+           String result = (String) session.createNativeQuery(sql).getSingleResult();
+			System.out.println("MySql Database Version is:::");
+			System.out.println(result);
+			
+================================================================================================
+  
+Util44444444444 :=
+~~~~~~~~~~~~~~~
+  private static SessionFactory sf;
+	static {
+		try {
+			Configuration cfg = new Configuration().configure();
+			sf = cfg.buildSessionFactory();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static SessionFactory getSf() {
+		return sf;
+	}
+================================================================================================
+Main444444 :=
+~~~~~~~~~~
+
+Transaction tx = null;
+		// try with resource
+		try (Session ses = HibernateUtil.getSf().openSession()) {
+			// ses.flush();
+			tx = ses.beginTransaction();
+		
+
+		
+	
+	
+				tx.commit();
+			ses.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+			tx.rollback();
+		}
+	}
+}
+
+================================================================================================
+  
+Criteria-Builder :=
+~~~~~~~~~~~~~~~~
+
+		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+			CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaQuery<Employee> criteriaQuery = builder.createQuery(Employee.class);
+			Root<Employee> root = criteriaQuery.from(Employee.class);
+			criteriaQuery.select(root);
+			
+			criteriaQuery.where(builder.equal(root.get("employeeId"), 2));
+			
+			Query<Employee> query = session.createQuery(criteriaQuery);
+			List<Employee> empList = query.list();
+			empList.forEach(System.out::println);
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}
+==========================================================================================================  
+
+  
+  
