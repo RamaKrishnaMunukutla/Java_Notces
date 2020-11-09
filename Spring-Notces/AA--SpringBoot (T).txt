@@ -11,7 +11,7 @@
 	
    ......SpringBatch660..........RedisDB........PCF660.....SpringBatch880.....SpringBootActuator
    
-   ....SpringBootFaceBook995.....Conditional880...SpringBootCache880.....
+   ....SpringBootFaceBook995.....Conditional880...SpringBootCache880.....WhiteLabelError
 
 ===========================================================================================================
 	
@@ -467,8 +467,8 @@ environments:
 	   
 ==================================================================================================================
 
- To Avoid "White-label-Error" :=
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ To Avoid "White-label-Error" [ WhiteLabelError ] :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Whitelabel Error Page
 This application has no explicit mapping for /error, so you are seeing this as a fallback.
@@ -494,18 +494,20 @@ public class MyController implements ErrorController{
 }
 
 ============================================================================================================
+ 
  HATEOAS780 :=
-~~~~~~~~~~
+~~~~~~~~~~~~
  ---It is known as Hypermedia As The Engine Of Application State. 
+ 
  ---It is used to present the REST API information to the client allowing better API understanding and documentation
  
- --- It library of APIs that you can use to create links that point to Spring MVC controllers, build up resource representations,
+ --- It library of APIs that you can use to create links that point to Spring MVC controllers, build up resource representations.
  
 
 ===========================================================================================================================
 
  Runner740 :=
-~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
 
 ----> ApplicationRunner(I) and CommandLineRunner(I) interfaces lets you to execute the code after the Spring Boot application is started. 
 
@@ -895,8 +897,6 @@ There are two ways to add Servlet, Filter, ServletContextListener and the other 
 ----> Thymeleaf is an server-side Java Template-Engine that is licensed under the Apache License 2.0.
       It is a HTML5/XHTML/XML.
 
-
-
 ==============================================================================================
 
 
@@ -913,9 +913,6 @@ public class CustomEndpoint implements Endpoint {
 }
 Copy
 Spring Boot 2.x changed it by introducing @Endpoint annotation. Spring Boot expose endpoints with @Endpoint, @WebEndpointor @WebEndpointExtension over HTTP using Jersey, Spring MVC, or Spring WebFlux.Read Custom Endpoint in Spring Boot Actuator for more detail.
-
- 
-
 
 ---->What is a shutdown in the actuator?
 Spring Boot actuator provides a shutdown endpoint. This endpoint allows the graceful shutdown of the application. This end point disabled by default and we need to enable this in case we need to use this service. We can enable this end point using project.properties 

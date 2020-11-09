@@ -31,13 +31,26 @@
  Hash--Collision.
 ==========================================================
 
-    https://www.youtube.com/watch?v=DMmp5TanmD0&list=PLzS3AYzXBoj8kjn4sD1_TDYH2DC0oupJi&ab_channel=KKJavaTutorials
- https://www.youtube.com/watch?v=XUTJZZDZG8k&list=PLzS3AYzXBoj8XCaW6-o73-FkvZPMas41L&ab_channel=KKJavaTutorials
- https://www.youtube.com/watch?v=1RmzYPO0z_s&list=PLzS3AYzXBoj8Fm19MdV3jqZOCLOh984xK&ab_channel=KKJavaTutorials
- https://www.youtube.com/watch?v=KnfYq136bWw&list=PLzS3AYzXBoj81AIcYmKJqNI8DD3zJMzHU&ab_channel=KKJavaTutorials
-https://www.youtube.com/watch?v=XUTJZZDZG8k&list=PLzS3AYzXBoj8XCaW6-o73-FkvZPMas41L&ab_channel=KKJavaTutorials
-https://www.youtube.com/watch?v=BUaGXxUJ7Zg&list=PLzS3AYzXBoj84LfxRFAuM-eDlPRWvhGeJ&ab_channel=KKJavaTutorials 
+ Exception ---> https://www.youtube.com/watch?v=DMmp5TanmD0&list=PLzS3AYzXBoj8kjn4sD1_TDYH2DC0oupJi&ab_channel=KKJavaTutorials
+ Collection ---> https://www.youtube.com/watch?v=XUTJZZDZG8k&list=PLzS3AYzXBoj8XCaW6-o73-FkvZPMas41L&ab_channel=KKJavaTutorials
+  Java-8 --->https://www.youtube.com/watch?v=1RmzYPO0z_s&list=PLzS3AYzXBoj8Fm19MdV3jqZOCLOh984xK&ab_channel=KKJavaTutorials
+ Java-8 (Colle)---> https://www.youtube.com/watch?v=KnfYq136bWw&list=PLzS3AYzXBoj81AIcYmKJqNI8DD3zJMzHU&ab_channel=KKJavaTutorials
+ Core Java ---> https://www.youtube.com/watch?v=BUaGXxUJ7Zg&list=PLzS3AYzXBoj84LfxRFAuM-eDlPRWvhGeJ&ab_channel=KKJavaTutorials 
  
+  MultiThreading :=
+--------------
+ --- https://www.youtube.com/watch?v=ZM93AA6wzY8&list=PLzS3AYzXBoj-2YQ8K5m5P-609YYq4VBbe&ab_channel=KKJavaTutorials
+ --- https://www.youtube.com/watch?v=hlK-ca64VI4&list=PLzS3AYzXBoj8jq5o5qolE4Kki19j1UrS8&ab_channel=KKJavaTutorials
+
+  Spring ---> https://www.youtube.com/watch?v=FvGZesiLwwo&list=PLzS3AYzXBoj8U0zgO7Kuu_2KtclkB1gSV&ab_channel=KKJavaTutorials
+ SpringBoot ---> https://www.youtube.com/watch?v=R9qanO4c7bY&list=PLzS3AYzXBoj8UcLsBN3UXd7Nf1T4ZyJa0&ab_channel=KKJavaTutorials
+ 
+ Hibernate ---> https://www.youtube.com/watch?v=bMvqaCP0PDo&list=PLzS3AYzXBoj_o6sOu2CUnnSEk1e8Sb1op&ab_channel=KKJavaTutorials
+ 
+ Maven ---> https://www.youtube.com/watch?v=_bkT85B6n1U&list=PLzS3AYzXBoj8mX3WbzQDghYytnx2JqBrU&ab_channel=KKJavaTutorials
+ 
+ GIT ------> https://www.youtube.com/watch?v=_bkT85B6n1U&list=PLzS3AYzXBoj8mX3WbzQDghYytnx2JqBrU&ab_channel=KKJavaTutorials
+             https://www.youtube.com/watch?v=2rCo62FkRV8&list=PLzS3AYzXBoj9VxjaTOjuQCG6zyFw9-xLI
  
 ===================================================
  

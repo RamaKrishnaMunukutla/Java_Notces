@@ -517,9 +517,10 @@ public class Response {
 	   // 	public static final LocalDateTime localDateTime = LocalDateTime.now();
 	 
 ===================
-@ControllerAdvice
+
+ @ControllerAdvice
 //@RestControllerAdvice
-Class ExpHnalder {
+Class ExpHandler {
 
   @ExceptionHandler
   public String handle (InvalidFeildException exp){  
@@ -530,8 +531,10 @@ Class ExpHnalder {
  }
 
 ======================  
-  Eg44 :=
+ 
+ Eg44 :=
 ~~~~~~~~
+
   @Override
   public ResponseEntity<String> save(Employee e){
   if(!Employee.getId()!=null){
@@ -562,7 +565,8 @@ Class ExpHnalder {
         if(StringUtils.isBlank(emp.getUserName()){
 		    throw new InvalidFeildException("User Name is required");
    }
-=========================
+
+========================================
  Eg55 :=
 ~~~~~~
 @ControllerAdvice
@@ -576,6 +580,39 @@ Class  ExceptionHandler{
 
  }	 
 
+======================================================
+
+   @ExceptionHandler(IOException.class)
+    public ResponseEntity handleIO(Exception e) {
+        return buildResponseEntity(new ApiError(HttpStatus.INTERNAL_SERVER_ERROR, "An error occurred in IO streams.", 500));
+    }
+
+    @ExceptionHandler({SQLException.class, DataAccessException.class})
+    public ResponseEntity databaseError(Exception e) {
+        return buildResponseEntity(new ApiError(HttpStatus.INTERNAL_SERVER_ERROR, "An error occurred in database connection.", 500));
+    }
+
+ 
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity handleConstraintViolation(Exception e) {
+        return buildResponseEntity(new ApiError(HttpStatus.BAD_REQUEST, "Constraint violation", 400));
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity handleIllegalArgumentException(Exception e) {
+        return buildResponseEntity(new ApiError(HttpStatus.BAD_REQUEST, e.getMessage(), 400));
+    }
+
+    @ExceptionHandler(IllegalStateException.class)
+    public ResponseEntity handleIllegalStateException(Exception e) {
+        return buildResponseEntity(new ApiError(HttpStatus.CONFLICT, e.getMessage(), 409));
+    }
+
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity handleError(Exception e) {
+        return buildResponseEntity(new ApiError(HttpStatus.INTERNAL_SERVER_ERROR, e.getClass().getName() + " " + e.getMessage(), 500));
+    }
 
 ===================================================================================================================
 
