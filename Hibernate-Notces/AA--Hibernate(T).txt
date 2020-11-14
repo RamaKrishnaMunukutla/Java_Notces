@@ -1,7 +1,7 @@
  
 
                 
-		..........ConnectionProperties..........SessionFactory.........keyComponentsofHibernate........
+		..........ConnectionProperties..........SessionFactory.........keyComponentsofHibernate......Cache880
 		
 		.............GetVsLoad..............ObjectStateInHibernate.......Collections123..........PrimaryKeyGenerate
 		
@@ -71,8 +71,20 @@
 											   
 		
 ----> @OrderColumn(name = "order_id") --- column will not created.
+
+================
 		
-----> @GeneratedValue(strategy=GenerationType.IDENTITY) ----> Id==1  ( starts from '1' )    
+----> @GeneratedValue(strategy=GenerationType.IDENTITY) ----> Id==1  ( starts from '1' )  
+
+Generators are used to generate value for primary key column when record is inserting to table.
+
+ 
+----> Custom Generators are generated through "-IdentifierGenerator-" (I) having method :: (**********)
+  
+    @Override
+	public Serializable generate(SharedSessionContractImplementor session, Object object) throws HibernateException { ..... }
+
+=============	
 
 ----> person.getBooks().add(book1);.........................@OneToMany
       employee1.setDepartment(department1);	................@ManyToOne	  
@@ -95,6 +107,36 @@
 ----> how to convert detached state to persist state in hibernate??
  Using Session.merge()
  
+===========
+
+-> We have several possible values for ddl-auto property : Auto DDL (create, create-drop, update and validate)
+
+			-> create
+			-> create-drop
+			-> update
+			-> validate
+			-> none
+
+-> create means every time new table will be created
+
+-> create-drop: it creates table and drops table at end of operaton
+
+-> update: If table is not available it will create if table is already available it will    just perform operation
+
+-> validate: It is used to validate schema details
+
+ Note: Don't enable this property in Production Environment
+
+==================
+ 
+ Composite Primary Key :=  [ https://www.callicoder.com/hibernate-spring-boot-jpa-composite-primary-key-example/ ]
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+--- To Find Employee Id && Company Id 
+--- Done through @Embedable && @Embedded
+
+ 
+==================
  
 ---->Hibernate 5.2 or later requires minimum Java 1.8 and JDBC 4.2
 
@@ -367,6 +409,12 @@ keyComponentsofHibernate :=
  commit/Rollback
  close
  
+ Hibernate lifecycle contains the following states := (*********)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --Transient state
+ --Persistent state
+ --Detached state
+ 
 ----------------------------------------------------------------------------------
 
         ///.......Create Configuration class object.(org.hibernate.cfg)
@@ -415,25 +463,92 @@ NotNull Column---@Column(name="ename",nullable=false)
 
 ==========================================================================
 
+ Cache880 :=
+~~~~~~~~~~~
+
 ------>Hibernate supports 2 types of memories to improve performance.
                          no.of opeartions= no.of request calls
 						 
 1. Cache------to reduce network calls between Hibernate app and Database.
-          A) Session (I Level) Cache ---handled by Hibernate only.
-		                             ---It is assosiated with Session-Object && Session-closed means  Cache-Objects are lost.
-		                             ---On performing any session operation that goes to Session cache only on commit() operation, data will be send to Database.
+         
+		  A) I Level Cache
 		  
-          B) SessionFactory (II Level) Cache-----handled by Programmer(enable it)
+              --- Enabled by Default && handled by Hibernate only.
+              --- It is a MANDATORY-Cache through which all requests(data) MUST-PASS (**********)  
+              --- First-Level-Cache always Associates with the Session object. (*********)
+			  --- Scope is limited to Session && Other Cannot See it 
+			  --- Cache-Objects can be destroyed Once session is closed	(****)	 
+              --- Using clear() method, We can remove all the entities stored in cache. (**********)			  
+              --- It is assosiated with Session-Object && Session-closed means  Cache-Objects are lost.
+              --- On performing any session operation that goes to Session cache only on commit() operation, data will be send to Database.
+			  
+			  --- evict() method is used to remove a PARTICULAR cached object associated with session
+			  --- clear() method is used to remove ALL cached objects associated with session
+		  
+          
+		  B) II Level Cache
+		  
+		     --- handled by Programmer(enable it)
+			 --- OPTIONAL-Cache and first-level cache will always be consulted before doing any Operation.
+			 --- Second-level cache always associates with the Session Factory object (***********)
+
 		  
 
+ How second level cache works :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Whenever hibernate session try to load an entity, the very first place it look for cached copy of entity in first level cache (associated with particular hibernate session).
+ 
+ --- If cached copy of entity is present in first level cache, it is returned as result of load method.
+ 
+ --- If there is no cached entity in first level cache, then second level cache is looked up for cached entity.
+ 
+ --- If second level cache has cached entity, it is returned as result of load method. But, before returning the entity, it is stored in first level cache also so that next invocation to load method for entity will return the entity from first level cache itself, and there will not be need to go to second level cache again.
+ 
+ --- If entity is not found in first level cache and second level cache also, then database query is executed and entity is stored in both cache levels, before returning as response of load() method.
+ 
+ ---  Second level cache validate itself for modified entities, if modification has been done through hibernate session APIs.
+
+=================
+	  
+ EHCache :=
+~~~~~~~~~~
+ --- It can cache in memory or on DISK.
+ --- EHCache stores data into memory but when it starts overflowing, it start writing data into file system.A
+ 
+ Eg :=
+~~~~~
+
+ <dependency>  
+    <groupId>net.sf.ehcache</groupId>  
+    <artifactId>ehcache</artifactId>  
+    <version>2.10.3</version>  
+</dependency> 
+
+  @Entity  
+  @Table(name="emp1012")  
+  @Cacheable  
+  @Cache(usage=CacheConcurrencyStrategy.READ_ONLY)  
+  public class Employee {  }
+  
+    <property name="cache.use_second_level_cache">true</property>   
+    <property name="cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>  
+
+===================
+ 
 --->To disable 2nd Level in hibernate.cfg.xml ,
 
-        <property name="cache.use_second_cache level"> false </property>
+        <property name="cache.use_second_level_cache">false</property>   
+		
+		  <cache usage = "read-write"/> (**********)
 
-2. Pool:=Group(similar types) of objects i.e all objects connected to one datatype
+ 2. Pool :=
+~~~~~~~~~~
+ --- Group(similar types) of objects i.e all objects connected to one datatype
 
-Second level cache := [ https://www.javatpoint.com/hibernate-second-level-cache ]
+
+Second level cache := [ https://www.javatpoint.com/hibernate-second-level-cache ] //  EH (Easy Hibernate) Cache
 ~~~~~~~~~~~~~~~~~~~
+
 ----> For 1st          Select-Query,                       Record comes from Database.
       For 2nd-Same     Select-Query,                       Record comes from Cache. (**********)
 	  For Another      Select-Query form Another-Session , Record comes from Database.
@@ -1185,7 +1300,7 @@ NativeSQL :=
 
 ======================================================================================================
 
-HibernateValidatorAPI && MVC :=  
+HibernateValidatorAPI && MVC :=  [ https://howtodoinjava.com/hibernate/hibernate-validator-java-bean-validation/ ]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ---> Validations are used to check data, before processing operation.

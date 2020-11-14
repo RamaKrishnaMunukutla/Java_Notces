@@ -30,9 +30,16 @@
    Loose-Coupling
    transfer data in Multiple-formats.
    lightweight protocol &&  methods can be tested easily over browser.
+
+-> The application which is providing business services to other application is called as Provider
+
+-> The application which is accessing business services from other application is called Consumer application
+
    
    PUT and GET are idempodent (******)
-   
+    
+	WSDL -----> SOAP  (XML-Based) (**********)
+   SWAGGER ---> REST (JSON-Based) (**********)
    
    stateless it means that the server does not store any state about the client session on the server side
    
@@ -54,6 +61,14 @@
 
 ================================================================== 
    
+  Types of Applications :=
+~~~~~~~~~~~~~~~~~~~~~~~
+ 
+ (1) Stand-Alone  [Ms-Office,STS,CHROME]  
+ (2) C2B :: End users will interact with web applications directley   [ Gmail, Flikart, Amazon, IRCTC ]
+ (3) B2B :: One application which is interacting with another application [  Zomoto -----> Banking apps ]
+
+
  StandAlone-Applications := Application that need install on System (Eg:: Microsoft-Office, Eclipse)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
  
@@ -78,6 +93,248 @@
  
 
 =============================================================================================================
+
+ What is Intereoperability?
+---------------------------
+-> Irrespective of platform irrespective of programming language if two applications are communicating with each other then they are called as Intereoperable applications.
+
+----> Before JAX-RS, JAX-RPC (Java api for xml - remote procedural call) existed released by Sun MicroSystem.
+      his is first and foremost specification released into market to achieve Intereoperability
+
+----> As B.P 1.0 is successful, WS-I released B.P 1.1 Specification , called JAX-WS (B.P 1.1)
+
+
+RoyFielding provided few Principles They are called REST Architecture Principles... That's where notation started for RESTful Services...........
+
+By Supporting Roy Fielding Principles, Sun release one api called JAX-RS api
+
+
+JAX-RS (JAVA API FOR - RESTFUL SERVIECS)
+----------------------------------------
+Jersey implementation (Sun)
+Rest Easy implementation( JBOSS )
+
+	4) Webservices
+	5) RESTFul services
+	
+	
+-> If we develop a webservice using Jax-RPC or JAX-Ws then that webservice is called as SOAP Based Webservice.
+
+-> SOAP Webservices are called as Big Webservices.
+
+
+
+What is Contract ?
+------------------
+-> Contract means WSDL
+
+-> WSDL -> Webservices Description Language
+
+-> WSDL is a special XML which describes how provider is providing business services to consumers
+
+-> Contact First Approach means WSDL file will be created first then Development will be started.
+
+-> Contact Last Approach means First we will develop the service then we will prepare WSDL for that.
+
+-> Once Provider development is completed, provider will share WSDL file to consumer
+
+Note: Email, sharepoint, repository, UDDI
+
+Note: Practically UDDI is not required.
+
+-> Once we got the WSDL file, we can start Consumer Development
+
+-> Consumer can be developed in below ways
+	
+		1) Stub Based Consumer
+		2) Dynamic Proxy Consumer
+
+-> Once Consumer development is completed, consumer will send request to provider
+
+-> Provider will process consumer request and will send reponse to consumer.
+
+
+What is Contract ?
+------------------
+-> Contract means WSDL
+
+-> WSDL -> Webservices Description Language
+
+-> WSDL is a special XML which describes how provider is providing business services to consumers
+
+-> Contact First Approach means WSDL file will be created first then Development will be started.
+
+-> Contact Last Approach means First we will develop the service then we will prepare WSDL for that.
+
+-> Once Provider development is completed, provider will share WSDL file to consumer
+
+Note: Email, sharepoint, repository, UDDI
+
+Note: Practically UDDI is not required.
+
+-> Once we got the WSDL file, we can start Consumer Development
+
+-> Consumer can be developed in below ways
+	
+		1) Stub Based Consumer
+		2) Dynamic Proxy Consumer
+
+-> Once Consumer development is completed, consumer will send request to provider
+
+-> Provider will process consumer request and will send reponse to consumer.
+
+REST Components
+---------------
+1) Resource (REST Resource)
+
+2) WADL / Swagger
+
+3) XML or JSON or TEXT or Yml 
+
+4) Client
+
+
+
+Today's session : Http Status Codes & Messages
+-----------------------------------------------
+
+-> When client sends http request to server, it will process that request and it will send response back to client with status code, status message, headers & response body
+
+-> Http Protocol divided into 2 parts
+		
+		a) Http Request
+		b) Http Response
+
+Http Request Again Divided into 5 parts
+----------------------------------------
+1) Initial Request Line
+2) Host Address
+3) Request Headers
+4) Blank Line
+5) Request Body
+
+HTTP Response Divided into 4 Parts
+----------------------------------
+1) Initial Response Line
+2) Response Headers
+3) Blank Line
+4) Response Body
+
+
+HTTP Methods
+------------
+GET
+-----
+The GET method requests a representation of the specified resource. Requests using GET should only retrieve data.
+
+
+HEAD
+-----
+The HEAD method asks for a response identical to that of a GET request, but without the response body.
+
+POST
+-----
+The POST method is used to submit an entity to the specified resource, often causing a change in state or side effects on the server.
+
+PUT
+---
+The PUT method replaces all current representations of the target resource with the request payload.
+
+DELETE
+--------
+The DELETE method deletes the specified resource.
+
+CONNECT
+-------
+The CONNECT method establishes a tunnel to the server identified by the target resource.
+
+OPTIONS
+--------
+The OPTIONS method is used to describe the communication options for the target resource.
+
+
+TRACE
+-------
+The TRACE method performs a message loop-back test along the path to the target resource.
+
+PATCH
+-----
+The PATCH method is used to apply partial modifications to a resource.
+
+==============================================================================
+-> In HTTP Protocol we have several methods like below
+
+	1)GET
+	2)POST
+	3)PUT
+	4)DELETE
+	5)HEAD
+	6)OPTIONS
+	7)CONNECT
+	8)TRACE
+	9)PATCH
+
+-> GET method is used to retrieve information from the server using given URI. (It doesn't contain request body). The data will be appended to URL in GET request (path params & query params)
+
+-> HEAD method is same as GET method it is used to transfer the status line and header section only. It will not return message body.
+
+-> POST method is used to send information to server in request body (File upload, HTML forms) (It creates new record at server)
+
+-> PUT method is used to replace all the current representation of record/resource (current data will be updated with new data) 
+
+-> DELETE method is used to remove current representation of the target record/resource from the server which is given by URI.
+
+-> CONNECT method establishes connection with Server
+
+-> OPTIONS method is used by client to findout http methods and other options that are supported by server.
+
+-> PATCH method is used to update partial content of target resource at server.
+
+-> TRACE method purpose is to return request back to client. It is used to debug the problem
+
+REST Clients
+-------------
+-> Any application/Tool/Human  which is cable of Sending HTTP Request can act as REST CLient.
+
+-> Python project can act as REST Client
+
+-> .Net Project can act  as REST client
+
+-> Java Project Can act as REST Client
+
+-> Angular & React Projects also can act as REST Clients
+
+-> POSTMAN & Swagger-UI tools are acting as REST Clients.
+
+
+How to Develop REST Client using JAVA
+-------------------------------------
+There are several ways available to develop REST Clients in Java applications
+
+1) java.net client
+
+2) Apache HTTP Utils
+
+3) JAX-RS api with JERSEY client
+
+4) JAX-RS api with REST Easy Client
+
+5) Spring RestTemplate (it is going to be deprecated)
+ 
+6) Spring WebClient (Available from Spring5.x, and famous now)
+
+==============================================================================
+
+-> In order to develop Rest Client for any Rest API, we should know below details
+	
+	a) Rest Api Endpoint URL
+	b) Type of Method
+	c) Supported Input Data Formats
+	d) Input Data Structure
+	e) Supported Output Data Formats
+	f) Ouput Data Structure
+	
+==============================================================================================================
 
  WebService :=
 ~~~~~~~~~~~~~~~
@@ -158,8 +415,54 @@
 	
 	@RequestAttribute: It binds a method parameter to request attribute.
  
+ 
+What is Rest Resource
+----------------------
+REST Resource is a distributed component which provides business services to other applications over a network.
+
+
+What is Rest Client
+-------------------
+Rest Client can be a human, can be a device, can be an application and can be a tool...
+
+Anybody/anything which is capable of sending Http request can be treated as Rest Client.
+
+
+Today's session : Request Mappings
+-------------------------------------------------
+
+-> We can develop REST API using Spring with REST
+
+-> Spring With REST is part of Spring Web MVC
+
+-> If we add Spring Web MVC Jars then we can develop REST API
+
+-> To Develop REST API in Spring Boot Project we need to add spring-boot-starter-web in pom.xml file.
+
+-> To develop REST component we will use below annotation
+
+	@RestController
+
+Note: This annotation is available from Spring version 4.o
+
+-> Before @Restcontroller annotation people used to work with @Controller + @ResponseBody
 
 ================================
+
+Today's session : JSON 
+-------------------------------------------------------
+-> JSON stands for Java Script Object Notation
+
+-> JSON format is universal format to exchange data over a network
+
+-> JSON is intereoperable (Platform Indepdent & Language Independent)
+
+-> When we compare JSON with XML, JSON is light weight
+   (it occupies less memory)
+
+-> JSON will represent the data in Key-Value Pair Format
+
+======================================
 
 ----> What is the difference between a Web service and an API?
 The only difference is that a Web service facilitates interaction between two machines over a network. An API acts as an interface between two different applications so that they can communicate with each other. ... Web service also uses SOAP, REST, and XML-RPC as a means of communication.
@@ -613,6 +916,45 @@ Class  ExceptionHandler{
     public ResponseEntity handleError(Exception e) {
         return buildResponseEntity(new ApiError(HttpStatus.INTERNAL_SERVER_ERROR, e.getClass().getName() + " " + e.getMessage(), 500));
     }
+=====================
+ 
+ Eg77 :=
+~~~~~~~
+
+@ControllerAdvice
+public class StockPriceServiceExceptionMapper{
+
+   @ExceptionHandler(value=CompanyNameNotFoundException.class)
+   public ResponseEntity<String> handleNotFoundException(){
+	String msg  = "Company Name Not Found";
+	return new ResponseEntity(msg, HttpStatus.OK);	
+   }
+}
+
+===============================
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+	@ResponseStatus(value = HttpStatus.NOT_FOUND)
+	public @ResponseBody ExceptionResponse handleResourceNotFound(final ResourceNotFoundException exception,
+			final HttpServletRequest request) {
+
+		ExceptionResponse error = new ExceptionResponse();
+		error.setErrorMessage(exception.getMessage());
+		error.callerURL(request.getRequestURI());
+
+		return error;
+	}
+	
+	  @ExceptionHandler(ResourceNotFoundException.class)
+  public ResponseEntity<ErrorMessage> resourceNotFoundException(ResourceNotFoundException ex, WebRequest request) {
+    ErrorMessage message = new ErrorMessage(
+        HttpStatus.NOT_FOUND.value(),
+        new Date(),
+        ex.getMessage(),
+        request.getDescription(false));
+    
+    return new ResponseEntity<ErrorMessage>(message, HttpStatus.NOT_FOUND);
+  }
 
 ===================================================================================================================
 
@@ -635,6 +977,11 @@ Class  ExceptionHandler{
 
   --- Model-Class Extends 'ResourceSupport'
 
+HATEOS
+------
+Hypdermedia as an Tranport Engine for application state
+
+Server should send response to clients using hyperlinks (***********)
 
 ============================================================================================================
 
@@ -700,10 +1047,30 @@ Class  ExceptionHandler{
  Rest Template := [ https://github.com/mightyjava/spring-boot-microservices-eureka ]
 ~~~~~~~~~~~~~~~ 
  --- API // Method Type // Request // Expected-Response. 
+
+
+ Rest Client Development using RestTemplate
+---------------------------------------------
+
+-> RestTemplate is a predefined class, which is used to send Http Request to Servers.
+
+-> RestTemplate supports Synchronus communication. (********)
+
+-> RestTemplate introduced in Spring 3.0 version
+
+-> Internally RestTemplate uses java.net package components
+
+
+    RestTemplate rt = new RestTemplate( );
+ String response  = rt.getForEntity(url,String.class,from,to);
+
+spring-boot-starter-webflux ---> reactive programming
+
+
+-> In order to work with WebClient we need webflux starter in classpath of the project.
  
    restTemplate("http://localhots:8965/", HttpMethod.GET, null, String.class);
- 
- 
+
  
  FeignClient := [ https://github.com/mightyjava/spring-boot-microservices-open-feign ]
 ~~~~~~~~~~~~~~  [ https://github.com/mightyjava/almightyjava-ms-open-feign ]
@@ -713,7 +1080,7 @@ Class  ExceptionHandler{
 	
 	         at Interface Level ----> @FeignClients(value="eureka-client-3" , url="ttp://localhots:8965/")
 
-================================
+============
 
  --- It is used to create applications that consume RESTful Web Services. 
  --- You can use the exchange() method to consume the web services for all HTTP methods.
@@ -724,7 +1091,7 @@ Class  ExceptionHandler{
       
       return restTemplate.exchange("http://localhost:8080/products", HttpMethod.GET, entity, String.class).getBody();
 
-===================  
+===========  
   
 		Map<String, String> map = new HashMap<>();
 		map.put("profile", "Developer");
@@ -740,7 +1107,7 @@ Class  ExceptionHandler{
 		  HttpEntity<Employee> httpEntity = new HttpEntity<>(objEmp, headers);
 		  Employee employee = restTemplate.postForObject(uri, httpEntity, Employee.class);
 
-===========================
+=============
 
    @Autowired
    RestTemplate restTemplate;
@@ -770,12 +1137,113 @@ Class  ExceptionHandler{
        
 	   return resp.getBody();
        }
+	 
+
+WebClient
+---------
+-> Spring Framework 5.0v introduced WebClient component
+
+-> It is used to build Web Reactive non-blocking web applications
+
+-> Using this component we can send Http Requests to servers
+
+-> This supports for both Synchronus & Asynchronus communications . (********)
+
+-> Before Spring 5.0v people used work with RestTemplate but WebClient provided by Spring as an alternative RestTemplate.
+
+
+
+//Recieving Raw Response
+WebClient webClient  = WebClient.create( );
+
+webClient.get( )
+         .uri(apiUrl, from, to)
+	 .retrieve( )
+	 .bodyToMono(String.class)
+	 .block ( );
+
+
+//Converting api response to Bindig Cls obj at client side
+webClient.get( )
+         .uri(apiUrl, from, to)
+	 .retrieve( )
+	 .bodyToMono(CurrencyReponse.class)
+	 .block ( );
+
+Yesterday's session : WebClient example
+
+Today's session : WebClient async examples
+------------------------------------------------------
+
+-> RestTemplate is synchronus client, we can use this to send Http request to server. It will block our thread untill we recieve response from server.
+
+-> WebClient is Asynchronus client. We can use this also to send Http request to server. It supports both sync & asynchronus calls.
+
+-> Webclient introduced in Spring 5.x version
+
+-> To work with WebClient we need webflux dependency in classpath.
+
+Note : When we select webflux starter, it will give web starter also.
+
+
+HTTP GET Request using Webclient - Sync
+---------------------------------------
+
+WebClient webClient =  WebClient.create ( );
+
+webClient.get ( )
+         .uri(restEndpointUrl, ....)
+         .retrieve ( )
+	 .bodyToMono(Class type)
+         .block ( );
+
+
+HTTP GET Request using Webclient - Async
+------------------------------------------------
+	
+	public void invokeRestApiAsync(String from, String to) {
+		String url = "https://tekleads-ce-api.cfapps.io/getCurrencyExchangeCost/from/{from}/to/{to}";
+		
+		WebClient webClient = WebClient.create();
+
+		System.out.println("**************Async :: Rest Call Start*********************");
+		
+						webClient.get()
+								 .uri(url,from,to)
+								 .retrieve()
+							     .bodyToMono(CurrencyResponse.class)
+								 .subscribe(MyClient::handleResponse);
+	
+		System.out.println("**************Async :: Rest Call End****************");
+		
+	}
+	
+	public static void handleResponse(CurrencyResponse response) {
+		System.out.println(response);
+	}
+
+
 	   
 ====================================================================================================================
 
  JSONProperty890 :=    /// Youtube ::: SIMPLE PROGRAMMING  (****)
 ~~~~~~~~~~~~~~~~~~
    
+@Data
+@JsonIgnoreProperties({ "student-skill", "studentAge" })
+public class Student {
+	@JsonProperty("student-id")
+	private Integer studentId;
+
+	@JsonProperty("student-name")
+	private String studentName;
+
+	@JsonProperty("student-skill")
+	private String studentSkill;
+
+	private Integer studentAge;
+}
+
  --- @JsonProperty(value-"empName")  // Here "-empName-" is appeared as JSON-Response in POSTMAN .
      private int employeenName;
 
@@ -783,7 +1251,34 @@ Class  ExceptionHandler{
  --- @JsonProperty(access=Access.READ_ONLY))  // Here Firstly ,"-empName-"  appeared as NULL for POST-request. (DEBUG)
      private int employeenName;              // "-empName-" can be set-Data using Setter in STS.  
  
- --- @JosnIgonre   //  Igonred by Postman 
+ --- @JsonIgnore   //  Igonred by Postman 
+
+ 
+ 
+ @JsonProperty : To bind field with json key
+
+ @JsonIgnore : To ignore particular field from JSON
+
+ @JsonIgnoreProperties : To ignore more than one field
+
+ @JsonInclude : To specifiy which fields should include in json
+
+---> Converting Json File Data To Java Object 
+
+          ObjectMapper mapper = new ObjectMapper( ); // Convert java objects to json and vice versa
+
+
+ Eg :=
+~~~~~
+		File f = new File("student.json");
+		ObjectMapper mapper = new ObjectMapper();
+		Student student = mapper.readValue(f, Student.class);
+		System.out.println(student);
+
+
+-> What is Un-Marshalling ?
+----------------------------
+The process of converting xml data to java object is called as Un Marshalling.
 
 ====================================================================================================================
  Response660 :=

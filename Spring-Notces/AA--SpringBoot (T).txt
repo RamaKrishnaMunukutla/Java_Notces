@@ -1,17 +1,19 @@
 
-
   
-   ........Profiles333............SpringBootServletInitializer330......Profiles444.....LOMBOK770....FileUpload......
-   
-   .....SpringBootJDBC440.........SpringbootMVCHibernate660............Runner740.........PropertiesGet.....SpringBootActuator
+    ...MultipleInstances990
   
-   ........YAML660...............HATEOAS780.....Thymeleaf890..........Multipart444....Projects450........NamedQueries660....
+   ....Profiles333............SpringBootServletInitializer330....Profiles444.....LOMBOK770....FileUpload....Environment440
    
-   ......RestTemplate660.........Swagger220.....Chache440..........ErrorHandling490.....SpringTransactional
+   ....SpringBootJDBC440.........SpringbootMVCHibernate660.......Runner740.......PropertiesGet.....Actuator550
+  
+   ....YAML660...................HATEOAS780.....Thymeleaf890.....Multipart444....Projects450........NamedQueries660....
+   
+   ....RestTemplate660...........Swagger220.....Chache440........ErrorHandling490.....SpringTransactional
 	
-   ......SpringBatch660..........RedisDB........PCF660.....SpringBatch880.....SpringBootActuator
+   ....SpringBatch660............RedisDB........PCF660...........SpringBatch880.....Cache330.....
    
-   ....SpringBootFaceBook995.....Conditional880...SpringBootCache880.....WhiteLabelError
+   ....SpringBootFaceBook995.....Conditional880......SpringBootCache880......WhiteLabelError
+
 
 ===========================================================================================================
 	
@@ -224,7 +226,12 @@
 
       @Controller ------> Maps Model and Find the View. 
  
-    @RestController ----> Sends Object as HTTP Response in XML / JSON Format. 
+    @RestController ----> Sends Object as HTTP Response in XML / JSON Format.
+
+
+ @EnableAutoConfiguration := (***********)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-> As part of Auto Configuration SpringBoot will decide which components are required to run our application and it is going to load them. 	
  
 ======================================================================================================================	   
 
@@ -299,6 +306,25 @@ It is a web tool which is provided by Spring on official site. You can create Sp
 
 
 ============================================================================================
+
+ MultipleInstances990 :=
+~~~~~~~~~~~~~~~~~~~~~~~
+-> We can pass port number to Spring Boot application as VM argument.
+
+
+Right Click On Project -> Run As -> Run Configuration -> Click on Arguments Tab -> Write below property in VM Arguments -> Click on Apply -> Click Run
+
+
+	-Dserver.port=9091
+
+
+First Run with -Dserver.port=5050 ===> http://localhost:5050/welcome
+
+Second Run with -Dserver.port=6060 ===> http://localhost:6060/welcome
+
+Third Run with -Dserver.port=7070 ==> http://localhost:7070/welcome
+
+================================================================================================
 
  Profiles333 :=  
 ~~~~~~~~~~~~~~~~
@@ -536,9 +562,10 @@ SpringBootDependencyManagement := (...aggregates common dependencies together an
 Spring Boot manages dependencies and configuration automatically. You don't need to specify version for any of that dependencies.
 Spring Boot upgrades all dependencies automatically when you upgrade Spring Boot.
 
+=========================================================================================================
 
-SpringBootActuator := (.....provide help while running spring boot appliaction)
-~~~~~~~~~~~~~~~~~~~
+   Actuator550 := (.....provide help while running spring boot appliaction)
+ ~~~~~~~~~~~~~~~~
  ---Spring Boot provides actuator(Tool) to monitor and manage our application health when you push it to production.
  ---It can be done through HTTP endpoints.  (***)
  --- Actuator module exposes set of REST endpoints that can be directly accessed as a HTTP URL to check the status. (***)
@@ -558,6 +585,20 @@ SpringBootActuator := (.....provide help while running spring boot appliaction)
  ---Provides information about which beans are created in Spring's Application Context and how Controllers are mapped.
 
 
+-> In Spring Boot 2.x v '/actuator' is mandatory in  URL to access Actuator endpoints
+
+-> When we add 'actuator' starter, by default it will expose 2 endpoints they are 'health' and 'info' (we can access them directley).
+
+-> To expose all the endpoints we shuld write below property
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: *
+        exclude: beans
+
+
  Spring Boot Actuator Features ::=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 There are three main features of Spring Boot Actuator:
@@ -570,6 +611,7 @@ Audit
 
  AutoConfiguration ----> helps in loading default configuration
 
+=====================================================================================================
 
 SpringBootStarter :=
 ~~~~~~~~~~~~~~~~~~
@@ -1078,7 +1120,32 @@ server.compression.enabled=true
   https://github.com/SimpleProgramming/spring-boot-swagger-ui
   https://github.com/SimpleProgramming/spring-boot-swagger-codegen-maven-plugin
   
-  
+
+Q) What is Swagger?
+--------------------
+Swagger is an ecosystem which is used to generate documentation for REST apis.
+
+Using Swagger-UI , we can test our REST Apis also
+
+-> Swagger Configuration we will add in Rest Api project.
+
+-> All our api details will be available in swagger. Using documentation provided by swagger, client side team can start their development.
+
+Swagger documentation Contains below details
+--------------------------------------------
+1) Resource method Types 
+
+2) Resource method URLs
+
+2) Resource Method Consumes types
+
+3) Resource Method Produces types
+
+4) Resource Method Input Data Structure
+
+5) Resource method Output Data Structure
+
+
 ---->What is Swagger2?
  --- Defined as Accessing One-Service of one application from another using Documentation (created by Swagger [WSDL] ) .
  
@@ -1243,6 +1310,357 @@ Dependencies :=
 
  RedisDB :=
 ~~~~~~~~~
+
+Today's session : Cache Implementation
+--------------------------------------
+
+-> Cache is a temporary storage
+
+-> Whenever we need to access same data frequently then its better to maintain that data in cache to improve performance of application.
+
+-> If we read same data for multiple times from db it will decrease performance of the application. Because DB interaction is costly operation.
+
+
+Q) Can we store all db tables data in Cache Memory?
+----------------------------------------------------
+-> In database we will have 2 types of tables
+
+	1) Transactional Tables
+	2) Non Transaction Tables
+
+
+What is Transactional Table?
+----------------------------
+If table data is getting inserted/updated/deleted from the application then it is called as Transactional table.
+
+
+What is Non-Transactional Table?
+--------------------------------
+If application is performing only read operation on the table then that table is called as Non-Transactional table.
+
+-> If we implement cache in one project, then it is called as Local Cache. Only that project can access data from that local cache. It is suitable for Monolith Architecture Based Projects.
+
+-> When we implement project using Microservices architecture we will have multiple services. If we want cache data in all services we should go for Global Cache. It is also called as 'Distributed Cache'.
+
+-> If we implement distributed cache, all services can access data from distributed cache only.
+
+-> Now a days in industry, we are using Redis Cache to maintain Distributed Cache.
+
+
+What is Redis? 
+---------------
+Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. 
+
+It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes with radius queries and streams.
+
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-redis</artifactId>
+</dependency>
+
+
+Spring Boot with Redis cache (Distributed Cache)
+------------------------------------------------
+
+-> To establish connectivity with Redis Server we will use JedisConnectionFactory bean
+
+-> Using JedisConnectionFactory bean we will create RedisTemplate bean
+
+-> Using RedisTemplate bean we will get HashOperations
+
+-> HashOperations bean provided methods to perform operations with Redis Cache.
+
+	put
+	get
+	delete	
+	entries
+
+
+
+Redis Architecuture
+--------------------
+Redis Server 
+
+Redis Client
+
+
+Redis  vs RDBMS (*************)``
+---------------
+Redis stores everything in primary memory
+RDBMS stores everything in secondary memory
+
+Redis : Read & Write operations will be fast because of primary memory storage
+RDBMS : Read & Write operations will be slow because of secondary memory storage
+
+Redis : Primary memory size will be less so storaing large files and binary data not recommended
+
+RDBMS : Secondary memory size will be more so we can store large and binary files also
+
+
+Redis : Used for storing small textual info which needs to accessed, modified and inserted at very fast rate.
+
+RDBMS : Recommended to hold huge amount of data
+
+
+
+Who will load data into Redis Cache?
+------------------------------------
+Admin team is responsible to load data into Redis cache in the form of key and value pair
+
+
+
+Setting Up Redis Server in Windows Machine
+----------------------------------------------
+1) Download Redis Software from below URL
+
+   URL : www.github.com/microsoftarchive/redis/releases
+
+2) Extract Downloaded zip file and open folder structure
+
+3) Execute redis-server.exe file to start redis server in our machine.
+
+4) Execute redis-client.exe file to start redis client cli
+
+5) Once Redis Client CLI is started just execute 'ping' it should give PONG as response.
+
+Note: With above steps Redis software setup is done in our machine
+
+
+
+Command to store data in Redis in the form of KEY and VALUE
+-----------------------------------------------------------
+SET KEY "VALUE"
+
+Ex: SET UNAME "Ashok"
+
+Command to get data from redis using KEY
+----------------------------------------
+GET "KEY"
+
+Ex: GET "UNAME"
+
+Command to get all keys from REDIS Server
+-----------------------------------------
+KEYS *
+
+Developing Spring Boot Application To communicate with Redis Cache
+------------------------------------------------------------------
+1) create Spring boot application with below dependencies
+
+	1)spring-boot-starter-web
+        2)project lombok
+        3)spring-boot-starter-data-redis
+        4)devtools
+		
+------------------------------------------------------------------
+
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-redis</artifactId>
+</dependency>
+
+      Method to Perform Redis-Operation ----> hashOperations(HashVlaue, Key, Value)
+	   
+	    Jedis ---> Redis ---> Dao
+	  
+	  
+------------------------------------------------------------------
+
+
+2) Configure JedisConnectionFactory as a bean. This bean will establish connection between boot application and redis server.
+If Redis server is running in different machine then we have to set Redis Server details to jcf object.
+
+@Bean
+JedisConnectionFactory jedisConnectionFactory() {
+    JedisConnectionFactory jcf = new JedisConnectionFactory();
+    return jcf;
+}
+
+3) Configure RedisTemplate as a Spring bean by injecting JedisConnectionFactory bean obj.
+
+
+@Bean
+RedisTemplate<String, User> redisTemplate() {
+ RedisTemplate<String, User> redisTemplate = new RedisTemplate<>();
+ redisTemplate.setConnectionFactory(jedisConnectionFactory());
+ return redisTemplate;
+}
+
+
+4) Create Repository Interface and Impl class to perform Redis Operations. To perform Redis Operations we will use RedisTemplate bean.
+
+@Repository
+public class UserRepoImpl implements UserRepo{
+
+     private HashOperations hashOperations;
+     
+     public UserRepoImpl(RedisTemplate rst){
+           this.hashOperations = rst.opsForHash();
+     }
+}
+================
+
+---> JedisConnectionFactory class is used to establish connection with Redis Server.
+
+If Redis Server and our client application are in same machine then no need to set any
+configuration details.
+
+If Redis Server running on different machine then we should set host-name and port-number of Redis server to jedis-con-factory.
+
+
+	@Bean
+	private JedisConnectionFactory jedisConnectionFactory() {
+		JedisConnectionFactory jcf = new JedisConnectionFactory();
+		jcf.setHostname();
+	        jcf.setPort();
+		return jcf;
+	}
+
+	@Bean
+	private RedisTemplate<String, User> redisTemplate(){
+		RedisTemplate<String, User> redisTemplate = new RedisTemplate();
+		redisTemplate.setConnectionFactory(jedisConnectionFactory());
+		return redisTemplate;
+	}
+
+
+---> Using RedisTemplate we can get HashOperations impl object
+
+=======================
+
+Configuring 2 Data Sources in Spring Boot
+-----------------------------------------
+
+-------------------application.properties-----------------------
+
+#Oracle Data Source for Users Data
+spring.user.datasource.url=
+spring.user.datasource.username=
+spring.user.datasource.password=
+spring.user.datasource.driver-class-name=
+
+#MySql DataSource For Books Data
+spring.book.datasource.url=
+spring.book.datasource.username=
+spring.book.datasource.password=
+spring.book.datasource.driver-class-name=
+------------------------------------------------------------------
+package com.ashokit.config;
+
+import java.util.HashMap;
+
+import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
+import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+@Configuration
+@EnableTransactionManagement
+@EnableJpaRepositories(
+		entityManagerFactoryRef = "bookEntityManagerFactory", 
+		transactionManagerRef = "bookTransactionManager", 
+		basePackages = {
+				"com.ashokit.book.repository"
+		}
+)
+public class BookDBConfig {
+
+	@Bean(name = "bookDataSource")
+	@ConfigurationProperties(prefix = "spring.book.datasource")
+	public DataSource dataSource() {
+		return DataSourceBuilder.create().build();
+	}
+
+	@Bean(name = "bookEntityManagerFactory")
+	public LocalContainerEntityManagerFactoryBean bookEntityManagerFactory(EntityManagerFactoryBuilder builder,
+			@Qualifier("bookDataSource") DataSource dataSource) {
+		
+		HashMap<String, Object> properties = new HashMap<>();
+		properties.put("hibernate.hbm2ddl.auto", "update");
+		
+		return builder.dataSource(dataSource)
+					  .properties(properties)
+					  .packages("com.ashokit.book.model")
+					  .persistenceUnit("Book")
+					  .build();
+	}
+
+	@Bean(name = "bookTransactionManager")
+	public PlatformTransactionManager bookTransactionManager(@Qualifier("bookEntityManagerFactory") EntityManagerFactory bookEntityManagerFactory) {
+		return new JpaTransactionManager(bookEntityManagerFactory);
+	}
+}
+-------------------------------------------------------------
+package com.ashokit.config;
+
+import java.util.HashMap;
+
+import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
+import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+@Configuration
+@EnableTransactionManagement
+@EnableJpaRepositories(
+		entityManagerFactoryRef = "entityManagerFactory", 
+		basePackages = {
+				"com.ashokit.user.repository"
+		}
+)
+public class UserDBConfig {
+	
+	@Primary
+	@Bean(name = "dataSource")
+	@ConfigurationProperties(prefix = "spring.user.datasource")
+	public DataSource dataSource() {
+		return DataSourceBuilder.create().build();
+	}
+
+	@Primary
+	@Bean(name = "entityManagerFactory")
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory(EntityManagerFactoryBuilder builder,
+			@Qualifier("dataSource") DataSource dataSource) {
+		
+		HashMap<String, Object> properties = new HashMap<>();
+		properties.put("hibernate.hbm2ddl.auto", "update");
+		
+		return builder.dataSource(dataSource)
+					  .properties(properties)
+					  .packages("com.ashokit.user.model")
+					  .persistenceUnit("User")
+					  .build();
+	}
+
+	@Primary
+	@Bean(name = "transactionManager")
+	public PlatformTransactionManager transactionManager(@Qualifier("entityManagerFactory") EntityManagerFactory entityManagerFactory) {
+		return new JpaTransactionManager(entityManagerFactory);
+	}
+}
+
+
 ---> Acts as a Cache which is used to display Same-Data(Read-Only) multiple times
  
 ---> Start Redis-Server(6379) && Redis-Client (PING --- PONG)
@@ -1264,6 +1682,23 @@ Dependencies :=
 
 =================================================================================================
 
+ Cache330 := [ https://www.javatpoint.com/spring-boot-caching ]
+~~~~~~~~~~~
+----> Types of Caching ::
+ --- In-memory Caching    [ Redis]
+ --- Database Caching     [First-Level-Cache]
+ --- Web server Caching   [Web-page]
+ --- CDN Caching          [Images,Videos]
+ 
+ Why should we use the cache?
+The primary reason for using cache is to make data access faster and less expensive. When the highly requested resource is requested multiple times, it is often beneficial for the developer to cache resources so that it can give responses quickly. Using cache in an application enhances the performance of the application. Data access from memory is always faster in comparison to fetching data from the database. It reduces both monetary cost and opportunity cost.
+
+
+             @EnableCaching ----> Class level Annotation 
+             @Cacheable --------> Method level annotation 
+
+=================================================================================================
+
  SpringBatch880  :=
 ~~~~~~~~~~~~~~~~~
    https://examples.javacodegeeks.com/enterprise-java/spring/batch/spring-batch-itemreaders-and-itemwriters-example/
@@ -1281,6 +1716,43 @@ Dependencies :=
  
  PCF660 :=
 ~~~~~~~~
+
+ PCF :=
+~~~~
+
+Cloud Computing works based on pay-as-you-go concept
+
+
+To celebrate one function in house, we don't purchase shamiyana materal. we will take for rent and will use for our function. After function got completed, we will return that materal by paying rent amount.
+
+
+To develop one application, we need computer, we need OS, we need some softwares like JIRA, JENKINS, Database, Application Server etc... Instead of purchasing all these softwares, we can take them for rent on reantal basis.
+
+Based on our usage, we need to pay rent for those softwares.
+
+There are several Cloud Provieders Available in Market
+------------------------------------------------------
+AWS (Amazon Webservices)
+Azure (Microsoft)
+PCF (Pivotal Cloud Foundry)
+GCP (Google Cloud)
+IBM Cloud etc....
+
+Cloud Computing is categorized into 3 types
+-------------------------------------------
+
+1) IaaS : Infrastructure as a service
+
+	Ex: AWS EC2
+
+2) SaaS : Software as a service
+
+	Ex : Google Apps, DropBox
+
+3) PaaS : Platform as a service
+
+	Ex : PCF	
+	
 
 ----> It is a Server that support Spring-boot application deployment in cloud env.
 
@@ -1563,6 +2035,11 @@ d. Command line arguments
 
 ---->CommandLineRunner gives access to the application arguments as a simple String[] array where as ApplicationRunner uses the ApplicationArguments interface that provides access to both raw String[] arguments as well as parsed non-option and option arguments.
 
+===================================================================================================================
+ 
+ BootYAML770 :=
+~~~~~~~~~~~~~~
+
 ---->What is YAML?
 Yaml Ain’t a Markup Language
 – Recursive acronym
@@ -1595,7 +2072,36 @@ However, you can use it by setting command:
 
         ......management.endpoint.shutdown.enabled=true.......... in your application.properties file.
 
--------------------------------------------------------------------------------------------------------------
+
+Q) When to use application.yml and when to use bootstrap.yml?
+------------------------------------------------------------
+If we have both application.yml and bootstrap.yml in our application, Spring Boot will load bootstrap.yml first.
+
+-> In bootstrap.yml we will configure, application-name, config-server-url etc.
+
+==================================================================================================
+
+ Environment440 :=
+~~~~~~~~~~~~~~~~
+
+-> Using Environment obj, we can capture on which port number our application is running. (************)
+
+Eg :=
+
+@Autowired
+	private Environment env;
+
+	@GetMapping("/welcome")
+	public String welcomeMsg() {
+		String msg = "Welcome to REST API...!!";
+
+		String serverPort = env.getProperty("local.server.port");
+
+		msg = msg.concat(" I am from Server Which is running on Port :: " + serverPort);
+
+		return msg;
+		
+====================================================================================================
 
 ---->Explain Docker in Spring Boot.
 It is a tool designed to create, deploy, and run a project by using containers.

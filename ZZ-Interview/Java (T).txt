@@ -30,8 +30,9 @@
  In(1) && Poly(2) ---> Dao && Service 
    Abstract ---------> Abstract class 
 
-  FI ------> Callable && Runnable && Comparator && Comparable
-  MI ------> Clonenable && Serializable 
+  FI ------> Callable(1.5,CE) && Runnable(1.0,UE)  ///  Comparator && Comparable
+ 
+  MI ------> Clonenable && Serializable   ////  [ It Indicate something to compiler or JVM ]
 
 ====================================================================================
 
@@ -200,13 +201,16 @@ Cloneable (I):-
 
 ======================================================================================================
 
----->Solid represents five principles of java which are:
+ SOLID Principles := [ https://dzone.com/articles/a-gentle-and-easy-to-grasp-introduction-to-solid-p ]
+~~~~~~~~~~~~~~~~~~~
+----> SOLID represents five principles of java which are:
 
-  S: Single responsibility principle ----> One class should have one and only one responsibility
+  S: Single responsibility principle ----> One class should have one and only one responsibility (Changes affect Only One-Class)
 
   O: Open-closed principle ----> Software components should be open for extension, but closed for modification
 
   L: Liskov substitution principle ----> Derived types must be completely substitutable for their base types
+                                         Software should not alter the desirable results when we replace a parent type with any of the subtypes.
 
   I: Interface segregation principle ---> Clients should not be forced to implement unnecessary methods which they will not use
 
@@ -1158,10 +1162,11 @@ This interface is found in java. lang package and contains only one method named
           
 		    Eg:: For example, it may be rollno, name, age or anything else.
 
----->We can sort the elements of:
-String objects
-Wrapper class objects
-User-defined class objects
+---->We can sort the elements of: (****************************)
+ -- String objects              (Implicit)
+ -- Wrapper class objects       (Implicit)
+ -- Some Collection Classes     (Implicit)
+ -- User-defined class objects  (Explicit)
 
 ---->String class and Wrapper classes implement the Comparable interface by default. So if you store the objects of string or wrapper classes in a list, set or map, it will be Comparable by default.
 

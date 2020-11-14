@@ -30,6 +30,25 @@ Behavioral Design Patterns :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
  These design patterns are specifically concerned with communication between objects.
 
+
+  Creational DP (*******) ----> SingleTon // Prototype // Factory 
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Factory  ---  When a class doesn't know what sub-classes will be required to create
+
+  Prototype --- When the cost of creating an object is expensive or complicated. // It hides complexities of creating objects.
+
+   Builder  --- says that "construct a complex object from simple objects using step-by-step approach"
+                It provides clear separation between the construction and representation of an object.
+
+
+
+ Structural (*******) :=   Facade // Proxy 
+~~~~~~~~~~~~~~~~~~~~~~~~
+  
+    Proxy ----> provides the control for accessing the original object. (GRANT) (********)
+
+
 ============================================================================================================
 
 DependencyInjectionDesign :=

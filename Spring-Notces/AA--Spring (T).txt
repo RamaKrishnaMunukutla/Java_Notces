@@ -1641,8 +1641,32 @@ MVC-Flow :=
                 web.xml           -----> Dispacher-Servlet
 				hello-servlet-xml -----> ViewResolver && Other Beans
 			
-       
-        
+			
+ Request Execution Flow In Spring MVC Application
+------------------------------------------------
+1) Incoming Http Request will be recieved by DispatcherServlet. DS is a predefined Servlet class in Spring MVC and it is acting as Front Controller.
+
+2) DispatcherServlet will send requested URL to HandlerMapper
+
+3) HandlerMapper will identify request handler which is responsible to handle this request and will send request handler details to DispatcherServlet.
+
+4) DispatcherServlet will call respective Controller class method
+
+5) Controller method will process request and will send ModelAndView object to DispatcherServlet
+
+	Model ---> Data
+	View ---> Logical File Name
+
+6) DispatcherServlet will send view name to ViewResolver
+
+7) ViewResolver will identify view location & extension and sends data to DispatcherServlet
+
+8) DispatcherServlet will give model and view details to View Component
+
+9) Model data will be rendered on view sends back to DispatcherServlet
+
+10) DispatcherServlet will send response back for the recieved request
+
 
  MVC :=
 ~~~~~~
@@ -1750,6 +1774,18 @@ DispatcherServlet:=  ( https://howtodoinjava.com/spring5/webmvc/spring-dispatche
 
         <property name="order" value="1" />
  
+         
+View Resolver
+-------------
+-> In Spring MVC we have multiple view resolver    classes+
+
+	a)InternalResourceViewResolver
+	b)URLBasedViewResolver
+	c)XmlViewResolver etc....
+
+-> These view resolvers are responsible to identify    view files  (location & extension)
+
+
 ====================================================
 
  FrontController :=
@@ -1996,8 +2032,6 @@ Read more: https://www.java67.com/2019/05/contextloaderlistener-in-spring-mvc-10
  MultiPart := [https://examples.javacodegeeks.com/enterprise-java/spring/mvc/spring-mvc-file-upload-example/]
 ~~~~~~~~~~~~ [ https://java2blog.com/spring-mvc-file-upload-example/ ]
 
-
-
 =================================================================
 
  Q)difference between @Component && @controllern Spring MVC ??
@@ -2011,6 +2045,100 @@ Read more: https://www.java67.com/2019/05/contextloaderlistener-in-spring-mvc-10
  --- By using a specialized annotation we hit two birds with one stone. First, they are treated as Spring bean, and second,   you can put special behavior required by that layer.
 
 ======================================================================
+
+
+   @RequestMapping (map to method with url-pattern)
+
+Why we need to bind one method to more than one url-pattern?
+------------------------------------------------------------
+-> When user enters ---> www.facebook.com in browser login page should be displayed
+
+-> when user click on logout --> login page should be displayed
+
+-> Here for different requests we need to process with same logic
+
+-> For this we can write our controller method like below
+
+	@RequestMapping(value={"/", "/index", "/logout"})
+	public String index(){
+		//logic
+	   return "index";
+	}
+=============
+
+ -> Note: We can bind multiple methods to same url pattern if they are binded to Different HTTP Request methods
+------------------------------------------------------------------------------------------------------------------
+	@RequetMapping(value={"/home"}, method=RequestMethod.GET) // [*************]
+	public String index( )
+
+	@RequestMapping(value="/home",method=RequestMethod.POST)
+	public String home()
+	
+============
+
+-> When multiple developers are working on web layer, there is a possibility to use same url patterns and same http request methods for more than one controller method which results ambiguity problem.
+
+-> To avoid this problem it is recommended to specify URL pattern at class level also along with the method level.
+
+	@Controller("/demo") // [*************]
+	public class DemoController {										//methods goes here
+	}
+	
+	@Controller("/user")
+	public class UserController  { //methods goes here
+	}
+
+===============
+
+-> If we take String as a return type for Controller method, by default DispatcherServlet will consider that as Logical view Name.
+
+-> When we are taking String as return type for Controller method then how to send the data from Controller method to UI?
+-----------------------------------------------------------------------------------------
+To send data from Controller to UI we will use Model 
+
+	cc
+How to access model data in View File?
+--------------------------------------
+Using Expression Language we can access data available in model scope
+
+Ex: ${key}
+
+public String index( ){
+   return "indexPage"
+}
+In this approach we can't send data from Controller to UI
+	
+	
+Can we return direct response from Controller method?
+-----------------------------------------------------
+Yes, using @ResponseBody
+
+-> When we use @ResponseBody annotation for controller method, then DispatcerServet will not execute ViewResolver.
+
+
+@Controller + ResponseBody ===> Restcontroller
+
+
+
+Syntax to configure taglib directive
+-------------------------------------
+<%@ taglib uri="http://www.springframework.org/tags/form" 	   	   prefix="form"%>
+
+
+
+This annotation we can use at 2 places
+---------------------------------------
+1) At method level
+------------------
+ @ModelAttribute
+ public void m1(Model model){
+	//set data to model scope
+ }
+
+If a controller having a method with @ModelAttribute annotation then that methdod will be executed for every request
+
+
+====================================================================
 
  Model (I) := [ https://github.com/kishanjavatrainer/ModelObjectWebApp1 ]
 ~~~~~~~~~~

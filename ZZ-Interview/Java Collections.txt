@@ -130,6 +130,9 @@ Arrays :=
 ArrayList234:=  (It is a class implements List interface.(linear list data strcuture) [......ODN, S&TS.......]
 ~~~~~~~~~~~~
 
+     Iterator // ListIterator // Enumeration // Normal-For-Loop // Enhanced-For-Loop // For-Each-Loop //
+
+
 ---->Index based Elements can be randomly accessed using index positions sinse implement RandomAccess interface
 
 ---->Non-synchronized(Explict has to done) , Not Thread-safe, Duplicates allowed, Null allowed
@@ -390,6 +393,8 @@ LinkedHashSet830 := [......ODN, S&TS.......]
 
 ----> It is very similar to HashSet class, except if offers the "--Insertion-Order--" order.
 
+----> Does not allows Duplicates && 
+
 ---->Performance is likely to be just slightly below that of HashSet, due to the added expense of maintaining the LinkedList, with one exception of iteration.
 
 ==============================================================================================
@@ -400,13 +405,20 @@ TreeSet338:= [......ODN, S&TS.......]
 
 ---->The sort order is either natural order or by a Comparator provided at treeset creation time, depending on which constructor is used
 
----->Duplicate&& NULL values are not allowed in TreeSet
+---->Duplicate&& NULL values are not allowed in TreeSet.
+
+----> Manually need to implement "-Comparable-" Interface && Overide "-compareTo()-" Method InOrder to SORT (*********)
 
 ---->Use Collections.synchronizedSortedSet(new TreeSet()) method to get the synchronized TreeSet
 
 ----Not synchronized, not Thread safe &  should be synchronized explicitly when there is a need of thread-safe operations.
 
 --->TreeSet also implements Searlizable and Cloneable interfaces.
+
+
+ SortedSet (I) :=
+~~~~~~~~~~~~~~~
+----> The elements are ordered either by using a natural ordering or by using a Comparator.
 
 ====================================================================================================
 
@@ -631,6 +643,26 @@ TreeMap333 :=  [......ODN, S&TS.......]
    TreeSet & TreeMap ----> Hetrogeneous-Elements are not allowed.
 
 
+ SortedMap(I)  :=
+~~~~~~~~~~~~~~~~~~~
+----> SortedMap is an interface in the collection framework. 
+
+----> This interface extends the Map interface and provides a total ordering of its elements (elements can be traversed in sorted order of keys). 
+
+----> The class that implements this interface is TreeMap.
+
+
+ IdentityHashMap :=
+~~~~~~~~~~~~~~~~~~~
+----> It follows reference equality, instead of using the equals() method it uses the == operator.
+
+
+ WeakHashMap := [ https://www.geeksforgeeks.org/hashmap-vs-weakhashmap-java/ ]
+~~~~~~~~~~~~~~
+----->  Even though the object is specified as key in hashmap, it does not have any reference and it is not eligible for garbage collection if it is associated with HashMap i.e. HashMap dominates over Garbage Collector.
+
+----> WeakHashMap is almost same as HashMap except in case of WeakHashMap, if object is specified as key doesn’t contain any references- it is eligible for garbage collection even though it is associated with WeakHashMap. i.e Garbage Collector dominates over WeakHashMap.
+ 
 ===============================================================================================
 
 ConcurrentHashmap449 :=   [......ODN, S&TS.......]

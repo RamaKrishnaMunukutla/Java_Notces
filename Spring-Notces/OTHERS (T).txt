@@ -85,7 +85,8 @@
  SLF4J := [ASHOK-IT] (Simple Logging Facade for java)
 ~~~~~~~~
  --- It is Only abstract-layer underlying Logging-Component.
- --- SLF4J Can compare with Apache-commons-Logging (Not with Log4j) 
+ --- SLF4J Can compare with Apache-commons-Logging (Not with Log4j) .
+ --- It is a simple facade or abstraction for various logging frameworks such as java.util.logging.
 
 
            https://github.com/kishanjavatrainer/SpringBootLogger2
@@ -102,6 +103,17 @@
 
  Log4J(32) :=    
 ~~~~~~~~~~~~
+ --- It is a logging framework (APIs) written in Java, which is distributed under the Apache Software License.
+ --- It is thread-safe.
+ --- It uses multiple levels, namely   ALL, TRACE, DEBUG, INFO, WARN, ERROR and FATAL[severe error events]
+ ---  A well-written logging code offers quick debugging, easy maintenance, and structured storage of an application's runtime information.
+ 
+ 
+(Q) Difference between apache commons logging and log4j.
+ Apache commons logging is a facade API that abstracts the underlying implementation. Using commons logging, one can decide between different implementations such as log4j, slf4j and java util Logging without touching the code.
+ 
+(A) log4j is a logging framework that provides the actual implementation.
+ 
 
  import org.apache.log4j.Logger; 
 
@@ -150,9 +162,9 @@ It is a process of fetching Success/Warning/Errors/Exceptions messagesfrom Serve
    
 			Log4J Components
 
-          a. Logger         b. Appender          c. Layout
-        (which class)     (where to print)     (how to print)
-
+          a. Logger            b. Appender                             c. Layout
+        (which class)        (where to print)                        (how to print)
+                        [database, file, console, JMS]
 
  (a) Logger Object :=
 ~~~~~~~~~~~~~~~~~~~
@@ -180,7 +192,7 @@ Types are:
 5. SMTP Appender (Email)       : Send Log mesage using email.
 
 
- (c) Layout :=  //How-To-Print.
+ (c) Layout :=  //How-To-Print. ////  [ https://www.tutorialspoint.com/log4j/log4j_interview_questions.htm ]
 ~~~~~~~~~~~~~
  It indicates Message Format that should be printed on Appender.
 1. Simple Layout : Print message as it is given by application
@@ -188,11 +200,12 @@ Types are:
 3. XML Layout    : Print message as XML Output
 4.*** Pattern Layout : Print message as Given pattern by Programmer  ( Frequently-Used *********)
 
-           %C ---->(Class)
+           %C ---->(Fully-Qualified-Class)
 		   %M ---->(Method)  
 		   %m ---->(Message) 
 		   %p ----> Priority-Method-Name like DEBUG, INFO...
 		   %n ----> (New Line)
+		   &l ----> output location information of the caller which generated the logging event.
 		   %L -----> Line-Number.
 		   %r ----> Executes Current-Block (or) methods in Milli-Seconds.
 		   %l -----> Line-Number with Link.
@@ -1109,6 +1122,22 @@ JUnit Vintage := To support running JUnit 3 and JUnit 4 written tests on the JUn
 
 =============================================
 
+ Eg for Exception  :=
+~~~~~~~~~~~~~~~~~~~
+	@Test(expected= Exception.class)
+	public void demo() {... }
+
+
+ Eg for Running All-Test-Classes at Once := // YOUTUBE ---> SHIVA-REDDY 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ @RunWith(Suite.class)
+ @SuiteClasses (value={Demo.class, ControllerTest.class, ServiceTest.class})
+ public class TestDemo {
+ 
+ }
+
+=============================================
+
  @DisplayName ----> Used to provide any custom display name for a test class or test method
 
  @Nested ----> Used to create nested test classes
@@ -1690,6 +1719,25 @@ eureka:
 ~~~~~~~~~~~~~
   Java Techie // Simple Programming //  Tech Primer
 
+
+How to secure Rest APIs
+-----------------------
+1) HTTP Basic Authentication
+
+2) OAuth2
+
+3) JWT
+
+4) SSL 
+
+In Microservices based project below communications will be available
+
+	1) 3rd api will access our api
+
+	2) Our api will access 3rd party api
+
+	3) our project api will access another api in same project
+
 =========================================================================================================
 
  Spring cloud :=  [ https://www.baeldung.com/spring-cloud-series ]
@@ -1832,7 +1880,13 @@ eureka:
  ---Not-supports Non-blocking API.
  ---makes use of as many threads as the number of incoming requests. So this approach is more resource intensive.
  ---If no threads are available to process incoming request then the request has to wait in queue.
+ 
+ 
+ ---Spring Cloud Netflix Library provided Zuul Proxy as an API Gateway.
+ ---Zuul Proxy is open source API Gateway
+ ---Apigee is commercial API Gateway provided by Google
                    
+				   
 				   Pre-filter.....Route-Filter.....Post-Filter.........Error-Filter.
 				   
     API Monitoring Tool used Like APIGEE, KONG (***********)
@@ -1869,6 +1923,9 @@ eureka:
 ~~~~
     @Value("${microservice.payment-service.endpoints.endpoint.uri}")......///from GIT 
     private String ENDPOINT_URL;
+	
+	             MC ----> Cloud-Config-Server ---> GIT-Repo (has Configurations) [************]
+			
 
 ========================================
 
@@ -1886,7 +1943,7 @@ eureka:
  Spring Cloud Gateway Filters using Property Configuration
  
 ===========================================
-
+HHH
  (5) NetFlix-Hystrix (Fault-Tolerance library )-(CircuitBreaker)- :=  [SpringBootByRaghu -- 357 (*****)]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   ( @EnableHystrixDashboard +  @EnableHystrix(C) +   @EnableCircuitBreaker)
@@ -1907,8 +1964,6 @@ eureka:
   																       Title && Delay 
 																	   
                                      Postman  -----> [ http://localhost:9090/booknow ]
-
-
 
 
  ---It is Open-Source Library created by Netflix that implements Circuit-break Pattern. which gives a control over failure between distributed services. (returns Fallback-message if One-Service goes down)
@@ -1956,6 +2011,19 @@ public class FallbackController {
               args:
                 name: order-service                 .......... Should-be-same in Controller
                 fallbackuri: forward:/orderFallBack  #For fall-back Message
+
+Circuit Breaker
+---------------
+-> Circuit Breaker is used to protect us from damages.
+
+-> A circuit breaker is an automatically operated electrical switch designed to protect an electrical circuit from damage caused by excess current from an overload or short circuit. Its basic function is to interrupt current flow after a fault is detected.
+ 
+ Eg := (**************************)
+~~~~
+  With help of Circuit-Breaker if m1() method failed for N-Requests(3-Req), then m2() FallBack-Method executes for SomeTime(30Min).
+  After 30Min, Again m1() method executes. 
+  
+  executes.(in fallback , pass Method-Name
 				
 ========================================	
 
@@ -2008,6 +2076,12 @@ public class FallbackController {
 ~~~~~~~~~~~~~~~~
  --- Helps Feign-Client to use Specific-URL(API) to access Service.
 
+
+3) Inject properties values into variables wherever it is required
+
+      @Value("${msg}")
+Ex:   String msg;
+
 =============================================
 
  Spring-Cloud-Bus := refresh configurations across multiple instances
@@ -2021,8 +2095,6 @@ A: The different Microservices Design Patterns are -
  Branch Microservice Design Pattern
  Circuit Breaker Design Pattern
  Asynchronous Messaging Design Pattern
-
-
 ============================================
  
  Netflix Ribbon  :=
@@ -2048,6 +2120,35 @@ It is a architectural style a big container in which all components and required
 
  https://github.com/TechPrimers/spring-cloud-sleuth-example
 
+
+Steps to implement Distributed logging using Slueth & Zipkin
+------------------------------------------------------------
+ --- Used in MicroService-Architecture for Log-Tracing Purpose 
+ 
+ 
+1) Download zipkin server (it is jar file)
+
+  URL to download : https://zipkin.io/pages/quickstart
+
+2) Run the zipkin server jar file from cmd
+
+     Syntax : java -jar <zipkin-jar-file-name.jar>
+
+3) After zipkin server started, access Zipkin dashboard using below url
+
+    URL : http://localhost:9411/zipkin/
+
+Note: With this zipkin server setup is done
+
+4) Create Spring Boot Application with below dependencies
+
+	1)spring-boot-starter-web
+	2)sleuth
+	3)zipkin
+	4)devtools
+	
+	  ZipKin --- 1 /// Sleuth-Log ----> Every-Server.
+
    Logging ----> Storing  application-Exceution details in a file to monitor in future.
                     
    Trace-Id (Request-ID) ---> Remains SAME through out the DIFF-MicroServices (Passed between them) for   Particular-request.
@@ -2070,6 +2171,60 @@ It is a architectural style a big container in which all components and required
  Splunk  := Log Monitor Tool ( Costly && frequently used )
 ~~~~~~ 
 ===========================================	
+
+ Spring Boot Admin Server & Admin Client :=
+---------------------------------------
+-> In Microservices Architecture based project, we will have several services (REST APIs)
+
+-> To monitor Rest APIs, we will enable and expose actuator endpoints
+
+-> If we have more no.of services, it will would be very difficult to monitor and manage all our services available in project.
+
+*** To overcome this problem, Spring Boot Provided Admin Server & Admin Client Concept **
+
+-> If we use Admin Server, it will provide beautiful user interface to monitor and manage our REST APIs.
+
+Note:  Our Rest apis should be registered with Admin server then our rest api is called as Spring Boot Admin Client.
+
+Today's session : Example on Admin Server & Client
+---------------------------------------------------------------
+
+-> Spring Boot Admin server is used monitor and manage our client applications (rest apis)
+
+-> By using Admin server at one place we can monitor and manage all our services
+
+Steps to Create Admin Server Application
+---------------------------------------
+-> Create Spring Boot Application with below dependencies
+
+	1)spring-boot-starter-web
+	2)spring-boot-starter-admin-server
+	
+
+Note: By default Admin server will provide UI for monitoring and managing registered clients.
+
+Steps to develop Admin Server Client Application
+------------------------------------------------
+-> Create Spring Boot Application with below dependencies
+
+	1)spring-boot-starter-web
+	2)spring-boot-starter-admin-client
+	3)spring-boot-starter-actuator
+
+-> Configure below properties in application.yml file
+
+       1)port number
+       2)application name
+       3)register with admin server
+       4)expose actuator endpoints
+
+-> Create Rest Controller with Required Methods
+
+-> Run the application and verify Admin Server Dashboard
+
+Note: Client application should be displayed in Admin Server Dashboard.
+
+===================================================================================================
 
  Designpattern := ( MicroServiceDesignPattern--Edureka )
 ~~~~~~~~~~~~~~~~ 
@@ -2279,8 +2434,7 @@ ProductOwner := Manager    /////////   Scrum-Master := TeamLeader
 ---->So at end of every 2 weeks , we have Shippable part of application that need to be deployed in Application.
 
 
-==============================================================================
-
+=============================================================================================================
 
 ==============/\/\\/\\/===========\/\\/\\/\/==========\/\\/\/\\/\=========/\/\\/\==============
 
@@ -2336,14 +2490,33 @@ ProductOwner := Manager    /////////   Scrum-Master := TeamLeader
 ~~~~~~~~~~~ 
  --- To resolve, delete Junk-Code && solve-manually.
  
- 
-===========================
+=============================================================================================================
+==============/\/\\/\\/===========\/\\/\\/\/==========\/\\/\/\\/\=========/\/\\/\==============
 
  GIT996 [81] := (uses 'C' language that reduces the OverHead Of run time)  //// [JAVA-TECHIE*****]
 ~~~~~~~~~~~~ // Cloud-based Hoisting Service that manages Repositaries.
 
-----> 'SVN'(Centralized-VS) is two-tier architecture   (Working...Central-Rep) &&
-      'GIT'(Distributed-VS) is three-tier architecture.(Working....Local-Rep...Central-Rep)
+                       YOUTUBE -----> SHIVA-REDDY, ASHOK-IT. 
+					   
+					   
+ Version Control System :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ---  version control system (VCS) is a system that records all changes made to a file or set of data, so a specific version may be called later if needed.
+
+
+ Distributed Version Control System :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- It is a form of version control in which the complete codebase(including its full history) is mirrored on every developer's computer.
+ 
+ --- Whereas in SVN , If Central-Server gets crashed or corrupted, it will result in entire data loss for the project.
+
+
+----> 'SVN'(Centralized-VCS) is two-tier architecture   (Working...Central-Rep) &&
+      'GIT'(Distributed-VCS) is three-tier architecture.(Working....Local-Rep...Central-Rep)
+	  
+	  
+	 GIT -------> It Manage projects, or a set of them when changes are made over time.
+	GitHub  ----> It is a Git repository hosting service that provides a web-based graphical interface.
 
 ---->Takes 'snapshot'(called VERSIONS that contains State of Project at particular-time) documented and stored and saves it whenever developer makes changes.
 
@@ -2380,29 +2553,45 @@ ProductOwner := Manager    /////////   Scrum-Master := TeamLeader
 
 ---->top clone specific branch ....git clone -b master <Link> master.......
 
- git pull := fetches changes from Central-Rep, merge them to Local-Rep ( if collaberated others, used frequently ) 
-~~~~~~~~
+===============================
 
- git-checkout := switch to new-branches.
-~~~~~~~~~~~~~~
+ GIT-COMMANDS :=  [ cd <TAB> ..... ls ..... git branch ]
+~~~~~~~~~~~~~~~
+    git clone <Link>
+	
+	Goto folder && Paste <Data>
+	
+	git add *  (Or) git add --a  (Or) git add .     /// git reset head <File-name>      (to Unstag / UnTrack)
+	             
+				                                    /// git rm --cached <File-name>     (Removes from Working-Git-Repo)
+													
+												    /// git mv  <Old-File-name>  <New-File-name>   (Renames File-Name)
+	
+	git commit -m "Added"             // 'Commit-Id' will be Generated (having 40-Character but shows '7' )
+	 
+	                                  // git show     (Shows data) 
+									  
+									  // git log     (Shows Commit data)
+									  
+									  // gitk        (Shows files that are recently Added)
+	
+	git push                          // To push Source-code to Central
+	
+======================
+		
+	git pull                                // To get Updated Source-code form Central
+	
+    git clone -b <Branch-name> <Git-URL>   // To Clone a 'branch'
+	
+	git branch                            //  to see which branch we are in (Inside Project-Folder)
+						   
+================================= 
 
- git branch <branch-name> := Creates new-branch.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+ git rm <filename> := Deletes file from System && GIT-Repo 
+~~~~~~~~~~~~~~~~~~~
 
- git stash :=  store something safely in a hidden place
-~~~~~~~~~~~
-
- git checkout -b <branchname> := to create new branch.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
- get merge :=  Integrates Changes made in different-Branches into Single-Branch 
-~~~~~~~~~~~~ 
-
- get rebase master := reflects changes made in Another-Branches.
-~~~~~~~~~~~~~~~~~~~ 
-
- git rm <filename> //  git rm -cached <filename> := delete from local Repositary 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ git rm -cached <filename> := deletes from GIT--Repositary Only. 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
  git revert := Inverses Specific Commit. c
 ~~~~~~~~~~~~~
@@ -2413,31 +2602,42 @@ ProductOwner := Manager    /////////   Scrum-Master := TeamLeader
  git log := History of Commits .
 ~~~~~~~~~~
 
+ git diff := Similar to ‘git status’, but it shows the differences between various commits and also between the working
+~~~~~~~~~~   directory and index.
 
 
-==========================
+ git branch --merged :=  Gives the list of branches that have been merged into the current branch
+~~~~~~~~~~~~~~~~~~~~~
 
- GIT-COMMANDS :=  [ cd <TAB> ..... ls ..... git branch ]
-~~~~~~~~~~~~~~~
-    git clone <Link>
-	
-	Goto folder && Paste <Data>
-	
-	git add *      (Or) git add --a  (Or) git add  .
-	
-	git commit -m "Added"             // 'Commit-Id' will be Generated (having 40-Character but shows '7' )
-	
-	git push                          // To push Source-code to Central
-	
-======================
-		
-	git pull                         // To get Updated Source-code form Central
-	
-    git clone -b <Branch-name> <Git-URL>   // To Clone a 'branch'
-	
-	git branch                            // to see which branch we are in (Inside Project-Folder)
-						   
-=================================
+ git branch --no-merged  := It lists the branches that have not been merged.
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+ git checkout -b <your-branch-name> <sha> := Used to  recover a deleted branch in GIT . 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ .git in Directory := 
+~~~~~~~~~~~~~~~~~~~~
+ --- Contains all the metadata of the repository and maintains a track of all the changes made to the files in your repository, by keeping a commit history. 
+ --- If .git/ directory gets deleted, then you will lose track of your project’s history. The repository will no longer be under version control.
+
+
+
+============================
+
+ Untracked files ----> Files that are not Added (Before  -- Add * -- command)
+ 
+ Staged Files --------> Files that are Added    (After -- Add * -- command)
+  
+  Tags ----> Production release Notces (Cannot Modify)
+  
+       
+	      Local-Repo -----> System
+
+          Remote-Repo -----> GitHub  
+  
+    Popular Git hosting repositories ----> GitHub, GitLab, BitBucket
+
+=============================
 
    git branch --unset-upstream
    git push --set-upstream origin master
@@ -2473,6 +2673,37 @@ ProductOwner := Manager    /////////   Scrum-Master := TeamLeader
 					
 ----> We can Create Sub-Branches within-Branch && Can Perform same-Operation as Point-(3). (*****)
 
+=======================
+ 
+ Commands :=
+-----------
+
+ git branch <branch-name> := Creates New-branch.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+ git checkout <branch-name> := Switches to that Particular-branch.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ git checkout -b <branch-name> := Creates New-Branch && Switches Directly. 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  git branch -d <branch-name> :=  Deletes the Branch   
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Merge it before Deleting It // (-D) Deletes without Merrging 
+
+git branch :=   Shows Branches that are Created. 
+~~~~~~~~~~~~~~
+
+ git merge :=  Integrates Changes made in different-Branches into Single-Branch 
+~~~~~~~~~~~~ 
+
+ git rebase master :=  Reflects changes made in Another-Branches.
+~~~~~~~~~~~~~~~~~~~
+
+ git pull := fetches changes from Central-Rep, merge them to Local-Rep (If collaberated others, used frequently) 
+~~~~~~~~~~~
+
+ git stash :=  store something safely in a hidden place
+~~~~~~~~~~~
 
  Branch-Conflict :=
 ~~~~~~~~~~~~~~~~~~
@@ -2497,7 +2728,8 @@ ProductOwner := Manager    /////////   Scrum-Master := TeamLeader
    git log (To see Commit-history)
    
    git stash        (TillDate-Operation moves to Temporary-Storage // YOUTUBE ----> ASHOK-IT)
-   git stash apply (To get-back Temporary-Storage)
+   
+   git stash apply  (To get-back Temporary-Storage)
 	                             
 
 =====================================
@@ -2638,15 +2870,58 @@ A Messaging System is responsible for transferring data from one application to 
 A: Apache Kafka is a distributed publish-subscribe messaging system. 
  --It is a scalable, fault-tolerant, publish-subscribe messaging system which enables us to build distributed applications. 
  --It is an Apache Top Level project. Kafka is suitable for both offline and online message consumption.
+ 
+ -- Apache Kafka will act as Message Broker developed by the Apache Software Foundation (**********)
+ -- APache Kafka is a distributed streaming platform used to process real time data feeds with high throughput and low latency
+ -- When we are working with Apache Kafka, two parties will be available. 
+ -- one application will acts as Publisher another application will act as Subscriber. (**********)
+ -- Apache Kafka works based on publisher and subscriber model (*****)
+ -- If one application publish a message, mutliple applications can subscribe to that message. (*****)
 
+Apache Kafka works based on publisher and subscriber model
+
+If one application publish a message, mutliple applications can subscribe to that message.
 
 ---->Q: What are the advantages of using Apache Kafka?
  ---Process messages very fastly.
  ---Fault-Tolerance.
  ---Durability.
  ---The message written in Kafka can be persisted. The persistence can be configured. This ensures re-processing, if required, can be performed
+ 
+ 
+ Kafka Terminology
+-----------------
+Zookeeper
+Kafka Server
+Kafka Topic
+Message
+Publisher
+Subscriber
 
-Apache kafka :=
+Kafka APIs
+----------
+Connector API
+Publisher API
+Subscriber API
+Streams API
+
+3) Create Spring Boot application with below dependencies (********)
+
+	1)spring-boot-starter-web
+	2)project lombok  // jackson-databind // spring-kafka-test
+	3)swagger
+	4)kafka-streams
+	5)spring-kafka   
+	6)jackson-databind 
+
+ Kafka : =
+~~~~~~~~
+ --- Message Broker that takes Messages form Publisher(WhatsApp-News) && send to Exact--Subscriber(News-Paper)
+  
+                                                   has                has
+                                         Zookeeper ---> Kafka-Server  ----> Topic
+
+ Apache kafka :=
 ~~~~~~~~~~~~~~~
  --- It is Open Source Distributed Streaming Platform. && works on Pub/Sup
  --- Developed by LinkDin && donated to Apache Organisation.
@@ -2660,10 +2935,8 @@ Apache kafka :=
   Message ------> Data (Xml/String)
     
 	                    Change-Port -----------> zookeeper.properties && server.port  
-						
-						
+										
         Uses-4-API's ----> Cosnumer-API // Producer-API // Connector-API // Streams-API
-
  	
  Topics :=
 ~~~~~~~~~

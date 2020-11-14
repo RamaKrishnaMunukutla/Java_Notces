@@ -30,29 +30,7 @@
  SOILD principles
  Hash--Collision.
 ==========================================================
-
- Exception ---> https://www.youtube.com/watch?v=DMmp5TanmD0&list=PLzS3AYzXBoj8kjn4sD1_TDYH2DC0oupJi&ab_channel=KKJavaTutorials
- Collection ---> https://www.youtube.com/watch?v=XUTJZZDZG8k&list=PLzS3AYzXBoj8XCaW6-o73-FkvZPMas41L&ab_channel=KKJavaTutorials
-  Java-8 --->https://www.youtube.com/watch?v=1RmzYPO0z_s&list=PLzS3AYzXBoj8Fm19MdV3jqZOCLOh984xK&ab_channel=KKJavaTutorials
- Java-8 (Colle)---> https://www.youtube.com/watch?v=KnfYq136bWw&list=PLzS3AYzXBoj81AIcYmKJqNI8DD3zJMzHU&ab_channel=KKJavaTutorials
- Core Java ---> https://www.youtube.com/watch?v=BUaGXxUJ7Zg&list=PLzS3AYzXBoj84LfxRFAuM-eDlPRWvhGeJ&ab_channel=KKJavaTutorials 
  
-  MultiThreading :=
---------------
- --- https://www.youtube.com/watch?v=ZM93AA6wzY8&list=PLzS3AYzXBoj-2YQ8K5m5P-609YYq4VBbe&ab_channel=KKJavaTutorials
- --- https://www.youtube.com/watch?v=hlK-ca64VI4&list=PLzS3AYzXBoj8jq5o5qolE4Kki19j1UrS8&ab_channel=KKJavaTutorials
-
-  Spring ---> https://www.youtube.com/watch?v=FvGZesiLwwo&list=PLzS3AYzXBoj8U0zgO7Kuu_2KtclkB1gSV&ab_channel=KKJavaTutorials
- SpringBoot ---> https://www.youtube.com/watch?v=R9qanO4c7bY&list=PLzS3AYzXBoj8UcLsBN3UXd7Nf1T4ZyJa0&ab_channel=KKJavaTutorials
- 
- Hibernate ---> https://www.youtube.com/watch?v=bMvqaCP0PDo&list=PLzS3AYzXBoj_o6sOu2CUnnSEk1e8Sb1op&ab_channel=KKJavaTutorials
- 
- Maven ---> https://www.youtube.com/watch?v=_bkT85B6n1U&list=PLzS3AYzXBoj8mX3WbzQDghYytnx2JqBrU&ab_channel=KKJavaTutorials
- 
- GIT ------> https://www.youtube.com/watch?v=_bkT85B6n1U&list=PLzS3AYzXBoj8mX3WbzQDghYytnx2JqBrU&ab_channel=KKJavaTutorials
-             https://www.youtube.com/watch?v=2rCo62FkRV8&list=PLzS3AYzXBoj9VxjaTOjuQCG6zyFw9-xLI
- 
-===================================================
  
  how to apply LazyLoading in springBoot Application?
 how to read external properties file in spring?
@@ -72,8 +50,6 @@ stream api?
 differnce between api getWay and service mesh?
 function interface?
 multiple interface having same method name ?
-=======================================
-	 
    
 =========================================================================================================  
  
@@ -140,13 +116,19 @@ multiple interface having same method name ?
     In28Minutes --------> https://github.com/in28minutes?tab=repositories
 	
 	Tech-Primeer -------> https://github.com/TechPrimers
-	 Java-Techie -------> https://github.com/Java-Techie-jt	 
-	  Ramesh MF --------> https://github.com/RameshMF?tab=repositories
-   KK-Java-Tutorial ----> https://github.com/kishanjavatrainer?tab=repositories
+	 Java-Techie -------> https://github.com/Java-Techie-jt	 (***)
+	  Ramesh MF --------> https://github.com/RameshMF?tab=repositories (***)
+   KK-Java-Tutorial ----> https://github.com/kishanjavatrainer?tab=repositories (***)
    
+    Almighty java ------> https://github.com/mightyjava?tab=repositories
+  SimpleProgramming ----> https://github.com/SimpleProgramming?tab=repositories
+  Gain Java Knowledge --> https://github.com/sumitMultani?tab=repositories 
+      Shiva Reddy ------> https://github.com/sivajavatechie/DemoDocuments/tree/master/Java%20Docs (***)
+	  
 	javadevjournal -----> https://github.com/javadevjournal/javadevjournal
      DineshOnJava ------> https://github.com/dineshonjava?tab=repositories
        BezKoder --------> https://github.com/bezkoder?tab=repositories   
+	  Callicoder -------> https://github.com/callicoder?tab=repositories 
     
    Okta-Developer ------> https://github.com/oktadeveloper
 		hargeahead -----> https://github.com/chargeahead?tab=repositories
@@ -154,21 +136,19 @@ multiple interface having same method name ?
 						 
 	 Spring-Guru -------> https://github.com/springframeworkguru?tab=repositories
 	  Baledung ---------> https://github.com/eugenp/tutorials
-	Almighty  java -----> https://github.com/mightyjava?tab=repositories
-  
-  SimpleProgramming ----> https://github.com/SimpleProgramming?tab=repositories
-  Gain Java Knowledge --> https://github.com/sumitMultani?tab=repositories 
-                          
-
+	  
+===========================================================================================================          
      
  Websites450 :=
-~~~~~~~~~~~
+~~~~~~~~~~~~~~~
  
+  https://www.dineshonjava.com/
   https://www.javadevjournal.com/
+  https://java2blog.com/
+  
   https://www.studytonight.com/rest-web-service/
   https://www.guru99.com/restful-web-services.html
- 
- https://www.restapitutorial.com/
+  https://www.restapitutorial.com/
   https://www.sivalabs.in/categories/microservices/
   
   https://www.callicoder.com/
@@ -179,7 +159,11 @@ multiple interface having same method name ?
   https://www.concretepage.com/
   https://www.javatpoint.com/jquery-slideup
   https://hellokoding.com/spring-boot-tutorial-series/
+
+  https://www.softwaretestingmaterial.com/postman-tutorial/
   
+  
+================================================================================================================   
   
  TechnicalVideos440 :=
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -249,12 +233,44 @@ multiple interface having same method name ?
           Rahul Shetty Academy ~~~~~~~~~~~~ https://www.youtube.com/c/RahulShettyAcademy/playlists
            The Testing Academy ~~~~~~~~~~~~ https://www.youtube.com/c/TheTestingAcademy/playlists
          Software Testing Material ~~~~~~~~ https://www.youtube.com/c/SoftwareTestingMaterialWebsite/playlists
-          SoftwaretestingbyMKT ~~~~~~~~~~~~ https://www.youtube.com/channel/UCKliIabx-RsHYTqjOiYegSg/playlists
+         
+		 SoftwaretestingbyMKT ~~~~~~~~~~~~ https://www.youtube.com/channel/UCKliIabx-RsHYTqjOiYegSg/playlists
+		     Mukesh otwani ~~~~~~~~~~~~~~~ https://www.youtube.com/c/Mukeshotwani/playlists 
+	   Software Testing Mentor ~~~~~~~~~~~ https://www.youtube.com/c/SoftwareTestingMentor/playlists 
+              Valentin Despa ~~~~~~~~~~~~~ https://www.youtube.com/channel/UCUUl_HXJjU--iYjUkIgEcTw/playlists
+		Automation By - Raghav Pal ~~~~~~~ https://www.youtube.com/c/AutomationStepByStep/playlists
+                QASCRIPT ~~~~~~~~~~~~~~~~~ https://www.youtube.com/channel/UC6LyUhddo6bH2CcFLpFjjsA/playlists
   
   
+  
+ KK Tutorials :=
+~~~~~~~~~~~~~~  
+  Exception ---> https://www.youtube.com/watch?v=DMmp5TanmD0&list=PLzS3AYzXBoj8kjn4sD1_TDYH2DC0oupJi&ab_channel=KKJavaTutorials
+ Collection ---> https://www.youtube.com/watch?v=XUTJZZDZG8k&list=PLzS3AYzXBoj8XCaW6-o73-FkvZPMas41L&ab_channel=KKJavaTutorials
+  Java-8 --->https://www.youtube.com/watch?v=1RmzYPO0z_s&list=PLzS3AYzXBoj8Fm19MdV3jqZOCLOh984xK&ab_channel=KKJavaTutorials
+ Java-8 (Colle)---> https://www.youtube.com/watch?v=KnfYq136bWw&list=PLzS3AYzXBoj81AIcYmKJqNI8DD3zJMzHU&ab_channel=KKJavaTutorials
+ Core Java ---> https://www.youtube.com/watch?v=BUaGXxUJ7Zg&list=PLzS3AYzXBoj84LfxRFAuM-eDlPRWvhGeJ&ab_channel=KKJavaTutorials 
+ 
+ 
+  MultiThreading :=
+--------------
+ --- https://www.youtube.com/watch?v=ZM93AA6wzY8&list=PLzS3AYzXBoj-2YQ8K5m5P-609YYq4VBbe&ab_channel=KKJavaTutorials
+ --- https://www.youtube.com/watch?v=hlK-ca64VI4&list=PLzS3AYzXBoj8jq5o5qolE4Kki19j1UrS8&ab_channel=KKJavaTutorials
+
+  Spring ---> https://www.youtube.com/watch?v=FvGZesiLwwo&list=PLzS3AYzXBoj8U0zgO7Kuu_2KtclkB1gSV&ab_channel=KKJavaTutorials
+ SpringBoot ---> https://www.youtube.com/watch?v=R9qanO4c7bY&list=PLzS3AYzXBoj8UcLsBN3UXd7Nf1T4ZyJa0&ab_channel=KKJavaTutorials
+ 
+ Hibernate ---> https://www.youtube.com/watch?v=bMvqaCP0PDo&list=PLzS3AYzXBoj_o6sOu2CUnnSEk1e8Sb1op&ab_channel=KKJavaTutorials
+ 
+ Maven ---> https://www.youtube.com/watch?v=_bkT85B6n1U&list=PLzS3AYzXBoj8mX3WbzQDghYytnx2JqBrU&ab_channel=KKJavaTutorials
+ 
+ GIT ------> https://www.youtube.com/watch?v=_bkT85B6n1U&list=PLzS3AYzXBoj8mX3WbzQDghYytnx2JqBrU&ab_channel=KKJavaTutorials
+             https://www.youtube.com/watch?v=2rCo62FkRV8&list=PLzS3AYzXBoj9VxjaTOjuQCG6zyFw9-xLI 
+			 
+			 
 ===================================================================================================================
 
- Technologies := By which we develop Application.
+ Technologies := By which we develop Application.  //   
 ~~~~~~~~~~~~~~~
 
  Introduction := 
