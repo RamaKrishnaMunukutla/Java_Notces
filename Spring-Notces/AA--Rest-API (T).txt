@@ -1055,6 +1055,7 @@ Server should send response to clients using hyperlinks (***********)
 -> RestTemplate is a predefined class, which is used to send Http Request to Servers.
 
 -> RestTemplate supports Synchronus communication. (********)
+        i.e when you do a rest call you need to wait till the response comes back to proceed further.
 
 -> RestTemplate introduced in Spring 3.0 version
 
@@ -1143,11 +1144,14 @@ WebClient
 ---------
 -> Spring Framework 5.0v introduced WebClient component
 
+-> It is non-blocking, reactive web client to perform HTTP requests. It has been added in Spring 5 (spring-webflux module) and provides fluent functional style API.
+
 -> It is used to build Web Reactive non-blocking web applications
 
 -> Using this component we can send Http Requests to servers
 
 -> This supports for both Synchronus & Asynchronus communications . (********)
+        i.e The caller need not wait till response comes back. Instead he will be notified when there is a response.
 
 -> Before Spring 5.0v people used work with RestTemplate but WebClient provided by Spring as an alternative RestTemplate.
 

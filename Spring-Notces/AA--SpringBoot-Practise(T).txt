@@ -165,6 +165,12 @@ RestAnnotations555(JAX-RS) := It maps the HTTP DELETE requests on the specific h
    ---It injects(*****) value from URI to your method input parameters.
    ---can access multiple values at Path-level which will not work for @Pathvariable..
    
+   
+ Difference between @PathParam and @PathVariable :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+----> As you mention @PathVariable is from spring and @PathParam is from JAX-RS.
+----> @PathParam can use with REST only, where @PathVariable used in Spring so it works in MVC and REST.
+   
  
  Eg := 
 ~~~~~~

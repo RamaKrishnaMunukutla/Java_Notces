@@ -7,31 +7,16 @@
 	 FULLSTACK500......JavaPath ...........Learn990....
 		  
 	Baledung440........Install440
-
-
     
    ramakrishnamunukutla910@gmail.com  // ramakrishna.munukutla@ojas-it.com
    
-  https://github.com/NamaniPhani/ // phaniratna.namani@ojas-it.com //  Ojas$1234
-   
-   C:\Users\DELL\Videos
-   
-   
-   Videos(Druken-Egineer) // Some-BooksMarks // Drive-Files // Coding
-   
-      Java-8 // DevOps
-	  
-	********** 81-DAYS-TO-GO !!!! ************* ( Coding // Business(News) // GN //  Investment )
-	
-	https://www.springboottutorial.com/
-	  
+    
+  Cycle :=  LEARN && UNDERSTAND THEORY // IMPLEMENT (PRACTISE) // LOGIC (*****)
+~~~~~~~~~~  
+ 
 
- Equals() && HashCode()
- SOILD principles
- Hash--Collision.
 ==========================================================
- 
- 
+  
  how to apply LazyLoading in springBoot Application?
 how to read external properties file in spring?
 what are springboot starters?
@@ -50,42 +35,12 @@ stream api?
 differnce between api getWay and service mesh?
 function interface?
 multiple interface having same method name ?
+
+  MultiThreading /// Maven // JIRA // POSTMAN // AGILE  // SQL queries 
+  
+   Sonar Qube // Apache-Kafka  // Redis // 
    
 =========================================================================================================  
- 
-
-   tomorrow at 05:00 PM
- 
- 25 Sep, 03:00 PM onwards
-
-=======================
-//1111111111111111
-
- DevOps := // 21st September to 1st October  -----> 7:00 AM IST Onwards 
-~~~~~~~~
-
-====================================
-
-//222222222222222
-
- Full Stack with Web Development  := // 17th September to 23rd September  -----> 9:00 AM IST Onwards
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
- Data Structure := // 21st September to 31st September  -----> 2:00 AM IST Onwards
-~~~~~~~~~~~~~~~~~
-  
-    9460 1698 034
-
-====================================
-//3333333333333333 
- 
- AWS Demo := //16th September to 18th September -----> 7:30 PM IST Onwards
-~~~~~~~~~~~
- 
- AZure :=  //16th September to 20th September  -----> 9:00 PM IST Onwards
-~~~~~~~~
- 
-========================================================================================
 
  AshokIt22 :=
 ~~~~~~~~~~~~
@@ -145,6 +100,7 @@ multiple interface having same method name ?
   https://www.dineshonjava.com/
   https://www.javadevjournal.com/
   https://java2blog.com/
+  https://www.javapedia.net/
   
   https://www.studytonight.com/rest-web-service/
   https://www.guru99.com/restful-web-services.html
@@ -209,7 +165,7 @@ multiple interface having same method name ?
 	   
           Product Engineer ~~~~~~~ https://www.youtube.com/channel/UCKLrvwglZb6h9SEM__fgSjg/playlists
               Play Java ~~~~~~~~~~ https://www.youtube.com/channel/UCq2kXUtnqL9eEyTi9TNfX6w/videos
-	        Green Learner ~~~~~~~~ https://www.youtube.com/c/GreenLearner/videos
+	        Green Learner ~~~~~~~~ https://www.youtube.com/c/GreenLearner/playlists
 			Akshay Saini ~~~~~~~~~ https://www.youtube.com/c/akshaymarch7/playlists 
 			  techsith ~~~~~~~~~~~ https://www.youtube.com/c/Techsithtube/playlists
               Gaurav Sen ~~~~~~~~~ https://www.youtube.com/c/GauravSensei/playlists
@@ -219,15 +175,19 @@ multiple interface having same method name ?
 			  Mahika Tutorials ~~~~~~~~~~ https://www.youtube.com/c/MahikaTutorials/playlists
 			 Kindson The Tech Pro ~~~~~~~ https://www.youtube.com/c/KindsonTheTechPro/playlists
 			   Dinesh Varyani ~~~~~~~~~~~ https://www.youtube.com/c/hubberspot/playlists
+			    Education 4u ~~~~~~~~~~~~ https://www.youtube.com/channel/UCKS34cSMNaXaySe2xgXH-3A/playlists
 			                           
-									   
+				TheDevOpsSchool ~~~~~~~~~ https://www.youtube.com/c/TheDevOpsSchool/playlists
+				
 					https://www.youtube.com/channel/UC73I6o4GTfCnxr2Q8f4FhfQ/playlists
 					https://www.youtube.com/c/SadaLearningHub/playlists
 					https://www.youtube.com/user/springhibernatetutes/playlists
 					https://www.youtube.com/c/CodingSimplified/playlists
 					https://www.youtube.com/c/iZenBridge1/playlists
-					
-					
+					https://www.youtube.com/c/KNOWLEDGEGATE_kg/playlists
+
+ Testing :=
+~~~~~~~~~~~					
         SDET - QA Automation Techie ~~~~~~~ https://www.youtube.com/c/pavanoltraining/playlists
          Naveen AutomationLabs ~~~~~~~~~~~~ https://www.youtube.com/c/NaveenAutomationLabs/playlists
           Rahul Shetty Academy ~~~~~~~~~~~~ https://www.youtube.com/c/RahulShettyAcademy/playlists
@@ -377,16 +337,7 @@ implement producer-consumer problem.
    
 ====================================
    
-     solid principle
-  Singleton && Prototype && it's conversion
-  Interface && marker Interface diference.
-  Class Loaders in java
-  volatile keyword in java
-  finalize & garbage collection in java
-  why string is Immutable
-  memory leaks 
-  equlas and hashcode()
- Shutdown Hooks in java
+ 
  
  
  laptop turn-off when baterry 30
@@ -593,27 +544,59 @@ JavaScript :=
   ---- Digital-Marketing.
 
 ===========================================================
+ 
+ MicroServices :=
+~~~~~~~~~~~~~~~
+ --- microservices project github
+ --- microservices project + angular +github
+ --- spring boot microservices angular github
+ --- angular spring boot microservices github
+ ---
+ --- 
+ ---
 
-  spring boot + angular  :=
+ 
+ SpringBoot + Angular  :=
 ~~~~~~~~~~~~~~~~~~~~~~~~
-Ecommerce // Enterprise // Projects // Examples cards example github
-supply chain management projects github
- inventory management  github
-File-Upload //  
- forgot password  spring boot + spring mvc + junit + spring security + github
- how it outsourcing companies strategy  quora
+ --- Ecommerce // Enterprise // Projects // Examples cards example github
+ --- supply chain management projects github
+ --- inventory management  github
+ --- File-Upload //  
+ 
+ --- Forgot password  spring boot + spring mvc + junit + spring security + github
+ --- how it outsourcing companies strategy  quora
+ --- full-stack-with-angular-and-spring-boot github
+ --- spring boot angular example github
 
 
-Angular  github =
-~~~~~~~~~~~~~~
-Ecommerce // Enterprise // Projects // Examples   Cards // websites project 
-dashboard example 
-Authentication 
-Enterprise Project 
-display Row fromTable in another Component
-display Row fromTable in Console for regular intervals. 
+ Angular GitHub  :=
+~~~~~~~~~~~~~~~~~~
+ --- Ecommerce // Enterprise // Projects // Examples   Cards // websites project 
+ --- dashboard example 
+ --- Authentication 
+ --- Enterprise Project 
+ --- display Row fromTable in another Component
+ --- display Row fromTable in Console for regular intervals. 
 
-===============================================================
+
+ Programs :=
+~~~~~~~~~~~
+ --- java logical programs github
+ --- java programs for interview github
+ --- java coding programs github
+ ---
+  
+ Data Structure :=
+~~~~~~~~~~~~~~~~~
+ --- java data structures tutorial
+ --- data structures in java
+ --- data structures tutorial
+ ---
+ --- 
+ ---
+ 
+ 
+==================================================================================================
 
  Baledung440 :=
 ~~~~~~~~~~~~~

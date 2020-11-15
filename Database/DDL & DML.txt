@@ -1,5 +1,6 @@
 
 
+              ACIDProperties......Normalization660
 
    .....CREATE123.....ALTER123........INSERT123.....DROP550
    .....UPDATE123.....SELECT123.......DELETE550.....SHOW660
@@ -30,7 +31,7 @@ Key-Words :=
  
 ==============================================================
 
- Tranasaction ACID Properties :=
+ Tranasaction ACIDProperties :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  --- It is About "-Tranasaction-" Interats with DB && maintains DB-Consistancy.
  
@@ -45,6 +46,23 @@ Key-Words :=
  
 
 ====================================================================
+
+ Normalization660 := [ https://www.guru99.com/database-normalization.html ]
+~~~~~~~~~~~~~~~~~~~  [ https://www.youtube.com/watch?v=ABwD8IYByfk&ab_channel=edureka%21 ]
+
+ ----> Used to reduce Data-Redundancy . i.e same piece of data exists in multiple places 
+ 
+ Anomaly :=
+~~~~~~~~~~
+ --- The nature of a database may be such that it is not possible to add a required piece of data unless another piece of unavailable data is also added.
+
+  1 NF ----> Single cell CANNOT have MULTIPLE-VALUE. (EG:: 2-PH.no in same Cell)
+ 
+  2 NF ----> It has to be 1-NF // Table CANNOT have PARTIAL-DEPENDENCY. (EG:: Non-Prime Attribte should be in Another-Table) 
+
+  3 NF ----> It has to be 2-NF  // NON-PRIME should depends on PRIME-ATTRIBUTE 
+
+====================================================================================================
  
  CREATE123 :=
 ~~~~~~~~~~~~

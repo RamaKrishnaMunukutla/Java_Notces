@@ -53,7 +53,7 @@
 
 --->feild that not allows null && allows unique
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  //// AUTO, IDENTITY, SEQUENCE, TABLE (********)
     @Column(name = "ID", unique = true, nullable = false)
     private Integer id;
 

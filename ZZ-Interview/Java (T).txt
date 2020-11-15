@@ -13,16 +13,16 @@
 			
 	  5WaysToCreateObject......ISAandHASA......CovarientReturnType..........CallByValue........StaticAndDynamicBiding
 	  
-	      ......ComparableANDComparator........equalsANDhashcode.......shallowANDdeep............AccessModifier880
+	........PassByValueAndReference........Assertions770.........STATIC870...........Constructor670.......Oops550     
 		  
-		........FileHandling233................Serialization334........Externalizable678...........ThrowsANDThrow........
+    ........ComparableANDComparator........equalsANDhashcode.....shallowANDdeep............AccessModifier880
+		  
+	........FileHandling233................Serialization334.......Externalizable678...........ThrowsANDThrow........
 	  
-      ....CheckedExceptionUncheckedException....ClassLoaders340.............CustomException........
+    ....CheckedExceptionUncheckedException....ClassLoaders340.....CustomException........
 	  
-	   .......JavaBestPractises.................Casting459.................PassByValueAndReference
+	 .......JavaBestPractises.................Casting459.................PassByValueAndReference
 	   
-	   .......Assertions770
-	  
 		
 ==========================================================================================================
 
@@ -52,7 +52,8 @@
  --- Callable contains a single method, call (), that returns Type V, this is same as the defined interface parameter “Type”.
      Runnable contains a single method, called run (), that returns void
 
- Primitive Data-Type :=
+
+ Primitive Data-Type := [ https://www.w3schools.com/java/java_data_types.asp ]
 ~~~~~~~~~~~~~~~~~~~~~~~
        
 	   Byte --> Char ---> Short ---> int ---> Long ---> Float ----> Double. 
@@ -79,6 +80,8 @@ JRE :=
 Difference between JVM, JDK, and JRE :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  JVM --- Java Virtual Machine is a virtual machine which runs programs which are compiled to bytecodes.
+ 
+                 JVM-ARCHITECTURE ---> https://dzone.com/articles/jvm-architecture-explained
 
  JDK ---JDK is a wrapper around the JRE and additionally contains the compiler, interpreter, debugger and other tools. It provides users with features to run as well as develop Java programs.
 
@@ -86,11 +89,33 @@ Difference between JVM, JDK, and JRE :=
 
 ==============================================================================
 
- Garbage Collector :=
-~~~~~~~~~~~~~~~~~~~~
+ Garbage Collector (Daemon-Thread) := [ https://www.geeksforgeeks.org/garbage-collection-java/ ]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  --- Even though we Explicitly call Garbage Collector using System.gc() method, JVM will decide whether it should Run (Or) Not .
  --- It is not a Good practise also, Since it the Daemon-Thread having [Low-Priority] when Compared to User-Threads [High-Priority] .
+                      
+					  Integer i = null; // eligible for GC , Executed by JVM internally whenever HEAP-Memory is full. 
+	
+----> There are generally four different ways to make an object eligible for garbage collection.
+ (1) Nullifying the reference variable
+ (2) Re-assigning the reference variable
+ (3) Object created inside method
+ (4) Island of Isolation	
+					 
+----> We can also request JVM to run Garbage Collector. There are two ways to do it :
+	
+	
+ (1) Using System.gc() method :=
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ System class contain static method gc() for requesting JVM to run Garbage Collector.
+ 
+ 
+ (2) Using Runtime.getRuntime().gc() method :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+ Runtime class allows the application to interface with the JVM in which the application is running. Hence by using its gc() method, we can request JVM to run Garbage Collector.	
 
+
+ 
                      Memory Management ----> JConsole / JCM / 
 
 
@@ -218,9 +243,17 @@ Cloneable (I):-
   
 ---->instanceof operator tests variable to specified type.
 
-----> 'Class' is Blue-Print of object that shows it's Structure && how it is created.
+=============================================================================================================
+ 
+ Class :=
+~~~~~~~~~
+ --- 'Class' is Blue-Print of OBJECT that shows it's Structure && how it is created.
+ --- It is Logical entity. It can't be physical.
 
-----> 'Objects' have states and behaviors.instance of a class.
+ Object :=
+~~~~~~~~
+----> 'Objects' is an instance of a class
+   --- It is have states and behaviors.instance of a class.
    --- The state of an object is stored in fields (variables), 
    --- behavior of an object is stored in methods (functions). Objects are created from templates known as classes.
   
@@ -604,11 +637,12 @@ To do Downcasting:
 ================================================================================================================
 
  
- STATIC :==
-~~~~~~~~~
+ STATIC870 :== // Applied at Variable && Method levels Only.   
+~~~~~~~~~~~~
  ---> Used to refer to the common property of all objects (which is not unique for each object), 
                 for example, the company name of employees, college name of students, etc.
 
+----> Memory allocated Only Once at the tiem of Class Loading . 
 
  ---> Using Static-Varible 
                        >>> Inside Non-Static-Block , --YES---
@@ -622,8 +656,8 @@ To do Downcasting:
 
 ====================================================================
 
- Constructor :=
-~~~~~~~~~~~~
+ Constructor670 :=
+~~~~~~~~~~~~~~~~
 ---->having same name like Class && Acts like a method having not return type.
 
 --->constructors used to initialize the instances of class.
@@ -636,9 +670,46 @@ To do Downcasting:
 
 ---->Constructor-Overloading is supported in Java && "--super--" is used to call super class constructor.
 
-----> To protect the constructor from being called by other classes, declare it as "--private--"
+----> To protect the constructor from being called by other classes, We can declare it as "--private--"  (**********)
+ 
+----> Constructor cannot be Inherited, but can CALL it by using "--super()--" keyword. (**********)
+
+                          CTE  --- Compile-Time-Error
+			   
+        Use of Parametric-Constructor -----> Memory Allocated to Instance variable && can set data By One Step (*****)
+  
+  
+  Private-Constructor :=
+~~~~~~~~~~~~~~~~~~~~~~~
+ --- To protect the constructor from being called by other classes, We can declare it as "--private--"  (**********)
 
 
+ Static-Constructor := //Static Belongs to Class, Constructor to Object // THIS() && SUPER()CANNOT used inside STATIC-CONTENT 
+~~~~~~~~~~~~~~~~~~~~~	  (**************) 
+ --- CTE, if you mark constructor as static the subclass will not be able to access the constructor of its parent class because it is marked static and thus belong to the class only. This will violate the whole purpose of inheritance concept and that is reason why a constructor cannot be static. 
+	 
+ --- When we created the object of child class, it first invoked the constructor of parent class and then the constructor of it’s own class, Since Every Child class constructor by default has SUPER() . (******)
+
+ --- constructor cannot be static – Because if we make them static they cannot be called from child class thus object of child class cannot be created. (*****)
+ 
+
+ Final-Constructor := CTE, Restricts modification: variables become constant. it is never Supports INHERITANCE.
+~~~~~~~~~~~~~~~~~~~~
+  
+  
+ Overload-Constructor :=
+~~~~~~~~~~~~~~~~~~~~~~~
+
+
+ Override-Constructor := If Constructors can be inherited then it will be impossible to achieving encapsulation.	
+~~~~~~~~~~~~~~~~~~~~~~~
+
+ Synchronized Constructor :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ---  The JVM ensures that only one thread can invoke a constructor call at a given point in time.
+ --- That is why no need to declare a constructor as synchronized and it is illegal in Java. However, we can use synchronized blocks inside a constructor.
+ 
+ 
  Constructor in Abstract-Class :=  [  https://www.youtube.com/watch?v=dn0n78xF5Zs&ab_channel=PlayJava ]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  --- To Initilaize Class-Variables always.
@@ -714,19 +785,6 @@ It is also used to achieve loose coupling.
 
 ----> Reference will hold hashCode of Object in hexaDecimal notation.
 
-----> Difference between constructor and method in Java
-A constructor is used to initialize the state of an object.
-A method is used to expose the behavior of an object.
-	
-A constructor must not have a return type.	
-A method must have a return type.
-
----->use of static  
-           -----Class level variables (Or) Methods.
-           ----Memory allocated only once at time of class loading
-		   ----to have a common property for all objects of a class
-		   
-
 ---->Instance member variables cannot be accessed by a static method. But an instance method can call both instance variables and static variables.
 
 ---->class can
@@ -737,7 +795,12 @@ A method must have a return type.
 
 ---->Interface can 
                ----Cannot Extends class
-               ----Implements More than One Interface.
+               ----Implements More than One Interface.		   
+			   --- has PUBLIC STATIC FINAL Variables && PUBLIC ABSTRACT-Methods /// So CONSTRUCTOR cannot be created. (******)
+
+ (Q)  Why an interface doesn't have a constructor  ??? 
+ (A) In order to call a method, we need an object, since the methods in the interface don’t have a body there is no need for calling the methods in an interface.
+ --- Since we cannot call the methods in the interface, there is no need of creating an object for an interface and there is no need of having a constructor in it.
 			   
 
 Abstract class :=   ( Relation to Parent---Child /// Partial representaion of Object )
@@ -791,8 +854,10 @@ Abstract class :=   ( Relation to Parent---Child /// Partial representaion of Ob
 
 
 ==================================================================
-
-
+ 
+ Oops550 :=
+~~~~~~~~~
+ 
 Abstraction := ( Eg :: HashMap, TV-Remote )
 ~~~~~~~~~~~~
 It is the process of exposing Only essential-functionality details of an entity, hiding it's implementation details.
@@ -943,6 +1008,8 @@ An exception is first thrown from the top of the stack and if it is not caught, 
 
 ---> By default Unchecked Exceptions Only  are forwarded in calling chain (propagated). (********)
 
+----> All Exceptions are Classes Internally (*****************)
+
 ==================================================================================================
 
  CustomException :=
@@ -958,9 +1025,7 @@ public void save(Student student) throws StudentStoreException {
     } catch (SQLException ex) {
         throw new StudentStoreException("Failed to save student", ex);
     }
-	
-----------------------------------------------------------------
-	
+=============	
  public class StudentStoreException extends Exception {
     private static final long serialVersionUID = -470180507998010368L;
     public StudentStoreException() {
@@ -969,12 +1034,28 @@ public void save(Student student) throws StudentStoreException {
    public StudentStoreException(final String message) {
 		super(message);
 	}
- } 
-
---------------------------------------------
-
+ }
+ 
   Console :=  StudentNotFoundException: Could not find student with ID 0000001
   ~~~~~~~~
+  
+==============
+
+ Custom Checked Exception   -----> By extending Exception, you can create a checked exception:
+ 
+ Custome UnChecked-Exception ----> By extending RuntimeException, you can create unchecked exception:
+ 
+ 
+ Default Exception Handling Mechanism in JVM :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- If any Exception Occurs in Method, JVM Internally Creates Object for that Particular-Exception.
+ --- After creating Exception object the method handover it to the JVM.
+ --- JVM checks for Exception Handling code in that method.
+ --- Just before terminating the program abnormally JVM handovers the responsibility of exception handling to the Default Exception Handler which is the component of JVM.
+ -- Default Exception Handler just print exception information to the consol in the following format
+
+    Name of Exception: Description
+   Stack Trace (Location of the Exception)
 
 ===============================================================================================================================
 
