@@ -190,6 +190,8 @@ ApplicationContext:=
 
   AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(MyConfiguration.class);
   MyService service = ctx.getBean(MyService.class);
+  
+ RegisterShutdownHook350
 
 
 =============/\/\/\/\/\============/\/\/\/\/\/\===========/\/\/\/\/\============/\/\/\/\/\===============
