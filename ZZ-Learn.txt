@@ -4,7 +4,7 @@
 	 
 	 Repositaries990......Websites450............TechnicalVideos440 (*********)
 	  
-	 FULLSTACK500......JavaPath ...........Learn990....
+	 FULLSTACK500......JavaPath ...........Learn990....Career550.......
 		  
 	Baledung440........Install440
     
@@ -544,7 +544,7 @@ JavaScript :=
   ---- Digital-Marketing.
 
 ===========================================================
- 
+
  MicroServices :=
 ~~~~~~~~~~~~~~~
  --- microservices project github
@@ -554,7 +554,6 @@ JavaScript :=
  ---
  --- 
  ---
-
  
  SpringBoot + Angular  :=
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -633,8 +632,38 @@ https://www.baeldung.com/spring-cloud-series
 
   
 ==================================================================================================
-Browser:=
-~~~~~~~~~
+ 
+ Career550 :=
+~~~~~~~~~~~~
+Fresher - 2+         
+ Basics
+  UI : HTML,CSS,JS,JQuery
+  DB : SQL/PLSQL
+  F/w: Core Java, Adv Basics, Spring Boot
+  Java Tools : Maven, Git, JUnit, ..
+
+2+ to 5+
+ UI : ECMA Script, TypeScript, React/Angular
+ Cloud Computing Tools: AWS/Google Cloud
+                    (Basics required)
+
+ DB : NoSQL
+ Security Concepts: JWT, OAuth
+
+5+ or more
+ Project Management Traning Certificate
+ Solution Architecture Traning Certificate
+ ** Design patterns and alogorithms (own code..)
+ ++ Different Full Stakcs (MERN/DontNet..)
+
+ 
+3+ to ...
+ DevOps : CI/CD Pipeline.
+ 
+===========================================================
+
+ Browser :=
+~~~~~~~~~~~~
     WindowKey + UpAraow ~~~~~~~~Maximize window
    Cntrl + tab ~~~~~~~~~~~~~~~~~ Swtch between Tabs
    
@@ -682,8 +711,9 @@ Ctrl + Shift:=
 	 S~~~~~~~Save
 	 W~~~~~Close all.
 	 P~~~~~ to find closing brace. Place the cursor at the opening brace and use this.
-	 
-	 
+	   
+	Cntrl + O ----> Methods in Class 
+	  
 	 ALT+ Up/Down ~~~~~~~~~~~~~~~Move lines
 	 CNTRL+BACKSPACE//D~~~~~~~~~ Delete line.
 	 CNTRL+O~~~~~~~~~~~~~~~~~~~~~Methods

@@ -33,6 +33,10 @@
   FI ------> Callable(1.5,CE) && Runnable(1.0,UE)  ///  Comparator && Comparable
  
   MI ------> Clonenable && Serializable   ////  [ It Indicate something to compiler or JVM ]
+  
+   Dot-Class Files Location       ---> Copy Path form Project     ---> Properties 
+                                  ---> (Java-Project)             ---  Bin   Folder (Java-Project) 
+								  ---> Maven/ Boot Project        ---  Target Folder.
 
 ====================================================================================
 
