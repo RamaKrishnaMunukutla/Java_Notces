@@ -13,15 +13,15 @@
 			
 	  5WaysToCreateObject......ISAandHASA......CovarientReturnType..........CallByValue........StaticAndDynamicBiding
 	  
-	........PassByValueAndReference........Assertions770.........STATIC870...........Constructor670.......Oops550     
+	....PassByValueAndReference.....Assertions770...............STATIC870...........Constructor670.......Oops550     
 		  
-    ........ComparableANDComparator........equalsANDhashcode.....shallowANDdeep............AccessModifier880
+    ....ExceptionHandling...........ComparableANDComparator.....equalsANDhashcode...shallowANDdeep...AccessModifier880
 		  
-	........FileHandling233................Serialization334.......Externalizable678...........ThrowsANDThrow........
+	....FileHandling233.............Serialization334.......Externalizable678...........ThrowsANDThrow........
 	  
     ....CheckedExceptionUncheckedException....ClassLoaders340.....CustomException........
 	  
-	 .......JavaBestPractises.................Casting459.................PassByValueAndReference
+	 ...JavaBestPractises.................Casting459.................PassByValueAndReference
 	   
 		
 ==========================================================================================================
@@ -33,6 +33,7 @@
   FI ------> Callable(1.5,CE) && Runnable(1.0,UE)  ///  Comparator && Comparable
  
   MI ------> Clonenable && Serializable   ////  [ It Indicate something to compiler or JVM ]
+  
   
    Dot-Class Files Location       ---> Copy Path form Project     ---> Properties 
                                   ---> (Java-Project)             ---  Bin   Folder (Java-Project) 
@@ -285,9 +286,25 @@ Divided into fuuctions
 3.Has access modifier
 Doesnot have access modifier.
 
+
+ Types of References In Java := [ https://github.com/kishanjavatrainer/TypesOfReferencesInJavaDemo ]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- They are 4 Types 
+ 
+ 1) Strong References ----> Employee emp = new Employee(101, "Rama");
+
+ 2) Weak References ------> Employee emp = null ;  /// (Eg :: WeakHashMap ) 
+
+ 3) Soft References ------> Employee emp = null ;  /// ( Grabage-Collected Only when JVM is Runing Out-Of-Memory )
+
+ 4) Phantom References
+
+
+
 ===================================================================================================
-MainMethodBreakDown :=
-~~~~~~~~~~~~~~~~~~~
+
+ MainMethodBreakDown :=
+~~~~~~~~~~~~~~~~~~~~~~
 
 Public ---> use a public keyword before the main() method so that JVM can identify the execution point of the program.
        --- If we use private, protected, and default before the main() method, it will not be visible to JVM.
@@ -1077,6 +1094,8 @@ public void save(Student student) throws StudentStoreException {
 
 ===============================================================================================================================
 
+ ExceptionHandling :=
+~~~~~~~~~~~~~~~~~~~~~
  
  Error := that cannot be handled by Program. 
 ~~~~~~~~
@@ -1140,7 +1159,11 @@ CheckedExceptionUncheckedException:= [NARESH-IT] (**********)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
   --- caused when there is a class file that your code depends on and it is present at compile time but not found at runtime
 
+   
+   Java-8 UnChecked-Exception -----> https://github.com/kishanjavatrainer/HandlingUncheckedExpInLambda
+   Java-8 Checked---Exception -----> https://github.com/kishanjavatrainer/HandlingCheckedExpInLambda
   
+     
 ==================================================================================================
 
 -----> We can have nested try blocks in java followed by catch/finally blocks.
@@ -1300,12 +1323,6 @@ Comparator := ( java.util. * ) //  Used to Sorts Objects based-On Other-Than Id 
 
 Eg :=
 ~~~
-class NameComparator implements Comparator<Student> {
-	 public int compare(Student s1, Student s2) {
-         return s1.name.compareTo(s2.name);
-	}
-}
-
 class AgeComparator implements Comparator<Student> {
 	public int compare(Student s1, Student s2) {
 		if (s1.age == s2.age)
@@ -1318,21 +1335,93 @@ class AgeComparator implements Comparator<Student> {
 
 }
 
+class NameComparator implements Comparator<Student> {  // ************
+	 public int compare(Student s1, Student s2) {
+         return s1.name.compareTo(s2.name);
+	}
+}
+
+
 ---> in main-class, "--Collections.sort(al,new NameComparator());--"   .... NameComparator (or) AgeComparator
 
 --->  AgeComparator ageComparator = new AgeComparator(); 
         Collections.sort(list, ageComparator); 
         for (Movie movie: list){.....} 
+		
 
+ Sorting in Reverse-Order :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In Java8 :=
-~~~~~~~~~
-  Comparator<Student> cm1=Comparator.comparing(Student::getName);  
+		List<String> nameList = empList.stream().map(Employee::getName).collect(Collectors.toList());
+		System.out.println("Before sorting..");
+		nameList.forEach(System.out::println);
+		//nameList.sort(Comparator.naturalOrder());
+		nameList.sort(Comparator.reverseOrder());
+		System.out.println("After sorting..");
+		nameList.forEach(System.out::println);
+		
+=====================================================
+
+ In Java8 :=
+~~~~~~~~~~~
+   Comparator<Student> cm1=Comparator.comparing(Student::getName);  
    Collections.sort(al,cm1);  
    System.out.println("Sorting by Name");  
    for(Student st: al){  
      System.out.println(st.rollno+" "+st.name+" "+st.age);  
-     }  
+     }   
+
+	 
+ Comparator in Java-8 :=
+~~~~~~~~~~~~~~~~~~~~~~
+ --- compare() ---> AM
+ --- equals() ----> Still a 'FI' since this method belongs to Object-Class && can declare Other methods Belongs to         Object-Class (*******)
+ --- has Many  Default-methods like comparing() //// 
+
+ Eg :=
+~~~~~~
+ 		System.out.println("List of employee after sorting using Lambda ..");  // ************
+		Collections.sort(empList,(e1,e2)->e1.getName().compareTo(e2.getName()));
+	  //empList.forEach(System.out::println);
+        for (Employee employee : empList) {
+			System.out.println(employee);
+		}	
+		
+        List<Employee> empList = new ArrayList<>();
+		empList.add(new Employee("Davis", 30));
+		empList.add(new Employee("Alice", 23));
+		empList.add(new Employee("Barry", 34));
+		empList.add(new Employee("Martin", 35));
+		empList.add(new Employee("James", 45));
+		
+		empList.forEach(System.out::println);
+		System.out.println("-----------------------------------------------");
+		//Comparator<Employee> comp = Comparator.comparing(Employee::getName);
+		Comparator<Employee> comp = Comparator.comparing(Employee::getName, String.CASE_INSENSITIVE_ORDER);
+		Collections.sort(empList, comp);
+		
+		empList.forEach(System.out::println);
+
+ 
+ Sort method for Custome-Type :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   empList.sort((e1,e2)->e1.getName().compareTo(e2.getName()));
+   for (Employee employee : empList) {
+      System.out.println(employee);
+    }
+
+ Sort based on String-Length in List :=   comparingInt() /// comparing() && thenComparing()
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		
+		    List<String> list = Arrays.asList("Carter","James","Davis","Zorra","Barry","Zola");			
+			Comparator<String> comp = Comparator.comparingInt(String::length);
+			Collections.sort(list, comp);
+			list.forEach(System.out::println);
+
+		Comparator<Employee> comp = Comparator.comparing(Employee::getName).thenComparing(Employee::getAge);
+		Collections.sort(empList, comp);
+		System.out.println("After Sorting...............");
+		empList.forEach(System.out::println);
 
 ===========================================
 

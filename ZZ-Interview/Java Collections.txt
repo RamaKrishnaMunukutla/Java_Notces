@@ -7,13 +7,24 @@
   ....HashMap889(Un)...........HashTable335(Un)..............TreeMap333(Sor).........ConcurrentHashMap449(Un,TS,FS**)......
 	 
   ...LinkedHashMap667(In).....IdentityHashMap500....Queue590....Deque300...........ConcurrentModificationException444......
+  
+  IteratorAndEnumeraton.........
 	 
 	  .........ReadOnlyCollection.......CollectionsBestPractises.......
 	 
 =============================================================================================================
              
 
----->  int marks = Integer.valueOf(studentDetail[1]); ...... Value-inString[] to INT.
+---->  String // Character // Arrays // Collections //   
+
+          
+		  PROGRAMS ----> Strings // Arrays // ----Collections--- // Patterns (--Number, **--)
+		  
+         
+		 Interfaces(*******)  :: Sorted (List, Set, Map)  // ConcurrentMap 
+
+
+----> int marks = Integer.valueOf(studentDetail[1]); ...... Value-inString[] to INT.
 
 ---->Collections.sort(numbersList, Collections.reverseOrder());
 
@@ -127,10 +138,21 @@ Arrays :=
   
 =====================================================================================================
 
-ArrayList234:=  (It is a class implements List interface.(linear list data strcuture) [......ODN, S&TS.......]
-~~~~~~~~~~~~
+ArrayList234 (1.2) :=  (It is a class implements List interface.(linear list data strcuture) [......ODN, S&TS.......]
+~~~~~~~~~~~~~~~~~~~
 
      Iterator // ListIterator // Enumeration // Normal-For-Loop // Enhanced-For-Loop // For-Each-Loop //
+	 
+	   
+	             Elements > Capacity ---->  ArrayList increases  50%   of it's Capacity.
+				 Elements > Capacity ---->    VECTOR  increases Double of it's Capacity. (*********)
+				 
+				 
+ Similarities Between ArrayList && Vector  :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                 Both are Index-Based && 
+				 Throws ConcurrentModificationException && 
+				 Allows Duplicate && Null
 
 
 ---->Index based Elements can be randomly accessed using index positions sinse implement RandomAccess interface
@@ -307,8 +329,10 @@ push() && pop()--Removes and returns firstelement in linked-list.
 
 ================================================================================================
 
-CopyOnWriteArrayList890 :=
+CopyOnWriteArrayList890 := (Java 1.5)
 ~~~~~~~~~~~~~~~~~~~~~~~~
+
+----> Fresh Copy-Of-Array is created for Every-Mutation (--- add() , set() && remove() ---) [***************]
 
 ---->CopyOnWriteArrayList is a thread-safe variant of ArrayList and used when we do not want to synchronize the traversals and still want thread safety while updating the list.
 
@@ -422,8 +446,10 @@ TreeSet338:= [......ODN, S&TS.......]
 
 ====================================================================================================
 
-CopyOnWriteArraySet990 :=
-~~~~~~~~~~~~~~~~~~~~~~~
+CopyOnWriteArraySet990  (1.5) :=   
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----> from java.util.concurrent.* Package
+
 ---->Java CopyOnWriteArraySet is a thread-safe version of HashSet.
 
 ---->CopyOnWriteArraySet class implement Serializable interface and extends AbstractSet class.
@@ -436,6 +462,22 @@ CopyOnWriteArraySet990 :=
 EnumSet660 :=
 ~~~~~~~~~~~
 ----> It is the specialized Set implementation for use with enum types
+
+==============================================================================================================
+
+ Default-Methods in Collection-Interfaces(I) FORM JAVA-8 :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+         CNTRL + O ----> Methods in Class / Interface 
+
+ LIST ----> https://github.com/kishanjavatrainer/ListDefaultMethodsDemo
+
+  MAP ----> https://github.com/kishanjavatrainer/MapDefaultMethod_1
+            https://github.com/kishanjavatrainer/MapDefaultMethod_2
+            https://github.com/kishanjavatrainer/MapDefaultMethod_3
+      
+	  getOrDefault() //// replaceAll() /// putIfAbsent() ////  computeIfPresent() /// computeIfAbsent()
+
 
 ==============================================================================================================
 
@@ -518,7 +560,7 @@ EnumSet660 :=
 ----> Even though the object is specified as key in hashmap, it does not have any reference and it is not eligible for garbage collection if it is associated with HashMap i.e. HashMap dominates over Garbage Collector. (*********)
 
 
-Internal-Working-HashMap :=
+Internal-Working-HashMap :=  (hash, Key, Value, Next) 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ----> Each Bucket acts as a "-Node-"(Linked-List) having [HashCode,Key,Value,Next] 
@@ -585,12 +627,22 @@ Now we need to increase the hashmap size.
 If you want to keep get and put complexity O(1), it is advisable to have a load factor around 0.75.
 
 
+ HashCollision in HashMap := (*********)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- More than One-Key having same HashCode. /// HashCode is calculated based on Key 
+ --- In that case Entry-Object stored as Linked-List within the same-Bucket. 
+
+
 =======================================================================================================
-HashTable335:=  (key && Vlaue) ( Slow && not fail-fast.)  [......ODN, S&TS.......]
-~~~~~~~~~~~~
+
+ HashTable335 :=  (key && Vlaue) ( Slow && not fail-fast.)  [......ODN, S&TS.......]
+~~~~~~~~~~~~~~~
+
 ---->Hashtable is synchronized (i.e. methods defined inside Hashtable), whereas HashMap is not. If you want to make a HashMap thread-safe, use Collections.synchronizedMap(map) or ConcurrentHashMap class.
 
 ---->Hashtable does not allow null keys or values. HashMap allows one null key (other null keys will simply overwrite first null key) and any number of null values.
+
+----> All methods are  Synchronized
 
 ---->It does not accept duplicate keys. && Enumerator in Hashtable is not fail-fast.
 
@@ -605,6 +657,11 @@ HashTable335:=  (key && Vlaue) ( Slow && not fail-fast.)  [......ODN, S&TS......
                   Order--------- no, it does not. it only knows the "hash" order
 				  Duplicates --- No
 				  Null --------- No
+				  
+ Internals of HashTable :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Initial-Caapcity ---> 11
+	Load-Factor --------> 0.75
 				  
 
 Jackson convert Map to JSON :=
@@ -623,11 +680,17 @@ Jackson convert Map to JSON :=
 TreeMap333 :=  [......ODN, S&TS.......]
 ~~~~~~~~~~
 
+----> It is Reb-Black-Tree based NavigableMap Implementation . (**********)
+
 ---->TreeMap in Java is used to store key-value pairs very similar to HashMap class. 
 
 ---->Difference is that TreeMap provides an efficient way to store key/value pairs in "--sortedOrder--".
 
 ---->It stores the keys in sorted order (natural order) or by a Comparator provided at map creation time.
+
+----> Does Stores Null-Value, Result in NullPointerException (***********)
+
+----> For Custom-Ordering, Provide OWN-COMPARATOR at Map Creation-Time (***********) 
 
 ---->It is not synchronized. Use Collections.synchronizedSortedMap(new TreeMap()) to work in concurrent environment.
 
@@ -641,6 +704,27 @@ TreeMap333 :=  [......ODN, S&TS.......]
           Map ----> Represnt Group of Objects as Key && Value
    
    TreeSet & TreeMap ----> Hetrogeneous-Elements are not allowed.
+
+
+ Eg :=
+~~~~~
+ class Employee implements Comparable<Employee> {
+ 
+ 
+ 	@Override
+	public int compareTo(Employee o) {
+		return this.getEmployeeName().compareTo(o.getEmployeeName());
+	}
+}
+	
+		Set<Entry<Employee, Department>> entrySet = empDeptMap.entrySet();
+		Iterator<Entry<Employee, Department>> iterator = entrySet.iterator();
+		while (iterator.hasNext()) {
+			Map.Entry<Employee, Department> entry = (Map.Entry<Employee,Department>) iterator.next();
+			Employee employee = entry.getKey();
+			Department department = entry.getValue();
+			System.out.println(employee);
+			System.out.println(department);
 
 
  SortedMap(I)  :=
@@ -673,6 +757,8 @@ ConcurrentHashmap449 :=   [......ODN, S&TS.......]
 ----> ConcurrentHashMap do not preserve the insertion order 
 
 ----> Inserting null objects is not-possible in ConcurrentHashMap as key or value. (********) 
+      Only Specific-Portion[segment] is locked here (*********)
+	  Does NOT-ALLOW NULL Key && value  (**********)
 
 ----> ConcurrentHashMap was introduced to improve the performance while ensuring thread safety.
 
@@ -693,6 +779,11 @@ ConcurrentHashmap449 :=   [......ODN, S&TS.......]
  ---  performance is less when compared to ConcurrentHashmap.
  
    map<String, Integer> sortedAlt = Collections.synchronizedMap(new hashMap<String, Integer>()); 
+   
+ 
+ In Java-8 Supportes Parallel-Operations :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- we have Methods ::  forEach() ///  Search()  ///  reduce() 
 
 
 =====================================================================================
@@ -786,7 +877,7 @@ It is linear collection that supports element insertion and removal at both ends
 ================================================================================================================
 ConcurrentModificationException444 :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
- --- Occurs when when we try to modify the Structure-of-collection using "-add()-" // "-remove()-" // "-put(-,-)-"   Methods of collections class.(*******)
+ --- Occurs when when we try to modify the Structure-of-collection using "-add()-" // "-remove()-" // "-put(-,-)-"   Methods of collections class & not form Iterator-(I) Methods (*******)
  
  --- For "-set(-,-)-" method will not throw ConcurrentModificationException, because it does not Modifying the Structure.
  
@@ -842,7 +933,7 @@ ConcurrentModificationException444 :=
 
 =======================================================================================
 
-Difference between Iterator and Enumeraton :=
+Difference between IteratorAndEnumeraton :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 1) Iteator (JDK-1.2) can be used on legacy(Vector etc.) classes as well as non-legacy classes (ArrayList, LinkedList etc.),   and Enumeration (JDK-1.0) is basically used for legacy classes such as Vector.
 
@@ -851,6 +942,10 @@ Difference between Iterator and Enumeraton :=
 3) Iterator is fail-fast wheras Enumeration is not.
 
 4) Interator provides remove() method whcih is not present in Enumeration.
+
+  
+      Enumeration (1.0) ----> hasMoreElements() //// nextElements()  /// FAIL-SAFE && Not-Secured  /// Legacy-Class   
+       Iterator  (1.2) ----->     hasNext()     ////   next()      ///  FAIL-SAFE && Not-Secured  ///  
 
 
 ------>Deque is an interface and has two implementations: LinkedList and ArrayDeque. 

@@ -94,6 +94,15 @@
   https://www.javaguides.net/2020/06/free-spring-boot-angular-open-source-projects-github.html
   
   
+  KK Java Tutorials :=
+~~~~~~~~~~~~~~~~~~~~~~
+ https://github.com/kishanjavatrainer/-SpringDataNamedQueryDemo
+ https://github.com/kishanjavatrainer/SpringDataNamedNativeQueryDemo
+ https://github.com/kishanjavatrainer/QueryAnnotaionWithUpdateDataStoreDemo
+ https://github.com/kishanjavatrainer/SpringDataQueryAnnotation_1
+ https://github.com/kishanjavatrainer/-SpringDataPaginationDemo
+ https://github.com/kishanjavatrainer/SpringBootEhacheCache
+ 
 
  MVC :=
 ~~~~~~

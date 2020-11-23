@@ -84,6 +84,7 @@ wait() , notify(), notifyAll() methods :=
 
                            New ----> Runnable ----> Waiting  ----> Running ----> Terminated.
 						   
+  https://github.com/kishanjavatrainer/ProducerAndConsumerExample						   
 						   
 
 ----> Every object has an lock associated with it (***********)

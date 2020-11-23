@@ -1,11 +1,13 @@
 
 
 
-        .....LAMBDAEXPRESSIONS123........FUNCTONALINTERFACE123............METHODREFERENCE123
+        .....LAMBDAEXPRESSIONS123.......FUNCTONALINTERFACE123............METHODREFERENCE123
    
-   ..........DEFAULTMETHOD123............STREAMS123...........OPTIONAL123.......StringJoiner890.......
+   ..........DEFAULTMETHOD123...........STREAMS123.....OPTIONAL123.......StringJoiner890....ForEach990
 			
-	  ........Predicate335...............MultipleInheritance555..........LocalDateTime3430
+	  .......Predicate335...............MultipleInheritance555..........LocalDateTime3430
+	  
+	  .......OthersFeatureINJava (**)........
 	  
 	    7337019199 Online team
 		
@@ -18,6 +20,10 @@
  --- Underscore for Numeric Literals (Between Digits)
  --- String in Switch-case. (Case-Sensitive)
  --- Catching Multiple Exceptions in catch Block
+
+ Java 8 :=
+~~~~~~~~
+ --- Released in 2014.
 
 	
 =================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
@@ -58,6 +64,72 @@ Lambda Expression Body
 	} 
 
 ================
+
+  LM := [ https://github.com/kishanjavatrainer/LambdaWithFunctionalInterfaces ]
+-----
+ --- [()] && [{}] are Optional fro Single-Parameter && Single-Line . 
+ 
+ Methods should be ::
+~~~~~~~~~~~~~~~~~~~~
+     void demo();
+	 
+	 void method2(String name);
+	 
+	 void method3(String name,int age);
+
+ Eg :=
+~~~~~
+     
+ @FunctionalInterface
+public interface MyInterface1 {
+	public abstract void method1();
+}
+
+public class ClientTest {
+
+	public static void main(String[] args) {
+		
+		MyInterface1 myInterface1=()->System.out.println("This methods executes using lambda..");
+		myInterface1.method1();
+		
+		System.out.println("-----------------------------");
+		
+		MyInterface2 myInterface2=name->System.out.println("Your name is:"+name);
+		myInterface2.method2("Sean Murphy");
+		
+		System.out.println("-----------------------------");
+		
+		MyInerface3 myInerface3=(name,age)->{
+			System.out.println("Your name is:"+name);
+			System.out.println("You are "+age+" years Old..");
+		};
+		
+		myInerface3.method3("Andrew", 30);
+		
+	   System.out.println("-----------------------------");
+	
+	}
+
+}
+
+ Lambda with RETURN-TYPE := Method -- "RETURN" is also not required 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+ @FunctionalInterface
+  public interface MyInterface {
+    boolean test(int n1,int n2);
+ }
+
+ public class ClientTest {
+
+	public static void main(String[] args) {
+		
+		MyInterface myInterface=(n1,n2)->n1>n2;
+		System.out.println(myInterface.test(40, 35));
+	}
+}
+
+================
 	
 --->This Lambda Expression does not have parameters and does return any results. So it’s type is “java.lang.Runnable” Functional Interface.
 
@@ -82,7 +154,9 @@ Lambda Expression Body
         };
         sayable.say("Say something ..");
 		
+		
 =================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
+
 ======================================================================================================
  
 FUNCTONALINTERFACE123 (I) :=   [ https://www.javaguides.net/2018/07/java-8-functional-interfaces.html ]
@@ -102,6 +176,8 @@ FUNCTONALINTERFACE123 (I) :=   [ https://www.javaguides.net/2018/07/java-8-funct
         Functional Interface ----> Comparator, Comaparable, Runnable 
                             8 ---> predicate, Supplier, Consumer
 
+---> Al methods not Thows Exception. 
+
 --->contains only one abstract method. These interfaces are also called Single Abstract Method interfaces (SAM Interfaces).Functional interfaces were introduced in Java 8 in order to implement lambda expressions.
 
 --->In Java 8, functional interfaces can be represented using lambda expressions, method reference and constructor references as well.
@@ -118,13 +194,20 @@ FUNCTONALINTERFACE123 (I) :=   [ https://www.javaguides.net/2018/07/java-8-funct
  --- java.util.function has Bunch of FI .
  --- Normal Interface if it does not have any Abstract-Methods also, Acts "-FI-" if it EXTENDS it. 
  
- Comparator :=
-~~~~~~~~~~~~~
+ Comparator in Java-8 :=
+~~~~~~~~~~~~~~~~~~~~~~
  --- compare() ---> AM
       equals() ---> Still a 'FI' since this method belongs to Object-Class && can declare Other methods Belongs to    Object-Class (*******)
  --- has any Default-methods. 
 
- 
+ Eg :=
+~~~~~~
+ 		System.out.println("List of employee after sorting using Lambda ..");
+		Collections.sort(empList,(e1,e2)->e1.getName().compareTo(e2.getName()));
+		empList.forEach(System.out::println);
+		
+==================
+
  Eg :=
 ~~~~
 	private static void createThreadUsingLamdaExpression() {
@@ -278,44 +361,66 @@ Object :: nameOfTheMethod
 
   ---Class::staticMethodName    ----ClassInstance::instanceMethodName          ---Reference to constructor – Class::new
 
-Eg :=
-~~~
-   List<String> listOfStrings = Arrays
-        .asList("how", "to", "do", "in", "java", "dot", "com");
-	System.out::println(listOfStrings); /// -----Method-Reference---
- 
-List<String> sorted = strings
-        .stream()
-        .sorted((s1, s2) -> s1.compareTo(s2))
-        .collect(Collectors.toList());
- 
-  System.out.println(sorted);
- 
-  List<String> sortedAlt = strings
-        .stream()
-        .sorted(String::compareTo)
-        .collect(Collectors.toList());
- 
-  System.out.println(sortedAlt);
- 
------------------------------------------------------------------------------------------- 
-Eg :=
-~~~
-    List<Integer> integers = Arrays.asList(1,12,433,5);
-         
-    Optional<Integer> max = integers.stream().reduce( Math::max ); 
- 
-    max.ifPresent( System.out::println ); 
+ 1. SM-Reference         ----> https://github.com/kishanjavatrainer/MethodReferenceWithStaticMethod
+ 2.Constructor-Reference ----> https://github.com/kishanjavatrainer/ReferenceToConstructorInLambda 
+ 3.IM-Reference          ----> https://github.com/kishanjavatrainer/ReferenceToInstanceMethodinLambda
+ 
+  Eg1 :=
+~~~~~~
+   public static void main(String[] args) {
 
------------------------------------------------------------------------------------------- 
-Eg:=
-~~~
-  List<Integer> integers = IntStream
-                .range(1, 100)
-                .boxed()
-                .collect(Collectors.toCollection( ArrayList::new ));
-                Optional<Integer> max = integers.stream().reduce(Math::max); 
-                max.ifPresent(System.out::println); 
+		ExecutorService executorService = Executors.newSingleThreadExecutor();
+		
+		Runnable command = ClientTest::myRun;
+		executorService.execute(command);
+	}
+
+	private static void myRun(){
+		System.out.println("My Task is running");
+	}
+	
+
+ Eg2 :=
+~~~~~~
+	public static void main(String[] args) {
+
+		List<Integer> numbers = Arrays.asList(4,9,36,100);
+		numbers.forEach(System.out::println);
+		System.out.println("-------------------------");
+		
+		List<Double> findSquareRoots = ClientTest.findSquareRoots(numbers,Integer::new);
+		findSquareRoots.forEach(System.out::println);
+	}
+
+	private static List<Double> findSquareRoots(List<Integer> numbers,Function<Integer, Integer> f) {
+		List<Double> results = new ArrayList<>();
+		numbers.forEach(x->results.add(Math.sqrt(f.apply(x)))); // Filtering-Data[SQUARE] form 'numbers' && Storing in 'results' List  (***********)
+		return results;
+	}
+	
+ 
+ Eg3 :=
+~~~~~
+
+	public static void main(String[] args) {
+
+		List<Person> persons = new ArrayList<>();
+		persons.add(new Person("Bean", 27));
+		persons.add(new Person("Sean", 21));
+		persons.add(new Person("Martin", 45));
+		persons.add(new Person("Frank", 27));
+		
+		
+	List<String> personNames =ReferenceToInstanceMethodinLambda.getPersonsName(persons,Person::getName);
+	personNames.forEach(System.out::println);
+	}
+
+	private static List<String> getPersonsName(List<Person> persons, Function<Person, String> f) {
+		List<String> results  = new ArrayList<>();
+		persons.forEach(n->results.add(f.apply(n)));    // Filtering-Data[NAME] form 'persons' && Storing in 'results' List  (***********)
+		return results;
+	}
+	
 
 =================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
 ======================================================================================================
@@ -381,6 +486,13 @@ STREAMS123:=   [https://howtodoinjava.com/java8/java-streams-by-examples/]
 --->Stream is a conceptually fixed data structure, in which elements are computed on demand
   --- This gives rise to significant programming benefits. The idea is that a user will extract only the values they require from a Stream, and these elements are only produced—invisibly to the user—as and when required. This is a form of a producer-consumer relationship.
   
+  Stream API :=
+~~~~~~~~~~~~~~~
+ --- It is used to process collections of objects. 
+ --- A stream is a sequence of objects that supports various methods which can be pipelined to produce the desired result. 
+ --- Streams don't change the original data structure, they only provide the result as per the pipelined methods.
+  
+  
  Difference between Streams && Collections :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  --- Elements are Computed on Demand-Basis , which is not possible using '-COLLECTIONS-'.
@@ -427,6 +539,24 @@ Terminal-Operations :=
       ------forEach():<T>.......findFirst():String.......findAny().....forEachOrdered()---------
 
       ------anyMatch():boolean.......allMatch():boolean.......noneMatch():boolean ------------
+	  
+	  
+ Main differences between Intermediate and Terminal Stream operations are as follows :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ I. Evaluation: Intermediate operations are not evaluated until we chain it with a Terminal Operation of Stream. 
+                Terminal Operations can be independently evaluated.
+
+ II. Output: The output of Intermediate Operations is another Stream. (**********)
+             The output of Terminal Operations is not a Stream.
+
+ III. Lazy: Intermediate Operations are evaluated in lazy manner.  (**********)
+            Terminal Operations are evaluated in eager manner.
+
+ IV. Chaining: We can chain multiple Intermediate Operations in a Stream. 
+               Terminal Operations cannot be chained multiple times.
+
+ V. Multiple: There can be multiple Intermediate operations in a Stream operation. 
+              There can be only one Terminal operation in Stream processing statement
 
 =====================================================
  
@@ -488,6 +618,20 @@ Eg2:=
 ~~~~
         Employee[] employeesArray = employeeList.stream().filter(e -> e.getSalary() < 400).toArray(Employee[]::new);		
 
+
+ Eg for Collect() :=   // ****Collectors()*******
+~~~~~~~~~~~~~~~~~~~~ 
+    //  List<Product> ListOfPersons = productList.stream().collect(Collectors.toList());
+	//  List<Product> ListOfPersons = productList.stream().map(Employee::getName()).collect(Collectors.toList());
+	//  String str  = productList.stream().map(Employee::getName()).collect(Collectors.joining(",","[","]"));
+	
+	//  Double str  = productList.stream().collect(Collectors.averagingInt(Employee::getAge());
+	
+		LinkedList<Product> linkedListOfPersons = productList.stream().collect(toLinkedList);
+		linkedListOfPersons.forEach(System.out::println);
+		
+		              https://github.com/kishanjavatrainer/StreamReductionDemo
+
 		
 ---->Stream min() method returns an Optional describing the smallest element of this stream, or an empty Optional if the stream is empty.
    ----It may throw NullPointerException if the smallest element is null.
@@ -539,6 +683,54 @@ Eg:=
 --->you want to particular job using multiple threads in parallel cores, all you have to call method parallelStream() method instead of stream() method.
 
 --->Stream interface has three more similar methods which produce IntStream, LongStream and DoubleStream respectively after the map operation
+
+
+ distinct() :=
+~~~~~~~~~~~~
+		List<String> list = new ArrayList<>();
+		list.add("Sean");
+		list.add("Martin");
+		list.add("Frank");
+		list.add("Andrew");
+		
+		Stream<String> stream = list.stream();
+		long count = list.stream().distinct().count();
+		System.out.println(count);
+		
+		Terminal-Operations ----> (Matches) Returns Boolean 
+		
+		Intermediate-Operations ----> Stream 
+		
+		 Eg (Match) :=
+~~~~~~~~~~~~
+  		Stream<Student> filteredList = list.stream().filter(s->s.getAge()>25);
+		filteredList.forEach(System.out::println);
+		
+		System.out.println("-------------------");
+		
+		boolean allMatch = list.stream().allMatch(s->s.getName().contains("K"));
+		System.out.println(allMatch);
+		
+		System.out.println("-------------------");
+		boolean anyMatch = list.stream().anyMatch(s->s.getAge()>35);
+		System.out.println(anyMatch);
+		System.out.println("-------------------");
+		boolean noneMatch = list.stream().noneMatch(s->s.getAge()>55);
+		System.out.println(noneMatch); 
+		
+		
+ Map ----> Apply Special function to Stream && Collect into another Stream 
+ 
+      https://github.com/kishanjavatrainer/MappingStreamAPITest
+
+ Infinite Streams :=
+~~~~~~~~~~~~~~~~~~~
+
+   limit()........
+		
+		Stream<Integer> iterate = Stream.iterate(0, i->i+2);
+		List<Integer> collect = iterate.limit(10).collect(Collectors.toList());
+		collect.forEach(System.out::println);
 
 
 --->
@@ -596,7 +788,184 @@ It is used to avoid “NullPointerException”.
 =================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
 ======================================================================================================
 
-TYPEINTERFERENCE123 :=
+
+ ForEach990 := present in Iterable (I) && Accepts Consumer(FI) 
+~~~~~~~~~~~~~
+ 	
+  Eg11 :=
+~~~~~~~~
+    	Map<Integer,Employee> map = new HashMap<>();
+		map.put(19022, new Employee("Sean", "sean.m@gmail.com", 90000.00));
+		map.put(19044, new Employee("Andrew", "andy.cs@gmail.com", 70000.00));
+		map.put(19055, new Employee("Martin", "martin.m300@gmail.com", 80000.00));
+		
+		Set<Entry<Integer, Employee>> entrySet = map.entrySet();
+		for (Entry<Integer, Employee> entry : entrySet) {
+			System.out.println(entry.getKey());
+			System.out.println(entry.getValue());
+		}
+		
+		System.out.println("----------------------------------------");
+		
+		Set<Integer> keySet = map.keySet();
+		for (Integer key : keySet) {
+			System.out.println(key);
+			System.out.println(map.get(key));
+		}
+		
+		System.out.println("----------------------------------------");	
+		map.forEach((k,v)->System.out.println(k+"\t"+v));
+		
+ 
+ Eg22 :=
+~~~~~~
+		empList.add(new Employee("Raj", 90000.00, "HR"));
+		empList.add(new Employee("Frank", 80000.00, "Finance"));
+		empList.add(new Employee("Kishan", 30000.00, "HR"));
+		empList.add(new Employee("Sean", 90000.00, "Finance"));
+		empList.add(new Employee("Rajesh", 90000.00, "HR"));
+		
+		empList.forEach(s->System.out.println(s));
+		System.out.println("------------------------------------------------");
+		
+		empList.removeIf(s->"HR".equalsIgnoreCase(s.getDeptName()));	
+
+  		System.out.println("-------------------------------");
+		System.out.println("Employee sorted by salary..");
+		
+		empList.sort((e1,e2)->e1.getSalary()>e2.getSalary()?1:-1);
+		empList.forEach(System.out::println);
+		
+		System.out.println("-------------------------------");
+		
+		empList.replaceAll(e->{
+			if(e.getSalary()>60000.00){
+				return e;
+			}else{
+				e.setSalary(e.getSalary()+e.getSalary()*0.1);
+				return e;
+			}
+		});
+		empList.forEach(System.out::println);
+
+
+=================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
+======================================================================================================
+
+ OthersFeatureINJava :=
+~~~~~~~~~~~~~~~~~~~~~~
+
+ DATE := java.time.*
+~~~~~~~
+
+ https://github.com/kishanjavatrainer/Java8DateTimeDemo
+
+   LocalDate /// LocalTime //// LocalDateTime
+
+================================
+
+ String in Java-8 := [ https://github.com/kishanjavatrainer/StringJoinerDemo ]
+~~~~~~~~~~~~~~~~~~~
+ --- join() //// Works with ArrayList
+
+ Eg :=
+-----
+       String joinedStr = String.join("-", "Hello","India",null);
+		System.out.println(joinedStr);
+		
+		List<String> names = new ArrayList<>();
+		names.add("KK");
+		names.add("PK");
+		names.add("SK");
+		names.add("MK");
+		names.add("KK");
+		String joinedString = String.join(",", names);
+		System.out.println(joinedString);
+		
+ 
+ StringJoiner in Java-8 :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+		StringJoiner joiner = new StringJoiner(",");
+		joiner.add("How").add("are").add("you?");
+		
+		System.out.println(joiner);
+		
+		StringJoiner joiner2 = new StringJoiner(" ", "[", "]");
+		joiner2.add("India").add("is").add("beautiful").add("country!!!");
+		
+		System.out.println(joiner2);
+		
+		StringJoiner mergedStr = joiner.merge(joiner2);
+		System.out.println(mergedStr);
+		
+================================
+ 
+ IO in Java-8 :=
+~~~~~~~~~~~~~~~
+ 
+
+================================
+
+ Optional := [ https://github.com/kishanjavatrainer/Java8OptionalDemo ]
+~~~~~~~~~~~~
+ --- returns Empty Optional. 
+ 
+
+ 
+  Base64 :=  [ https://github.com/kishanjavatrainer/Java8Base64EncodeAndDecodeDemo ]  Simple /// Url /// MIME 
+ ~~~~~~~~~
+ --- Encode / Decode Text
+ --- *****Base64DOT****
+
+
+ Nashron := [ https://github.com/kishanjavatrainer/NashornJava8Demo ]
+~~~~~~~~~~
+ --- Improved JS-Engine && Gives Better Performance than Rhino .
+ --- It Directly Compiles Code  && Passes to JVM.
+ 
+ 
+    Bi-Consumer ----> https://github.com/kishanjavatrainer?tab=repositories&q=biconsumer&type=&language=
+	Bi-Function ----> https://github.com/kishanjavatrainer?tab=repositories&q=bifunction&type=&language=
+	
+  String_Joiner ----> https://github.com/kishanjavatrainer/StringJoinerDemo
+	
+ 
+  Lambda-Expression (Best_Practises) ---->       https://github.com/kishanjavatrainer?tab=repositories&q=LambdaExpression&type=&language= 
+   
+                        1111 ---> Method Takes String and Returns 
+
+
+ Unsigned ----> POSITIVE
+
+================================ 
+ 
+ Wrapper Classes in Java--8 :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		String unsignedString = Integer.toUnsignedString(10, 2);
+		System.out.println(unsignedString);
+		String unsignedString2 = Integer.toUnsignedString(10);
+		System.out.println(unsignedString2);
+		
+		int parseUnsignedInt = Integer.parseUnsignedInt("1010", 2);
+		System.out.println(parseUnsignedInt);
+		
+		int divideUnsigned = Integer.divideUnsigned(100, 25);
+		System.out.println(divideUnsigned);
+		int remainderUnsigned = Integer.remainderUnsigned(100, 24);
+		System.out.println(remainderUnsigned);
+		
+		int sum = Integer.sum(100, 20);
+		System.out.println(sum);
+		
+================================
+
+
+		
+
+=================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
+======================================================================================================
+
+ TYPEINTERFERENCE123 :=
 ~~~~~~~~~~~~~~~~~~~~
 
 ---->Type Inference means determining the Type by compiler at compile-time.It is not new feature in Java SE 8. It is available in Java 7 and before Java 7 too.

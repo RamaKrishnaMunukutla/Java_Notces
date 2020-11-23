@@ -1179,6 +1179,24 @@ provide some services are annotated with this.
 SpringJDBC333 :=  [ https://github.com/kishanjavatrainer/SpringWithJDBCProject ]
 ~~~~~~~~~~~~~~~
 
+  https://github.com/kishanjavatrainer/CRUD_OperationUsingPreparedStatement
+  https://github.com/kishanjavatrainer/BatchUpdatesUsingJdbcPreparedStatement
+  https://github.com/kishanjavatrainer/BatchUpdatesUsingJdbcCallableStatement
+  
+  https://github.com/kishanjavatrainer/UpdatableResultSetDemo1
+  https://github.com/kishanjavatrainer/UpdatableResultSetDemo2
+  
+  https://github.com/kishanjavatrainer/JdbcTransactionManagement
+  https://github.com/kishanjavatrainer/C3P0DataSourceConnectionPoolDemo
+  https://github.com/kishanjavatrainer/HikariDataSourceConnectionPoolDemo
+
+
+ JDBC-Batch ----> For Create, Update , Delete (*********)
+             ---- Doing DML Operation at a time to Multiple Records which reduces Traffic-Network to DataBase.
+			 
+		Conectin-Pool ----> DBCP //// C3PO  //// Hiraki_CP
+ 
+
  JdbcTemplate(c) :=  .....KK-TUTORIALS(SPRING) (***********)
 ~~~~~~~~~~~~~~~~~
  ---Spring JdbcTemplate is a powerful mechanism to connect to the database and execute SQL queries by integration with JDBC API.
