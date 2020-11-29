@@ -715,6 +715,12 @@ tRANSCIENT :=
 
 ========================================================================================================
 
+ Diff between transient && volatile ??
+  transient keyword can not be used along with static keyword but volatile can be used along with static.
+
+
+=========================================================================================================
+
 Synchronized-Block:=
 ~~~~~~~~~~~~~~~~~~
  synchronized (this) 

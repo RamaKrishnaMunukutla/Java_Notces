@@ -2,7 +2,7 @@
       
      AshokIt22............Repositaries990........Technologies.....PersistentSystems
 	 
-	 Repositaries990......Websites450............TechnicalVideos440 (*********)
+	 Websites450..........TechnicalVideos440 (*********)
 	  
 	 FULLSTACK500......JavaPath ...........Learn990....Career550.......
 		  
@@ -39,6 +39,28 @@ multiple interface having same method name ?
   MultiThreading /// Maven // JIRA // POSTMAN // AGILE  // SQL queries 
   
    Sonar Qube // Apache-Kafka  // Redis // 
+   
+   
+   
+     JDBC-Batch ----> Statement stmt = conn.createStatement();  /// stmt.addBatch(SQL); /// stmt.executeBatch();
+                   
+				   PreparedStatemen pstmt = conn.prepareStatement(SQL);
+
+  PreparedStatement
+  reactive programming
+  kotlin
+  Java 8
+  Generics
+  Exception handling
+  Java configuration
+  Spring Tranasaction  /// Distributed Tranasaction 
+  Serialization 
+  bATCH uPDATES (Jdbc, Spring)
+  Hibernate Mapping // JPA // GeneratedStrategy   
+  Hibernate 5 & Adv
+  AJAX Crash Course 
+  JQuery Crash Course 
+  MySQL Crash Course
    
 =========================================================================================================  
 
@@ -89,7 +111,9 @@ multiple interface having same method name ?
     Almighty java ------> https://github.com/mightyjava?tab=repositories
   SimpleProgramming ----> https://github.com/SimpleProgramming?tab=repositories
   Gain Java Knowledge --> https://github.com/sumitMultani?tab=repositories 
-      Shiva Reddy ------> https://github.com/sivajavatechie/DemoDocuments/tree/master/Java%20Docs (***)
+     
+	 Shiva Reddy ------> https://github.com/sivajavatechie/DemoDocuments/tree/master/Java%20Docs (***)
+       Play Java -------> https://github.com/PlayProCode/PlayJava
 	  
 	javadevjournal -----> https://github.com/javadevjournal/javadevjournal
      DineshOnJava ------> https://github.com/dineshonjava?tab=repositories

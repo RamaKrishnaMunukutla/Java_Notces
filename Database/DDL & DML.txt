@@ -29,20 +29,32 @@ Key-Words :=
 
  use test;
  
+  Types of Operation :=
+~~~~~~~~~~~~~~~~~~~~~~
+ 
+      DDL ---> DRCAT
+	  DML ---> IUD
+	  DQL ---> SELECT
+	  tcl ---> COMMIT, ROLLBACK, SAVEPOINT
+	  DCL --->  GR
+ 
 ==============================================================
 
- Tranasaction ACIDProperties :=
+ 
+ Tranasaction ACIDProperties :=  [ https://www.geeksforgeeks.org/acid-properties-in-dbms/ ]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- --- It is About "-Tranasaction-" Interats with DB && maintains DB-Consistancy.
- 
- (1) Atomocity ----> Either all transaction should be Sucessfully Executed (Or) None .
- 
- (2) Consistancy ----> After the transaction commits, data should be in consistency state logically.
- 
- (3) Isolation ----> One Transaction Should not affect Other. 
- 
- (4) Durability ----> Changes must be Accepted inn DB Irrespective H/w (Or) S/w failure. . 
-                      The committed data should not lose by any system failure.
+ --- It is About "-Tranasaction-" Interats with DB && maintains DB-Consistancy.
+ 
+ (1) Atomocity ----> Either all transaction should be Sucessfully Executed (Or) Rollbacked .
+ 
+ (2) Consistancy ----> Before / After the transaction commits, data should be in consistency state logically.
+                       
+					   
+ (3) Isolation ----> One Transaction Should not affect Other. 
+                     Multiple Transaction Can Occur at Once without dirty reads.  
+ 
+ (4) Durability ----> After Tranasaction, Changes must be Accepted in DB(Permenently) Irrespective H/w (Or) S/w failure. . 
+                      The committed data should not lose by any system failure.
  
 
 ====================================================================
@@ -63,6 +75,57 @@ Key-Words :=
   3 NF ----> It has to be 2-NF  // NON-PRIME should depends on PRIME-ATTRIBUTE 
 
 ====================================================================================================
+
+
+ 		
+  Primary -Key :=    It Identifies Uniquely Identifies Each-Row (*****************)
+~~~~~~~~~~~~~~~~~~
+	  
+	 ----> Can Define at Create // Alter  Levels 
+	  ----> Can apply at Table // Column Levels 
+
+	          Alter--PK ----> alter table emptab add constraint emp_PK primary key (empId) ;
+			  
+			  disable--PK ----> alter table emptab disable constraint emp_PK ;
+			   
+			  enable--PK ----> alter table emptab enable constraint emp_PK ;
+
+			  
+ Composite Primary Key :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Sometimes we cannot identifies recored with Primary-Key.So we need One Extra-Column which acts like a Primary-Key used to retrive record.  
+	
+ Foreign Key (Chil-table) :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ---> 2 Types (1) Simple-Foreign-Key    (2) Composite-Foreign-Key 
+	
+  Foreign-Key :=
+~~~~~~~~~~~~~~~
+	  ----> Can Define at Create // Alter  Levels 
+	  ----> Can apply at Table // Column Levels 
+
+
+  Foreign-Key :=
+~~~~~~~~~~~~~~~~
+	  ----> Can Define at Create // Alter  Levels 
+	  ----> Can apply at Table // Column Levels 
+
+	          DROP--PK ----> alter table emptab DROP constraint emp_FK ;
+
+			  disable--FK ----> alter table emptab disable constraint emp_FK ;
+			   
+			 enable--FK ----> alter table emptab enable constraint emp_FK ;
+			 
+========================================================================================
+
+   
+     char(10) --------> Stores Characters of length Exactly '10' Only.
+	 
+	 Varchar2(10) ----> Stores Characters of length 'ANY'(8,6,4,2) .
+			 
+			 
+
+=======================================================================================================
  
  CREATE123 :=
 ~~~~~~~~~~~~
@@ -308,6 +371,28 @@ SELECT123 :=
 ~~~~~~~
 
 ================================
+
+ GROUP BY Clause :=
+~~~~~~~~~~~~~~~~~
+ --- If a particular column has same values in different rows then it will arrange these rows in a group.
+
+Important Points:
+
+GROUP BY clause is used with the SELECT statement.
+In the query, GROUP BY clause is placed after the WHERE clause.
+In the query, GROUP BY clause is placed before ORDER BY clause if used any.
+
+	   SELECT SUBJECT, YEAR, Count(*) FROM Student GROUP BY SUBJECT, YEAR;
+
+
+ HAVING Clause :=
+~~~~~~~~~~~~~~~~ 
+We know that WHERE clause is used to place conditions on columns but what if we want to place conditions on groups?
+
+       
+	   SELECT NAME, SUM(SALARY) FROM Employee  GROUP BY NAME HAVING SUM(SALARY)>3000;
+
+================================================================================
 
  JOINS230 :=
 ~~~~~~~~~~~

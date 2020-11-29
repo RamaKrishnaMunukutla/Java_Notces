@@ -517,6 +517,102 @@ What is Maven
 
 =======================
 
+
+MAVEN ----> KK JAVA TUTORIALS 
+
+ From mCommand Prompt :=  /// Install Maven in Local-System (********)
+~~~~~~~~~~~~~~~~~~~~~~
+  --- mvn archetype:generate
+  --- 1652 /// 8 (V)
+  --- groupId  /// ArtifactId (Name)  /// Version (1.0-SNAPSHOT)  //// Package  
+  ---   y
+  
+  
+ Maven Build LifeCycle :=  Directory ---> Inside Project ///  ( mvn Validate ....)
+~~~~~~~~~~~~~~~~~~~~~~~
+
+   Validate /// compile /// test /// package /// verify (Integration_Test)  /// install // deploy 
+
+
+ Maven Project :=
+~~~~~~~~~~~~~~~~~
+   maven-archetype-Quickstart 
+   maven-archetype-webapp 
+ 
+         
+ Commands :=
+~~~~~~~~~~
+     mvn clean ------> Deletes TARGET folder
+	 
+	 mvn install ----> JAR FILE generates
+
+
+ Import Git-Project to STS (Maven):=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   
+            Copy Repo ----> Import ---> Git ---> Clone URI ----> Next (2) ----> Finish
+
+
+ Dependency Scopes in Maven :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+ Compile ----> available at Compile-Time  
+
+ Provided ----> available at RunTime 
+
+ RunTime ----> available at Execution 
+
+ Test ------> available at Compilation && RunTime of Test-Cases 
+
+ System ----> 
+ 
+ Import ----> 
+ 
+ 
+ 
+ Maven with Profiles :=   Run as ---> maven Build ---->  (Specify Profile-Env Here)
+~~~~~~~~~~~~~~~~~~~~~~~~
+            clean package -p qa (*********)
+
+<profiles>
+  
+  <!-- dev environment profile -->
+  	<profile>
+  		<id>dev</id>
+  		<build>
+  			<finalName>${project.artifactId}-dev</finalName>
+  			<filters>
+  				<filter>src/main/resources/dev.properties</filter>
+  			</filters>
+  		</build>
+  	</profile>
+  	
+  	 <!-- qa environment profile -->
+  	<profile>
+  		<id>qa</id>
+  		<build>
+  			<finalName>${project.artifactId}-qa</finalName>
+  			<filters>
+  				<filter>src/main/resources/qa.properties</filter>
+  			</filters>
+  		</build>
+  	</profile>
+  	
+  	 <!-- prod environment profile -->
+  	<profile>
+  		<id>prod</id>
+  		<build>
+  			<finalName>${project.artifactId}-prod</finalName>
+  			<filters>
+  				<filter>src/main/resources/prod.properties</filter>
+  			</filters>
+  		</build>
+  	</profile>
+  	
+  </profiles>
+
+========================================================================
+
 -> Maven is maintaing below 3 types of Repository
 
 	1) Central Repository (Website)
@@ -1078,7 +1174,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
  JUnit550 :=   [JUnit 5 requires Java 8 at runtime. ]
 ~~~~~~~~~   
           ********[ YOUTUBE ---> Gain Java Knowledge , Java Techie , JavaGuides, ]********
-
+  
+   https://github.com/Java-Techie-jt/spring-boot-powermock
+  
+  
 
 ----> JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage
 
@@ -2621,6 +2720,50 @@ ProductOwner := Manager    /////////   Scrum-Master := TeamLeader
  --- If .git/ directory gets deleted, then you will lose track of your project’s history. The repository will no longer be under version control.
 
 
+ git reset := YOUTUBE :: KK JAVA TUTORIALS 
+~~~~~~~~~~~~~
+
+ git rm := Generally we Delete From Local && then COMMIT file.
+~~~~~~~~~
+
+ GIT REVERT :=  YOUTUBE :: KK JAVA TUTORIALS 
+~~~~~~~~~~~~~~
+
+git stash := temporary storage    (YOUTUBE :: KK-JAVA TUTORIALS )
+~~~~~~~~~~~~~
+ --- Used When we are leaving on Another-Branch(PRIORITY) && want to save the changes we have made to it without "COMMIT" 
+
+
+       git stash list       ---->  Shows Stash-ID && Temp-Stored Files 
+	  
+	   git stash apply      ----> Restores Recently Stashed
+  
+   git stash apply Stash-ID ----> Restores Entire-code Stached 	 
+   
+    git stash drop      --------> Deletes Recently Stashed
+	
+	 git stash drop     --------> Deletes    All   Stashed
+
+
+
+ GIT Ignore Files :=
+~~~~~~~~~~~~~~~~~~~
+ 
+    touch .gitignore ----> Generates DOT-GIT-IGNORE file in Local-Repo.
+	
+	               In that File, Specify like ----test1.txt
+				                                   *.txt   (wild-card Files)
+                                 				   *.class
+
+ GIT Commit Files :=
+~~~~~~~~~~~~~~~~~~~
+         git comit -am "Added" ----> COMBI of Add & Commit 
+		 
+		 git commit --amed --------> Change COMMIT-Message (After Entering Message, PRESS [Cntrl+c && :wq]
+		 
+		 git log ------------------> Gives all COMMIT-ID 
+		 
+     	 git revert <COMMIT-ID> --------> Revert Commited Changes based on COMMIT-ID .
 
 ============================
 
@@ -2649,6 +2792,31 @@ ProductOwner := Manager    /////////   Scrum-Master := TeamLeader
    git config --global --unset user.email
 
 ==================================
+
+ git fetch ----> Remote to Local
+ 
+ git pull ----> Remote to Local &&  Local to Working 
+ 
+ 
+ git pull origin master
+ git pull origin develop
+ git pull origin QA
+ 
+ git pull origin develop 
+ 
+  Git Merge && Rebase :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+----> Assume that Master-Branch(2-Commits)  having  Child-Branch 'Feature' (3-Commits) ===  TOTAL --> [5]
+
+ ---- To merge These-Two :: git merge <Branch-Name> master
+ 
+ 
+                git merge -----> Doesn't rewrites Commit History  ///  Adds One New Commit (5+1 = 6)
+				
+				git rebase ----> Rewrites Commit History ///   Doesn't Create Extra Commit  (3+2 =5)
+				
+===================================
  
  Branches := [Youtube ---> ASHOK-IT] (Development //  Bug-Fix // QA // Prod-Supp-Dev  Teams uses Branches)
 ~~~~~~~~~~~  
@@ -2705,6 +2873,20 @@ git branch :=   Shows Branches that are Created.
  git stash :=  store something safely in a hidden place
 ~~~~~~~~~~~
 
+ git stash :=  store something safely in a hidden place
+~~~~~~~~~~~
+  
+  git branch Delete  :=  /// git push origin stage ----> Push Newly-Created-Branch to GITHUB     
+~~~~~~~~~~~~~~~~~~~~
+                        git branch -----------------> list of branches 
+			
+			git branch -d <branch-name> :=  /// git push origin stage ----> Push Newly-Created-Branch to GITHUB     
+			git branch -d <Branch-Name>  --------------> Deletes Branch 
+			
+			git branch -D <Branch-Name>  --------------> Deletes Branch
+			git push origin --delete <Branch-Name> ----> Deleet Branch for GIT-Repo  /// :wq 
+			
+			
  Branch-Conflict :=
 ~~~~~~~~~~~~~~~~~~
 
@@ -2776,6 +2958,10 @@ git branch :=   Shows Branches that are Created.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --- Pushing && Updating Project-REPO from STS. (***********)
                              --- Right click on project: "pull" and then "rebase" for other update
 							 --- To see File-History , Right click on File > Team > Show in History
+							 
+							 
+ GitLab := It is DevOps Platform that helps Team to collaberate && helps to build a better Paltform .  
+~~~~~~~~~~
 	
 ===============================================================================================================
 

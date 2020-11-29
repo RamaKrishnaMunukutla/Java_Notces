@@ -35,6 +35,8 @@
 	   
        CRUD    -----> https://github.com/kishanjavatrainer/HibernateCRUDExample
   Lazy-Loading -----> https://github.com/kishanjavatrainer/LazyAndEagerLoadingExample
+  
+  
 
 ===============================================================================================================================
   
@@ -72,9 +74,48 @@
 		
 ----> @OrderColumn(name = "order_id") --- column will not created.
 
-================
+====================
+
+ Hibernate 5 Features :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+  (1)  LocalDateTime    -----> private LocalDate publishingDate;
+                               Don’t need any additional annotations or converter to persist the classes of the Date and Time API.
 		
-----> @GeneratedValue(strategy=GenerationType.IDENTITY) ----> Id==1  ( starts from '1' )  
+		
+  (2) Stream<Object[]>  -----> Selects all Book entities from the database and processes them as a Stream.  
+ 
+ Eg :=
+~~~~~
+ Stream<Object[]> books = session.createNativeQuery("SELECT b.title, b.publishingDate FROM book b").stream();
+   books.map(b -> new BookValue((String)b[0], (Date)b[1]))
+	.map(b -> b.getTitle() + " was published on " + b.getPublishingDate())
+	.forEach(m -> log.info(m));
+						   
+						
+====================
+
+ (Q) Difference between Update && Merge??
+ (A) Update:  if you are sure that the session does not contains an already persistent instance with the same identifier,then use update to save the data in hibernate
+     Merge:  if you want to save your modifications at any time with out knowing about the state of an session, then use merge() in hibernate.
+	 
+
+ (Q) Annotation that makes Class Immutable  ?? 
+ (A) In Hibernate Annotation if we want to make an entity immutable, @Immutable can help. 
+
+
+ (Q) What is Entity ??
+ (A) Entity represents a table in a relational database.
+     Entity instance corresponds to a row in that table.
+     The primary programming artifact of an entity is the entity class, although entities can use helper classes.
+	 
+=====================
+		
+----> @GeneratedValue(strategy=GenerationType.IDENTITY) ----> Id==1  ( starts from '1' ) 
+ 
+   AUTO (dEFAULT)  ---> 
+
+ 
 
 Generators are used to generate value for primary key column when record is inserting to table.
 
@@ -491,6 +532,19 @@ NotNull Column---@Column(name="ename",nullable=false)
 		     --- handled by Programmer(enable it)
 			 --- OPTIONAL-Cache and first-level cache will always be consulted before doing any Operation.
 			 --- Second-level cache always associates with the Session Factory object (***********)
+
+			 
+ Cache in Hibernate :=   GET returns NULL if Object is not available in DataBase. 
+~~~~~~~~~~~~~~~~~~~~~~
+ 
+ --- First-Level-Cache ----> Assosiated with SESSION //// Works for  [Select(Id, NaturalId), Update, Delete] for Single-Record.
+ 
+ --- Second-Level-Cache ---> Assosiated with SESSION-FACTORY 
+ 
+ --- Query-Level-Cache ----> Enable Second-Level-Cache in XML file ///
+                             Apply @CACHE(USAGE="CacheConCurrencyStrategy.**") at Class && Collections.
+                             https://github.com/kishanjavatrainer/HibernateQueryAndCollectionCacheExample
+
 
 		  
 

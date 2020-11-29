@@ -13,7 +13,7 @@
 			
 	  5WaysToCreateObject......ISAandHASA......CovarientReturnType..........CallByValue........StaticAndDynamicBiding
 	  
-	....PassByValueAndReference.....Assertions770...............STATIC870...........Constructor670.......Oops550     
+	....PassByValueAndReference.....Assertions770............... STATIC870...........Constructor670.......Oops550     
 		  
     ....ExceptionHandling...........ComparableANDComparator.....equalsANDhashcode...shallowANDdeep...AccessModifier880
 		  
@@ -38,6 +38,9 @@
    Dot-Class Files Location       ---> Copy Path form Project     ---> Properties 
                                   ---> (Java-Project)             ---  Bin   Folder (Java-Project) 
 								  ---> Maven/ Boot Project        ---  Target Folder.
+								 
+	
+ Why String is Immutable -----> SEVERAL REFERENCES POINTS TO SAME-OBJECT . (***************) 
 
 ====================================================================================
 
@@ -205,6 +208,12 @@ An important point to be noted is that while JAVA is platform-independent langua
  
    https://www.java67.com/2012/08/how-java-achieves-platform-independence.html
    https://www.java67.com/2013/02/difference-between-jdk-and-jre-in-java.html
+
+
+ (Q) How JVM Executes the Byte code ??
+ (A) The bytecode generated is a non-executable code and needs an interpreter to execute on a machine. 
+      This interpreter is the JVM and thus the Bytecode is executed by the JVM.
+      And finally program runs to give the desired output.
 
    
 ============================================================================================================
@@ -390,7 +399,7 @@ SYSOUT-BreakDown := [ https://www.javatpoint.com/system-out-println-in-java ]
 ====================================================================================================================
 
 5WaysToCreateObject := [ https://www.javatpoint.com/how-many-ways-to-create-an-object-in-java ]
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~   [ https://www.geeksforgeeks.org/different-ways-create-objects-java/ ]
 1. Java new Operator
  
 2. Java Class.newInstance() method 
@@ -412,6 +421,48 @@ SYSOUT-BreakDown := [ https://www.javatpoint.com/system-out-println-in-java ]
             public final void writeObject(Object obj) ......//For serialization use File&Object--OutputStreams.
 				
 			public final Object readObject()...............//For Deserialization use File&Object--InputStreams.
+			
+
+ (1) new keyword :=
+~~~~~~~~~~~~~~~~~~
+      NewKeywordExample obj = new NewKeywordExample(); 
+        System.out.println(obj.name);			
+
+ (3) clone() :=	 
+~~~~~~~~~~~~~~~
+           CloneExample obj2 = (CloneExample) obj1.clone(); 
+            System.out.println(obj2.name);
+			
+			
+ (2) newInstance() :=
+~~~~~~~~~~~~~~~~~~~~
+			Class cls = Class.forName("NewInstanceExample");
+			NewInstanceExample obj = (NewInstanceExample) cls.newInstance(); 
+            System.out.println(obj.name);
+
+
+
+
+ (4) de-Serialization :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+Using deserialization : Whenever we serialize and then deserialize an object, JVM creates a separate object. In deserialization, JVM doesn’t use any constructor to create the object.
+To deserialize an object we need to implement the Serializable interface in the class.
+
+
+            FileInputStream f = new FileInputStream("file.txt"); 
+            ObjectInputStream oos = new ObjectInputStream(f); 
+           DeserializationExample  d = (DeserializationExample)oos.readObject(); 
+
+
+ (5) newInstance() form Constructor :=   /// java.lang.reflect.Constructor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
+		public static void main(String[] args) throws NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+			
+			 Constructor<TestMain> declaredConstructor = TestMain.class.getDeclaredConstructor();
+			 TestMain r = declaredConstructor.newInstance();
+			 r.demo();
+		
+		}; 
  
 
 ====================================================================================================
@@ -674,8 +725,45 @@ To do Downcasting:
  ---> Using Non-Static-Varible 
                        >>> Inside Non-Static-Block ,  --YES---
 					   >>> Inside     Static-Block ,  --NO---
+					 
+					 
+ Inheritance with Static Methods :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  --- Yes, It was Possible with Main-Method also.
+  --- If ChildClass does not have Static-Methods (Main--Or--Any), Parent-Class Static-Method get Executed. 
+					 
 
-====================================================================
+=======================================================================================
+
+ HAS-A Relation :=
+~~~~~~~~~~~~~~~~~
+ --- It is a special form of Association where:
+ --- It represents Has-A relationship.
+ --- Relation has Two Types (a) Aggregation (Weak)   (b) Composition. (Strong)
+ 
+ --- It is a unidirectional association i.e. a one way relationship. For example, department can have students but vice versa is not possible and thus unidirectional in nature.
+ --- In Aggregation, both the entries can survive individually which means ending one entity will not effect the other entity
+
+ Class Salesman{
+  
+    private Vehicle vehicle 
+	 
+ }
+
+Class Vehicle{
+  
+    private String engine ;        ////  Composition
+	
+	private String tyre ;          ////  Aggregation 
+    
+	private String SideMirror ;	   ////  Aggregation
+	 
+ }
+
+
+
+
+==================================================================================================
 
  Constructor670 :=
 ~~~~~~~~~~~~~~~~

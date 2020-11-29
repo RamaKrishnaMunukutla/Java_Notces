@@ -31,7 +31,9 @@
 ======================================================================================================
 
 LAMBDAEXPRESSIONS123 :=  [ https://www.javaguides.net/2018/07/java-8-lambda-expressions.html ]
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~        [ https://github.com/koushikkothagal/Java-8-Lambda-Basics ]
+
+        Implementing Interface && Not Class . 
  
 --->Lambda Expression is an anonymous function which accepts a set of input parameters and returns results. (or) passed (mostly) to other functions as parameters. 
 
@@ -63,6 +65,24 @@ Lambda Expression Body
 		thread.start();
 	} 
 
+ Handling Exceptions In Lambda Expression :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	private static void createThreadUsingAnonymousClass() {
+	    try[
+		Runnable r=	new Runnable() {
+			@Override
+			public void run() {
+				System.out.println("My task is executing..");
+			}
+		};
+		
+		Thread thread = new Thread(r);
+		thread.start();
+		}catch(Exception e){
+		  System.out.println(e);
+	  }	
+	} 
 ================
 
   LM := [ https://github.com/kishanjavatrainer/LambdaWithFunctionalInterfaces ]
@@ -165,9 +185,10 @@ FUNCTONALINTERFACE123 (I) :=   [ https://www.javaguides.net/2018/07/java-8-funct
  [ https://www.youtube.com/watch?v=o384gHvf22Y&list=PLn2GH4dN5i2By9n1Nd6UzCJeyu4W84r4e&index=7&ab_channel=PlayJava ]
  
 
- 4-Types := [ Youtube ---> Play-Java ] //  [ import java.util.* ]
-~~~~~~~~~~
-
+ 4-Types := [ Youtube ---> Play-Java ] ///  [ import java.util.* ] /// [ https://github.com/Java-Techie-jt/java8 ]
+~~~~~~~~~~    
+      [ https://github.com/Java-Techie-jt/java8/tree/master/demo ]      
+	  
   --- Predicate(Returns Boolean value)...............test(str))
   --- Function (Has Input and Output)
   --- Producer (Only Input and  No  Output) 
@@ -175,6 +196,15 @@ FUNCTONALINTERFACE123 (I) :=   [ https://www.javaguides.net/2018/07/java-8-funct
     
         Functional Interface ----> Comparator, Comaparable, Runnable 
                             8 ---> predicate, Supplier, Consumer
+
+
+  --- Predicate(Returns Boolean value)......................   ///  test(T t)       //       String.Length Check 
+  --- Function (Has Input and Outputs of Data) )...........   ///  apply(T t)      //    Takes 2*10 as I/p && Print Output
+  --- Consumer (Has Input and No Output Data) .............  ///   accept(T t)    //  Takes Employee-Name as I/p && Print O/P
+  --- Supplier (No Inputs Data and Only Output)...........  ///     get()        //         String.Length Check 
+
+
+================
 
 ---> Al methods not Thows Exception. 
 
@@ -477,6 +507,7 @@ class Car implements Vehicle {
 STREAMS123:=   [https://howtodoinjava.com/java8/java-streams-by-examples/]
 ~~~~~~~~~~~    [ https://www.concretepage.com/java/java-8/ ]
 
+		   
 --->It is defined as a sequence of elements from a source that supports aggregate operations on them. (Eg :: Youtube)  
 
 --->A Stream in Java can be defined as a sequence of elements from a source that supports aggregate operations on them. 
@@ -521,8 +552,11 @@ Examples ::=
 
 Methods := [ Youtube ---> Play Java ********]
 ~~~~~~~
-
-Intermediate-Operations :=
+           [ https://github.com/amigoscode/java-streams-youtube/blob/master/src/main/java/Main.java ]
+		   [ https://github.com/joeyajames/Java/blob/master/Java%208%20Streams/JavaStreams.java ]
+		   
+  
+Intermediate-Operations :=  /// Returns Streams && Lazily Loaded. 
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
     ------filter():List<T>.......map():List<T>.......flatMap():List<T>.......distinct()List<T> -----
@@ -559,8 +593,12 @@ Terminal-Operations :=
               There can be only one Terminal operation in Stream processing statement
 
 =====================================================
+
+ MAP :=
+~~~~~~
+ --- map() is used to transform one object into other by applying a function 
  
---->Stream.map() function to convert a stream of strings to stream of integers. Here the function Integer::valueOf() takes one string from stream at a time, and convert the string to integer and put in another stream of integers, which is then collected using Collectors.toList().
+ --- Stream.map() function to convert a stream of strings to stream of integers. Here the function Integer::valueOf() takes one string from stream at a time, and convert the string to integer and put in another stream of integers, which is then collected using Collectors.toList().
 
 --->flatMap() operation has the effect of applying a one-to-many transformation to the elements of the stream, and then flattening the resulting elements into a new stream.
  ----The function used for transformation in flatMap() is a stateless function and returns only a stream of new values.
@@ -583,6 +621,29 @@ Eg :=
         System.out.println(newList);
 
 ---->Stream.skip() method can be a useful in certain cases where we need to get the elements from a stream but first we need to skip few elements from the stream. 
+
+=====================================================
+
+ Arrays Using Streams := (************)
+~~~~~~~~~~~~~~~~~~~~~~~~
+		String[] arr = { "Geeks", "for", "Geeks" }; 
+        // Using Arrays.stream() to convert 
+        // array into Stream 
+        Stream<String> stream = Arrays.stream(arr); 
+  
+        // Displaying elements in Stream 
+        stream.forEach(str -> System.out.print(str + " ")); 
+		
+		
+		
+		      int arr[] = { 1, 2, 3, 4, 5 }; 
+  
+        // Using Arrays.stream() to convert 
+        // array into Stream 
+        IntStream stream = Arrays.stream(arr, 1, 3); 
+  
+        // Displaying elements in Stream 
+        stream.forEach(str -> System.out.print(str + " "));
 
 =====================================================
 
@@ -742,7 +803,8 @@ Eg:=
 
 OPTIONAL123 := 
 ~~~~~~~~~~~~
-  (.....empty(), of(),  ofNullable(), isPresent(),  get(), ofNullable(),  orElseThrow()......)  (******)
+  
+  (.....ofNullable(), isPresent(), isEmpty(), ofNullable(),  orElseThrow(), of(),  get()......)  (******)
 
 ---->Optional is a final Class introduced as part of Java SE 8. It is defined in java.util package.
 

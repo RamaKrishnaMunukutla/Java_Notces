@@ -3,7 +3,7 @@
 Core:=  [ http://localhost:8965/ ]
 ~~~~~~~
      
-          ........IOC540..............DepencencyInjection440......Autowiring123.............LifeCycle330........	
+          ........IOC540..............DepencencyInjection440......Autowiring123(Repo555).............LifeCycle330........	
 
          ......BeanScopes333.........StereoTypeAnnotation450......Collections555............Redirect444.......
 
@@ -81,7 +81,52 @@ Core:=  [ http://localhost:8965/ ]
 ---->Here Model will travel from WebBrowser-to-view  and from view-to-WebBrowser via FrontController && Controller
 
 =======================================================================================================================
+ 
+ Spring 5 New Features :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+----> First Spring Framework 5.0 milestone (5.0 M1) on July 28, 2016. It Supports ::
+ --- Jackson 2.6+
+ --- EhCache 2.10+ / 3.0 GA
+ --- JDBC 4.0+
+ --- Servlet 3.1+
+ --- JPA 2.2
+ --- Hibernate 5.0+
+ 
+----> Spring 5 applications preferred server versions are Tomcat 8.5+, Jetty 9.4+ .
+---->  JDK baseline version was 6. So Spring 4 had to support Java 6, 7 and 8 To maintain the backward compatibility.
+----> Java 8 default methods in core Spring interfaces (********)
+ 
 
+ (1) JDK baseline update  --------> Java 8 is the minimum requirement to work on Spring Framework 5.0.
+   
+  
+ (2) Core framework revision  ---->  @Nullable and @NotNull annotations will explicitly mark nullable arguments and return values. 
+                                   This enables dealing null values at compile time rather than throwing NullPointerExceptions at runtime.
+  
+  
+ (3) Core container updates  ----->  Implementation of functional programming style in GenericApplicationContext
+  
+  
+ (4) Functional programming with Kotlin  ---->   support for JetBrains Kotlin language.
+ 
+   
+ (5) Reactive Programming Model  ----> provides a common API for reactive programming implementations to implement, much like JPA for Hibernate
+                                     where JPA is the API and Hibernate is the implementation.
+									 Reactive Streams API is officially part of Java 9. 
+									 In Java 8, you will need to include a dependency for the Reactive Streams API specification.
+									 A WebClient implementation of a REST endpoint in Spring 5.0 (**************)
+  
+  
+ (6) Testing improvements  --------->  Spring Framework 5.0 fully supports JUnit 5 Jupiter to write tests and extensions in JUnit 5
+                                       spring-test now includes WebTestClient for integrating testing support for Spring WebFlux. 
+  
+ (7) Library support  ---->   
+  
+ (8) Discontinued support  ---->  jdbc.support.nativejdbc 
+                                  orm.hibernate3 and  orm.hibernate4.
+								   Portlet //// XMLBeans
+                            
+========================================================================================================
       
 ---->                     bean class   ///////// applicationContext.xml
 
@@ -820,6 +865,23 @@ Auto-wiring by property data type. If data-type of a bean is compatible with the
 ----> @Qualifer(for Predefined-Class) also helps to select One-Child-Object.
 ----> @Primary also helps to select One-Child-Object FAST says "DO-NOT SEARCH FOR ANY , LINK TO THIS."
 
+=====================
+
+  REPO555 :=
+~~~~~~~~~~~
+                               https://github.com/kishanjavatrainer/DependencyInjectionUsingConstructor
+							   https://github.com/kishanjavatrainer/SetterBasedDependencyInjection
+
+                               https://github.com/kishanjavatrainer/SpringBeanScopesDemo
+							   https://github.com/kishanjavatrainer/SpringBeanScopesUsingAnnotation
+                               
+							   https://github.com/kishanjavatrainer/InjectingCollectionWithArraySetAndList
+							   https://github.com/kishanjavatrainer/InjectingMap
+                               https://github.com/kishanjavatrainer/InjectingCollectionWithCustom
+                           
+                               https://github.com/kishanjavatrainer/SpringAutowirebyName
+                               https://github.com/kishanjavatrainer/SpringAutowirebyType
+                               https://github.com/kishanjavatrainer/SpringAutowirebyConstructor
 
 						  
 =============/\/\/\/\/\============/\/\/\/\/\/\===========/\/\/\/\/\============/\/\/\/\/\===============
@@ -1180,6 +1242,8 @@ SpringJDBC333 :=  [ https://github.com/kishanjavatrainer/SpringWithJDBCProject ]
 ~~~~~~~~~~~~~~~
 
   https://github.com/kishanjavatrainer/CRUD_OperationUsingPreparedStatement
+  https://github.com/kishanjavatrainer/JdbcTransactionManagement
+  
   https://github.com/kishanjavatrainer/BatchUpdatesUsingJdbcPreparedStatement
   https://github.com/kishanjavatrainer/BatchUpdatesUsingJdbcCallableStatement
   
@@ -1191,10 +1255,78 @@ SpringJDBC333 :=  [ https://github.com/kishanjavatrainer/SpringWithJDBCProject ]
   https://github.com/kishanjavatrainer/HikariDataSourceConnectionPoolDemo
 
 
- JDBC-Batch ----> For Create, Update , Delete (*********)
-             ---- Doing DML Operation at a time to Multiple Records which reduces Traffic-Network to DataBase.
+ PreparedStatement (I) :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+ ---  used to execute parameterized query.   /// Eg : String sql="insert into emp values(?,?,?)";  
+   
+        Methods ---> Set (Int,String, Double, Float) /// executeUpdate() ::: int  /// executeQuery() :: ResultSet  
+
+   Eg :=
+ ~~~~~~
+   PreparedStatement stmt=con.prepareStatement("insert into Emp values(?,?)");  
+   stmt.setInt(1,101);//1 specifies the first parameter in the query  
+   stmt.setString(2,"Ratan");  
+
+  execute(String query)	                                     is used to execute DDL query.
+  public int update(String query)	                         is used to insert, update and delete records.
+  execute(String sql, PreparedStatementCallback action)	     is used to executes the query by using PreparedStatement callback.
+
+===========
+
+ JDBC-Batch :=
+~~~~~~~~~~~~
+ --- For Create, Update , Delete (*********)
+ --- Doing DML Operation at a time to Multiple Records which reduces Traffic-Network to DataBase.
+ 
+ Eg :=
+~~~~~~
+// Create statement object
+Statement stmt = conn.createStatement();
+
+// Set auto-commit to false
+conn.setAutoCommit(false);
+
+// Create SQL statement
+String SQL = "INSERT INTO Employees (id, first, last, age) " +
+             "VALUES(200,'Zia', 'Ali', 30)";
+// Add above SQL statement in the batch.
+stmt.addBatch(SQL);
+
+// Create one more SQL statement
+String SQL = "INSERT INTO Employees (id, first, last, age) " +
+             "VALUES(201,'Raj', 'Kumar', 35)";
+// Add above SQL statement in the batch.
+stmt.addBatch(SQL);
+
+// Create one more SQL statement
+String SQL = "UPDATE Employees SET age = 35 " +
+             "WHERE id = 100";
+// Add above SQL statement in the batch.
+stmt.addBatch(SQL);
+
+// Create an int[] to hold returned values
+int[] count = stmt.executeBatch();
+
+//Explicitly commit statements to apply changes
+conn.commit();
+
+=========================================
 			 
 		Conectin-Pool ----> DBCP //// C3PO  //// Hiraki_CP
+		
+       ResultSet ----> Has Set of Records. 
+	            ---- Created by using CreateStatement // PreparedStatement // CallableStatement 
+				
+				
+ Itertaion of ResultSet :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Has "-next()-" method Points to Table-Column name (Before-First Record) , returns TRUE if it has Record. 
+
+  while(result.next()){
+   ..........
+ }  
+    
+	 ResultSetMetaData  -----> NameOfCol // DataTypeCol // NoOfCol //  TableName // SchemaName 
  
 
  JdbcTemplate(c) :=  .....KK-TUTORIALS(SPRING) (***********)
@@ -2526,6 +2658,15 @@ SimpleMappingExceptionResolver := (Displays Correponding-JSP instead of Error-We
 
 ----> but there are a few common aspects that apply to all layers are Logging, Security, validation, caching, etc. These common aspects are called 'Cross-cutting-Concerns'.
 
+ Cross-cutting-Concerns :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Moving Common Project-Concerns like  Log4j, Transaction etc...
+                              
+							  to Separate [Class / Aspect] && Bind it when it is required.
+ 
+ 
+ 
+
                                         Map-To
 ---->W'll write  which Aspect(Advice)-------------Methods(of classes) in "-AspectConfiguration-" .
 
@@ -2565,18 +2706,25 @@ AOP concepts and terminologies are as follows:=
  ---Weaving
 
 
- Pointcut := is a predicate or expression that matches join points.
-~~~~~~~~~~
 
- Jointpoint := 
+ Aspect :=It is a class that contains advices(Services) used in Project 
+~~~~~~~~~
+
+ Advice:= represents an Method (action taken by an aspect at a particular Jointpoint)in Aspect . 
+~~~~~~~~~  There are different types of advices:
+
+
+ Pointcut :=  I will select Only Business-Class--Methods which needs Advices.
+~~~~~~~~~~    But, It Never Specifies What Advices.
+
+   Eg :=   public * * () 
+  ~~~~~
+
+
+ Jointpoint :=  [Advices + PointCut]
 ~~~~~~~~~~~~~
-It is point of execution of the program, such as the execution of a method or the handling of an exception. In Spring AOP, a joinpoint always represents a method execution.
+ ---- Connecting Business-Class-Methods with Required Advices.
 
- Aspect :=It is a class that contains advices, joinpoints etc.
-~~~~~~~~~
-
- Advice:= represents an action  taken by an aspect at a particular join point. There are different types of advices:
-~~~~~~~~~
 
  Before Advice:= it executes before a join point.
 ~~~~~~~~~~~~~~
@@ -2593,26 +2741,24 @@ It is point of execution of the program, such as the execution of a method or th
  After Throwing Advice:= it executes if method exits by throwing an exception.
 ~~~~~~~~~~~~~~~~~~~~~~
 
- Target Object := Object being advised by one or more aspects. It is also known as proxied object in spring because Spring AOP ~~~~~~~~~~~~~~
-is implemented using  runtime proxies.
-
-
- Interceptor := It is an aspect that contains only one advice.
-~~~~~~~~~~~~
-
-
- AOP-Proxy :=
-~~~~~~~~~~
-
+ Target Object := Pure Business-Class [Actual-Code] 
+ ~~~~~~~~~~~~~~
+ --- Created by using JDK-Dynamic-Proxy 
 
 
  Weaving := 
- ~~~~~~~
- Before Advice: it executes before a join point.
- After Returning Advice: it executes after a joint point completes normally.
- After Throwing Advice: it executes if method exits by throwing an exception.
- After (finally) Advice: it executes after a join point regardless of join point exit whether normally or exceptional return.
- Around Advice: It executes before and after a join point.
+ ~~~~~~~~~
+ --- Process of Mixing Business-Class--Methods with ADVICES
+ 
+ 
+  AOP-Proxy :=
+~~~~~~~~~~~~~
+ --- Final Output (Class/ Object) Called as PROXY , that Contains code for Both logics Connected.  
+
+
+ Interceptor := It is an aspect that contains only one advice.
+~~~~~~~~~~~~~
+
 
 ======================================================================================================
 

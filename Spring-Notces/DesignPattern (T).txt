@@ -1,11 +1,11 @@
 
 
 
-    DependencyInjectionDesign..........DAODesign..........FacadeDesign.............MVCDesign
+    DependencyInjectionDesign..........DAODesign..........FacadeDesign(Interface).............MVCDesign
     
-           SingletonDesign.........ProtoTypeDesign........
+           SingletonDesign.........ProtoTypeDesign........FactoryDesign (Interface / AbstractClass)
 		   
-		   FactoryDesign..........ProxyDesign550.........TemplateDesign566
+		   ..........ProxyDesign550.........TemplateDesign566
 
 
 ===========================================================================================================
@@ -342,8 +342,9 @@ It provides a mechanism to copy the original object(which loads data from D/b ) 
 
 ==========================================================================================================
 
-FactoryDesign :=    [....Creational-design-pattern....] (##SubClass-Decides##")
-~~~~~~~~~~~~~    https://www.java2novice.com/java-design-patterns/factory-pattern/
+FactoryDesign :=  [....Creational-design-pattern....] (##SubClass-Decides##")  ////// (#Eg:: Mobile-Network#)
+~~~~~~~~~~~~~   
+                 https://www.java2novice.com/java-design-patterns/factory-pattern/
                  https://www.tutorialspoint.com/design_pattern/factory_pattern.htm
 				 https://www.javatpoint.com/factory-method-design-pattern
 
@@ -375,10 +376,13 @@ It used when we have a superclass having multiple sub-classes and based on input
 
 =============================================================================================================
 
- FacadeDesign := [....Structural-design-pattern....] (##Interface##")
-~~~~~~~~~~~~~  https://www.tutorialspoint.com/design_pattern/facade_pattern.htm
+ FacadeDesign := [....Structural-design-pattern....] (##Interface##")  (# Eg:: Find cost of Each-Franchaise wish to buy #) 
+~~~~~~~~~~~~~  
+            https://www.tutorialspoint.com/design_pattern/facade_pattern.htm
 
-----> Protects end-user from complex subSytem component.
+----> Higher-Level Interface that makes SubSytsems easier to use. (*********) 
+ 
+----> Protects end-user from complex subSytem component. (*********) 
   
 ----> It hides the complexities of the system by provides an "##Interface##" throug which client can access .(********)
  

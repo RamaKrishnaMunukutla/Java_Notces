@@ -353,8 +353,11 @@ Third Run with -Dserver.port=7070 ==> http://localhost:7070/welcome
 ~~~~~~~~~~~~~~~~
  [ https://github.com/Java-Techie-jt/spring-profile ]
  [ https://github.com/TechPrimers/spring-boot-profiles-example ]
+ 
  [ https://github.com/kishanjavatrainer/SpringBootProfilesApp2 ]
  [ https://www.concretepage.com/spring-boot/spring-boot-profiles-example ]
+ [ https://github.com/sumitMultani/spring-boot-profiles-example ]  (***)
+ 
  
 ---->Why Profiles Are Necessary?
 Profiles provide ability for application developers to specify different application configuration for different environments
@@ -1331,13 +1334,15 @@ Dependencies :=
    
 ===============================================================================================================
 
- RedisDB :=
+ RedisDB :=  /// Cache for Distributed Transaction . 
 ~~~~~~~~~
 
 Today's session : Cache Implementation
 --------------------------------------
 
 -> Cache is a temporary storage
+
+-> Redis is a No SQL database which works on the concept of key-value pair.
 
 -> Whenever we need to access same data frequently then its better to maintain that data in cache to improve performance of application.
 

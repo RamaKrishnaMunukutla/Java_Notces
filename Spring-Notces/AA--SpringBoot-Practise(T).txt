@@ -133,6 +133,12 @@ RestAnnotations555(JAX-RS) := It maps the HTTP DELETE requests on the specific h
  Param123 :=
 ~~~~~~~~~~~
 
+         Jersey (JAX-RS) ----->  @PathParam    //// @QueryParam
+ 
+         Spring RESTFul ------>  @PathVariable //// @RequestParam
+
+=====================
+
    @Queryparam -----> used to access Key-value pairs in Query-String of URL.
    
    @pathparam -----> Match a  part of URL as a parameter.
