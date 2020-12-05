@@ -1,16 +1,14 @@
 
 
 
-        .....LAMBDAEXPRESSIONS123.......FUNCTONALINTERFACE123............METHODREFERENCE123
+        .....LAMBDAEXPRESSIONS123....FUNCTONALINTERFACE123.........METHODREFERENCE123
    
-   ..........DEFAULTMETHOD123...........STREAMS123.....OPTIONAL123.......StringJoiner890....ForEach990
-			
-	  .......Predicate335...............MultipleInheritance555..........LocalDateTime3430
-	  
-	  .......OthersFeatureINJava (**)........
-	  
-	    7337019199 Online team
+        .....DEFAULTMETHOD123........STREAMS123.....OPTIONAL123....StringJoiner890....ForEach990
 		
+		.....ComparatorInJava........Predicate335........MultipleInheritance555..........LocalDateTime3430
+	  
+	     ....OthersFeatureINJava (**)........
+	
 	  https://www.concretepage.com/java/java-8/
 			 
 	
@@ -24,14 +22,23 @@
  Java 8 :=
 ~~~~~~~~
  --- Released in 2014.
+ 
+ ParllelStreams :=
+~~~~~~~~~~~~~~~~
+ --- Doesn’t care about the order. //// The performance is high.
 
 	
 =================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
 
 ======================================================================================================
 
-LAMBDAEXPRESSIONS123 :=  [ https://www.javaguides.net/2018/07/java-8-lambda-expressions.html ]
-~~~~~~~~~~~~~~~~~~        [ https://github.com/koushikkothagal/Java-8-Lambda-Basics ]
+ LAMBDAEXPRESSIONS123 :=  [ https://www.javaguides.net/2018/07/java-8-lambda-expressions.html ]
+~~~~~~~~~~~~~~~~~~~~~~~~  [ https://github.com/kishanjavatrainer?tab=repositories&q=lambda&type=&language= ]
+
+                          [ https://github.com/koushikkothagal/Java-8-Lambda-Basics ]                        
+    				      [ https://github.com/koushikkothagal/Java-8-Lambda-Basics/tree/master/src/io/javabrains ]
+
+
 
         Implementing Interface && Not Class . 
  
@@ -149,6 +156,33 @@ public class ClientTest {
 	}
 }
 
+
+
+ try catch inside Lambda :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+(String s) -> {
+    try {
+        return myMethod(s);
+    } catch (IOException ex) {
+        throw new RuntimeException(ex);
+        // (Or do something else with it...)
+    }
+}
+
+------------
+
+ List<String> integers = Arrays.asList("44", "373", "xyz", "145");
+ integers.forEach(str -> {
+    try {
+        System.out.println(Integer.parseInt(str));
+    }catch (NumberFormatException ex) {
+        System.err.println("Can't format this string");
+    }
+  }
+ ); 
+
+
 ================
 	
 --->This Lambda Expression does not have parameters and does return any results. So it’s type is “java.lang.Runnable” Functional Interface.
@@ -181,8 +215,9 @@ public class ClientTest {
  
 FUNCTONALINTERFACE123 (I) :=   [ https://www.javaguides.net/2018/07/java-8-functional-interfaces.html ]
 ~~~~~~~~~~~~~~~~~~~~~~  
+ [ https://github.com/amigoscode/java-functional-programming/tree/master/src/main/java ]
+ [ https://github.com/kishanjavatrainer?tab=repositories&q=functional&type=&language= ]
  [ https://github.com/kishanjavatrainer/FunctionalInterfaceWithLamda ]
- [ https://www.youtube.com/watch?v=o384gHvf22Y&list=PLn2GH4dN5i2By9n1Nd6UzCJeyu4W84r4e&index=7&ab_channel=PlayJava ]
  
 
  4-Types := [ Youtube ---> Play-Java ] ///  [ import java.util.* ] /// [ https://github.com/Java-Techie-jt/java8 ]
@@ -194,8 +229,10 @@ FUNCTONALINTERFACE123 (I) :=   [ https://www.javaguides.net/2018/07/java-8-funct
   --- Producer (Only Input and  No  Output) 
   --- Supplier (No Input and Only Output) 
     
-        Functional Interface ----> Comparator, Comaparable, Runnable 
-                            8 ---> predicate, Supplier, Consumer
+        Functional Interface
+                       		 ----> Comparator, Comaparable,
+                       		 ----> Callable(java.util.concurrent.Callable), Runnable(java.lang.Runnable) 
+                       Java-8 ---> predicate, Supplier, Consumer
 
 
   --- Predicate(Returns Boolean value)......................   ///  test(T t)       //       String.Length Check 
@@ -376,6 +413,17 @@ METHODREFERENCE123 :=
  ---Static methods
  ---Instance methods
  ---Constructors using new operator (TreeSet::new)
+ 
+  Method Reference :=
+~~~~~~~~~~~~~~~~~~~
+Method reference is a short-hand notation of a lambda expression to call a method. (**************) 
+ 
+ For example: 
+ 
+    If your lambda expression is like this ::                    str -> System.out.println(str)
+    Then you can replace it with a method reference like this ::  System.out::println
+		 
+--> The method references can only be used to replace a single method lambda expression .
 
 
 --->Method reference is represented by using double colon operator "::".  Lambda expressions are used to create method anonymously. Sometimes, the sole purpose of lambda expressions is to call existing methods.
@@ -384,6 +432,7 @@ Here is the syntax of method reference :
 
 Object :: nameOfTheMethod
 
+    System.out::println equivalent to System.out.println(x)
 
 ---->used for referencing a method without invoking it.it. It is used for treating methods as Lambda Expressions.
 
@@ -451,6 +500,39 @@ Object :: nameOfTheMethod
 		return results;
 	}
 	
+	
+ Eg44 :=
+~~~~~~~
+
+    Class::staticMethod ///// ObjectType::instanceMethod  //// ClassName::new
+
+   public static int compareByName(Person a, Person b) 
+    { 
+        return a.getName().compareTo(b.getName()); 
+    } 
+	
+    public static int compareByName(Person a, Person b) 
+    { 
+        return a.getName().compareTo(b.getName()); 
+    }
+
+
+        // Use static method reference 
+        // to sort array by age
+	    Collections.sort(personList, GFG::compareByName); 
+        System.out.println("Sort by name :"); 
+        personList.stream().map(x -> x.getName()).forEach(System.out::println); 
+ 
+        // Use instance method reference 
+        // to sort array by name 
+        ComparisonProvider comparator = new ComparisonProvider(); 
+        Collections.sort(personList, comparator::compareByName); 
+        System.out.println("Sort by name :"); 
+        personList.stream() .map(x -> x.getName()).forEach(System.out::println);
+
+
+       List<Person> personList = getObjectList(5, Person::new); 
+
 
 =================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
 ======================================================================================================
@@ -504,9 +586,11 @@ class Car implements Vehicle {
 =================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
 ======================================================================================================
 
-STREAMS123:=   [https://howtodoinjava.com/java8/java-streams-by-examples/]
+STREAMS123:=   
 ~~~~~~~~~~~    [ https://www.concretepage.com/java/java-8/ ]
 
+ --- Instead, a stream carries values from a source through a pipeline. (**********)
+ --- It is not a data structure that stores elements. 
 		   
 --->It is defined as a sequence of elements from a source that supports aggregate operations on them. (Eg :: Youtube)  
 
@@ -547,24 +631,36 @@ Examples ::=
 
 ---> Stream<Integer> stream = Stream.of(1,2,3,4,5,6,7,8,9);
       stream.forEach(p -> System.out.println(p));
+	  
+ GIT :=
+~~~~~~
+   https://github.com/Java-Techie-jt/java8
+   https://github.com/java8/Java8InAction/tree/master/src/main/java/lambdasinaction
+ 
+ 
 
-================================================================		 
+==========================		 
 
 Methods := [ Youtube ---> Play Java ********]
-~~~~~~~
-           [ https://github.com/amigoscode/java-streams-youtube/blob/master/src/main/java/Main.java ]
+~~~~~~~    [ https://howtodoinjava.com/java8/java-streams-by-examples/ ]
+           
+		   [ https://github.com/amigoscode/java-streams-youtube/blob/master/src/main/java/Main.java ]
 		   [ https://github.com/joeyajames/Java/blob/master/Java%208%20Streams/JavaStreams.java ]
-		   
+ 
+           [ https://github.com/RameshMF/java-8-tutorial/tree/master/src/com/ramesh/java8 ]
+           [ https://github.com/winterbe/java8-tutorial/tree/master/src/com/winterbe/java8/samples/stream ]
+  
   
 Intermediate-Operations :=  /// Returns Streams && Lazily Loaded. 
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-    ------filter():List<T>.......map():List<T>.......flatMap():List<T>.......distinct()List<T> -----
+    ------ filter():List<T>.......map():List<T>.......flatMap():List<T>.......distinct()List<T> -----
   
-               ------sorted().......peek().......limit().......skip()----------- 
+    ------ sorted().......peek().......limit().......skip()----------- 
+
 
 Terminal-Operations :=
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
          ----toArray():[].......collect():List<T>....... reduce():Optional<T> ----------- 
 
@@ -853,6 +949,8 @@ It is used to avoid “NullPointerException”.
 
  ForEach990 := present in Iterable (I) && Accepts Consumer(FI) 
 ~~~~~~~~~~~~~
+ --- Internally it uses the enhanced for-loop.
+ --- While using parallel streams, use forEachOrdered() if order of the elements matter during the iteration.
  	
   Eg11 :=
 ~~~~~~~~
@@ -910,6 +1008,47 @@ It is used to avoid “NullPointerException”.
 		});
 		empList.forEach(System.out::println);
 
+
+=================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
+======================================================================================================
+
+ ComparatorInJava :=
+~~~~~~~~~~~~~~~~~~~
+
+		 Comparator<Employee> comp	= ( o1,   o2)-> o1.getEmpName().compareTo(o2.getEmpName());
+		
+		Collections.sort(listEmployees,comp);
+		 listEmployees.forEach(System.out::println);
+			
+		 System.out.println("-----------------------------------");
+		
+
+			Collections.sort(listEmployees,new AgeComparator());
+			 listEmployees.forEach(System.out::println);
+			 
+			 
+//Compare by Id
+Comparator<Employee> compareById_1 = Comparator.comparing(e -> e.getId());
+ 
+Comparator<Employee> compareById_2 = (Employee o1, Employee o2) -> o1.getId().compareTo( o2.getId() );
+
+ Comparator<Employee> comparator = Comparator.comparing(e -> e.getFirstName());
+    employees.sort(comparator.reversed());
+
+
+    //Sort all employees by first name
+    employees.sort(Comparator.comparing(e -> e.getFirstName()));
+     
+    //OR you can use below
+    employees.sort(Comparator.comparing(Employee::getFirstName));
+
+
+ Strings :=
+~~~~~~~~~~
+List<String> sorted = strings
+        .stream()
+        .sorted((s1, s2) -> s1.compareTo(s2))
+        .collect(Collectors.toList());
 
 =================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
 ======================================================================================================

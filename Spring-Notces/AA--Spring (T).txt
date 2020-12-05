@@ -3,9 +3,9 @@
 Core:=  [ http://localhost:8965/ ]
 ~~~~~~~
      
-          ........IOC540..............DepencencyInjection440......Autowiring123(Repo555).............LifeCycle330........	
+          ........IOC540..............DepencencyInjection440......Autowiring123(Repo555).....LifeCycle330......Inject770	
 
-         ......BeanScopes333.........StereoTypeAnnotation450......Collections555............Redirect444.......
+         ......BeanScopes333.........StereoTypeAnnotation450......Collections555..............Redirect444....LazyLoading
 
 	    ....DependencyCheck444.......JavaConfiguration333.........SpringJDBC333(DAOLayer)...SpringHibernate333........
 	 
@@ -691,7 +691,24 @@ after defining 2 methods at method level.
                           < CONTEXT:ANNOTATION-CONFIG />
 
 
-========================================================================================================
+=======================================================================================================
+
+ Inject770 :=
+~~~~~~~~~~~~
+
+Class/Method  Level Annotation
+        It is a method level annotation
+        It is a class level annotation
+		
+Auto detection
+        It is used to explicitly declare a single bean, rather than letting Spring do it automatically. 
+        If any class is annotated with @Component it will be automatically detect by using classpath scan.
+
+Spring Container
+        Bean can be created even class is outside the spring container
+         We can’t create bean if class is outside spring container
+
+=======================================================================================================
 
 DependencyCheck444 :=
 ~~~~~~~~~~~~~~~~~~~
@@ -1199,6 +1216,21 @@ d)	Key as attribute and value as tag (<entry key=""> <value>..</value> </entry>)
     ----------------
           <constructor-arg c:empId="--------"/>
 ================================================================================================================
+ 
+@LazyLoading := [ https://howtodoinjava.com/spring5/core/spring-bean-eager-vs-lazy-init/ ]
+~~~~~~~~~~~~~~
+ --- To lazy load only specific beans, use @Lazy annotation at Method-Level. (along with @Bean annotation in java config) ///
+
+                <beans default-lazy-init="true">
+ 
+ --- To lazy load all           beans, use @Lazy annotation at Class-Level.
+ 
+               lazy-init="true"/>
+
+ --- Can Apply @Lazy annotation at @Autowired-Level  && also @STEREO-TYPE Annotation level. 
+
+=====================================================================================================================
+
 
 LMI880 :=            //(AC=new CPXAC)
 ~~~~~~~ 

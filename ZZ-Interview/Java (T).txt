@@ -60,19 +60,52 @@
  --- Callable contains a single method, call (), that returns Type V, this is same as the defined interface parameter “Type”.
      Runnable contains a single method, called run (), that returns void
 
+===========================================================================================
 
  Primitive Data-Type := [ https://www.w3schools.com/java/java_data_types.asp ]
 ~~~~~~~~~~~~~~~~~~~~~~~
        
-	   Byte --> Char ---> Short ---> int ---> Long ---> Float ----> Double. 
+               Primitive Data Type           ---->  such as boolean, char, int, short, byte, long, float, and double
+  Non-Primitive Data Type or Object Data type ----> such as String, Array, etc.
+
+	
+DataType     Bytes  ( 1Byte=8-Bits [*8Bites] )  
+            
+ Byte   ----  1    /|\      /// Stores whole numbers from -128 to 127
+ Short  ----  2     |      ///  Stores whole numbers from -32,768 to 32,767
+ Int    ----  4     |
+ Long   ----  8     |
+ Float  ----  4     |     /// used if   memory constraint      &&&&&   storing 6 to 7 decimal digits
+ Double ----  8     |    ///  used for  precise and accurate   &&&&&   storing 15 decimal digits
+ Char   ----  2     |   ///   Stores a single character/letter or ASCII values
+ Boolean ---- 1     |  ///    Stores true or false values
 
  --- Upcasting is done automatically. 
  --- Downward has to done Explicitly (***********)
  --- Does not Support Null. 
  --- Object Class can suport Null, that's why we can declare ------String str="Rama";-------
+ 
+
+ Unsigned-Datatypes ---->  Only POSITIVE values, but no negative values. 
+  signed-Datatypes ---->   Range Between (+/-)
+  
+  Primitive Wrapper classes ----> (Integer, Byte, Long, Float, Double, Character, Boolean and Short) are IMMUTABLE in Java,
+  
+   Java does not support unsigned data types.
    
-                        Polymorphism ----> (YOUTUBE:::) Byte Programming 
-						
+   Polymorphism ----> (YOUTUBE:::) Byte Programming 
+	
+	
+---> Null will first Checks for ONE-SubClass ONLY . (**********)
+--->  4.8f (Or) 4.8F for Float 
+--->  integer literal beginning with 0 is interpreted as an OCTAL (base 8) quantity. (**********)
+   
+
+ Down-(TypeCasting) :=  /// Sending water form GroundWater to Tank  //// Has to be done Manually.
+~~~~~~~~~~~~~~~~~~~
+ --- Required when we are trying to store Higher-DataType(Large-Byte) to Lower-DataType( Small-Byte) 
+ 
+     Eg :: Int to Long etc...
 						
 ============================================
 
@@ -94,6 +127,11 @@ Difference between JVM, JDK, and JRE :=
  JDK ---JDK is a wrapper around the JRE and additionally contains the compiler, interpreter, debugger and other tools. It provides users with features to run as well as develop Java programs.
 
  JRE --- JRE is made up of class libraries, JVM and supporting files
+ 
+ 
+ Java Debugger (JDB or jdb) :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- It is a command-line java debugger that debugs the java class. It is a part of the Java Platform Debugger Architecture (JPDA) that helps in the inspections and debugging of a local or remote Java Virtual Machine (JVM).
 
 ==============================================================================
 
@@ -130,9 +168,41 @@ Difference between JVM, JDK, and JRE :=
   TDD := Methodology where we write && Run Test-Cases before writing code. 
 ~~~~~~~  
 	--- Provides Good Architecture
-	--- Prevents Defects  
+	--- Prevents Defects
+	
 
-==========================================================================
+ 
+ Memory Leaks :=
+~~~~~~~~~~~~~~
+--- There might be situations where where an application creates lots of objects and does not use them
+--- Just because every objects has valid references, garbage collector in Java can’t destroys the objects. 
+--- Such types of useless objects are called as Memory leaks
+
+--- If allocated memory goes beyond limit, program will be terminated by rising OutOfMemoryError.
+--- Hence if an object is no longer required, it is highly recommended to make that object eligible for garbage collector.
+--- Otherwise We should use some tools that do memory management to identifies useless objects or memeory leaks like:  HP J METER 
+
+
+ OutOfMemoryError :=
+~~~~~~~~~~~~~~~~~~~~
+ --- Poor programming – infinite loop, not clearing memory by closing resources etc.
+ --- Cannot Handled using Try && Catch Blocks .
+ --- Increasing the memory of JVM is a quick fix to solve the problem (**********)
+ 
+ List<Integer> list = new ArrayList<>();
+
+		Random random = new Random();
+
+		while (true)
+			list.add(random.nextInt());
+			
+ Memory Management :=
+~~~~~~~~~~~~~~~~~~~~
+Understand the JVM garbage collector
+Be familiar with the common tools for JVM performance monitoring
+Have the ability to read GC logs
+			
+================================================================================================================
 
  Security Vulnerability :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -263,6 +333,14 @@ Cloneable (I):-
 ~~~~~~~~~
  --- 'Class' is Blue-Print of OBJECT that shows it's Structure && how it is created.
  --- It is Logical entity. It can't be physical.
+ 
+ 
+ AnonymousClass :=
+~~~~~~~~~~~~~~~~~~
+ --- An interface has only one or two methods,
+ --- The logic in the method(s) is not to be reused, and
+ --- We do not want to create a new class every time for such small logic
+
 
  Object :=
 ~~~~~~~~
@@ -273,6 +351,13 @@ Cloneable (I):-
   
    Object(Dog) ----> State (color,size,Breed)   && Behavior (eat,sleep,run.bark) etc.......
               State ---variables                &&  Behavior--Methods   
+
+
+
+ Methods := Piece of Cdoe 
+~~~~~~~~~~
+ --- Used to reuse the code without retyping the code.
+
 
 
  Object-Class Methods :=
@@ -368,7 +453,7 @@ It allows the method to accept zero or multiple arguments. There should be exact
 
 ---> We cannot OverRide Main-Method && Non-Staic Method can be called by Obj-Reference inside Main-Method.
   
-
+=====================================================================================================================
 
 SYSOUT-BreakDown := [ https://www.javatpoint.com/system-out-println-in-java ]
 ~~~~~~~~~~~~~~~~~
@@ -378,6 +463,19 @@ SYSOUT-BreakDown := [ https://www.javatpoint.com/system-out-println-in-java ]
       ----It is an instance of the System class and is of type PrintStream, declared as static && final.
  
  PRINTLN ----> Method in PrintStream class, used to display results on the monitor. .... 
+ 
+ INTERNAL :=
+~~~~~~~~~~~~
+ Class System{
+   public final static PrintStream out = null;   
+ }
+ 
+ class PrintStream {
+  public void println() {
+        newLine();
+    }
+  }
+
  
  Eg :=
 ~~~~~~
@@ -732,7 +830,10 @@ To do Downcasting:
   --- Yes, It was Possible with Main-Method also.
   --- If ChildClass does not have Static-Methods (Main--Or--Any), Parent-Class Static-Method get Executed. 
 					 
-
+   
+ Order of Execution ---->  Static block, instance block, constructor, and method
+ 
+ 
 =======================================================================================
 
  HAS-A Relation :=
@@ -880,7 +981,7 @@ means Govt(Interface) imposes rules(Methods) rules on Public (Classes) which nee
 
 ----> If we want to add method having same functionality for all classes, then go for "--Abstract--" class.
 
-
+================================================================================================================
  
 Interface :=
 ~~~~~~~~~
@@ -960,6 +1061,36 @@ Abstract class :=   ( Relation to Parent---Child /// Partial representaion of Ob
 		         Class Maruti extends Car ........ ( Here maruti is 100% representaion of Object ) 
 
 
+
+ When to go For Interface && Abstract-Class := (**********************)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ https://javabypatel.blogspot.com/2017/07/real-time-example-of-abstract-class-and-interface-in-java.html
+ https://javabypatel.blogspot.com/2017/07/when-to-use-abstract-class-and-interface-difference-between-them.html
+
+
+ When to go For Interface := (**********************)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Interface is used when you don't know anything about implementation but know the contract that implementer should have to accomplish the task.
+
+
+ When to go For Abstract class: :=  (**********************)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Abstract class is used when you know partial implementation.
+ --- Where say out of 5 methods, you know implementation of 3 methods and 
+     don't know implemenatation of 2 methods in that case 2 methods will be abstract and 
+	 you need to rely on implementer as a contract to must provide body of abstract methods to accomplish the task.
+
+  INTERFACE -----> customer-CHOOSE to opts for booking :::: 
+
+      public interface FlightOpeartions {
+          void getAllAvailableFlights();           /// We don't care how it is internally implemented and what we care is the contract method
+          void booking(BookingObject bookingObj); /// all vendors should have, internally how this vendors are doing booking that I don't care.
+      }
+
+  ABSTRACT-CLASS ----> BuldSMSSender :::  we Know (Bulk SMS sender)  --- Methods we know is "sendSMS()", "checkForDND()", "checkForTelecomRules()".
+                                                 We Don't know       --- Methods don't know is "eastablishConnectionWithYourTower()",  
+ 											                                                "destroyConnectionWithYourTower()".
+  Do Not Disturb(DND) 
 
 
 ==================================================================
@@ -1544,10 +1675,14 @@ For any class to support natural ordering, it should implement the Comparable in
 
  Contract between Equals() && Hashcode() := Youtube :::  SHIVAREDDY (***********)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ---  return type of hashCode() method is an INTEGER, as it returns a hash code value for the object.
+ ---  return type of hashCode() method is an  STRING 
+ 
  --- When we add Duplicate User-Defined-Objects as Key in HashMap / HashSet / HashTable .
  --- JVM doesn't know that Those 2-Objects are same and Comparision is done by "==" Operator which compares Unique-HashValues of Objects .
  --- By Overriding Equals() && HashCode() methods, Objects are compared with Content  [***********]
  --- So, If Objects are equal ==== then Same-Hashcode will be returned, by which Duplicates are Not Allowed as Key.
+
 
 
    IOC         If Objects are Equals       If Override Equals() Method
@@ -1555,6 +1690,8 @@ For any class to support natural ordering, it should implement the Comparable in
 	|                  |                          |
 	|                  |                          |
    DI           HashCode Must Equals    Must Override hashcode() method
+
+
 
 ====================================================
 

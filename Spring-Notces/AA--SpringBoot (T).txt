@@ -252,10 +252,80 @@
     @RestController ----> Sends Object as HTTP Response in XML / JSON Format.
 
 
+ @SpringBootAplication :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+  @Configuration ----> It will behave act as bean.
+  @EnableAutoConfiguartion ----> It will enable bean based on some condition that we have discussed above.
+  @ComponentScan ----> It is mainly used to scan the classes and packages to create the bean.
+  
+  
  @EnableAutoConfiguration := (***********)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 -> As part of Auto Configuration SpringBoot will decide which components are required to run our application and it is going to load them. 	
- 
+
+
+     @Configuration      ---------> Makes it a Spring-managed bean. 
+                                   In the @ConfigurationProperties, we set the prefix for our properties.
+
+ @ConfigurationProperties --------> Allows to map the entire Properties and Yaml files into an object easily
+
+      @PropertySource     --------> Set the path to the custom properties file.
+                                    The @Validated annotation validates the properties.
+
+============================================================================
+
+  @PropertySource :=
+~~~~~~~~~~~~~~~~~
+ --- To externalize your configuration to a properties file. 
+ --- to include properties from the application.properties file into the Environment and to inject them into class attributes.
+ --- In this tutorial, we will show you how to use @PropertySource to read a properties file and display the values with @Value and Environment.
+ ---  use Environment to get the property values.
+ 
+  Eg :=
+ ~~~~~
+ 
+ config.properties
+ 
+    mongodb.url=1.2.3.4
+    mongodb.db=hello
+
+@Configuration
+@ComponentScan(basePackages = { "com.mkyong.*" })
+@PropertySource("classpath:config.properties")
+public class AppConfigMongoDB {
+
+    //1.2.3.4
+    @Value("${mongodb.url}")
+    private String mongodbUrl;
+
+    //hello
+    @Value("${mongodb.db}")
+    private String defaultDb;
+	
+    @Autowired
+    private Environment env;
+
+    @Bean
+    public MongoTemplate mongoTemplate() throws Exception {
+
+        String mongodbUrl = env.getProperty("mongodb.url");
+        String defaultDb = env.getProperty("mongodb.db");
+		
+     }
+   }
+   
+ Eg22 :=
+~~~~~~~
+    @Configuration
+    @PropertySources({
+        @PropertySource("classpath:config.properties"),
+        @PropertySource("classpath:db.properties")
+    })
+	@PropertySource(value = "classpath:root.properties", ignoreResourceNotFound=true)  // don’t throw exception if file is not found
+    public class AppConfig {
+        //...
+    }
+
 ======================================================================================================================	   
 
   ...StereoTypeAnnotation, @autowired(@Qualifier).....Scopes .....@Component.....@Configuration,@Bean,@ComponentScan.......

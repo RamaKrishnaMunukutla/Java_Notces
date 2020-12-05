@@ -838,9 +838,14 @@ fully certified JAX-RS implementation; supports HTTP 1.1 caching semantics inclu
 
  ExceptionHandling660 :=
 ~~~~~~~~~~~~~~~~~~~~~~
+ --- Custom Exception from Service && Catched by AOP-Class which is annotated with @ControllerAdvice at class-level &&
+          @Exceptionhandling at method-level. 
+ 
  
  https://github.com/PlayProCode/PlayJava/tree/master/exception-framework
  https://mkyong.com/spring-boot/spring-rest-error-handling-example/
+ 
+ 
  
 import java.time.LocalDateTime;
 import org.springframework.stereotype.Component;

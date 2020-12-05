@@ -139,7 +139,14 @@ Arrays :=
    
    
      Legacy Classes are Introduced in java 1.0. 
-  
+ 
+
+Synchronized vs Concurrent Collections :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- The differences between them come in performance, scalability (capacity to be changed in size or scale.)
+ --- The main reason for this slowness is locking.
+ --- Synchronized collections locks the whole collection e.g. whole Map or List while concurrent collection never locks the whole Map or List.
+ --- ConcurrentHashMap divides the whole map into several segments and locks only the relevant segments, 
   
 =====================================================================================================
 
@@ -848,6 +855,18 @@ ConcurrentHashmap449 :=   [......ODN, S&TS.......]
 
 ----> The major advantage is in case of synchronizedMap every write operation acquires lock on entire SynchronizedMap while in case of ConcurrentHashMap the lock is only on one of the segments. (*********)
 
+   
+        ConcurrentHashMap does not allow null keys or null values  (************) /// java.lang.NullPointerException
+        Synchronized HashMap allows one null key.
+
+----> Unlike Hashtable and Synchronized Map, it never locks whole Map, instead, 
+      it divides the map into segments and locking is done on those. 
+	  Though it performs better if a number of reader threads are greater than the number of writer threads.
+	  
+---->  If the load factor is .75 it will act to re-size the map once it filled 75%. 
+ Similar to other collection classes like ArrayList,  Java HashMap re-size itself by creating a new bucket array of size twice of the previous size of HashMap and then start putting every old element into that new bucket array. 
+ This process is called REHASHING because it also applies the hash function to find new bucket location. 
+
 
  SynchronizedHashMap :=
 ~~~~~~~~~~~~~~~~~~~~~
@@ -861,7 +880,11 @@ ConcurrentHashmap449 :=   [......ODN, S&TS.......]
  In Java-8 Supportes Parallel-Operations :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  --- we have Methods ::  forEach() ///  Search()  ///  reduce() 
-
+ 
+ 
+ Map in Java-8 :=
+~~~~~~~~~~~~~~~~~
+  map.forEach((k, v) -> System.out.println("Key = " + k + ", Value = " + v));
 
 =====================================================================================
 

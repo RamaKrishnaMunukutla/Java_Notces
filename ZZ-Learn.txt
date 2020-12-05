@@ -46,21 +46,35 @@ multiple interface having same method name ?
                    
 				   PreparedStatemen pstmt = conn.prepareStatement(SQL);
 
-  PreparedStatement
-  reactive programming
-  kotlin
-  Java 8
-  Generics
-  Exception handling
+
+Generics // Strings /// 
+  BatchProcessing (Both))
+  Transactional
   Java configuration
-  Spring Tranasaction  /// Distributed Tranasaction 
-  Serialization 
-  bATCH uPDATES (Jdbc, Spring)
-  Hibernate Mapping // JPA // GeneratedStrategy   
-  Hibernate 5 & Adv
+  Exceptional handling 
+  File Handling 
+  MultiThreading
+  178 videos
+  Hibernate 5 Adv
+  JPA Cascade  // @Id generation 
+  mapping (Both)
+  Debug Query
+  JUnit Testing
+  DataBase
+  Git Interview
+  Stack && Queue
+Rest API Versioning 
+Spring boot Internal Flow
   AJAX Crash Course 
   JQuery Crash Course 
   MySQL Crash Course
+
+transaction management 
+SQL QUERIES
+Java lateset updates on storage
+  reactive programming
+  kotlin
+ Data STRUCTURES
    
 =========================================================================================================  
 
@@ -86,6 +100,9 @@ multiple interface having same method name ?
 ~~~~~~~~~~~~~~
   Notces-Password ---> 460621 
   
+  Course Content Link: http://www.nareshit.com/course/aws-online-training/
+For New  Batches Visit: https://nareshit.com/new-batches-hyderabad/#Online-Training
+  
 =============================================================================================
 
  PersistentSystems :=
@@ -102,6 +119,8 @@ multiple interface having same method name ?
  Repositaries990 :=
 ~~~~~~~~~~~~~~~~
     In28Minutes --------> https://github.com/in28minutes?tab=repositories
+    Journal-Dev --------> https://github.com/journaldev/journaldev
+    Concentric -------->  https://github.com/codecentric
 	
 	Tech-Primeer -------> https://github.com/TechPrimers
 	 Java-Techie -------> https://github.com/Java-Techie-jt	 (***)
@@ -114,6 +133,7 @@ multiple interface having same method name ?
      
 	 Shiva Reddy ------> https://github.com/sivajavatechie/DemoDocuments/tree/master/Java%20Docs (***)
        Play Java -------> https://github.com/PlayProCode/PlayJava
+
 	  
 	javadevjournal -----> https://github.com/javadevjournal/javadevjournal
      DineshOnJava ------> https://github.com/dineshonjava?tab=repositories
@@ -300,6 +320,9 @@ multiple interface having same method name ?
  --- providing technical support and knowledge transfer to my co-workers.
               
 ---->Coming to my educational qualification, i have completed my graduation in ECE from Mahaveer-College in 2017.
+       
+	   
+	      HR-INTERVIEW (YOUTUBE)  ---->  CareerRide  rama910@
    
 ===========================================================================================
 

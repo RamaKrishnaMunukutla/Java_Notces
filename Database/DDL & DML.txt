@@ -64,6 +64,10 @@ Key-Words :=
 
  ----> Used to reduce Data-Redundancy . i.e same piece of data exists in multiple places 
  
+ Consistentcy ---> data must meet  all validation rules.
+ Isolation ------> Concurrency Control 
+
+
  Anomaly :=
 ~~~~~~~~~~
  --- The nature of a database may be such that it is not possible to add a required piece of data unless another piece of unavailable data is also added.
@@ -71,8 +75,24 @@ Key-Words :=
   1 NF ----> Single cell CANNOT have MULTIPLE-VALUE. (EG:: 2-PH.no in same Cell)
  
   2 NF ----> It has to be 1-NF // Table CANNOT have PARTIAL-DEPENDENCY. (EG:: Non-Prime Attribte should be in Another-Table) 
+             Follow 1NF and Table should have single coulmn Primary-Key 
 
-  3 NF ----> It has to be 2-NF  // NON-PRIME should depends on PRIME-ATTRIBUTE 
+  3NF -----> Follow 2NF and must not have trasitive functional dependencies
+             Indirect relationship between values in the same table that causes a functional dependency.	
+		     It has to be 2-NF  // NON-PRIME should depends on PRIME-ATTRIBUTE 
+
+  BCNF ----> reduce Anomalies .
+
+ DeNormalization := Introduces Redundancy  
+~~~~~~~~~~~~~~~~~~
+ --- Access data form Higher to lower forms of database. 
+ 
+ Trigger := (6-Types)
+~~~~~~~~~~
+ ---- FIRES automatically for DML-Operations whenEver DATA-MODIFIED .
+ 
+     Types :: Before / After (I, U, D)
+
 
 ====================================================================================================
 
@@ -123,9 +143,87 @@ Key-Words :=
 	 
 	 Varchar2(10) ----> Stores Characters of length 'ANY'(8,6,4,2) .
 			 
-			 
+ 
+    2-Tier-Architecture -----> User     ---     App --- DB
+	
+	3-Tier-Architecture -----> User --- GUI --- App --- DB  // Secure && Accesible (****)
+ 
+ 
+ Trigger and Stored Procedures :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Trigger cannot call Another-Trigger within it.
+      Stored Procedures can call Another Within it.
+ 
+ --- Cannot Return Value
+     can return  0 to n values
+	 
+ --- Transaction is not allowed
+     Transaction is    allowed
+ 
+
+ Indexes :=
+~~~~~~~~~~
+ --- Improves the Speed of Data Retreival Operations on table. 
+ --- Follows Searching Algorithm. 
+ 
+
+
+ Truncate ----> Preserves the Structure of Table . (****************)
+                DROP and TRUNCATE cannot RollBacked. 
+				Faster than DROP and DELETE .
+				
+ Union All ----> Has Duplicates.
+                 Faster than UNION. 
+				 
+ INTERSECT ----> Fetches Common-Records from 2-Tables. 
+
+ CandidateKey ----> S.No / Pan No
+ 
+  Clause-Order :=
+~~~~~~~~~~~~~~
+--->   where ---- groupBy ---- having ----- OrderBy
+---> WhenEver GroupBy Clause is not Present, 'HAVING' behaves like 'WHERE' 
+
+
+
+   Between  ------->        Range 
+    IN    -------->  shortForm of 'LIKE'
+
+
+ Pattern-Matching ----> LIKE / ? / _ 
+ 
+ Types of DataBases :=
+~~~~~~~~~~~~~~~~~~~~~
+ --- Hierarchial :: (Tree-Structure) Node ---> Record && Brach ----> Column
+
+ --- Network  :: Supports many-To-Many realtions 
+ 
+ --- Relational :: Access Piece-of-Data form One-Table which is in Realtion with another-Table   
+ 
+ --- OBject-Orineted
+
+
+  SET-Operations ----> UNION //// INTERSECT //// MIUNS (Only One Query executes with eliminating Another having Common-data) 
+  
+  Fetch AlternateRecord form table    ----> where mod(empId,2)=0  //// mod(empId,2)=1
+  
+  Fetch  First-Five Record form table ---->  select substring(empName,1,5)
+  
+  STORED-PROCEDURE ----> Create Once and call Multiple-Times  /// Takes More Memory 
+  
+  dataWareHouse ----> It is Central-Repo where data gets Asembled form Multiple Sources of Information.
+                       It has SubSet called as DataMarts.
 
 =======================================================================================================
+
+ 
+   NULL ----> Unavailable / Unknown / Assigned 
+   
+   ZERO -----------> Number
+   
+   Blank-Space ----> Character 
+
+===========================================================================================================
  
  CREATE123 :=
 ~~~~~~~~~~~~
