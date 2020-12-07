@@ -891,12 +891,15 @@ SpringSecurity444 :=  [ https://www.baeldung.com/security-spring ] // [ https://
 	 WebSecurityConfigureAdaptor (C)  // BasicAuthenticationEntryPoint (C) [Security-Exception-Purpose] //
 	 
 	 
- Types of Auth := Basic-Auth  // Token-Based Auth  // OAth2 
+ Types of OAuth := Basic-Auth  // Token-Based Auth  // OAth2 
 ~~~~~~~~~~~~~~~~
 
  (Q) If Token is not vailable at very FirstTime, How it is generated ??
  (A) Based on AuthenticationManger will Verify Credentials && using 'JWTBuilder' Class In-Build methods will generate Token.
      Else throws "-BadCredentials-" Exception. 
+	 
+ (Q) What is OAuth ??
+  A) Provides Authentication and Authorization as Service. 
 
 
 ---Username/Password Authentication

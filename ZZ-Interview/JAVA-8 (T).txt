@@ -10,6 +10,7 @@
 	     ....OthersFeatureINJava (**)........
 	
 	  https://www.concretepage.com/java/java-8/
+	  https://www.java2novice.com/java-8/
 			 
 	
  Java 7 :=-
@@ -26,7 +27,12 @@
  ParllelStreams :=
 ~~~~~~~~~~~~~~~~
  --- Doesn’t care about the order. //// The performance is high.
+ 
+ Eg:= list.parallelStream().filter(str->str.length()>3).map(String::toUpperCase).sorted().forEach(System.out::println);;    
+~~~~~
 
+ Primitive type in Stream := InstStream , LongStream , DoubleStream . 
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 	
 =================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
 
@@ -644,8 +650,8 @@ Examples ::=
 Methods := [ Youtube ---> Play Java ********]
 ~~~~~~~    [ https://howtodoinjava.com/java8/java-streams-by-examples/ ]
            
-		   [ https://github.com/amigoscode/java-streams-youtube/blob/master/src/main/java/Main.java ]
-		   [ https://github.com/joeyajames/Java/blob/master/Java%208%20Streams/JavaStreams.java ]
+		   [ https://github.com/amigoscode/java-streams-youtube/blob/master/src/main/java/Main.java ] (******)
+		   [ https://github.com/joeyajames/Java/blob/master/Java%208%20Streams/JavaStreams.java ]     (*******)
  
            [ https://github.com/RameshMF/java-8-tutorial/tree/master/src/com/ramesh/java8 ]
            [ https://github.com/winterbe/java8-tutorial/tree/master/src/com/winterbe/java8/samples/stream ]
@@ -654,9 +660,9 @@ Methods := [ Youtube ---> Play Java ********]
 Intermediate-Operations :=  /// Returns Streams && Lazily Loaded. 
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-    ------ filter():List<T>.......map():List<T>.......flatMap():List<T>.......distinct()List<T> -----
+    ------ filter('1'-COND):List<T>.......map('1'):List<T>.......flatMap():List<T>.......distinct()List<T> -----
   
-    ------ sorted().......peek().......limit().......skip()----------- 
+    ------ sorted().......peek().........limit(20).......skip(10)----------- 
 
 
 Terminal-Operations :=
@@ -664,11 +670,11 @@ Terminal-Operations :=
 
          ----toArray():[].......collect():List<T>....... reduce():Optional<T> ----------- 
 
-          ------min():Optional<T>.......max():Optional<T>.......count():Long ----------
+          ------min(COMP):Optional<T>.......max(COMP):Optional<T>.......count():Long ----------
 	   
       ------forEach():<T>.......findFirst():String.......findAny().....forEachOrdered()---------
 
-      ------anyMatch():boolean.......allMatch():boolean.......noneMatch():boolean ------------
+      ------anyMatch('1'-COND):boolean.......allMatch('1'-COND):boolean.......noneMatch('1'-COND):boolean ------------
 	  
 	  
  Main differences between Intermediate and Terminal Stream operations are as follows :=
@@ -689,6 +695,42 @@ Terminal-Operations :=
               There can be only one Terminal operation in Stream processing statement
 
 =====================================================
+ 
+ map -------->  map(x -> x * x)  //// String::toLowerCase /// converts Stream<X> to Stream<Y>  && returns a new Stream (******)
+ 
+ 
+ flatmap ---->  https://howtodoinjava.com/java8/stream-flatmap-example/ 
+                flatten a Stream of collections to a stream of objects   //// List<List<Integer>> (*****)
+                flattening is referred to as merging multiple collections/arrays into one. (********)
+                flatMap(x -> x.stream())  ///// flatMap(x -> Arrays.stream(x))
+
+
+ distinct ----> Takes Only Unique elements. 	
+
+
+ peek --------> Returns a new Stream consist of elements from the original Stream. 
+                list.stream().peek(System.out::println).collect(Collectors.toList());    
+
+
+================			
+			
+ sorted ------> sorted() //// sorted(Comparator.comparing(Person::getAge).thenComparing(Person::getGender).reversed())
+                sorted(Comparator.reverseOrder())
+				return i2.compareTo(i1); //// Reverse-Comparator (******)
+				
+				
+
+ max && min ----> max(Comparator.comparing(Person::getAge)); //// min(Comparator.comparing(Person::getAge));
+                  max() method throws NullPointerException if the maximum element found is null (*******)
+				  max(maxComparator); //// System.out.println(maxNumber.get());
+
+ reduce ---------> reduce((s1,s2) -> s1 + "#" + s2);
+ 
+ forEachOrdered ----> Orders the elements.
+ 
+ 
+
+=======================================================
 
  MAP :=
 ~~~~~~
@@ -699,24 +741,18 @@ Terminal-Operations :=
 --->flatMap() operation has the effect of applying a one-to-many transformation to the elements of the stream, and then flattening the resulting elements into a new stream.
  ----The function used for transformation in flatMap() is a stateless function and returns only a stream of new values.
 
-
----->peek(Consumer action) method which returns a new stream consists of all the elements of original stream after applying the method argument Consumer action.
-
----->Stream.peek() without any terminal operation does nothing
-
----->Stream.limit(long maxSize) method to retrieve elements while they must not be greater than a certain maximum count.
-
-----> Stream.skip(long n) method to skip first 'n' elements from a stream. skip() method returns a stream consisting of the remaining elements of this stream, after the specified n elements have been skipped.
-   
-   ----This method may throw IllegalArgumentException if n is negative.
-
-Eg :=
-~~~
-        Stream<Integer> evenNumInfiniteStream = Stream.iterate(0, n -> n + 2);
-        List<Integer> newList = evenNumInfiniteStream.skip(5).limit(10).collect(Collectors.toList());
-        System.out.println(newList);
-
 ---->Stream.skip() method can be a useful in certain cases where we need to get the elements from a stream but first we need to skip few elements from the stream. 
+
+
+ Sorted() in Reverse Order :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   List<Employee> listOfEmployee = empList.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+   
+   
+ GeyKeys using Java-8 :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+   Map>Integer , Integer> Imap =  map.entrySet().stream().filter(map1-> map1.getKey() >5)
+                                            .collect(Collectors.toMap(map1 -> map1.getKey(), map1 -> map1.getValue()));
 
 =====================================================
 
@@ -745,8 +781,8 @@ Eg :=
 
 ---->Stream.forEach(Consumer action) method to traverse all the elements of stream and performs an action for each element of this stream.
 
-Eg:=
-~~~~
+ Eg11 :=
+~~~~~~
    List<Integer> list = Arrays.asList(2, 4, 6, 8, 10); 
    list.stream().sorted(Comparator.reverseOrder()).forEach(System.out::println);
 
@@ -755,8 +791,8 @@ Eg:=
 ---->The behavior of forEach() operation is explicitly non-deterministic. ( No Guaranty of Ordering-elements )
     The behavior of forEachOrdered() operation respects the the encounter order of the stream if the stream has a defined encounter order whether it is parallel stream or sequential.
 	
- Eg:=
- ~~~
+ Eg22 :=
+ ~~~~~
         List<Integer> list = Arrays.asList(2, 4, 6, 8, 10);
         list.stream().parallel().forEach( System.out::println );         // 6,10,8,4,2
         list.stream().parallel().forEachOrdered( System.out::println );  //2,4,,6,8,10
@@ -765,14 +801,14 @@ Eg:=
 
 ---->Stream.toArray() to convert stream to array
 
-Eg1:=
-~~~
+ Eg1:=
+~~~~~~
         Stream<String> tokenStream = Arrays.asList("A", "B", "C", "D").stream();  //stream
         String[] tokenArray = tokenStream.toArray(String[]::new);   //array
         System.out.println(Arrays.toString(tokenArray));
 
-Eg2:=
-~~~~
+ Eg2 :=
+~~~~~~~
         Employee[] employeesArray = employeeList.stream().filter(e -> e.getSalary() < 400).toArray(Employee[]::new);		
 
 
@@ -1025,15 +1061,23 @@ It is used to avoid “NullPointerException”.
 
 			Collections.sort(listEmployees,new AgeComparator());
 			 listEmployees.forEach(System.out::println);
+	
+	
+  Collections.sort(empList, (emp1, emp2) -> comp.compare(emp1, emp2));
 			 
 			 
-//Compare by Id
-Comparator<Employee> compareById_1 = Comparator.comparing(e -> e.getId());
+ //Compare by Id
+  Comparator<Employee> compareById_1 = Comparator.comparing(e -> e.getId());
  
-Comparator<Employee> compareById_2 = (Employee o1, Employee o2) -> o1.getId().compareTo( o2.getId() );
 
- Comparator<Employee> comparator = Comparator.comparing(e -> e.getFirstName());
+  Comparator<Employee> compareById_2 = (Employee o1, Employee o2) -> o1.getId().compareTo( o2.getId() );
+
+
+  Comparator<Employee> comparator = Comparator.comparing(e -> e.getFirstName());
     employees.sort(comparator.reversed());
+
+
+  employees.sort(Comparator.comparing(e -> e.getFirstName()));
 
 
     //Sort all employees by first name

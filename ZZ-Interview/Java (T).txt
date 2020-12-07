@@ -41,6 +41,9 @@
 								 
 	
  Why String is Immutable -----> SEVERAL REFERENCES POINTS TO SAME-OBJECT . (***************) 
+ 
+ 
+                    Java Best Practices Interview question -----> JAVA-REVISITED 
 
 ====================================================================================
 
@@ -907,11 +910,11 @@ Class Vehicle{
 ~~~~~~~~~~~~~~~~~~~~
   
   
- Overload-Constructor :=
+ Overload-Constructor := (YESSs) To define different Object Initialization Logic. 
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 
- Override-Constructor := If Constructors can be inherited then it will be impossible to achieving encapsulation.	
+ Override-Constructor := (NOOOo) If Constructors can be inherited then it will be impossible to achieving encapsulation.	
 ~~~~~~~~~~~~~~~~~~~~~~~
 
  Synchronized Constructor :=

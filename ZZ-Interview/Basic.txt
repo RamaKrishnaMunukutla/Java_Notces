@@ -1,6 +1,6 @@
 
 
-  SortingAlogorithm.........
+  SortingTechniques.........
 
 ===============================================================================================
    
@@ -258,14 +258,31 @@
 		
 ===========================================================================================================
  
- SortingAlogorithm :=  YOUTUBE ::  JOE JAMES 
+ SortingTechniques :=  YOUTUBE ::  JOE JAMES 
 ~~~~~~~~~~~~~~~~~~~~~ 
 
- (1) Insertion Order :=
-~~~~~~~~~~~~~~~~~~~~~~~
- ---  
+ (1) Bubble Sort  :=
+~~~~~~~~~~~~~~~~~~
+ --- Sorts elements either in ASC/DESC by comparing ADJACENT elements.
+ --- If 'n' elements are present , then we need (n-1) PASSES to Sort. 
 		 
-		
+ 
+  Logic ::
+  ------
+            int n = arr.length;   int temp = 0;  
+     		for(int i=0; i < n; i++){  
+                 for(int j=1; j < (n-i); j++){  
+                          if(arr[j-1] > arr[j]){  
+                                 //swap elements  
+                                 temp = arr[j-1];  
+                                 arr[j-1] = arr[j];  
+                                 arr[j] = temp;  
+				         }
+			         }
+		        } 
+	
+========================	
+	
  (2) Selection  Order :=
 ~~~~~~~~~~~~~~~~~~~~~~~
  --- It is Slow 		
@@ -287,7 +304,20 @@
 	
 ===========================================================================================================		
 		
-		
+ Fabinnaci Seies :=  // Storing  SUM && PREVIOUS values 
+~~~~~~~~~~~~~~~~~~
+		int num = 5;
+		     //    <------
+		int n1 = 0, n2 = 1, sum = 0;
+		for (int i = 0; i < num; i++) {
+
+			System.out.print(n1 + " ");
+			sum = n1 + n2;
+			n1 = n2;
+			n2 = sum;
+		}
+
+===============================================		
 		
 		
 		

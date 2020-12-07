@@ -14,68 +14,6 @@
   Cycle :=  LEARN && UNDERSTAND THEORY // IMPLEMENT (PRACTISE) // LOGIC (*****)
 ~~~~~~~~~~  
  
-
-==========================================================
-  
- how to apply LazyLoading in springBoot Application?
-how to read external properties file in spring?
-what are springboot starters?
-explain spring profile?
-what is use of devtool dependecy?
-how to Encript the properties file?
-how many way to comminucate with microservices?
-@Autowire Types?
-how to do setter Injection using Autowire.?
-what is difference betweeen collection api and StreamApi.?
-how to iterate the hashMap values using streams.?
-how to bind properties values to bean Object.?
-Annotation in spring boot?
-@bean and @component Annotation?
-stream api?
-differnce between api getWay and service mesh?
-function interface?
-multiple interface having same method name ?
-
-  MultiThreading /// Maven // JIRA // POSTMAN // AGILE  // SQL queries 
-  
-   Sonar Qube // Apache-Kafka  // Redis // 
-   
-   
-   
-     JDBC-Batch ----> Statement stmt = conn.createStatement();  /// stmt.addBatch(SQL); /// stmt.executeBatch();
-                   
-				   PreparedStatemen pstmt = conn.prepareStatement(SQL);
-
-
-Generics // Strings /// 
-  BatchProcessing (Both))
-  Transactional
-  Java configuration
-  Exceptional handling 
-  File Handling 
-  MultiThreading
-  178 videos
-  Hibernate 5 Adv
-  JPA Cascade  // @Id generation 
-  mapping (Both)
-  Debug Query
-  JUnit Testing
-  DataBase
-  Git Interview
-  Stack && Queue
-Rest API Versioning 
-Spring boot Internal Flow
-  AJAX Crash Course 
-  JQuery Crash Course 
-  MySQL Crash Course
-
-transaction management 
-SQL QUERIES
-Java lateset updates on storage
-  reactive programming
-  kotlin
- Data STRUCTURES
-   
 =========================================================================================================  
 
  AshokIt22 :=
@@ -96,12 +34,13 @@ Java lateset updates on storage
   
 =================================================
 
- NareshIT33 :=
+ NareshIT33 :=    SCJP /// OCJP
 ~~~~~~~~~~~~~~
   Notces-Password ---> 460621 
   
   Course Content Link: http://www.nareshit.com/course/aws-online-training/
 For New  Batches Visit: https://nareshit.com/new-batches-hyderabad/#Online-Training
+                        https://nareshit.com/online-training/
   
 =============================================================================================
 
@@ -208,46 +147,34 @@ For New  Batches Visit: https://nareshit.com/new-batches-hyderabad/#Online-Trai
 	         Talk2 Amareswaran ~~~~~~~~~~ https://www.youtube.com/c/Talk2Amareswaran/videos
                   B2Tech ~~~~~~~~~~~~~~~~ https://www.youtube.com/channel/UCff5tZ-js4bu68GQB_EhW9w/videos
             learnby bhanu ~~~~~~~~~~~~~~~ https://www.youtube.com/c/learnbybhanu/videos
-			 Gaurav Sen ~~~~~~~~~~~~~~~~~ https://www.youtube.com/c/GauravSensei/playlists
              
 			 
-		    Drunken Engineer ~~~~~~~~~~~ https://www.youtube.com/c/DrunkenEngineer/videos 
-			Byte Programming ~~~~~~~~~~~ https://www.youtube.com/c/ByteProgrammingVedantHarish/videos
-            Simple Programming ~~~~~~~~~ https://www.youtube.com/c/SimpleProgramming/videos 
-            Gain Java Knowledge ~~~~~~~~ https://www.youtube.com/channel/UCM9SA8hzCTfaDinwb_vU_5Q/videos
-               Java Wave ~~~~~~~~~~~~~~~ https://www.youtube.com/channel/UCuH4HjG0CdEX43HT18UrUow/playlists
-    
-	
-	 Learnprograming byluckysir ~~~~ https://www.youtube.com/c/learnprogramingbyluckysir/videos	   
+		   Drunken Engineer ~~~~~~~~~~~ https://www.youtube.com/c/DrunkenEngineer/videos 
+		   Byte Programming ~~~~~~~~~~~ https://www.youtube.com/c/ByteProgrammingVedantHarish/videos
+           Simple Programming ~~~~~~~~~ https://www.youtube.com/c/SimpleProgramming/videos 
+           Gain Java Knowledge ~~~~~~~~ https://www.youtube.com/channel/UCM9SA8hzCTfaDinwb_vU_5Q/vide
+           ProgrammingKnowledge ~~~~~~~ https://www.youtube.com/c/ProgrammingKnowledge/playlists
+	     Learnprograming byluckysir ~~~ https://www.youtube.com/c/learnprogramingbyluckysir/videos	
+
+		 
            Almighty  java ~~~~~~~~~~ https://www.youtube.com/c/AlmightyJava/playlists        
 	         Siva Reddy ~~~~~~~~~~~  https://www.youtube.com/c/SivaReddyJavaTechie/videos   [/==****==/]
-	      ARC Tutorials ~~~~~~~~~~~~ https://www.youtube.com/channel/UCSqAIRXiW8qMrUKbGvLpXKw/videos
-	      Mahika Tutorials ~~~~~~~~~ https://www.youtube.com/c/MahikaTutorials/videos
-	 Learn With KrishnaSandeep ~~~~~ https://www.youtube.com/user/springhibernatetutes/playlists
-	     techsith ~~~~~~~~~~~~~~~~~~ https://www.youtube.com/c/Techsithtube/playlists
+	      ARC Tutorials ~~~~~~~~~~~~ https://www.youtube.com/channel/UCSqAIRXiW8qMrUKbGvLpXKw/videos  [/==UI==/]
+		techsith ~~~~~~~~~~~~~~~~~~~ https://www.youtube.com/c/Techsithtube/playlis	   
 	   
-	   
-          Product Engineer ~~~~~~~ https://www.youtube.com/channel/UCKLrvwglZb6h9SEM__fgSjg/playlists
               Play Java ~~~~~~~~~~ https://www.youtube.com/channel/UCq2kXUtnqL9eEyTi9TNfX6w/videos
 	        Green Learner ~~~~~~~~ https://www.youtube.com/c/GreenLearner/playlists
-			 Let's engineer! ~~~~~ https://www.youtube.com/c/ComputersciencewithShankhaMandal/playlists
 			Akshay Saini ~~~~~~~~~ https://www.youtube.com/c/akshaymarch7/playlists 
-			  techsith ~~~~~~~~~~~ https://www.youtube.com/c/Techsithtube/playlists
-              Gaurav Sen ~~~~~~~~~ https://www.youtube.com/c/GauravSensei/playlists
-	    ProgrammingKnowledge ~~~~~ https://www.youtube.com/c/ProgrammingKnowledge/playlists
-			
-			
-			Mithun Technologies ~~~~~~~~~ https://www.youtube.com/channel/UC-Jr307MbEREy8bG6McwD6w/videos
-			  Mahika Tutorials ~~~~~~~~~~ https://www.youtube.com/c/MahikaTutorials/playlists
-			 Kindson The Tech Pro ~~~~~~~ https://www.youtube.com/c/KindsonTheTechPro/playlists
-			   Dinesh Varyani ~~~~~~~~~~~ https://www.youtube.com/c/hubberspot/playlists
-			    Akshay Saini ~~~~~~~~~~~~ https://www.youtube.com/c/akshaymarch7/playlists
-			    Education 4u ~~~~~~~~~~~~ https://www.youtube.com/channel/UCKS34cSMNaXaySe2xgXH-3A/playlists
+
+            Gaurav Sen ~~~~~~~~~~~~~ https://www.youtube.com/c/GauravSensei/playlists
+	   Kindson The Tech Pro ~~~~~~~~ https://www.youtube.com/c/KindsonTheTechPro/playlists
+          Dinesh Varyani ~~~~~~~~~~~ https://www.youtube.com/c/hubberspot/playlists
+            Akshay Saini ~~~~~~~~~~~ https://www.youtube.com/c/akshaymarch7/playlists
+            Education 4u ~~~~~~~~~~~ https://www.youtube.com/channel/UCKS34cSMNaXaySe2xgXH-3A/playlists
 			                           
-				TheDevOpsSchool ~~~~~~~~~ https://www.youtube.com/c/TheDevOpsSchool/playlists
-				
-				Abdelkader Yahyaoui ~~~~~~~~~ https://www.youtube.com/channel/UC73I6o4GTfCnxr2Q8f4FhfQ/playlists
-				Sada Learning Hub ~~~~~~~~~~~ https://www.youtube.com/c/SadaLearningHub/playlists
+		 TheDevOpsSchool ~~~~~~~~ https://www.youtube.com/c/TheDevOpsSchool/playlists	
+	   Abdelkader Yahyaoui ~~~~~~ https://www.youtube.com/channel/UC73I6o4GTfCnxr2Q8f4FhfQ/playlists
+        Sada Learning Hub ~~~~~~~ https://www.youtube.com/c/SadaLearningHub/playlists
 					https://www.youtube.com/user/springhibernatetutes/playlists
 					Coding Simplified ~~~~~~~ https://www.youtube.com/c/CodingSimplified/playlists
 					 Natural Programmer ~~~~~ https://www.youtube.com/c/naturalprogrammer-com/playlists
@@ -267,34 +194,7 @@ For New  Batches Visit: https://nareshit.com/new-batches-hyderabad/#Online-Trai
 	   Software Testing Mentor ~~~~~~~~~~~ https://www.youtube.com/c/SoftwareTestingMentor/playlists 
               Valentin Despa ~~~~~~~~~~~~~ https://www.youtube.com/channel/UCUUl_HXJjU--iYjUkIgEcTw/playlists
 		Automation By - Raghav Pal ~~~~~~~ https://www.youtube.com/c/AutomationStepByStep/playlists
-                QASCRIPT ~~~~~~~~~~~~~~~~~ https://www.youtube.com/channel/UC6LyUhddo6bH2CcFLpFjjsA/playlists
-  
-  
-  
- KK Tutorials :=
-~~~~~~~~~~~~~~  
-  Exception ---> https://www.youtube.com/watch?v=DMmp5TanmD0&list=PLzS3AYzXBoj8kjn4sD1_TDYH2DC0oupJi&ab_channel=KKJavaTutorials
- Collection ---> https://www.youtube.com/watch?v=XUTJZZDZG8k&list=PLzS3AYzXBoj8XCaW6-o73-FkvZPMas41L&ab_channel=KKJavaTutorials
-  Java-8 --->https://www.youtube.com/watch?v=1RmzYPO0z_s&list=PLzS3AYzXBoj8Fm19MdV3jqZOCLOh984xK&ab_channel=KKJavaTutorials
- Java-8 (Colle)---> https://www.youtube.com/watch?v=KnfYq136bWw&list=PLzS3AYzXBoj81AIcYmKJqNI8DD3zJMzHU&ab_channel=KKJavaTutorials
- Core Java ---> https://www.youtube.com/watch?v=BUaGXxUJ7Zg&list=PLzS3AYzXBoj84LfxRFAuM-eDlPRWvhGeJ&ab_channel=KKJavaTutorials 
- 
- 
-  MultiThreading :=
---------------
- --- https://www.youtube.com/watch?v=ZM93AA6wzY8&list=PLzS3AYzXBoj-2YQ8K5m5P-609YYq4VBbe&ab_channel=KKJavaTutorials
- --- https://www.youtube.com/watch?v=hlK-ca64VI4&list=PLzS3AYzXBoj8jq5o5qolE4Kki19j1UrS8&ab_channel=KKJavaTutorials
-
-  Spring ---> https://www.youtube.com/watch?v=FvGZesiLwwo&list=PLzS3AYzXBoj8U0zgO7Kuu_2KtclkB1gSV&ab_channel=KKJavaTutorials
- SpringBoot ---> https://www.youtube.com/watch?v=R9qanO4c7bY&list=PLzS3AYzXBoj8UcLsBN3UXd7Nf1T4ZyJa0&ab_channel=KKJavaTutorials
- 
- Hibernate ---> https://www.youtube.com/watch?v=bMvqaCP0PDo&list=PLzS3AYzXBoj_o6sOu2CUnnSEk1e8Sb1op&ab_channel=KKJavaTutorials
- 
- Maven ---> https://www.youtube.com/watch?v=_bkT85B6n1U&list=PLzS3AYzXBoj8mX3WbzQDghYytnx2JqBrU&ab_channel=KKJavaTutorials
- 
- GIT ------> https://www.youtube.com/watch?v=_bkT85B6n1U&list=PLzS3AYzXBoj8mX3WbzQDghYytnx2JqBrU&ab_channel=KKJavaTutorials
-             https://www.youtube.com/watch?v=2rCo62FkRV8&list=PLzS3AYzXBoj9VxjaTOjuQCG6zyFw9-xLI 
-			 
+                QASCRIPT ~~~~~~~~~~~~~~~~~ https://www.youtube.com/channel/UC6LyUhddo6bH2CcFLpFjjsA/playlists			 
 			 
 ===================================================================================================================
 
@@ -323,6 +223,8 @@ For New  Batches Visit: https://nareshit.com/new-batches-hyderabad/#Online-Trai
        
 	   
 	      HR-INTERVIEW (YOUTUBE)  ---->  CareerRide  rama910@
+
+
    
 ===========================================================================================
 
@@ -357,116 +259,6 @@ For New  Batches Visit: https://nareshit.com/new-batches-hyderabad/#Online-Trai
  --- maximum-and-minimum-occurring-character-in-a-string
  
  --- Most-repeated-word-in-a-text-file
- 
-=================================================================================================
-	
-Basics of garbage collection.
-How to manage JVM memory for better performance.
-How to manage heap memory and permgen space.
-How to handle out of memory error.
-How to identify memory leak and how to handle.
-
- was asked to write a program for singelton design pattern and how to avoid violation of its validity using java reflection.
-How hashmaps works internally and when is resizing done.
-Write a program to find one/two/three missing number in given series.
-How java garbage collector works in detail.
-Arraylist vs linklist.when to use stack/queue.
-Given stack array write program to convert it to queue.
-How ajax works.write equivalent jQuery.
-When we use throwable in exception. Answer is in logging.
-Factory design pattern.
-Sql query to find 2/3/nth highest.
-What are subquesries how is it diffrent from correlated query.
-Given array write optimised code to find two number such that there sum is k.
-Overloading overloading and method hiding.
-Static methods when to use
-Java enums
-Overriding rules of user defined exception
-How java classloader works.
-Write a program to count number of character occurance in words
-How hashset use hashmap internally
-Find 10th prime number.
-What are types of mapping possible in spring-MVC controller and annotation based.
-Architecture of spring MVC.
-multiple dispatcher servlet.
-implement LRU in java.
-implement producer-consumer problem.
-
-----> Push code from local to Remote Repositary.
-      git checkout // git pull,update
-
-   
-    Sites........Core-Tasks......JIRA......Docker.......MySQL.....MongoDB......
-   
-   ...Distributed Messaging.........ApacheCamel ......BootStrap(Cards)
-    
-   rk@gmail.com /// Rama100@
-   
-   JavaGuides ----> Spring (Core, MVC, Boot, Security))  
-   
-   https://stackoverflow.com/questions/55328569/posting-onetomany-in-a-rest-call-via-spring-boot-api
-   
-====================================
-   
- 
- 
- 
- laptop turn-off when baterry 30
-   observable params angular stackblitz
-   reactive form with model class stackblitz
-   relative navigation in angular stackblitz
-   optional route parameters angular stackblitz
- 
-   
-   https://www.edureka.co/blog/interview-questions/typescript-interview-questions/
-   https://www.edureka.co/blog/interview-questions/top-angularjs-interview-questions-2016/
-   https://www.edureka.co/blog/interview-questions/javascript-interview-questions/
-   https://www.interviewbit.com/angular-interview-questions/
-   
- JWT in Microservices //// How to Secure MicroServices
- 
-  Mutual SSL Certificate ///  What is oAth && It's 'f' in MicroServices.
-  
-  Master-Branch  && /// Deploy Boot in AWS.
-  
-  Diff between JWT && Cookie (StackOver , Quora) // Diff between Session-based && Cookie-based
-  
-  
-  
-  .......RaceCondition.........Deadlock..........code for getInstance() method of a Singleton class.............
-   
-   ---lazy and early loading of Singleton and how will you implement it..................
-   
-   ........HashMap Internal Working.............
-   
-   https://javarevisited.blogspot.com/2011/02/how-hashmap-works-in-java.html
-   https://javarevisited.blogspot.com/search/label/Maven
-   
-   https://javarevisited.blogspot.com/2015/10/133-java-interview-questions-answers-from-last-5-years.html
-   ///Interview (2 to 7)
-  https://www.java67.com/2012/09/top-10-tricky-java-interview-questions-answers.html
-   //Tricky
-    https://javarevisited.blogspot.com/2011/12/difference-between-wait-sleep-yield.html
-   https://javarevisited.blogspot.com/2012/05/how-to-use-threadlocal-in-java-benefits.html
-   https://www.java67.com/2015/07/how-to-join-two-threads-in-java-example.html
-   https://javarevisited.blogspot.com/2018/08/how-to-avoid-deadlock-in-java-threads.html
-   https://javarevisited.blogspot.com/2014/07/top-50-java-multithreading-interview-questions-answers.html
-   https://javarevisited.blogspot.com/2011/06/volatile-keyword-java-example-tutorial.html
-   //Threads
- https://javarevisited.blogspot.com/2011/04/difference-between-concurrenthashmap.html
- //Concurrency
- https://javarevisited.blogspot.com/2014/10/how-to-use-locks-in-multi-threaded-java-program-example.html
- ///Locks
- 
-  Role based && Persmission based Authentication 
-   
-        https://www.javatpoint.com/jax-rs-tutorial
-     https://www.javatpoint.com/restful-web-services-exception-handling
-   
-     https://www.javatpoint.com/spring-boot-multi-module-project
-     https://www.javatpoint.com/spring-boot-auto-configuration
-	 https://www.javatpoint.com/spring-boot-project-deployment-using-tomcat
-     https://www.javatpoint.com/spring-boot-aop
 
 ==================================================================================================
 
@@ -500,6 +292,8 @@ JavaScript :=
 ~~~~~~~
 
    ---JavaTpoint(*******) ---->  (Everything ***, Files)
+   
+   --- CdoeFroWin -----> PATTERN 
 
    ---JavaConceptOfday ----> (MultiThreading)
     

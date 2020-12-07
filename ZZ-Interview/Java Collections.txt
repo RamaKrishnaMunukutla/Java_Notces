@@ -780,7 +780,7 @@ TreeMap333 :=  [......ODN, S&TS.......]
 
 ---->The iterators returned by the iterator method are fail-fast.
 
----->HashMap performs much better than TreeMap.
+---->HashMap performs much better than TreeMap.  //// uses CompareTo() method .   
 
 ---->In HashMap, array size is determined while initialization or resizing which if is often more than needed at the time. It waste the memory. There is no such problem with TreeMap.
 
@@ -820,14 +820,17 @@ TreeMap333 :=  [......ODN, S&TS.......]
 ----> The class that implements this interface is TreeMap.
 
 
- IdentityHashMap :=
-~~~~~~~~~~~~~~~~~~~
+ IdentityHashMap (1.4) :=
+~~~~~~~~~~~~~~~~~~~~~~~~
 ----> It follows reference equality, instead of using the equals() method it uses the == operator.
+----> Uses System.identityHashCode() to locate Bucket location . 
 
 
  WeakHashMap := [ https://www.geeksforgeeks.org/hashmap-vs-weakhashmap-java/ ]
 ~~~~~~~~~~~~~~
 ----->  Even though the object is specified as key in hashmap, it does not have any reference and it is not eligible for garbage collection if it is associated with HashMap i.e. HashMap dominates over Garbage Collector.
+
+----> Does not implement Serializable & Clonenable interface . (***********)
 
 ----> WeakHashMap is almost same as HashMap except in case of WeakHashMap, if object is specified as key doesn’t contain any references- it is eligible for garbage collection even though it is associated with WeakHashMap. i.e Garbage Collector dominates over WeakHashMap.
  

@@ -174,7 +174,9 @@ The Spring IoC container is at the core of the Spring Framework. The container w
 		 
 ---->2 differnt-Types of IOC-Container (1)BeanFactory  (2)ApplicationContext.
 
-========================
+========================================================
+
+  BeanFactory ----->  ClassPathResource /// FileSystemResource 
 
  Syntactically BeanFactory and ApplicationContext both are Java interfaces and ApplicationContext extends BeanFactory :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -189,7 +191,7 @@ The Spring IoC container is at the core of the Spring Framework. The container w
 
 In summary, BeanFactory is OK for testing and non-production use but ApplicationContext is more feature-rich container implementation and should be favored over BeanFactory
 
-========================
+======================================================
 
 ---->Dependency Injection/Inversion of Control design pattern allows us to remove the hard-coded dependencies and make our application loosely coupled, extendable and maintainable. (**************)
 
