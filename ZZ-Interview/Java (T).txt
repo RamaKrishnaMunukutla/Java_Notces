@@ -17,7 +17,7 @@
 		  
     ....ExceptionHandling...........ComparableANDComparator.....equalsANDhashcode...shallowANDdeep...AccessModifier880
 		  
-	....FileHandling233.............Serialization334.......Externalizable678...........ThrowsANDThrow........
+	....FileHandling233.............Serialization334.......Externalizable678...........ThrowsANDThrow......Generics840
 	  
     ....CheckedExceptionUncheckedException....ClassLoaders340.....CustomException........
 	  
@@ -1470,6 +1470,26 @@ Finalize  :=
 ----> Sytsem.gc() run garbage-collector thread.
 
 ===================================================================================================
+
+ Generics840 :=
+~~~~~~~~~~~~
+ --- Strong Type checking at compile time  .
+ --- Casting not required 
+ --- In java, it has Generic-Interface, Generic-Class , Generic-Methods .
+ 
+ 
+   https://github.com/kishanjavatrainer/TypesOfGenericWildcardsExamples
+   
+  Eg :=
+ ~~~~
+   List ll = new ArrayList<Integer>();
+   ll.add(2);
+   ll.add(3);
+   ll.add(new Integer(4));
+   
+   Result ----> java.lang.ClassCastEcception ::  Cannot cast java.lang.Integer to java.lang.String 
+ 
+==========================================================================================================
  
 ComparableANDComparator := [ https://www.journaldev.com/780/comparable-and-comparator-in-java-example ]
 ~~~~~~~~~~~~~~~~~~~~~~~~   Youtube ---> Byte Programming   /// 

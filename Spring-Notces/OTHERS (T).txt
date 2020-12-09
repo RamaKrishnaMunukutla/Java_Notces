@@ -1171,15 +1171,144 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
 ===================================================================================================
 
+==============/\/\\/\\/==============\/\\/\//\/\============/\/\\/\/\\/\===========/\/\\/\==============
+
+ Mockito990 (clone of the real objects ):= [ https://github.com/journaldev/journaldev/tree/master/Mockito-Examples/src ]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    JAVA-T-POINT /// JOURNAL-DEV
+ --- Mockito is a java based mocking framework, used in conjunction with other testing frameworks such as JUnit .
+ --- he Mockito framework allows us to create mock objects using either @Mock annotation or mock() static method.
+ --- Mock objects are referred to as the dummy or proxy objects used for actual implementations.
+ 
+ --- A method invoked using mocked reference does not execute method body defined in class file, 
+             rather the method behavior is configured using when-thenReturn methods combinations.
+			 
+			 
+			    Stub object ----> Used for state verification. /// There are a lot of maintenance problems using stubs.
+				Fake -----------> Contains simplified version of the production code.
+				  Mock ---------> Used for behavior verification.
+ 
+ 
+              @Mock (HAS-A)         -----> Custom-Objects 			  
+
+			  @Spy                 ------>  Predefined-Class . 
+			                                 Call the no-args constructor to initialized the mocked object. 
+				                             If your class doesn’t have it then you will get the ERROR. 
+											  @Spy
+	                                         Utils mockUtils;  
+											 
+ @InjectMock (HAS-A) (CLASS-LEVEL)  ------>  To inject a mocked object into another mocked object.
+			                                 @InjectMocks Department ;
+   
+  MockitoAnnotations.initMocks(this); ----> To initialize objects annotated with @Mock, @Spy, @Captor, or @InjectMocks.
+		
+		      Another               ------>  List<String> mockedList = Mockito.mock(List.class);
+                                               AddService addService  = Mockito.mock(AddService.class);		
+				
+			 @DataProvider          ------>  From where data is Provided.  /// @Test(dataProvider = "dp") 
+	
+	    @Test(dataProvider = "dp")  ------>  Telling that , Get the  Data from 'dp-method'  
+	 
+	         
+	
+		Mockito spy       -------> 1. spy() method  ///  2. @Spy annotation ./// Used to  mock an object PARTIALLY 
+		                           mock only specific behaviors and call the real methods for unstubbed behavior
+								   
+								   List spyOnList = spy(List.class);
+
+								   @Spy 
+								   List spyOnList1;
+ 
+ 
+ @Mock  := 
+~~~~~~~~~
+ --- To inject mocked objects to TestNG tests,
+     just make sure to call MockitoAnnotations.initMocks(this) in the @BeforeMethod method, 
+       so that Mockito will initialize the mocked objects.
+	   
+ PowerMock :=
+~~~~~~~~~~~~
+ --- Use PowerMock along with Mockito framework to mock static methods.
+ --- For running JUnit 4 test cases using PowerMock ---->  "-powermock-module-junit4-" 
+ 
+ --- Annotate test class with @RunWith(PowerMockRunner.class) annotation.
+ --- Annotate test class with @PrepareForTest and provide classed to be mocked using PowerMock.
+ 
+      For mocking class with static methods    ----> PowerMockito.mockStatic()
+      For verifying mocked methods using Mocki ----> PowerMockito.verifyStatic()
+	  
+ --- The PowerMock framework uses a custom classloader and bytecode manipulation techniques to enable the mocking of 
+      static methods, final classes, 
+	  final methods, private methods, 
+	        constructor, and removal of static initializers. 
+ --- PowerMock used to mock :: 
+                 Mock private method ||| Mock static method
+                 Mock final method |||| Mock final class ||| Mock constructor
+
+  
+  Eg :=
+~~~~~~
+public class Utils {
+
+	public static boolean print(String msg) {
+		System.out.println("Printing "+msg);
+		return true;
+	}
+}
+
+@RunWith(PowerMockRunner.class)
+@PrepareForTest(Utils.class)
+public class JUnit4PowerMockitoStaticTest{
+
+	@Test
+	public void test_static_mock_methods() {
+		PowerMockito.mockStatic(Utils.class);
+		when(Utils.print("Hello")).thenReturn(true);
+		when(Utils.print("Wrong Message")).thenReturn(false);
+		
+		assertTrue(Utils.print("Hello"));
+		assertFalse(Utils.print("Wrong Message"));
+		
+		PowerMockito.verifyStatic(Utils.class, atLeast(2));
+		Utils.print(anyString());
+	}
+}
+
+===========================
+
+  Eg :=
+~~~~~~	
+	@Mock
+	private AddService addService;
+
+	@BeforeMethod
+	public void setup() {
+		MockitoAnnotations.initMocks(this);
+	}
+	
+ Eg-2 := /// for Exception case 
+~~~~~~~
+		List<String> list = mock(List.class);
+		when(list.size()).thenThrow(new RuntimeException("size() method not supported"));
+
+		Exception exception = assertThrows(RuntimeException.class, () -> list.size());
+		assertEquals("size() method not supported", exception.getMessage());
+
+===================================================================================================
 
 ==============/\/\\/\\/==============\/\\/\//\/\============/\/\\/\/\\/\===========/\/\\/\==============
 
  JUnit550 :=   [JUnit 5 requires Java 8 at runtime. ]
 ~~~~~~~~~   
-          ********[ YOUTUBE ---> Gain Java Knowledge , Java Techie , JavaGuides, ]********
-  
+        ********[ YOUTUBE ---> Gain Java Knowledge , Java Techie , JavaGuides, ]********
+
    https://github.com/Java-Techie-jt/spring-boot-powermock
   
+ --- One of the popular framework used to implement unit tests against java code. 
+ --- JUnit primarily helps developers to test their code on the JVM by themselves.
+  
+     Junit Jupiter ----> Blend of new programming model for writing tests and extension model for extensions
+	 Junit Platform ---> Launches testing frameworks on the JVM.
+	 Junit Vintage -----> Provides support to execute previous JUnit version 3 and 4 tests on this new platform
   
 
 ----> JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage
@@ -1195,7 +1324,6 @@ JUnit Jupiter := It has all new junit annotations and TestEngine implementation 
 JUnit Vintage := To support running JUnit 3 and JUnit 4 written tests on the JUnit 5 platform.
 ~~~~~~~~~~~~~~
 
-
  @BeforeEach ----> The annotated method will be run before each test method in the test class.
 
  @AfterEach----> The annotated method will be run after each test method in the test class.
@@ -1209,8 +1337,51 @@ JUnit Vintage := To support running JUnit 3 and JUnit 4 written tests on the JUn
  @Disabled ----> It is used to disable or ignore that test class/method from test-suite.
  
  @RepeatedTest(5) ----> Runs Test-case for Specified No.of times.
+ 
+ @Test	---->  Denotes a test method
+ 
+ @DisplayName ---->  Declares a custom display name for the test class or test method
+
+ @Disable ---->  Used to disable a test class or test method
+ 
+ @Nested ---->  Denotes that the annotated class is a nested, non-static test class
+ 
+ @Tag ---->  Declare tags for filtering tests  /// @Tag("development")
+             help in create multiple different test plans for different environments, 
+			   different use-cases or any specific requirement. 
+ 
+ @ExtendWith ---->  Register custom extensions
+
+
+@RunWith(JUnitPlatform.class)
+@SelectPackages("com.howtodoinjava.junit5.examples")
+@IncludeTags({"production","development"})
+
+
 
 =============================================
+
+ @DisplayName ----> Used to provide information about the test methods
+
+
+=============================================
+
+ assertEquals(expected, actual) ---->  Fails when expected does not equal actual
+ 
+ assertFalse(expression) ---->  Fails when expression is not false
+ 
+ assertNull(actual) ---->  Fails when actual is not null
+ 
+ assertNotNull(actual) ---->  Fails when actual is null
+ 
+ assertAll() ---->  Group many assertions and every assertion is executed even if one or more of them fails
+ 
+ assertTrue(expression) ---->  Fails if expression is not true
+ 
+ assertThrows() ---->   Class to be tested is expected to throw an exception
+
+
+==============================================
 
  @Tag ----> Mark test class/method with tags for test discovering and filtering.  eg::  @Tag("development")
  
@@ -1268,7 +1439,7 @@ JUnit Vintage := To support running JUnit 3 and JUnit 4 written tests on the JUn
  Assertions.assertNotEquals() := It is used to assert that expected value and actual value are NOT equal.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-=============================================
+========================
 
  Assumptions := It provides static methods to support conditional test execution based on assumptions.
 ~~~~~~~~~~~~~
@@ -1343,7 +1514,7 @@ JUnit Vintage := To support running JUnit 3 and JUnit 4 written tests on the JUn
 	
 	}
  
-=====================================================
+============================
 
 Junit ----> ECL Emma (STS MarketPlace)
    
@@ -1353,7 +1524,75 @@ Junit ----> ECL Emma (STS MarketPlace)
    
    @RunWith(SpringRunner.class)
 
-==========================================================
+   ecl emma
+   jacoco
+   
+   Cntrl + Shift + O ----> API
+    Cntrl + o -----------> Methods
+
+===============================
+
+ Junit Dependencies :=
+~~~~~~~~~~~~~~~~~~~~~
+ 
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-module-junit4</artifactId>
+			<version>2.0.7</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-api-mockito</artifactId>
+			<version>1.7.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<plugin>
+			<artifactId>maven-surefire-plugin</artifactId>
+			<version>2.19.1</version>
+			<dependencies>
+               <dependency>
+                  <groupId>org.junit.platform</groupId>
+                  <artifactId>junit-platform-surefire-provider</artifactId>
+                  <version>1.0.2</version>
+               </dependency>
+			</dependencies>
+ 
+   </plugin>
+        <dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.10.19</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>2.19.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<version>2.19.0</version>
+			<scope>test</scope>
+		</dependency>
+
+
+
+============================================
 
  Mockito330 :=
 ~~~~~~~~~~~~
