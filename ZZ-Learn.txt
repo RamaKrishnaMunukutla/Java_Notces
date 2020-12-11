@@ -31,6 +31,17 @@
   
   
  challanaveen521   // 8985352910
+ 
+=====================================
+
+ Spring Btach ----> Multithreading with JVM Parllel-Instances [Buckiting]  (****)
+ 
+  ORA_HASH ----> divides records into Buckets 
+  
+  npm install -g typescript
+
+ 
+ https://github.com/GaneshBidve/IES_Web-App/tree/master/src/main/java/com/ashokit/ies/ies
   
 =================================================
 
@@ -38,9 +49,12 @@
 ~~~~~~~~~~~~~~
   Notces-Password ---> 460621 
   
-  Course Content Link: http://www.nareshit.com/course/aws-online-training/
-For New  Batches Visit: https://nareshit.com/new-batches-hyderabad/#Online-Training
-                        https://nareshit.com/online-training/
+   Course Content Link:   http://www.nareshit.com/course/aws-online-training/
+  For New  Batches Visit: https://nareshit.com/new-batches-hyderabad/#Online-Training
+                          https://nareshit.com/online-training/
+						
+						https://www.nareshit.com/aws-online-training/
+						https://www.udemy.com/user/in28minutes/ 
   
 =============================================================================================
 

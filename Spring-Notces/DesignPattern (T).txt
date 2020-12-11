@@ -16,17 +16,17 @@ It is a pre-defined solution to write program in better way which reduces memory
 
 ===========================================================================================
 
-Creational Design Patterns :=
+Creational Design Patterns :=  [--- SingleTon, ProtoType, Factory, Builder ---]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Creational design patterns provide solution to instantiate a object in the best possible way for specific situations.
 
 
-Structural Design Patterns :=
+Structural Design Patterns :=  [--- Facade , Proxy, Bridge ---]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Structural patterns provide different ways to create a class structure, for example using inheritance and composition to create a large object from small objects.
 
 
-Behavioral Design Patterns :=
+Behavioral Design Patterns := [--- ChainOfresposibility, Iterator, Strategy, Template ---]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
  These design patterns are specifically concerned with communication between objects.
 
@@ -50,6 +50,27 @@ Behavioral Design Patterns :=
 
 
 ============================================================================================================
+
+ OtherPatterns :=
+~~~~~~~~~~~~~~~~
+
+     Bridge ---------> To decouple an abstraction from its implementation (**)
+	 
+	 Builder --------> facilitates with a clear separation between the construction and representation of an object.
+ 
+ Service Locator ----> When we want to locate various services using JNDI
+ 
+    Decorator  -------> Heavily used in Java.io . 
+	                    BufferedReader and BufferedWriter are some excellent examples of decorator pattern in Java.
+						
+	state -------------> Used to manage and define the state of an object, 
+   
+   Strategy -----------> Used to describe a set of an interchangeable algorithm.
+   
+   Composite ----------> Describes the class hierarchy that contains primitive and complex objects.  (***)
+
+
+=================================================================================================================
 
 DependencyInjectionDesign :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -104,7 +125,12 @@ Data Access Object (DAO) pattern is a structural pattern that allows us to separ
     The View which is responsible to show the data present in the application.
     The controller is responsible to accept a request from a user, modify a model and send it to the view which is shown to the user.
 
-   client ---> Controller ----> Model --->View ---> Client (Cyclic)
+                   client ---> Controller ----> Model --->View ---> Client (Cyclic)
+				   
+----> Controllers control both model and view as they serve as a connection between the two objects.
+      The controller plays the role of an interface between View and Model and also intercepts all the incoming requests.
+
+                           Model ---- Controller -----View (********)
    
 ---->MVC pattern emphasis on the low coupling between different components of an application. So, the View layer have no dependency on service layer and only Controller depends on it, even that with the interfaces and not from concrete implementation.
  
@@ -133,6 +159,13 @@ Define a class that has only one instances ,provide global point of access to it
    
    eg := Performing CRUD using one instance only.
    ~~~
+   
+   
+    create a singleton pattern -----> 2-Ways   (a) Early Instantiation   (b) Lazy Instantiation   (**********)
+	
+	    Thread-safe Singleton ------> Double-checking (Or) static Singleton instance (Or) Enum 
+   
+   
 
 To implement a Singleton pattern :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -310,7 +343,10 @@ Extra if condition
 (Q) Is the spring singleton bean thread safe?
 (A) Spring framework does not do anything under the hood concerning the multi-threaded behavior of a singleton bean. It is the developer’s responsibility to deal with concurrency issue and thread safety of the singleton bean.
 
-(Q) How to Overcome Cloning issue in Singleton ?? 
+ (Q) Explain how can you prevent creating another instance of singleton using clone() method?
+ (A) The preferred way to prevent creating another instance of a singleton is by not implementing Cloneable interface
+
+(Q) How to Overcome Cloning issue in Singleton ?? (*********)
 (A) To overcome this issue, override clone() method and throw an exception from clone method that is CloneNotSupportedException. Now whenever user will try to create clone of singleton object, it will throw exception and hence our class remains singleton.
 
            Singleton instance2 = (Singleton) instance1.clone(); 
@@ -342,15 +378,20 @@ It provides a mechanism to copy the original object(which loads data from D/b ) 
 
 ==========================================================================================================
 
-FactoryDesign :=  [....Creational-design-pattern....] (##SubClass-Decides##")  ////// (#Eg:: Mobile-Network#)
+FactoryDesign :=  [....Creational-design-pattern....] (##Interface-- SubClass-Decides##")  ////// (#Eg:: Mobile-Network#)
 ~~~~~~~~~~~~~   
                  https://www.java2novice.com/java-design-patterns/factory-pattern/
                  https://www.tutorialspoint.com/design_pattern/factory_pattern.htm
 				 https://www.javatpoint.com/factory-method-design-pattern
+				
+				
+ --- This pattern provides one of the best ways to create an object.
+ --- In the Factory pattern, We refer the created object using a standard INTERFACE &&& don't expose the creation logic to the  client 
 
-It used when we have a superclass having multiple sub-classes and based on input, we need to return one of the sub-class.
 
---- Any Method is called by using it's Class-Name && Returns It's Instance is called as "Factory-Method" .
+ --- It used when we have a superclass having multiple sub-classes and based on input, we need to return one of the sub-class.
+ --- Any Method is called by using it's Class-Name && Returns It's Instance is called as "Factory-Method" .
+
 
  Eg :=
 ~~~~
@@ -369,6 +410,15 @@ It used when we have a superclass having multiple sub-classes and based on input
 ----> Here, Super class in factory-design-pattern can be an interface, abstract class or a normal java class.
 
 ---->This pattern takes out the responsibility of the instantiation of a class from the client moved to the factory class.
+
+
+ Abstract Factory Design pattern :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Abstract Factory Pattern is one level higher than the Factory Pattern.
+ --- It allowed a class to return a factory of classes.
+ --- Define an abstract class or interface for creating families of related objects but without specifying their concrete sub-classes
+
+
 
 ============================================================================================================
 
@@ -393,6 +443,11 @@ It used when we have a superclass having multiple sub-classes and based on input
  ProxyDesign550 := [....Structural-design-pattern....] 
 ~~~~~~~~~~~~~~~    [https://www.java2novice.com/java-design-patterns/proxy-design-pattern/]
                     https://www.javatpoint.com/proxy-pattern
+
+ --- provides control for accessing the original object. (***************)
+ --- We can perform many security operations like hiding the information of the original object, on-demand loading, etc.
+ 
+         Types of Proxies ----> Protecting, Caching , Remote 
 
  ---a class represents functionality of another class. (provides access-Control to the original object) 
  ---proxy design pattern is used when we want to provide controlled access of a functionality. 
@@ -431,6 +486,8 @@ Eg::-  Now building the foundation for a house is same for all type of houses, w
  
  ChainOfResponsibility  := [....Behavioral-design-pattern....] 
 ~~~~~~~~~~~~~~~~~~~~~~~ 
+ --- Sender sends a request to a chain of objects, and any object in the chain can handle the request.
+ 
 ---->In this, sender sends a request to a chain of objects. The request can be handled by any object in the chain.
    
    Eg :: ATM, uses the Chain of Responsibility design pattern in money giving process.

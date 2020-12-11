@@ -249,6 +249,11 @@ FUNCTONALINTERFACE123 (I) :=   [ https://www.javaguides.net/2018/07/java-8-funct
 
 ================
 
+ (Q) Use of Functional-Interface
+ (A) wrap a function as an interface. The function is represented by the single abstract method on the interface.
+
+=================
+
 ---> Al methods not Thows Exception. 
 
 --->contains only one abstract method. These interfaces are also called Single Abstract Method interfaces (SAM Interfaces).Functional interfaces were introduced in Java 8 in order to implement lambda expressions.

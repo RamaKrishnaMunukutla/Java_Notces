@@ -55,6 +55,74 @@ styles: One or more inline CSS style-sheets specific only to this component.
 
 =====================================================================================================================
 
+  JQuery Does not supports ----> Form-validation , TwoWay Binding, REST API.
+  
+  TypeScript gives support for modules
+JavaScript does not support modules
+
+Angular is an open-source front-end web framework. It is one of the most popular JavaScript frameworks that is mainly maintained by Google.
+
+
+                	     Angular-JS                                  Angular
+Architecture	   Supports MVC design model	           Uses components and directives
+                 Recommended Language: JavaScript      	Recommended Language: TypeScript
+Mobile Support	Doesn’t provide any mobile support	        Provides mobile support
+
+
+ Decorator ----> decorators are the design patterns that are used for separating decoration or modification of a class 
+                     without actually altering the original source code.
+
+ Directive (CSA) 
+ 
+ Controller (F)  ---->  Provide data and logic to HTML UI.
+ 
+  Scopes ----> object that refers to the application model. 
+  
+  DataBinding(4.T)  ---->  Most powerful and important features that allow you to define the communication between the component and DOM.
+                           Defining interactive applications without having to worry about pushing and pulling data between 
+						        your VEIW or template and COMPONENT
+  
+    ngOnChanges --- ngOnInit ---- ngDoCheck --- ngOnDestroy
+
+=============================================================
+
+  -- TypeScript introduced classes so that they can avail the benefits of object-oriented techniques like encapsulation and abstraction.
+ -- TypeScript compiler uses interface for type-checking and checks whether the object has a specific structure or not.
+ 
+interface is a structure that defines the contract in your application. 
+
+
+   optionally statically typed language
+   
+   var unknownType: any = 4;
+    unknownType = "Welcome to Edureka"; //string
+    unknownType = false; // A boolean.
+	
+ Modules :=
+~~~~~~~~~
+ --- module is a powerful way of creating a group of related variables, functions, classes, and interfaces, etc.
+ 
+ TsConfig ---> tsconfig.json file is a file which is in JSON format
+ 
+ Arrow function ----> provides shorthand syntax for defining the anonymous function,
+
+
+
+ Callback (F) :=
+~~~~~~~~~~~~~~~
+ --- A callback is a plain JavaScript function passed to some method as an argument or option. 
+ --- It is a function that is to be executed after another function has finished executing, hence the name ‘call back‘
+
+
+ Closures :=
+~~~~~~~~~~~
+ --- Closures are created whenever a variable that is defined outside the current scope is accessed from within some inner scope. 
+ --- It gives you access to an outer function’s scope from an inner function. 
+ --- In JavaScript, closures are created every time a function is created.
+ --- To use a closure, simply define a function inside another function and expose it.
+
+==================================================================
+
 app.component.spec.ts: This file is a unit testing file related to app component. This file is used along with other unit tests. It is run from Angular CLI by the command ng test.
 
 

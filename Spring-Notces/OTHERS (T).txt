@@ -1173,6 +1173,193 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
 ==============/\/\\/\\/==============\/\\/\//\/\============/\/\\/\/\\/\===========/\/\\/\==============
 
+ EasyMock :=
+~~~~~~~~~~~
+ --- It is an open-source, Java-based testing framework used for testing Java applications && released under the Apache License. 
+ --- We cannot mock final and private methods by using EasyMock.
+ --- It mock both classes and interfaces
+ --- EasyMock.expect(mock.method(args)).andReturn(Value)  /// expect && andReturn 
+                                      Mockito            ///   when  && thenReturn  
+
+	   
+ PowerMock :=
+~~~~~~~~~~~~
+ --- Use PowerMock along with Mockito framework to mock static methods.
+ --- For running JUnit 4 test cases using PowerMock ---->  "-powermock-module-junit4-" 
+ --- The PowerMock framework provides a class called PowerMockito used to create mock objects and initiates verification and expectation.
+ 
+ --- Annotate test class with @RunWith(PowerMockRunner.class) annotation.
+ --- Annotate test class with @PrepareForTest and provide classed to be mocked using PowerMock.
+ 
+      For mocking class with static methods    ----> PowerMockito.mockStatic()
+      For verifying mocked methods using Mocki ----> PowerMockito.verifyStatic()
+	  
+ --- The PowerMock framework uses a custom classloader and bytecode manipulation techniques to enable the mocking of 
+      static methods, final classes, 
+	  final methods, private methods, 
+	        constructor, and removal of static initializers. 
+ --- PowerMock used to mock :: 
+                 Mock private method ||| Mock static method
+                 Mock final method |||| Mock final class ||| Mock constructor
+				 
+				 
+ --- It is built on top of Mockito. (supports mocking static methods)
+ --- PowerMockito.mock() method for mocking the abstract classes.
+ --- Using PowerMock instead of Mockito.mock() is a better approach as it can have control over the private as well as static methods.
+ 
+ 
+        Stubs ---------> are the objects that hold predefined data and uses it to give responses during tests. In
+	                      we are going to mock the abstract classes using the Mockito.mock() method.
+	                     , mocking is used to create a clone or dummy object of the class.	
+	    
+		 Spy() -------->  Abstract1_class abstclas = Mockito.spy(Abstract1_class.class);
+		
+		Mock ()   ----->  Abstract_Class ac = mock(Abstract_Class.class);    
+	  
+	  PowerMock() -----> Abstract_Class ac = PowerMockito.mock(Abstract_Class.class);  
+	 
+	               
+				       Assert -----> Throws Exception 
+					   Verify -----> not Throws Exception  
+	
+	
+@RunWith(PowerMockRunner.class): 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- we have used MockitoUnitRunner.class, now we will use PowerMockRunner.class for enabling the PowerMockito APIs in the test.
+
+===================
+
+ (Q) When Unit Tests are created during software life cycle?
+ (A) During development cycle, developers create unit tests for the functionality they are developing .
+ 
+ (Q) What Is Junit TestSuite?
+ (A) junit.framework.TestSuite is a container class that allows grouping and organizing multiple test cases into a collection and run them together.
+
+====================
+ 
+ Eg for Private Methods :=
+~~~~~~~~~~~~~~~~~~~~~~~
+public class Utility {  
+      
+     private String privateMethod(String message) {  
+        return message;  
+    }  
+       
+     public String callPrivateMethod(String message) {  
+         return privateMethod(message);   
+    }  
+ }
+
+       String message = " PowerMock with Mockito and JUnit ";  
+        String expectedmessage = " Using with EasyMock ";  
+          
+        Utility mock =PowerMockito.spy(new Utility());  
+        PowerMockito.doReturn(expectedmessage).when(mock, "privateMethod", message);  
+          
+        String actualmessage = mock.callPrivateMethod(message);  
+        assertEquals(expectedmessage, actualmessage);  
+          
+        System.out.println(PowerMockito.verifyPrivate(getClass()));
+		
+=============		
+
+ Eg for Static Methods :=
+~~~~~~~~~~~~~~~~~~~~~~~
+    public class Utility {  
+     public static String staticMethod(String call) {  
+        return call;  
+    }  
+ }
+ 
+    String call = " Hi there, I'm using PowerMock with Mockito ";  
+    String callexpectation = " Call Expectation for you. ";  
+      
+    PowerMockito.mockStatic(Utility.class);  
+    PowerMockito.when(Utility.staticMethod(call)).thenReturn(callexpectation); 
+	
+===========	
+
+ Eg for Final Methods :=
+~~~~~~~~~~~~~~~~~~~~~~~
+ public class Utility {  
+  
+    public final String finalMethod(String message) {  
+        return message;  
+    }  
+ }
+ 
+        String message = " PowerMock with Mockito and JUnit ";  
+        Utility uti = PowerMockito.mock(Utility.class);  
+        PowerMockito.whenNew(Utility.class).withNoArguments().thenReturn(uti);  
+          
+        Utility uti2 =  new Utility();  
+        PowerMockito.verifyNew(Utility.class).withNoArguments();  
+          
+        PowerMockito.when(uti2.finalMethod(message)).thenReturn(message);  
+          
+        String message2 = uti2.finalMethod(message);  
+        Mockito.verify(uti2).finalMethod(message);  
+        assertEquals(message, message2);  
+
+  
+  Eg :=
+~~~~~~
+public class Utils {
+
+	public static boolean print(String msg) {
+		System.out.println("Printing "+msg);
+		return true;
+	}
+}
+
+@RunWith(PowerMockRunner.class)
+@PrepareForTest(Utils.class)
+public class JUnit4PowerMockitoStaticTest{
+
+	@Test
+	public void test_static_mock_methods() {
+		PowerMockito.mockStatic(Utils.class);
+		when(Utils.print("Hello")).thenReturn(true);
+		when(Utils.print("Wrong Message")).thenReturn(false);
+		
+		assertTrue(Utils.print("Hello"));
+		assertFalse(Utils.print("Wrong Message"));
+		
+		PowerMockito.verifyStatic(Utils.class, atLeast(2));
+		Utils.print(anyString());
+	}
+}
+
+================
+
+  Eg :=
+~~~~~~	
+	@Mock
+	private AddService addService;
+
+	@BeforeMethod
+	public void setup() {
+		MockitoAnnotations.initMocks(this);
+	}
+	
+ Eg-2 := /// for Exception case 
+~~~~~~~
+		List<String> list = mock(List.class);
+		when(list.size()).thenThrow(new RuntimeException("size() method not supported"));
+
+		Exception exception = assertThrows(RuntimeException.class, () -> list.size());
+		assertEquals("size() method not supported", exception.getMessage());
+
+===================================================================================================
+
+==============/\/\\/\\/==============\/\\/\//\/\============/\/\\/\/\\/\===========/\/\\/\==============
+
+ Behavior-driven development (BDD) :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- It is an Agile software development process that supports collaboration among the developers, quality analysts, and business members in a software project. 
+  --- It is developed from the Test-driven development (TDD) software. 
+
+
  Mockito990 (clone of the real objects ):= [ https://github.com/journaldev/journaldev/tree/master/Mockito-Examples/src ]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    JAVA-T-POINT /// JOURNAL-DEV
  --- Mockito is a java based mocking framework, used in conjunction with other testing frameworks such as JUnit .
@@ -1225,79 +1412,33 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
      just make sure to call MockitoAnnotations.initMocks(this) in the @BeforeMethod method, 
        so that Mockito will initialize the mocked objects.
 	   
- PowerMock :=
-~~~~~~~~~~~~
- --- Use PowerMock along with Mockito framework to mock static methods.
- --- For running JUnit 4 test cases using PowerMock ---->  "-powermock-module-junit4-" 
- 
- --- Annotate test class with @RunWith(PowerMockRunner.class) annotation.
- --- Annotate test class with @PrepareForTest and provide classed to be mocked using PowerMock.
- 
-      For mocking class with static methods    ----> PowerMockito.mockStatic()
-      For verifying mocked methods using Mocki ----> PowerMockito.verifyStatic()
-	  
- --- The PowerMock framework uses a custom classloader and bytecode manipulation techniques to enable the mocking of 
-      static methods, final classes, 
-	  final methods, private methods, 
-	        constructor, and removal of static initializers. 
- --- PowerMock used to mock :: 
-                 Mock private method ||| Mock static method
-                 Mock final method |||| Mock final class ||| Mock constructor
+ @RunWith:=
+~~~~~~~~~~
+ --- It is a class-level annotation. 
+ --- It is used to keep the test clean and improves debugging. 
+ --- It also detects the unused stubs available in the test and initialize mocks annotated with @Mock annotation. 
+ --- The @RunWith annotation is available in the org.mockito.junit package.
 
-  
-  Eg :=
-~~~~~~
-public class Utils {
 
-	public static boolean print(String msg) {
-		System.out.println("Printing "+msg);
-		return true;
-	}
-}
+   Stubs ----> Stubs are the objects that hold predefined data. 
+               It acts as a temporary object for a called module and gives the same output as the original software.
+			   
+   Mocks  ---->  Mocks are the clone or dummy objects that simulate the behavior of the real objects.
 
-@RunWith(PowerMockRunner.class)
-@PrepareForTest(Utils.class)
-public class JUnit4PowerMockitoStaticTest{
-
-	@Test
-	public void test_static_mock_methods() {
-		PowerMockito.mockStatic(Utils.class);
-		when(Utils.print("Hello")).thenReturn(true);
-		when(Utils.print("Wrong Message")).thenReturn(false);
-		
-		assertTrue(Utils.print("Hello"));
-		assertFalse(Utils.print("Wrong Message"));
-		
-		PowerMockito.verifyStatic(Utils.class, atLeast(2));
-		Utils.print(anyString());
-	}
-}
-
-===========================
-
-  Eg :=
-~~~~~~	
-	@Mock
-	private AddService addService;
-
-	@BeforeMethod
-	public void setup() {
-		MockitoAnnotations.initMocks(this);
-	}
-	
- Eg-2 := /// for Exception case 
-~~~~~~~
-		List<String> list = mock(List.class);
-		when(list.size()).thenThrow(new RuntimeException("size() method not supported"));
-
-		Exception exception = assertThrows(RuntimeException.class, () -> list.size());
-		assertEquals("size() method not supported", exception.getMessage());
-
+   Spies ----->  Spies are the partial mock objects of the real one.
+	 
+	 
+ Test suit :=
+~~~~~~~~~~~~~
+ --- The test suit allows us to group multiple test cases so that it can be run together. 
+ --- TestSuit is the container class under junit.framework.TestSuite package.
+	   
+	   
 ===================================================================================================
 
-==============/\/\\/\\/==============\/\\/\//\/\============/\/\\/\/\\/\===========/\/\\/\==============
+==============/\/\\/\\/==============\/\\/\//\/\============/\/\\/\/\\/\===========/\/\\/\==============	   
 
- JUnit550 :=   [JUnit 5 requires Java 8 at runtime. ]
+ JUnit550 :=   [JUnit 5 requires Java 8 at runtime. ]  ///// JunitDependencies
 ~~~~~~~~~   
         ********[ YOUTUBE ---> Gain Java Knowledge , Java Techie , JavaGuides, ]********
 
@@ -1532,10 +1673,53 @@ Junit ----> ECL Emma (STS MarketPlace)
 
 ===============================
 
- Junit Dependencies :=
+ JunitDependencies :=
 ~~~~~~~~~~~~~~~~~~~~~
  
-		<dependency>
+		<dependency>  
+    <groupId>org.powermock</groupId>  
+    <artifactId>powermock-api-mockito</artifactId>  
+    <version>1.7.0</version>  
+    <scope>test</scope>  
+</dependency>  
+  
+<dependency>  
+    <groupId>org.powermock</groupId>  
+    <artifactId>powermock-module-junit4</artifactId>  
+    <version>1.7.0</version>  
+    <scope>test</scope>  
+</dependency> 
+
+<dependency>  
+    <groupId>org.powermock</groupId>  
+    <artifactId>powermock-module-junit4</artifactId>  
+    <version>1.7.4</version>  
+    <scope>test</scope>  
+</dependency>  
+  
+<dependency>  
+    <groupId>org.powermock</groupId>  
+    <artifactId>powermock-api-mockito</artifactId>  
+    <version>1.7.0</version>  
+    <scope>test</scope>  
+</dependency>  
+
+
+<dependency>  
+    <groupId>junit</groupId>  
+    <artifactId>junit</artifactId>  
+    <version>4.12</version>  
+    <scope>test</scope>  
+</dependency>  
+  
+<dependency>  
+    <groupId>org.mockito</groupId>  
+    <artifactId>mockito-all</artifactId>  
+    <version>1.10.19</version>  
+    <scope>test</scope>  
+</dependency> 
+
+     <dependency>
 			<groupId>org.powermock</groupId>
 			<artifactId>powermock-module-junit4</artifactId>
 			<version>2.0.7</version>

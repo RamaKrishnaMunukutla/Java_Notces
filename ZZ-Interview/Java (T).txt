@@ -204,7 +204,13 @@ Difference between JVM, JDK, and JRE :=
 Understand the JVM garbage collector
 Be familiar with the common tools for JVM performance monitoring
 Have the ability to read GC logs
-			
+
+ PermGen :=
+~~~~~~~~~~
+ --- Representation of the Java classes and those are stored in the permanent generation 
+ --- contains meta-data of the classes and the objects.
+ --- PermGen always has a fixed maximum size
+
 ================================================================================================================
 
  Security Vulnerability :=
