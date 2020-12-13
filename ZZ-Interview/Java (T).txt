@@ -9,7 +9,7 @@
 	 
 	 Garbage-Collection --- https://howtodoinjava.com/java/garbage-collection/all-garbage-collection-algorithms/
 	 
-	 [ Escape-Characters ]
+	 [ Escape-Characters ]  
 			
 	  5WaysToCreateObject......ISAandHASA......CovarientReturnType..........CallByValue........StaticAndDynamicBiding
 	  
@@ -19,7 +19,7 @@
 		  
 	....FileHandling233.............Serialization334.......Externalizable678...........ThrowsANDThrow......Generics840
 	  
-    ....CheckedExceptionUncheckedException....ClassLoaders340.....CustomException........
+    ....CheckedExceptionUncheckedException....ClassLoaders340.....CustomException......Dates560
 	  
 	 ...JavaBestPractises.................Casting459.................PassByValueAndReference
 	   
@@ -44,6 +44,8 @@
  
  
                     Java Best Practices Interview question -----> JAVA-REVISITED 
+
+ Immutable Class ----> [ https://kkjavatutorials.com/how-can-we-maintain-immutability-of-a-class-with-a-mutable-reference/ ]
 
 ====================================================================================
 
@@ -135,6 +137,14 @@ Difference between JVM, JDK, and JRE :=
  Java Debugger (JDB or jdb) :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  --- It is a command-line java debugger that debugs the java class. It is a part of the Java Platform Debugger Architecture (JPDA) that helps in the inspections and debugging of a local or remote Java Virtual Machine (JVM).
+ 
+ 
+  Storing Password in Char :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  --- There is no way to clear a String Object from the memory, it’s up to GC to collect it.
+  --- String objects are immutable and stored in a String Pool (may reside inside a PermGen space) which may not at all be GC’d.
+  --- Any person taking the heap dump can easily see the String.
+  --- In case of a char array, we can always nullify it once we are done with the information, so not much dependency on the GC, thus we are narrowing the time window for the life of sensitive data.
 
 ==============================================================================
 
@@ -1306,8 +1316,17 @@ public void save(Student student) throws StudentStoreException {
     Name of Exception: Description
    Stack Trace (Location of the Exception)
 
-===============================================================================================================================
+==========================================================================================================
 
+ Dates560 :=
+~~~~~~~~~~~~
+  (Q) Difference between java.sql.Date and java.util.Date 
+  
+---  java.sql.Date just represent DATE information without time information
+     java.util.Date represent both DATE and TIME information . 
+
+
+==========================================================================================================
  JavaBestPractises :=
 ~~~~~~~~~~~~~~~~~~~~
 ----> Variables should be declared at Top && Readable.
@@ -1320,7 +1339,11 @@ public void save(Student student) throws StudentStoreException {
 ---->Avoid BolierPlate-Code && Acheive Loose-Coupling. 
 
 
-===============================================================================================================================
+===============================================================================================================
+
+ --- You should also remember that 64-bit JVM requires more memory compared to 32 JVM for the same application because now each reference starts consuming 64 bits instead of 32 bits i.e. management cost of 64-bit version is higher than the 32-bit version. 
+
+--------------------------------
 
  ExceptionHandling :=
 ~~~~~~~~~~~~~~~~~~~~~
@@ -1494,6 +1517,15 @@ Finalize  :=
    ll.add(new Integer(4));
    
    Result ----> java.lang.ClassCastEcception ::  Cannot cast java.lang.Integer to java.lang.String 
+
+
+       List<? super Integer> ---->  It is suitable for a list of type Integer or any of its superclasses like NUMBER, OBJECT 
+	                              whereas 
+								    List<Integer> works with the list of type Integer only. 
+									So, List<? super Integer> is less restrictive than List<Integer>.
+ 
+ 
+ 
  
 ==========================================================================================================
  

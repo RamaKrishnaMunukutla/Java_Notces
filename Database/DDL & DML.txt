@@ -37,6 +37,16 @@ Key-Words :=
 	  DQL ---> SELECT
 	  tcl ---> COMMIT, ROLLBACK, SAVEPOINT
 	  DCL --->  GR
+	 
+	   User
+	  /|\
+	   |
+	   |
+	  DBMS
+	  /|\
+	   |
+	   |
+	   BS
  
 ==============================================================
 

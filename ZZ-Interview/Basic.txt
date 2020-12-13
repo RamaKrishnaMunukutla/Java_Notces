@@ -1,6 +1,6 @@
 
 
-  SortingTechniques.........
+  Alogorithms880......SortingTechniques.........
 
 ===============================================================================================
    
@@ -257,11 +257,32 @@
 //		}
 		
 ===========================================================================================================
+
+ Alogorithms880 :=
+~~~~~~~~~~~~~~~~~
+ --- Defined as FINITE sequence of Steps to solve a PROBLEM . 
+ --- Used at designing level.
+ --- Written by designer(Architect) having Domain-Knowledge.
+ --- Algorithms are Analyzed for better Outcome. 
+
+
+ Programs :=
+~~~~~~~~~~~
+ --- Used at Implementing Design,
+ --- Written by Programmers
+ --- Programs are need to Tested.
+ 
+ 
+
+ "C:\Program Files\MongoDB\Server\4.4\bin\mongo.exe"
+
+
+================================================================================================================
  
  SortingTechniques :=  YOUTUBE ::  JOE JAMES 
 ~~~~~~~~~~~~~~~~~~~~~ 
 
- (1) Bubble Sort  :=
+ (1) Bubble Sort  :=  O(n2)
 ~~~~~~~~~~~~~~~~~~
  --- Sorts elements either in ASC/DESC by comparing ADJACENT elements.
  --- If 'n' elements are present , then we need (n-1) PASSES to Sort. 
@@ -280,6 +301,9 @@
 				         }
 			         }
 		        } 
+				
+				
+				O(log n)  >   O(n)  > O(n2)
 	
 ========================	
 	

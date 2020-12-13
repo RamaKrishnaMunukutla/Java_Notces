@@ -7,7 +7,7 @@
 	   
 	   ...........postmanHASA.........JerseyClient450..........RestTemplate440....JSONProperty890
 	   
-	   ..........Response660..........HATEOS880.......WSDL770
+	   ..........Response660..........HATEOS880.......WSDL770....RESTAPIVersion
 	   
 	     
 ======================================================================================================================= 
@@ -1039,6 +1039,19 @@ Server should send response to clients using hyperlinks (***********)
  
 
 =============================================================================================================
+
+ RESTAPIVersion :=
+~~~~~~~~~~~~~~~~~
+ --- When we made a breaking change in Web API, we should up versioned the API.
+ ---  Breaking changes includes:
+   
+      (a) URI Versioning
+	  (b) Accept Header
+	  (c) Request Parameter
+	  (d) Request Headers 
+
+
+================================================================================================================
   
  JerseyClient450 :=
 ~~~~~~~~~~~~~~~~

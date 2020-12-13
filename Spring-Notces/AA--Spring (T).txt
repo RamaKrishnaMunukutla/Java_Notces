@@ -2435,7 +2435,7 @@ object of HttpServletRequest reads the information provided by the user and pass
 		return modelAndView;
 	}
 
-=====================================================================
+===========================================================================================================
 
  @ModelAtribute on Method :=  [ https://github.com/kishanjavatrainer/SpringMVCFormSubWebApp ] [GONTU-SERIES]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~      
@@ -2450,7 +2450,11 @@ object of HttpServletRequest reads the information provided by the user and pass
 	}	
 	
 	
-===================================================================================
+ (Q) Difference between @ModelAttribute and @RequestParam ??
+ --- @ModelAttribute: binds an entire Java object (like Employee). supports multiple request parameters
+ --- @RequestParam: binds a single request parameter (like firstName)
+ 
+============================================================================================================
 
  BindingResult(I) in Method-Argument:=  [GONTU-SERIES]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

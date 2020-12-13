@@ -416,6 +416,30 @@ log4j.appender.logFile.layout=org.apache.log4j.PatternLayout
 log4j.appender.logFile.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %m%n
 
 ======================================================================================================
+
+ Gradle650 (6.5.1) :=
+~~~~~~~~~~~~~~~~~~~~
+ --- It is Open-Source build under Apache Software License (ASL) .
+ --- It is  ABT (Automation Build Tool) build based on Maven && Ant.
+ --- Supports DSL (Domain Specific Lang) && configure with Groovy && Kotlin .  
+ --- Supports Elastic-Model which helps development lifecycle form compiling and Packing code for Web && Mobile development .
+
+  
+ Install Gradle := GoTo Official-Website ---->  Install-Gradle ----> Install Manually (Option) ----> Binary Only   
+~~~~~~~~~~~~~~~~
+ 
+ Path SetUp :=  GRADLE_HOME   ----> D:\gradle-6.7.1
+~~~~~~~~~~~~~     PATH -----------> D:\gradle-6.7.1\bin
+
+                         Check_Version ----> gradle -v
+
+
+
+
+
+
+
+=============================================================================================================
  
                                   MAVEN123 (MavenGoals) [build and dependency management tool] 
                                  ~~~~~~~~~~~~~~~~~~~~~~~
@@ -427,8 +451,8 @@ log4j.appender.logFile.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %m%
 
 
 ---->Maven is a build and dependency management tool for Java based application development. Just like other Java based development tools, it is not installed as Windows service, rather it is configured using windows environment variables.
-
-
+  
+                                 [ https://kkjavatutorials.com/maven/ ]
 External-Dependency :=
 ~~~~~~~~~~~~~~~~~~~
 Some times, you will have to refer jar files which are not in maven repository (neither local, central or remote repository). You can use these jars by placing them in project’s lib folder and configure the external dependency like this:
@@ -1366,6 +1390,12 @@ public class JUnit4PowerMockitoStaticTest{
  --- he Mockito framework allows us to create mock objects using either @Mock annotation or mock() static method.
  --- Mock objects are referred to as the dummy or proxy objects used for actual implementations.
  
+ 
+ --- If you want to test a component that depends on the other component, but that component is under development. 
+ --- It generally happens when working in a team and different components are divided between several team members.
+ --- In that case, mocking plays an important role in the testing. (**************)
+ 
+ 
  --- A method invoked using mocked reference does not execute method body defined in class file, 
              rather the method behavior is configured using when-thenReturn methods combinations.
 			 
@@ -1374,14 +1404,17 @@ public class JUnit4PowerMockitoStaticTest{
 				Fake -----------> Contains simplified version of the production code.
 				  Mock ---------> Used for behavior verification.
  
+  [ https://kkjavatutorials.com/mockito-tutorial/ ]
  
-              @Mock (HAS-A)         -----> Custom-Objects 			  
+ 
+              @Mock (HAS-A)         -----> CUSTOM-Objects 
+                                            Create and inject mocked instances without having to call Mockito.mock(abc.class) manually.			  
 
-			  @Spy                 ------>  Predefined-Class . 
-			                                 Call the no-args constructor to initialized the mocked object. 
-				                             If your class doesn’t have it then you will get the ERROR. 
-											  @Spy
-	                                         Utils mockUtils;  
+			  @Spy                 ------>  PREDEFINED-Objects . 
+			                                   Call the no-args constructor to initialized the mocked object. 
+				                               If your class doesn’t have it then you will get the ERROR. 
+										    @Spy
+	                                        Utils mockUtils;  
 											 
  @InjectMock (HAS-A) (CLASS-LEVEL)  ------>  To inject a mocked object into another mocked object.
 			                                 @InjectMocks Department ;
@@ -1404,6 +1437,8 @@ public class JUnit4PowerMockitoStaticTest{
 
 								   @Spy 
 								   List spyOnList1;
+								   
+		Mockito verify() --------> Checks whether a mock() method was called with required arguments or not
  
  
  @Mock  := 

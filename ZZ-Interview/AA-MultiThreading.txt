@@ -12,6 +12,8 @@ producerANDconsumer :=
  
  thread2 ---> consumes threads and wait until thread1 to produce it.
  
+  thread can have more than one lock (*********)
+ 
 ===========================================================================================================
 
 wait() // notify() // notifyall()
@@ -21,6 +23,12 @@ wait() // notify() // notifyall()
         Synchronization on Static-Method ----> Class Level Lock. (*******)
    
    In Synchronized-Block / Method, if Object is "-NULL-" then Throws "-NULLPOINTEREXCEPTION-" .
+
+
+                Directly Stop Thread -------> wait()
+				
+				In-Directly Stop Thread ----> notify()
+				
    
    
    

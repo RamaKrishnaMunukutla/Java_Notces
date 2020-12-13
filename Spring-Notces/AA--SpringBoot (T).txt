@@ -1,6 +1,6 @@
 
   
-    ...MultipleInstances990
+    ...SpringBootInternalWork .....MultipleInstances990
   
    ....Profiles333............SpringBootServletInitializer330....Profiles444.....LOMBOK770....FileUpload....Environment440
    
@@ -204,7 +204,27 @@
 	MicroServices ---------> https://github.com/RameshMF/learn-microservices-w-spring-boot
                                              
 											 
-=========================================================================			  
+==================================================================================================================
+ 
+ SpringBootInternalWork :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+  META-INF / spring.factories  ----> Based on @Conditional ,
+                                     It Enables / Disables few of components to build application.   
+ 
+ 
+ --- Checks && Adds all Required-Jars to BuildPath.
+ 
+ --- Run-As App :: Result in KickOff(Creates) ApplicationContext && Checks for Type-Of-App 
+                       Searches for STEREOTYPE annotation && add to it. 
+					   
+ 
+ --- @SpringBootApplication (STERIO-TYPE && 3-ANOO)
+ 
+ --- Generates WAR-File 
+ --- Creates Tomcat-Embedded-Servlet-Container && Context added to it.  
+
+
+=====================================================================================================================	  
 			 
  SpringSecurity :=
 ~~~~~~~~~~~~~~~~~     	

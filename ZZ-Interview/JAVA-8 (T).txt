@@ -11,6 +11,7 @@
 	
 	  https://www.concretepage.com/java/java-8/
 	  https://www.java2novice.com/java-8/
+	  https://github.com/amigoscode/java-functional-programming
 			 
 	
  Java 7 :=-
@@ -221,10 +222,18 @@ public class ClientTest {
  
 FUNCTONALINTERFACE123 (I) :=   [ https://www.javaguides.net/2018/07/java-8-functional-interfaces.html ]
 ~~~~~~~~~~~~~~~~~~~~~~  
+   
+    BiConsumerInterface //// 
+ 
  [ https://github.com/amigoscode/java-functional-programming/tree/master/src/main/java ]
  [ https://github.com/kishanjavatrainer?tab=repositories&q=functional&type=&language= ]
  [ https://github.com/kishanjavatrainer/FunctionalInterfaceWithLamda ]
- 
+
+        Functional Interface
+                       		 ----> Comparator, Comaparable,
+                       		 ----> Callable(java.util.concurrent.Callable), Runnable(java.lang.Runnable) 
+                       Java-8 ---> predicate, Supplier, Consumer
+
 
  4-Types := [ Youtube ---> Play-Java ] ///  [ import java.util.* ] /// [ https://github.com/Java-Techie-jt/java8 ]
 ~~~~~~~~~~    
@@ -234,12 +243,6 @@ FUNCTONALINTERFACE123 (I) :=   [ https://www.javaguides.net/2018/07/java-8-funct
   --- Function (Has Input and Output)
   --- Producer (Only Input and  No  Output) 
   --- Supplier (No Input and Only Output) 
-    
-        Functional Interface
-                       		 ----> Comparator, Comaparable,
-                       		 ----> Callable(java.util.concurrent.Callable), Runnable(java.lang.Runnable) 
-                       Java-8 ---> predicate, Supplier, Consumer
-
 
   --- Predicate(Returns Boolean value)......................   ///  test(T t)       //       String.Length Check 
   --- Function (Has Input and Outputs of Data) )...........   ///  apply(T t)      //    Takes 2*10 as I/p && Print Output
@@ -411,6 +414,71 @@ Predicate return type is boolean (i.e true or false) and it is also a single arg
  Similarities :=
 ~~~~~~~~~~~~~
 1. Both are functional interfaces i.e both contain single abstract method.
+
+=========
+ 
+ BiConsumerInterface := [ https://www.geeksforgeeks.org/java-8-biconsumer-interface-in-java-with-examples/ ]
+~~~~~~~~~~~~~~~~~~~~~~~
+ --- It is a part of the java.util.function package.
+ --- It Represents a function which takes in two arguments and produces a result.
+ --- Has One Method ::  void accept(T t, U u);
+ --- Has  --andThen()-- Method which executes after above method 
+
+ Eg :=
+~~~~~~
+		List<Integer> lista = new ArrayList<Integer>(); 
+        lista.add(2); 
+        lista.add(1); 
+        lista.add(3); 
+  
+        // Create the second list 
+        List<Integer> listb = new ArrayList<Integer>(); 
+        listb.add(2); 
+        listb.add(1); 
+        listb.add(2); 
+        
+        BiConsumer<List<Integer>, List<Integer> > equals = (list1, list2) -> 
+        { 
+            if (list1.size() != list2.size()) { 
+                System.out.println("False"); 
+            } 
+            else { 
+                for (int i = 0; i < list1.size(); i++) 
+                    if (list1.get(i) != list2.get(i)) { 
+                        System.out.println("False"); 
+                      //  return; 
+                    } else {
+                    	System.out.println(list1.get(i)+" True");
+                    }
+                //System.out.println("True"); 
+            } 
+        }; 
+  
+        BiConsumer<List<Integer>, List<Integer> > disp = (list1, list2) -> 
+        { 
+            list1.stream().forEach(a -> System.out.print(a + " ")); 
+            System.out.println(); 
+            list2.stream().forEach(a -> System.out.print(a + " ")); 
+            System.out.println(); 
+        };    
+      equals.andThen(disp).accept(lista, listb); 
+	  
+	  
+
+ BiFunctionInterface  := [ https://www.geeksforgeeks.org/java-bifunction-interface-methods-apply-and-addthen/ ]
+~~~~~~~~~~~~~~~~~~~~~~~
+ --- It is a part of the java.util.function package.
+ --- It Represents a function which takes in THREE arguments and produces a result.
+ --- Has One Method ::  R apply(T t, U u)
+ --- Has  --andThen()-- Method which executes after above method 
+
+ Eg :=
+~~~~~
+	    BiFunction<Integer, Integer, Integer> composite1 = (a, b) -> a + b; 
+        composite1 = composite1.andThen(a -> 2 * a); 
+        System.out.println("Composite1 = " + composite1.apply(2, 3)); 
+		
+		
 
 =================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
 
