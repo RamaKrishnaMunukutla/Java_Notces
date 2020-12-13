@@ -13,6 +13,17 @@
     
   Cycle :=  LEARN && UNDERSTAND THEORY // IMPLEMENT (PRACTISE) // LOGIC (*****)
 ~~~~~~~~~~  
+
+=====================================================================================================
+
+ PersistentSystems :=
+~~~~~~~~~~~~~~~~~~~~
+
+   32496  /// venkata_munukutla ///  venkata_munukutla@persistent.com
+
+  OutLook ---> https://outlook.com/owa/persistent.co.in or https://login.microsoftonline.com/
+
+  URL:https://pwdreset.persistent.com/home.htm
  
 =========================================================================================================  
 
@@ -58,17 +69,6 @@
   
 =============================================================================================
 
- PersistentSystems :=
-~~~~~~~~~~~~~~~~~~~~
-
-   32496  /// venkata_munukutla ///  venkata_munukutla@persistent.com
-
-  OutLook ---> https://outlook.com/owa/persistent.co.in or https://login.microsoftonline.com/
-
-  URL:https://pwdreset.persistent.com/home.htm
-
-=============================================================================================
- 
  Repositaries990 :=
 ~~~~~~~~~~~~~~~~
     In28Minutes --------> https://github.com/in28minutes?tab=repositories
