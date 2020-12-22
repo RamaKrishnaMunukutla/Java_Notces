@@ -1424,8 +1424,12 @@ Dependencies :=
    
 ===============================================================================================================
 
- RedisDB :=  /// Cache for Distributed Transaction . 
-~~~~~~~~~
+ RedisDB :=  [ https://github.com/microsoftarchive/redis/releases ]  /// Cache for Distributed Transaction . 
+~~~~~~~~~    
+
+  ---> redis-server.exe
+  ---> redis-cli.exe
+   
 
 Today's session : Cache Implementation
 --------------------------------------

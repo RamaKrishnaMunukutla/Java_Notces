@@ -1,8 +1,13 @@
 
 
-  Alogorithms880......SortingTechniques.........
+      ......ArrayLogicalPrograms......StringLogicalPrograms.....CollectionsLogicalPrograms
+	  
+	  ......Alogorithms880............SortingTechniques.........
+  
+  
+                Programs-(YOUTUBE) ---->  Learn with KrishnaSundeep
 
-===============================================================================================
+============================================================================================================
    
  Program :=  // welcome to java  // 'A' to 'Z' ---> 65 TO 90 // 'a' to 'z' ---> 97 to 122
 ~~~~~~~~~
@@ -10,6 +15,15 @@
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter a Number:: ");
 		int num = sc.nextInt();
+		
+        //   for(int i=0;i<arr.length;i++){  
+
+		int[] arr = { 1, 2, 5, 7, 9 };
+
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr.length; j++) {
+
+			}
 
 --------------------------------------------------		
   	
@@ -151,7 +165,7 @@
 	            }
 	        }
 		
-============================================================================================
+=============================================(ArrayLogicalPrograms)========================================
 
  Upto 3rd-Largest && 2nd Smallest :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -182,7 +196,26 @@
 		System.out.println("Min && secondMin elements are :: " + min + " ," + secondMin);
 		System.out.println("Min && secondMin elements are :: " + max + " ," + SecondMax+" "+thirdMax);
 
-============================================================================================
+===================================================
+
+ Reverse and Store in Another array :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+		int[] arr = { 11, 112, 33, 44 };
+		int[] arr2 = new int[arr.length];
+
+		for (int i = arr.length - 1, j = 0; i >= 0; i--, j++) {
+			// for (int i = arr.length-1; i >= 0; i--) {
+
+			arr2[j] = arr[i];
+
+		}
+
+		for (int i = 0; i < arr2.length; i++) {
+			System.out.print(arr2[i] + " ");
+		}
+
+===========================================================
 
  Delete Duplicates from Array :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -213,50 +246,113 @@
 
 	}
 	
-======================================================================================
+===============================================(StringLogicalPrograms)=================================================
 
- Run-rate :=
-~~~~~~~~~~
-		if (runs < 100) {
-			float runRate = runs / Overs;
-			return runs + " runs in " + Overs + " Overs @ " + runRate + " runs per over";
-
-		} else {
-			int n1, n2 = 0;
-			n1 = (int) Overs;
-			n2 = (int) Math.round((Overs % 1) * 100);
-			float n3 = (float) n2 / 100;
-			float f1 = n1 * 6;
-			float f2 = n3 * 10;
-			float total = f1 + f2;
-			int balls = (int) total;
-			
-==================================================================================
-
-//		Scanner sc= new Scanner(System.in);
-//		System.out.println("Enter total number");
-//		int n=sc.nextInt();
-//		int[] arr= new int[n];
-//		System.out.println("Enter elements now:: ");
-//		for(int i=0;i<n;i++) {
-//			arr[i]=sc.nextInt();
-//		}
-//		System.out.println("Enter element you want to remove:: ");
-//		int remove= sc.nextInt();
-//		
-//		for(int i=remove;i<arr.length-1;i++) {
-//			
-//			arr[i]=arr[i+1];
-//			  
-//			
-//		}
-//		
-//		
-//		for(int i=0;i<arr.length;i++) {
-//		System.out.println(arr[i]);
-//		}
+ Print Duplicate Characters from Strings :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		
-===========================================================================================================
+		String str = "Rama";
+		int count = 0;
+		char string[] = str.toCharArray();
+
+		System.out.println("Duplicate characters in a given string: ");
+		for (int i = 0; i < string.length; i++) {
+			count = 1;
+			for (int j = i + 1; j < string.length; j++) {
+				if (string[i] == string[j] && string[i] != ' ') {
+					count++;
+					//string[j] = '0';
+				}
+			}
+			if (count > 1 && string[i] != '0')
+				System.out.print(string[i]+" ");
+		}
+		
+===========================================================
+
+ Remove Duplicate Characters from Strings :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+		String string = "aabbccdefatafaz";
+		char[] chars = string.toCharArray();
+		Set<Character> charSet = new LinkedHashSet<Character>();
+		for (char c : chars) {
+			charSet.add(c);
+		}
+
+		StringBuilder sb = new StringBuilder();
+		for (Character character : charSet) {
+			sb.append(character);
+		}
+		System.out.println(sb.toString());
+		
+===========================================================
+
+
+
+
+=======================================(CollectionsLogicalPrograms)===================================================
+
+ Sort elements in Map by using Values :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		List<Map.Entry<String, Integer>> list = new LinkedList<Map.Entry<String, Integer>>(hm.entrySet());
+		// Sort the list
+		Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
+			public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+				return (o1.getValue()).compareTo(o2.getValue());
+			}
+		});
+
+		// put data from sorted list to hashmap
+		HashMap<String, Integer> temp = new LinkedHashMap<String, Integer>();
+		for (Map.Entry<String, Integer> aa : list) {
+			temp.put(aa.getKey(), aa.getValue());
+		}
+
+       /// Printing Map 
+		for (Map.Entry<String, Integer> en : temp.entrySet()) {
+			System.out.println("Key = " + en.getKey() + ", Value = " + en.getValue());
+		}
+
+======================================================================================================================
+ 
+ DeadLock in Java :=
+~~~~~~~~~~~~~~~~~~~~
+
+    String str1 = "Java";
+    String str2 = "UNIX";
+     
+    Thread trd1 = new Thread("My Thread 1"){
+        public void run(){
+            while(true){
+                synchronized(str1){
+                    synchronized(str2){
+                        System.out.println(str1 + str2);
+                    }
+                }
+            }
+        }
+    };
+     
+    Thread trd2 = new Thread("My Thread 2"){
+        public void run(){
+            while(true){
+                synchronized(str2){
+                    synchronized(str1){
+                        System.out.println(str2 + str1);
+                    }
+                }
+            }
+        }
+    };
+     
+    public static void main(String a[]){
+        MyDeadlock mdl = new MyDeadlock();
+        mdl.trd1.start();
+        mdl.trd2.start();
+    }
+}		
+=======================================================================================================================
 
  Alogorithms880 :=
 ~~~~~~~~~~~~~~~~~

@@ -1,11 +1,11 @@
 
 
  
-    ..........MAVEN123..............SpringSecurity444............JUnit550...............SPRINGCLOUD123
+    ..........MAVEN123..............SpringSecurity444.......Mockito990.....JUnit550.....SPRINGCLOUD123
 				
      .........JWT444...............MicroServices334(Links).....JWT550......AgileMethodology768......SDLC445........
 				
-     .........GIT996...XML900.......NumberConversion.............ApacheKafka540.......RabbitMQ330.....	 
+     .........GIT996...XML900.......NumberConversion...........ApacheKafka540.......RabbitMQ330.....	 
  
      .........RealTimeTools590.....DevOps890Other......Mockito330....JIRA790......CloudComputing550.....
 		 
@@ -1072,6 +1072,13 @@ public class Demo extends WebSecurityConfigurerAdapter{
 	 protected void configure (HttpSecurity auth){	 }
 	 
 =============================	
+ 
+ 
+  Roles -----> SimpleGrantedAuthorities (does Roles-Allocattion)
+
+
+
+==============================
 
  SecurityFlow := // ----> (Pass.Req to )
 ~~~~~~~~~~~~~~~
@@ -1384,6 +1391,19 @@ public class JUnit4PowerMockitoStaticTest{
   --- It is developed from the Test-driven development (TDD) software. 
 
 
+----> Mockito Divided into 2-Types ::
+ 
+    (a)    Proxy Based Mock FrameWorks --------------------> EasyMock and Mockito
+	(b) Byte Code Manipulation Based Mock FrameWorks ------> PowerMock and JMock 
+
+
+ Limitations for Proxy Based Mock FrameWorks :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Does not Support  Private methods , 
+                       Static methods ,
+					   Final(M&C) .
+
+
  Mockito990 (clone of the real objects ):= [ https://github.com/journaldev/journaldev/tree/master/Mockito-Examples/src ]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    JAVA-T-POINT /// JOURNAL-DEV
  --- Mockito is a java based mocking framework, used in conjunction with other testing frameworks such as JUnit .
@@ -1467,8 +1487,27 @@ public class JUnit4PowerMockitoStaticTest{
 ~~~~~~~~~~~~~
  --- The test suit allows us to group multiple test cases so that it can be run together. 
  --- TestSuit is the container class under junit.framework.TestSuite package.
+
 	   
-	   
+ Testing an API :=  MockHttpServletRequestBuilder 
+~~~~~~~~~~~~~~~~~  [ https://github.com/javabyraghu/SpringBoot2UnitTestApp ]
+
+@Autowired
+private MockMvc mvc;
+ 
+@Test
+public void getAllEmployeesAPI() throws Exception 
+ {
+  mvc.perform( MockMvcRequestBuilders
+      .get("/employees")
+      .accept(MediaType.APPLICATION_JSON))
+      .andDo(print())
+      .andExpect(status().isOk())
+      .andExpect(MockMvcResultMatchers.jsonPath("$.employees").exists())
+      .andExpect(MockMvcResultMatchers.jsonPath("$.employees[*].employeeId").isNotEmpty());
+  }
+
+ 
 ===================================================================================================
 
 ==============/\/\\/\\/==============\/\\/\//\/\============/\/\\/\/\\/\===========/\/\\/\==============	   
@@ -1478,6 +1517,9 @@ public class JUnit4PowerMockitoStaticTest{
         ********[ YOUTUBE ---> Gain Java Knowledge , Java Techie , JavaGuides, ]********
 
    https://github.com/Java-Techie-jt/spring-boot-powermock
+   
+     
+
   
  --- One of the popular framework used to implement unit tests against java code. 
  --- JUnit primarily helps developers to test their code on the JVM by themselves.
@@ -2274,11 +2316,19 @@ eureka:
 (Q) Which design pattern is used to Convert Monolithic to MicroServices ??
 (A) Strangulation Pattern. 
 
+===============
 
-  ELK Stack :=
+  ELK Stack := 
 ~~~~~~~~~~~~~
   Java Techie // Simple Programming //  Tech Primer
+  
+  
+     ElasticSearch ----> Acts as No-SQL Database, used to Store Logs.
+	
+	   Log-Stach ------> Stores Logs and exports Data to Targeted Resource.
 
+
+=====================================
 
 How to secure Rest APIs
 -----------------------
@@ -2994,6 +3044,20 @@ ProductOwner := Manager    /////////   Scrum-Master := TeamLeader
 ---->So at end of every 2 weeks , we have Shippable part of application that need to be deployed in Application.
 
 
+ Three Principles of Empiricism :=   (1) Transparency  (2) Adaptability  (3) Inspection 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+                   SPrint Duration ---------> 2 to 4 Weeks (Product, Release and Release backlog) 
+					 
+				 Sprint Retrospective ------> 45 Minutes 
+				 
+				   SPrint-Planning ---------> 2 Hours 
+				   
+				   Sprint Review -----------> 1 Hour in Week 
+				   
+				Daily Scrum Meeting --------> 15 Minutes 
+					 
+
 =============================================================================================================
 
 ==============/\/\\/\\/===========\/\\/\\/\/==========\/\\/\/\\/\=========/\/\\/\==============
@@ -3491,9 +3555,12 @@ DIV(BINARY)--->4
 
 ===========/\/\/\/\/\================\/\/\/\/\/\/\=================\/\/\/\/\/\/\====================
 
- ApacheKafka540 := [https://www.javainuse.com/misc/apache-kafka-interview-questions]
-~~~~~~~~~~~~~~~~  
+ ApacheKafka540 := [ https://mirrors.estointernet.in/apache/kafka/2.6.0/kafka_2.13-2.6.0.tgz ] 
+~~~~~~~~~~~~~~~~   
 
+[ ASHOK-IT ---> 17-SEP  NOTCES ]
+
+ https://www.javainuse.com/misc/apache-kafka-interview-questions
  https://github.com/Java-Techie-jt/kafka-publisher 
  https://github.com/Java-Techie-jt/kafka-consumer  
 
@@ -3511,6 +3578,25 @@ A Messaging System is responsible for transferring data from one application to 
 
  (1) Point to Point Messaging System (One-To-One)
  (2) Publish-Subscribe Messaging System (One-To-Many)
+ 
+==================
+
+ OverAll-Picture :=
+~~~~~~~~~~~~~~~~~~
+                                        Has                     Has
+           Producer ===> Zookeeper (1) -----> Kafka-Server (2) -----> Topic (3) ====> Consumer            
+																		              @kafkaListener(topics= KafkaConstants.TOPIC) 
+																					       at Method-Level 
+							  
+							  
+		 Controller ----> Service ----> Kafka-Template (Config[3] done through ProducerConfig.java class)   
+                                             |
+											 |----> TOPICS (from ZooKeeper/Kafka-Server)
+											 
+ At Producer ---> Uses Key- SERIALIZER(String) &&  Value-  SERIALIZER(Object) Internally ////  Listen to Same-Topic
+ At Consumer ---> Uses Key-DESERIALIZER(String) && Value-DESERIALIZER(Object) Internally ////  Listen to Same-Topic
+ 
+=================
 
 
 ---->: What is Apache Kafka?
@@ -3565,8 +3651,18 @@ Streams API
 ~~~~~~~~
  --- Message Broker that takes Messages form Publisher(WhatsApp-News) && send to Exact--Subscriber(News-Paper)
   
-                                                   has                has
-                                         Zookeeper ---> Kafka-Server  ----> Topic
+ OverAll Picture :=
+~~~~~~~~~~~~~~~~~~
+                                                           Has                     Has
+                              Producer ===> Zookeeper (1) -----> Kafka-Server (2) -----> Topic (3) ====> Consumer 
+							  
+							  
+		 Controller ----> Service ----> Kafka-Template (Config[3] done through ProducerConfig.java class)   
+                                             |
+											 |----> TOPICS (from ZooKeeper/Kafka-Server)
+ 
+
+
 
  Apache kafka :=
 ~~~~~~~~~~~~~~~

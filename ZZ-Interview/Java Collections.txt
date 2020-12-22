@@ -1,10 +1,10 @@
  
   
-  ....ArrayList234(In)........LinkedList333(In).............CopyOnWriteArrayList890(FS**)......
+  ....ArrayList234(In)........LinkedList333(In)...........CopyOnWriteArrayList890(FS**)......
  
-  ....HashSet443(Un)..........LinkedHashSet830(In)..........TreeSet338(Sor).........CopyOnWriteArraySet990(FS**)......
+  ....HashSet443(Un)..........LinkedHashSet830(In)........TreeSet338(Sor).........CopyOnWriteArraySet990(FS**)......
 	
-  ....HashMap889(Un)...........HashTable335(Un)..............TreeMap333(Sor).........ConcurrentHashMap449(Un,TS,FS**)......
+  ....HashMap889(Un)...........HashTable335(Un)...........TreeMap333(Sor).........ConcurrentHashMap449(Un,TS,FS**)......
 	 
   ...LinkedHashMap667(In).....IdentityHashMap500....Queue590....Deque300...........ConcurrentModificationException444......
   
@@ -22,6 +22,11 @@
 		  
          
 		 Interfaces(*******)  :: Sorted (List, Set, Map)  // ConcurrentMap 
+		 
+
+---> Set <Map.Entry<String, Integer>> list = new HashSet<Map.Entry<String, Integer>>(hm.entrySet());  // Set store Both(K<V)
+
+---> List<Map.Entry<String, Integer>> list = new LinkedList<Map.Entry<String, Integer>>(hm.entrySet()); //  List Stores (K<V)
 
 
 ----> int marks = Integer.valueOf(studentDetail[1]); ...... Value-inString[] to INT.

@@ -6,7 +6,9 @@
 	  
 	 FULLSTACK500......JavaPath ...........Learn990....Career550.......
 		  
-	Baledung440........Install440
+	Baledung440........Install440.......
+	
+====================================================================================================
     
    ramakrishnamunukutla910@gmail.com  // ramakrishna.munukutla@ojas-it.com
    
@@ -24,6 +26,16 @@
   OutLook ---> https://outlook.com/owa/persistent.co.in or https://login.microsoftonline.com/
 
   URL:https://pwdreset.persistent.com/home.htm
+
+ https://academy.unqork.com/path/associate-configurator
+ https://training.unqork.io/#/
+ https://academy.unqork.com/
+ 
+ http://meetup.com/edureka
+https://eisapp.persistent.co.in/eis/apps.aspx
+
+23 Java string coding interview questions | Learn With Krishna Sandeep
+18 Java array coding interview questions
  
 =========================================================================================================  
 
@@ -44,6 +56,16 @@
  challanaveen521   // 8985352910
  
 =====================================
+
+ Udemy560 :=
+~~~~~~~~~~
+  https://www.udemy.com/user/mumshad-mannambeth/
+  https://www.udemy.com/user/in28minutes/
+  
+    Programming ----> Forest 
+	
+	Coding ----> Tree
+================================================================================================
 
  Spring Btach ----> Multithreading with JVM Parllel-Instances [Buckiting]  (****)
  
@@ -520,8 +542,17 @@ https://www.baeldung.com/spring-cloud-series
 ~~~~~~~~~~
    
    https://downloads.mysql.com/archives/installer/
+   
    https://www.zdsoft.com/
+   
    https://dev.mysql.com/downloads/installer/
+   
+   https://www.mongodb.com/try/download/community  (Install ----> [Youtube] Programming Knowledge)
+   
+----> Team viewer download  /// Microsoft Teams 
+
+----> Zoom download 
+
 
   .......NodeJs.....Visual-Studio-Code(Node -v && npm -v).......WindRar.....WPS-Office.....Nodepad++
   
@@ -594,6 +625,7 @@ Fresher - 2+
 	Windowskey +X followed by U, then R again~~~~~~Restart
 	Windowskey +X followed by U, then S again~~~~~~Sleep
 	Windowskey +X followed by U, then H again~~~~~~Hibernate
+	
 ==================================================================================
  
 Eclipse Shortcut:=

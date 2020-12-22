@@ -82,7 +82,7 @@ Core:=  [ http://localhost:8965/ ]
 
 =======================================================================================================================
  
- Spring 5 New Features :=
+ Spring 5 New Features :=  [ FRAMEWORK == Technology + Design Pattern ]
 ~~~~~~~~~~~~~~~~~~~~~~~~
 ----> First Spring Framework 5.0 milestone (5.0 M1) on July 28, 2016. It Supports ::
  --- Jackson 2.6+
@@ -747,7 +747,7 @@ CustomRequired :=
  
  
  
- Autowiring123 := (injecting a spring-bean-Dependency implicitly )//// HAS-A Relation  //// SELENIUM-EXPRESS*********)
+ Autowiring123 := ( Injecting/Linking a spring-bean-Dependency implicitly )//// HAS-A Relation  //// SELENIUM-EXPRESS*********)
 ~~~~~~~~~~~~~~~~~~ 
  
 ----> It Injects Dependencies (Has-A) of class .(**********) 
@@ -2991,10 +2991,19 @@ configurations that will be visible to all other contexts. It’s configured in we
 
  TransactionManagement445 := [ https://github.com/TechPrimers/transactionality-demo ]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~   [ https://github.com/kishanjavatrainer/SpringjdbcTransactionsWithoutHandling ]
+                             [ https://github.com/Java-Techie-jt/spring-transaction-example ]
 
------->(Feature)Support for transaction management, JDBC operations, File uploading, Exception-Handling etc with very little configurations, either by using annotations or by spring bean configuration file.
+   Eg :: Passenger wants to travl form Secunderabad to banglore 
+         Asume Passenger's Data Stores in REedBus App-DataBase,
+		 
+                         PassangerInfo.java (Stores) //// PaymentInfo.java (Didn't Stores due to Insufficient Fund)
 
-==========================================================================================
+ -----> To Avoid above Scenario, apply @EnableTrasactionManagement    Main-Class-Level.
+                                       @Trasactional  at              Service-Class-Method-Level. 
+
+						 
+
+=============================================================================================================
 
  MultipartFileUpload := [ https://mkyong.com/spring-boot/spring-boot-file-upload-example/ ]
 ~~~~~~~~~~~~~~~~~~~~~

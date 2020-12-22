@@ -1018,15 +1018,23 @@ public class StockPriceServiceExceptionMapper{
 
  HATEOS880 ((Hypermedia as the Engine of Application State))  := (Ashok-IT) // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~     https://github.com/TechPrimers/rest-hateoas-example
 
- ----> Sends Response to Client as list of Participants with HyperLinks--(href)//  Get Data && Action-To-Perform.
+ --- Sends Response to Client as list of Participants with HyperLinks--(href)//  Get Data && Action-To-Perform.
+ --- Model-Class Extends 'ResourceSupport'.
+ --- Provides Next-level information DYNAMICALLY to Client through Hyper-Media.  /// LINK for More Content  (****)
+ 
+    Eg :: Suggested Books in Amazon (OR) Suggested Videos in Youtube 
+	
 
-  --- Model-Class Extends 'ResourceSupport'
+  {  Munukutla3334@
+    "id" : 101,
+	"book" : "Triology",
+	"cost" : 786.77,
+	all-books" : {
+         "href" : "https://www.amazon.in/books" 	
+	   }
+  }
 
-HATEOS
-------
-Hypdermedia as an Tranport Engine for application state
 
-Server should send response to clients using hyperlinks (***********)
 
 ============================================================================================================
 
