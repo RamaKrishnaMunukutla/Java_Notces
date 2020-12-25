@@ -17,27 +17,29 @@
 ~~~~~~~~~~  
 
 =====================================================================================================
-
- PersistentSystems :=
+ 
+ PersistentSystems :=    32496  /// venkata_munukutla ///  venkata_munukutla@persistent.com
 ~~~~~~~~~~~~~~~~~~~~
 
-   32496  /// venkata_munukutla ///  venkata_munukutla@persistent.com
+    Application_Form  ////  Decision_Form
 
-  OutLook ---> https://outlook.com/owa/persistent.co.in or https://login.microsoftonline.com/
+  OutLook ----> https://outlook.com/owa/persistent.co.in or https://login.microsoftonline.com/
+   
+   Leave -----> https://pwdreset.persistent.com/home.htm
+                https://eisapp.persistent.co.in/eis/apps.aspx
 
-  URL:https://pwdreset.persistent.com/home.htm
 
- https://academy.unqork.com/path/associate-configurator
- https://training.unqork.io/#/
- https://academy.unqork.com/
+ Documents ---> https://academy.unqork.com/path/associate-configurator
+ Training ----> https://training.unqork.io/#/
  
- http://meetup.com/edureka
-https://eisapp.persistent.co.in/eis/apps.aspx
+  https://academy.unqork.com
+  http://meetup.com/edureka
+
 
 23 Java string coding interview questions | Learn With Krishna Sandeep
 18 Java array coding interview questions
- 
-=========================================================================================================  
+ 
+=========================================================================================================   
 
  AshokIt22 :=
 ~~~~~~~~~~~~
@@ -48,6 +50,8 @@ https://eisapp.persistent.co.in/eis/apps.aspx
    ID ----> 11JRTP-71
   
   https://classroom.google.com/h // czpysz3
+  
+  https://github.com/SriLakshmi594/MainProject-IES/tree/master/IES-master
   
   
   venugopalboddu88@gmail.com // Udemy@888
@@ -191,8 +195,11 @@ https://eisapp.persistent.co.in/eis/apps.aspx
            Gain Java Knowledge ~~~~~~~~ https://www.youtube.com/channel/UCM9SA8hzCTfaDinwb_vU_5Q/vide
           
 
-		  ProgrammingKnowledge ~~~~~~~ https://www.youtube.com/c/ProgrammingKnowledge/playlists
-		       Play Java ~~~~~~~~~~~~~~ https://www.youtube.com/channel/UCq2kXUtnqL9eEyTi9TNfX6w/videos
+		  ProgrammingKnowledge ~~~~~~~~ https://www.youtube.com/c/ProgrammingKnowledge/playlists
+		  Programming Tutorials ~~~~~~~ https://www.youtube.com/c/ProgrammingTutorials1M/playlists
+		     Coding Simplified ~~~~~~~~ https://www.youtube.com/c/CodingSimplified/playlists    
+		   
+		       Play Java ~~~~~~~~~~~~~~ https://www.youtube.com/channel/UCq2kXUtnqL9eEyTi9TNfX6w/videos
 	          Green Learner ~~~~~~~~~~~ https://www.youtube.com/c/GreenLearner/playlists
 	     Learnprograming byluckysir ~~~ https://www.youtube.com/c/learnprogramingbyluckysir/videos	
 		 
@@ -557,6 +564,10 @@ https://www.baeldung.com/spring-cloud-series
   .......NodeJs.....Visual-Studio-Code(Node -v && npm -v).......WindRar.....WPS-Office.....Nodepad++
   
   .......PostMan......... Team-Viewer // Zoom ...........Max Audio pro.....
+  
+ HR Policy := /// Biot
+~~~~~~~~~~~
+  ---> Pay 3 Months salary for early release and Joining-Company will pay that amount 
 
   
 ==================================================================================================

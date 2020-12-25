@@ -331,20 +331,30 @@ Cloneable (I):-
 
  SOLID Principles := [ https://dzone.com/articles/a-gentle-and-easy-to-grasp-introduction-to-solid-p ]
 ~~~~~~~~~~~~~~~~~~~
-----> SOLID represents five principles of java which are:
 
-  S: Single responsibility principle ----> One class should have one and only one responsibility (Changes affect Only One-Class)
+ S ----> Single Responsibility Principles
+ 
+         One Class Should Perform One Task (Create 3-Separate-Classes to manipulate data of Employees from Excel-Fiel)
+------------------
 
-  O: Open-closed principle ----> Software components should be open for extension, but closed for modification
+ O ----> Open and Closed Principle (Open for Extension && Closed for Modification)
+ 
+          Extending Functionality of DispatcherServlet by adding Filters.
+-------------------
+	
+ L ----> Liskov Substitution Principle (Derived Class must be Completly Substitutable for Base-Class)
+ 
+         SubClass Working effectively even the Sub-class extends another Super-Class. 
+------------------
 
-  L: Liskov substitution principle ----> Derived types must be completely substitutable for their base types
-                                         Software should not alter the desirable results when we replace a parent type with any of the subtypes.
-
-  I: Interface segregation principle ---> Clients should not be forced to implement unnecessary methods which they will not use
-
-  D: Dependency inversion principle ----> Depend on abstractions, not on concretions
-  
----->instanceof operator tests variable to specified type.
+ I ----> Interface Seggregation Principle 
+ 
+         Interface Should not contain Many Methods. /// Flexibility for Programmer 
+-----------------
+	 
+ D ----> Dependency Inversion Principle ( IoC-Container )
+ 
+         Conatiner will Create Object
 
 =============================================================================================================
  
