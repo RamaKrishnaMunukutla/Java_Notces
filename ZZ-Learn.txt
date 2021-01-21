@@ -10,13 +10,8 @@
 	
 ====================================================================================================
     
-   ramakrishnamunukutla910@gmail.com  // ramakrishna.munukutla@ojas-it.com
-   
-    
-  Cycle :=  LEARN && UNDERSTAND THEORY // IMPLEMENT (PRACTISE) // LOGIC (*****)
-~~~~~~~~~~  
-
-=====================================================================================================
+     ramakrishnamunukutla910@gmail.com  /// ramakrishna.munukutla@ojas-it.com  /// .\Ojas
+	 
  
  PersistentSystems :=    32496  /// venkata_munukutla ///  venkata_munukutla@persistent.com
 ~~~~~~~~~~~~~~~~~~~~
@@ -277,7 +272,8 @@
    Expected Salay ---> As per Company Norms && My designation && Qualification
    
    
-   
+    Cycle :=  LEARN && UNDERSTAND THEORY // IMPLEMENT (PRACTISE) // LOGIC (*****)
+~~~~~~~~~~  
    
 
    
@@ -549,16 +545,30 @@ https://www.baeldung.com/spring-cloud-series
 ~~~~~~~~~~
    
    https://downloads.mysql.com/archives/installer/
-   
-   https://www.zdsoft.com/
-   
    https://dev.mysql.com/downloads/installer/
-   
    https://www.mongodb.com/try/download/community  (Install ----> [Youtube] Programming Knowledge)
+   
+   https://docs.docker.com/docker-for-windows/install/
+   https://www.jenkins.io/download/thank-you-downloading-windows-installer-stable/
+
+   https://www.zdsoft.com/
+   https://www.dell.com/support/home/en-us/drivers/driversdetails?driverid=r70v3  (MaxAudioPro)
+   
+
    
 ----> Team viewer download  /// Microsoft Teams 
 
 ----> Zoom download 
+
+
+ zd soft serial key :=
+~~~~~~~~~~~~~~~~~~~~ 
+ Name: PCBOKS SYSTEM
+ Email:  pcboks@pcboks.tk
+ Key: C0610-BSUAG-FYA12-AMG40-CQBC2
+ 3.you have been successfully activated your software
+
+
 
 
   .......NodeJs.....Visual-Studio-Code(Node -v && npm -v).......WindRar.....WPS-Office.....Nodepad++

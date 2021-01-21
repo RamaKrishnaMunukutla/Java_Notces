@@ -62,7 +62,23 @@
    
    Feign Client ----> (-YOUTUBE-) almighty java
 
-   MICROSERVICES ----> (-YOUTUBE-) almighty java
+   MICROSERVICES ----> (-YOUTUBE-) almighty java && GreenLearner && Java-Techie 
+
+
+ JSON := Languages Arrays having Objects 
+~~~~~~~
+ {
+  Languages[
+   {
+    "name" : "rama",
+	 "age": 85
+   }
+   {
+    "name" : "Gopi",
+	 "age": 22
+   }
+  ]
+ }  
 
 ====================================================================================================
                                                       
@@ -2078,6 +2094,16 @@ public class ContatctServiceTest {
 ----> It enables software developers to track issues and improvements. It manages the projects as well as maintain the technical documentation.
 
        Waterfall ---> RDD-TDM
+	   
+	   Product Owner ---> Understand the Req form Customer(Create Product-Backlog)  && 
+	                      Maintains the Product-Backlog (Vision on Final-Product)
+	   
+	   Scrum-Master ----> Intermediator between  Product Owner &&& Dev-Team (Breaks down-Work && Ensures Work)
+	   
+	   
+ In JIRA :=
+~~~~~~~~~~~
+	Epic (What They want to Acheive) ---->  Stories ----> Task  ---> Assign to Person 
 
 
 ===================================================================================================
@@ -3001,9 +3027,15 @@ It is a architectural style a big container in which all components and required
  
  WaterFall :=
 ~~~~~~~~~~~~~
-     Requirement.......Analysis.......Design.......Development........Test.......Deploy && Maintainentance Phases.
-  
-  
+      Analyze ---> Plan ---> Design ---> Build ---> Test ---> Deploy 
+	  
+
+ 
+ Agile :=
+~~~~~~~~~
+      Analyze ---> Plan ---> (( Design ---> Build ---> Test )) ---> Deploy 
+
+	  
 
 Agile Methodology :=
 ~~~~~~~~~~~~~~~~~
@@ -3055,9 +3087,22 @@ ProductOwner := Manager    /////////   Scrum-Master := TeamLeader
 				   
 				   Sprint Review -----------> 1 Hour in Week 
 				   
-				Daily Scrum Meeting --------> 15 Minutes 
-					 
+				Daily Scrum Meeting --------> 15 Minutes
 
+
+  TDD :=   /// Youtube :: Naveen AutomationLabs
+~~~~~~~
+ --- StackHolder gives Business-Req to BA. 
+ --- BA Assigned Tasks to DEv && QA Teams Separatley.
+ --- Tech Writer writes the Required Document on that Project.
+
+  BDD :=  
+~~~~~~~~
+ --- StackHolder gives Business-Req to BA.	
+ --- Here QA , BA, Dev-Teams Works Collaberatley to achieve Common Business-Goal.  
+ --- Tech Writer writes the Required Document on that Project.
+ 
+ 
 =============================================================================================================
 
 ==============/\/\\/\\/===========\/\\/\\/\/==========\/\\/\/\\/\=========/\/\\/\==============
@@ -3158,7 +3203,19 @@ ProductOwner := Manager    /////////   Scrum-Master := TeamLeader
 ~~~~~~~~~~~~~~     https://www.youtube.com/watch?v=h2FCDY9av_o&list=PLmySAPXhfGyATTXmgCmjkn9ZS4HB8wY57&index=3&ab_channel=ChargeAhead
 		  
 
-=============
+======================================================
+
+  Working_Directory ---->  in STS 
+  
+     Staging_Area   ---->  git add *
+  
+      Local_Repo    ---->  git commit -m "Added"   
+
+      Remote_Repo   ---->  git push / git pull 	(**Child_Branch**)  
+
+      Central_Repo  ---->  (**Master_Branch**)	  
+	  
+======================================================
 
  Respositary :=
 ~~~~~~~~~~~~~~

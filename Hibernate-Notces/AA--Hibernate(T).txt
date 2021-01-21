@@ -35,7 +35,9 @@
 	   
        CRUD    -----> https://github.com/kishanjavatrainer/HibernateCRUDExample
   Lazy-Loading -----> https://github.com/kishanjavatrainer/LazyAndEagerLoadingExample
-  
+ 
+ Composite-PK -----> https://github.com/Java-Techie-jt/springboot-composite-key  
+                                                                            @IdClass(EmployeePK.class) -- Haves PK Names)
   
 
 ===============================================================================================================================
