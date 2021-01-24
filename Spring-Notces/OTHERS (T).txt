@@ -2204,6 +2204,8 @@ Provides Security Protection  to avoid Stealing of "JWT".
 												  
 ----> It is architectural style in which you can build application as a collection of small autonomous services that focussed  around common Business goal/domain.	
 
+      (Small Process that Communicate Over Network to acheive / FullFill Common-Business-Goal)
+
 ----> Microservices is an architectural design pattern to develop applications.											  
 												  
 ----> each service has self-contained that implements single business  capability  and responsible for it's dataModel.	

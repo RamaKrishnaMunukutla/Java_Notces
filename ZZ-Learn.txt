@@ -18,8 +18,10 @@
 
     Application_Form  ////  Decision_Form   ///  Calculator_Form  /// Navigation_Form
 
-  OutLook ----> https://outlook.com/owa/persistent.co.in or https://login.microsoftonline.com/
+
+  OutLook ----> https://outlook.com/owa/persistent.co.in (Or)  https://login.microsoftonline.com/
    
+
    Leave -----> https://pwdreset.persistent.com/home.htm
                 https://eisapp.persistent.co.in/eis/apps.aspx
 
@@ -168,16 +170,13 @@
 				
 				Geek's Lesson ~~~~~~~~~~ https://www.youtube.com/c/GeeksLesson/playlists
 		        freeCodeCamp ~~~~~~~~~~~ https://www.youtube.com/c/Freecodecamp/playlists
-             UiBrains Technologies ~~~~~ https://www.youtube.com/c/UiBrains/playlists
 	         Talk2 Amareswaran ~~~~~~~~~ https://www.youtube.com/c/Talk2Amareswaran/videos
                   B2Tech ~~~~~~~~~~~~~~~ https://www.youtube.com/channel/UCff5tZ-js4bu68GQB_EhW9w/videos
                learnby bhanu~~~~~~~~~~~~ https://www.youtube.com/c/learnbybhanu/videos   
 		
 		
 		        Naresh IT ~~~~~~~~~~ https://www.youtube.com/c/NareshIT/videos
-		        Durga Soft ~~~~~~~~~ https://www.youtube.com/c/DurgaSoftwareSolutions/videos		  
-		  
-		  
+		        Durga Soft ~~~~~~~~~ https://www.youtube.com/c/DurgaSoftwareSolutions/videos		  		  	  
 		       KK-Tutorials ~~~~~~~~~~~ https://www.youtube.com/channel/UC9aUqnxhYLge4tLdBI50Cwg/playlists
            Ram N Java Tutorial ~~~~~~~~ https://www.youtube.com/user/ramram43210/playlists
         Sundeep Saradhi Kanthety ~~~~~~ https://www.youtube.com/c/SundeepSaradhi/playlists
@@ -201,13 +200,12 @@
 		 
            Almighty  java ~~~~~~~~~~ https://www.youtube.com/c/AlmightyJava/playlists        
 	         Siva Reddy ~~~~~~~~~~~  https://www.youtube.com/c/SivaReddyJavaTechie/videos   [/==****==/]
-	      ARC Tutorials ~~~~~~~~~~~~ https://www.youtube.com/channel/UCSqAIRXiW8qMrUKbGvLpXKw/videos  [/==UI==/]
-		     techsith ~~~~~~~~~~~~~~ https://www.youtube.com/c/Techsithtube/playlis	   
-		  Education 4u  ~~~~~~~~~~~~ https://www.youtube.com/channel/UCKS34cSMNaXaySe2xgXH-3A/playlists
-
+         
+		 UiBrains Technologies ~~~~~ https://www.youtube.com/c/UiBrains/playlists
+	         ARC Tutorials ~~~~~~~~~ https://www.youtube.com/channel/UCSqAIRXiW8qMrUKbGvLpXKw/videos  [/==UI==/]
+			 Traversy Media ~~~~~~~~ https://www.youtube.com/c/TraversyMedia/playlists
 
             Gaurav Sen ~~~~~~~~~~~~~ https://www.youtube.com/c/GauravSensei/playlists
-	   Kindson The Tech Pro ~~~~~~~~ https://www.youtube.com/c/KindsonTheTechPro/playlists
           Dinesh Varyani ~~~~~~~~~~~ https://www.youtube.com/c/hubberspot/playlists
             Akshay Saini ~~~~~~~~~~~ https://www.youtube.com/c/akshaymarch7/playlists
             Education 4u ~~~~~~~~~~~ https://www.youtube.com/channel/UCKS34cSMNaXaySe2xgXH-3A/playlists
@@ -548,8 +546,9 @@ https://www.baeldung.com/spring-cloud-series
    https://dev.mysql.com/downloads/installer/
    https://www.mongodb.com/try/download/community  (Install ----> [Youtube] Programming Knowledge)
    
+   https://www.jenkins.io/download/
    https://docs.docker.com/docker-for-windows/install/
-   https://www.jenkins.io/download/thank-you-downloading-windows-installer-stable/
+   https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
    https://www.zdsoft.com/
    https://www.dell.com/support/home/en-us/drivers/driversdetails?driverid=r70v3  (MaxAudioPro)
