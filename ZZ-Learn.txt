@@ -201,9 +201,13 @@
            Almighty  java ~~~~~~~~~~ https://www.youtube.com/c/AlmightyJava/playlists        
 	         Siva Reddy ~~~~~~~~~~~  https://www.youtube.com/c/SivaReddyJavaTechie/videos   [/==****==/]
          
+		 
 		 UiBrains Technologies ~~~~~ https://www.youtube.com/c/UiBrains/playlists
 	         ARC Tutorials ~~~~~~~~~ https://www.youtube.com/channel/UCSqAIRXiW8qMrUKbGvLpXKw/videos  [/==UI==/]
 			 Traversy Media ~~~~~~~~ https://www.youtube.com/c/TraversyMedia/playlists
+			 EasyTutorials ~~~~~~~~~ https://www.youtube.com/c/EasyTutorialsVideo/playlists
+			 freeCodeCamp.org ~~~~~~ https://www.youtube.com/c/Freecodecamp/playlists
+
 
             Gaurav Sen ~~~~~~~~~~~~~ https://www.youtube.com/c/GauravSensei/playlists
           Dinesh Varyani ~~~~~~~~~~~ https://www.youtube.com/c/hubberspot/playlists
@@ -273,7 +277,9 @@
     Cycle :=  LEARN && UNDERSTAND THEORY // IMPLEMENT (PRACTISE) // LOGIC (*****)
 ~~~~~~~~~~  
    
-
+     ID /// Cascade /// Relations  ///  Lazy loading /// Proxy 
+	 
+	  Auto (IODI) ----- 
    
 ===========================================================================================
 
@@ -495,7 +501,8 @@ JavaScript :=
  --- Authentication 
  --- Enterprise Project 
  --- display Row fromTable in another Component
- --- display Row fromTable in Console for regular intervals. 
+ --- display Row fromTable in Console for regular intervals.
+ --- https://github.com/javatechie-angular-tutorial/javatechie-covid19-ng 
 
 
  Programs :=
@@ -510,10 +517,9 @@ JavaScript :=
  --- java data structures tutorial
  --- data structures in java
  --- data structures tutorial
- ---
- --- 
- ---
- 
+  
+  
+     https://github.com/javatechie-angular-tutorial/javatechie-covid19-ng
  
 ==================================================================================================
 

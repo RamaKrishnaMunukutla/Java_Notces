@@ -7,7 +7,7 @@
 		
 		 .............HQL456..................HQLParameters(***).........HibernateValidatorAPI.....DirtyChecking480......
 		 
-		 .........CriteriaQueries220............NamedQueries888..........NativeSQLQueries770.........
+		 .........CriteriaQueries220............NamedQueries888..........NativeSQLQueries770.........DesignPatternsUsed990
 		
 		........HibernateOverJDBC.................Auto123..................JPA111.....HQLExamples.........
 		
@@ -71,7 +71,7 @@
                                                    It enabled the lazy loading of all it’s related collections
 		
   fetch="join" or @Fetch(FetchMode.JOIN) ----> This is the default fetching strategy. 
-                                                   It enabled the lazy loading of all it’s related collections
+                                               It enabled the lazy loading of all it’s related collections
 											   
 		
 ----> @OrderColumn(name = "order_id") --- column will not created.
@@ -82,7 +82,8 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~
  
   (1)  LocalDateTime    -----> private LocalDate publishingDate;
-                               Don’t need any additional annotations or converter to persist the classes of the Date and Time API.
+                               Don’t need any additional annotations or converter to persist the classes of the 
+                               Date and Time API.
 		
 		
   (2) Stream<Object[]>  -----> Selects all Book entities from the database and processes them as a Stream.  
@@ -246,7 +247,7 @@ Cascading := Opertation performed on <Parent> has to reflect to it's child.
 						                              NOTCES
                                                      =========
 													 
---->Hibernate framework is java based ORM tool which implements JPA specification that provides mapping for application domain objects to the relational database tables and vice versa.
+--->Hibernate framework is java based ORM tool which implements JPA specification to provides mapping for application domain objects to the relational database tables and vice versa.
   ---Simplifies the development of Java App to interact with database.
   
 
@@ -265,6 +266,7 @@ Cascading := Opertation performed on <Parent> has to reflect to it's child.
 ---> It Wraps exceptions and throws JDBCExceptions which are checked Exceptions.
 
 ----> key components of Hibernate.cfg Object -- D/b Connection, class mapping Setup.
+
 
 Use of HibernateTemplate :=
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -379,9 +381,9 @@ toString :=This method is from java.lang.Object class and it is non-final, non-s
 ~~~~~~~~
 
 
----->toString() method can be overridden in child (or any) class. If not overridden, it prints by default fullClassName@hashCode in HexaDecimal format
+----> toString() method can be overridden in child (or any) class. If not overridden, it prints by default fullClassName@hashCode in HexaDecimal format
 
----->@TRANSCIENT-----not mapped  with any column.
+---->@TRANSCIENT----- not mapped  with any column.
 
 ---->If toSring() method is not overridden then it returns @hashCode in HexaDecimal format.
 
@@ -392,18 +394,16 @@ toString :=This method is from java.lang.Object class and it is non-final, non-s
 4. Preparing statement using cfg Object.
 
 
-SessionFactory :=
-~~~~~~~~~~~~~~~~
-   ---SessionFactory is an interface. 
+  SessionFactory (I) :=
+~~~~~~~~~~~~~~~~~~~~
+   ---SessionFactory is an interface. // factory for Session objects. //// provides the instance of Session.
    ---SessionFactory can be created by providing Configuration object, which will contain all DB related property details     pulled from either hibernate.cfg.xml file or hibernate.properties file. 
-   ---SessionFactory is a factory for Session objects.
-   ---provides the instance of Session. It is a factory of Session. 
    ---It holds the data of second level cache that is not enabled by default.
    ---SessionFactory is a thread-safe object, many threads can access it simultaneously.
 
   
-Session :=
-~~~~~~~~
+ Session (I) :=
+~~~~~~~~~~~~~
  ---maintains a connection between the hibernate application and database.
  ---Session object is lightweight and designed to be instantiated each time an interaction is needed with the database. ---Persistent objects are saved and retrieved through a Session object.
  ---Session is not a thread-safe object, many threads can't access it simultaneously. In other words, you cannot share it     between two threads.
@@ -425,7 +425,7 @@ It creates a new Session if not exists, else uses same session which is in curre
 --- You need to configure additional property. "hibernate.current_session_context_class" to call getCurrentSession() method, otherwise it will throw an exception.
 
 
-     Design-Pattern ----->  Proxy // Factory // Facade // DAO 
+DesignPatternsUsed990 ----->  Proxy // Factory // Facade // DAO 
 
        To Log-Generated SQL-Queriees ----->  logging.level.org.hibernate.SQL= DEBUG 
 
@@ -615,7 +615,7 @@ Second level cache := [ https://www.javatpoint.com/hibernate-second-level-cache 
 selectOperation: - 
 ~~~~~~~~~~~~~~~~~
 
-Data select using get(): -
+Data select using get():=
 ~~~~~~~~~~~~~~~~~~~~~~~
 Session supports selecting one row based on Primary key column get() will select one row and that is converted to one object.
                                
@@ -1015,7 +1015,7 @@ Test := create Objects, set data and  save data for 3 classes.
 =======================================================
 Multiplicity:= Linking rows b/w 2 tables,can be implemented in 4 ways.
 --------------
-    ---OneToOne          ----OneToMany					    ---ManyToOne        ----ManyToMany
+    ---OneToOne       ----OneToMany       ---ManyToOne        ----ManyToMany
 
 ----Apply Has-A relation
 ----Choose one Multiplicity and 
@@ -1576,7 +1576,7 @@ The memory cost of caching the query is really small. Remember that Hibernate ne
 ---->"--name--" in @namedQueries should be Unique (**********)
 
 
-Eg :=  [https://github.com/kishanjavatrainer/NamedNativeQueryInHibernateExample]
+Eg :=  [ https://github.com/kishanjavatrainer/NamedNativeQueryInHibernateExample ]
 ~~~~
 @Entity
 @Table(name="emp")
@@ -1717,16 +1717,7 @@ CriteriaQueries220 := [ https://github.com/kishanjavatrainer/CriteriaQueryJoinEx
 			e.printStackTrace();
 		} 
 		
----->
-
----->
-
----->
-
----->
-
----->
-
+ 
 =============================================================================================================
 
  DirtyChecking480 :=
@@ -1745,7 +1736,7 @@ Only the changed fields of database are updated and the remaining unchanged fiel
 ----> while performing Select( load()/get() ), "ID" can get from Sessioncache.
 
 
----->https://github.com/kishanjavatrainer/HibernateDirtyCheckingExample
+----> https://github.com/kishanjavatrainer/HibernateDirtyCheckingExample
 
 
 ===============================================================================================================
@@ -1975,7 +1966,7 @@ An Object/relational mappings are usually defined in an XML document. ... The ma
 ----> Abstraction is about hiding unwanted details while giving out most essential details
 
 
----->Encapsulation means hiding the code and data into a single unit e.g. class or method to protect inner working of an object from outside world,....used to  provides your code - security, flexibility and its easy maintainability 
+----> Encapsulation means hiding the code and data into a single unit e.g. class or method to protect inner working of an object from outside world,....used to  provides your code - security, flexibility and its easy maintainability 
 
 ---->@RequestParam annotation is used to read the form data and bind it automatically to the method parameter.
 
@@ -2002,7 +1993,6 @@ An Object/relational mappings are usually defined in an XML document. ... The ma
  --JPA the developer can map, store, update and retrieve data from relational databases to Java objects and vice versa.
  --JPA is a source to store business entities as relational entities. It shows how to define a PLAIN OLD JAVA OBJECT (POJO) as an entity and how to manage entities with relations.(*************)
  --JPA is a specification and several implementations are available. Popular implementations are Hibernate, EclipseLink and Apache OpenJPA etc.
- 
  
 ----> It is a Set of Specification , Independent of ORM Framework. 
 
@@ -2046,6 +2036,7 @@ Following are the other development versions released under JPA specification :=
  --Within the persistence context, the entity instances and their lifecycle are managed.
  --Persistence context defines a scope under which particular entity instances are created, persisted, and removed.
  --A persistence context is like a cache which contains a set of persistent entities , So once the transaction is finished, all persistent objects are detached from --the EntityManager's persistence context and are no longer managed.
+
 
  EntityManagerFactory (C) extends  EntityManager(I) :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

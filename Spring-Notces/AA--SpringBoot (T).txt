@@ -143,12 +143,12 @@
  NamedQueries660 :=
 ~~~~~~~~~~~~~~~~~
 
-		   https://github.com/kishanjavatrainer/-SpringDataNamedQueryDemo       --------- @NamedQueries
+		   https://github.com/kishanjavatrainer/-SpringDataNamedQueryDemo       ---------- @NamedQueries
 		   https://github.com/kishanjavatrainer/SpringDataQueryAnnotation_1      --------- @Query
 		   https://github.com/kishanjavatrainer/SpringDataQueryAnnotation_2      --------- @Query
      	   https://github.com/kishanjavatrainer/QueryAnnotaionWithUpdateDataStoreDemo ---- 
-		   https://github.com/kishanjavatrainer/SpringDataNamedNativeQueryDemo  --------- @NamedNativeQueries
-		   https://github.com/kishanjavatrainer/-SpringDataPaginationDemo --------------- Pagination.
+		   https://github.com/kishanjavatrainer/SpringDataNamedNativeQueryDemo  ----------- @NamedNativeQueries
+		   https://github.com/kishanjavatrainer/-SpringDataPaginationDemo ----------------- Pagination.
 		   https://github.com/kishanjavatrainer/MethodQueryInSpringDataUsingNamedParameters 
  
  

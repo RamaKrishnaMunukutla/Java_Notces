@@ -8,30 +8,26 @@
   desc rama.addrtab;
   
  ======================================================================================================
- Inner Join:= common values are displayed from 2 tables.
+ Inner Join := common values are displayed from 2 tables.
  ~~~~~~~~~~
   
 ======================================================================================
- Left Join:=
- ~~~~~~~~~~
+ Left Outer Join :=
+~~~~~~~~~~~~~~~~~~
  returns all the records from left table and also those records which satisfy the condition from right table.If no matching found then ResultSet returns NULL.
 
- 
  Eg:= select  emptab.eid, emptab.ename, addrtab.emploc from emptab left join addrtab on emptab.eid= addrtab.eid;
- 
-======================================================================================
 
-Right Join :=
-~~~~~~~~~~~~
+
+ Right Outer Join :=
+~~~~~~~~~~~~~~~~~~~
  returns all the records from Right table and also those records which satisfy the condition from left table.If no matching found then ResultSet returns NULL.
-
  
  Eg:= select  emptab.eid, emptab.ename, addrtab.eloc from emptab right join addrtab on emptab.eid= addrtab.eid; 
- 
-======================================================================================
 
-Full Join :=
-~~~~~~~~~~
+
+ Full Outer Join :=
+~~~~~~~~~~~~~~~~~~
 All the values from  left  table which satisfy the condition of right table and Viceversa.
 
 Eg:= select  emptab.eid, emptab.ename, addrtab.eloc from emptab  left join  addrtab on emptab.eid = addrtab.eid; 
@@ -87,7 +83,7 @@ Eg:=  select * from emptab cross join addrtab;
 ~~~~~~~~~~~~~~~~~~~~~~
   Clause is used to collect data from multiple columns and group the result by one or more column. It is generally used in a SELECT statement.You can also use some aggregate functions like COUNT, SUM, MIN, MAX, AVG etc. on the grouped column.
 
-==============================================================================
+===============================================
 
  (4) HAVING Clause :=
 ~~~~~~~~~~~~~~~~~~~~
@@ -95,7 +91,7 @@ Eg:=  select * from emptab cross join addrtab;
 
 
 
------>"IN" condition is used to reduce the use of multiple OR conditions in a SELECT, INSERT, UPDATE and DELETE statement.
+----->"IN" condition is used to reduce the use of multiple 'OR' conditions in a SELECT, INSERT, UPDATE and DELETE statement.
    
       SELECT *  FROM officers  WHERE officer_name = 'Ajeet'  OR officer_name = 'Vimal'  OR officer_name = 'Deepika';  
 	                                                 (as)
@@ -142,15 +138,13 @@ Eg:=  select * from emptab cross join addrtab;
  
 =============================================================================
 
-  
-  
-     
-	                  //create table (emptab)~~~~~~~~~~~eid, ename,esal,qual
+	                  
+					  //create table (emptab)~~~~~~~~~~~eid, ename,esal,qual
    
 
 
- Group By:=
-~~~~~~~~
+ Group By :=
+~~~~~~~~~~~
 Summaries identical rows into a Single /Distinct rows and returns a single row with summary for each group by using appropriate aggregate functions like SUM(), AVG(), COUNT(), MIN(), MAX()
 
 
@@ -165,19 +159,10 @@ Summaries identical rows into a Single /Distinct rows and returns a single row w
  
  
  --- If you use the GROUP BY clause in the SELECT statement without using aggregate functions, the GROUP BY clause behaves like the DISTINCT clause.You can achieve a similar result by using the DISTINCT clause:
- 
- ----
- 
- ----
- 
- ----
-==============================================================================================================================
-
-
-  
 	
 	
-==============================================================================================================================
+==================================================================================================================
+
 Having clause:=
 ~~~~~~~~~~~~~~
 ---> works as a filter on top of grouped rows returned by group by clause, cannot be replaced by where clause and viceversa.
@@ -186,9 +171,12 @@ Order~~~~~~~~~~~  ( where [filters individual rows]  ----- GroupBy     ----Havin
 
 
 Eg:=   select ename, sum(esal) from rama.emptab group by ename having sum(esal)>2000 order by sum(esal) desc;
-==============================================================================================================================
+
+===========================================================================================================================
 
 ----> AND operator is a logical operator that combines two or more Boolean expressions and returns true only if both expressions evaluate to true. The AND operator returns false if one of the two expressions evaluate to false.
 
- - 
  ----
+ 
+===========================================================================================================================
+

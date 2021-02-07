@@ -21,9 +21,6 @@
 					   -- predefined tags, action tags, JSTL, custom tags, etc. that reduces the code					   
 					   -- expression language that makes JSP development easy.
 
-
-
-
    (index.html) -----> Run as Server
  
  

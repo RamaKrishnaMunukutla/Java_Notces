@@ -149,7 +149,7 @@ HTTP :=  It is the data communication protocol used to establish communication b
 ~~~~~~~~~~~~~~~~~~~   =>supports CURD operations. An External source can be end user, Java App, .net App, or Angular) etc…
 
 
-=================================================================================================================================
+==========================================================================================================
 
 
  Servlet(I) := These are used to develop Dynamic web application also supported static web  applications.
@@ -200,30 +200,28 @@ GET Vs POST :=
    
 ===============================================================================================================================
  
- Sessions880 := [https://www.journaldev.com/1907/java-session-management-servlet-httpsession-url-rewriting]
+ Sessions880 := [ https://www.journaldev.com/1907/java-session-management-servlet-httpsession-url-rewriting ]
 ~~~~~~~~~~~~~
 
        <%@ page language="java" contentType="text/html; charset=US-ASCII" pageEncoding="US-ASCII"%>
 	   
-	   
-	   
-
 ===========================================================================================================================
 
-ServletContainer123 :=
-~~~~~~~~~~~~~~~~~~
+ ServletContainer123 :=
+~~~~~~~~~~~~~~~~~~~~~~
  ---It is Component of WebServer that interacts with Servlets  &&  Responsible of Servlet-LifeCycles.
  ---It Handles Request to Servlets && JSP's 
 It provides the runtime environment for JavaEE (j2ee) applications. The client/user can request only a static WebPages from the server. If the user wants to read the web pages as per input then the servlet container is used in java.
 
   --The servlet container is the part of web server which can be run in a separate process. 
   
+  
  SSL := (Secure-Socket-Layer) that connects Computer to Server Securely.
 ~~~~~~~
   
 
-WebServer123 := 
-~~~~~~~~~~~~
+ WebServer123 := 
+~~~~~~~~~~~~~~~
  --Web server contains only web or servlet container. It can be used for servlet, jsp, struts, jsf etc. It can't be used for EJB.
 
  --It is a computer where the web content can be stored. In general web server can be used to host the web sites but there also used some other web servers also such as FTP, email, storage, gaming etc.
@@ -231,8 +229,8 @@ WebServer123 :=
  --Examples of Web Servers are: Apache Tomcat and Resin.
   
   
-Web Server Working :=
-~~~~~~~~~~~~~~~~~
+ Web Server Working :=
+~~!~~~~~~~~~~~~~~~~~~
 It can respond to the client request in either of the following two possible ways:
 
 Generating response by using the script and communicating with database.
@@ -323,7 +321,7 @@ public class QuickServlet extends HttpServlet {
 
 ============================================================================================================
 
- ErrorHandling770 :=  [https://www.codejava.net/java-ee/servlet/how-to-handle-error-in-web-xml-for-java-web-applications]
+ ErrorHandling770 :=  [ https://www.codejava.net/java-ee/servlet/how-to-handle-error-in-web-xml-for-java-web-applications ]
 ~~~~~~~~~~~~~~~~~~~~
   	
 	<error-page>
@@ -581,7 +579,7 @@ load-on-startup123 :=
 
    You can pass positive and negative value for the servlet.container loads the servlets in ascending integer value. The 0 value will be loaded first then 1, 2, 3 and so on.
  
- Advantage of load-on-startup element
+ Advantage of load-on-startup element :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 As you know well, servlet is loaded at first request. That means it consumes more time at first request. If you specify the load-on-startup in web.xml, servlet will be loaded at project deployment time or server start. So, it will take less time for responding to first request.
    
@@ -623,6 +621,7 @@ There are two methods defined in the RequestDispatcher interface.
 		System.out.println("-----------Simple-Servlet--------------");
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();    /// To Print on Browser
+		
 		
 		String p=request.getParameter("userPass"); /// Takes Form-Input Data.
 		if(p.equals("servlet")){
@@ -725,9 +724,9 @@ Methods of ServletContext interface :=
  
  public String getInitParameter(String name):  Returns the parameter value for the specified parameter name.
  
- public Object getAttribute(String name):      Returns the attribute for the specified name.
+ public Object getAttribute(String name)    :  Returns the attribute for the specified name.
 
- public void removeAttribute(String name):     Removes the attribute with the given name from the servlet context.
+ public void removeAttribute(String name)   :  Removes the attribute with the given name from the servlet context.
  
  getServletContext() :         method of ServletConfig interface returns the object of ServletContext.
  
@@ -790,7 +789,7 @@ Methods of ServletContext interface :=
     out.print("<br> "+context.getInitParameter(str));  
  
  
-==================================================================================================================================
+==============================================================================================================
  
  ServletRequest440 :=
 ~~~~~~~~~~~~~~~~~~~
@@ -806,10 +805,11 @@ Methods of ServletContext interface :=
 
 ===========================================================================================================================
  
- Annotations660 :=  [https://www.codejava.net/java-servlet-tutorials]
-~~~~~~~~~~~~~~~~~   [https://www.codejava.net/java-ee/servlet/servlet-annotations-reference]
+ Annotations660 :=  [ https://www.codejava.net/java-servlet-tutorials ]
+~~~~~~~~~~~~~~~~~   [ https://www.codejava.net/java-ee/servlet/servlet-annotations-reference ]
 
-  @WebServlet :=  [https://www.codejava.net/java-ee/servlet/webservlet-annotation-examples]
+
+  @WebServlet :=  [ https://www.codejava.net/java-ee/servlet/webservlet-annotation-examples ]
 ~~~~~~~~~~~~~~~~
  ---@WebServletannotation is used to declare a servlet. The annotated class must extend the javax.servlet.http.HttpServlet class
  ---We can use this annotation with Servlet classes to define init parameters, loadOnStartup value, description and url patterns etc. 
@@ -817,7 +817,7 @@ Methods of ServletContext interface :=
  ---The class on which this annotation is declared MUST extend HttpServlet.
  
  
- @WebInitParam := [https://www.codejava.net/java-ee/servlet/webinitparam-annotation-examples]
+ @WebInitParam := [ https://www.codejava.net/java-ee/servlet/webinitparam-annotation-examples ]
 ~~~~~~~~~~~~~~~~~
  ---This annotation is used to define init parameters for servlet or filter, it contains name, value pair and we can provide description also. 
  ---This annotation can be used within a WebFilter or WebServlet annotation.
@@ -830,7 +830,7 @@ Methods of ServletContext interface :=
  ---The annotated class MUST implement javax.servlet.Filter interface.
  
  
- @WebListener := [https://www.codejava.net/java-ee/servlet/weblistener-annotation-examples]
+ @WebListener := [ https://www.codejava.net/java-ee/servlet/weblistener-annotation-examples ]
 ~~~~~~~~~~~~~~
  ---The annotation used to declare a listener for various types of event, in a given web application context.
  
@@ -845,7 +845,7 @@ Methods of ServletContext interface :=
 				@WebInitParam(name = "password", value = "journaldev")
 		})
 		
-========================================================================================================================================
+==============================================================================================================
 
  Attribute in Servlet := [  pass informations from one servlet to another ]
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -932,9 +932,6 @@ A cookie has a name, a single value, and optional attributes such as a comment, 
 By default, each request is considered as a new request. In cookies technique, we add cookie with response from the servlet. So cookie is stored in the cache of the browser. After that if request is sent by the user, cookie is added with request by default. Thus, we recognize the user as the old user.
 
 
-
-
-
 cookies in servlet := [ javax.servlet.http.Cookie ]
 ~~~~~~~~~~~~~~~~~~ 
 Types of Cookie
@@ -949,7 +946,7 @@ It is valid for single session only. It is removed each time when user closes th
 --Persistent cookie
 It is valid for multiple session . It is not removed each time when user closes the browser. It is removed only if user logout or signout.
 
-===================================================================================================================================
+=================================================================================================================
  
 HiddenFormFields123 :=   /// Here Username is hidden(Invisible text-field) and sended from one Servlet to another
 ~~~~~~~~~~~~~~~~~~~~

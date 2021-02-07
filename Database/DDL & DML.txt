@@ -62,21 +62,22 @@ Key-Words :=
 	   BS
  
 ====================================================================================================================
-
  
  Tranasaction ACIDProperties :=  [ https://www.geeksforgeeks.org/acid-properties-in-dbms/ ]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  --- It is About "-Tranasaction-" Interats with DB && maintains DB-Consistancy.
  
- (1) Atomocity ----> Either all transaction should be Sucessfully Executed (Or) Rollbacked .
+ (1) Atomocity ------> Either all transaction should be Sucessfully Executed (Or) Rollbacked .
  
+
  (2) Consistancy ----> Before / After the transaction commits, data should be in consistency state logically.
                        
 					   
- (3) Isolation ----> One Transaction Should not affect Other. 
+ (3) Isolation ------> One Transaction Should not effect Other. 
                      Multiple Transaction Can Occur at Once without dirty reads.  
  
- (4) Durability ----> After Tranasaction, Changes must be Accepted in DB(Permenently) Irrespective H/w (Or) S/w failure. . 
+
+ (4) Durability -----> After Tranasaction, Changes must be Accepted in DB(Permenently) Irrespective H/w (Or) S/w failure. 
                       The committed data should not lose by any system failure.
  
 
@@ -106,6 +107,7 @@ Key-Words :=
 
   BCNF ----> reduce Anomalies .
 
+
  DeNormalization := Introduces Redundancy  
 ~~~~~~~~~~~~~~~~~~
  --- Access data form Higher to lower forms of database. 
@@ -118,8 +120,6 @@ Key-Words :=
 
 
 ====================================================================================================================
-
-
  		
   Primary -Key :=    It Identifies Uniquely Identifies Each-Row (*****************)
 ~~~~~~~~~~~~~~~~~~
@@ -127,37 +127,40 @@ Key-Words :=
 	 ----> Can Define at Create // Alter  Levels 
 	  ----> Can apply at Table // Column Levels 
 
-	          Alter--PK ----> alter table emptab add constraint emp_PK primary key (empId) ;
+	          Alter--PK ------> alter table emptab add constraint emp_PK primary key (empId) ;
 			  
 			  disable--PK ----> alter table emptab disable constraint emp_PK ;
 			   
-			  enable--PK ----> alter table emptab enable constraint emp_PK ;
+			  enable--PK -----> alter table emptab enable constraint emp_PK ;
 
 			  
  Composite Primary Key :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~
- --- Sometimes we cannot identifies recored with Primary-Key.So we need One Extra-Column which acts like a Primary-Key used to retrive record.  
+ --- Sometimes we cannot identifies recored with Primary-Key.
+     So we need One Extra-Column which acts like a Primary-Key used to retrive record.  
+	
 	
  Foreign Key (Chil-table) :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
  ---> 2 Types (1) Simple-Foreign-Key    (2) Composite-Foreign-Key 
 	
+	
   Foreign-Key :=
 ~~~~~~~~~~~~~~~
 	  ----> Can Define at Create // Alter  Levels 
-	  ----> Can apply at Table // Column Levels 
+	  ----> Can apply at Table  // Column Levels 
 
 
   Foreign-Key :=
 ~~~~~~~~~~~~~~~~
 	  ----> Can Define at Create // Alter  Levels 
-	  ----> Can apply at Table // Column Levels 
+	  ----> Can apply at Table  // Column Levels 
 
 	          DROP--PK ----> alter table emptab DROP constraint emp_FK ;
 
 			  disable--FK ----> alter table emptab disable constraint emp_FK ;
 			   
-			 enable--FK ----> alter table emptab enable constraint emp_FK ;
+			  enable--FK ----> alter table emptab enable constraint emp_FK ;
 			 
 ====================================================================================================================
 
@@ -202,12 +205,11 @@ Key-Words :=
 
  CandidateKey ----> S.No / Pan No
  
-  Clause-Order :=
+
+ Clause-Order :=
 ~~~~~~~~~~~~~~
 --->   where ---- groupBy ---- having ----- OrderBy
 ---> WhenEver GroupBy Clause is not Present, 'HAVING' behaves like 'WHERE' 
-
-
 
    Between  ------->        Range 
     IN    -------->  shortForm of 'LIKE'
@@ -256,10 +258,10 @@ Key-Words :=
 																				 ......./// create table
 
 
----->CREATE TABLE IF NOT EXISTS dup_countries LIKE countries;    ........///Same Structure copied with No Data...
+---->CREATE TABLE IF NOT EXISTS dup_countries LIKE countries;           ...../// Same Structure copied with No Data...
 
 
----->CREATE TABLE IF NOT EXISTS country_new AS SELECT * FROM countries;     ........///Same Structure copied With Data..
+---->CREATE TABLE IF NOT EXISTS country_new AS SELECT * FROM countries;  ....///Same Structure copied With Data..
 
 ----> CREATE TABLE IF NOT EXISTS jobs ( 
   JOB_ID varchar(10)  NOT NULL UNIQUE  AUTO_INCREMENT PRIMARY KEY,  (************)
@@ -524,10 +526,6 @@ We know that WHERE clause is used to place conditions on columns but what if we 
 
                 --- WHERE cellphone IS NULL  ORDER BY cellphone;
 
-
-
-
-
 =========================================================================================================================
  
  
@@ -593,8 +591,10 @@ FROM employees;
  Temporary-Table :=  // accessible only for the current session
 ~~~~~~~~~~~~~~~~~~
  
+ 
  View := It is a virtual table created by a query by joining one or more tables.
 ~~~~~~
+ 
  
  Constraints440 := [ https://www.javatpoint.com/mysql-constraints ]
 ~~~~~~~~~~~~~~~~~
@@ -636,9 +636,9 @@ FROM employees;
  --- It is very useful when the table or column name is not user-friendly in real-time. 
  --- It makes the name of a column more readable. 
  --- MySQL aliases can exist only for the duration of a query.
-
   
   Date ----> https://www.javatpoint.com/mysql-date-and-time
+
 
 Send Table-data into CSV with HEADINGS :=  // File Will be created automatically.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
