@@ -1,9 +1,8 @@
  
   
     
-   .......Tutorials770.........
- 
-    Angular ----> Client Side Application, TypeScript-Based && Produces SPA.
+   .......Tutorials770.......GITHUBLINKS
+
    
 ====================================================================================================
 
@@ -16,6 +15,11 @@
 	 --spec==true/false ----> for Spects.
 	
 	Dynamic ----> ${} ++ ` `  ==  `${}`
+	
+	
+	    Angular ----> Client Side Application, TypeScript-Based && Produces SPA.
+ 
+      https://github.com/gothinkster/angular-realworld-example-app
 	
 	
  ConcretePage :=
@@ -331,7 +335,10 @@ Imports :=
       https://github.com/gopinav/ES2015-Typescript-Tutorial
   
 ============================================================================================
-
+ 
+ GITHUBLINKS :=
+~~~~~~~~~~~~~
+  https://github.com/gothinkster/angular-realworld-example-app
  
  
  

@@ -39,7 +39,16 @@
  spring.datasource.password=  
  spring.jpa.database-platform=org.hibernate.dialect.H2Dialect  
  spring.jpa.hibernate.ddl-auto=create
- spring.h2.console.enabled=true  
+ spring.h2.console.enabled=true 
+ 
+ 
+ MongoDB :=
+~~~~~~~~~~
+#spring.data.mongodb.host=127.0.0.1
+#spring.data.mongodb.port=27017
+#spring.data.mongodb.authentication-database=admin
+spring.data.mongodb.uri=mongodb://localhost:27017/test
+#spring.data.mongodb.uri=mongodb://username:password@host:port/database
 
 =============================================================================================
 
@@ -123,7 +132,37 @@
  
 =======================================================================================
 
+Q) What is the use of @PropertySource and @Value, @ConfigurationProperties?
+A) @PropertySource : is used to load properties file into Spring container.
+   @Value/@ConfigurationProperties is used to read data from Spring container
+   to our code.
 
+Q) How can we load a properties file from outside of classpath(src/main/resource) folder?
+A) use file: inside @PropertySource annotation.
+
+If file is created inside F:/ drive with folder name 'dataa' and file name: abc.properties
+@PropertySource("file:F:/dataa/abc.properties")
+
+If file is created inside Project folder (./ = current project folder) and file name mno.properties
+@PropertySource("file:./mno.properties")
+
+
+Q) If same key is provided multiple times with different value in properties file
+   then which combination is considered?
+A) duplicate keys are not-recomanded in Spring boot. If we write then last combination
+   is loaded.
+
+Q) Are keys case-sensitive in properties file?
+A) YES. Keys are case-sensitive.
+ex: below keys are different.
+   code=A
+   CODE=A
+   
+Q) If we define same key in both application.properties and application.yml
+   with different value? then which one is taken?
+A) Priority is given to properties file only.
+   
+=================================================================================================================
 
 
 

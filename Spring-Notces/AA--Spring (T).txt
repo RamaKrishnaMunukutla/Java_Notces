@@ -1071,6 +1071,12 @@ These are the annotations used to create a bean (object ) in spring container, w
  
  --->If due to any reason any one of the above action fails then the other action should also be roll backed. 
   So if Employee Information gets inserted but suppose due to some reason persist HealthInsurance is not successful, then Employee Information should also be rollbacked.
+  
+  
+ (Q) What is @Component and @Bean ?
+ (A) @Component and @Bean both indicates creating object by Spring container.
+   @Component is used for Programmer defined class(.java code)
+   @Bean is used for pre-defined class (.class file)
 
 ==============================================================================================================
 
@@ -2917,6 +2923,30 @@ DotProperties :=
 	
  DefaultValue :=  @Value("${greeting: default value}")
 ~~~~~~~~~~~~~~~
+
+
+  Eg3 :=
+~~~~~~
+read data from properties file: @Value("${key}")
+--application.properties--
+# Comment Line
+# key=val
+code=NIT
+version=3.3
+---------------------------------------
+@Component
+public class ProcessMode {
+   @Value("${code}")
+   private String pcode;
+   @Value("${version}")
+   private Double expVer;
+}
+--Equal core java meaning(for understanding only)---
+ProcessMode processMode = new ProcessMode();
+processMode.setCode("NIT");
+processMode.setExpVer(3.3);
+----------------------------------------
+
 =============================================================================================================
 
  ElasticSearch :=

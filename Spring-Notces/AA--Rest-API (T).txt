@@ -16,6 +16,15 @@
 			  ----------------------------
                      {  } ----> Object  	
 					 
+=======================================================================================================================
+
+ HTTPS :=
+~~~~~~~~~
+ -- Data is Encrypted  (SSL/ TLS)
+
+
+=======================================================================================================================
+
 	
 	 Resr API ----> Based on request, it searches in DataBase , create Object && Sends the STATE-OF-OBJECT to client 
 
@@ -38,6 +47,7 @@
 			  Rest-Webservice ----> Provides Interaction communicating with each other Over a Network via world wide web.
 			                           
 									   (EXCHANGE-DATA in JSON/XML format)
+									   
      JAX-WS (Java API for XML Web Services) is a set of APIs for creating web services in XML format.
 	 JAX-RS (Java API for XML Web Services) is a set of APIs for creating web services in JSON/XML format.
 

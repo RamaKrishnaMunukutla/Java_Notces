@@ -11,30 +11,22 @@
 ====================================================================================================
     
      ramakrishnamunukutla910@gmail.com  /// ramakrishna.munukutla@ojas-it.com  /// .\Ojas
-	 
- 
- PersistentSystems :=    32496  /// venkata_munukutla ///  venkata_munukutla@persistent.com
-~~~~~~~~~~~~~~~~~~~~
-
-    Application_Form  ////  Decision_Form   ///  Calculator_Form  /// Navigation_Form
-
-
-  OutLook ----> https://outlook.com/owa/persistent.co.in (Or)  https://login.microsoftonline.com/
-   
-
-   Leave -----> https://pwdreset.persistent.com/home.htm
-                https://eisapp.persistent.co.in/eis/apps.aspx
-
-
- Documents ---> https://academy.unqork.com/path/associate-configurator
- Training ----> https://training.unqork.io/#/
- 
-  https://academy.unqork.com
-  http://meetup.com/edureka
 
 
 23 Java string coding interview questions | Learn With Krishna Sandeep
-18 Java array coding interview questions
+18 Java array coding interview questions  /// 
+
+    ID /// Cascade /// Relations  ///  Lazy loading /// Proxy 
+
+  https://www.javaguides.net/2020/06/free-spring-boot-microservices-open-source-projects-github.html
+  https://www.javapedia.net/
+  https://www.netjstech.com/2015/06/java-programs.html
+  https://kkjavatutorials.com/data-structures-and-algorithms/
+  https://kkjavatutorials.com/interview-questions/
+  https://www.javatpoint.com/program-to-find-the-frequency-of-characters
+  https://www.netjstech.com/2015/06/java-programs.html
+  
+  https://github.com/gothinkster/spring-boot-realworld-example-app
  
 =========================================================================================================   
 
@@ -56,7 +48,24 @@
   
  challanaveen521   // 8985352910
  
-=====================================
+ 
+ -> Intranet applications can be accessed only in specific locations.
+
+Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
+
+---------------------------------------------------------------
+
+-> Our IES is an intranet application. This application can be accessed only in DHS offices available in Kentucky State.
+
+-> DHS is a govt department available in Kentucky state. DHS deparment employees can access IES application in DHS offices.
+
+-> DHS department employees are called as Case Workers.
+
+-> If any kentucky state citizen wants to apply for plan then citizen should go to DHS office and should talk to Case Worker.
+
+-> DHS offices are available in Multiple cities of Kentucky state.
+ 
+=============================================================================================================c====
 
  Udemy560 :=
 ~~~~~~~~~~
@@ -87,8 +96,13 @@
   For New  Batches Visit: https://nareshit.com/new-batches-hyderabad/#Online-Training
                           https://nareshit.com/online-training/
 						
+						
 						https://www.nareshit.com/aws-online-training/
 						https://www.udemy.com/user/in28minutes/ 
+					
+					
+    http://www.mediafire.com/file/ehxgbj1f18wkyvj/SpringBoot7AM_19022020.zip/file
+	http://www.mediafire.com/file/ikgj4bqri1gn0ya/SpringBootWorkspace7AmBatch09102020_RAGHU.zip	
   
 =============================================================================================
 
@@ -161,6 +175,7 @@
 		           Telusko ~~~~~~~~~~~~~~~ https://www.youtube.com/user/javaboynavin/videos
 		        Hitesh Choudhary ~~~~~~~~~ https://www.youtube.com/user/hiteshitube/videos
 				  Ashok IT ~~~~~~~~~~~~~~~ https://www.youtube.com/c/AshokIT/videos	
+				    B2Tech ~~~~~~~~~~~~~~~ https://www.youtube.com/channel/UCff5tZ-js4bu68GQB_EhW9w/videos
 		  
 		  
 		          Edureka ~~~~~~~~~~~~~~ https://www.youtube.com/c/edurekaIN/videos
@@ -171,57 +186,64 @@
 				Geek's Lesson ~~~~~~~~~~ https://www.youtube.com/c/GeeksLesson/playlists
 		        freeCodeCamp ~~~~~~~~~~~ https://www.youtube.com/c/Freecodecamp/playlists
 	         Talk2 Amareswaran ~~~~~~~~~ https://www.youtube.com/c/Talk2Amareswaran/videos
-                  B2Tech ~~~~~~~~~~~~~~~ https://www.youtube.com/channel/UCff5tZ-js4bu68GQB_EhW9w/videos
-               learnby bhanu~~~~~~~~~~~~ https://www.youtube.com/c/learnbybhanu/videos   
-		
+               learnby bhanu~~~~~~~~~~~~ https://www.youtube.com/c/learnbybhanu/videos 
+
 		
 		        Naresh IT ~~~~~~~~~~ https://www.youtube.com/c/NareshIT/videos
 		        Durga Soft ~~~~~~~~~ https://www.youtube.com/c/DurgaSoftwareSolutions/videos		  		  	  
 		       KK-Tutorials ~~~~~~~~~~~ https://www.youtube.com/channel/UC9aUqnxhYLge4tLdBI50Cwg/playlists
            Ram N Java Tutorial ~~~~~~~~ https://www.youtube.com/user/ramram43210/playlists
-        Sundeep Saradhi Kanthety ~~~~~~ https://www.youtube.com/c/SundeepSaradhi/playlists
-		Jenny's lectures CS/IT  ~~~~~~~ https://www.youtube.com/c/JennyslecturesCSITNETJRF/playlists         
+        
+		
+		Sundeep Saradhi Kanthety ~~~~~~ https://www.youtube.com/c/SundeepSaradhi/playlists
+		Jenny's lectures CS/IT  ~~~~~~~ https://www.youtube.com/c/JennyslecturesCSITNETJRF/playlists 
+            Abdul Bari  ~~~~~~~~~~~~~~~ https://www.youtube.com/channel/UCZCFT11CWBi3MHNlGf019nw/playlists        
 			 
 			 
 		   Drunken Engineer ~~~~~~~~~~~ https://www.youtube.com/c/DrunkenEngineer/videos 
 		   Byte Programming ~~~~~~~~~~~ https://www.youtube.com/c/ByteProgrammingVedantHarish/videos
            Simple Programming ~~~~~~~~~ https://www.youtube.com/c/SimpleProgramming/videos 
            Gain Java Knowledge ~~~~~~~~ https://www.youtube.com/channel/UCM9SA8hzCTfaDinwb_vU_5Q/vide
-          
+		  
+    		Product Engineer ~~~~~~~~~~ https://www.youtube.com/channel/UCKLrvwglZb6h9SEM__fgSjg/playlists
+			   Play Java ~~~~~~~~~~~~~~ https://www.youtube.com/channel/UCq2kXUtnqL9eEyTi9TNfX6w/videos
+	          Green Learner ~~~~~~~~~~~ https://www.youtube.com/c/GreenLearner/playlists
+	     Learnprograming byluckysir ~~~ https://www.youtube.com/c/learnprogramingbyluckysir/videos	          
 
 		  ProgrammingKnowledge ~~~~~~~~ https://www.youtube.com/c/ProgrammingKnowledge/playlists
 		  Programming Tutorials ~~~~~~~ https://www.youtube.com/c/ProgrammingTutorials1M/playlists
-		     Coding Simplified ~~~~~~~~ https://www.youtube.com/c/CodingSimplified/playlists    
-		   
-		       Play Java ~~~~~~~~~~~~~~ https://www.youtube.com/channel/UCq2kXUtnqL9eEyTi9TNfX6w/videos
-	          Green Learner ~~~~~~~~~~~ https://www.youtube.com/c/GreenLearner/playlists
-	     Learnprograming byluckysir ~~~ https://www.youtube.com/c/learnprogramingbyluckysir/videos	
-		 
-		 
-           Almighty  java ~~~~~~~~~~ https://www.youtube.com/c/AlmightyJava/playlists        
-	         Siva Reddy ~~~~~~~~~~~  https://www.youtube.com/c/SivaReddyJavaTechie/videos   [/==****==/]
-         
-		 
-		 UiBrains Technologies ~~~~~ https://www.youtube.com/c/UiBrains/playlists
-	         ARC Tutorials ~~~~~~~~~ https://www.youtube.com/channel/UCSqAIRXiW8qMrUKbGvLpXKw/videos  [/==UI==/]
-			 Traversy Media ~~~~~~~~ https://www.youtube.com/c/TraversyMedia/playlists
-			 EasyTutorials ~~~~~~~~~ https://www.youtube.com/c/EasyTutorialsVideo/playlists
-			 freeCodeCamp.org ~~~~~~ https://www.youtube.com/c/Freecodecamp/playlists
-
+		     Coding Simplified ~~~~~~~~ https://www.youtube.com/c/CodingSimplified/playlists    		   
+		       
+			  	 
+           Almighty  java ~~~~~~~~~~~~~ https://www.youtube.com/c/AlmightyJava/playlists        
+	         Siva Reddy ~~~~~~~~~~~~~~  https://www.youtube.com/c/SivaReddyJavaTechie/videos   [/==****==/]
+	      Code for Interview ~~~~~~~~~  https://www.youtube.com/c/CodeforInterview/playlists
 
             Gaurav Sen ~~~~~~~~~~~~~ https://www.youtube.com/c/GauravSensei/playlists
           Dinesh Varyani ~~~~~~~~~~~ https://www.youtube.com/c/hubberspot/playlists
             Akshay Saini ~~~~~~~~~~~ https://www.youtube.com/c/akshaymarch7/playlists
             Education 4u ~~~~~~~~~~~ https://www.youtube.com/channel/UCKS34cSMNaXaySe2xgXH-3A/playlists
-			        
-					
-		 TheDevOpsSchool ~~~~~~~~~~ https://www.youtube.com/c/TheDevOpsSchool/playlists	
+  
+ 		 TheDevOpsSchool ~~~~~~~~~~ https://www.youtube.com/c/TheDevOpsSchool/playlists	
         Sada Learning Hub ~~~~~~~~~ https://www.youtube.com/c/SadaLearningHub/playlists
     Learn With KrishnaSandeep ~~~~~ https://www.youtube.com/user/springhibernatetutes/playlists
        Coding Simplified ~~~~~~~~~~ https://www.youtube.com/c/CodingSimplified/playlists
        Natural Programmer ~~~~~~~~~ https://www.youtube.com/c/naturalprogrammer-com/playlists
            iZenBridge  ~~~~~~~~~~~~ https://www.youtube.com/c/iZenBridge1/playlists
 
+  Web :=
+~~~~~~~  
+		 UiBrains Technologies ~~~~~ https://www.youtube.com/c/UiBrains/playlists
+	         ARC Tutorials ~~~~~~~~~ https://www.youtube.com/channel/UCSqAIRXiW8qMrUKbGvLpXKw/videos  [/==UI==/]
+			 Traversy Media ~~~~~~~~ https://www.youtube.com/c/TraversyMedia/playlists
+			 EasyTutorials ~~~~~~~~~ https://www.youtube.com/c/EasyTutorialsVideo/playlists
+			 freeCodeCamp.org ~~~~~~ https://www.youtube.com/c/Freecodecamp/playlists
+
+  Cloud :=
+~~~~~~~~~~
+			      KodeKloud ~~~~~~~~~~~~ https://www.youtube.com/c/KodeKloud/playlist
+             TechWorld with Nana ~~~~~~~ https://www.youtube.com/c/TechWorldwithNana/playlists	
+			 AWS Training Center ~~~~~~~ https://www.youtube.com/channel/UC1Yf7IBfhSNFTIyb7v83o_g/playlists
 
  Testing :=
 ~~~~~~~~~~~
@@ -230,8 +252,7 @@
          Naveen AutomationLabs ~~~~~~~~~~~~ https://www.youtube.com/c/NaveenAutomationLabs/playlists
           Rahul Shetty Academy ~~~~~~~~~~~~ https://www.youtube.com/c/RahulShettyAcademy/playlists
            The Testing Academy ~~~~~~~~~~~~ https://www.youtube.com/c/TheTestingAcademy/playlists
-         Software Testing Material ~~~~~~~~ https://www.youtube.com/c/SoftwareTestingMaterialWebsite/playlists
-         
+         Software Testing Material ~~~~~~~~ https://www.youtube.com/c/SoftwareTestingMaterialWebsite/playlists      
 		 
 		 SoftwaretestingbyMKT ~~~~~~~~~~~~ https://www.youtube.com/channel/UCKliIabx-RsHYTqjOiYegSg/playlists
 		     Mukesh otwani ~~~~~~~~~~~~~~~ https://www.youtube.com/c/Mukeshotwani/playlists 
@@ -277,9 +298,7 @@
     Cycle :=  LEARN && UNDERSTAND THEORY // IMPLEMENT (PRACTISE) // LOGIC (*****)
 ~~~~~~~~~~  
    
-     ID /// Cascade /// Relations  ///  Lazy loading /// Proxy 
-	 
-	  Auto (IODI) ----- 
+      
    
 ===========================================================================================
 
@@ -556,8 +575,9 @@ https://www.baeldung.com/spring-cloud-series
    https://docs.docker.com/docker-for-windows/install/
    https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
-   https://www.zdsoft.com/
    https://www.dell.com/support/home/en-us/drivers/driversdetails?driverid=r70v3  (MaxAudioPro)
+   https://www.zdsoft.com/   
+   https://online-video-cutter.com/
    
 
    

@@ -15,15 +15,22 @@
 =============================================================================================================
              
 
----->  String // Character // Arrays // Collections //   
+---->  String // Character // Arrays // Collections // 
+
+             String       ---> toCharArray()  /// concat()
+            
+			StringBuilder ---> reverse()     /// append ()	 
 
           
 		  PROGRAMS ----> Strings // Arrays // ----Collections--- // Patterns (--Number, **--)
 		  
          
-		 Interfaces(*******)  :: Sorted (List, Set, Map)  // ConcurrentMap 
-		 
+		 Interfaces(*******)  :: Sorted (List, Set, Map)  // ConcurrentMap
 
+
+---->   BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            input = br.readLine();	 
+		 
 ---> Set <Map.Entry<String, Integer>> list = new HashSet<Map.Entry<String, Integer>>(hm.entrySet());  // Set store Both(K<V)
 
 ---> List<Map.Entry<String, Integer>> list = new LinkedList<Map.Entry<String, Integer>>(hm.entrySet()); //  List Stores (K<V)
@@ -328,7 +335,7 @@ ArrayList.indexOf():= returns index of first occurrence of a element in the Arra
 ========================================================================================================
 
 
-LinkedList333 := It is a class implements List interface.(double linked list data strc) [......ODN, S&TS.......]
+ LinkedList333 := It is a class implements List interface.(double linked list data strc) [......ODN, S&TS.......]
 ~~~~~~~~~~~~~
 
 ---->It does not implement RandomAccess interface. So does not support accessing elements randomly. It we can access elements in sequential order only.
@@ -1117,7 +1124,7 @@ The Iterator returned by ConcurrentHashMap are also weakly consistent which mean
 Collections:=
 ~~~~~~~~~~~
 
-     LinkedHashMap /Set ~~~~ insertion Order,may have one null key and multiple null values.
+     LinkedHashMap /Set ~~~~~~ insertion Order,may have one null key and multiple null values.
       Hashmap /Set ~~~~~~~~~~~ No Order
 	  TreeMap /Set ~~~~~~~~~~ Descending Order.
 	  
@@ -1190,7 +1197,7 @@ Fail-fast iterators throw ConcurrentModificationException whereas fail-safe iter
           Deque----(entry and delete at Anyend)
 
 
-) Another difference between ArrayList and HashSet is that ArrayListallow duplicates while HashSet doesn't allow duplicates. This is the side effect of fist difference and property of implementing List and Set interface.
+) Another difference between ArrayList and HashSet is that ArrayList allow duplicates while HashSet doesn't allow duplicates. This is the side effect of fist difference and property of implementing List and Set interface.
 
 3) Third difference between ArrayList and HashSet is that ArrayList is an ordered collection and maintains insertion order of elements while HashSet is an unordered collection and doesn't maintain any order.
 

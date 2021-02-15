@@ -9,7 +9,7 @@
  
      .........RealTimeTools590.....DevOps890Other......Mockito330....JIRA790......CloudComputing550.....
 		 
-     .........ApacheCamel985 .....JMeter330..........Capcha770
+     .........ApacheCamel985 .....JMeter330..........Capcha770....AJAX670
 		 
 ==============================================================================================  
 
@@ -113,7 +113,7 @@
 ~~~~~~~~~~~~~~~~~~~~~~~
  --Used to get logs-messages available in log-File.
  
-  Eg :=  Putty, Splunk.
+  Eg :=  Putty,  Splunk (Licensed software), WinScp.
 ~~~~~~~
 
 
@@ -450,11 +450,6 @@ log4j.appender.logFile.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %m%
                          Check_Version ----> gradle -v
 
 
-
-
-
-
-
 =============================================================================================================
  
                                   MAVEN123 (MavenGoals) [build and dependency management tool] 
@@ -484,6 +479,8 @@ Some times, you will have to refer jar files which are not in maven repository (
  --The groupId and artifactId are both set to the name of the dependency.
  --The scope element value is set to system.
  --The systemPath element refer to the location of the JAR file.
+
+----> -> If we exclude unwanted dependencies from pom.xml, we can save MetaSpace memory. (***********)
 
 What is Build tool ?
 ---------------------
@@ -553,7 +550,23 @@ What is Maven
                 remianing --->  <spring.version>${spring.version}</spring.version>
 
 
+ Maven Setup
+--------------
+-> Download apache Maven Binary Distribution zip file
 
+	URL : https://maven.apache.org/download.cgi
+
+-> Extract Maven Binary Distribution Zip
+
+-> Set MAVEN_HOME in Environment Variables (System Variables)
+
+      MAVEN_HOME = C:\apache-maven-3.6.0
+
+-> After setting maven_home we can verify is it working or not using below command in command promot
+
+ 	C: /> mvn -version
+
+Note: If it displays version of maven, we are done with maven setup.
 
 =======================
 
@@ -747,24 +760,36 @@ spring-boot:run
  
  mvn clean package 
  
+====================================
  
   MavenGoals  := 
 ~~~~~~~~~~~~~      
- 
+-> Maven is used to automate application build process
+
+-> To automate build process maven provided goals
+
+-> Every Maven Goal is associated with a plugin.
+
+-> Based on the goal we execute, respective plugin will perform opertion for us.
+
+-> Plugins are going to perform build actions
+
  clean install ----> (Deletes target-Folder && Install jar to local-Repo) 
   
   // compile // Maven build  // test // package // clean package // clean compile test package
- 
- Maven-Test ----> automate build-process.
 
- mvn clean package ----> Downloads Required Maven Jars.
+
+ clean   : It is used to delete target folder
+
+ compile : To compile source code in project
+
+ test    : To execute JUnit scripts
+
+ package : To package application into jar/war format
+
+ install : Install project into maven so that other applications can use our app as a dependency.
  
- mvn test   ---->
- 
- mvn clean test  ---->
- 
- mvn clean compile test  ---->
- 
+====================================
   
   BOM (Bill Of materials) :=
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -822,6 +847,8 @@ Maven central repository is located at http://repo.maven.apache.org/maven2/. Whe
 
 Remote Respository := (Any Server)
 ~~~~~~~~~~~~~~~~~~
+ --- companies will maintain their own repository that is called as Remote repository.
+ 
 Apart from central repository, you may have needed artifacts deployed on other remote locations. For example, in your corporate office there may be projects or modules specific to organization only. In this cases, organization can create remote repository and deploy these private artifacts. This remote repository will be accessible only inside organization.
 
 These maven remote repository work exactly same way as maven’s central repository. Whenever an artifact is needed from these repositories, it is first downloaded to developer’s local repository and then it is used.
@@ -901,6 +928,26 @@ These maven remote repository work exactly same way as maven’s central reposit
  (5) system Scope
  (6) import Scope
  (7) transitivity resolution
+ 
+ 
+  We can install jar into maven local repository like below
+-----------------------------------------------------------
+
+> mvn install:instal-file  -Dfile=name.jar 
+			   -DgroupId=com.ashokit
+			   -DartifactId=pwd-utils
+			   -Dversion=1.0
+			   -Dpackaging=jar
+
+
+Ex : (Executed below command from jar location)
+-------------------------------------------------
+ > mvn install:install-file	-Dfile=pwd-utils.jar
+			   	-DgroupId=com.ashokit									-DartifactId=pwd-utils
+				-Dversion=1.0
+				-Dpackaging=jar
+
+Note: With above command pwd-utils.jar file installed to maven local repository. We can use this as dependency in other projects.
  
 ======================================================================================
 
@@ -1407,7 +1454,7 @@ public class JUnit4PowerMockitoStaticTest{
   --- It is developed from the Test-driven development (TDD) software. 
 
 
-----> Mockito Divided into 2-Types ::
+----> Mockito Divided into 2-Types :: [ https://www.softwaretestinghelp.com/mock-private-static-void-methods-mockito/ ]
  
     (a)    Proxy Based Mock FrameWorks --------------------> EasyMock and Mockito
 	(b) Byte Code Manipulation Based Mock FrameWorks ------> PowerMock and JMock 
@@ -1422,6 +1469,7 @@ public class JUnit4PowerMockitoStaticTest{
 
  Mockito990 (clone of the real objects ):= [ https://github.com/journaldev/journaldev/tree/master/Mockito-Examples/src ]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    JAVA-T-POINT /// JOURNAL-DEV
+ --- creating alternate object for the real object (********)
  --- Mockito is a java based mocking framework, used in conjunction with other testing frameworks such as JUnit .
  --- he Mockito framework allows us to create mock objects using either @Mock annotation or mock() static method.
  --- Mock objects are referred to as the dummy or proxy objects used for actual implementations.
@@ -1497,7 +1545,30 @@ public class JUnit4PowerMockitoStaticTest{
    Mocks  ---->  Mocks are the clone or dummy objects that simulate the behavior of the real objects.
 
    Spies ----->  Spies are the partial mock objects of the real one.
+   
+   
+   
+   @RunWith(SpringRunner.class) : To prepare test environment for junits
+
+   @WebMvcTest(value=Clazz) : To represent target class
+
+   @Autowired
+   MockMvc mvc : To send requests to controller or rest controller for testing
+
+   @MockBean : To create Mock Objects
 	 
+	Eg :=
+   ~~~~~
+    @Autowired
+	private MockMvc mvc;
+
+	@Test
+	public void test_WelcomeMsg() throws Exception {
+		MockHttpServletRequestBuilder reqBuilder = MockMvcRequestBuilders.get("/welcome");
+		MvcResult mvcResult = mvc.perform(reqBuilder).andReturn();
+		MockHttpServletResponse response = mvcResult.getResponse();
+		int status = response.getStatus();
+		assertEquals(200, status);   
 	 
  Test suit :=
 ~~~~~~~~~~~~~
@@ -1534,7 +1605,13 @@ public void getAllEmployeesAPI() throws Exception
 
    https://github.com/Java-Techie-jt/spring-boot-powermock
    
-     
+ Types of Testing := [ JRTP -- 28th SEp 2020 ]
+~~~~~~~~~~~~~~~~~~~
+	1) Unit Testing
+	2) System Integration Testing (SIT)
+	3) User Acceptance Testing (UAT)
+	4) Pilot Testing
+	5) Performance Testing   
 
   
  --- One of the popular framework used to implement unit tests against java code. 
@@ -1546,6 +1623,19 @@ public void getAllEmployeesAPI() throws Exception
   
 
 ----> JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage
+
+What is Code Coverage?
+----------------------
+ -- It is the process of identifying which lines of code is executed and which lines of code is not executed as part of Unit Testing.
+ -- To generate code coverage report we will use Jacoco plugin
+        
+		<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.2</version>
+        </plugin>
+
+
 
 ---->To be able to execute junit 5 tests in eclipse, we will need following dependencies.
 
@@ -3049,6 +3139,8 @@ Agile Methodology :=
 
 ---->It Responses to changes rather than following plan.
 
+
+
 Advantages of Agile :=
 ~~~~~~~~~~~~~~~~~~~
   ----Inspect &&  Adopt
@@ -3068,6 +3160,12 @@ Advantages of Agile :=
 	
 ProductOwner := Manager    /////////   Scrum-Master := TeamLeader
  
+
+-> Every body will assign story to their name and will change status from 'To Do' to 'In - Progress'
+
+-> Once work is completed, we should change Story Status from 'In-Progress' to 'Done' and we should enter comment in that story.
+
+===================
 
 ----> ProductOwner && Scrum-Master will prioritize the Product Backlog , So depending on that  they will come with      "--SpringBacklog--"
 
@@ -3170,9 +3268,22 @@ ProductOwner := Manager    /////////   Scrum-Master := TeamLeader
                        YOUTUBE -----> SHIVA-REDDY, ASHOK-IT. 
 					   
 					   
+----> GIT is a client software which is used to communicate with GIT Hub Repositories
+					   
+					   
  Version Control System :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
  ---  version control system (VCS) is a system that records all changes made to a file or set of data, so a specific version may be called later if needed.
+ 
+ -> If development is happening from multiple locations then how to integrate code ?
+
+Ex: Hyd team, chennai team, pune team etc...
+
+**** Code Integration is the first problem ****
+
+**** Monitored Access is the second problem ****
+
+-> To avoid these 2 problems, Version Control Softwares came into picture
 
 
  Distributed Version Control System :=
@@ -3377,6 +3488,17 @@ git stash := temporary storage    (YOUTUBE :: KK-JAVA TUTORIALS )
 
 ==================================
 
+-> pull request is used to merge code from one branch to another branch
+
+-> In Reltime we will merge our code from one branch to another branch using pull request only.
+
+-> Code Freeze will happen before releases (production release)
+
+-> If we want to freeze the code then branch will be locked by Git admin
+
+-> If we want to commit code to locked branch we need to take permission from Manager.
+
+
  git fetch ----> Remote to Local
  
  git pull ----> Remote to Local &&  Local to Working 
@@ -3386,7 +3508,13 @@ git stash := temporary storage    (YOUTUBE :: KK-JAVA TUTORIALS )
  git pull origin develop
  git pull origin QA
  
- git pull origin develop 
+ git pull origin develop
+
+  If we want to work with multiple git accounts we have to remove saved git credentials from Windlows Credentials
+
+  Control Panel -> Credential Manager -> Windows Credentials -> Remove Git
+
+=======================================c  
  
   Git Merge && Rebase :=
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -3615,7 +3743,7 @@ DIV(BINARY)--->4
 ===========/\/\/\/\/\================\/\/\/\/\/\/\=================\/\/\/\/\/\/\====================
 
  ApacheKafka540 := [ https://mirrors.estointernet.in/apache/kafka/2.6.0/kafka_2.13-2.6.0.tgz ] 
-~~~~~~~~~~~~~~~~   
+~~~~~~~~~~~~~~~~     
 
 [ ASHOK-IT ---> 17-SEP  NOTCES ]
 
@@ -3632,11 +3760,22 @@ DIV(BINARY)--->4
 				   
 ----> It is a distributed Streaming Platform which is horizantally scalable, Fault-Tolerant && Works-fast in Production.
 
+                  It is a distributed messaging system.
+
 ----> What is Messaging System?
 A Messaging System is responsible for transferring data from one application to another, so the applications can focus on data, but not worry about how to share it. They are 2 Types.
 
  (1) Point to Point Messaging System (One-To-One)
  (2) Publish-Subscribe Messaging System (One-To-Many)
+ 
+ 
+  Apache Kafka --->  mainly used for streaming the data. // written in Scala with JVM. // supports routing scenarios. && Java
+   
+  Rabbit MQ ------> The web servers mainly use it for immediate response to the requests. ///  does not support  routing .
+                    It can also process millions of messages within a second, but it needs more number of the hardware.
+  
+  Apache Spark ---> It has a micro-batch processing model. // Fault-tolerance is easy in Spark.
+                     supports multiple languages such as Java, Scala, R, Python.
  
 ==================
 
@@ -3925,6 +4064,9 @@ Streams API
  
  JMeter330 :=
 ~~~~~~~~~~~~
+
+ [ https://www.youtube.com/watch?v=0dSptr6poxE&list=PL6flErFppaj0vyoVxV7jbNfAlVVt6V442&ab_channel=Mukeshotwani ]
+
 ---> Used to load test functional behavior and measure performance.
  
 ---> JMeter originally is used for testing Web Application or FTP application. 
@@ -3935,6 +4077,154 @@ Streams API
 ---> JMeter can conduct load and performance test for many different server types − Web - HTTP, HTTPS, SOAP, Database via JDBC, LDAP, JMS, Mail - POP3, etc.
 
               ThreadGroup ---- Sampler ---- Listener ---- Configuration 
+
+
+What is Performance Testing?
+----------------------------
+In software quality assurance, performance testing is in general a testing practice performed to determine how a system performs in terms of responsiveness and stability under a particular workload.
+
+
+-> Performance Testing is divided into 3 types
+
+	a)Load Testing
+	b)Stress Testing
+	c)Volume Testing
+
+-> Load Testing is used to determine application response time by increasing no.of virtual users
+
+-> Stress Testing is used to determine bottle neck of application.
+
+-> Volume testing is used to determine how much data our application can process.
+
+Note: We can't do performance testing manually
+
+-> Performance Testing will be implemented by using tools
+
+	1) Apache JMETER (Opensource & Free)
+	2) HP Load Runner (Commercial)
+
+-> Download Apache JMETER from below link
+
+	https://jmeter.apache.org/download_jmeter.cgi
+
+
+-> After download JMETER, extract zip file and go to bin folder
+
+-> In bin folder, double click on jmeter.bat file (It will open JMETER tool)
+
+Best Practises For JMETER
+-------------------------
+1) Create Test in JMETER Tool (GUI Mode)
+
+2) Save Test Plan (extension will be .jmx)
+
+3) Run JMETER test plan in CLI mode
+
+syntax: jmeter -n -t [JMX-FILE] -l [RESULTS-FILE]
+
+4) If required, increase JVM heap space and metaspace in jmeter.bat file
+
+	-Xms1g -Xmx1g -XX:MaxMetaspaceSize=256m
+
+
+Increasing HEAP Space & METASPACE for java program execution
+------------------------------------------------------------
+javac Demo.java
+java -Xms1g -Xmx1g -XX:MaxMetaspaceSize=256m Demo-> Performance Testing is divided into 3 types
+
+	a)Load Testing
+	b)Stress Testing
+	c)Volume Testing
+
+-> Load Testing is used to determine application response time by increasing no.of virtual users
+
+-> Stress Testing is used to determine bottle neck of application.
+
+-> Volume testing is used to determine how much data our application can process.
+
+Note: We can't do performance testing manually
+
+-> Performance Testing will be implemented by using tools
+
+	1) Apache JMETER (Opensource & Free)
+	2) HP Load Runner (Commercial)
+
+-> Download Apache JMETER from below link
+
+	https://jmeter.apache.org/download_jmeter.cgi
+
+
+-> After download JMETER, extract zip file and go to bin folder
+
+-> In bin folder, double click on jmeter.bat file (It will open JMETER tool)
+
+Best Practises For JMETER
+-------------------------
+1) Create Test in JMETER Tool (GUI Mode)
+
+2) Save Test Plan (extension will be .jmx)
+
+3) Run JMETER test plan in CLI mode
+
+syntax: jmeter -n -t [JMX-FILE] -l [RESULTS-FILE]
+
+4) If required, increase JVM heap space and metaspace in jmeter.bat file
+
+	-Xms1g -Xmx1g -XX:MaxMetaspaceSize=256m
+
+
+Increasing HEAP Space & METASPACE for java program execution
+------------------------------------------------------------
+javac Demo.java
+java -Xms1g -Xmx1g -XX:MaxMetaspaceSize=256m Demo
+
+
+-> Performance Testing is the process of testing our application responsiveness and stability with different work loads
+
+-> JMETER is the free & opensource software which is used to implement performance testing.
+-------------------------------------------------------------------------------------------
+
+Steps to create test plan in JMETER
+-----------------------------------
+1) Open JMETER tool (JMETER/bin/jmeter.bat)
+
+2) Right Click on Test Plan -> Add -> Threads -> Thread Group
+
+-> Inside thread group enter threads details (1 thread = 1 user)
+
+3) Add HTTP Request to Thread Group
+
+   Right Click on Thread Group -> Add -> Sampler -> Http Request
+
+-> In Http Request add below details
+
+	Protocol --> Http
+
+	Server IP --> localhost
+
+	Port Number  --> Enter server port number
+
+	Http Request --> Select request type (GET or POST)
+
+	Path --> Enter resource path (/user/{id})
+
+4) Add listeners to Thread Group
+
+	Right Click on thread group -> Add -> Listener -> View Results Tree
+
+	Right Click on thread group -> Add -> Listener -> Summary Report
+
+
+
+
+Note: After Test is created, Save Test Plan with .jmx extension and run the test from CLI
+
+-> Open Command prompt from the location where jmx file is available and execute below command
+
+
+   cmd :  jmeter -n -t [jmx file] -l [jtl file]
+
+-> After test execution got completed, import JTL file into Summary Report using Browse option and verify test results
 
 
 
@@ -3975,11 +4265,21 @@ Streams API
 
 ===========/\/\/\/\/\================\/\/\/\/\/\/\=================\/\/\/\/\/\/\====================
 
+ AJAX670 :=
+~~~~~~~~~~
 
+    Before AJAX ---> User has to reload E-Mail page to check update form Server. 
+	
+	After AJAX ----> using XMLHttpRequest-API , we can check Content received data form Server without reloading Page. 
+	
+ -- It is Asynchronous && callback function executes to handle the response. 
+ -- AJAX request are written && executed with JavaScript code.
+ -- JQuery offers many Convinient methods to AJAX 
+ 
 
+======================================================================================================
 
-
-
+==============/\/\/\/\/\===================\/\/\/\/\/\/\=================\/\/\/\/\/\/\====================
 
 
 

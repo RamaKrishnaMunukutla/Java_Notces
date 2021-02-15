@@ -6,7 +6,9 @@
    
    .....UPDATE123.....SELECT123.......DELETE550.....SHOW660........
 					 
-   .....Constraints440.....				 
+   .....Constraints440.....		
+
+             mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb   
 					  
 					 
  
@@ -24,15 +26,102 @@ Key-Words :=
 
 ===============================================================================================================
 
+ Types of DB's :=
+ ~~~~~~~~~~~~~~
+  
+  () The Object-Oriented Databases
+  
+  (2) NoSQL Database (Document-oriented && Key-Vlaue Paired) 
+   
+        (a) Graph Databases (graphical representation of data. It contains nodes and edges)
+  
+  () Relational Databases
+  
+  () Distributed Databases
+  
+  () Centralized Databases   (access the stored data from different locations through several applications.///Central Library )
+                              The size of the centralized database is large, which increases the response time for fetching the data.
+							  
+  () Hierarchical Databases  (stores data in the form of parent-children relationship nodes.)
+
+
+ Heterogeneous DDB :=
+~~~~~~~~~~~~~~~~~~~~
+ --- Those database systems which execute on different operating systems under different application procedures, and carries different hardware devices.
+ 
+ 
+ Data Warehouse := A huge collection of the information or data accumulated form several different sources is known as ________:
+~~~~~~~~~~~~~~~~~
+
+ Atomic Attributes := Attributes which Cannot divisible further. 
+~~~~~~~~~~~~~~~~~~~~
+
+
+ DBMS := applications store data as file 
+~~~~~~~
+
 
   Relational ------> MySQL, PostGreSQL, MS-SQL, Oracle 
   
-  No-SQL -----------> MangoDB, Elastic-Search 
+  No-SQL ----------> MangoDB, Elastic-Search 
   
+  Redis (NO_SQL) :=
+~~~~~~~~~~~~~~~~~~
+ -- stores everything in primary memory.	
+ -- Primary memory is in lesser in size and much expensive than secondary so, Redis cannot store large files or binary data.
+  
+  
+ DBMS Architecture :=
+~~~~~~~~~~~~~~~~~~~~
+ -- The DBMS design depends upon its architecture. 
+ -- The basic client/server architecture is used to deal with a large number of PCs, web servers, database servers and other components that are connected with networks.
+ -- DBMS architecture depends upon how users are connected to the database to get their request done.
+ 
+ 
+                  1-Tier Architecture ---> user can directly sit on the DBMS and uses it.
+				  
+				  2-Tier Architecture ---> client && server interacted using API's like: ODBC, JDBC are used.
+				                           To communicate with the DBMS, client-side application establishes a connection with the server side.
+				 
+				 3-Tier Architecture --->  contains another layer between the client and server. 
+				                           End-client interacts with an application server which further communicates with the database system.
+										   End user has no idea about the existence of the database beyond the application server. 
+
+===========================================================================================================
   
   MongoDB :=
 ~~~~~~~~~~~~~
   https://github.com/Java-Techie-jt/spring-mongodb
+  
+================================================================================================================
+
+ Data :=
+~~~~~~
+ --- It is a collection of a distinct small unit of information. 
+ --- It can be used in a variety of forms like text, numbers, media, bytes, etc
+  
+  
+  Use of Database := you can easily retrieve, insert, and delete the information.
+~~~~~~~~~~~~~~~~~~~~
+
+ Disadvantages of DBMS :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+(*) Cost of Hardware and Software: It requires a high speed of data processor and large memory size to run DBMS software.
+(*) Size: It occupies a large space of disks and large memory to run them efficiently.
+
+(*) Complexity: Database system creates additional complexity and requirements.
+(*) Higher impact of failure: Failure is highly impacted the database because in most of the organization, all the data stored in a single database and if the database is damaged due to electric failure or database corruption then the data may be lost forever.
+
+ Types of Keys :=
+~~~~~~~~~~~~~~~~
+ (1) Primary Key
+ (2) Candidate Key ---> Other than PK 
+ (3)  Super Key    --->  uniquely identify a tuple. Super key is a superset of a candidate key.
+ (4) Foreign key   ---> used to point to the primary key of another table.
+ 
+ 
+ DataTypes :=  String /// Number ///  Date /// Binary (8000 bytes.)
+~~~~~~~~~~~
 
 ====================================================================================================================
 	   
@@ -70,11 +159,11 @@ Key-Words :=
  (1) Atomocity ------> Either all transaction should be Sucessfully Executed (Or) Rollbacked .
  
 
- (2) Consistancy ----> Before / After the transaction commits, data should be in consistency state logically.
+ (2) Consistancy ----> If we perform any operation over the data, its value before and after the operation should be preserved. 
                        
 					   
- (3) Isolation ------> One Transaction Should not effect Other. 
-                     Multiple Transaction Can Occur at Once without dirty reads.  
+ (3) Isolation ------> One Transaction Should not effect Other. (not be visible to the other) 
+                       Multiple Transaction Can Occur at Once without dirty reads.  
  
 
  (4) Durability -----> After Tranasaction, Changes must be Accepted in DB(Permenently) Irrespective H/w (Or) S/w failure. 
@@ -92,20 +181,24 @@ Key-Words :=
  Isolation ------> Concurrency Control 
 
 
- Anomaly :=
+ Anomaly := [ https://www.javatpoint.com/dbms-third-normal-form ]
 ~~~~~~~~~~
  --- The nature of a database may be such that it is not possible to add a required piece of data unless another piece of unavailable data is also added.
 
   1 NF ----> Single cell CANNOT have MULTIPLE-VALUE. (EG:: 2-PH.no in same Cell)
  
-  2 NF ----> It has to be 1-NF // Table CANNOT have PARTIAL-DEPENDENCY. (EG:: Non-Prime Attribte should be in Another-Table) 
+  2 NF ----> It has to be 1-NF // Table CANNOT have PARTIAL-DEPENDENCY. (EG:: Non-Prime Attribte should be in Another-Table)
+             All non-key attributes (Un-Related Data) are fully functional dependent on the primary key  
              Follow 1NF and Table should have single coulmn Primary-Key 
 
-  3NF -----> Follow 2NF and must not have trasitive functional dependencies
+  3NF -----> Follow 2NF and must not contain any transitive partial dependency.
+             (Dependent-Columns [based on ID] should be moved to another table)
              Indirect relationship between values in the same table that causes a functional dependency.	
 		     It has to be 2-NF  // NON-PRIME should depends on PRIME-ATTRIBUTE 
 
-  BCNF ----> reduce Anomalies .
+  BCNF ----> ID-Columns of Dependent-Columns should be Separate another Table. 
+
+  4NF  ----> There should not be Multi-valued dependency on STU_ID, which leads to unnecessary repetition of data.
 
 
  DeNormalization := Introduces Redundancy  
@@ -118,7 +211,16 @@ Key-Words :=
  
      Types :: Before / After (I, U, D)
 
-
+ States of Transaction :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+ -- Active state
+ -- Partially committed
+ -- Committed
+ 
+  Hashing technique :=
+~~~~~~~~~~~~~~~~~~~~~
+ -- It is used to calculate the direct location of a data record on the disk without using index structure.
+ 
 ====================================================================================================================
  		
   Primary -Key :=    It Identifies Uniquely Identifies Each-Row (*****************)
@@ -242,6 +344,30 @@ Key-Words :=
 ====================================================================================================================
 
  
+ Views990 :=
+~~~~~~~~~~~~
+ --  virtual table
+ -- A view can either have specific rows based on certain condition or all the rows of a table.
+ 
+ Syntax to create View :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+      CREATE VIEW view_name AS  SELECT column1, column2.....  FROM table_name  WHERE condition;
+
+  DROP VIEW view_name;   
+  
+=============================================================================
+
+ Index780 :=
+~~~~~~~~~~~
+ -- to retrieve data from the database very fast.
+ 
+  Syntax := CREATE INDEX idx_name  ON Persons (LastName, FirstName);
+ ~~~~~~~~~
+
+
+
+====================================================================================================================
+
    NULL ----> Unavailable / Unknown / Assigned 
    
    ZERO -----------> Number
@@ -508,9 +634,12 @@ In the query, GROUP BY clause is placed before ORDER BY clause if used any.
 	   SELECT SUBJECT, YEAR, Count(*) FROM Student GROUP BY SUBJECT, YEAR;
 
 
- HAVING Clause :=
+ HAVINGClause :=
 ~~~~~~~~~~~~~~~~ 
-We know that WHERE clause is used to place conditions on columns but what if we want to place conditions on groups?
+ -- Used along with GROUP BY clause.  (**********************)
+ -- Used to filter records after GROUP-BY Clause.
+
+ We know that WHERE clause is used to place conditions on columns but what if we want to place conditions on groups?
 
        
 	   SELECT NAME, SUM(SALARY) FROM Employee  GROUP BY NAME HAVING SUM(SALARY)>3000;
@@ -525,6 +654,15 @@ We know that WHERE clause is used to place conditions on columns but what if we 
   SELECT officers.officer_id, students.student_name  FROM students  INNER JOIN officers  ON    students.student_id   = officers.officer_id;  
 
                 --- WHERE cellphone IS NULL  ORDER BY cellphone;
+				
+=========================================================================================
+
+ SubQueries :=
+~~~~~~~~~~~~~
+ -- A subquery can be placed in a number of SQL clauses like WHERE clause, FROM clause, HAVING clause.
+ -- You can use Subquery with SELECT, UPDATE, INSERT, DELETE statements along with the operators like =, <, >, >=, <=, IN, BETWEEN, etc.
+ 
+
 
 =========================================================================================================================
  
@@ -673,6 +811,7 @@ Send Table-data into CSV with HEADINGS :=  // File Will be created automaticall
  --- A correlated subquery in MySQL is a subquery that depends on the outer query.
  --- Both EXISTS and NOT EXISTS used with correlated subqueries. 
 
+====================================================
  
  Union := (******)
 ~~~~~~~~
@@ -689,6 +828,17 @@ Send Table-data into CSV with HEADINGS :=  // File Will be created automaticall
  --- It does not Remove the duplicate rows from the output of the SELECT statements.
  --- Its performance is fast because it does not eliminate the duplicate rows.
 
+
+ InterSect :=
+~~~~~~~~~~~~
+ -- Returns the common rows from both the SELECT statements.
+ 
+ 
+ Minus :=
+~~~~~~~
+ -- used to display the rows which are present in the first query but absent in the second query.
+
+=========================================================
 
  JOIN := (******)
 ~~~~~~~~
@@ -898,6 +1048,7 @@ VIEW
 
 
 ----->"BETWEEN" operator is a logical operator that allows you to specify whether a value in a range or not. The BETWEEN operator is often used in the WHERE clause of the SELECT, UPDATE, and DELETE statements.
+ -- "BETWEEN" operator is generally used to simplify the "WHERE" clause 
 
    SELECT productCode, productName, buyPrice FROM products WHERE buyPrice BETWEEN 90 AND 100;
    

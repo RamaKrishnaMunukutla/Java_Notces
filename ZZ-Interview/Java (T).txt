@@ -36,7 +36,7 @@
   
   
    Dot-Class Files Location       ---> Copy Path form Project     ---> Properties 
-                                  ---> (Java-Project)             ---  Bin   Folder (Java-Project) 
+                                  ---> (Java-Project)             ---  Bin Folder (Java-Project) 
 								  ---> Maven/ Boot Project        ---  Target Folder.
 								 
 	
@@ -60,7 +60,7 @@
 	 
 	 
  --- Capable of throwing a checked Exception	
-     It cannot    throw  a checked exception (-NO-)
+     It cannot  throw  a checked exception (-NO-)
  
  --- Callable contains a single method, call (), that returns Type V, this is same as the defined interface parameter “Type”.
      Runnable contains a single method, called run (), that returns void
@@ -208,6 +208,7 @@ Difference between JVM, JDK, and JRE :=
 
 		while (true)
 			list.add(random.nextInt());
+			
 			
  Memory Management :=
 ~~~~~~~~~~~~~~~~~~~~
@@ -481,7 +482,26 @@ It allows the method to accept zero or multiple arguments. There should be exact
 ---> We can Overload && Declare 'final' && Declare 'synchronize' to Main-Method in Java. (*******)
 
 ---> We cannot OverRide Main-Method && Non-Staic Method can be called by Obj-Reference inside Main-Method.
+
+
+ pass main() method inputs using STS/Eclipse :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ > Right click on main() class > Run As > Run Configuration
+ > Click on Arguments tab
+ > Goto Program arguments > Enter values > Apply > Run
   
+  Eg :=
+ ~~~~~
+  @Component
+public class ClaTestRunner implements CommandLineRunner {
+
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println("DONE");
+		System.out.println(Arrays.asList(args));
+	}
+
+}
 =====================================================================================================================
 
 SYSOUT-BreakDown := [ https://www.javatpoint.com/system-out-println-in-java ]
@@ -492,6 +512,7 @@ SYSOUT-BreakDown := [ https://www.javatpoint.com/system-out-println-in-java ]
       ----It is an instance of the System class and is of type PrintStream, declared as static && final.
  
  PRINTLN ----> Method in PrintStream class, used to display results on the monitor. .... 
+ 
  
  INTERNAL :=
 ~~~~~~~~~~~~

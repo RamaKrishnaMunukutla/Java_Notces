@@ -12,6 +12,26 @@
   // welcome to java  // 'A' to 'Z' ---> 65 TO 90 // 'a' to 'z' ---> 97 to 122
   
   
+        https://javahungry.blogspot.com/2017/09/25-different-number-pattern-programs-in-java.html
+		
+		  i ---> Same Numbers /// j ---> Different Numbers
+		
+		
+ Best , Average,Worst Cases :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~		
+* Best Case       :  O(n)
+* Average Case    :  O(n^2)
+* Worst Case      :  O(n^2)
+* Worst Case      :  O(1)
+
+
+ Best , Average,Worst Cases :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*  Best Case     :    O(n log n) , or O(n)  
+* Average Case   :    O(n log n)
+
+=================================================  
+  
   Panagram(Must have 26 Characters) :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  --- The quick brown fox jumps over the lazy dog 
@@ -114,6 +134,37 @@
 
 
 ============================================================================================================
+
+ Small to Big Characters :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+		for (i = 0; i < s.length(); i++) {
+			int ch = s.charAt(i);
+			if (ch > 64 && ch < 91) {
+				ch = ch + 32;
+				System.out.print((char) ch);
+			} else if (ch > 96 && ch < 123) {
+				ch = ch - 32;
+				System.out.print((char) ch);
+			}
+			if (ch == 32)
+				System.out.print(" ");
+		}
+
+==============================================================================================================
+
+  Ulta '7' Pattern :=
+~~~~~~~~~~~~~~~~~~~~
+         for (int i = 1; i <= rows; i++) 
+        { 
+            for (int j = rows; j >= i; j--)
+            {
+                System.out.print(j+" ");
+            }
+             
+            System.out.println();
+        }
+		
+==============================================================================================================
 
  Synchronized-List :=
 ~~~~~~~~~~~~~~~~~~~

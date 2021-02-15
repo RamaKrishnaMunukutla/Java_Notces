@@ -16,6 +16,24 @@
 
 ================================================================================================
 
+ NoSQL Database (not only SQL) :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Some examples of NoSQL database system with their category are:
+
+MongoDB, CouchDB, Cloudant (Document-based)
+Memcached, Redis, Coherence (key-value store)
+HBase, Big Table, Accumulo (Tabular)
+
+ Disadvantage of NoSQL :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Management challenge
+ --- GUI is not available
+ ---  Backup
+ --- 
+
+==================================================================================
+
 ----> Mongo DB is a document-oriented database in which data is written in BSON format which is a JSON like format. 
       MongoDB is schema less. 
 	  It is a document database in which one collection holds different documents.

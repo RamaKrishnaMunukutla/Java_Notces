@@ -7,11 +7,23 @@
   select * from rama.addrtab;
   desc rama.addrtab;
   
+                    MySQL ----> "UNION" In-Place of FULL-JOIN (**************)
+					
+ Combine 3 tables ---> Required 2-Joins Statement. 
+ 
+  Count(*) ---- GROUP BY (Can apply on Mutiple Columns also)
+  
  ======================================================================================================
- Inner Join := common values are displayed from 2 tables.
- ~~~~~~~~~~
+ 
+ MySQL WorkBench ---> https://www.youtube.com/watch?v=uKwR9fWsZJ4&ab_channel=edureka%21
+ 
   
 ======================================================================================
+
+ Inner Join := common values are displayed from 2 tables.
+ ~~~~~~~~~~
+ 
+ 
  Left Outer Join :=
 ~~~~~~~~~~~~~~~~~~
  returns all the records from left table and also those records which satisfy the condition from right table.If no matching found then ResultSet returns NULL.
@@ -64,10 +76,14 @@ Eg:=  select * from emptab e right outer join addrtab d on e.eid= d.eid;
 Natural Join:= (Inner join && Not supported in Mysql)
 ~~~~~~~~~~~~
 ---To avoid duplicate columns from join tables.
+-- uSED When to have less Columns. 
  
 ===========================================================================
 Cross Join:= (Product of Rows----- M*N Rows)
 ~~~~~~~~~~~~
+
+ --  explained as all rows present in the first table multiplied by all rows present in the second table. 
+ -- It is similar to the Inner Join, where the join condition is not available with this clause.
 
 ----> (6 Rows in emptab) * (5 rows in addrtab) ======> 30 Rows.
 

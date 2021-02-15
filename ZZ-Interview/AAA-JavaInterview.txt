@@ -5,7 +5,7 @@
 
 SEARCH:=
 ~~~~~~~
-                  ...........thisANDSuper123..............RegularExpressions123....................... 
+                  ...........thisANDSuper123..............RegularExpressions123..............thisANDSuper123
 
     .....I/O11...............Serialization123.............SERIALIZABLEandEXTERNALIZABLE.........FoundException
 	
@@ -31,6 +31,13 @@ SEARCH:=
 ----> Heap-Memory ---- Objects, Strings, String-Constant-Pool && isn’t thread-safe
 	              ---- [needs Garbage Collector to-free-up unused objects]
 				  ---- If heap space is full, Java throws java.lang.OutOfMemoryError
+			
+    [ https://www.youtube.com/watch?v=bu12JCTeWOo&list=PLyHJZXNdCXsexOO1VQ4vs-BM2-8CKrixd&index=5&ab_channel=CodeDecode ]
+			
+  (a) Young Generation -------> (Eden,S0,S1)  Stores Object here upto some Threshold value .
+  (b Old Generation  ---------> 
+  (c) Permenant Generation ---> 
+  
 
       Stack-Memory --- Local && references variables, Methods (access One-Thread only) 
 				   ---[fast when compared to heap memory. This memory is thread-safe ]
@@ -566,7 +573,8 @@ A method must have a return type.
 this and super cannot be used in static context.
 
 ===========================================================================================================================
-this&&Super123:=
+
+ thisANDSuper123 :=
 ~~~~~~~~~~~~~~
 THIS:=
 ~~~~
@@ -712,7 +720,8 @@ Student18 s1 = new Student18(101, "amit");
 
 
 ==============================================================================================================
-RegularExpressions123 :=
+
+ RegularExpressions123 :=
 ~~~~~~~~~~~~~~~~~~~~~~~
 ---->It is a sequence of characters  that constrcts a search pattern
 
@@ -873,6 +882,7 @@ public void readExternal(ObjectInput in) throws IOException
 ---->Internally String uses Char[] to Store elements. [https://www.youtube.com/watch?v=wytkyBx4JIc]
  
 ----> String-Constant-Pool will Optimize Memory && Not allows Duplicates.
+
 
  StringBufferBuilder123 :=   [ Builder ---> append()]
 ~~~~~~~~~~~~~~~~~~~~~~~~~

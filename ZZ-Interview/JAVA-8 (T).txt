@@ -12,6 +12,9 @@
 	  https://www.concretepage.com/java/java-8/
 	  https://www.java2novice.com/java-8/
 	  https://github.com/amigoscode/java-functional-programming
+	  
+	  https://github.com/RameshMF/java-8-tutorial/tree/master/src/com/ramesh/java8
+	  https://github.com/codecentric/java8-examples/tree/master/src/main/java/de/codecentric/java8examples
 			 
 	
  Java 7 :=-
@@ -222,12 +225,22 @@ public class ClientTest {
  
 FUNCTONALINTERFACE123 (I) :=   [ https://www.javaguides.net/2018/07/java-8-functional-interfaces.html ]
 ~~~~~~~~~~~~~~~~~~~~~~  
-   
-    BiConsumerInterface //// 
  
  [ https://github.com/amigoscode/java-functional-programming/tree/master/src/main/java ]
  [ https://github.com/kishanjavatrainer?tab=repositories&q=functional&type=&language= ]
  [ https://github.com/kishanjavatrainer/FunctionalInterfaceWithLamda ]
+ 
+ 
+  BiConsumerInterface  :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Takes 2 Input Argement && Return Result. 
+ 
+  
+  BiPredicate Interface  :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Takes 2 Input Argement && Return Boolean.  
+ 
+ 
 
         Functional Interface
                        		 ----> Comparator, Comaparable,
@@ -254,6 +267,9 @@ FUNCTONALINTERFACE123 (I) :=   [ https://www.javaguides.net/2018/07/java-8-funct
 
  (Q) Use of Functional-Interface
  (A) wrap a function as an interface. The function is represented by the single abstract method on the interface.
+ 
+ (Q) What is Consumer Chaining ??
+ (A) using "andThen()" && "apply()" method, Connecting mutiple Consumers. 
 
 =================
 

@@ -10,7 +10,7 @@
    
    ....RestTemplate660...........Swagger220.....Chache440........ErrorHandling490.....SpringTransactional
 	
-   ....SpringBatch660............RedisDB........PCF660...........SpringBatch880.....Cache330.....
+   ....SpringBatch660............RedisDB........PCF660...........SpringBatch880.....Cache330.....BootMongoDB 
    
    ....SpringBootFaceBook995.....Conditional880......SpringBootCache880......WhiteLabelError
 
@@ -466,7 +466,7 @@ Profiles provide ability for application developers to specify different applica
 
 ======================================================================================================
 
- LOMBOK770 :=
+ LOMBOK770 :=  [ SBMS-7AM-- 12/9/2020 ] 
 ~~~~~~~~~~~~
   --- Annotate These Annotations Above Class (******)
  
@@ -486,7 +486,31 @@ Profiles provide ability for application developers to specify different applica
   
   .....@RequiredArgsConstructor(+ @NonNull //  Contructor with NotNull)..................@ConfigurationProperties
    
-   
+  
+10 Expand Package Explorer to view added/genrated code in class
+====================================================================
+Lombok Annotations:
+
+1. @Getter and @Setter : 
+   This annotation says to lombok generate get and set methods for variables
+
+2. @ToString : Lombok generates toString() method code using variables.
+
+3. @EqualsAndHashCode: 
+   Lombok generates equals() and hashCode() method code using variables.
+
+4. @NoArgsConstructor : To generate one default/zero param constrcutor
+
+5. @AllArgsConstructor : To generate all variables as Parameters constrcutor
+
+6. @RequiredArgsConstructor + @NonNull :
+    *) To generated selected variables as params constrcutor.
+    *) Variable selection is done using @NonNull
+	*) It is applied without any variable having @NonNullthen Lombok generated Default constrcutor/zero param
+
+7. @Data = @Getter + @Setter + @ToString + @EqualsAndHashCode + @RequiredArgsConstructor
+
+  
  @Data :=
 ~~~~~~~~~
  --- It is a convenient shortcut annotation that bundles the features of @ToString, @EqualsAndHashCode, @Getter / @Setter, and @RequiredArgsConstructor together.  
@@ -682,6 +706,9 @@ Spring Boot upgrades all dependencies automatically when you upgrade Spring Boot
 
    Actuator550 := (.....provide help while running spring boot appliaction)
  ~~~~~~~~~~~~~~~~
+ 
+ [ https://www.youtube.com/watch?v=RZNV9hi7a8w&list=PLyHJZXNdCXsdXxY8wupiLenux2Yafn1lN&ab_channel=CodeDecode ]
+ 
  ---Spring Boot provides actuator(Tool) to monitor and manage our application health when you push it to production.
  ---It can be done through HTTP endpoints.  (***)
  --- Actuator module exposes set of REST endpoints that can be directly accessed as a HTTP URL to check the status. (***)
@@ -694,6 +721,7 @@ Spring Boot upgrades all dependencies automatically when you upgrade Spring Boot
  --- To change base-Path of Actuator Endpoints ::
  
                       management.endpoints.web.base-path = /rama 
+					  management.server.port =9090
   
  --- Actuator endpoints to monitor metrics of individual microservices. 
  ---when application is pushed to production, you can choose to manage and monitor your application using HTTP endpoints.
@@ -1449,6 +1477,16 @@ Q) Can we store all db tables data in Cache Memory?
 
 	1) Transactional Tables
 	2) Non Transaction Tables
+	
+
+ Redis Data Type :=
+~~~~~~~~~~~~~~~~~~~
+There are five types of data types supported by Redis database.
+ (1) Strings
+ (2) Hashes
+ (3) Lists
+ (4) Sets
+ (5) Sorted Sets
 
 
 What is Transactional Table?
@@ -1820,6 +1858,18 @@ The primary reason for using cache is to make data access faster and less expens
              @Cacheable --------> Method level annotation 
 
 =================================================================================================
+ 
+  BootMongoDB :=
+~~~~~~~~~~~~~~~
+
+  CRUD ----> https://github.com/chargeahead/SpringBootMongoDBCRUDRESTServices
+
+
+
+
+
+
+==================================================================================================================
 
  SpringBatch880  :=
 ~~~~~~~~~~~~~~~~~

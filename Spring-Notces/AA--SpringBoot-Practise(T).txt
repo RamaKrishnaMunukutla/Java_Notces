@@ -10,10 +10,13 @@
 	
 	...........ADDHTML.............Notces888..............
 
-                            
+    
+	  http://localhost:8965/create?firstName=rama&lastName=krishna&age=24
+	  
+	  https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html
    
 ============================================================================================================   
- src/main/resource :=  [  http://localhost:8181/ ]
+ src/main/resource :=  [  http://localhost:8965 ]
 ~~~~~~~~~~~~~~~~~~~
  
   static/css ------------> CSS files
@@ -47,9 +50,16 @@ Spring MVC and REST Annotations
 
        ---We should use @ImportAutoConfiguration when we don’t want to enable the default auto-configuration.
 	   
+
+Q) *** What is the difference between @Component and @Configuration?
+A) 
+  @Component : Used for creating object to our classes only.[never works for pre-defined]
+  @Configuration: Is used to indicate Input file to Spring container that holds 
+     object (@Bean) details. It is called as Java based configuration file.
+	   
 ==========================================================================================
 
-Mapping123:=
+Mapping123 :=
 ~~~~~~~~~~~~
 
  @RequestMapping := (MV**)
@@ -72,13 +82,21 @@ Mapping123:=
  @ResponseBoby := 
 ~~~~~~~~~~~~~~~~ 
  ---Returns Objects/Text that displays on Browser, but does not returns Views (*******).
+
  
+ @RequestBody := It is used to bind HTTP request with an object in a method parameter
+~~~~~~~~~~~~~~~~
+        
+ @RequestParam := It is used to extract the query parameters form the URL. It is also known as a query parameter
+~~~~~~~~~~~~~~~~		 
+		 
  
  @RestController := 
 ~~~~~~~~~~~~~~~~ 
  --- (Controller in MVC + @ResponseBody)
  --- It eliminates the need for annotating each method with @ResponseBody.
 
+=============================================
 
  @PostMapping :=
 ~~~~~~~~~~~~~~
@@ -97,8 +115,7 @@ Mapping123:=
 ~~~~~~~~~~~~~
  ---It maps the HTTP PUT requests on the specific handler method. 
  ---It is annotated methods handle the PUT POST requests matched with given URI expression. 
- 
-===============================================================
+
 
  @DeleteMapping :=
 ~~~~~~~~~~~~~~~~~~
@@ -106,13 +123,10 @@ Mapping123:=
  ---It is annotated methods handle the DELETE POST requests matched with given URI expression.
 
 
-
-
 ===============================================================
 
 RestAnnotations555(JAX-RS) := It maps the HTTP DELETE requests on the specific handler method.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~   @RequestBody: It is used to bind HTTP request with an object in a method parameter
-         @RequestParam: It is used to extract the query parameters form the URL. It is also known as a query parameter
+~~~~~~~~~~~~~~~~~~~~~~~~~~~   
 
  @GET~~~~~~~~~~~~~specifies method responds to GET request.
 
@@ -192,7 +206,7 @@ RestAnnotations555(JAX-RS) := It maps the HTTP DELETE requests on the specific h
 	
 =================================================================== 
 
-(3) @RequestParam :=
+(3) @RequestParam :=  // Pattern ---> (/create?x=x&x=x&x=x)
 ~~~~~~~~~~~~~~~~~~~
  ---used to extract(******) the query parameters form the URL. It is also known as a query parameter. mostly in GET requests 
  
@@ -224,7 +238,7 @@ RestAnnotations555(JAX-RS) := It maps the HTTP DELETE requests on the specific h
 		
 =======================================================	
 
-(4) @QueryParam :=  // JAVA2N-VOICE(eG1) && MKYONG(Eg2) // Pattern ---> (?x=x&x=x&x=x)
+(4) @QueryParam :=  // JAVA2N-VOICE(eG1) && MKYONG(Eg2) // Pattern ---> (/create?x=x&x=x&x=x)
 ~~~~~~~~~~~~~~~~~
  ---Used to send data in URL in form-of  Key-Value pair. ( Eg: ?id=101, ?id=101&name=rama )
  --- It should be at End-of URL.

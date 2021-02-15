@@ -2,7 +2,7 @@
 
 
 
-
+  ANT ---> MAVEN /// GRADLE 
 
 ==========================================================================
 
@@ -78,6 +78,17 @@ Test
 Package
 Install
 Deploy
+
+
+Q) What are different Scopes in Maven ? Why they used?
+A) Scope - When a Jar is loaded/used.
+
+compile - Jar is used from compile time onwards
+test    - Jar used only for UnitTesting
+runtime - Jar used only at runtime, not a compile time
+provided - Jar is handled by Servers/Container/F/w
+system   - Jar loaded from System Drives (local folders)
+
 
 
 ----> List out what are the Maven’s order of inheritance?

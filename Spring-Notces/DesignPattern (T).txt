@@ -177,13 +177,14 @@ To implement a Singleton pattern :=
 
 ----> Singleton classes are created for resources such as File System, Database connections, etc. 
 
----->In "--eager-initialization--" , the instance of Singleton Class is created at the time of class loading.But drawback that instance is created even though client application might not be using it.
+---->In "--Eager-Initialization--" , the instance of Singleton Class is created at the time of class loading.But drawback that instance is created even though client application might not be using it.
   ----So,We should avoid the instantiation until unless client calls the getInstance method. Also, this method doesn’t provide any options for exception handling.
 
-----> "--Static-block-initialization--" implementation is similar to eager initialization, except that instance of class is created in the static block that provides option for exception handling.
-
----->"--Lazy-initialization--" ,  the instance is in the global access method. works fine in case of the single-threaded environment Only.
+---->"--Lazy-Initialization--" ,  the instance is in the global access method. works fine in case of the single-threaded environment Only.
   ----The easier way to create a thread-safe singleton class is to make the global access method synchronized, so that only one thread can execute this method at a time
+  
+ ----> "--Static-Lazy-Initialization--" implementation is similar to eager initialization, except that instance of class is created in the static block that provides option for exception handling.
+  
   
  Double checked locking looks like in Java := 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
