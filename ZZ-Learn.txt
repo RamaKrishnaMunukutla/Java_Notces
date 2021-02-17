@@ -10,10 +10,10 @@
 	
 ====================================================================================================
     
-     ramakrishnamunukutla910@gmail.com  /// ramakrishna.munukutla@ojas-it.com  /// .\Ojas
+     ramakrishnamunukutla910@gmail.com  /// ramakrishna.munukutla@ojas-it.com  /// .\Ojas  Persistent910@#
 
-
-23 Java string coding interview questions | Learn With Krishna Sandeep
+  
+23 Java string coding interview questions | Learn With Krishna Sandeep     venkata_munukutla@persistent.com
 18 Java array coding interview questions  /// 
 
     ID /// Cascade /// Relations  ///  Lazy loading /// Proxy 
@@ -27,6 +27,9 @@
   https://www.netjstech.com/2015/06/java-programs.html
   
   https://github.com/gothinkster/spring-boot-realworld-example-app
+  
+  
+     LINKS ---> SBMS 7:00 AM (16/12/2020) 
  
 =========================================================================================================   
 
@@ -53,7 +56,7 @@
 
 Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
 
----------------------------------------------------------------
+================
 
 -> Our IES is an intranet application. This application can be accessed only in DHS offices available in Kentucky State.
 
@@ -66,6 +69,36 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
 -> DHS offices are available in Multiple cities of Kentucky state.
  
 =============================================================================================================c====
+
+ NareshIT33 :=    SCJP /// OCJP
+~~~~~~~~~~~~~~
+  Notces-Password ---> 460621 
+  
+   Course Content Link:   http://www.nareshit.com/course/aws-online-training/
+  For New  Batches Visit: https://nareshit.com/new-batches-hyderabad/#Online-Training
+                          https://nareshit.com/online-training/						
+						
+						  https://www.nareshit.com/aws-online-training/
+						  https://www.udemy.com/user/in28minutes/ 
+					
+ Links :=
+~~~~~~~~~ 
+  http://www.mediafire.com/file/ehxgbj1f18wkyvj/SpringBoot7AM_19022020.zip/file
+  http://www.mediafire.com/file/ikgj4bqri1gn0ya/SpringBootWorkspace7AmBatch09102020_RAGHU.zip
+  http://www.mediafire.com/file/iu4425ni0l0e576/SpringBoot7AM_21102020_RAGHU.zip/file	
+	
+  http://www.mediafire.com/file/qxa9prinv9jq5uf/SpringBoot7AMWorkspace_28102020.zip/file
+  http://www.mediafire.com/file/bam1kr91zruulqz/SpringBoot7AMWorkspace_20112020_RAGHU.zip/file
+  http://www.mediafire.com/file/1sbp4orbbpwipdw/SpringBoot2MvcThymeleafMySQL23112020.zip/file  (WEB MVC + Thymeleaf + MySQL)
+ 
+  https://www.mediafire.com/file/9fvsdsxka1o3aw1/SpringBoot_REST_CLIENT_APPs15122020.zip/file   (RestTemplate)
+  https://www.mediafire.com/file/dckcefbwxx03dmq/SpringBootRestTemplate_17122020_RAGHU.zip/file (RestTemplate)
+  
+  https://www.mediafire.com/file/n7f67xf7tsbvdia/SpringCloud_7AM_02022021_RAGHU_DC.zip/file (Intra communication :MS)
+  https://www.mediafire.com/file/kl6aftff19yrcnx/SpringCloudFeignClient_08022021_RAGHU_7AM.zip/file (Intra communication)
+  
+=====================================================================================================================
+
 
  Udemy560 :=
 ~~~~~~~~~~
@@ -86,25 +119,8 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
  
  https://github.com/GaneshBidve/IES_Web-App/tree/master/src/main/java/com/ashokit/ies/ies
   
-=================================================
+=========================================================================================================
 
- NareshIT33 :=    SCJP /// OCJP
-~~~~~~~~~~~~~~
-  Notces-Password ---> 460621 
-  
-   Course Content Link:   http://www.nareshit.com/course/aws-online-training/
-  For New  Batches Visit: https://nareshit.com/new-batches-hyderabad/#Online-Training
-                          https://nareshit.com/online-training/
-						
-						
-						https://www.nareshit.com/aws-online-training/
-						https://www.udemy.com/user/in28minutes/ 
-					
-					
-    http://www.mediafire.com/file/ehxgbj1f18wkyvj/SpringBoot7AM_19022020.zip/file
-	http://www.mediafire.com/file/ikgj4bqri1gn0ya/SpringBootWorkspace7AmBatch09102020_RAGHU.zip	
-  
-=============================================================================================
 
  Repositaries990 :=
 ~~~~~~~~~~~~~~~~
@@ -181,13 +197,6 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
 		          Edureka ~~~~~~~~~~~~~~ https://www.youtube.com/c/edurekaIN/videos
 		        Intellipaat ~~~~~~~~~~~~ https://www.youtube.com/c/Intellipaat/videos
 				Simplilearn ~~~~~~~~~~~~ https://www.youtube.com/c/SimplilearnOfficial/playlists
-				
-				
-				Geek's Lesson ~~~~~~~~~~ https://www.youtube.com/c/GeeksLesson/playlists
-		        freeCodeCamp ~~~~~~~~~~~ https://www.youtube.com/c/Freecodecamp/playlists
-	         Talk2 Amareswaran ~~~~~~~~~ https://www.youtube.com/c/Talk2Amareswaran/videos
-               learnby bhanu~~~~~~~~~~~~ https://www.youtube.com/c/learnbybhanu/videos 
-
 		
 		        Naresh IT ~~~~~~~~~~ https://www.youtube.com/c/NareshIT/videos
 		        Durga Soft ~~~~~~~~~ https://www.youtube.com/c/DurgaSoftwareSolutions/videos		  		  	  
@@ -204,17 +213,13 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
 		   Byte Programming ~~~~~~~~~~~ https://www.youtube.com/c/ByteProgrammingVedantHarish/videos
            Simple Programming ~~~~~~~~~ https://www.youtube.com/c/SimpleProgramming/videos 
            Gain Java Knowledge ~~~~~~~~ https://www.youtube.com/channel/UCM9SA8hzCTfaDinwb_vU_5Q/vide
+		   DailyCodeBuffer ~~~~~~~~~~~~ https://www.youtube.com/c/DailyCodeBuffer/playlists  [***MC***]
+		   Almighty Java ~~~~~~~~~~~~~~ https://www.youtube.com/c/AlmightyJava/playlists
 		  
     		Product Engineer ~~~~~~~~~~ https://www.youtube.com/channel/UCKLrvwglZb6h9SEM__fgSjg/playlists
 			   Play Java ~~~~~~~~~~~~~~ https://www.youtube.com/channel/UCq2kXUtnqL9eEyTi9TNfX6w/videos
 	          Green Learner ~~~~~~~~~~~ https://www.youtube.com/c/GreenLearner/playlists
-	     Learnprograming byluckysir ~~~ https://www.youtube.com/c/learnprogramingbyluckysir/videos	          
-
-		  ProgrammingKnowledge ~~~~~~~~ https://www.youtube.com/c/ProgrammingKnowledge/playlists
-		  Programming Tutorials ~~~~~~~ https://www.youtube.com/c/ProgrammingTutorials1M/playlists
-		     Coding Simplified ~~~~~~~~ https://www.youtube.com/c/CodingSimplified/playlists    		   
-		       
-			  	 
+	     Learnprograming byluckysir ~~~ https://www.youtube.com/c/learnprogramingbyluckysir/videos	          		  	 
            Almighty  java ~~~~~~~~~~~~~ https://www.youtube.com/c/AlmightyJava/playlists        
 	         Siva Reddy ~~~~~~~~~~~~~~  https://www.youtube.com/c/SivaReddyJavaTechie/videos   [/==****==/]
 	      Code for Interview ~~~~~~~~~  https://www.youtube.com/c/CodeforInterview/playlists
@@ -230,6 +235,7 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
        Coding Simplified ~~~~~~~~~~ https://www.youtube.com/c/CodingSimplified/playlists
        Natural Programmer ~~~~~~~~~ https://www.youtube.com/c/naturalprogrammer-com/playlists
            iZenBridge  ~~~~~~~~~~~~ https://www.youtube.com/c/iZenBridge1/playlists
+
 
   Web :=
 ~~~~~~~  

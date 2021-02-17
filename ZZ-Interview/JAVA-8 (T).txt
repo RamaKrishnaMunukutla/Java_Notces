@@ -15,6 +15,8 @@
 	  
 	  https://github.com/RameshMF/java-8-tutorial/tree/master/src/com/ramesh/java8
 	  https://github.com/codecentric/java8-examples/tree/master/src/main/java/de/codecentric/java8examples
+	  
+	  https://javaconceptoftheday.com/solving-real-time-queries-using-java-8-features-employee-management-system/
 			 
 	
  Java 7 :=-
@@ -60,7 +62,10 @@ Parameter List:= A Lambda Expression can contain zero or one or more parameters.
 Lambda Arrow Operator:= “->” is known as Lambda Arrow operator. It separates parameters list and body.
 Lambda Expression Body
 
- Lambda Expression does not need :: Method ---> Acces-Modifer, Return-Type, Method-Name && Arguments-DataType (********) 
+ Lambda Expression does not need :: Method --->  Acces-Modifer, 
+                                                 Return-Type, 
+												 Method-Name &&
+												 Arguments-DataType (********) 
 
   Eg :=
 ~~~~
@@ -86,7 +91,7 @@ Lambda Expression Body
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 	private static void createThreadUsingAnonymousClass() {
-	    try[
+	    try{
 		Runnable r=	new Runnable() {
 			@Override
 			public void run() {
@@ -118,9 +123,9 @@ Lambda Expression Body
 ~~~~~
      
  @FunctionalInterface
-public interface MyInterface1 {
+ public interface MyInterface1 {
 	public abstract void method1();
-}
+ }
 
 public class ClientTest {
 
@@ -273,7 +278,7 @@ FUNCTONALINTERFACE123 (I) :=   [ https://www.javaguides.net/2018/07/java-8-funct
 
 =================
 
----> Al methods not Thows Exception. 
+---> Al methods not Thorws Exception. 
 
 --->contains only one abstract method. These interfaces are also called Single Abstract Method interfaces (SAM Interfaces).Functional interfaces were introduced in Java 8 in order to implement lambda expressions.
 
@@ -284,6 +289,7 @@ FUNCTONALINTERFACE123 (I) :=   [ https://www.javaguides.net/2018/07/java-8-funct
 
 --->A functional interface is valid even if the @FunctionalInterface annotation would be omitted. It is only for informing the compiler to enforce single abstract method inside interface.
 
+
  Note ::=
 ~~~~~~~
  --- use of FI :: Can be Instantiated using LE which provides Method-Impl (**********)  (--Eg:: Runnable--)
@@ -291,6 +297,7 @@ FUNCTONALINTERFACE123 (I) :=   [ https://www.javaguides.net/2018/07/java-8-funct
  --- java.util.function has Bunch of FI .
  --- Normal Interface if it does not have any Abstract-Methods also, Acts "-FI-" if it EXTENDS it. 
  
+
  Comparator in Java-8 :=
 ~~~~~~~~~~~~~~~~~~~~~~
  --- compare() ---> AM
@@ -422,10 +429,12 @@ public class Demo {
 
 ---> What is the difference and similarities between Function and Predicate in java 8?
 
+
  Difference :=
 ~~~~~~~~~~~~
 1. Return Type : Function returns an Object and it is a single argument function.
 Predicate return type is boolean (i.e true or false) and it is also a single argument function.
+
 
  Similarities :=
 ~~~~~~~~~~~~~
@@ -668,7 +677,6 @@ class Car implements Vehicle {
    }
 ----------------------------------------
 
-
 ----> "-- <(I).super.<MN> --" used to accesss default methods in Interface which Cannot use super in a static context (main-Method)
   ---This line  should be used in Instance-Method Only.(*******)
 
@@ -678,10 +686,11 @@ class Car implements Vehicle {
 
 ---->
 
+
 =================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
 ======================================================================================================
 
-STREAMS123:=   
+STREAMS123 :=   
 ~~~~~~~~~~~    [ https://www.concretepage.com/java/java-8/ ]
 
  --- Instead, a stream carries values from a source through a pipeline. (**********)
@@ -695,6 +704,7 @@ STREAMS123:=
 
 --->Stream is a conceptually fixed data structure, in which elements are computed on demand
   --- This gives rise to significant programming benefits. The idea is that a user will extract only the values they require from a Stream, and these elements are only produced—invisibly to the user—as and when required. This is a form of a producer-consumer relationship.
+  
   
   Stream API :=
 ~~~~~~~~~~~~~~~
@@ -1292,9 +1302,7 @@ List<String> sorted = strings
 		System.out.println(sum);
 		
 ================================
-
-
-		
+	
 
 =================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
 ======================================================================================================

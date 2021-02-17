@@ -13,6 +13,14 @@
 		 
 ==============================================================================================  
 
+                     Loggers ----> DEF-IW
+					 
+					 Maven ------> STRP-CI (Scopes) //// CCTP-I (Goals)
+
+
+
+=================================================================================================
+
   [ http://localhost:9090 ]
 	
 	JWT (Boot + Angular) ----> https://github.com/Java-Techie-jt/angular-jwt-client
@@ -90,7 +98,7 @@
   
  CORS (Cross Orign Resource Sharing) := [ https://github.com/Java-Techie-jt/spring-security-cors-example ]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- ---Restricting Application to access Specific-API.
+ --- Restricting Application to access Specific-API.
  
  Logger ----> https://github.com/kishanjavatrainer/SpringBootLogger
               https://github.com/kishanjavatrainer/SpringBootLogger2
@@ -108,6 +116,7 @@
            https://github.com/kishanjavatrainer/SpringBootLogger2
 	       https://github.com/kishanjavatrainer/SpringBootLoggerWithLogback
 		   https://github.com/kishanjavatrainer/HibernateLog4jExample
+		   
  
  Log Monitoring Tools :=
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -252,7 +261,7 @@ Priority Methods :=
 	4.        ERROR         error(msg)
 	5.        FATAL         fatal(msg)
 	-NA-       OFF            -NA-
--------------------------------------------------
+-------------------------------------------------  (******DEF-IW***********)
 DEBUG* : This method is used to print a final/success message.
 Ex:  Employee created with ID-EMP-3652 Successfully
 
@@ -581,8 +590,8 @@ MAVEN ----> KK JAVA TUTORIALS
   ---   y
   
   
- Maven Build LifeCycle :=  Directory ---> Inside Project ///  ( mvn Validate ....)
-~~~~~~~~~~~~~~~~~~~~~~~
+ Maven Build LifeCycle (VCTP_VID) :=  Directory ---> Inside Project ///  ( mvn Validate ....)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
    Validate /// compile /// test /// package /// verify (Integration_Test)  /// install // deploy 
 
@@ -606,7 +615,7 @@ MAVEN ----> KK JAVA TUTORIALS
             Copy Repo ----> Import ---> Git ---> Clone URI ----> Next (2) ----> Finish
 
 
- Dependency Scopes in Maven :=
+ Dependency Scopes in Maven :=  STRP-CI
 ~~~~~~~~~~~~~~~~~~~~~~~~~
  
  Compile ----> available at Compile-Time  
@@ -774,7 +783,7 @@ spring-boot:run
 
 -> Plugins are going to perform build actions
 
- clean install ----> (Deletes target-Folder && Install jar to local-Repo) 
+ clean install ----> (Deletes target-Folder && Install jar to local-Repo)   /// CCTP-I
   
   // compile // Maven build  // test // package // clean package // clean compile test package
 
@@ -807,9 +816,6 @@ spring-boot:run
       </dependency>
      </dependencies>
   <dependency-management>
-  
- 
- 
  
 ========================================= 
  
@@ -1271,9 +1277,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 ~~~~~~~~~~~
  --- It is an open-source, Java-based testing framework used for testing Java applications && released under the Apache License. 
  --- We cannot mock final and private methods by using EasyMock.
- --- It mock both classes and interfaces
- --- EasyMock.expect(mock.method(args)).andReturn(Value)  /// expect && andReturn 
-                                      Mockito            ///   when  && thenReturn  
+ --- It mock   interfaces
+ --- EasyMock.expect(mock.method(args)).andReturn(Value)       /// expect && andReturn 
+                                            Mockito            ///   when  && thenReturn  
 
 	   
  PowerMock :=
@@ -1599,11 +1605,21 @@ public void getAllEmployeesAPI() throws Exception
 
 ==============/\/\\/\\/==============\/\\/\//\/\============/\/\\/\/\\/\===========/\/\\/\==============	   
 
- JUnit550 :=   [JUnit 5 requires Java 8 at runtime. ]  ///// JunitDependencies
+ JUnit550 :=   [JUnit 5 requires Java 8 at runtime. ]  ///// JunitDependencies  /////  
 ~~~~~~~~~   
+
+                        [*********SBMS 7:00 AM 14TH_to_21ST /12/2020*********]
+		 
+		 
         ********[ YOUTUBE ---> Gain Java Knowledge , Java Techie , JavaGuides, ]********
 
    https://github.com/Java-Techie-jt/spring-boot-powermock
+   
+   https://www.youtube.com/watch?v=6hmx--O8PYE&t=990&ab_channel=NareshiTechnologies
+   https://www.youtube.com/watch?v=GgWuE-k1_nI&feature=youtu.be&ab_channel=NareshiTechnologies
+   https://www.youtube.com/watch?v=GgWuE-k1_nI&feature=youtu.be&ab_channel=NareshiTechnologies
+   
+   
    
  Types of Testing := [ JRTP -- 28th SEp 2020 ]
 ~~~~~~~~~~~~~~~~~~~
@@ -1732,6 +1748,43 @@ JUnit Vintage := To support running JUnit 3 and JUnit 4 written tests on the JUn
  public class TestDemo {
  
  }
+ 
+ Eg :=  [ SBMS 7:00 AM 19/12/2020 ]
+~~~~~
+
+@SpringBootTest(webEnvironment = WebEnvironment.MOCK)
+@AutoConfigureMockMvc
+@TestPropertySource("classpath:application-test.properties")
+public class TestProductRestController {
+
+	@Autowired
+	private MockMvc mockMvc; 
+	
+	@Test
+	public void testSaveProduct() throws Exception {
+		//1. Create Dummy Http Request
+		MockHttpServletRequestBuilder request =
+		MockMvcRequestBuilders
+		.post("/rest/products/save")
+		.contentType(MediaType.APPLICATION_JSON)
+		.content("{\"prodCode\":\"ABC\", \"prodCost\":3.3}")
+		;
+		
+		//2. Execute Request and Get Result
+		MvcResult result = mockMvc.perform(request).andReturn();
+		
+		//3. Read response object from result
+		MockHttpServletResponse response = result.getResponse();
+		
+		//4. validate/assert details
+		//expected Status, actual Status
+		assertEquals(HttpStatus.CREATED.value(), response.getStatus());
+		//if it is not saved.
+		if(!response.getContentAsString().contains("saved")) {
+			fail();
+		}
+		
+	}
 
 =============================================
 
@@ -2286,8 +2339,202 @@ Provides Security Protection  to avoid Stealing of "JWT".
  
 ================================================================================================
  
- 
 ==============/\/\\/\\/==============\/\\/\//\/\============\/\\/\/\\/\===========/\/\\/\==============
+
+ Monolithic App Advantages :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+a. Easy/Simple to Develop, Test, Deployment.
+b. Easy to maintain. Finding Bugs, Checking Logs, ...etc
+c. Easy/Simple to Scale. Creating multiple Instances is easy task.
+
+ Limitations/Drawbacks :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+a.** For even small code modification (application update)
+     entire application must be re-built and re-deploy.
+b.** If any bugs/Problems/Excepions occured in one service/module
+     it may down complete application, that may effect full project.
+c.** If application gets no.of services increased then code becomes
+     complex and even application size.
+d.** Adding new/other Technologies may effect design, code and becomes
+     complex with our framework integrations.
+e.** CI/CD -> Continuous Integration - Continuous Deployment
+     is difficult to configure for no.of modules increased,
+     may lead to Down Service for small bugs, effects full application.
+     Takes more time for small update even (to create Full build).
+f. ** Efficient Resource handling even after Load Balancing 
+      may not be done, as modules/services not used in exact count
+      /request order
+	  
+============================
+	
+ SOA - Service Oriented Architecture [Design] :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*) SOA is design/Architecture (not code). This is used to 
+   link two Projects/Applications by using one mediator server 
+   'Register & Discovery Server'[R&D Server].
+
+*) It has 3 components.
+a) Service Provider : It contains skeleton code/service code.
+    Ex: Java application.
+
+b) Service Register & Discovery : It holds details of all services
+   in Gloabl Format (XML)named as Document.
+   
+c) Service Consumer : It contains stubs code which are created using
+            Document and makes communication with Provider.
+
+*) 3 Operations
+1) Publish : Read Skeleton from Provider and Create Document , place
+             in R&D Server.
+
+2) Find  : Consumer reads one Document based on ID(ServiceId)
+           then generates stubs (code created from document).
+
+3) Bind : It creates communication between Provider and Consumer
+          using HTTP Protocol and XML as Data.
+
+-JAXB(Java Architecture for XML Binding) API--
+Marshalling : Converting Object to XML Format
+Unmarshalling : Converting XML to Object Format
+
+=============================
+
+		Microservices (Design)
+		 [ 1 Service = 1 Application = 1 Microservice ]
+
+=> Microservices is a design given to divide big application into small
+   projects and finally link/relate based on requirements.
+
+=> Microservices is de-coupled architecture.
+   ie one service is converted as one application.
+
+*) Microservices implements applications in less memory with efficient
+   Resource Utilization, with independent services.
+
+*) Microservices makes complex to maintain all services and their
+   instances.
+
+*) Monolithic v/s Microservices:-
+
+-> Monolithic
+  For even small code modification (application update)
+  entire application must be re-built and re-deploy.
+  Need to stop all instances and start with latest build.
+
+-> Microservices
+  Need to stop instances related to specific Microservices update.
+  It will not effect other Services. Only re-deploy and re-build
+  spcific Microservices.
+
+-> Monolithic 
+  If any bugs/Problems/Excepions occured in one service/module
+  it may down complete application, that may effect full project.
+
+-> Microservices
+  If Exception occured, related Microservices may get down.
+  (Circuit Breaker is used for exceptions). It may effect
+  connected Microservices, but not all.
+
+-> Monolithic
+  Adding new/other Technologies may effect design.
+
+-> Microservices
+  Adding new/other Technologies will be taken as another service
+  and integrated with required Microservices, will not effect
+  full application/all services.
+
+-> Monolithic 
+  Efficient Resource handling even after Load Balancing may not be done
+
+-> Microservices
+  Provides better Resource handling and Request processing
+  after Load Balancing.
+  
+=========================================
+
+*) Nature of Microservices(MS):-
+(When an application can be called as MS App?)
+[A Service that follows below points then it is called as MS]
+a) Every Service must be indepedent in coding and execution.
+
+b) Services must support Intra Communication.
+   [ie one MS able to communicate with other MS]
+  To implement this we should use one Client, given as
+
+    i) DicoveryClient  ( + RestTemplate)
+   ii) LoadBalancer Client ( + RestTemplate)
+  iii)** Feign Client (open Feign)
+  
+c) All MSs must be registered with 'Register and Discovery Server'.
+  That should even support finding other MSs with LoadBalance Concept.
+  [ Spring Cloud Netflix Eureka - 'Register and Discovery Server' ]
+
+   ----------------Eureka Example Register ----------------------
+    Service Id      InstanceId     HOST        PORT      LF
+    PAYMENT-APP      PMT-35268   192.168.0.1   8080      0/200
+    PAYMENT-APP      PMT-85850   192.158.1.6   8186      0/200
+    ...
+    etc
+   ------------------------------------------------------------------     
+ -> Eureka will not store any Document(in XML/JSON).
+    It contains ServiceInstance Details(projectName-ServiceId,
+     instanceId, IP+PORT, Load Details..)
+
+ -> If Our Application contains 10MS and they have 20 Instances
+    then all Instances details exist at Eureka (Register with Eureka).
+
+ -> Only Registered MS can find(Discover) other MS using Eureka.
+
+d) Services must support externalizing configuration properties(k=v).
+   That is called as Config Server.
+   [For Common (key-val) pairs in all microservices.]
+
+ -> Consider, we have 4 Microservices. They have 5 key=vals are common
+    then, we can write them outside of all MS using on Git Account
+    (Github, Gitlab, Bitbucket..etc).
+  
+e) MS must supports Circuit Breaker concept. ie Stop Executing actual
+   logic for a period of time, in cascade exception occured.
+   [multiple exceptions for continious request ..]
+   It gives dummy exectuion with error message.
+   'Unable to Process request! try later'.
+
+   [ Spring Cloud Netflix- Hystrix provided for Circuit Breaker].
+
+f) There must be single entry/exit for application(all microservices).
+   that is handled using API-Gateway. Spring Cloud -Netflix ZUUL.
+
+ -> Flow for Request:
+       -> Client Machine -> Request -> API Gateway -> R&D server
+       -> Provide MS details to API Gateway
+       -> API Gateway calls MS --> MS gives response back
+       -> Send Response to Client Machine.
+
+*) Note: Eureka never makes HTTP calls (Request/Respons).
+         It can never call any MS, it gives one MS details to 
+	 another MS by using serviceId.
+	 Even Zuul behaves like one MS.
+
+========================================================================
+
+Q) What is Cloud Computing?
+A) Using other Systems/services for rental is called as Cloud Computing.
+ IaaS (Infrastructure/Network, hard disk, database), 
+  PaaS (Operating System), Saas [Softwares-Tomcat,Jenkins,Docker,..etc]
+
+Cloud Computing is a concept of using others services to deploy and run
+our project in internet. 
+
+Q) Who are Cloud Computing service providers?
+A) Amazon Web Services (AWS), Google Cloud, Microsoft Azure,....etc
+   Pivotal Team(Spring Team) -- PCF -Pivotal Cloud Foundry.
+
+Q) What is the difference between Spring Cloud and Cloud Computing?
+A) Spring Cloud is programming- develoing one application as
+   independent services for Efficient Resource.
+   It is concept of microservices.
+	  
+======================================================================	  
 
                                       MicroServices334  (---CodePrimers, JavaTechie, Simple Programming---)
                                    ~~~~~~~~~~~~~~~~~~~~~~
@@ -2349,7 +2596,28 @@ Advantages of Microservices :=
   ---Complete end-to-end testing is difficult.
   ---Deployment Challenges.
   
-  
+
+ Limitations/Drawbacks of Microservices :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*) Maintainance :- It is big task for developer to maintain
+   multiple instances, tools like Eureka, Config Server, Actuator, Zuul
+   ..etc.
+-> It is not a easy task compared to monolithic.
+
+*) Code Duplicate :- Some times duplicate code may occure
+      for model classes, ClientApplications..etc
+
+*) Testing :- In simple, it very complex, as testing needs execution
+      trace, proper inputs , cascade exceptions check...etc.
+  We do general testing using one Microservices -- One Test case
+  and test execution flow with ELK equal tools.
+
+*) Runtime : We need one high level server runtime (or) Cloud Computing
+   for Deployment (for multiple projects, tools). They will effect
+   application maintaince cost.
+   [Ex: AWS Cloud Env] 
+
+   
  Monitoring MicroServices :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
  --- Hystrix dashboard
@@ -2367,6 +2635,33 @@ A: The different Microservices Design Patterns are -
  
   Aggregator Microservice Design Pattern
   Asynchronous Messaging Design Pattern
+  
+===============================================================
+
+ SOA : Service Oriented Architecture :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ It is a Design pattern used to link multiple applications using Register concept.
+ It has 3 components and supports 3 operations.
+
+ Components are:
+ i) Service Register 
+ ii)Service provider
+ iii)Service Consumer
+ 
+ 
+ Q) What is the difference between Spring Boot and Spring Cloud?
+ A) Spring Boot is providing concepts to implement one Application.
+
+   WebMvc, Data Jpa, Email, Scheduling, Security,Actuator..etc
+
+   Spring Cloud is designed on top of Spring Boot and one Architecture
+   (Microservices) to implement Microservices Applications.
+
+   Spring Cloud = Spring Boot + MS Architecture.
+
+   Eureka, Zuul, Hystrix, Config Server, Zipkin and Sleuth ..etc.
+   
+===============================================================================
 
  Service Registry := Service Registry is used to maintain list of services available in our project 
 ~~~~~~~~~~~~~~~~~~~
@@ -2473,6 +2768,7 @@ In Microservices based project below communications will be available
  --- system that provides integration with external systems.
  --- Build on Top of application.
 
+
  (1) API-Gateway (more 'freq' used than Zuul-Proxy) :=  /// Single-Point-entry to Application.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ---->It is a gateway application that handles all the requests and does the dynamic routing of microservice applications.
@@ -2491,6 +2787,7 @@ In Microservices based project below communications will be available
  ---API-Gateway must register with Eureka-Server && give Gateway PortNo::8989 in Post-man(*********)
  
       Eg :=  http://localhost:8989/order/88
+     ~~~
 
  Feaures :=
 ~~~~~~~~~~~
@@ -2559,12 +2856,10 @@ In Microservices based project below communications will be available
  --- It manages both the collection and lookup of this data. 
  --- To use Zipkin, applications are instrumented to report timing data to it.
  
- 
-
-
+===================================================================================
   
  (2) Eureka-Server ( @EnableEurekaServer ) :=   // eureka.client.register-with-eureka : false
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  --- Used by a service to make service-Registry (Separate-Service) && to Monitor & find location of all Service-instances.
  --- Acts like Service-Discovery.&& Every Service has to Register with this Server. && default-Port:: 8961
  --- This service will register every MicroService, then Client request, Eureka service will get dependent MC to get task done.
@@ -2590,8 +2885,66 @@ In Microservices based project below communications will be available
 ----> If Eureka Serer port number is not 8761 then we have to register client manually with Eureka Server.
 
 ----> Service-Discovery can also be implemented with  Netflix-Ribbon..
-		   
 
+
+Q) What is Eureka Server? 
+A) Register and Discovery Server
+
+Q) Who provided this software?
+A) Spring Cloud Netflix
+
+Q) Do we need to register every 
+   Microservice Instance with eureka?
+A) YES, MUST.
+
+Q) What is ServiceInstance? what it contains?
+A) Microservice running under one server,
+   ServiceInstance=serviceId, InstanceId, HOST/IP, PORT, LOAD Details.
+
+Q) How can generate one random number in Spring Boot?
+A) Spring boot has provided 'RandomValuePropertySource'(C)
+  Thats says follow below format keys to generate randome value
+  
+  
+---------------------Discovery Client Full flow----------------
+*) Define Two MicroserviceApps and Register with Eureka Server.
+    (You can run MS in any servers/System/IP)
+ -> All MS details are stored in Eureka as ServiceInstance
+    [SID,IID,IP/HOST,PORT,LOAD].
+
+#1. Request is made by end client/API Gateway to Consumer MS.
+#2. RestController is executed based on Path/Method Type.
+#3. This MS(Consumer), wants to Communicate with Another MS (Producer)
+  So, using DiscoveryClient that gets details of Producer MS.
+
+#4. DiscoveryClient makes call to Eureka (FIND) by using ServiceId
+    of Producer.
+
+#5.*** Consider now Eureka has single instance of Producer.
+    (or it may have Multiple Instance of producer), Result is
+    List<ServiceInstance> returned back to Consumer.
+
+#6. Create URL (URI + Path, Get URI from ServiceInstance).
+    and use RestTemplate to make HTTP call.
+
+Here,
+    URL = Protocol :// IP : PORT / Path / Path
+    URI = Protocol :// IP : PORT
+
+   URL = http://192.168.0.3:9898/employee/find
+   URI = http://192.168.0.3:9898
+
+#7. Now RestTemplate, makes HTTP Request to Producer App.
+#8. Producer process the request and returns some data
+    ResponseEntity<T> 
+
+#9. Response is returned back to Consumer RestTemplate.
+#10. RestTemplate reads data and may do processing.
+#11 Return back to RestController(Consumer).
+#12. Final Response is given back to end client/API Gateway.
+
+		   
+==========================================================================================
  @LoadBalanced :=  [ https://github.com/Java-Techie-jt/spring-cloud-loadbalance ]
 ~~~~~~~~~~~~~~~~~  [ https://github.com/Java-Techie-jt/spring-cloud-loadbalance-eureka ]
 
@@ -2599,6 +2952,31 @@ In Microservices based project below communications will be available
 
 ----> Request-handling methods are called as "-EndPoints-" (**************)
 
+ Load/Current Load : [Load of a Server]
+  => One request is one thread at server.
+  => No.of Request currently server is processing is called as current load.
+  => Max No.of Request that server allows at a time is called as Max Load.
+  => Default Max load is 200. We can even modify this value using 
+     below key.
+Ex:
+  server.jetty.threads.max=250
+  server.tomcat.threads.max=600
+  server.undertow.threads.worker=180
+
+*) Load Factor : Current Load / Max Load   [ 0 < Load Factor < 1 ]
+   
+*) Instance/ServiceInstance : An Application Running in server.
+
+*) Scaling : Improve System Processing Capacity for client request process.
+Two types
+a) Horizontal Scaling : Creating multiple Instances for our Application.
+b) Vertical Scaling   : Improve/Enhance Hardware Configuration.
+
+*) Load Balancing : Handling multiple request made by different clients
+   using Both Horizontal and Vertical Scaling.
+   By using LBS(Load Balacing Server).
+   
+==========================================================================================
  
  API Gateway ---> Zuul-Proxy (@EnableEurekaClient + @EnableZuulProxy ) := 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2832,7 +3210,7 @@ A: The different Microservices Design Patterns are -
 
 ==============================================
 
-MonolithicArchitecture := ( RPO ) [C.F..A]
+MonolithicArchitecture := ( RPO ) [C.F.A]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 It is a architectural style a big container in which all components and required functionalities of application are assembled toghether and tightly packed.
   
@@ -3753,11 +4131,16 @@ DIV(BINARY)--->4
 
 
  https://github.com/TechPrimers/spring-boot-kafka-consumer-example
- https://github.com/TechPrimers/spring-boot-kafka-producer-example
- 
+ https://github.com/TechPrimers/spring-boot-kafka-producer-example 
  
                    [ SpringBootByRaghu -- 372 (*****) ]
+
 				   
+*) Message Queues : Sending Data in continious flow from one system to
+      another system ie called as MQs.
+-> Tools : Apache ActiveMQ, Apache Kafka, Apache Camel. 
+
+
 ----> It is a distributed Streaming Platform which is horizantally scalable, Fault-Tolerant && Works-fast in Production.
 
                   It is a distributed messaging system.

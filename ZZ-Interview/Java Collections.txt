@@ -8,7 +8,7 @@
 	 
   ...LinkedHashMap667(In).....IdentityHashMap500....Queue590....Deque300...........ConcurrentModificationException444......
   
-  IteratorAndEnumeraton.........
+  IteratorAndEnumeraton.........  ****ST-ODN****
 	 
 	  .........ReadOnlyCollection.......CollectionsBestPractises.......
 	 
@@ -106,10 +106,10 @@ Arrays :=
   TreeSet    ---->No Null
    
    HashMap ----------->  Key(One) &  Values(Many)
-   LinkedHashMap ---->  Key(One) &  Values(Many)
-   TreeMap  ----------->  Key(No)  &  Values(One) 
+   LinkedHashMap ---->   Key(One) &  Values(Many)
+   TreeMap  -----------> Key(No)  &  Values(One) 
   
-   HashTable   ----> No Null Key & & Values
+   HashTable   ----> No Null Key && Values
    
    STACK(LIFO) ----> DD from CD-CASE
    QUEUE(FIFO) ----> line in Movie Theater
@@ -153,16 +153,17 @@ Arrays :=
      Legacy Classes are Introduced in java 1.0. 
  
 
-Synchronized vs Concurrent Collections :=
+ Synchronized vs Concurrent Collections :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  --- The differences between them come in performance, scalability (capacity to be changed in size or scale.)
  --- The main reason for this slowness is locking.
  --- Synchronized collections locks the whole collection e.g. whole Map or List while concurrent collection never locks the whole Map or List.
  --- ConcurrentHashMap divides the whole map into several segments and locks only the relevant segments, 
   
+  
 =====================================================================================================
 
-ArrayList234 (1.2) :=  (It is a class implements List interface.(linear list data strcuture) [......ODN, S&TS.......]
+ ArrayList234 (1.2) :=  (It is a class implements List interface.(linear list data strcuture) [......ODN, S&TS.......]
 ~~~~~~~~~~~~~~~~~~~
 
      Iterator // ListIterator // Enumeration // Normal-For-Loop // Enhanced-For-Loop // For-Each-Loop //
@@ -205,7 +206,7 @@ ArrayList -----> Growable in Nature, when element added & Previous ArrayList is 
 
            New Capacity = (CC * 3)/2 + 1   /// Increased through "-ensureCapacity()-"  Method Internally (**********)
 
-           ArrayList al = new ArrayList(int initialCapacity); // Performance-Improved. (&*********)		 
+           ArrayList al = new ArrayList(int initialCapacity); // Performance-Improved. (*********)		 
 				  
            ArrayList al = new ArrayList(Collection c);  // InterConversion in Collection
 		   

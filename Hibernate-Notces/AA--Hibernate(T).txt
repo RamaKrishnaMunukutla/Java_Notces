@@ -723,6 +723,13 @@ Non-index Based---- Set,Bag
 (b)indexColumn-------positions
 (c)Element column----data
 
+       key column     == (FK)link column to parent table Primary Key | Join Column
+       index column   == position of data in collection 
+       element column == collection actual data
+	   
+	   @ElementCollection ---> create one DB table for Collection variable.
+
+
 
 List:=
 ----- 
@@ -1012,10 +1019,13 @@ class ContractEmployee extends Employee {
 
 Test := create Objects, set data and  save data for 3 classes.
 -----
-=======================================================
-Multiplicity:= Linking rows b/w 2 tables,can be implemented in 4 ways.
---------------
+======================================================================================================
+
+ Multiplicity := Linking rows b/w 2 tables,can be implemented in 4 ways.
+~~~~~~~~~~~~~~~~
     ---OneToOne       ----OneToMany       ---ManyToOne        ----ManyToMany
+	
+	  [ https://github.com/javabyraghu?tab=repositories&q=hibernate&type=&language= ]
 
 ----Apply Has-A relation
 ----Choose one Multiplicity and 

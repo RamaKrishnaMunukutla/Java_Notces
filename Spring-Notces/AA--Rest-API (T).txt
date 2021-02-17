@@ -384,6 +384,7 @@ There are several ways available to develop REST Clients in Java applications
 ~~~~~~~~
  --- It is Protocol and acts like a medium between Client and Server. 
  
+ 
  Messaging :=
 ~~~~~~~~~~~~~
   --- Sending data && receives data in form of HTTP.

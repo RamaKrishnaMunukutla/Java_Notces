@@ -80,7 +80,7 @@ wait() , notify(), notifyAll() methods :=
 
  Hashcode() ---> Unique Id assigned to Object. 
 
-  Object ---->   ToString().....equals().....hahcode().........
+  Object ---->   ToString().....equals().....hashcode().........
                   wait()........notify().....notifyAll()....
 				 clone()........finalize()....getClass()
 
@@ -371,12 +371,12 @@ after the specified amount of time, sleep is completed
  
  
  
-MultiProcessing :=
-~~~~~~~~~~~~~~~
-uutilization of CPU is very high, resouce consumption is also very high and also Inter-communication between 2 process is also vey high because to swich One-Process to another because CPU has to save current-state of One-Process to another-Process and then it need to update registries  and then Ned to swich to new Process.
+ MultiProcessing :=
+~~~~~~~~~~~~~~~~~~
+ -- utilization of CPU is very high, resouce consumption is also very high and also Inter-communication between 2 process is also vey high because to swich One-Process to another because CPU has to save current-state of One-Process to another-Process and then it need to update registries  and then Ned to swich to new Process.
 
-MultioThreading :=
-~~~~~~~~~~~~~~~
+ Multi-Threading :=
+~~~~~~~~~~~~~~~~~~
 Inter-Thread communication is cost-low && and also share same memory space.
 
 Thread-Lifecycle :=
@@ -410,7 +410,7 @@ It is a part of JVM, used to Submit available-threads to CPU based on Priority.
 
 ----> If you want to start thread Once-again, it will throw "--IllegalThreadStateException--".
 
-----> Use "--Thread-Group--" used to categorise bunch of Thread to one-Group having same/different functionality.Opertaed through One-Command. To access those threads  use    
+----> Use "--Thread-Group--" used to categorise bunch of Thread to one-Group having same/different functionality.Operated through One-Command. To access those threads  use    
            
             .............threadGroup.list()...........threadGroup.activeList()............		
 
@@ -423,17 +423,19 @@ It is a part of JVM, used to Submit available-threads to CPU based on Priority.
 
 Synchronization:= ( Mechanism )
 ~~~~~~~~~~~~~~~
----->Synchronization in java is a strategy or a method to avoid thread interference and hence protecting the data from inconsistency. synchronization is also one of the way to make code thread safe. Through synchronization, we can make the threads to execute particular method or block in sync not simultaneously.
+---->Synchronization in java is a strategy or a method to avoid thread interference and hence PROTECT DATA  from inconsistency. synchronization is also one of the way to make code thread safe. Through synchronization, we can make the threads to execute particular method or block in sync not simultaneously.
 
 ---->Synchronization in java is implemented using synchronized keyword. synchronized keyword can be used with methods or blocks but not with the variables.
 
 ----->Synchronization is the process which keeps all concurrent threads in execution to be in sync
 
-When a method or block is declared as synchronized, only one thread can enter into that method or block. When one thread is executing synchronized method or block, the other threads which wants to execute that method or block wait or suspend their execution until first thread is done with that method or block. Thus avoiding the thread interference and achieving thread safeness.
+When a method or block is declared as synchronized, only one thread can enter into that method or block. When one thread is executing synchronized method or block, the other threads which wants to execute that method or block wait or suspend their execution until first thread is done with that method or block. Thus avoiding the THREAD INTERFERANCE and achieving thread safeness.
 
 ---->Some times, you need only some part of the method to be synchronized not the whole method. This can be achieved with synchronized blocks. Synchronized blocks must be defined inside a definition blocks like methods, constructors, static initializer or instance initializer.
 
 synchronized block takes one argument and it is called mutex. if synchronized block is defined inside non-static definition blocks like non-static methods, instance initializer or constructors, then this mutex must be an instance of that class. If synchronized block is defined inside static definition blocks like static methods or static initializer, then this mutex must be like ClassName.class.
+
+
 class Shared
 {
     static void staticMethod()
@@ -530,7 +532,8 @@ Join() :=
 			  }}
 			
 ==============================================================================================================
-ThreadInterferance := [ https://javaconceptoftheday.com/thread-interference-in-java/ ]
+
+ ThreadInterferance := [ https://javaconceptoftheday.com/thread-interference-in-java/ ]
 ~~~~~~~~~~~~~~~~~~~
 
 ---->Thread interference in java is a condition which occurs when more than one threads, executing simultaneously, access same piece of data.

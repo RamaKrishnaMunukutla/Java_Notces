@@ -70,7 +70,7 @@ Import: This indicates that the identified or specified POM should be replaced w
 
 
 
-----> List out what are the build phases in Maven?
+----> List out what are the build phases in Maven? 
 Build phases in Maven are
 Validate
 Compile

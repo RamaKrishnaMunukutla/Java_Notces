@@ -21,6 +21,19 @@ eureka.client.serviceUrl.defaultZone:http://localhost:8761/eureka/
 eureka.instance.hostname:localhost
 
 
+#Server Port
+server.port=9898
+#1.ServiceId
+spring.application.name=PAYMENT-APPLICATION
+#####Register with Eureka ######
+#2.Eureka Server Location
+#eureka.client.service-url.defaultZone=http://localhost:8761/eureka/
+eureka.client.service-url.defaultZone=http://192.168.0.7:8761/eureka/
+#3. Register and able to fetch other MS Details
+#eureka.client.register-with-eureka=true
+#eureka.client.fetch-registry=true
+
+
 ============================================================================================================ 
 
  Services-Configuration :=  [ http://localhost:8761/ ]

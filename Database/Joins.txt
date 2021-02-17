@@ -54,6 +54,17 @@ Retrives the matching  valves from all tables but unmatching data from left-hand
                            ( unmatching rows at left~~ Null at right[missing] )
 
 Eg:=  select * from emptab e left outer join addrtab d on e.eid= d.eid;
+
+
+SELECT a.cust_name,a.city, b.ord_no,
+b.ord_date,b.purch_amt AS "Order Amount", 
+c.name,c.commission 
+FROM customer a 
+LEFT OUTER JOIN orders b 
+ON a.customer_id=b.customer_id 
+LEFT OUTER JOIN salesman c 
+ON c.salesman_id=b.salesman_id;
+
 ======================================================================================
 Right Outer Join:=
 ~~~~~~~~~~~~~~~
@@ -76,7 +87,13 @@ Eg:=  select * from emptab e right outer join addrtab d on e.eid= d.eid;
 Natural Join:= (Inner join && Not supported in Mysql)
 ~~~~~~~~~~~~
 ---To avoid duplicate columns from join tables.
--- uSED When to have less Columns. 
+-- uSED When to have less Columns.
+
+
+SELECT * 
+FROM orders 
+NATURAL JOIN customer  
+NATURAL JOIN salesman; 
  
 ===========================================================================
 Cross Join:= (Product of Rows----- M*N Rows)
@@ -90,6 +107,11 @@ Cross Join:= (Product of Rows----- M*N Rows)
 To join more tables without join condition, without any common column.
 
 Eg:=  select * from emptab cross join addrtab;
+
+SELECT * 
+FROM salesman a 
+CROSS JOIN customer b 
+WHERE a.city IS NOT NULL;
 ==============================================================================
  
  (1) where (2) OrderBy

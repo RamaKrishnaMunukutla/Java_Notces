@@ -2413,8 +2413,9 @@ The JSP author not required to have strong java knowledge
 If we are performing any changes to the JSP, then not required to recompile and reload explicitly
 We can reduce development time.
 ======================================================
-Difference between  Servlet and Jsp :=	
--------------------------------------------
+
+ Difference between  Servlet and Jsp :=	
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 1. Best suitable for processing logic.	
 1. Best suitable for presentation logic.
 

@@ -1748,7 +1748,68 @@ public class User {
    Example<Customer> example = Exmaple.of(cus);
    List<Customer> listofEmp = repo.findAll(example);
    
-=========================================================
+   
+ Native Query (@query) Eg :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- If your query returns only one row data (not multiple rows).
+     Then List is not required. Now OutputTypes are
+   a. Fetch all columns           ==> T                                     ---- List<Student>      
+   b. Fetch one Column            ==> DT                                    ---- List<String>
+   c. Fetch multiple Columns (not all) ==> Object (internally Object[])     ---- List<Object[]>  
+
+ 
+  Eg :=
+~~~~~~~~
+public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
+
+	//---------------Multiple rows output-------------------//
+
+	@Query("SELECT e FROM Employee e")
+	List<Employee> getAllEmployees();
+	
+	@Query("SELECT e.empName FROM Employee e")
+	List<String> getAllEmployeeNames();
+	
+	@Query("SELECT e.empName,e.empSal FROM Employee e")
+	List<Object[]> getAllEmployeeNameAndSal();
+	
+	//---------------One row output----------------//
+	
+	@Query("SELECT e FROM Employee e WHERE e.empId=:empId")
+	Employee getEmployeeById(Integer empId);
+	
+	@Query("SELECT e.empName,e.empSal FROM Employee e WHERE e.empId=:empId")
+	Object getEmployeeNameAndSalById(Integer empId);
+	
+	@Query("SELECT e.empName FROM Employee e WHERE e.empId=:empId")
+	String getEmployeeNameById(Integer empId);
+	
+	//------------Problem case------------//
+	@Query("SELECT e.empName FROM Employee e WHERE e.empDept=:empDept")
+	//List<String> getEmployeeNameByDept(String empDept);
+	//NonUniqueResultException: query did not return a unique result: 2
+	String getEmployeeNameByDept(String empDept);
+	
+=============
+	
+    @Query("SELECT e.ename,e.addr,p.pcode FROM Employee e INNER JOIN e.prjs  AS  p WHERE p.client=:client")
+	List<Object[]> getDataByClient(String client);
+	
+	
+	@Query("SELECT e.ename,e.addr,p.pcode FROM Employee e RIGHT JOIN e.prjs  AS  p WHERE p.client=:client")
+	List<Object[]> getDataByClientRJ(String client);
+	
+	@Query("SELECT e.ename,e.addr,p.pcode FROM Employee e LEFT OUTER JOIN e.prjs  AS  p WHERE e.addr=:addr")
+	//@Query("SELECT e.ename,e.addr,p.pcode FROM Employee e JOIN e.prjs  AS  p WHERE e.addr=:addr")
+	//@Query("SELECT e.ename,e.addr,p.pcode FROM Employee e FULL JOIN e.prjs  AS  p WHERE e.addr=:addr")
+	List<Object[]> getDataByClientLJ(String addr);
+	
+======================================
+
+   Data JPA Stored Procedures ----> SBMS 7AM (26/10/2020)
+
+	
+=============================================================================
 
 		
  (8)
@@ -1861,6 +1922,24 @@ MVC-Flow :=
 9) Model data will be rendered on view sends back to DispatcherServlet
 
 10) DispatcherServlet will send response back for the recieved request
+
+
+
+Q) Why ViewResolver is added in Spring WEB MVC?
+A) if there is no view resolver, then file location and extension details must be
+    given inside controller class(method). If UItechnology is modified/upgraded to
+    any other like HTML to JSP then code changes are required in Controller.
+    TO avoid such modifications in controller, ViewResolver is added.
+
+   *** ViewResolver makes Controller class independent of UI Technologies.
+
+##. FC gets UI page Name from ViewResolver and same page gets executed/called.
+    
+##. UI Page may read data (if exist) from Model using EL(Expression Language)
+     [ and JSTL-JSP Standard Tag Library for JSP ], such process is called as
+     Data Rendering.
+	 
+	 
 
 
  MVC :=
@@ -2338,6 +2417,12 @@ If a controller having a method with @ModelAttribute annotation then that methdo
  Model (I) := [ https://github.com/kishanjavatrainer/ModelObjectWebApp1 ]
 ~~~~~~~~~~
 object of HttpServletRequest reads the information provided by the user and pass it to the Model interface. Now, a view page easily accesses the data from the model part.
+
+a) *** Model (I):-
+This is a Memory created/Destory/handled by Spring Container in Spring Boot WEB MVC.
+This memory is used to send data from Controller to UI page.
+Use method addAttribute(key,val) to add data from Controller to Model memory.
+Use EL (Expression Language) ${key} syntax to read data from Model memory to UI.
 
    Here Model can be Object (Or) List<Object> that will be binded with "-View-".
 

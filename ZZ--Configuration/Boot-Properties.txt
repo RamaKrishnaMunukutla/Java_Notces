@@ -44,10 +44,13 @@
  
  MongoDB :=
 ~~~~~~~~~~
+spring.data.mongodb.uri=mongodb://localhost:27017/test
 #spring.data.mongodb.host=127.0.0.1
 #spring.data.mongodb.port=27017
+#spring.data.mongodb.database=nit
+#spring.data.mongodb.username=RAG
+#spring.data.mongodb.password=NIT
 #spring.data.mongodb.authentication-database=admin
-spring.data.mongodb.uri=mongodb://localhost:27017/test
 #spring.data.mongodb.uri=mongodb://username:password@host:port/database
 
 =============================================================================================

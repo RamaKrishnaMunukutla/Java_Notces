@@ -11,6 +11,60 @@
       Row ----> Document
    Column ----> Feilds
 
+       MONGO-DB ----> SBMS 7:00 AM (22th_to_29th  /12/2020) [**********]
+	   
+================================================================================================
+	                           
+    							   Basic Mongo Commands
+							   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+	   
+#1. Start MongoDb Server
+cmd> mongod
+
+#2. Start MongoDb Client
+cmd> mongo
+
+#3.**** Start MongoDB server in Secure mode
+cmd> mongod --auth
+
+=======================================================
+
+#1. View all Database
+> show databases
+
+#2. Use/Goto Database
+> use sample
+(if it not exist, it is created)
+
+#3. View Collections(similer to tables)
+> show collections
+
+#4. **create a new user with read-write and admin permissions.
+cmd>
+
+ db.createUser(
+   {
+     user : "RAG",
+     pwd  : "NIT",
+     roles: [ "readWrite", "dbAdmin" ]
+   }
+ )
+ 
+
+#4(b). Insert Data
+> db.collectionName.insert({JSON FORMAT})
+
+> db.student.insert({"empId":10,"empName":"SAM","empSal":3.3});
+
+#5. View/Print Data
+
+db.student.find();
+> db.student.find().pretty();
+ 
+
+================================================================================
+
+
  
       https://www.javaguides.net/p/java-mongodb-tutorial.html
 
@@ -74,7 +128,62 @@ HBase, Big Table, Accumulo (Tabular)
 			 
 ==========================================================================================			 
 
+---> MongoDB using Spring Boot, supports findBy and @Query concepts to implement custom query concept
+							
+---> use findBy for simple queries, for complex types we use @Query.
+
+---> If we create PrimaryKey variable of non-String DataType, then MongoDB will not generate PK as HexaDecimal Value.
+     You should provide manual value.
+
+ Eg :=
+~~~~~~
+  	//(Just for Compare): SELECT * FROM Book WHERE author=?
+	List<Book> findByAuthor(String author);
+	
+	//(Just for Compare): SELECT * FROM Book WHERE noOfPgs<=?
+	List<Book> findByNoOfPgsLessThanEqual(Integer noOfPgs);
+	
+	//(Just for Compare): SELECT * FROM Book WHERE id in (values)
+	List<Book> findByIdIn(List<Integer> ids);
+	
+	//(Just for Compare): SELECT * FROM Book WHERE author=? and btype=?
+	List<Book> findByAuthorAndBtype(String author,String btype);	 
 			 
-			 
+==========================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			 
 

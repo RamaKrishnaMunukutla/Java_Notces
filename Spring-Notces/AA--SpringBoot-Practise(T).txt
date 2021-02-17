@@ -56,6 +56,25 @@ A)
   @Component : Used for creating object to our classes only.[never works for pre-defined]
   @Configuration: Is used to indicate Input file to Spring container that holds 
      object (@Bean) details. It is called as Java based configuration file.
+	 
+	 
+----> We can use any server, spring boot supports 3 embeeded servers.
+  To use other servers first exclude tomcat then add undertow or jetty.
+  
+  
+ @ResponseBody :=
+~~~~~~~~~~~~~~~~~
+ -- It indicates return type is not a page name (not a view name),
+ -- It indicates return type is data/message that should be given back to same page from where request is made without reloading entire page.
+ 
+  If we are using AJAX at UI then from our controller we should return response data, not a UI page name. 
+  So, method return type in controller must have @ResponseBody.
+  
+=====================
+  
+(Q) What is the difference between @ModelAttribute and @RequestBody?
+(A) @ModelAttribute: Converts HTML FORM Data into Object and reads in Controller.
+    @RequestBody: Converts Global Data into Object and Reads in RestController.
 	   
 ==========================================================================================
 
@@ -235,6 +254,15 @@ RestAnnotations555(JAX-RS) := It maps the HTTP DELETE requests on the specific h
         model.addAttribute("message", name);
 
         return "welcome"; }
+
+
+  Note :=
+~~~~~~~
+ -- Every key is required, it is not optional.
+ -- If we send wrong datatype value, then Http Status is : 400 BAD REQUEST
+ -- If we mark primitive type (non-String type) like int,double, boolean types keys as optional, then default value is null which can not be stored into variable
+ -- Order is not required to follow, binding is done based on key name matching.
+ -- If we pass extra params which are not present in code, they are ignored.
 		
 =======================================================	
 

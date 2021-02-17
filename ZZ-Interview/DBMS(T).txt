@@ -4,7 +4,7 @@ Relational DataBase Management Systems(RDBMS):=
 It is a software system, which can be used to represents data in the form of tables. RDBMS will use SQL2 as a Queries  language.
 
 
-Object Oriented DataBase Management Systems(OODBMS):= 
+Object Oriented DataBase Management Systems(OODBMS) := 
 ----------------------------------------------------
  It is a software system, which can be used to represent the data in the form of objects. This DBMS will use OQL as a Query language.
 
@@ -131,7 +131,7 @@ select eid, ename,sal, dense_rank() over(partition by deptno order by sal desc) 
 ================/\/\/\/\/\=====/\/\/\/============\/\/\/\==========
 
                                       NEW VERSION JAVA(1.8)
-                                     ------------------------------------
+                                     -------------------------- 
 
 
 ------>Lambda expressions used  represent one method interface using an expression, treated as a function, so compiler does not create .class file.
