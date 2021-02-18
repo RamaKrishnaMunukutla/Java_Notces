@@ -84,7 +84,8 @@ HBase, Big Table, Accumulo (Tabular)
  --- Management challenge
  --- GUI is not available
  ---  Backup
- --- 
+
+
 
 ==================================================================================
 

@@ -3331,8 +3331,16 @@ spring:
 ---->API gateway connects microservices, while load balancers redirect multiple instances of the same microservice components as they scale out.
 
 ---->The API Gateway can work as a load balancer to handle requests in the most efficient manner. It can keep a track of the request load it has sent to different nodes of a particular service
+
+
+ Feign-Client :=
+~~~~~~~~~~~~~~~
+ -- Used to Perform Loading Balancing with Eureka to invoke external Service.
+ -- Internally balance Load
+ -- No need to write Unit-Test-Cases . Declare Interface &&  action in RUNTIME 
  
-=============================================
+ 
+===========================================================================================
  
  Environment :=
 ~~~~~~~~~~~~~~
