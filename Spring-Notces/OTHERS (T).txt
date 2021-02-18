@@ -1474,7 +1474,11 @@ public class JUnit4PowerMockitoStaticTest{
 
 
  Mockito990 (clone of the real objects ):= [ https://github.com/journaldev/journaldev/tree/master/Mockito-Examples/src ]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    JAVA-T-POINT /// JOURNAL-DEV
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  [ https://github.com/javabyraghu/SpringBoot2UnitTestApp ]
+
+                          JAVA-T-POINT /// JOURNAL-DEV
+						  
+						  
  --- creating alternate object for the real object (********)
  --- Mockito is a java based mocking framework, used in conjunction with other testing frameworks such as JUnit .
  --- he Mockito framework allows us to create mock objects using either @Mock annotation or mock() static method.
@@ -1493,6 +1497,10 @@ public class JUnit4PowerMockitoStaticTest{
 			    Stub object ----> Used for state verification. /// There are a lot of maintenance problems using stubs.
 				Fake -----------> Contains simplified version of the production code.
 				  Mock ---------> Used for behavior verification.
+				  
+				MockHttpServletRequestBuilder res = MockMvcRequestBuilder 
+				MockHttpServletResponse
+				MvcResult 
  
   [ https://kkjavatutorials.com/mockito-tutorial/ ]
  
@@ -2538,7 +2546,12 @@ A) Spring Cloud is programming- develoing one application as
 
                                       MicroServices334  (---CodePrimers, JavaTechie, Simple Programming---)
                                    ~~~~~~~~~~~~~~~~~~~~~~
-												  
+	
+    .....SpringCloud........APIGateway........EurekaServiceRegistry......SpringCloudConfigServer 
+    
+	.....NetFlixHystrix.....LoadBalancedMC....SleuthAndZipkin
+
+	
 ----> It is architectural style in which you can build application as a collection of small autonomous services that focussed  around common Business goal/domain.	
 
       (Small Process that Communicate Over Network to acheive / FullFill Common-Business-Goal)
@@ -2663,29 +2676,6 @@ A: The different Microservices Design Patterns are -
    
 ===============================================================================
 
- Service Registry := Service Registry is used to maintain list of services available in our project 
-~~~~~~~~~~~~~~~~~~~
- 
-                                  Here (1),(2) ...... Indicates App-Flow. (**********)
-								  
-----> https://www.quora.com/How-do-I-authenticate-and-authorize-in-a-microservice-architecture	
-----> https://www.quora.com/What-is-JWT-JSON-Web-Token-for		
-----> https://www.quora.com/How-are-JWT-tokens-secured					  
-
-       Spring Cloud Config Server  --- 8888
-      Netflix Eureka Naming Server --- 8761
-   Netflix Zuul API gateway Server --- 8765
- Zipkin distributed Tracing Server --- 9411
-
- .yml :=
-~~~~~~~
-server:
-  port: 8761
-  
-eureka:
-  client:
-    register-with-eureka: false
-	
  PACT :=
 ~~~~~~~
  --- A contract between a consumer application and a provider application is called a PACT. 
@@ -2763,7 +2753,7 @@ In Microservices based project below communications will be available
 
 =========================================================================================================
 
- Spring cloud :=  [ https://www.baeldung.com/spring-cloud-series ]
+ SpringCloud :=  [ https://www.baeldung.com/spring-cloud-series ]
 ~~~~~~~~~~~~~~~
  --- system that provides integration with external systems.
  --- Build on Top of application.
@@ -2798,15 +2788,31 @@ In Microservices based project below communications will be available
  ---Circuit breakers and load balancing.
  ---Cluster state and leadership election.
  ---Global locks and distributed messaging.
- 
-
- 
 
 ============================================================================================================	 
  
  Links :=
 ~~~~~~~~
- 
+
+          FULL-DEMO          ----> https://github.com/shabbirdwd53/Springboot-Microservice (****************)
+
+                                     (Add Dev-Tools , DB DEpen, Post-Req)
+									 
+{
+
+    "departmentName": "Rama",
+    "departmentAddress": "HYD",
+    "departmentCode": "50089"
+}
+                                       
+{
+    "firstName" :"Rma",
+    "lastName" : "Krishna",
+    "email" : "rk@gmail.com",
+    "departmentId" : "1"
+
+}
+		  
            [FULL**]          ----> https://www.youtube.com/watch?v=2BcmN6TG_No&list=PLVz2XdJiJQxxWhFkucZBoMxeYE6qTgEF8 
  
  [Eureka + Hystrix + Cloud ] ----> https://github.com/Java-Techie-jt/spring-cloud-gatway-hystrix 
@@ -2828,17 +2834,6 @@ In Microservices based project below communications will be available
   https://github.com/SimpleProgramming/springcloud-hystrix
   https://github.com/SimpleProgramming/springboot-admin-server
   https://github.com/SimpleProgramming/spring-cloud-config-repo	 
-                                   
-                       
-======================================================
-   
- Alogorithm followed for load-balancing :=
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- --- Round-Robin    (Sequential Request-Distribution)
- 
- --- Least-Connections (Request send to least using Servers)
- 
- --- Ip-Hash   (Request send to Server based on Client-IP)
  
 ===============================================================
 
@@ -2857,9 +2852,38 @@ In Microservices based project below communications will be available
  --- To use Zipkin, applications are instrumented to report timing data to it.
  
 ===================================================================================
+
+ (2) EurekaServiceRegistry := Service Registry is used to maintain list of services available in our project 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+  -- Manages MC (easy ot get PortNO && URL Info)
+  -- Connect to any Other MC using APLICATION-NAME 
+ 
+                                  Here (1),(2) ...... Indicates App-Flow. (**********)
+
+								  
+----> https://www.quora.com/How-do-I-authenticate-and-authorize-in-a-microservice-architecture	
+----> https://www.quora.com/What-is-JWT-JSON-Web-Token-for		
+----> https://www.quora.com/How-are-JWT-tokens-secured					  
+
+       Spring Cloud Config Server  --- 8888
+      Netflix Eureka Naming Server --- 8761
+   Netflix Zuul API gateway Server --- 8765
+ Zipkin distributed Tracing Server --- 9411
+
+ .yml :=
+~~~~~~~
+server:
+  port: 8761   
   
- (2) Eureka-Server ( @EnableEurekaServer ) :=   // eureka.client.register-with-eureka : false
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+eureka:
+  client:
+    register-with-eureka: false
+	
+  
+  EurekaServer ( @EnableEurekaServer ) :=   // eureka.client.register-with-eureka : false
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  --- Used by a service to make service-Registry (Separate-Service) && to Monitor & find location of all Service-instances.
  --- Acts like Service-Discovery.&& Every Service has to Register with this Server. && default-Port:: 8961
  --- This service will register every MicroService, then Client request, Eureka service will get dependent MC to get task done.
@@ -2945,40 +2969,8 @@ Here,
 
 		   
 ==========================================================================================
- @LoadBalanced :=  [ https://github.com/Java-Techie-jt/spring-cloud-loadbalance ]
-~~~~~~~~~~~~~~~~~  [ https://github.com/Java-Techie-jt/spring-cloud-loadbalance-eureka ]
-
- --- To Indicate Client-Side load-balancing ( RestTemplate ) 
-
-----> Request-handling methods are called as "-EndPoints-" (**************)
-
- Load/Current Load : [Load of a Server]
-  => One request is one thread at server.
-  => No.of Request currently server is processing is called as current load.
-  => Max No.of Request that server allows at a time is called as Max Load.
-  => Default Max load is 200. We can even modify this value using 
-     below key.
-Ex:
-  server.jetty.threads.max=250
-  server.tomcat.threads.max=600
-  server.undertow.threads.worker=180
-
-*) Load Factor : Current Load / Max Load   [ 0 < Load Factor < 1 ]
-   
-*) Instance/ServiceInstance : An Application Running in server.
-
-*) Scaling : Improve System Processing Capacity for client request process.
-Two types
-a) Horizontal Scaling : Creating multiple Instances for our Application.
-b) Vertical Scaling   : Improve/Enhance Hardware Configuration.
-
-*) Load Balancing : Handling multiple request made by different clients
-   using Both Horizontal and Vertical Scaling.
-   By using LBS(Load Balacing Server).
-   
-==========================================================================================
  
- API Gateway ---> Zuul-Proxy (@EnableEurekaClient + @EnableZuulProxy ) := 
+ (1) APIGateway ---> Zuul-Proxy (@EnableEurekaClient + @EnableZuulProxy ) := 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   [ https://github.com/TechPrimers/spring-cloud-eureka-hystrix-zuul-example ] (***********)
   [ https://github.com/Java-Techie-jt/spring-cloud-zuul ]
@@ -3007,7 +2999,7 @@ b) Vertical Scaling   : Improve/Enhance Hardware Configuration.
 	
 ================================================
 
-  (3) Services :=
+    Services :=
 ~~~~~~~~~~~~~~~~~
 
   Ribbon-Eureka -----> https://github.com/PlayProCode/PlayJava/tree/master/my-app
@@ -3019,10 +3011,14 @@ b) Vertical Scaling   : Improve/Enhance Hardware Configuration.
 ~~~~~~~~~
  ---Contains common-Configurations in GIT-Repo, which provides easy-access to all-Microservices.
 
+==========================================================================================
 
- (4) Spring-Cloud-Config-Server := [ https://github.com/TechPrimers/spring-boot-config-server-example ]
+ (4) SpringCloudConfigServer := [ https://github.com/TechPrimers/spring-boot-config-server-example ]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  [ https://github.com/Java-Techie-jt/spring-cloud-config ]
- ---Reads GIT-Repo configurations.
+
+
+ --- It Reads Common Configurartions form GIT-Repo. (****)
+ --- It dependencies has to be added to all "MC" , so that they will communicates with it.  (****)
  ---So through Spring-Cloud-Config-Server, Microservices contact-directly to access common-Configurations. 
  
  Eg :=
@@ -3032,8 +3028,36 @@ b) Vertical Scaling   : Improve/Enhance Hardware Configuration.
 	
 	             MC ----> Cloud-Config-Server ---> GIT-Repo (has Configurations) [************]
 			
+ Eg :=  // In Cloud /// In Others 
+~~~~ 
+spring:  
+  application: 
+    name: CONFIG-SERVER
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/shabbirdwd53/config-server
+          clone-on-start: true
+		  
+======[In Other MC]=====
 
-========================================
+ bootstrap.yml (Except 'Eureka' && 'CC' ) :=  /// Boost up Configuration before Staring "ApplicationContext" 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+spring:
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:9296
+
+	  
+	<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>		
+
+
+================================================================================================
 
  Spring Cloud Gateway filters :=  [https://www.javainuse.com/spring/cloud-filter]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -3048,9 +3072,9 @@ b) Vertical Scaling   : Improve/Enhance Hardware Configuration.
  Spring Cloud Gateway Filters using Java Configuration
  Spring Cloud Gateway Filters using Property Configuration
  
-===========================================
+===========================================  
 HHH
- (5) NetFlix-Hystrix (Fault-Tolerance library )-(CircuitBreaker)- :=  [SpringBootByRaghu -- 357 (*****)]
+ (5) NetFlixHystrix (Fault-Tolerance library )-(CircuitBreaker)- :=  [SpringBootByRaghu -- 357 (*****)]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   ( @EnableHystrixDashboard +  @EnableHystrix(C) +   @EnableCircuitBreaker)
                                @HystrixCommand(fallbackMethod = "reliable" // groupKey , commandKey)  (M)
@@ -3064,15 +3088,18 @@ HHH
 	
 	https://github.com/Java-Techie-jt/spring-boot-hystrix-dashboard 
 	                                                
-                             Hystrix-dashBoard ----> [ http://localhost:9090/actuator/hystrix.stream ]
-													   http://localhost:8010/hystrix.stream
-													   
+            Hystrix-dashBoard ----> http://localhost:9295/actuator/hystrix.stream //Check API-Gateway && Monitor IT (Paste)
+                                    http://localhost:9295/hystrix (****)
+                                        
   																       Title && Delay 
 																	   
                                      Postman  -----> [ http://localhost:9090/booknow ]
 
 
  ---It is Open-Source Library created by Netflix that implements Circuit-break Pattern. which gives a control over failure between distributed services. (returns Fallback-message if One-Service goes down)
+ 
+ --- Hystrix Circuit-Breaker has Fallback methods && sends message(Redirect) to User if requested "MC" is down (********)
+ --- Hystrix-DashBoard Monitors which are Running / Not-Running (*****************)
  
  --- Netflix has bunch of Open-Source Libraries.
  ---Generally fallBack messages are written in "-Producer-Controller" class.
@@ -3110,14 +3137,24 @@ public class FallbackController {
         return Mono.just("Payment Service is taking too long to respond or is down. Please try again later");
     }
 
- Yml :=
-~~~~~~
+
+ Yml (In GateWay) := (**************)
+~~~~~~~~~~~~~~~~~~~~
           filters:
             - name: CircuitBreaker
               args:
                 name: order-service                 .......... Should-be-same in Controller
                 fallbackuri: forward:/orderFallBack  #For fall-back Message
 
+  hystrix:
+    command:
+      fallbackcmd:
+        execution:
+          isolation:
+            thread:
+              timeoutInMilliseconds: 4000
+			
+			
 Circuit Breaker
 ---------------
 -> Circuit Breaker is used to protect us from damages.
@@ -3144,88 +3181,71 @@ Circuit Breaker
                                               10 ---> Client-Response[Request-Platform from :: Mobile (Or) Andriod (Or) 3rd Party] 					  
 
 
-=========================
+===========================================================================================================
 
- Spring’s Rest-Template :=
-~~~~~~~~~~~~~~~~~~~~~~~~~
- --- RestTemplate is a class in spring web package, for synchronous client-side HTTP access.
- --- The sole aim is to simplify communication with HTTP servers. 
- --- That is it actually this is all RestTemplate does.
- --- It offers methods that will handle HTTP operations very easily, such as retrieving data, posting data or retrieving all HTTP message headers
+  LoadBalancedMC :=  [ https://github.com/Java-Techie-jt/spring-cloud-loadbalance ]
+~~~~~~~~~~~~~~~~~  [ https://github.com/Java-Techie-jt/spring-cloud-loadbalance-eureka ]
 
-   getForObject() method :: retrieve a representation of a resource by doing a GET on the specified URL.
-
-
----->API gateway connects microservices, while load balancers redirect multiple instances of the same microservice components as they scale out.
-
----->The API Gateway can work as a load balancer to handle requests in the most efficient manner. It can keep a track of the request load it has sent to different nodes of a particular service
- 
-=============================================
- 
- Environment :=
-~~~~~~~~~~~~~~
- --- uses "--getProperty("local.server.port")--" to get Port Number.
+ --- To Indicate Client-Side load-balancing ( RestTemplate ) 
+ --- We deploy Application in Mutiple Servers to acheive Load-balance .
+ --- It can be Implemented using "@LoadBalancer" annotation 
+ --- It works on Alogorithm && routes that Particular request to Server where Load-Is-Less. (*****)
  
  
- Feign Client :=
-~~~~~~~~~~~~~~
- --- Used to Communicate with Other Service using Service-name.
- --- FeignClient is used to achieve interservice communication
+   Flow := Request (PostMan) ---> Method ---> Dot-YML ---> Many Ports ---> Re-Direct (Based on Traffic)
+~~~~~~~~~
 
- --- Configure below annotations at Spring Boot start class
+----> Request-handling methods are called as "-EndPoints-" (**************)
 
-	1) @EnableDiscoveryClient
-	2) @EnableFeignClients
+ Load/Current Load : [Load of a Server]
+  => One request is one thread at server.
+  => No.of Request currently server is processing is called as current load.
+  => Max No.of Request that server allows at a time is called as Max Load.
+  => Default Max load is 200. We can even modify this value using 
+     below key.
+Ex:
+  server.jetty.threads.max=250
+  server.tomcat.threads.max=600
+  server.undertow.threads.worker=180
 
+*) Load Factor : Current Load / Max Load   [ 0 < Load Factor < 1 ]
+   
+*) Instance/ServiceInstance : An Application Running in server.
 
- Ribbion-Client :=
-~~~~~~~~~~~~~~~~
- --- Helps Feign-Client to use Specific-URL(API) to access Service.
+*) Scaling : Improve System Processing Capacity for client request process.
+Two types
+a) Horizontal Scaling : Creating multiple Instances for our Application.
+b) Vertical Scaling   : Improve/Enhance Hardware Configuration.
 
+*) Load Balancing : Handling multiple request made by different clients
+   using Both Horizontal and Vertical Scaling.
+   By using LBS(Load Balacing Server).  
 
-3) Inject properties values into variables wherever it is required
-
-      @Value("${msg}")
-Ex:   String msg;
-
-=============================================
-
- Spring-Cloud-Bus := refresh configurations across multiple instances
-~~~~~~~~~~~~~~~~~~~
-
-----> What are the different Microservices Design Patterns?
-A: The different Microservices Design Patterns are -
- Aggregator Microservice Design Pattern
- API Gateway Design Pattern
- Chain of Responsibility Design Pattern
- Branch Microservice Design Pattern
- Circuit Breaker Design Pattern
- Asynchronous Messaging Design Pattern
-============================================
  
- Netflix Ribbon  :=
-~~~~~~~~~~~~~~~~~~~
- ---for Client Side Load Balancing.
- ---In computing, load balancing improves the distribution of workloads across multiple computing resources, such as computers, a computer cluster, network links, central processing units, or disk drives. 
-
-==============================================
-
-MonolithicArchitecture := ( RPO ) [C.F.A]
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-It is a architectural style a big container in which all components and required functionalities of application are assembled toghether and tightly packed.
-  
-  ---Continious deployment is not possible.
-  ---Adopting new Technology is difficult. 
-  
-=========================================================================  
+ Alogorithm followed for load-balancing :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Round-Robin   [Default]  (Sequential Request-Distribution)
  
- Sleuth && Zipkin (Distributed Logging)  :=  (YOUTUBE ---> Byte Programming) [*************]
+ --- Least-Connections (Request send to least using Servers)
+ 
+ --- Ip-Hash   (Request send to Server based on Client-IP)
+ 
+==================================================================================================
+
+
+ 
+ SleuthAndZipkin (Distributed Logging)  :=  (YOUTUBE ---> Byte Programming) [*************]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  https://github.com/Java-Techie-jt/spring-cloud-sleuth-zipkin-example
  https://github.com/Java-Techie-jt/spring-cloud-gatway-hystrix
-
  https://github.com/TechPrimers/spring-cloud-sleuth-example
+ 
+ 
+ -- Handles all distributed LOG tracing. (******)
+ -- Add the Dependencies && Specify URL of  SleuthAndZipkinto in MC (******)
 
+
+    Trace-ID (Unique&& Same) //// Span-Id (Changes to every MC)
 
 Steps to implement Distributed logging using Slueth & Zipkin
 ------------------------------------------------------------
@@ -3275,9 +3295,102 @@ Note: With this zipkin server setup is done
 		
 		
  Splunk  := Log Monitor Tool ( Costly && frequently used )
-~~~~~~ 
-===========================================	
+ ~~~~~~ 
+ 
+ Need to Add :=
+~~~~~~~~~~~~~~
 
+spring:
+  zipkin:
+    base-url: http://127.0.0.1:9411/
+	
+	
+	<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-zipkin</artifactId>
+		</dependency>
+		
+		
+ 
+=============================================================================================================
+
+ Spring’s Rest-Template :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- RestTemplate is a class in spring web package, for synchronous client-side HTTP access.
+ --- The sole aim is to simplify communication with HTTP servers. 
+ --- That is it actually this is all RestTemplate does.
+ --- It offers methods that will handle HTTP operations very easily, such as retrieving data, posting data or retrieving all HTTP message headers
+
+   getForObject() method :: retrieve a representation of a resource by doing a GET on the specified URL.
+
+
+---->API gateway connects microservices, while load balancers redirect multiple instances of the same microservice components as they scale out.
+
+---->The API Gateway can work as a load balancer to handle requests in the most efficient manner. It can keep a track of the request load it has sent to different nodes of a particular service
+ 
+=============================================
+ 
+ Environment :=
+~~~~~~~~~~~~~~
+ --- uses "--getProperty("local.server.port")--" to get Port Number.
+ 
+ 
+ Feign Client :=
+~~~~~~~~~~~~~~
+ --- Used to Communicate with Other Service using Service-name.
+ --- FeignClient is used to achieve interservice communication
+
+ --- Configure below annotations at Spring Boot start class
+
+	1) @EnableDiscoveryClient
+	2) @EnableFeignClients
+
+
+ Ribbion-Client :=
+~~~~~~~~~~~~~~~~
+ --- Helps Feign-Client to use Specific-URL(API) to access Service.
+
+
+3) Inject properties values into variables wherever it is required
+
+      @Value("${msg}")
+Ex:   String msg;
+
+============================================= 
+
+ Spring-Cloud-Bus := refresh configurations across multiple instances
+~~~~~~~~~~~~~~~~~~~
+
+----> What are the different Microservices Design Patterns?
+A: The different Microservices Design Patterns are -
+ Aggregator Microservice Design Pattern
+ API Gateway Design Pattern
+ Chain of Responsibility Design Pattern
+ Branch Microservice Design Pattern
+ Circuit Breaker Design Pattern
+ Asynchronous Messaging Design Pattern
+============================================
+ 
+ Netflix Ribbon  :=
+~~~~~~~~~~~~~~~~~~~
+ ---for Client Side Load Balancing.
+ ---In computing, load balancing improves the distribution of workloads across multiple computing resources, such as computers, a computer cluster, network links, central processing units, or disk drives. 
+
+==============================================
+
+MonolithicArchitecture := ( RPO ) [C.F.A]
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+It is a architectural style a big container in which all components and required functionalities of application are assembled toghether and tightly packed.
+  
+  ---Continious deployment is not possible.
+  ---Adopting new Technology is difficult. 
+  
+=========================================================================  
+ 
  Spring Boot Admin Server & Admin Client :=
 ---------------------------------------
 -> In Microservices Architecture based project, we will have several services (REST APIs)

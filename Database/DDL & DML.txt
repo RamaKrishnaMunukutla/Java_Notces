@@ -93,6 +93,37 @@ Key-Words :=
 ~~~~~~~~~~~~~
   https://github.com/Java-Techie-jt/spring-mongodb
   
+  
+ Code :=
+~~~~~~~~~
+  	@PostMapping("/post")
+	public String addCustomer(@RequestBody List<Customer> list) {
+
+		custRepo.saveAll(list);
+		return "Created !!!!";
+	}
+	
+	
+ Postman :=
+~~~~~~~~~~~
+
+[  
+    {
+     "customerId":11,
+     "customerName":"Rama",
+     "mobileNo":22122
+    }, 
+	
+	{
+     "customerId":11,
+     "customerName":"Rama",
+     "mobileNo":22122
+    }
+	
+  ]
+
+
+ 
 ================================================================================================================
 
  Data :=
