@@ -16,12 +16,31 @@
 			  ----------------------------
                      {  } ----> Object  	
 					 
+ SOAP :=
+~~~~~~~~
+  https://github.com/Java-Techie-jt/spring-boot-soap-ws
+					 
 =======================================================================================================================
 
  HTTPS :=
 ~~~~~~~~~
  -- Data is Encrypted  (SSL/ TLS)
 
+ 
+ Versioning of Rest API :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+  --- Build your services to backward compatible so that you can avoid versioning as much as possible!
+
+ 1. URI Versioning
+ 2. Request Parameter versioning
+ 3. Headers versioning
+ 4. Media type versioning
+ 
+ 
+ JSON :=
+~~~~~~~
+ --- Stores Data in Key/Value Pair //// Light Weight //// More Readable.  /// Language Independent 
+ --- Supports Numbers, Strings,Boolean && Array, Objects  
 
 =======================================================================================================================
 
@@ -858,6 +877,7 @@ fully certified JAX-RS implementation; supports HTTP 1.1 caching semantics inclu
  
  https://github.com/PlayProCode/PlayJava/tree/master/exception-framework
  https://mkyong.com/spring-boot/spring-rest-error-handling-example/
+ https://github.com/greenlearner01/rest-api-validation (****)
  
  
  

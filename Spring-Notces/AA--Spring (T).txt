@@ -38,7 +38,18 @@ Core:=  [ http://localhost:8965/ ]
   
   Inheritance ----> https://java2blog.com/inheritance-in-spring/
   
-  Spring-MVC -----> https://www.candidjava.com/category/spring-mvc-tutorial/  
+  Spring-MVC -----> https://www.candidjava.com/category/spring-mvc-tutorial/ 
+
+
+  SpringInterceptors :=
+~~~~~~~~~~~~~~~~~~~~~~~
+ -- To intercept the HTTP Request and do some processing before handing it over to the controller handler methods  
+
+
+  SpringFilters :=
+~~~~~~~~~~~~~~~~~~
+ -- perform filtering task on request to a resource (a servlet or static content), 
+                or on the response from a resource, or both .
 			
 ===================================================================================================
          
@@ -172,7 +183,7 @@ The Spring IoC container is at the core of the Spring Framework. The container w
 
 ---> context.getBean("emp"); ....//returns Objects. (***************)
 		 
----->2 differnt-Types of IOC-Container (1)BeanFactory  (2)ApplicationContext.
+---->2 differnt-Types of IOC-Container (1)BeanFactory  (2) ApplicationContext.
 
 ========================================================
 
@@ -685,14 +696,19 @@ Use <bean> tag specify two attributes, init-method and destroy-method and provid
 
 
 (3) Annotation Configuration(LifeCycle):=
-  -----------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Use @PostConstruct (init) and @PreDestroy(destroy) annotations  in bean class
 after defining 2 methods at method level.
 
  ---->use @POSTCONSTRUCT and @PREDESTROY for life methods   configuration. i.e in spring Bean after ORM (at user defined method level)           // to activate these annoations add below line 
                           < CONTEXT:ANNOTATION-CONFIG />
+						  
+						  
+		@PostConstruct ---> Executes Only once, just after the initialization of bean properties.
 
-
+        @PreDestroy  -----> runs only once, just before Spring removes our bean from the application context.
+		
+		
 =======================================================================================================
 
  Inject770 :=
@@ -1612,7 +1628,7 @@ JdbcTemplate --- WriteQueries  (Table Has-To-Create Manually)
  --- Any Template can registered Automatically in SpringBoot.
   
 
-SpringDataJPA(JpaRepositary ) :=
+SpringDataJPA(JpaRepositary ) :=  [ https://github.com/Java-Techie-jt/spring-data-jpa-one2many-join-example ]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  (1)
 ----> It makes easy to implement JPA based repositories (****)
@@ -1715,11 +1731,21 @@ public class User {
 		 
 		 
  Eg (******) :=  BeanUtils.properties(source,target); // Works Only for Objects-Copy , not for Collections.
-~~~~~~~~~~~~~~
-
+~~~~~~~~~~~~~
   
-  https://github.com/Java-Techie-jt/spring-data-jpa-one2many-join-example
-		 
+ 
+ Eg44 :=
+~~~~~~~
+@RequestMapping(value="/{id}", method=RequestMethod.GET)
+ public ResponseEntity<Employee> employeeById(@PathVariable long id) {
+   Employee employee = employeeRepository.findEmp(id);
+   HttpStatus status = HttpStatus.NOT_FOUND;
+   if(employee != null ){
+     status = HttpStatus.OK; 
+   }       
+   return new ResponseEntity<Employee>(employee, status);
+}
+  	 
 ====================================================
 
  --- we can retreive data from D/b in 4-ways in Data JAP
@@ -2922,7 +2948,8 @@ situations:
 ===============================================================================================
 
  SpringExpressionLanguage := [ https://mkyong.com/tutorials/spring-tutorials/ ]
-~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~     https://github.com/greenlearner01/Microservices/
+
  --- It is the features of querying and manipulating an object graph at runtime (Dynamically).
  ---Used to get Dynamic-Values from Properties-files.(DOT-Properties)
 

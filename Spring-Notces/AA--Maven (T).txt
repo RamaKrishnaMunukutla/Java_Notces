@@ -34,7 +34,30 @@ MavenRepositary := place where all Maven Jars, Projects jars, library jars && Pl
 
 
    clean lifeCycle --- Pre-clean ,clean, Post-Clean.
-
+ 
+========================================================================================================== 
+   
+ failOnMissingWebXml :=
+~~~~~~~~~~~~~~~~~~~~~~
+ --- After removing web.xml file, your Maven build may break complaining that the file is missing. 
+ --- This happens when you're using an older version of Maven WAR Plugin. 
+ --- You can set configuration flag failOnMissingWebXml to false to fix the error.
+ 
+  Eg :=
+ ~~~~~
+ <build>
+    <plugins>
+        <plugin>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>2.4</version>
+            <configuration>
+                <failOnMissingWebXml>false</failOnMissingWebXml>    
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+ 
+==========================================================================================================
 
 ---->Explain what is POM?
 POM (Project Object Model) is the fundamental unit of work. It is an XML file which holds the information about the project and configuration details used to build a project by Maven.
@@ -80,15 +103,14 @@ Install
 Deploy
 
 
-Q) What are different Scopes in Maven ? Why they used?
+Q) What are different Scopes in Maven ? Why they used?  (******************)
 A) Scope - When a Jar is loaded/used.
 
-compile - Jar is used from compile time onwards
+system   - Jar loaded from System Drives (local folders)
 test    - Jar used only for UnitTesting
 runtime - Jar used only at runtime, not a compile time
 provided - Jar is handled by Servers/Container/F/w
-system   - Jar loaded from System Drives (local folders)
-
+compile - Jar is used from compile time onwards
 
 
 ----> List out what are the Maven’s order of inheritance?

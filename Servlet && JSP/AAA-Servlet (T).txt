@@ -39,6 +39,25 @@ NOTCES:=
 
 ==================/\/\\/\/\============\/\\/\\/\/\=================\/\\/\/\/\\/\====================
 
+==================================================================================================================
+
+ web.xml and Servlet 3.0 (Deployment Descriptor):=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ -- Web.xml, also known as deployment descriptor, is traditionally used as a configuration file for Java web applications. 
+ -- It defines servlets, their mappings, servlet filters, lifecycle listeners and more. 
+ -- Originally it was the only way to provide such configuration. 
+ -- Over the time, once popular XML configuration lost its appeal and popularity in favor of Java-based annotation configuration.
+
+ -- The same trend can also be observed in Spring Framework.
+ -- With Servlet version 3.0, the deployment descriptor is no longer mandatory.  (**********)
+ -- WE can replace web.xml with annotations like: @WebListener, @WebServlet, @WebFilter, @WebInitParam. (******)
+ -- From Servlet 3.0 +, We can register a servlet implementing a WebApplicationInitializer. (*******)
+ 
+ 
+                    Java-Config ----> AnnotationConfigWebApplicationContext 
+                    XML-Config  ----> XmlWebApplicationContext
+ 
+ 
                                    **                           **
 ---->ALWAYS HITS    index.html(Form-Action) -----> "web.xml"(URL-Pattern, See Servlet) <----> Servlets
 

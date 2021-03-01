@@ -17,6 +17,8 @@
 	  https://github.com/codecentric/java8-examples/tree/master/src/main/java/de/codecentric/java8examples
 	  
 	  https://javaconceptoftheday.com/solving-real-time-queries-using-java-8-features-employee-management-system/
+	  
+	  https://github.com/Java-Techie-jt/java8 (****)
 			 
 	
  Java 7 :=-
@@ -257,10 +259,10 @@ FUNCTONALINTERFACE123 (I) :=   [ https://www.javaguides.net/2018/07/java-8-funct
 ~~~~~~~~~~    
       [ https://github.com/Java-Techie-jt/java8/tree/master/demo ]      
 	  
-  --- Predicate(Returns Boolean value)...............test(str))
-  --- Function (Has Input and Output)
-  --- Producer (Only Input and  No  Output) 
-  --- Supplier (No Input and Only Output) 
+  --- Predicate(Returns Boolean value)...............test(str))   ////  'filter'
+  --- Function (Has Input and Output)                            ////   
+  --- Consumer (Only Input and  No  Output)                     ////   'forEach'  
+  --- Supplier (No Input and Only Output)                      //// 
 
   --- Predicate(Returns Boolean value)......................   ///  test(T t)       //       String.Length Check 
   --- Function (Has Input and Outputs of Data) )...........   ///  apply(T t)      //    Takes 2*10 as I/p && Print Output
@@ -727,12 +729,20 @@ Stream, they will be as follows :=
  ---Can easily be outputted as arrays or lists
  ---Lazy access supported
  ---Parallelizable
+ 
+ 
+ Advantages :=
+~~~~~~~~~~~~~
+ --- Reduce Lot of Code && Perform Bulk Operation 
+ --- Manipulate && Filter Data in List 
 
 
 Examples ::=
 ~~~~~~~~~
 ---> ll.stream() :: Stream<Integer>();  //// collect(Collectors.toList());
 	  ll.filter() :: List<Integer>()  [OR]  Integer[]
+	  
+----> map.entrySet().stream() (**************************)
 
 ---> Stream<Integer> stream = Stream.of(1,2,3,4,5,6,7,8,9);
       stream.forEach(p -> System.out.println(p));
@@ -798,11 +808,17 @@ Terminal-Operations :=
  map -------->  map(x -> x * x)  //// String::toLowerCase /// converts Stream<X> to Stream<Y>  && returns a new Stream (******)
  
  
- flatmap ---->  https://howtodoinjava.com/java8/stream-flatmap-example/ 
-                flatten a Stream of collections to a stream of objects   //// List<List<Integer>> (*****)
+                     Data Transformation ---->  Converting List<Employee> to List<firstName> 
+ 
+ flatmap ---->  https://howtodoinjava.com/java8/stream-flatmap-example/             ////  One-To-Many Mapping
+                flatten a Stream of collections to a stream of objects             //// List<List<Integer>> (*****)
                 flattening is referred to as merging multiple collections/arrays into one. (********)
                 flatMap(x -> x.stream())  ///// flatMap(x -> Arrays.stream(x))
 
+
+                       Flattering ----> Convert Stream(Stream)  to Single-Stream 
+					   
+======================================================
 
  distinct ----> Takes Only Unique elements. 	
 
@@ -825,9 +841,7 @@ Terminal-Operations :=
 
  reduce ---------> reduce((s1,s2) -> s1 + "#" + s2);
  
- forEachOrdered ----> Orders the elements.
- 
- 
+ forEachOrdered ----> Orders the elements. 
 
 =======================================================
 
@@ -876,7 +890,16 @@ Terminal-Operations :=
         // Displaying elements in Stream 
         stream.forEach(str -> System.out.print(str + " "));
 
-=====================================================
+
+ Eg to Remove duplicate form Array :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Set<Integer> uniqueElements    = new HashSet<>();      
+    Set<Integer> duplicateElements =  Arrays.stream(inputArray)
+                                            .filter(i -> !uniqueElements.add(i))
+                                            .boxed()
+                                            .collect(Collectors.toSet());
+
+==========================================================================================
 
 ---->Stream.forEach(Consumer action) method to traverse all the elements of stream and performs an action for each element of this stream.
 
@@ -1480,7 +1503,7 @@ public interface I2 {
 
 public class Test implements I1,I2,I3 {
 
-	@Override
+	@Override  /// ASk to OverRide any One default-Method 
 	public void demo() {
 		// I3.super.demo();    
 		// I2.super.demo(); 

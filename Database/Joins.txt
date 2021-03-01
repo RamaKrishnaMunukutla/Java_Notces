@@ -19,7 +19,69 @@
  
   
 ======================================================================================
+ Joins :=
+~~~~~~~~~~
+SELECT a.*
+	FROM  job_history a 
+		JOIN employees m 
+			ON (a.employee_id = m.employee_id)
+WHERE salary >= 12000;
 
+
+SELECT E.first_name, E.last_name, E.department_id 
+ FROM employees E 
+   JOIN employees S
+     ON E.department_id = S.department_id
+       AND S.last_name = 'Taylor';
+	   
+	   
+SELECT job_title, department_name, first_name || ' ' || last_name AS Employee_name, start_date 
+	FROM job_history 
+		JOIN jobs USING (job_id) 
+			JOIN departments USING (department_id) 
+				JOIN  employees USING (employee_id) 
+					WHERE start_date>='1993-01-01' AND start_date<='1997-08-31';	
+
+
+SELECT first_name || ' ' || last_name as Full_Name, hire_date,  
+ salary,  department_id
+  FROM employees
+   WHERE first_name NOT LIKE '%M%'
+     ORDER BY department_id;
+	 
+	 
+SELECT DISTINCT department_id
+	FROM employees
+		GROUP BY department_id, manager_id 
+			HAVING COUNT(employee_id) >=4;	 
+	 
+	 
+SELECT * 
+	FROM employees 
+		WHERE commission_pct IS NULL 
+			AND salary BETWEEN 7000 AND 12000 
+				AND department_id=50;	 
+	 
+	 
+SELECT employee_id, first_name, job_id, department_id
+ FROM employees
+  WHERE department_id IN (30 , 40 , 90);
+
+
+SELECT first_name,last_name, department_id
+ FROM employees
+  WHERE first_name LIKE '__s%';
+
+
+SELECT first_name ||' '||last_name AS Full_Name, hire_date , 
+  commission_pct, email ||' -  '||phone_number AS Contact_Details, salary 
+     FROM employees 
+       WHERE salary > 11000
+        OR phone_number LIKE '______3%'
+          ORDER BY first_name DESC;
+		  
+=============================================================		  
+  
  Inner Join := common values are displayed from 2 tables.
  ~~~~~~~~~~
  
@@ -94,6 +156,13 @@ SELECT *
 FROM orders 
 NATURAL JOIN customer  
 NATURAL JOIN salesman; 
+
+
+  Interview Question :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+   
+   emp1= 3 Records , emp2= 4 records /// SELECT * FROM emp1,emp2; == '12' (Fetching Records by Multiply Rows)
+               
  
 ===========================================================================
 Cross Join:= (Product of Rows----- M*N Rows)

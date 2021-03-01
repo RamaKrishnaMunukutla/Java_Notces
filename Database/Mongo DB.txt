@@ -13,9 +13,20 @@
 
        MONGO-DB ----> SBMS 7:00 AM (22th_to_29th  /12/2020) [**********]
 	   
+	   https://www.javatpoint.com/mongodb-delete-documents
+	   
+	   
+---> MongoDB provides Indexing, whereas Redis DB cannot.  /// dynamically allocates and de-allocates RAM 
+
+--->  By Default, MongoDB doesn't support primary key-foreign key relationship. /// written and implemented in C++.
+
+---> achieve primary key-foreign key relationship by embedding one document inside another. (**)
+
+----> MongoDB databases have dynamic schema. There is no need to define the structure to create collections. (****)
+	   
 ================================================================================================
 	                           
-    							   Basic Mongo Commands
+    							   Basic Mongo Commands ( "Not Only SQL".)
 							   ~~~~~~~~~~~~~~~~~~~~~~~~~~
 	   
 #1. Start MongoDb Server
@@ -60,6 +71,13 @@ cmd>
 
 db.student.find();
 > db.student.find().pretty();
+
+
+#7. Drop Database 
+> db.dropDatabase()  
+
+               
+			    limit ----> db.COLLECTION_NAME.find().limit(NUMBER)   
  
 
 ================================================================================
@@ -152,8 +170,21 @@ HBase, Big Table, Accumulo (Tabular)
 			 
 ==========================================================================================
 
-
-
+ Insert :=  /// db.javatpoint.find()  
+~~~~~~~~~~
+  
+ db.javatpoint.insert(  
+    {  
+      course: "java",  
+      details: {  
+          duration: "6 months",  
+         Trainer: "Sonoo jaiswal"  
+      },  
+       Batch: [ { size: "Small", qty: 15 }, { size: "Medium", qty: 25 } ],  
+       category: "Programming language"  
+    }  
+  )  
+ 
 
 
 

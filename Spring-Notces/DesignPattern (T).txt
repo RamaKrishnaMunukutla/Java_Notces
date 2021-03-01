@@ -1,11 +1,11 @@
 
 
 
-    DependencyInjectionDesign..........DAODesign..........FacadeDesign(Interface).............MVCDesign
+    DependencyInjectionDesign..........DAODesign..........FacadeDesign(Interface)........MVCDesign
     
-           SingletonDesign.........ProtoTypeDesign........FactoryDesign (Interface / AbstractClass)
+           SingletonDesign.........ProtoTypeDesign........FactoryDesign..................BuilderPattern
 		   
-		   ..........ProxyDesign550.........TemplateDesign566
+		   ProxyDesign550.........TemplateDesign566
 
 
 ===========================================================================================================
@@ -16,7 +16,7 @@ It is a pre-defined solution to write program in better way which reduces memory
 
 ===========================================================================================
 
-Creational Design Patterns :=  [--- SingleTon, ProtoType, Factory, Builder ---]
+Creational Design Patterns :=  [--- SingleTon, ProtoType, Factory(2) , Builder ---]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Creational design patterns provide solution to instantiate a object in the best possible way for specific situations.
 
@@ -226,7 +226,7 @@ To implement a Singleton pattern :=
 (**) Threadsafe Singleton using Double Checked Locking Idiom ??
   --- Double checked locking idiom solves this problem by allowing you to eat your cake and have it as well, it ensures synchronization is used only when instance of Singleton is created, when getInstance() method is called first time and all other time, same instance is returned without any synchronization overhead. 
   
-  --- As the name suggests, it's double-checked, which means it checked two times whether _instnace (the singleton instance) is initialized or not, one without synchronization and other with synchronization. 
+  --- As the name suggests, it's double-checked, which means it checked two times whether _instance (the singleton instance) is initialized or not, one without synchronization and other with synchronization. 
   
   ---  This double check ensures that locking is only used when  an instance is null i.e. when first time someone calls getInstance(), all subsequent call will see _instnace not null hence they will not enter into synchronization block.
  
@@ -363,7 +363,7 @@ Extra if condition
  Disadvantages of singletons :=  It make unit testing very hard.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-ProtoTypeDesign :=    [....Creational-design-pattern....]
+ProtoTypeDesign :=    [....Creational-design-pattern....]  //// (Creating Duplicate Objects, when it's Cost is Higher)
 ~~~~~~~~~~~~~~~
 It provides a mechanism to copy the original object(which loads data from D/b ) to a new object by copying it (Or)using cloning technique && then modify it according to our needs. 
 
@@ -392,6 +392,9 @@ FactoryDesign :=  [....Creational-design-pattern....] (##Interface-- SubClass-De
 
  --- It used when we have a superclass having multiple sub-classes and based on input, we need to return one of the sub-class.
  --- Any Method is called by using it's Class-Name && Returns It's Instance is called as "Factory-Method" .
+ 
+ 
+ --- One Separate Factory-Class is written , which Compares with Given I/P && Returns Object (****************)
 
 
  Eg :=
@@ -413,10 +416,15 @@ FactoryDesign :=  [....Creational-design-pattern....] (##Interface-- SubClass-De
 ---->This pattern takes out the responsibility of the instantiation of a class from the client moved to the factory class.
 
 
- Abstract Factory Design pattern :=
+ Abstract Factory Design pattern := [ https://www.youtube.com/watch?v=JFvSCobD7JU&ab_channel=CodeDecode ]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- --- Abstract Factory Pattern is one level higher than the Factory Pattern.
+ --- Abstract Factory Pattern is one HIGHER LEVEL than the Factory Pattern.
+ -- It has Double level ABSTRACTION (*********)   /// Factory (Factory)
  --- It allowed a class to return a factory of classes.
+ 
+ --- Create One Main-Class that creates Fcatory of Factory Class. && Create Instances of Factory Class
+ --- Factory Class returns Instances. 
+
  --- Define an abstract class or interface for creating families of related objects but without specifying their concrete sub-classes
 
 
@@ -431,7 +439,7 @@ FactoryDesign :=  [....Creational-design-pattern....] (##Interface-- SubClass-De
 ~~~~~~~~~~~~~  
             https://www.tutorialspoint.com/design_pattern/facade_pattern.htm
 
-----> Higher-Level Interface that makes SubSytsems easier to use. (*********) 
+----> Higher-Level Interface helps in routing Related Interface that makes SubSytsems easier to use. (*********) 
  
 ----> Protects end-user from complex subSytem component. (*********) 
   
@@ -439,7 +447,18 @@ FactoryDesign :=  [....Creational-design-pattern....] (##Interface-- SubClass-De
  
 ---->its purpose is to provide a single interface rather than multiple interfaces that does the similar kind of jobs
 
----------------------------------------------------------------------------------------------
+===========================================================================================================
+
+ BuilderPattern :=  [....Creational-design-pattern....]
+~~~~~~~~~~~~~~~~~
+
+
+============================================================================================================
+
+=============================================================================================================
+
+=============================================================================================================
+
 
  ProxyDesign550 := [....Structural-design-pattern....] 
 ~~~~~~~~~~~~~~~    [https://www.java2novice.com/java-design-patterns/proxy-design-pattern/]
@@ -447,6 +466,9 @@ FactoryDesign :=  [....Creational-design-pattern....] (##Interface-- SubClass-De
 
  --- provides control for accessing the original object. (***************)
  --- We can perform many security operations like hiding the information of the original object, on-demand loading, etc.
+ 
+        Eg :=  Control 'Delete' Operation && available Only for Admin 
+	   ~~~
  
          Types of Proxies ----> Protecting, Caching , Remote 
 

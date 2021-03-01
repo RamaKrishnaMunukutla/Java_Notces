@@ -22,9 +22,12 @@ Foreign key:=
 --------------
 ------>Represents relation between 2 tables.It is a column (or a group of           columns) whose values are derived from Primary Key of some other           values.
 =======================================================
-Joins:=
-------                       
-   --Equi  --Non-Equi   --Outer(Left,Right,Full)  --Self    --Natural   --Cross/Cartisian
+
+ Joins :=
+-------- 
+                      
+   --Equi  --Non-Equi   --Outer( Left, Right, Full[Union] )  --Self    --Natural   --Cross/Cartisian
+
 
 Equi(inner/simple):=Equal operator in where clause of select statement(one  -----------------------  cloumn common mandatory). no common values ---not                                         displayed in output.
 

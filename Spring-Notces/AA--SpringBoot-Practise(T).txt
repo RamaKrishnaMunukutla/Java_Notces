@@ -2,13 +2,13 @@
 
  
 
-     ........Mapping123........RestAnnotations555...............Param123............... 
+     ........Mapping123........RestAnnotations555.............Param123............... 
  
-      ........Response11.........Autowiring123...........JpaRepositaryWithStreams123.......DownLoadImageRest......
+      ........Response11.........Autowiring123...........JpaRepositaryWithStreams123............
  
-    ......ErrorMessage123.......ResponseEntity123..........Rest11........
+    ......ErrorMessage123.......ResponseEntity123..........Rest11........DownLoadImageRest......
 	
-	...........ADDHTML.............Notces888..............
+	...........ADDHTML.............Notces888..............Projects450.....GitHubLinks
 
     
 	  http://localhost:8965/create?firstName=rama&lastName=krishna&age=24
@@ -163,14 +163,32 @@ RestAnnotations555(JAX-RS) := It maps the HTTP DELETE requests on the specific h
 
 ===================================================================
 
- Param123 :=
-~~~~~~~~~~~
-
+ Param123 := 
+~~~~~~~~~~~  
+ 
          Jersey (JAX-RS) ----->  @PathParam    //// @QueryParam
  
          Spring RESTFul ------>  @PathVariable //// @RequestParam
 
-=====================
+======================================================================
+
+  Annotations :=
+~~~~~~~~~~~~~~~~
+ --- help to Specify  metadata (information) to the program elements like instance variables, constructors ,Methods && Class 
+ --- adding metadata information to our source code.
+
+
+ --- Four are imported from java.lang.annotation:  @Retention, @Documented,     @Target &&&  @Inherited.
+ --- Three are included in java.lang: @Deprecated, @Override   @SuppressWarnings
+ 
+ 
+ Custom Annotations :=
+~~~~~~~~~~~~~~~~~~~~~
+ --- Created using @interface tells Java this is a custom annotation. 
+ --- Later, you can annotate it on method level like this @Test(enable=false).
+ ---  @TesterInfo is applied on class level, store the tester details
+
+=================================================================================
 
    @Queryparam -----> used to access Key-value pairs in Query-String of URL.
    
@@ -506,9 +524,14 @@ public class RecordNotFoundException extends RuntimeException
   
   ---  else { return new ArrayList<EmployeeEntity>(); }       ......./// Returns Empty Array.
  
- 	
-ResponseEntity123 :=
-~~~~~~~~~~~~~~~~~~
+============================================================================================================= 	
+
+ ResponseEntity123 := 
+~~~~~~~~~~~~~~~~~~ 
+ --- ResponseEntity represents the whole HTTP response: status code, headers, and body. (************)
+ --- As a result, we can use it to fully configure the HTTP response.
+
+
      from (import org.springframework.http.ResponseEntity;) ...... 
 	 
 	 ---- @ResponseStatus(HttpStatus.CREATED)
@@ -764,5 +787,217 @@ Factory pattern – BeanFactory for creating instance of an object.
 	
 ======================================================================================================
  
+ GitHubLinks :=
+~~~~~~~~~~~~~~
+            Core-Java ----> https://github.com/RameshMF/object-oriented-design/tree/master/oops-concepts
+						    https://github.com/RameshMF/java-io-guide
+						    https://github.com/RameshMF/project-lombok-tutorial
+												  
+	            SERVLET --> https://github.com/RameshMF?tab=repositories&q=SERVLET&type=&language=
+	             JSP -----> https://github.com/RameshMF?tab=repositories&q=JSP&type=&language=
+				 
+				 
+		Servelt + JSP ----> https://github.com/RameshMF/todo-application-jsp-servlet-jdbc-mysql
+		                    https://github.com/RameshMF/jsp-servlet-jdbc-mysql-crud-tutorial
+							https://github.com/RameshMF/jsp-servlet-hibernate-mysql-tutorial
+		
+	    
+	        Spring-Core ---> https://github.com/RameshMF/spring-core-tutorial
+			                 https://github.com/in28minutes/spring-interview-guide
+							
+							
+	        Spring-MVC ----> https://github.com/RameshMF/spring-mvc-tutorial
+						     https://github.com/RameshMF?tab=repositories&q=MVC&type=&language=	
+
+	    MVC + Unit-Test ---> https://github.com/Java-Techie-jt/spring-mockito-example
+						     https://github.com/Java-Techie-jt/spring-boot-mockito
+						     https://github.com/Java-Techie-jt/spring-security-integration-test	
+							 https://github.com/in28minutes/spring-unit-testing-with-junit-and-mockito
+							 
+
+		  SpringBoot -----> https://github.com/RameshMF/spring-boot-tutorial
+                            https://github.com/in28minutes/spring-boot-examples		
+                         ........							
+		                    https://github.com/RameshMF/todo-management-spring-boot
+							https://github.com/RameshMF/registration-login-springboot-security-thymeleaf
+			 	            https://github.com/RameshMF?after=Y3Vyc29yOjMw&language=&q=boot&tab=repositories
+							https://github.com/in28minutes/JavaInterviewQuestionsAndAnswers
+  
+  
+     SpringBoot-Session.M -----> https://www.techgeeknext.com/spring-boot/spring-boot-session-management  
+  SpringBoot-Transaction.M ----> https://www.techgeeknext.com/spring-boot/spring-boot-transaction-management  
+					
+					
+  SpringBoot-Thymeleaf  -----> https://github.com/RameshMF?tab=repositories&q=Thymeleaf&type=&language=
+                               https://github.com/RameshMF/registration-login-spring-boot-security-thymeleaf-hibernate
+								 
+											  
+	     SpringDataJPA ----> https://github.com/RameshMF?tab=repositories&q=JPA&type=&language=
+		                     https://github.com/Java-Techie-jt/spring-data-Jpa
+							 
+   SpringBoot + Angular ----> https://github.com/RameshMF?tab=repositories&q=angular&type=&language=
+							 			
+			
+		   JPA + Junit ----> https://github.com/kishanjavatrainer/SpringBootDataJPAJunitTesting_1
+		                     https://github.com/kishanjavatrainer/SpringBootDataJPAJunitTesting_2
+							 https://github.com/kishanjavatrainer/TicketBookingServiceJunitTesting 
+                             https://github.com/kishanjavatrainer/TicketBookingRestControllerJunitTesting
+							 https://github.com/kishanjavatrainer/SpringBootRestControllerIntegrationTesting
+							 
  
- 	 
+		    Security ------> https://github.com/RameshMF?tab=repositories&q=security&type=&language=
+ 
+
+=========================================================
+
+ Projects450 :=
+~~~~~~~~~~~~~
+
+  https://www.javaguides.net/2019/03/java-mini-projects-with-source-code.html
+  https://www.javaguides.net/2019/06/jsp-servlet-projects-with-source-code-free-download.html
+  
+  
+  https://www.javaguides.net/2018/10/20-free-open-source-projects-using-spring-framework.html
+  https://www.javaguides.net/2018/10/free-open-source-projects-using-spring-boot.html
+  
+  
+  https://www.javaguides.net/2020/06/free-spring-boot-microservices-open-source-projects-github.html
+  https://www.javaguides.net/2019/04/free-open-source-angular-projects-or-templates.html
+  https://www.javaguides.net/2020/06/free-spring-boot-angular-open-source-projects-github.html
+  
+  
+  KK Java Tutorials :=
+~~~~~~~~~~~~~~~~~~~~~~
+ https://github.com/kishanjavatrainer/-SpringDataNamedQueryDemo
+ https://github.com/kishanjavatrainer/SpringDataNamedNativeQueryDemo
+ https://github.com/kishanjavatrainer/QueryAnnotaionWithUpdateDataStoreDemo
+ https://github.com/kishanjavatrainer/SpringDataQueryAnnotation_1
+ https://github.com/kishanjavatrainer/-SpringDataPaginationDemo
+ https://github.com/kishanjavatrainer/SpringBootEhacheCache
+ 
+
+ MVC :=
+~~~~~~
+ https://github.com/RameshMF/hotel-reservation-springmvc
+
+
+ Boot22 :=
+~~~~~~~~
+ https://github.com/RameshMF/Spring-Boot-2.0-Projects
+ https://github.com/RameshMF/SpringAll
+ https://github.com/RameshMF/Spring-5.0-Projects
+ 
+ 
+ MicroServices :=
+~~~~~~~~~~~~~~~
+ https://github.com/RameshMF/learn-microservices-w-spring-boot
+ 
+ 
+ Angular :=
+~~~~~~~~~~
+ https://github.com/javatechie-angular-tutorial/javatechie-covid19-ng
+ 
+ 
+ FullStack :=
+~~~~~~~~~~~~
+ https://github.com/RameshMF/Angular8-SpringBoot-CRUD-Tutorial
+ https://github.com/RameshMF/Angular9-SpringBoot-CRUD-Tutorial
+ https://github.com/RameshMF/spring-boot-angular-fullstack-examples
+ 
+ 
+ Demo-Projects :=
+~~~~~~~~~~~~~~~~
+ https://github.com/RameshMF/spring-security-react-ant-design-polls-app
+ https://github.com/RameshMF/spring-boot-websocket-chat-demo
+ https://github.com/cf-platform-eng/spring-boot-cities
+ 
+ https://github.com/RameshMF/todo-management-spring-boot
+ https://github.com/RameshMF/registration-login-springboot-security-thymeleaf
+
+
+===============================
+
+ NamedQueries660 :=
+~~~~~~~~~~~~~~~~~
+
+		   https://github.com/kishanjavatrainer/-SpringDataNamedQueryDemo       ---------- @NamedQueries
+		   https://github.com/kishanjavatrainer/SpringDataQueryAnnotation_1      --------- @Query
+		   https://github.com/kishanjavatrainer/SpringDataQueryAnnotation_2      --------- @Query
+     	   https://github.com/kishanjavatrainer/QueryAnnotaionWithUpdateDataStoreDemo ---- 
+		   https://github.com/kishanjavatrainer/SpringDataNamedNativeQueryDemo  ----------- @NamedNativeQueries
+		   https://github.com/kishanjavatrainer/-SpringDataPaginationDemo ----------------- Pagination.
+		   https://github.com/kishanjavatrainer/MethodQueryInSpringDataUsingNamedParameters 
+ 
+ 
+ (1) FindByName := 
+~~~~~~~~~~~~~~~~
+    
+	 Add (Model) ---> @NamedQuery(name = "Job.getDetailsBySkillName",
+                            query = "SELECT job FROM Job job WHERE job.skills=?1")
+
+
+ Pagination :=
+~~~~~~~~~~~~~~
+ -- We can do Pagiantion by using  "--PageRequest--"
+ 
+    PageNo ...... PageSize ...... Sort
+	
+	
+ Read Environment Variables in Spring Boot :=   import org.springframework.core.env.Environment;
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    @Autowired
+    private Environment env;
+	
+    @Override
+    public void run(String... args) throws Exception {
+
+        logger.info("{}", env.getProperty("JAVA_HOME"));
+        logger.info("{}", env.getProperty("app.name"));
+    }	
+		
+===================
+
+ Others :=
+~~~~~~~~~~ 
+											 
+    GSON ------> https://github.com/RameshMF?tab=repositories&q=JAXB&type=&language=
+                 https://github.com/RameshMF/gson-tutorial
+								
+								
+   Jersey ------> https://github.com/RameshMF/jersey-tutorial
+    JSON  ------> https://github.com/RameshMF/jackson-json-tutorial
+
+							 
+  Design-Pattern ----> https://github.com/RameshMF/gof-java-design-patterns
+		
+  JUnit5 ----> https://github.com/RameshMF/junit-developer-guide
+               https://github.com/RameshMF?tab=repositories&q=JUNIT&type=&language=
+ 
+							 
+  Boot-Tutorials(****)-----> https://www.candidjava.com/spring-boot-tutorial/spring-boot-beginner-to-expert-guide/
+      Mongo-DB ------------> https://github.com/RameshMF/springboot-angular-mongodb-crud-tutorial
+	  
+	MicroServices ---------> https://github.com/RameshMF/learn-microservices-w-spring-boot                                        
+											 
+==========================
+			 
+ SpringSecurity :=
+~~~~~~~~~~~~~~~~~     	
+
+        Java-Techie ----> https://github.com/Java-Techie-jt?q=spring-security&type=&language=
+		Tech-Primer ----> https://github.com/TechPrimers?q=security&type=&language= (****)
+		
+		Java-Brains ----> https://github.com/koushikkothagal?tab=repositories&q=security&type=&language=
+		RameshMF ------->https://github.com/RameshMF?tab=repositories&q=security&type=&language=
+
+
+=============================================================================================================
+
+
+===================================================================================================================	
+
+
+
+
+
+

@@ -1,14 +1,14 @@
 
   
-    ...SpringBootInternalWork .....MultipleInstances990
+    ...SpringBootInternalWork .....AdvantagesOfSpringBoot........MultipleInstances990
   
    ....Profiles333............SpringBootServletInitializer330....Profiles444.....LOMBOK770....FileUpload....Environment440
    
-   ....SpringBootJDBC440.........SpringbootMVCHibernate660.......Runner740.......PropertiesGet.....Actuator550
+   ....SpringBootJDBC440.........SpringbootMVCHibernate660.......Runner740.......PropertiesGet.....Actuator550.....Scheduler990
   
-   ....YAML660...................HATEOAS780.....Thymeleaf890.....Multipart444....Projects450........NamedQueries660....
+   ....YAML660...................HATEOAS780.....Thymeleaf890.....Multipart444.........NamedQueries660....
    
-   ....RestTemplate660...........Swagger220.....Chache440........ErrorHandling490.....SpringTransactional
+   ....RestTemplate660...........Swagger220.....Chache440........ErrorHandling490.....SpringTransactional....BootRegEx
 	
    ....SpringBatch660............RedisDB........PCF660...........SpringBatch880.....Cache330.....BootMongoDB 
    
@@ -16,199 +16,16 @@
 
 
 ===========================================================================================================
-	
-	        Core-Java ----> https://github.com/RameshMF/object-oriented-design/tree/master/oops-concepts
-						    https://github.com/RameshMF/java-io-guide
-						    https://github.com/RameshMF/project-lombok-tutorial
-												  
-	            SERVLET --> https://github.com/RameshMF?tab=repositories&q=SERVLET&type=&language=
-	             JSP -----> https://github.com/RameshMF?tab=repositories&q=JSP&type=&language=
-				 
-				 
-		Servelt + JSP ----> https://github.com/RameshMF/todo-application-jsp-servlet-jdbc-mysql
-		                    https://github.com/RameshMF/jsp-servlet-jdbc-mysql-crud-tutorial
-							https://github.com/RameshMF/jsp-servlet-hibernate-mysql-tutorial
-		
-	    
-	        Spring-Core ---> https://github.com/RameshMF/spring-core-tutorial
-			                 https://github.com/in28minutes/spring-interview-guide
-							
-							
-	        Spring-MVC ----> https://github.com/RameshMF/spring-mvc-tutorial
-						     https://github.com/RameshMF?tab=repositories&q=MVC&type=&language=	
 
-	    MVC + Unit-Test ---> https://github.com/Java-Techie-jt/spring-mockito-example
-						     https://github.com/Java-Techie-jt/spring-boot-mockito
-						     https://github.com/Java-Techie-jt/spring-security-integration-test	
-							 https://github.com/in28minutes/spring-unit-testing-with-junit-and-mockito
-							 
-
-		  SpringBoot -----> https://github.com/RameshMF/spring-boot-tutorial
-                            https://github.com/in28minutes/spring-boot-examples		
-                         ........							
-		                    https://github.com/RameshMF/todo-management-spring-boot
-							https://github.com/RameshMF/registration-login-springboot-security-thymeleaf
-			 	            https://github.com/RameshMF?after=Y3Vyc29yOjMw&language=&q=boot&tab=repositories
-							https://github.com/in28minutes/JavaInterviewQuestionsAndAnswers
-  
-  
-     SpringBoot-Session.M -----> https://www.techgeeknext.com/spring-boot/spring-boot-session-management  
-  SpringBoot-Transaction.M ----> https://www.techgeeknext.com/spring-boot/spring-boot-transaction-management  
-					
-					
-  SpringBoot-Thymeleaf  -----> https://github.com/RameshMF?tab=repositories&q=Thymeleaf&type=&language=
-                               https://github.com/RameshMF/registration-login-spring-boot-security-thymeleaf-hibernate
-								 
-											  
-	     SpringDataJPA ----> https://github.com/RameshMF?tab=repositories&q=JPA&type=&language=
-		                     https://github.com/Java-Techie-jt/spring-data-Jpa
-							 
-   SpringBoot + Angular ----> https://github.com/RameshMF?tab=repositories&q=angular&type=&language=
-							 			
-			
-		   JPA + Junit ----> https://github.com/kishanjavatrainer/SpringBootDataJPAJunitTesting_1
-		                     https://github.com/kishanjavatrainer/SpringBootDataJPAJunitTesting_2
-							 https://github.com/kishanjavatrainer/TicketBookingServiceJunitTesting 
-                             https://github.com/kishanjavatrainer/TicketBookingRestControllerJunitTesting
-							 https://github.com/kishanjavatrainer/SpringBootRestControllerIntegrationTesting
-							 
- 
-		    Security ------> https://github.com/RameshMF?tab=repositories&q=security&type=&language=
- 
-
-=========================================================
-
- Projects450 :=
-~~~~~~~~~~~~~
-
-  https://www.javaguides.net/2019/03/java-mini-projects-with-source-code.html
-  https://www.javaguides.net/2019/06/jsp-servlet-projects-with-source-code-free-download.html
-  
-  
-  https://www.javaguides.net/2018/10/20-free-open-source-projects-using-spring-framework.html
-  https://www.javaguides.net/2018/10/free-open-source-projects-using-spring-boot.html
-  
-  
-  https://www.javaguides.net/2020/06/free-spring-boot-microservices-open-source-projects-github.html
-  https://www.javaguides.net/2019/04/free-open-source-angular-projects-or-templates.html
-  https://www.javaguides.net/2020/06/free-spring-boot-angular-open-source-projects-github.html
-  
-  
-  KK Java Tutorials :=
-~~~~~~~~~~~~~~~~~~~~~~
- https://github.com/kishanjavatrainer/-SpringDataNamedQueryDemo
- https://github.com/kishanjavatrainer/SpringDataNamedNativeQueryDemo
- https://github.com/kishanjavatrainer/QueryAnnotaionWithUpdateDataStoreDemo
- https://github.com/kishanjavatrainer/SpringDataQueryAnnotation_1
- https://github.com/kishanjavatrainer/-SpringDataPaginationDemo
- https://github.com/kishanjavatrainer/SpringBootEhacheCache
- 
-
- MVC :=
-~~~~~~
- https://github.com/RameshMF/hotel-reservation-springmvc
-
-
- Boot22 :=
-~~~~~~~~
- https://github.com/RameshMF/Spring-Boot-2.0-Projects
- https://github.com/RameshMF/SpringAll
- https://github.com/RameshMF/Spring-5.0-Projects
- 
- 
- MicroServices :=
-~~~~~~~~~~~~~~~
- https://github.com/RameshMF/learn-microservices-w-spring-boot
- 
- 
- FullStack :=
-~~~~~~~~~~~~
- https://github.com/RameshMF/Angular8-SpringBoot-CRUD-Tutorial
- https://github.com/RameshMF/Angular9-SpringBoot-CRUD-Tutorial
- https://github.com/RameshMF/spring-boot-angular-fullstack-examples
- 
- 
- Demo-Projects :=
-~~~~~~~~~~~~~~~~
- https://github.com/RameshMF/spring-security-react-ant-design-polls-app
- https://github.com/RameshMF/spring-boot-websocket-chat-demo
- https://github.com/cf-platform-eng/spring-boot-cities
- 
- https://github.com/RameshMF/todo-management-spring-boot
- https://github.com/RameshMF/registration-login-springboot-security-thymeleaf
-
-
-======================================================================
-
- NamedQueries660 :=
-~~~~~~~~~~~~~~~~~
-
-		   https://github.com/kishanjavatrainer/-SpringDataNamedQueryDemo       ---------- @NamedQueries
-		   https://github.com/kishanjavatrainer/SpringDataQueryAnnotation_1      --------- @Query
-		   https://github.com/kishanjavatrainer/SpringDataQueryAnnotation_2      --------- @Query
-     	   https://github.com/kishanjavatrainer/QueryAnnotaionWithUpdateDataStoreDemo ---- 
-		   https://github.com/kishanjavatrainer/SpringDataNamedNativeQueryDemo  ----------- @NamedNativeQueries
-		   https://github.com/kishanjavatrainer/-SpringDataPaginationDemo ----------------- Pagination.
-		   https://github.com/kishanjavatrainer/MethodQueryInSpringDataUsingNamedParameters 
- 
- 
- (1) FindByName := 
-~~~~~~~~~~~~~~~~
-    
-	 Add (Model) ---> @NamedQuery(name = "Job.getDetailsBySkillName",
-                            query = "SELECT job FROM Job job WHERE job.skills=?1")
-
-
- Pagination :=
-~~~~~~~~~~~~~~
- -- We can do Pagiantion by using  "--PageRequest--"
- 
-    PageNo ...... PageSize ...... Sort
-	
-	
- Read Environment Variables in Spring Boot :=   import org.springframework.core.env.Environment;
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    @Autowired
-    private Environment env;
-	
-    @Override
-    public void run(String... args) throws Exception {
-
-        logger.info("{}", env.getProperty("JAVA_HOME"));
-        logger.info("{}", env.getProperty("app.name"));
-    }	
-	
-	
-=======================================================================
-
- Others :=
-~~~~~~~~~~ 
-											 
-    GSON ------> https://github.com/RameshMF?tab=repositories&q=JAXB&type=&language=
-                 https://github.com/RameshMF/gson-tutorial
-								
-								
-   Jersey ------> https://github.com/RameshMF/jersey-tutorial
-    JSON  ------> https://github.com/RameshMF/jackson-json-tutorial
-
-							 
-  Design-Pattern ----> https://github.com/RameshMF/gof-java-design-patterns
-		
-  JUnit5 ----> https://github.com/RameshMF/junit-developer-guide
-               https://github.com/RameshMF?tab=repositories&q=JUNIT&type=&language=
- 
-							 
-  Boot-Tutorials(****)-----> https://www.candidjava.com/spring-boot-tutorial/spring-boot-beginner-to-expert-guide/
-      Mongo-DB ------------> https://github.com/RameshMF/springboot-angular-mongodb-crud-tutorial
-	  
-	MicroServices ---------> https://github.com/RameshMF/learn-microservices-w-spring-boot
-                                             
-											 
-==================================================================================================================
  
  SpringBootInternalWork :=
 ~~~~~~~~~~~~~~~~~~~~~~~~
-  META-INF / spring.factories  ----> Based on @Conditional ,
+ 
+ [ https://www.youtube.com/watch?v=oSVwNqwkw-M&list=PLq3uEqRnr_2F0NK6_mpFcTxQh_s1U-s5r&index=1&ab_channel=GreenLearner ]
+
+
+  META-INF / spring.factories  ----> Based on @Conditional , (On Class, Bean, Property, Resource, Web, SpEL)
+  
                                      It Enables / Disables few of components to build application.   
  
  
@@ -223,26 +40,163 @@
  --- Generates WAR-File 
  --- Creates Tomcat-Embedded-Servlet-Container && Context added to it.  
 
+=====================================================================================================================
 
-=====================================================================================================================	  
-			 
- SpringSecurity :=
-~~~~~~~~~~~~~~~~~     	
+  AdvantagesOfSpringBoot :=  /// Extension off Spring 
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+--- DevTools to autorestart server on code/config updates
+--- Embedded Tomcat/Jetty/Undertow support
+--- Doesn't require XML Configuration (*******)  ///  Eay to Launch && Manage 
 
-        Java-Techie ----> https://github.com/Java-Techie-jt?q=spring-security&type=&language=
-		Tech-Primer ----> https://github.com/TechPrimers?q=security&type=&language= (****)
-		
-		Java-Brains ----> https://github.com/koushikkothagal?tab=repositories&q=security&type=&language=
-		RameshMF ------->https://github.com/RameshMF?tab=repositories&q=security&type=&language=
-		
-          RequestBody ---> https://www.concretepage.com/spring-5/spring-restcontroller                      					 
+--- Plenty of SpringBoot Starter to quickly get up and running
+--- Easier dependency management using platform-bom
+
+--- No need of creating boilerplate configuration
+--- Easier customization of application properties
+--- Easy management of profile specific properties
+
+ -- Provide production-ready features such as metrics, health checks and externalized configuration
+ -- Adds all related Jars with the StartUps (******************)
+ 
+ 
+      Banner-OFF ----> app.setBannerMode(Banner.Mode.OFF);
+	                   app.run(args);
+					   
+					          srping.main.banner-mode : OFF  
+ 
+ 
+ @EnableAutoConfiguration := (***********)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-> As part of Auto Configuration SpringBoot will decide which components are required to run our application and it is going to load them. 	
+
+
+     @Configuration      ---------> Makes it a Spring-managed bean. 
+                                   In the @ConfigurationProperties, we set the prefix for our properties.
+
+ @ConfigurationProperties --------> Allows to map the entire Properties and Yaml files into an object easily
+
+      @PropertySource     --------> Set the path to the custom properties file.
+                                    The @Validated annotation validates the properties.
+ 
+ 
+  @SpringBootAplication :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+  @Configuration ----> It will behave act as bean.
+  @EnableAutoConfiguartion ----> It will enable bean based on some condition that we have discussed above.
+  @ComponentScan ----> It is mainly used to scan the classes and packages to create the bean.
+  
+ 
+---->SpringBoot is a Spring module which provides RAD (Rapid Application Development) feature to Spring framework.
+It is used to create stand alone spring based application that you can just run because it needs very little spring configuration. 
+ 
+----> SpringBoot avoid all the boilerplate code and configurations that we had to do previously. Spring boot thus helps us use the existing Spring functionalities more robustly and with minimum efforts.
+
+
+----> Spring Boot aims to simplify Java development with the Spring framework. (********)
+
+
+---->SpringBoot provides opinionated 'starter' POMs to simplify your Maven configuration.
+It automatically configure Spring whenever possible.
+
+---->Spring Boot Features
+1. Create stand-alone Spring applications
+2. Embed Tomcat, Jetty or Undertow directly (no need to deploy WAR files)
+3. Provide opinionated 'starter' dependencies to simplify your build configuration
+4. Automatically configure Spring and 3rd party libraries whenever possible
+5. Absolutely no code generation and no requirement for XML configuration
+
+ Starter-Web ----> WEb-MVC, Tomcat. 
+
+
+---->What are the Advantages of using Spring Boot?
+1.It is very easy to develop Spring Based applications with Java.
+2.It reduces lots of development time and increases productivity.
+3.It avoids writing lots of boilerplate Code, Annotations and XML Configuration.
+4.It is very easy to integrate Spring Boot Application with its Spring Ecosystem like
+Spring JDBC, Spring ORM, Spring Data, Spring Security etc
+
+---->How to create Spring Boot application using Maven?
+There are multiple approaches to create Spring Boot project. We can use any of the following approach to create application.
+ 
+ ---Spring Maven Project (Configuration)
+ ---Spring Boot CLI
+ ---Spring Initializr
+ ---Spring Starter Project Wizard
+
+
+---->How to create Spring Boot project using Spring Initializer?
+It is a web tool which is provided by Spring on official site. You can create Spring Boot project by providing project details.
+
+
+----> SpringBoot uses of HttpSession to achieve Session management.
+
+----> Repetetive-code(DB-Connection) is known as boilerplate code.  (*********)
+
+
+===================================================================================================================
+	
+ **RunMultipleInstances :=  [ https://github.com/PlayProCode/PlayJava/tree/master/my-app ]
+~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+  Run Configuration ---> New  ---> Give Project_Name && Main Method Name [Search] 
+ 
+                Environment -----> Give "server.port" && Port_Number ----> Apply && Close
+
+ 
+  BootWithEHcache :=   [ https://github.com/SimpleProgramming?tab=repositories ]
+~~~~~~~~~~~~~~~~~~~  
+   Cache ---> Renders Page Faster //// Cookie ----> Stores User Details 
+   
+       @EnableCaching /// @Cacheable
+	   
+=================================================================================================================
+
+  BootMongoDB :=
+~~~~~~~~~~~~~~~
+   https://github.com/Java-Techie-jt/spring-mongodb  
+	   
+===========================================================================================================
+
+   Image Render in Postman ----> https://github.com/greenlearner01/File-Upload-Download-With-SpringBoot
+   
+   File-Upload ----> https://github.com/greenlearner01/File-Upload-Download-With-SpringBoot  // Displays Images on Browser
+                                 
+   Groovy ---> https://www.youtube.com/watch?v=6N2NmHif08E&list=PLq3uEqRnr_2FRt0CVn3GqKDsBqlN0z9XZ&ab_channel=GreenLearner
+ 
+===========================================================================================================
+
+ SecureBoot -- SSL :=   [ https://github.com/greenlearner01/ssl ]
+~~~~~~~~~~~~~~~~~~      [ https://github.com/Java-Techie-jt/spring-https ]
+
+ -- It is done by SSL (secure sockets layer. )
+ -- It is Protocol for web browsers and servers that allows for the authentication, encryption and decryption of data sent over the Internet. 
+
+ -- Establishes Secure Connection between Web-Server and Browser BY "ENCRYPTING" Data. 
+ -- TLS  More Secure that SSL .
+ 
+ -- Protects attacks from (1) SQL-Injection, (2) Cross-Site Scripting, (3) CSRF 
+ -- Need to have Ddedicated IP-Address
+
+===========================================================================================================
+
+ @ConfigurationProperties (Prefix="config") :=  
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+    https://github.com/greenlearner01/Microservices/tree/master/profilesDemo/src/main/java/com/gl/profilesDemo
+  
+===========================================================================================================
+
+        RequestBody --->https://www.concretepage.com/spring-5/spring-restcontroller                      					 
 
 
 		 .....MySql....DevTools....JPA....Web.....
 	  
+	  
    src/static/css ----> CSS Files. ///// http://localhost:8965/
 	   
+	   
 	   src/template ------> HTML Files
+	   
 	   
  Profiles, XML-Files -----> @ Application.properties.,  
                        Import using @ImportResource("classpath: Beans.xml") in Main-Class
@@ -271,35 +225,16 @@
  
     @RestController ----> Sends Object as HTTP Response in XML / JSON Format.
 
-
- @SpringBootAplication :=
-~~~~~~~~~~~~~~~~~~~~~~~~
-  @Configuration ----> It will behave act as bean.
-  @EnableAutoConfiguartion ----> It will enable bean based on some condition that we have discussed above.
-  @ComponentScan ----> It is mainly used to scan the classes and packages to create the bean.
-  
-  
- @EnableAutoConfiguration := (***********)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
--> As part of Auto Configuration SpringBoot will decide which components are required to run our application and it is going to load them. 	
-
-
-     @Configuration      ---------> Makes it a Spring-managed bean. 
-                                   In the @ConfigurationProperties, we set the prefix for our properties.
-
- @ConfigurationProperties --------> Allows to map the entire Properties and Yaml files into an object easily
-
-      @PropertySource     --------> Set the path to the custom properties file.
-                                    The @Validated annotation validates the properties.
-
-============================================================================
+=========================================================================================================
 
   @PropertySource :=
 ~~~~~~~~~~~~~~~~~
  --- To externalize your configuration to a properties file. 
  --- to include properties from the application.properties file into the Environment and to inject them into class attributes.
  --- In this tutorial, we will show you how to use @PropertySource to read a properties file and display the values with @Value and Environment.
- ---  use Environment to get the property values.
+ 
+ ---  use Environment to get the property values.
+ ---  YAML Cannot loaded using @PropertySource  annotation (**********)
  
   Eg :=
  ~~~~~
@@ -354,71 +289,7 @@ public class AppConfigMongoDB {
 	
 	        ........@Profiles, @Transactional, @Import, @ImportResource..............
  
-======================================================================================================================
-   
-   
-
----->SpringBoot is a Spring module which provides RAD (Rapid Application Development) feature to Spring framework.
-It is used to create stand alone spring based application that you can just run because it needs very little spring configuration. 
- 
-----> SpringBoot avoid all the boilerplate code and configurations that we had to do previously. Spring boot thus helps us use the existing Spring functionalities more robustly and with minimum efforts.
-
-
-----> Spring Boot aims to simplify Java development with the Spring framework. (********)
-
-
----->SpringBoot provides opinionated 'starter' POMs to simplify your Maven configuration.
-It automatically configure Spring whenever possible.
-
----->Spring Boot Features
-1. Create stand-alone Spring applications
-2. Embed Tomcat, Jetty or Undertow directly (no need to deploy WAR files)
-3. Provide opinionated 'starter' dependencies to simplify your build configuration
-4. Automatically configure Spring and 3rd party libraries whenever possible
-5. Absolutely no code generation and no requirement for XML configuration
-
-
----->What are the Advantages of using Spring Boot?
-1.It is very easy to develop Spring Based applications with Java.
-2.It reduces lots of development time and increases productivity.
-3.It avoids writing lots of boilerplate Code, Annotations and XML Configuration.
-4.It is very easy to integrate Spring Boot Application with its Spring Ecosystem like
-Spring JDBC, Spring ORM, Spring Data, Spring Security etc
-
----->How to create Spring Boot application using Maven?
-There are multiple approaches to create Spring Boot project. We can use any of the following approach to create application.
- 
- ---Spring Maven Project (Configuration)
- ---Spring Boot CLI
- ---Spring Initializr
- ---Spring Starter Project Wizard
-
-
----->How to create Spring Boot project using Spring Initializer?
-It is a web tool which is provided by Spring on official site. You can create Spring Boot project by providing project details.
-
-
-----> SpringBoot uses of HttpSession to achieve Session management.
-
-----> Repetetive-code(DB-Connection) is known as boilerplate code.  (*********)
-
-
- Advantages of SpringBoot :=
-~~~~~~~~~~~~~~~~~~~~~~~~~~
---- DevTools to autorestart server on code/config updates
---- Embedded Tomcat/Jetty/Undertow support
-
---- Plenty of SpringBoot Starter to quickly get up and running
---- Easier dependency management using platform-bom
-
---- No need of creating boilerplate configuration
---- Easier customization of application properties
---- Easy management of profile specific properties
-
---- Provide production-ready features such as metrics, health checks and externalized configuration
-
-
-============================================================================================
+===============================================================================================
 
  MultipleInstances990 :=
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -488,8 +359,10 @@ Profiles provide ability for application developers to specify different applica
    
   
 10 Expand Package Explorer to view added/genrated code in class
+
 ====================================================================
-Lombok Annotations:
+
+ Lombok Annotations:
 
 1. @Getter and @Setter : 
    This annotation says to lombok generate get and set methods for variables
@@ -593,7 +466,7 @@ https://www.codejava.net/frameworks/spring-boot/spring-boot-crud-example-with-sp
  ---has Method "Run()" takes String[] as argument.
  
  
- AllicationRunner  (I) :=
+ ApplicationRunner  (I) :=
 ~~~~~~~~~~~~~~~~~~~~~~~
  ---Used to execute Any task before Boot executes it.
  ---has Method "Run()" takes ApplicationArguments as argument.
@@ -608,7 +481,18 @@ https://www.codejava.net/frameworks/spring-boot/spring-boot-crud-example-with-sp
 
 
 
-=============================================================================================
+==========================================================================================================================
+ 
+ Scheduler990 :=
+~~~~~~~~~~~~~~
+  -- Execuetes a piece of Code for a Periodically  
+  
+     Methods like ----> fixedDelay , fixedRate , initialDelay 
+	 
+	                      @Scheduled(cron = "0 15 10 15 * ?")
+
+
+==========================================================================================================================
 
  YAML660 (Yet Another Markup Language) :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -675,13 +559,34 @@ public class MyController implements ErrorController{
  Runner740 :=
 ~~~~~~~~~~~~~
 
+        CommandLineRunner(I)  [1.0] //// ApplicationRunner(I) [1.3] [F-I]  
+ 
+
 ----> ApplicationRunner(I) and CommandLineRunner(I) interfaces lets you to execute the code after the Spring Boot application is started. 
 
 ---->You can use these interfaces to perform any actions immediately after the application has started.
 
+
+                   ApplicationRunner(I) [1.3]  ----> public void run(AplicationArguments args) throws Exception
+				   
+				   CommandLineRunner(I) [1.0]  ----> public void run(String... args) throws Exception
+				   
+				   
+ Types of Args := ( ApplicationRunner has Both)
+~~~~~~~~~~~~~~
+
+      (1)  Option Args [Inputs]        ---->  --key=value  /// 
+	  
+	  (2) Non-Option Args  [Commands]  ---->     data 
+    
+
+
  Eg :=
 ~~~~
+
+@Component
 public class EmployeeInsertRunner implements CommandLineRunner {
+	
 	@Autowired
 	private EmployeeRepository repo;
 	
@@ -694,6 +599,10 @@ public class EmployeeInsertRunner implements CommandLineRunner {
 	 }
 
   }
+  
+ @Order(77) := Exceutes Runnners in Order. 
+~~~~~~~~~~
+
 
 ==========================================================================================================
 
@@ -736,8 +645,15 @@ Spring Boot upgrades all dependencies automatically when you upgrade Spring Boot
 					   
  --- To change base-Path of Actuator Endpoints ::
  
-                      management.endpoints.web.base-path = /rama 
-					  management.server.port =9090
+					 management.endpoints.web.base-path = /rama    /// (EndPoints are acessed using "rama")
+					 management.server.port =9090
+					  
+					 management.endpoints.<APP-NAME> = always
+					 
+					 management.endpoints.health.enabled=false    /// Disbles Endpoint 
+					 
+					 management.endpoints.web.expose.include = health, info 
+					 management.endpoints.web.expose.expose =  beans, metrics 
   
  --- Actuator endpoints to monitor metrics of individual microservices. 
  ---when application is pushed to production, you can choose to manage and monitor your application using HTTP endpoints.
@@ -1276,9 +1192,11 @@ server.compression.enabled=true
   https://github.com/TechPrimers/spring-boot-swagger-example
   https://github.com/Java-Techie-jt/spring-swagger
   
-    https://github.com/SimpleProgramming/spring-boot-ehCache-CacheManager
+  https://github.com/SimpleProgramming/spring-boot-ehCache-CacheManager
   https://github.com/SimpleProgramming/spring-boot-swagger-ui
   https://github.com/SimpleProgramming/spring-boot-swagger-codegen-maven-plugin
+
+  https://github.com/greenlearner01/Microservices/
   
 
 Q) What is Swagger?
@@ -1330,13 +1248,12 @@ Swagger documentation Contains below details
 		
   Annotations :=  [ https://www.javainuse.com/spring/boot_swagger_annotations ]
 ~~~~~~~~~~~~~~~		
-    @API            ----> provides   details   of   Method.
-    @APIOperation   ----> describes the endpoint and its response type
-	@APIParam       ----> describes the exposed REST API.
-    @ApiModelProperty ----> describes the properties of the Product model.
- 
-    @ApiOperation  ----> 
-    @ApiResponses  ----> describe the expected responses for the REST API. 
+    @API            ------> provides   description of API.
+    @APIOperation   ------> describes the endpoint and its response type
+	
+	@APIParam       ------> describes the exposed REST API.
+    @ApiModelProperty ----> describes the properties of the Model-Class 
+    @ApiResponses  -------> describe the expected responses for the REST API. 
                            It describes an operation or typically a HTTP method against a specific path.
   
   
@@ -1434,6 +1351,8 @@ Dependencies :=
  --- https://www.javatpoint.com/spring-boot-cache-provider
  --- https://www.javatpoint.com/spring-boot-caching
  --- https://www.javatpoint.com/spring-boot-ehcaching
+ 
+ --- https://github.com/greenlearner01/Ehcache-with-SpringBoot
 
 =================================================================================================
  
@@ -1483,6 +1402,12 @@ Dependencies :=
 
 ===================================================================================================
 
+ BootRegEx :=  [ https://github.com/greenlearner01/springboot-regex ]
+~~~~~~~~~~~~
+   
+   
+================================================================================================================
+
    SpringBatch660 :=  [******SBMS 7:00 AM 30TH(dec)_to_18TH /01/2021*********]
  ~~~~~~~~~~~~~~~~~
  
@@ -1515,7 +1440,7 @@ Dependencies :=
 ===============================================================================================================
 
  RedisDB :=  [ https://github.com/microsoftarchive/redis/releases ]  /// Cache for Distributed Transaction . 
-~~~~~~~~~    
+~~~~~~~~~      https://github.com/greenlearner01/Redis_Cache-With-SpringBoot
 
   ---> redis-server.exe
   ---> redis-cli.exe
@@ -1948,7 +1873,7 @@ The primary reason for using cache is to make data access faster and less expens
 
 =================================================================================================
  
- PCF660 :=
+ PCF660 :=  (Youtube :: Green-Learner)
 ~~~~~~~~
 
  PCF :=

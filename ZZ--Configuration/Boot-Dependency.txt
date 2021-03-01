@@ -8,12 +8,7 @@
  
 =================================================================================
   
-    <parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.7.RELEASE</version>
-		<relativePath /> 
-	</parent> 
+
 	
   <dependency>
      <groupId>org.springframework.boot</groupId>
@@ -29,6 +24,14 @@
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-actuator</artifactId>
   </dependency>
+
+
+    <parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.7.RELEASE</version>
+		<relativePath /> 
+	</parent> 
   
 =============================================
 

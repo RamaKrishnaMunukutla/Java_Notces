@@ -6,11 +6,11 @@
 	  
 	 FULLSTACK500......JavaPath ...........Learn990....Career550.......
 		  
-	Baledung440........Install440.......
+	Baledung440........Install440.......EclipseShortcut
 	
 ====================================================================================================
     
-     ramakrishnamunukutla910@gmail.com  /// ramakrishna.munukutla@ojas-it.com  /// .\Ojas  Persistent910@#
+     ramakrishnamunukutla910@gmail.com  /// ramakrishna.munukutla@ojas-it.com  /// .\Ojas  ////  Jun!o@R-8190
 
   
 23 Java string coding interview questions | Learn With Krishna Sandeep     venkata_munukutla@persistent.com
@@ -30,6 +30,9 @@
   
   
      LINKS ---> SBMS 7:00 AM (16/12/2020) 
+	 
+	 
+	 https://education.oracle.com/java-se-8-programmer-ii/pexam_1Z0-809
  
 =========================================================================================================   
 
@@ -97,6 +100,8 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
   https://www.mediafire.com/file/n7f67xf7tsbvdia/SpringCloud_7AM_02022021_RAGHU_DC.zip/file (Intra communication :MS)
   https://www.mediafire.com/file/kl6aftff19yrcnx/SpringCloudFeignClient_08022021_RAGHU_7AM.zip/file (Intra communication)
   
+  https://github.com/kunaltyagi9/Spring-Boot-with-Angular
+  
 =====================================================================================================================
 
 
@@ -108,6 +113,11 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
     Programming ----> Forest 
 	
 	Coding ----> Tree
+	
+	https://courses.in28minutes.com/
+	
+	
+	
 ================================================================================================
 
  Spring Btach ----> Multithreading with JVM Parllel-Instances [Buckiting]  (****)
@@ -141,6 +151,7 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
   Gain Java Knowledge --> https://github.com/sumitMultani?tab=repositories     
        Play Java -------> https://github.com/PlayProCode/PlayJava
      Green Learner -----> https://github.com/greenlearner01?tab=repositories
+	Product Engineer ---> https://github.com/sagarmal624?tab=repositories
 
 	  
 	javadevjournal -----> https://github.com/javadevjournal/javadevjournal
@@ -198,12 +209,15 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
 		        Intellipaat ~~~~~~~~~~~~ https://www.youtube.com/c/Intellipaat/videos
 				Simplilearn ~~~~~~~~~~~~ https://www.youtube.com/c/SimplilearnOfficial/playlists
 		
-		        Naresh IT ~~~~~~~~~~ https://www.youtube.com/c/NareshIT/videos
-		        Durga Soft ~~~~~~~~~ https://www.youtube.com/c/DurgaSoftwareSolutions/videos		  		  	  
+		        Naresh IT ~~~~~~~~~~~~~ https://www.youtube.com/c/NareshIT/videos
+		        Durga Soft ~~~~~~~~~~~~ https://www.youtube.com/c/DurgaSoftwareSolutions/videos		  		  	  
 		       KK-Tutorials ~~~~~~~~~~~ https://www.youtube.com/channel/UC9aUqnxhYLge4tLdBI50Cwg/playlists
            Ram N Java Tutorial ~~~~~~~~ https://www.youtube.com/user/ramram43210/playlists
         
-		
+		      Java Techie ~~~~~~~~~~~~~ https://www.youtube.com/c/JavaTechie/playlists
+			  Tech Primers ~~~~~~~~~~~~ https://www.youtube.com/c/TechPrimers/playlists
+			  
+			  
 		Sundeep Saradhi Kanthety ~~~~~~ https://www.youtube.com/c/SundeepSaradhi/playlists
 		Jenny's lectures CS/IT  ~~~~~~~ https://www.youtube.com/c/JennyslecturesCSITNETJRF/playlists 
             Abdul Bari  ~~~~~~~~~~~~~~~ https://www.youtube.com/channel/UCZCFT11CWBi3MHNlGf019nw/playlists        
@@ -218,7 +232,7 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
 		  
     		Product Engineer ~~~~~~~~~~ https://www.youtube.com/channel/UCKLrvwglZb6h9SEM__fgSjg/playlists
 			   Play Java ~~~~~~~~~~~~~~ https://www.youtube.com/channel/UCq2kXUtnqL9eEyTi9TNfX6w/videos
-	          Green Learner ~~~~~~~~~~~ https://www.youtube.com/c/GreenLearner/playlists
+	          Green Learner ~~~~~~~~~~~ https://www.youtube.com/c/GreenLearner/playlists      [/==**MC**==/]
 	     Learnprograming byluckysir ~~~ https://www.youtube.com/c/learnprogramingbyluckysir/videos	          		  	 
            Almighty  java ~~~~~~~~~~~~~ https://www.youtube.com/c/AlmightyJava/playlists        
 	         Siva Reddy ~~~~~~~~~~~~~~  https://www.youtube.com/c/SivaReddyJavaTechie/videos   [/==****==/]
@@ -231,7 +245,7 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
   
  		 TheDevOpsSchool ~~~~~~~~~~ https://www.youtube.com/c/TheDevOpsSchool/playlists	
         Sada Learning Hub ~~~~~~~~~ https://www.youtube.com/c/SadaLearningHub/playlists
-    Learn With KrishnaSandeep ~~~~~ https://www.youtube.com/user/springhibernatetutes/playlists
+    Learn With KrishnaSandeep ~~~~~ https://www.youtube.com/user/springhibernatetutes/playlists  [/==DS==/]
        Coding Simplified ~~~~~~~~~~ https://www.youtube.com/c/CodingSimplified/playlists
        Natural Programmer ~~~~~~~~~ https://www.youtube.com/c/naturalprogrammer-com/playlists
            iZenBridge  ~~~~~~~~~~~~ https://www.youtube.com/c/iZenBridge1/playlists
@@ -266,7 +280,6 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
               Valentin Despa ~~~~~~~~~~~~~ https://www.youtube.com/channel/UCUUl_HXJjU--iYjUkIgEcTw/playlists
 		Automation By - Raghav Pal ~~~~~~~ https://www.youtube.com/c/AutomationStepByStep/playlists
                 QASCRIPT ~~~~~~~~~~~~~~~~~ https://www.youtube.com/channel/UC6LyUhddo6bH2CcFLpFjjsA/playlists			 
-			 
 			 
 ===================================================================================================================
 
@@ -310,16 +323,7 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
 
  Today :=    [  "------manas ekam vachas ekam karmanyekam---------" ]  (***********) 
 ~~~~~~~~~
-    
-  ---WatchLater
-  
-  ---Notces && DevOps
-  
-  ---Docker, RestAPI, JWT in MC
-  
-  ---types of java based web application architecture
-  
-  ---@loadbalanced spring boot
+ 
   
   
  Strings :=
@@ -346,13 +350,15 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
  ~~~~~~~~~
    pattern.....Arrays......Strings...........Datatypes.....MCQ's (FULL)........CodeSnippets
 
-Angular :=
+
+ Angular :=
 ~~~~~~~~
    ............Practises..........MCQ's-(FULL)........CodeSnippets........InterviewQ&A.........
    
 ===============================================================================================================
-JavaScript :=
-~~~~~~~~~~
+
+ JavaScript :=
+~~~~~~~~~~~~~
     ......Adv.JavaScript............Practises..........MCQ's (FULL)........CodeSnippets......InterviewQ&A.
   
    ........Callback........closure......TypeOf.........cookies.......Local & Session storage......
@@ -391,7 +397,8 @@ JavaScript :=
    
    --- (YOUTUBE)::= JavaTechie-(MicroServices)............TechPrimes-(MicroServices) 
    
-   --- (YOUTUBE)::= LearnByBhanu-(GIRA) 
+   --- (YOUTUBE)::= LearnByBhanu-(JIRA) 
+   
 ----------------
    
    ---JavaInUse ---------> (Transactional, FullStack, Spring-Cloud, Spring-Security ) ///  CodePrimers ----> MicroServices.
@@ -437,7 +444,7 @@ JavaScript :=
  
     ...........Oops.........Collections..........JDBC...............
 
-============================================================================================
+=========================================================================================================
 
  FullStackFlow :=
 ~~~~~~~~~~~~~~~~
@@ -496,7 +503,9 @@ JavaScript :=
  --- microservices project + angular +github
  --- spring boot microservices angular github
  --- angular spring boot microservices github
- --- 
+ --- spring boot microservices angular project github
+ --- Spring MVC project github
+ --- Spring MVC + angular github
  
  
  --- mysql interview questions
@@ -577,12 +586,17 @@ https://www.baeldung.com/spring-cloud-series
    https://dev.mysql.com/downloads/installer/
    https://www.mongodb.com/try/download/community  (Install ----> [Youtube] Programming Knowledge)
    
+   
    https://www.jenkins.io/download/
    https://docs.docker.com/docker-for-windows/install/
    https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
+
    https://www.dell.com/support/home/en-us/drivers/driversdetails?driverid=r70v3  (MaxAudioPro)
+   
+   
    https://www.zdsoft.com/   
+   https://www.faststone.org/FSCaptureDownload.htm
    https://online-video-cutter.com/
    
 
@@ -613,7 +627,7 @@ https://www.baeldung.com/spring-cloud-series
   
 ==================================================================================================
  
- Career550 :=
+ Career550 :=     Be Flexible to learn any TECH /// Learn /// Write LOGIC
 ~~~~~~~~~~~~
 Fresher - 2+         
  Basics
@@ -680,11 +694,11 @@ Fresher - 2+
 	
 ==================================================================================
  
-Eclipse Shortcut:=
+EclipseShortcut:=
 ~~~~~~~~~~~~~~~~~
 
-Ctrl + Shift:=
-~~~~~~~~~~~
+ Ctrl + Shift :=
+~~~~~~~~~~~~~~~
      R~~~~~~~~Search Files In Project
 	 T~~~~~~~~Search  API  In Library
 	 O~~~~~~~Imports
@@ -694,6 +708,11 @@ Ctrl + Shift:=
 	 P~~~~~ to find closing brace. Place the cursor at the opening brace and use this.
 	   
 	Cntrl + O ----> Methods in Class 
+	
+ Alt + Shift (ORS) :=
+~~~~~~~~~~~~~~~~~~~~
+     H -----> HashCode() and equals() 
+   
 	  
 	 ALT+ Up/Down ~~~~~~~~~~~~~~~Move lines
 	 CNTRL+BACKSPACE//D~~~~~~~~~ Delete line.

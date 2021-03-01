@@ -327,8 +327,18 @@ JTA:=
 
 JNDI :=
 ~~~~
-This concept is used to maintain “Connection-Pool” (Set of Connection Object) that provides faster services for DB operations                                                                                                                    
+This concept is used to maintain “Connection-Pool” (Set of Connection Object) that provides faster services for DB operations  
 
+
+ Connection Pool :=
+~~~~~~~~~~~~~~~~~~~~   
+ --- Means connections are reused rather than created each time a connection is requested.
+ --- It is maintained by a connection pooling module as a layer on top of any standard JDBC driver product.
+ --- DataSource-(BasicDataSource) object provides connection pooling.  (Creates if not Available) 
+ ---> Implemented through 
+                          (1) Apache commons DBCP 2 ---> DBCP 2.7 requires Java 8
+                          (2) HikariCP             ---->  fast, reliable, and simple.
+                          (3) C3P0                 ----> oldest library.
 
 Pool and Cache: -
 ~~~~~~~~~~~~~~~
@@ -1367,7 +1377,7 @@ NativeSQL :=
 ======================================================================================================
 
 HibernateValidatorAPI && MVC :=  [ https://howtodoinjava.com/hibernate/hibernate-validator-java-bean-validation/ ]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~      https://github.com/greenlearner01/rest-api-validation
 
 ---> Validations are used to check data, before processing operation.
 Ex: Is EmpName valid? It should not be null, should have 4-6 chars only.

@@ -13,7 +13,8 @@
 	  .........ReadOnlyCollection.......CollectionsBestPractises.......
 	 
 =============================================================================================================
-             
+
+ 
 
 ---->  String // Character // Arrays // Collections // 
 
@@ -28,10 +29,29 @@
 		 Interfaces(*******)  :: Sorted (List, Set, Map)  // ConcurrentMap
 
 
+ Ways to Copy Array Elements :=  array is Thread-Safe Operation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Using for loop
+-- Using Arrays.copyOf() method
+-- Using System.arraycopy() method
+-- Using clone() method
+		 
+		 
+---->         int copyOfNumber = number;
+             int noOfDigits = String.valueOf(number).length();
+			 
+---->          // Convert the Set of String to String 
+               String string = String.join(", ", set); 
+
+
 ---->   BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             input = br.readLine();	 
+			
+---->   BufferedReader reader = new BufferedReader(new FileReader("C:\sample.txt"));
+		 
 		 
 ---> Set <Map.Entry<String, Integer>> list = new HashSet<Map.Entry<String, Integer>>(hm.entrySet());  // Set store Both(K<V)
+
 
 ---> List<Map.Entry<String, Integer>> list = new LinkedList<Map.Entry<String, Integer>>(hm.entrySet()); //  List Stores (K<V)
 
@@ -102,15 +122,22 @@ Arrays :=
   S ---> Synchronized
   TS ---> Thread-Safe
   
-  HashSet && LinkedHashSet ----> Only one-Null
-  TreeSet    ---->No Null
-   
-   HashMap ----------->  Key(One) &  Values(Many)
-   LinkedHashMap ---->   Key(One) &  Values(Many)
-   TreeMap  -----------> Key(No)  &  Values(One) 
   
-   HashTable   ----> No Null Key && Values
-   
+    CopyOnWriteArrayList   ----> Null && Duplicates allowed
+    
+  HashSet && LinkedHashSet ----> One-Null && No Duplicates
+          TreeSet          ---->  No-Null && No Duplicates
+    CopyOnWriteArraySet    ----> One-Null
+	
+	
+  HashMap && LinkedHashMap ----> Key(One) &&  Values(Many)
+         TreeMap    -----------> Key(No)  &&  Values(One) 
+     ConcurrentHashMap  -------> Key(No)  &&  Values(No) 
+  
+           HashTable      -----> Key(No)  &&  Values(No)
+ 
+==============================================
+ 
    STACK(LIFO) ----> DD from CD-CASE
    QUEUE(FIFO) ----> line in Movie Theater
    
@@ -178,6 +205,10 @@ Arrays :=
                  Both are Index-Based && 
 				 Throws ConcurrentModificationException && 
 				 Allows Duplicate && Null
+
+ Difference Between ArrayList && Vector  :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- ArrayList is not ThreadSafe & Synchronized 
 
 
 ---->Index based Elements can be randomly accessed using index positions sinse implement RandomAccess interface
@@ -333,6 +364,44 @@ ArrayList.indexOf():= returns index of first occurrence of a element in the Arra
  --- Can Increase-Size by List<String> ll = new ArrayList<String>(20);
 
 
+  Remove Duplicates in ArrayList :=  (*****)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+    ArrayList ---> LinkedHashSet --->  ArrayList
+	
+ Merge Two ArrayList :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+  // create merged list
+    List<Integer> numbers = new ArrayList<>();
+    numbers.addAll(prime);
+    numbers.addAll(even);
+
+ Merge Two ArrayList Using Java-8 :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	 // convert both lists into stream
+    Stream<Integer> list1 = prime.stream();
+    Stream<Integer> list2 = even.stream();
+
+    // merge two streams
+    Stream<Integer> merged = Stream.concat(list1, list2);
+
+    // convert the merged stream into list
+    List<Integer> numbers = merged.collect(Collectors.toList());
+	
+==========================
+	
+ (2) How do you increase the current capacity of an ArrayList?
+> ensureCapacity() method
+ 
+ 3) How do you decrease the current capacity of an ArrayList to the current size?
+> trimToSize() method
+
+5) How do you find out whether the given ArrayList is empty or not?
+> isEmpty()
+
+14) How do you remove the given element from an ArrayList?
+> remove(Object obj) 
+
 ========================================================================================================
 
 
@@ -350,8 +419,16 @@ ArrayList.indexOf():= returns index of first occurrence of a element in the Arra
 
 PeekFirst() && peekLast()---- prints first and last element in linked-list.
 
-push() && pop()--Removes and returns firstelement in linked-list.
+push() && pop()--Removes and returns firstelement in linked-list. 
 
+
+ LL to [] :=
+~~~~~~~~~~~~
+
+  LinkedList<String> list = new LinkedList<>();
+   String[] arr = new String[list.size()];
+   list.toArray(arr);
+ 
 ================================================================================================
 
 CopyOnWriteArrayList890 := (Java 1.5)
@@ -360,6 +437,8 @@ CopyOnWriteArrayList890 := (Java 1.5)
 ----> Fresh Copy-Of-Array is created for Every-Mutation (--- add() , set() && remove() ---) [***************]
 
 ---->CopyOnWriteArrayList is a thread-safe variant of ArrayList and used when we do not want to synchronize the traversals and still want thread safety while updating the list.
+
+----> It is a fail-safe iterator /// Thread-Safe //// Null && Duplicates are allowed
 
 ---->CopyOnWriteArrayList class implements following interfaces – List, RandomAccess, Cloneable and Serializable.
 
@@ -399,7 +478,7 @@ HashSet443:=   //Default initial capacity is 16 && Default load factor is 0.75. 
 ~~~~~~~~~
 ----> HashSet doesn’t maintain any order, HashSet is non-synchronized, fail-fast && Not-ThreadSafe.
 
-----> HashSet doesn’t allow duplicates and  One-NULL element is allowed in HashSet.
+----> HashSet doesn’t allow duplicates and  One-NULL element is allowed in HashSet.(**********)
 
 ----> Use Collections.synchronizedSet(new HashSet()) method to get the synchronized hashset.
 
@@ -442,7 +521,7 @@ LinkedHashSet830 := [......ODN, S&TS.......]
 
 ----> It is very similar to HashSet class, except if offers the "--Insertion-Order--" order.
 
-----> Does not allows Duplicates && 
+----> Does not allows Duplicates && One-NULL element is allowed in HashSet (******)
 
 ---->Performance is likely to be just slightly below that of HashSet, due to the added expense of maintaining the LinkedList, with one exception of iteration.
 
@@ -454,7 +533,7 @@ TreeSet338:= [......ODN, S&TS.......]
 
 ---->The sort order is either natural order or by a Comparator provided at treeset creation time, depending on which constructor is used
 
----->Duplicate&& NULL values are not allowed in TreeSet.
+---->Duplicate&& NULL values are not allowed in TreeSet.(******)
 
 ----> Manually need to implement "-Comparable-" Interface && Overide "-compareTo()-" Method InOrder to SORT (*********)
 
@@ -506,12 +585,14 @@ EnumSet660 :=
 
 ==============================================================================================================
 
- HashMap889:= [......ODN, S&TS.......]  [ Key(id),value(key-value)  && value,hash,value[] ]
+ HashMap889 := [......ODN, S&TS.......]  [ Key(id),value(key-value)  && value,hash,value[] ]
 ~~~~~~~~~~~~~
 
 ---->HashMap in Java in a collection class which implements Map interface. It is used to store key & value pairs. Each key is mapped to a single value in the map. NOT extends COLLECTION(I) INTERFACE.  (***********)
 
+
 ---->Maps work with key/value pairs, while the other collections work with just values.It allows its content to be viewed as a set of keys, a collection of values and a set of key-value mappings (**********)
+
 
 ---->HashMap implements Map interface and extends AbstractMap class.
 
@@ -569,8 +650,17 @@ EnumSet660 :=
      map.put("B", "Brian");
      map.put("C", "Charles");
      map.forEach((k, v) -> System.out.println("Key = " + k + ", Value = " + v));
+	 
+===========================	 
+ 
+        List<Integer> keyList = new ArrayList<Integer>(map.keySet());
+        List<String> valueList = new ArrayList<String>(map.values());
+
+        System.out.println("Key List: " + keyList);
+        System.out.println("Value List: " + valueList);		
 
 =======================================
+
 HashMap contains an array of Node and Node can represent a class having following objects :
 
 int hash
@@ -650,7 +740,7 @@ hash code of null key is 0. (**********)
 
 ----> ConcurrentHashMap allows multiple threads to work independently on different segments in the map, allows higher degree of concurrency in ConcurrentHashMap and thus improve performance of the application in whole
 
-----> Iterators from both classes should be used inside synchronized block but the iterator from SynchronizedHashMap is fail-fast. ConcurrentHashMap iterators are not fail-fast. (********)
+----> Iterators from both classes should be used inside synchronized block but the iterator from SynchronizedHashMap is fail-fast. ConcurrentHashMap iterators are not fail-Safe . (********)
 
 ----> Multiple threads can add/remove key-value pairs from ConcurrentHashMap, while only one thread is allowed to make change in case of SynchronizedHashMap. This results higher degree of concurrency in ConcurrentHashMap.
 
@@ -735,7 +825,8 @@ If you want to keep get and put complexity O(1), it is advisable to have a load 
  HashTable335 :=  (key && Vlaue) ( Slow && not fail-fast.)  [......ODN, S&TS.......]
 ~~~~~~~~~~~~~~~
 
----->Hashtable is synchronized (i.e. methods defined inside Hashtable), whereas HashMap is not. If you want to make a HashMap thread-safe, use Collections.synchronizedMap(map) or ConcurrentHashMap class.
+---->Hashtable is synchronized (i.e. methods defined inside Hashtable), whereas HashMap is not. 
+     If you want to make a HashMap thread-safe, use Collections.synchronizedMap(map) or ConcurrentHashMap class.
 
 ---->Hashtable does not allow null keys or values. HashMap allows one null key (other null keys will simply overwrite first null key) and any number of null values.
 
@@ -774,8 +865,9 @@ Jackson convert Map to JSON :=
         }
 
 =================================================================================================================
-TreeMap333 :=  [......ODN, S&TS.......]
-~~~~~~~~~~
+
+ TreeMap333 :=  [......ODN, S&TS.......]
+~~~~~~~~~~~~~
 
 ----> It is Reb-Black-Tree based NavigableMap Implementation . (**********)
 
@@ -798,7 +890,7 @@ TreeMap333 :=  [......ODN, S&TS.......]
 ---->In HashMap, array size is determined while initialization or resizing which if is often more than needed at the time. It waste the memory. There is no such problem with TreeMap.
 
   
-          Map ----> Represnt Group of Objects as Key && Value
+          Map ----> Represent Group of Objects as Key && Value
    
    TreeSet & TreeMap ----> Hetrogeneous-Elements are not allowed.
 
@@ -849,7 +941,7 @@ TreeMap333 :=  [......ODN, S&TS.......]
  
 ===============================================================================================
 
-ConcurrentHashmap449 :=   [......ODN, S&TS.......]
+ConcurrentHashmap449 :=   [......ODN, S&TS.......]   //// Synchronized HashMap will allow null key or value.
 ~~~~~~~~~~~~~~~~~~~~~
 
 ----> ConcurrentHashMap is Thread-safe in nature && performance is low sometimes compared to HashMap.
@@ -870,6 +962,8 @@ ConcurrentHashmap449 :=   [......ODN, S&TS.......]
 ----> Any number of threads are applicable for a read operation without locking the ConcurrentHashMap object which is not there in HashMap.
 
 ----> The major advantage is in case of synchronizedMap every write operation acquires lock on entire SynchronizedMap while in case of ConcurrentHashMap the lock is only on one of the segments. (*********)
+
+    So that we can have more EFFIECIENT inTerms of ACCESSIBILITY  (******************)
 
    
         ConcurrentHashMap does not allow null keys or null values  (************) /// java.lang.NullPointerException
@@ -919,7 +1013,8 @@ ConcurrentHashmap449 :=   [......ODN, S&TS.......]
 ---->always better to choose HashMap over LinkedHashMap in most of the scenarios. We can prefer LinkedHashMap only when we have certain requirement or usecase which requires to maintain the order of elements added to the map.
 
 =================================================================================================
-WeakHashMap480 :=
+
+ WeakHashMap480 :=
 ~~~~~~~~~~~~~~~
 It is almost same as HashMap except in case of WeakHashMap, if object is specified as key doesn’t contain any references- it is eligible for garbage collection even though it is associated with WeakHashMap. i.e Garbage Collector dominates over WeakHashMap.
 

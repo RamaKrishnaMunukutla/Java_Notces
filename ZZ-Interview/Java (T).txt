@@ -10,6 +10,8 @@
 	 Garbage-Collection --- https://howtodoinjava.com/java/garbage-collection/all-garbage-collection-algorithms/
 	 
 	 [ Escape-Characters ]  
+	 
+	    SOLIDPrinciples 
 			
 	  5WaysToCreateObject......ISAandHASA......CovarientReturnType..........CallByValue........StaticAndDynamicBiding
 	  
@@ -46,8 +48,24 @@
                     Java Best Practices Interview question -----> JAVA-REVISITED 
 
  Immutable Class ----> [ https://kkjavatutorials.com/how-can-we-maintain-immutability-of-a-class-with-a-mutable-reference/ ]
+ 
+ 
+(Q) Why Pointers are not allowed in java ??
+(A) Because They are UnSafe  &&
+    Avoiding Direct Access to Object form User (JVM is resp for Memory-Allocation)
 
-====================================================================================
+===========================================================================================
+
+  OOPs :=
+~~~~~~~~~~
+ --- It is Programming language model that Organized around OBJECT-DATA-MODELING (Identifying && Observing Object Behaviour) 
+
+
+ Upload File to Remote Server :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        https://www.codejava.net/java-se/ftp/java-ftp-file-upload-tutorial-and-example
+
+=======================================================================================================
 
  Callable && Runnable := [ FUNCTIONAL-INTERFACE] 
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -330,7 +348,7 @@ Cloneable (I):-
 
 ======================================================================================================
 
- SOLID Principles := [ https://dzone.com/articles/a-gentle-and-easy-to-grasp-introduction-to-solid-p ]
+ SOLIDPrinciples := [ https://dzone.com/articles/a-gentle-and-easy-to-grasp-introduction-to-solid-p ]
 ~~~~~~~~~~~~~~~~~~~
 
  S ----> Single Responsibility Principles
@@ -345,10 +363,10 @@ Cloneable (I):-
 	
  L ----> Liskov Substitution Principle (Derived Class must be Completly Substitutable for Base-Class)
  
-         SubClass Working effectively even the Sub-class extends another Super-Class. 
+         SubClass Working effectively even it extends another Super-Class. 
 ------------------
 
- I ----> Interface Seggregation Principle 
+ I ----> Interface Seggregation Principle   (Tea && Lunch Break) 
  
          Interface Should not contain Many Methods. /// Flexibility for Programmer 
 -----------------
@@ -974,28 +992,8 @@ Class Vehicle{
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  --- To Initilaize Class-Variables always.
  
-==================================================================
-
- OOPS: (Mobile Real-Time)
- 
-  Abstraction  ----> Showing Only Necessary Data (Contacts, HomeScreen ) && Hding Implementation data (backEnd)
-  
-  Encapsulation  ----> Restricting Data while sharing ,using Mobile-BlueTooth (Restricted to access Other Data.)
-  
-  Polymorphism   ----> Modes of Camera (Record-Video, Capture-Photo, SlowMotion)
-  
-  Inheritance  ----> Adding(Extending) Other-Functionalites 'Communication' Class. (Eg :: Games, radio, Music,Social-Apps)
-
-  Abstraction ----> Change at Design-Level
-                    A Vehicle is Moving  /// Email-Password.
- 
- Encapsulation ---->Change at Implementation-Level
-                    A Vehicle is Moving  /// Internal-Working after Clicking on Email-Send-Button.
- 
-
-  Interface ----> Bank (SBI, HDFC)
-
-==================================================================
+================================================================================================
+  
  
  ---->What is java.lang package?
 In Java, java.lang package contains the classes that are fundamental to the design of Java programming language. The most important class in this package is Object class.s
@@ -1014,7 +1012,7 @@ Interface := ( Relation to Govt---Public )
 ~~~~~~~~~
 means Govt(Interface) imposes rules(Methods) rules on Public (Classes) which need to Obey (implement && Define it) 
 
----->Coolection of Public static final variables && Public static abstract methods.
+----> Collection of Public static final variables && Public static abstract methods.
 
 ---->cannot create Objects to Interfaces because Constructor-calling  is mandatory while creating Objects.But define constructor in Interface (*********)
 
@@ -1147,6 +1145,25 @@ Abstract class :=   ( Relation to Parent---Child /// Partial representaion of Ob
  
  Oops550 :=
 ~~~~~~~~~
+
+ OOPSConcept100 : (Mobile Real-Time)
+ 
+  Abstraction  ----> Showing Only Necessary Data (Contacts, HomeScreen ) && Hding Implementation data (backEnd)
+  
+  Encapsulation  ----> Restricting Data while sharing ,using Mobile-BlueTooth (Restricted to access Other Data.)
+  
+  Polymorphism   ----> Modes of Camera (Record-Video, Capture-Photo, SlowMotion)
+  
+  Inheritance  ----> Adding(Extending) Other-Functionalites 'Communication' Class. (Eg :: Games, radio, Music,Social-Apps)
+
+  Abstraction ----> Change at Design-Level
+                    A Vehicle is Moving  /// Email-Password.
+ 
+ Encapsulation ---->Change at Implementation-Level
+                    A Vehicle is Moving  /// Internal-Working after Clicking on Email-Send-Button.
+ 
+
+  Interface ----> Bank (SBI, HDFC)
  
 Abstraction := ( Eg :: HashMap, TV-Remote )
 ~~~~~~~~~~~~
@@ -1188,7 +1205,7 @@ It is used to derive a new type from an existing type, thereby establishing a pa
 
 ---->Apart from this difference, you can achieve any possible functionality from interfaces which abstract classes can make possible, and vice-versa is also true.
  
-==========================================================================
+   
 
 Polymorphism := (Many-Forms Eg:: Phone having camera, Apps).....Method-OverLoading && .....Method-Overriding.
 ~~~~~~~~~~~~~
@@ -1338,7 +1355,7 @@ public void save(Student student) throws StudentStoreException {
  
  Default Exception Handling Mechanism in JVM :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- --- If any Exception Occurs in Method, JVM Internally Creates Object for that Particular-Exception.
+ --- If any Exception Occurs in Method, Internally Creates Object for that Particular-Exception.
  --- After creating Exception object the method handover it to the JVM.
  --- JVM checks for Exception Handling code in that method.
  --- Just before terminating the program abnormally JVM handovers the responsibility of exception handling to the Default Exception Handler which is the component of JVM.
@@ -1777,13 +1794,36 @@ For any class to support natural ordering, it should implement the Comparable in
 
 
 
-   IOC         If Objects are Equals       If Override Equals() Method
-   /|\                /|\                        /|\
-	|                  |                          |
-	|                  |                          |
-   DI           HashCode Must Equals    Must Override hashcode() method
+   IOC         If Objects are Equals         If Override Equals() Method then
+   /|\                /|\                           /|\
+	|                  |                             |
+	|                  |                             |
+    DI         then HashCode Must Equals    Must Override hashcode() method
 
 
+ When to Override :=
+~~~~~~~~~~~~~~~~~~~~
+ -- Failure to do so will result in a violation of the general contract for Object.
+ -- hashCode(), which will prevent your class from functioning properly in conjunction with all hash-based collections,    including HashMap, HashSet, and Hashtable.
+ 
+
+ Eg :=  /// Need to Override Equals() && HashCode() methods to Work Properly. (*****)
+~~~~~
+		Employee emp1 = new Employee(918, "Maria");
+		Employee emp2 = new Employee(918, "Maria");
+		// invoking hashCode() method
+		int a = emp1.hashCode();
+		int b = emp2.hashCode();
+		System.out.println("hashcode of emp1 = " + a);
+		System.out.println("hashcode of emp2 = " + b);
+		System.out.println("======================================");
+		System.out.println("Comparing objects emp1 and emp2 = " + emp1.equals(emp2));
+		if (emp1 == emp2) {
+			System.out.println("TRUE   Using === ");
+		} else {
+			System.out.println("FALSE   Using === ");
+
+		}
 
 ====================================================
 
@@ -1872,7 +1912,7 @@ Finalize() :=
 returns a negative integer, zero, or a positive integer when the object o1 is less than, equal to, or greater than the object o2.
 ????
 
----->To make these thread-safe we need  to explicitly use synchronized versions of Set & Map.
+---->To make these thread-safe we need to explicitly use synchronized versions of Set & Map.
 
 ---> A Comparable<T> interface has method 
                   public int compareTo(Object o) that 

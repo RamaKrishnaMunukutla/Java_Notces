@@ -3,7 +3,7 @@
  
     ..........MAVEN123..............SpringSecurity444.......Mockito990.....JUnit550.....SPRINGCLOUD123
 				
-     .........JWT444...............MicroServices334(Links).....JWT550......AgileMethodology768......SDLC445........
+     .........JWT444...............MicroServices334(Links530).....JWT550......AgileMethodology768......SDLC445........
 				
      .........GIT996...XML900.......NumberConversion...........ApacheKafka540.......RabbitMQ330.....	 
  
@@ -103,7 +103,7 @@
  Logger ----> https://github.com/kishanjavatrainer/SpringBootLogger
               https://github.com/kishanjavatrainer/SpringBootLogger2
  
-
+ 
 =======================================================================================================
 
  SLF4J := [ASHOK-IT] (Simple Logging Facade for java)
@@ -968,6 +968,9 @@ SpringSecurity444 :=  [ https://www.baeldung.com/security-spring ] // [ https://
   https://github.com/SimpleProgramming/springboot-security-jwt
   https://github.com/SimpleProgramming/springboot-security-simple-jwt
   https://github.com/SimpleProgramming/spring-security-basic
+
+
+     Java-Techie ----> https://github.com/Java-Techie-jt?q=security&type=&language=  (*******)
 					  
 					  
     SECURITY(-YOUTUBE-) ----> JAVA BRAINS , Almighty Java.
@@ -1049,14 +1052,14 @@ SpringSecurity444 :=  [ https://www.baeldung.com/security-spring ] // [ https://
 				  
 ----> Here  "and()" used to add users && providing authetication-credentials.
 
- WebSecurityConfigurerAdapter := is a convenience class that allows customization to both WebSecurity and HttpSecurity.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
- AbstractAnnotationConfigDispatcherServletInitializer := base-class used to initialize Spring-APP in Servlet-container Environ. 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-----> @EnableWebSecurity for Securing Web-applications, applied at class-level.
+ (aa) WebSecurityConfigurerAdapter ----> is a convenience class that allows customization to both WebSecurity and HttpSecurity.
  
+
+ (aaa)AbstractAnnotationConfigDispatcherServletInitializer ---->  
+                               base-class used to initialize Spring-APP in Servlet-container Environ. 
+
+==================== 
 
                                        extends
  (b) WebSecurityConfigureAdaptor (C)  ---------> protected void configure (AuthenticationManagerBuilder auth){} (M)
@@ -1068,6 +1071,19 @@ SpringSecurity444 :=  [ https://www.baeldung.com/security-spring ] // [ https://
 ----> Now, Authentication-filter will collect Authenticated-User as "Principle" && Store it in Thread-Local.
 
 ---->  I/P --->CREDENTIALS && O/P ----> Priciple 
+
+===========================
+
+  @EnableWebSecurity ---> For Securing Web-applications, applied at class-level.
+  
+  GlobalMethodSecurityConfiguration (C) ----> Do at Class Level 
+
+  @EnableGlobalMethodSecurity ----> Configuration Class Level
+  
+  @Secured("ROLE_VIEWER") --------> At Method-Level  //// doesn't support Spring Expression Language 
+
+  @PreAuthorize and @PostAuthorize  ---->  provide expression-based access control.
+===========================
 
  Eg :=
 ~~~~~
@@ -1478,6 +1494,8 @@ public class JUnit4PowerMockitoStaticTest{
 
                           JAVA-T-POINT /// JOURNAL-DEV
 						  
+		[ https://www.softwaretestinghelp.com/mock-private-static-void-methods-mockito/ ]
+						  
 						  
  --- creating alternate object for the real object (********)
  --- Mockito is a java based mocking framework, used in conjunction with other testing frameworks such as JUnit .
@@ -1537,6 +1555,8 @@ public class JUnit4PowerMockitoStaticTest{
 								   List spyOnList1;
 								   
 		Mockito verify() --------> Checks whether a mock() method was called with required arguments or not
+		
+		 @PrepareForTest --------> tells powerMockito to prepare certain classes for testing.
  
  
  @Mock  := 
@@ -2025,7 +2045,10 @@ Junit ----> ECL Emma (STS MarketPlace)
  Mockito330 :=
 ~~~~~~~~~~~~
 
- ---The component under test has dependencies that are not yet implemented or the implementation is in progress.  
+ ---The component under test has dependencies that are not yet implemented or the implementation is in progress. 
+ -- when() and then() are Static Methods 
+ 
+          MockitoAnnotations.initMocks(this); ---> Activates Mockito Annotations  
  
  
  ---Browser Sec
@@ -2121,6 +2144,8 @@ No support for networking application
  
  
 ---->Mockito annotations – @Mock, @Spy, @Captor, @InjectMocks
+
+            @Mock ----> Creates Object for Class && it's Depedent-Class also
 
 
  Eg(1) := [ https://www.youtube.com/watch?v=6khYnHt513c&list=PLpLBSl8eY8jTHqH6H4Kie4vPvyeEE7yme&index=3 ]
@@ -2542,16 +2567,23 @@ A) Spring Cloud is programming- develoing one application as
    independent services for Efficient Resource.
    It is concept of microservices.
 	  
-======================================================================	  
+===============================================================================================================	  
 
                                       MicroServices334  (---CodePrimers, JavaTechie, Simple Programming---)
                                    ~~~~~~~~~~~~~~~~~~~~~~
 	
-    .....SpringCloud........APIGateway........EurekaServiceRegistry......SpringCloudConfigServer 
+    ..SpringCloud........APIGateway660........EurekaServiceRegistry......NetFlixHystrix......LoadBalancedMC 
     
-	.....NetFlixHystrix.....LoadBalancedMC....SleuthAndZipkin
-
+    ..SpringCloudConfigServer .............SleuthAndZipkin............BootAdminServer.....MicroServiceComunication
 	
+  ....DesignpatternMC
+  
+	 
+	              Client Side Load-balancing ----->  Load-Balancer 
+		  
+		          Server Side Load-Balancing ----->  Zuul API GateWay 
+	              
+
 ----> It is architectural style in which you can build application as a collection of small autonomous services that focussed  around common Business goal/domain.	
 
       (Small Process that Communicate Over Network to acheive / FullFill Common-Business-Goal)
@@ -2682,9 +2714,16 @@ A: The different Microservices Design Patterns are -
  --- Each pact is a collection of interactions. 
  --- It is an open-source tool that can be used to implement the Consumer-Driven Contract in Microservices.
  
+ 
+ DRY (Do Not Yourself) := 
+~~~~~~~~~~~~~~~~~~~~~~~~
+ --- It promotes the Concept of re-Using Code  to support Loose-Coupling . 
+ 
+ 
  @Loadbalancer :=
 ~~~~~~~~~~~~~~~~~~~
  --- Improves the distribution of workloads across multiple computing resources, such as a computer cluster, network links, central processing units.
+ 
  
  DRY := stands for Don’t Repeat Yourself. It basically promotes the concept of reusing the code.
 ~~~~~~
@@ -2791,11 +2830,11 @@ In Microservices based project below communications will be available
 
 ============================================================================================================	 
  
- Links :=
+ Links530 :=
 ~~~~~~~~
 
           FULL-DEMO          ----> https://github.com/shabbirdwd53/Springboot-Microservice (****************)
-
+ 
                                      (Add Dev-Tools , DB DEpen, Post-Req)
 									 
 {
@@ -2812,18 +2851,35 @@ In Microservices based project below communications will be available
     "departmentId" : "1"
 
 }
+
+
+     Java-Techie ----> https://github.com/Java-Techie-jt/spring-cloud-gatway-hystrix (***Full**)
 		  
-           [FULL**]          ----> https://www.youtube.com/watch?v=2BcmN6TG_No&list=PLVz2XdJiJQxxWhFkucZBoMxeYE6qTgEF8 
+		   
+ Green-Learner :=
+---------------  
+           https://github.com/greenlearner01/Microservices/
+		   https://github.com/greenlearner01/Service-Registry-And-Discovery-Eureka
+		   https://github.com/greenlearner01/ApiGateway
+		   https://github.com/greenlearner01/Load-Balancing-In-Microservices-Ribbon
+		   https://github.com/greenlearner01/CircuitBreaker
+		   https://github.com/greenlearner01/spring-cloud-config
+		   https://github.com/greenlearner01/Request-Tracing-In-Microservices-Architecture-Sleuth-Zipkin
+		   
  
  [Eureka + Hystrix + Cloud ] ----> https://github.com/Java-Techie-jt/spring-cloud-gatway-hystrix 
                                    https://github.com/Java-Techie-jt/spring-boot-hystrix    
 
+
           Cloud-Config ----------> https://github.com/Java-Techie-jt/spring-cloud-config								   
+	 
 	 
       MicroServices-Design ------> https://github.com/TechPrimers/stock-price-viewer-microservices-part1
 	                               https://github.com/TechPrimers/stock-price-viewer-microservices-part2-final
-								   
+								
+								
 		 Ribbon-Client -----> https://github.com/PlayProCode/PlayJava/tree/master/my-app
+
 
  [ https://github.com/mightyjava/almightyjava-ms-zuul ]
  [ https://github.com/mightyjava/spring-boot-microservices-zuul ]	
@@ -2835,7 +2891,7 @@ In Microservices based project below communications will be available
   https://github.com/SimpleProgramming/springboot-admin-server
   https://github.com/SimpleProgramming/spring-cloud-config-repo	 
  
-===============================================================
+==============================================================================================
 
  Cluster :=
 ~~~~~~~~~
@@ -2970,11 +3026,15 @@ Here,
 		   
 ==========================================================================================
  
- (1) APIGateway ---> Zuul-Proxy (@EnableEurekaClient + @EnableZuulProxy ) := 
+ (1) APIGateway660 ---> Zuul-Proxy (@EnableEurekaClient + @EnableZuulProxy ) := 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  [ https://github.com/TechPrimers/spring-cloud-eureka-hystrix-zuul-example ] (***********)
+  [ https://github.com/TechPrimers/spring-cloud-eureka-hystrix-zuul-example ]  
   [ https://github.com/Java-Techie-jt/spring-cloud-zuul ]
     
+ --- Acts like Single Point of Entry to Application 
+ --- Other Services will be accessed by using ApiGateway PortNo to Provide Security (******)
+ --- ApiGateway Has to register with Eureka-Client 
+ 
  ---Not-supports Non-blocking API.
  ---makes use of as many threads as the number of incoming requests. So this approach is more resource intensive.
  ---If no threads are available to process incoming request then the request has to wait in queue.
@@ -3230,7 +3290,18 @@ b) Vertical Scaling   : Improve/Enhance Hardware Configuration.
  
  --- Ip-Hash   (Request send to Server based on Client-IP)
  
-==================================================================================================
+ 
+ Fault tolerance  ----> User does not see any impact except for some delay during which failover occurs. 
+ 
+ Fault resilience ----> Failure is observed. But rest of system continues to function normally.
+ 
+ (Q) What if one Microservices goes down ??
+ (A) Create Multiple Instances.
+ 
+ (Q) What if one Microservices is Slow ??
+ (A) use timeOut() method from RestTemplate .
+ 
+===================================================================================================================
 
 
  
@@ -3239,6 +3310,8 @@ b) Vertical Scaling   : Improve/Enhance Hardware Configuration.
  https://github.com/Java-Techie-jt/spring-cloud-sleuth-zipkin-example
  https://github.com/Java-Techie-jt/spring-cloud-gatway-hystrix
  https://github.com/TechPrimers/spring-cloud-sleuth-example
+ 
+ [ https://www.youtube.com/watch?v=iYk8hsFjb2I&list=PLq3uEqRnr_2Fcr6MD9THLnOJzQVeuEjYK&ab_channel=GreenLearner ]
  
  
  -- Handles all distributed LOG tracing. (******)
@@ -3314,30 +3387,114 @@ spring:
 			<artifactId>spring-cloud-starter-zipkin</artifactId>
 		</dependency>
 		
-		
+=============================================================================================================		
  
-=============================================================================================================
+ BootAdminServer :=
+~~~~~~~~~~~~~~~~~~~~~
+ --- Monitors all 'SB' Apps && Manages it's Instances using Single UI. 
+ --- Replaces 'Actuator' in case of  developing Distributed Apps. 
 
- Spring’s Rest-Template :=
+ Spring Boot Admin Server & Admin Client :=
+---------------------------------------
+-> In Microservices Architecture based project, we will have several services (REST APIs)
+
+-> To monitor Rest APIs, we will enable and expose actuator endpoints
+
+-> If we have more no.of services, it will would be very difficult to monitor and manage all our services available in project.
+
+*** To overcome this problem, Spring Boot Provided Admin Server & Admin Client Concept **
+
+-> If we use Admin Server, it will provide beautiful user interface to monitor and manage our REST APIs.
+
+Note:  Our Rest apis should be registered with Admin server then our rest api is called as Spring Boot Admin Client.
+
+Today's session : Example on Admin Server & Client
+---------------------------------------------------------------
+
+-> Spring Boot Admin server is used monitor and manage our client applications (rest apis)
+
+-> By using Admin server at one place we can monitor and manage all our services
+
+Steps to Create Admin Server Application
+---------------------------------------
+-> Create Spring Boot Application with below dependencies
+
+	1)spring-boot-starter-web
+	2)spring-boot-starter-admin-server
+	
+
+Note: By default Admin server will provide UI for monitoring and managing registered clients.
+
+Steps to develop Admin Server Client Application
+------------------------------------------------
+-> Create Spring Boot Application with below dependencies
+
+	1)spring-boot-starter-web
+	2)spring-boot-starter-admin-client
+	3)spring-boot-starter-actuator
+
+-> Configure below properties in application.yml file
+
+       1)port number
+       2)application name
+       3)register with admin server
+       4)expose actuator endpoints
+
+-> Create Rest Controller with Required Methods
+
+-> Run the application and verify Admin Server Dashboard
+
+Note: Client application should be displayed in Admin Server Dashboard.
+
+=============================================================================================================
+ 
+ MicroServiceComunication :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+  [ https://www.youtube.com/watch?v=5WXk88r9T90&list=PLq3uEqRnr_2FuTmCBjb4Br5eunU693prt&ab_channel=GreenLearner ]
+  
+  [ https://www.youtube.com/watch?v=r9nLJwinIvU&list=PLq3uEqRnr_2HZkdhZZWCoAA83Atvvw23N&ab_channel=GreenLearner ]
+
+
+ Spring’s Rest-Template :=  [ https://github.com/greenlearner01/RestTemplate ]
 ~~~~~~~~~~~~~~~~~~~~~~~~~
  --- RestTemplate is a class in spring web package, for synchronous client-side HTTP access.
  --- The sole aim is to simplify communication with HTTP servers. 
  --- That is it actually this is all RestTemplate does.
  --- It offers methods that will handle HTTP operations very easily, such as retrieving data, posting data or retrieving all HTTP message headers
 
-   getForObject() method :: retrieve a representation of a resource by doing a GET on the specified URL.
+ 
+  getForObject() , postForObject()  , getForEntity() , PostForEntity() , put(),  delete(), Exchange()  :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	              retrieve a representation of a resource by doing a HTTP-Req on the specified URL.
 
-
+    
+ 
 ---->API gateway connects microservices, while load balancers redirect multiple instances of the same microservice components as they scale out.
 
 ---->The API Gateway can work as a load balancer to handle requests in the most efficient manner. It can keep a track of the request load it has sent to different nodes of a particular service
 
+ 
+  RestTemplateBuilder :=
+ ~~~~~~~~~~~~~~~~~~~~~~
+  --- Create Instance of Rest-Template using "build()"method . 
+  ---Add Time Out using "setTimeOut()" method && Interceptors
 
- Feign-Client :=
+
+============================================
+
+ Open-Feign-Client :=  // [ https://github.com/greenlearner01/SpringOpenFeignClient ] (Follows Builder Pattern)
 ~~~~~~~~~~~~~~~
+ --- Dynamically declared Interface decorated with JAX_RS / MVC annotations 
+ 
+    @EnableFeignClient ----> (Class-Level)  Scans Interfaces that declare that they are FeignClient.
+	
+
+
  -- Used to Perform Loading Balancing with Eureka to invoke external Service.
  -- Internally balance Load
  -- No need to write Unit-Test-Cases . Declare Interface &&  action in RUNTIME 
+ -- using "block()" method, can make Synchronous. 
  
  
 ===========================================================================================
@@ -3397,63 +3554,9 @@ It is a architectural style a big container in which all components and required
   ---Continious deployment is not possible.
   ---Adopting new Technology is difficult. 
   
-=========================================================================  
- 
- Spring Boot Admin Server & Admin Client :=
----------------------------------------
--> In Microservices Architecture based project, we will have several services (REST APIs)
+==================================================================================================
 
--> To monitor Rest APIs, we will enable and expose actuator endpoints
-
--> If we have more no.of services, it will would be very difficult to monitor and manage all our services available in project.
-
-*** To overcome this problem, Spring Boot Provided Admin Server & Admin Client Concept **
-
--> If we use Admin Server, it will provide beautiful user interface to monitor and manage our REST APIs.
-
-Note:  Our Rest apis should be registered with Admin server then our rest api is called as Spring Boot Admin Client.
-
-Today's session : Example on Admin Server & Client
----------------------------------------------------------------
-
--> Spring Boot Admin server is used monitor and manage our client applications (rest apis)
-
--> By using Admin server at one place we can monitor and manage all our services
-
-Steps to Create Admin Server Application
----------------------------------------
--> Create Spring Boot Application with below dependencies
-
-	1)spring-boot-starter-web
-	2)spring-boot-starter-admin-server
-	
-
-Note: By default Admin server will provide UI for monitoring and managing registered clients.
-
-Steps to develop Admin Server Client Application
-------------------------------------------------
--> Create Spring Boot Application with below dependencies
-
-	1)spring-boot-starter-web
-	2)spring-boot-starter-admin-client
-	3)spring-boot-starter-actuator
-
--> Configure below properties in application.yml file
-
-       1)port number
-       2)application name
-       3)register with admin server
-       4)expose actuator endpoints
-
--> Create Rest Controller with Required Methods
-
--> Run the application and verify Admin Server Dashboard
-
-Note: Client application should be displayed in Admin Server Dashboard.
-
-===================================================================================================
-
- Designpattern := ( MicroServiceDesignPattern--Edureka )
+ DesignpatternMC := ( MicroServiceDesignPattern--Edureka )
 ~~~~~~~~~~~~~~~~ 
 ---Aggregator Microservice Design Pattern
 ---API Gateway Design Pattern
