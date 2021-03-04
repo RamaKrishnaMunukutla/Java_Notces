@@ -39,6 +39,8 @@ Core:=  [ http://localhost:8965/ ]
   Inheritance ----> https://java2blog.com/inheritance-in-spring/
   
   Spring-MVC -----> https://www.candidjava.com/category/spring-mvc-tutorial/ 
+  
+  Spring-JNDI ----> https://github.com/Java-Techie-jt/spring-jndi-lookup
 
 
   SpringInterceptors :=
@@ -1629,7 +1631,10 @@ JdbcTemplate --- WriteQueries  (Table Has-To-Create Manually)
   
 
 SpringDataJPA(JpaRepositary ) :=  [ https://github.com/Java-Techie-jt/spring-data-jpa-one2many-join-example ]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~      https://github.com/Java-Techie-jt/spring-data-Jpa
+                                    https://github.com/Java-Techie-jt/springboot-composite-key
+
+
  (1)
 ----> It makes easy to implement JPA based repositories (****)
 
@@ -2972,7 +2977,7 @@ DotProperties :=
 
 ---->To get Data from "DotProperties" file use::
 
- (1) XML-Based :=
+ (1) XML-Based :=  [ https://github.com/kishanjavatrainer/SpringELWithLogicalComparision ]
 ~~~~~~~~~~~~~~~~
         <context:property-placeholder location="classpath:<fileName>" /> (************) &&
 		 <bean id="student" class="com.mkyong.core.student">

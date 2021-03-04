@@ -1,15 +1,15 @@
 
 
  
-    ..........MAVEN123..............SpringSecurity444.......Mockito990.....JUnit550.....SPRINGCLOUD123
+    ..........MAVEN123.........SpringSecurity444......Mockito990.....JUnit550.....SPRINGCLOUD123
 				
-     .........JWT444...............MicroServices334(Links530).....JWT550......AgileMethodology768......SDLC445........
+     .........JWT444...........MicroServices334(Links530).....JWT550......AgileMethodology768......SDLC445........
 				
      .........GIT996...XML900.......NumberConversion...........ApacheKafka540.......RabbitMQ330.....	 
  
-     .........RealTimeTools590.....DevOps890Other......Mockito330....JIRA790......CloudComputing550.....
+     .........RealTimeTools590.....DevOps890Other......MockiSpringSecurity444to330....JIRA790......CloudComputing550.....
 		 
-     .........ApacheCamel985 .....JMeter330..........Capcha770....AJAX670
+     .........ApacheCamel985 .....JMeter330..........Capcha770....AJAX670....CodeReviewTools
 		 
 ==============================================================================================  
 
@@ -971,9 +971,11 @@ SpringSecurity444 :=  [ https://www.baeldung.com/security-spring ] // [ https://
 
 
      Java-Techie ----> https://github.com/Java-Techie-jt?q=security&type=&language=  (*******)
+					   					   
+	 Tech-Primers ---> https://github.com/TechPrimers?q=security&type=&language= (*******)
 					  
 					  
-    SECURITY(-YOUTUBE-) ----> JAVA BRAINS , Almighty Java.
+    SECURITY(-YOUTUBE-) ----> Java-Techie, Tech-Primers /// JAVA BRAINS , Almighty Java.
 	
 	
   [ https://www.youtube.com/watch?v=qs91V059u68&list=PLZdfbI_OZWANoX7SJXi5xbKXu-q9AzSgQ&index=3&ab_channel=AlmightyJava ]
@@ -985,6 +987,16 @@ SpringSecurity444 :=  [ https://www.baeldung.com/security-spring ] // [ https://
 	 UserDetailService(I) // List<GrantedAuthorities> // Confiuge(AuthenticationManagerBuilder , HttpSecurity) // 
 	 
 	 WebSecurityConfigureAdaptor (C)  // BasicAuthenticationEntryPoint (C) [Security-Exception-Purpose] //
+
+
+ LDAP :=
+~~~~~~~
+ --- Used for Authentication && Cannot handle Huge data like RDBMS
+ --- used for Limited Users Only 
+
+ CSRF :=
+~~~~~~~~
+ --- It is an attack which forces an end user to execute unwanted actions in a web application in which is currently authenticated.
 	 
 	 
  Types of OAuth := Basic-Auth  // Token-Based Auth  // OAth2 
@@ -1043,6 +1055,9 @@ SpringSecurity444 :=  [ https://www.baeldung.com/security-spring ] // [ https://
  (1) Authentication := knowing and identifying the user that wants to access. (Basic-Access) prove with UserId/Password.
 ~~~~~~~~~~~~~~~~~~~~~~ && Holds Credentials (Principle)
 
+
+  @EnableGlobalMethodSecurity ----> Class-Level
+
  CODE::=
 ~~~~~~                                extends
  (a) WebSecurityConfigureAdaptor (C)  ---------> protected void configure (AuthenticationManagerBuilder auth){ } (M) [I/P]
@@ -1059,7 +1074,7 @@ SpringSecurity444 :=  [ https://www.baeldung.com/security-spring ] // [ https://
  (aaa)AbstractAnnotationConfigDispatcherServletInitializer ---->  
                                base-class used to initialize Spring-APP in Servlet-container Environ. 
 
-==================== 
+========================================== 
 
                                        extends
  (b) WebSecurityConfigureAdaptor (C)  ---------> protected void configure (AuthenticationManagerBuilder auth){} (M)
@@ -1072,8 +1087,73 @@ SpringSecurity444 :=  [ https://www.baeldung.com/security-spring ] // [ https://
 
 ---->  I/P --->CREDENTIALS && O/P ----> Priciple 
 
-===========================
 
+ Note :=
+~~~~~~~~
+ --- Can Secure All-Controller / One-Controller (Or) Based on URL (Or) Authenticate on ROLE. 
+ --- BCryptPasswordEncoder Mehod used to BCrypt-Password
+
+===========================================
+
+ Load User form Database ---->  UserDetailService (C) ---- loadUserByUsername(String name) 
+  
+===========================================
+
+ (2) Authorization := process to allow authority to perform actions in the application.
+~~~~~~~~~~~~~~~~~~~~~~
+    ---(Level-Of-Access) depends On who-the-Users is ... like  Admin, Employee, Manager, HR, CEO etc....
+	
+
+----> Managed by "-JWT-".
+
+ CODE::=
+~~~~~~                             extends
+  WebSecurityConfigureAdaptor (C) ---------> protected void configure (HttpSecurity auth){} (M)
+  
+  
+         auth.authorizeRequests().antMatchers(."/admin").hasRole("Admin").antMatchers(("/").permitAll().formLogin();
+  
+----> Here if "-antMatchers()-" matches URL && gives specific-authentication-credentials.
+    
+	 antMatchers(."/user").hasAnyRole("USER", "ADMIN");
+  
+  
+----> CAN LOGOUT by entering "/logout" in URL.
+
+=========================================================
+
+UserDetailsService(I) := used in order to lookup the username, password and granted authorities for any given user.
+~~~~~~~~~~~~~~~~~~~~~~~
+
+---->"-DelegatingFilterProxy-" provides the link between web.xml and the applicationContext.
+
+ Eg :=
+~~~~~
+@EnableWebSecurity
+public class Demo extends WebSecurityConfigurerAdapter{
+	
+	 @Override
+	 protected void configure (AuthenticationManagerBuilder auth){ }
+	 
+	 @Override 
+	 protected void configure (HttpSecurity auth){	 }
+	 
+=================================================================
+
+ Security Flow  :=
+~~~~~~~~~~~~~~~~~~~
+               (Validates AUTH) 
+  Client ----> Security-Filter ----> AuthenticateManager_1 ----> AuthenticateProvider_2 ----> ProviderManager (AP) & 
+                                                                                                  |
+																								  |
+                                                                                                  |
+                                                                            Server <------ UserDetailService (BACK)  
+  
+    Principal   -----> Given Name of Login User  
+  
+=================================================================
+
+ 
   @EnableWebSecurity ---> For Securing Web-applications, applied at class-level.
   
   GlobalMethodSecurityConfiguration (C) ----> Do at Class Level 
@@ -1083,7 +1163,8 @@ SpringSecurity444 :=  [ https://www.baeldung.com/security-spring ] // [ https://
   @Secured("ROLE_VIEWER") --------> At Method-Level  //// doesn't support Spring Expression Language 
 
   @PreAuthorize and @PostAuthorize  ---->  provide expression-based access control.
-===========================
+ 
+===========================================
 
  Eg :=
 ~~~~~
@@ -1119,51 +1200,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 =====================================		  
 				  
- (2) Authorization := process to allow authority to perform actions in the application.
-~~~~~~~~~~~~~~~~~~~~~~
-    ---(Level-Of-Access) depends On who-the-Users is ... like  Admin, Employee, Manager, HR, CEO etc....
 	
-
-----> Managed by "-JWT-".
-
- CODE::=
-~~~~~~                             extends
-  WebSecurityConfigureAdaptor (C) ---------> protected void configure (HttpSecurity auth){} (M)
-  
-  
-         auth.authorizeRequests().antMatchers(."/admin").hasRole("Admin").antMatchers(("/").permitAll().formLogin();
-  
-----> Here if "-antMatchers()-" matches URL && gives specific-authentication-credentials.
-    
-	 antMatchers(."/user").hasAnyRole("USER", "ADMIN");
-  
-  
-----> CAN LOGOUT by entering "/logout" in URL.
-
-UserDetailsService(I) := used in order to lookup the username, password and granted authorities for any given user.
-~~~~~~~~~~~~~~~~~~~~~~~
-
----->"-DelegatingFilterProxy-" provides the link between web.xml and the applicationContext.
-
- Eg :=
-~~~~~
-@EnableWebSecurity
-public class Demo extends WebSecurityConfigurerAdapter{
-	
-	 @Override
-	 protected void configure (AuthenticationManagerBuilder auth){ }
-	 
-	 @Override 
-	 protected void configure (HttpSecurity auth){	 }
-	 
-=============================	
  
  
   Roles -----> SimpleGrantedAuthorities (does Roles-Allocattion)
 
 
 
-==============================
+ 
 
  SecurityFlow := // ----> (Pass.Req to )
 ~~~~~~~~~~~~~~~
@@ -1175,8 +1219,8 @@ public class Demo extends WebSecurityConfigurerAdapter{
    
 ----> AuthenticationProvider ---> ProviderManager ----> DelegatingFilterProxy ----> Authentication
  
-==================================
-
+ 
+ 
  InXML :=
 ~~~~~~~~~
 	 
@@ -1470,8 +1514,19 @@ public class JUnit4PowerMockitoStaticTest{
 
 ==============/\/\\/\\/==============\/\\/\//\/\============/\/\\/\/\\/\===========/\/\\/\==============
 
- Behavior-driven development (BDD) :=
+ Test Driven development (BDD) := [ https://github.com/Java-Techie-jt/tdd-example ]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- It Makes code to work in all Scenarios. 
+ --- Writes Test Cases for all Conditions  so that code will not break.  
+ 
+                  Red --- Green --- Refractor 
+ 
+
+ Behavior-driven development (BDD) :=  [ https://github.com/Java-Techie-jt/bdd-example ]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- It is Technique of writing Business Test cases (in Plain English) that are understood by Non-Technical guy. (*****)
+ --- Implemented using Cucumber FrameWork. 
+
  --- It is an Agile software development process that supports collaboration among the developers, quality analysts, and business members in a software project. 
   --- It is developed from the Test-driven development (TDD) software. 
 
@@ -1719,6 +1774,8 @@ JUnit Vintage := To support running JUnit 3 and JUnit 4 written tests on the JUn
 			   different use-cases or any specific requirement. 
  
  @ExtendWith ---->  Register custom extensions
+ 
+ @RunWith(SpringRunner. class) ----> provides a bridge between Spring Boot test features and JUnit. 
 
 
 @RunWith(JUnitPlatform.class)
@@ -2260,7 +2317,7 @@ public class ContatctServiceTest {
  
 ==========/\/\\/\\/===========\/\\/\//\/\=========\/\\/\/\\/\=========/\/\/\/\/\=================
 
- JIRA790 :=
+ JIRA790 :=  [ https://www.youtube.com/watch?v=EzyA20UofkE&ab_channel=JavaTechie ]
 ~~~~~~~~~~
 
 ---->software testing tool developed by the Australian Company Atlassian & Current-Version i s'6'.
@@ -2321,8 +2378,14 @@ The great part about Spring Cloud is that it builds the concept of Spring Boot. 
 
 ==============/\/\\/\\/==============\/\\/\\/\/===================\/\\/\/\\/\==================/\/\\/\=================
 
-  JWT444 := // Contains UN && PW in Encrypted-Format ( Header + Payload + VerifySignature) ..... [ https://jwt.io/ ]
-~~~~~~~~~
+  JWT444 (HPS) := //  . [ https://jwt.io/ ]
+~~~~~~~~~~~~~~~~
+ --- It is in form of String that Contains UN && PW in Encrypted-Format ( Header + Payload + VerifySignature)
+ --- AuthenticateManager will validate Credentials from DB && Generates Token 
+
+
+
+
  Security+JWT ----> [ https://github.com/koushikkothagal/spring-security-jwt ]
  Security+JWT ----> [ https://github.com/Java-Techie-jt/spring-security-jwt-example ]
  Security+JPA ----> [ https://github.com/Java-Techie-jt/spring-security-jpa ]
@@ -3389,7 +3452,7 @@ spring:
 		
 =============================================================================================================		
  
- BootAdminServer :=
+ BootAdminServer :=  [ https://github.com/Java-Techie-jt/spring-boot-admin ]
 ~~~~~~~~~~~~~~~~~~~~~
  --- Monitors all 'SB' Apps && Manages it's Instances using Single UI. 
  --- Replaces 'Actuator' in case of  developing Distributed Apps. 
@@ -3457,7 +3520,8 @@ Note: Client application should be displayed in Admin Server Dashboard.
 
 
  Spring’s Rest-Template :=  [ https://github.com/greenlearner01/RestTemplate ]
-~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~     https://github.com/Java-Techie-jt/PhonePe-Client
+
  --- RestTemplate is a class in spring web package, for synchronous client-side HTTP access.
  --- The sole aim is to simplify communication with HTTP servers. 
  --- That is it actually this is all RestTemplate does.
@@ -3558,6 +3622,9 @@ It is a architectural style a big container in which all components and required
 
  DesignpatternMC := ( MicroServiceDesignPattern--Edureka )
 ~~~~~~~~~~~~~~~~ 
+
+ [ https://www.youtube.com/watch?v=-PbnWGddmcM&list=PLTyWtrsGknYd0JgqeARypdRy-SX1ORYhs&ab_channel=TechPrimers ]
+
 ---Aggregator Microservice Design Pattern
 ---API Gateway Design Pattern
 ---Chain of Responsibility Design Pattern
@@ -3867,7 +3934,10 @@ ProductOwner := Manager    /////////   Scrum-Master := TeamLeader
  GIT996 [81] := (uses 'C' language that reduces the OverHead Of run time)  //// [JAVA-TECHIE*****]
 ~~~~~~~~~~~~ // Cloud-based Hoisting Service that manages Repositaries.
 
-                       YOUTUBE -----> SHIVA-REDDY, ASHOK-IT. 
+                       YOUTUBE -----> SHIVA-REDDY, ASHOK-IT.
+
+
+                   Dot--GIT --------> Consists of different Versions of GIT. 					   
 					   
 					   
 ----> GIT is a client software which is used to communicate with GIT Hub Repositories
@@ -4073,7 +4143,7 @@ git stash := temporary storage    (YOUTUBE :: KK-JAVA TUTORIALS )
        
 	      Local-Repo -----> System
 
-          Remote-Repo -----> GitHub  
+          Remote-Repo -----> GitHub   
   
     Popular Git hosting repositories ----> GitHub, GitLab, BitBucket
 
@@ -4593,7 +4663,7 @@ Streams API
  
 =========================================================== 
  
-   Code-Review-Tools (SonarQube) :=
+   CodeReviewTools (SonarQube) := [ https://github.com/Java-Techie-jt/sonar-example ]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
  Reliability // Security // Maintainability 
@@ -4601,8 +4671,31 @@ Streams API
    add Plugin ----> sonar-maven-plugin && install maven ---> 
    
    Maven Build Goal ----> mvn sonar : sonar (Or) sonar: sonar
+   
+   jacoco Plugin -------> clean org.jacoco:jacoco-maven-plugin prepare-agent install
+   
+    sonar Cmd ----------> sonar : sonar
 
-===========================================================
+
+<plugin>
+    <groupId>org.jacoco</groupId>
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <configuration>
+        <propertyName>jacoco.agent.argLine</propertyName>
+    </configuration>            
+</plugin>
+
+
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>3.0.2</version>
+    <configuration>
+        <argLine>-XX:-UseSplitVerifier ${jacoco.agent.argLine}</argLine>
+    </configuration>
+</plugin>
+
+=============================================================================================================
  
     Build-Tool ---->  Maven /Gradle
 	

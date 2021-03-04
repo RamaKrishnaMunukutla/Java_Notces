@@ -12,13 +12,19 @@
 	     
 ======================================================================================================================= 
 
-                     [  ] ----> Array
+                     [  ] ----> Array        //// http://localhost:9000
 			  ----------------------------
                      {  } ----> Object  	
 					 
  SOAP :=
 ~~~~~~~~
   https://github.com/Java-Techie-jt/spring-boot-soap-ws
+  
+  
+  Spring Rest :=
+~~~~~~~~~~~~~~~
+  https://github.com/Java-Techie-jt/Payment-Resource
+  https://github.com/Java-Techie-jt/spring-jsonpath-example
 					 
 =======================================================================================================================
 
@@ -878,6 +884,8 @@ fully certified JAX-RS implementation; supports HTTP 1.1 caching semantics inclu
  https://github.com/PlayProCode/PlayJava/tree/master/exception-framework
  https://mkyong.com/spring-boot/spring-rest-error-handling-example/
  https://github.com/greenlearner01/rest-api-validation (****)
+ 
+ https://github.com/Java-Techie-jt/spring-jersey-exception-handling
  
  
  

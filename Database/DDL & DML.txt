@@ -146,7 +146,7 @@ Key-Words :=
  Types of Keys :=
 ~~~~~~~~~~~~~~~~
  (1) Primary Key
- (2) Candidate Key ---> Other than PK 
+ (2) Candidate Key ---> Other than PK , acts like 'PK' to Uniquely Identify Record
  (3)  Super Key    --->  uniquely identify a tuple. Super key is a superset of a candidate key.
  (4) Foreign key   ---> used to point to the primary key of another table.
  

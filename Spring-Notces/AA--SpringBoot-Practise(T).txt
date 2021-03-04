@@ -809,10 +809,11 @@ Factory pattern – BeanFactory for creating instance of an object.
 	        Spring-MVC ----> https://github.com/RameshMF/spring-mvc-tutorial
 						     https://github.com/RameshMF?tab=repositories&q=MVC&type=&language=	
 
-	    MVC + Unit-Test ---> https://github.com/Java-Techie-jt/spring-mockito-example
+	    MVC + Unit-Test ---> https://github.com/in28minutes/spring-unit-testing-with-junit-and-mockito
+		                     https://github.com/Java-Techie-jt/spring-mockito-example
 						     https://github.com/Java-Techie-jt/spring-boot-mockito
 						     https://github.com/Java-Techie-jt/spring-security-integration-test	
-							 https://github.com/in28minutes/spring-unit-testing-with-junit-and-mockito
+
 							 
 
 		  SpringBoot -----> https://github.com/RameshMF/spring-boot-tutorial
@@ -822,6 +823,9 @@ Factory pattern – BeanFactory for creating instance of an object.
 							https://github.com/RameshMF/registration-login-springboot-security-thymeleaf
 			 	            https://github.com/RameshMF?after=Y3Vyc29yOjMw&language=&q=boot&tab=repositories
 							https://github.com/in28minutes/JavaInterviewQuestionsAndAnswers
+			 	            https://github.com/Java-Techie-jt/Spring-boot-mysql  (****)
+					 
+   Boot + Hibernate ---->   https://github.com/Java-Techie-jt/spring-boot-hibernate-mysql
   
   
      SpringBoot-Session.M -----> https://www.techgeeknext.com/spring-boot/spring-boot-session-management  

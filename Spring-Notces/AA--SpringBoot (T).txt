@@ -18,21 +18,27 @@
 ===========================================================================================================
 
  
- SpringBootInternalWork :=
+ SpringBootInternalWork :=  http://localhost:8080
 ~~~~~~~~~~~~~~~~~~~~~~~~
  
  [ https://www.youtube.com/watch?v=oSVwNqwkw-M&list=PLq3uEqRnr_2F0NK6_mpFcTxQh_s1U-s5r&index=1&ab_channel=GreenLearner ]
 
-
-  META-INF / spring.factories  ----> Based on @Conditional , (On Class, Bean, Property, Resource, Web, SpEL)
+        (Inside)
+ Starter ---->  META-INF / spring.factories  ----> Have Logic of What should be Enable / Disable at RunTime. 
+  
+                                                Based on @Conditional [4.0], (On Class, Bean, Property, Resource, Web, SpEL)
   
                                      It Enables / Disables few of components to build application.   
  
  
  --- Checks && Adds all Required-Jars to BuildPath.
  
- --- Run-As App :: Result in KickOff(Creates) ApplicationContext && Checks for Type-Of-App 
-                       Searches for STEREOTYPE annotation && add to it. 
+ --- Run-As App :: Result in KickOff(Creates)---ApplicationContext Line && Checks for Type-Of-App (Servlet/ Recative/ Default)
+                       Searches for STEREOTYPE annotation && add to JVM IOC Container. 
+					   
+					Configures the DispacherServlet && DefaultHandlerMapper 
+					
+					Creates Instance of TomcatEmbeddedServletContainer && Add the Context
 					   
  
  --- @SpringBootApplication (STERIO-TYPE && 3-ANOO)
@@ -133,6 +139,30 @@ It is a web tool which is provided by Spring on official site. You can create Sp
 ----> Repetetive-code(DB-Connection) is known as boilerplate code.  (*********)
 
 
+ Start333 := [----- http://localhost:8965 ------]
+~~~~~~~~~~
+@SpringBootApplication
+@ComponentScan("com.example.demo.*")
+@EnableAutoConfiguration(exclude = { DataSourceAutoConfiguration.class })
+@EnableJpaRepositories("com.example.demo.jpa") 
+@EnableAutoConfiguration(exclude=FlywayAutoConfiguration.class)
+ 
+ 
+ 
+   @ComponentScan({                  // implements CommandLineRunner(I)
+             "com.example.demo.*" , 
+			  "com.naresh.it.*" ,
+			  "com.ashok.it.*"
+			 })
+ 
+ 
+ @Order(20) := Used to define our own Order of Exception using Runners. 
+~~~~~~~~~~~~~
+
+      @Controller ------> Maps Model and Find the View. 
+ 
+    @RestController ----> Sends Object as HTTP Response in XML / JSON Format.
+
 ===================================================================================================================
 	
  **RunMultipleInstances :=  [ https://github.com/PlayProCode/PlayJava/tree/master/my-app ]
@@ -153,8 +183,45 @@ It is a web tool which is provided by Spring on official site. You can create Sp
 
   BootMongoDB :=
 ~~~~~~~~~~~~~~~
-   https://github.com/Java-Techie-jt/spring-mongodb  
+   CRUD ---> https://github.com/Java-Techie-jt/spring-mongodb
+             https://github.com/Java-Techie-jt/spring-mongo-embedded
+
 	   
+ Eg :=
+~~~~~
+@Document(collection = "Book")
+public class Book {
+	@Id
+	private int id;
+	private String bookName;
+	private String authorName;
+}
+	
+
+ JSON :=
+~~~~~~~
+
+{
+   "id" : 101,
+   "name" : "rama",
+   "gender":"male",
+   "products":[{
+           "name":"Santoor",
+           "quantity": 60,
+           "price":44
+       },
+         {
+           "name":"Santoor",
+           "quantity": 60,
+           "price":44
+       }
+],
+  "address": {
+       "city" : "HYD",
+       "state": "TEL",
+       "pincode":"999"
+   }
+} 
 ===========================================================================================================
 
    Image Render in Postman ----> https://github.com/greenlearner01/File-Upload-Download-With-SpringBoot
@@ -202,28 +269,7 @@ It is a web tool which is provided by Spring on official site. You can create Sp
                        Import using @ImportResource("classpath: Beans.xml") in Main-Class
 			
 			
- Start333 := [----- http://localhost:8965 ------]
-~~~~~~~~~~
-@SpringBootApplication
-@ComponentScan("com.example.demo.*")
-@EnableAutoConfiguration(exclude = { DataSourceAutoConfiguration.class })
-@EnableJpaRepositories("com.example.demo.jpa") 
- 
- 
- 
-   @ComponentScan({                  // implements CommandLineRunner(I)
-             "com.example.demo.*" , 
-			  "com.naresh.it.*" ,
-			  "com.ashok.it.*"
-			 })
- 
- 
- @Order(20) := Used to define our own Order of Exception using Runners. 
-~~~~~~~~~~~~~
 
-      @Controller ------> Maps Model and Find the View. 
- 
-    @RestController ----> Sends Object as HTTP Response in XML / JSON Format.
 
 =========================================================================================================
 
@@ -483,7 +529,7 @@ https://www.codejava.net/frameworks/spring-boot/spring-boot-crud-example-with-sp
 
 ==========================================================================================================================
  
- Scheduler990 :=
+ Scheduler990 :=  [ https://github.com/Java-Techie-jt/spring-boot-scheduler ]
 ~~~~~~~~~~~~~~
   -- Execuetes a piece of Code for a Periodically  
   
@@ -1104,14 +1150,14 @@ To work with interceptor, you need to create @Component class that supports it a
 
  
 =========================================================================================
- 
-
----->How to enable HTTP/2 support in Spring Boot
-You can enable the HTTP/2 support in Spring Boot by: server.http2.enabled=true
-
-
+                  
  Profiles444 :=  [ https://github.com/TechPrimers/spring-boot-profiles-example ]
 ~~~~~~~~~~~~~~   [ https://github.com/kishanjavatrainer/SpringBootProfilesApp2 ]
+                 [ https://github.com/Java-Techie-jt/spring-profile ] 
+
+ --- Used to Switch between Environments && Restrict Some Configuration to it. 
+ --- Swagger may Work in Local-Environment && Fail in Production-Environment
+
 
 There are two ways to set the active profile in Spring Boot.
 Pass in the active profile as an argument while launching the application.
@@ -1195,8 +1241,10 @@ server.compression.enabled=true
   https://github.com/SimpleProgramming/spring-boot-ehCache-CacheManager
   https://github.com/SimpleProgramming/spring-boot-swagger-ui
   https://github.com/SimpleProgramming/spring-boot-swagger-codegen-maven-plugin
-
-  https://github.com/greenlearner01/Microservices/
+  https://github.com/greenlearner01/Microservices/  (******)
+  
+   
+  JSONDocs ---> https://github.com/Java-Techie-jt/Spring-JsonDocs   /// EnableJSONDocs
   
 
 Q) What is Swagger?
@@ -1249,11 +1297,13 @@ Swagger documentation Contains below details
   Annotations :=  [ https://www.javainuse.com/spring/boot_swagger_annotations ]
 ~~~~~~~~~~~~~~~		
     @API            ------> provides   description of API.
-    @APIOperation   ------> describes the endpoint and its response type
-	
 	@APIParam       ------> describes the exposed REST API.
-    @ApiModelProperty ----> describes the properties of the Model-Class 
-    @ApiResponses  -------> describe the expected responses for the REST API. 
+    
+	@APIOperation   ------> describes the endpoint and its response type  /// PUT --- updateBooks
+    @ApiModelProperty ----> describes the properties of the Model-Class in JSON Property 
+	  @API            ----> Title to Controller 
+    
+	@ApiResponses  -------> describe the expected responses for the REST API. 
                            It describes an operation or typically a HTTP method against a specific path.
   
   
