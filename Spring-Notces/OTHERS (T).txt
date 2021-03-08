@@ -3,7 +3,7 @@
  
     ..........MAVEN123.........SpringSecurity444......Mockito990.....JUnit550.....SPRINGCLOUD123
 				
-     .........JWT444...........MicroServices334(Links530).....JWT550......AgileMethodology768......SDLC445........
+     .........JWT444...........MicroServices334(Links530).....JWT550......AgileMethodology768......SDLC445.....BitBucket99
 				
      .........GIT996...XML900.......NumberConversion...........ApacheKafka540.......RabbitMQ330.....	 
  
@@ -2383,7 +2383,10 @@ The great part about Spring Cloud is that it builds the concept of Spring Boot. 
  --- It is in form of String that Contains UN && PW in Encrypted-Format ( Header + Payload + VerifySignature)
  --- AuthenticateManager will validate Credentials from DB && Generates Token 
 
-
+       
+	             Header -------> Tells which Hashing Alogorithm it follows
+				 Signature ----> Encodes Header & Payload 
+				 Paylaod ------> Subject Used
 
 
  Security+JWT ----> [ https://github.com/koushikkothagal/spring-security-jwt ]
@@ -3931,6 +3934,15 @@ ProductOwner := Manager    /////////   Scrum-Master := TeamLeader
 =============================================================================================================
 ==============/\/\\/\\/===========\/\\/\\/\/==========\/\\/\/\\/\=========/\/\\/\==============
 
+ BitBucket99 :=
+~~~~~~~~~~~~~~
+ --- Download SourceTRee form :: https://www.sourcetreeapp.com/
+ ---
+
+
+=============================================================================================================
+==============/\/\\/\\/===========\/\\/\\/\/==========\/\\/\/\\/\=========/\/\\/\==============
+
  GIT996 [81] := (uses 'C' language that reduces the OverHead Of run time)  //// [JAVA-TECHIE*****]
 ~~~~~~~~~~~~ // Cloud-based Hoisting Service that manages Repositaries.
 
@@ -4197,6 +4209,8 @@ git stash := temporary storage    (YOUTUBE :: KK-JAVA TUTORIALS )
  
  
                 git merge -----> Doesn't rewrites Commit History  ///  Adds One New Commit (5+1 = 6)
+
+          git merge <BN>  ----->  Merges to 'ON' Branch (Current)
 				
 				git rebase ----> Rewrites Commit History ///   Doesn't Create Extra Commit  (3+2 =5)
 				

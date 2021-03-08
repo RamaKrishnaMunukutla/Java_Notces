@@ -196,8 +196,8 @@ Arrays :=
      Iterator // ListIterator // Enumeration // Normal-For-Loop // Enhanced-For-Loop // For-Each-Loop //
 	 
 	   
-	             Elements > Capacity ---->  ArrayList increases  50%   of it's Capacity.
-				 Elements > Capacity ---->    VECTOR  increases Double of it's Capacity. (*********)
+	             Elements > Capacity ---->  ArrayList increases    50%       of it's Capacity.
+				 Elements > Capacity ---->    VECTOR  increases Double(100%) of it's Capacity. (*********)
 				 
 				 
  Similarities Between ArrayList && Vector  :=
@@ -820,6 +820,20 @@ If you want to keep get and put complexity O(1), it is advisable to have a load 
  --- In that case Entry-Object stored as Linked-List within the same-Bucket. 
 
 
+ (Q) Changes of HashMap in Java-8 
+ --- If Bucket size is having '8' (Or) More elements in same HashCode(), 
+ 
+                                i.e Exceeds the size of TREEIFY_THRESHOLD='8' of nNodes  
+ --- In that Scenario , the Linked-List Converts to Balanced-Tree. 
+ 
+ 
+         static final int  TREEIFY_THRESHOLD='8'        ----> tells when Linked-List Converts to balanced-Tree
+         static final int UNTREEIFY_THRESHOLD='6'	    ----> tells when balanced-Tree Converts to  Linked-List 
+         static final int  MIN_TREEIFY_CAPACITY='64'	----> Should have atleast 16-Buckets 
+		                                            each Bucket should have elements should have more than '8'.				   
+							   
+ 
+ 
 =======================================================================================================
 
  HashTable335 :=  (key && Vlaue) ( Slow && not fail-fast.)  [......ODN, S&TS.......]

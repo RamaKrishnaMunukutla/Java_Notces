@@ -9,8 +9,38 @@
 
 =========================================================================================================
 
+
+       e2e      ----> End to End Testing
+   
+   node_modules ----> Collection of different libraries
+   
+     assets --------> Images , Icons , Text Files
+	 
+	 environment ----> Provides 2-Env :: (1) Prod.ts-Env  , (2) Dev-Env 
+	 
+	 main.ts --------> BootStraps Main Module (App-Module)
+	 
+	 tsconfig.json ---> Complies 'TS' Code to 'JS' Code which Browsers can UnderStand 
+   
+      index.html -----> Bundles Different "DOT_JS' files at RunTime 
+	  
+	  
+  Releases :=
+~~~~~~~~~~~~~
+  
+  Angular-2      ----> 2016
+  
+  Angular-11 --------> February 2021
+  
+  ES-6      ---------> 2015
+   
+   
+====================================================================================================
+
 ---->What is Angular Framework?
 Angular is a TypeScript-based open-source web application framework, developed and maintained by Google. The major features of this framework such as declarative templates, dependency injection, end to end tooling, and many more other features are used to ease the development.
+
+----> Every Application will have One Module && One Component
 
 AngularJS	Angular :=
 ~~~~~~~~~~~~~~~~~~~~
@@ -63,6 +93,13 @@ export class AppComponent {
 ---->What is a module?
 Modules are logical boundaries in your application and the application is divided into separate modules to separate the functionality of your application. Lets take an example of app.module.ts root module declared with @NgModule decorator  .
 
+
+ Module :=
+~~~~~~~~~~
+ -- It is a mechanism to group components, directives, pipes and services that are related, in such a way that can be combined with other modules to create an application.
+ 
+ 
+ 
  NgModule :=
 ~~~~~~~~~~~
  ---It is a decorator function

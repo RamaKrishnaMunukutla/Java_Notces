@@ -33,6 +33,11 @@
 	 
 	 
 	 https://education.oracle.com/java-se-8-programmer-ii/pexam_1Z0-809
+	 
+	 
+	     Java ----> LOGIC /// Git-Hub /// Stack-Over-Flow
+		 
+		 Angular ----> LOGIC /// Git-Hub /// Stack-Over-Flow
  
 =========================================================================================================   
 
@@ -115,7 +120,7 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
 	Coding ----> Tree
 	
 	https://courses.in28minutes.com/
-	
+	https://courses.learncodeonline.in/learn/view-all?show=courses&type=1
 	
 	
 ================================================================================================
@@ -165,6 +170,8 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
 						 
 	 Spring-Guru -------> https://github.com/springframeworkguru?tab=repositories
 	  Baledung ---------> https://github.com/eugenp/tutorials
+	  
+  Kevin Naughton Jr. ---> https://github.com/kdn251?tab=repositories
 	  
 	 Travery-Media -----> https://github.com/bradtraversy?tab=repositories
 	  
@@ -508,6 +515,7 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
  --- spring boot microservices angular project github
  --- Spring MVC project github
  --- Spring MVC + angular github
+ --- microservices example github
  
  
  --- mysql interview questions
@@ -528,6 +536,9 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
  --- how it outsourcing companies strategy  quora
  --- full-stack-with-angular-and-spring-boot github
  --- spring boot angular example github
+ 
+ 
+ https://www.javaguides.net/2021/02/java-free-e-commerce-open-source-projects.html
 
 
  Angular GitHub  :=
@@ -616,6 +627,10 @@ https://www.baeldung.com/spring-cloud-series
  3.you have been successfully activated your software
 
 
+  Fast Stone :=
+~~~~~~~~~~~~~~
+username: Jhon
+   key  : JXKQZ-RGMMK-TVJHO-TGZEV
 
 
   .......NodeJs.....Visual-Studio-Code(Node -v && npm -v).......WindRar.....WPS-Office.....Nodepad++

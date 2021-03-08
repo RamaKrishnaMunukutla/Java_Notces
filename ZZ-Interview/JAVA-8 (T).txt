@@ -21,7 +21,7 @@
 	  https://github.com/Java-Techie-jt/java8 (****)
 			 
 	
- Java 7 :=-
+ Java 7 :=
 ~~~~~~~~~~
  --- Try with Resource) ----> Avoids Memory Leaks      //////  Eg :: Files .
  --- Underscore for Numeric Literals (Between Digits)
@@ -32,6 +32,7 @@
 ~~~~~~~~
  --- Released in 2014.
  
+ 
  ParllelStreams :=
 ~~~~~~~~~~~~~~~~
  --- Doesn’t care about the order. //// The performance is high.
@@ -39,10 +40,26 @@
  Eg:= list.parallelStream().filter(str->str.length()>3).map(String::toUpperCase).sorted().forEach(System.out::println);;    
 ~~~~~
 
+
  Primitive type in Stream := InstStream , LongStream , DoubleStream . 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+ Functional programming :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- It is a way of thinking about software construction by creating pure functions. 
+ --- Functions provide better modularity for your application and a high degree of code reusing.
+ 
+
+ Functional Vs Object-Oriented programming :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Both Functional programming and object-oriented programming uses a different method for storing and manipulating the data. 
+ --- In functional programming, data cannot be stored in objects and it can only be transformed by creating functions.
+ --- In object-oriented programming, data is stored in objects.
+
+
 	
-=================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
+=================/\/\\/\/\===============/\/\/\/\/\/\/\/\===============/\/\/\/\/\/\/\/\=============
 
 ======================================================================================================
 

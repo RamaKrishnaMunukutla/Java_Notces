@@ -336,8 +336,15 @@ Key-Words :=
 				 
  INTERSECT ----> Fetches Common-Records from 2-Tables. 
 
- CandidateKey ----> S.No / Pan No
+ CandidateKey -------> S.No / Pan No
+
+ Pattern-Matching ----> '_L%'  (************)
  
+
+ Nth Record in Database :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    select * form emp ( select rownu,emp.* form emp) where r in (1,4,7);
+ 
 
  Clause-Order :=
 ~~~~~~~~~~~~~~
@@ -619,7 +626,16 @@ SELECT123 :=
 			   Eg ---> SELECT EXISTS(SELECT * from customer WHERE cust_id=104) AS Result;  
 
 
-
+ Count Employees in Each Department :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   select ename, count(*) from emp group by ename ;
+  
+  
+ Display Duplicate Employees in Each Department :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   select ename, count(*) from emp group by ename having count(*)>1;  ;
+   
+   
 ===============================
 
  DROP550 :=
@@ -844,11 +860,12 @@ Send Table-data into CSV with HEADINGS :=  // File Will be created automaticall
 
 ====================================================
  
- Union := (******)
+ Union := (******)   // Duplictes Eliminates 
 ~~~~~~~~
  --- Used to combine the result-set of two or more '-SELECT-' statements. 
  --- Always combines the result set '-vertically-' . (****) 
- --- returns only the distinct values. (**)
+ --- returns only the distinct values. (**) 
+ --- Values && Datatypes should be same in both Columns (*************)
  --- Performance is slow because it takes time to find and then remove duplicate records.	
  --- Most database users prefer to use this operator.
 

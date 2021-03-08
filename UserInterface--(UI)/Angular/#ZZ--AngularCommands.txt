@@ -3,13 +3,12 @@
     
    .......Tutorials770.......GITHUBLINKS
 
-   
+
 ====================================================================================================
 
   PropertyBinding[] :: [ hidden,isDisabled ] ~~~~ To HTML 
   2-WayBinding~~~~[(ngModel)] ...Both  
   Interpolation{{}} ~~~~ To HTML 
-
 
     --flat true/false -----> Dedicated-Folder.
 	 --spec==true/false ----> for Spects.
@@ -19,6 +18,10 @@
 	
 	    Angular ----> Client Side Application, TypeScript-Based && Produces SPA.
  
+ 
+      https://stackblitz.com/fork/angular-ivy
+
+
       https://github.com/gothinkster/angular-realworld-example-app
 	
 	
@@ -315,6 +318,9 @@ Imports :=
 	  https://github.com/gopinav/Angular-Tutorials
 	  https://github.com/gopinav/Angular-Component-Interaction-Tutorial
 	  https://github.com/gopinav/Angular-Forms-Tutorial
+	  
+	  
+	      Material-Tutorial ----> https://www.youtube.com/watch?v=jUfEn032IL8&list=WL&index=18&ab_channel=freeCodeCamp.org
 	 
 	 
  Material && Security :=

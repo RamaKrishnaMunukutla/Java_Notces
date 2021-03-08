@@ -4,7 +4,9 @@
 	  
 	  ArrayLogicalPrograms......StringLogicalPrograms.....CollectionsLogicalPrograms
 	  
-	  ...FileHandling880.........Alogorithms880...........SortingTechniques.........DataStructures
+	  ...FileHandling880.........Alogorithms880...........SortingTechniques.........DataStructures.....
+	  
+	  ...SingletonDemoEg.........
   
   
                 Programs-(YOUTUBE) ---->  Learn with KrishnaSundeep
@@ -899,7 +901,33 @@ for (int i = 0; i < total; i++)
 		
     https://github.com/journaldev/journaldev/tree/master/CoreJavaProjects/String-Programs/src
 		
-============================================================================
+====================================================================================================
+
+ Add Numbers in String :=
+~~~~~~~~~~~~~~~~~~~~~~~
+ int l = stng.length();
+  int sum = 0;
+  String temp = "";
+  for (int i = 0; i < l; i++) 
+  {
+    if (Character.isDigit(stng.charAt(i))) 
+	{
+      if (i < l-1 && Character.isDigit(stng.charAt(i+1))) 
+	  {
+        temp += stng.charAt(i);
+      }
+      else 
+	  {
+        temp += stng.charAt(i);
+        sum += Integer.parseInt(temp);
+        temp = "";
+      }
+    }
+  }
+  return sum;
+}
+
+====================================================================================================
 
  Swap 2 Strings  :=
 ~~~~~~~~~~~~~~~~~ 
@@ -1766,8 +1794,58 @@ String word = "dog";
 		}
 		System.out.println(res + "..." + fmax);
 	}		
-		
-		
+
+===========================================================================================
+
+ Print the string after the specified character has occurred given no. of times :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
+	package com.demo.example;
+
+public class GFG {
+
+	static void printString(String str, char ch, int count) 
+    { 
+        int occ = 0, i; 
+       
+        // If given count is 0 
+        // print the given string and return 
+        if (count == 0) { 
+            System.out.println(str); 
+            return; 
+        } 
+       
+        // Start traversing the string 
+        for (i = 0; i < str.length(); i++) { 
+       
+            // Increment occ if current char is equal 
+            // to given character 
+            if (str.charAt(i) == ch) 
+                occ++; 
+       
+            // Break the loop if given character has 
+            // been occurred given no. of times 
+            if (occ == count) 
+                break; 
+        } 
+       
+        // Print the string after the occurrence 
+        // of given character given no. of times 
+        if (i < str.length() - 1) 
+            System.out.println(str.substring(i + 1)); 
+       
+        // Otherwise string is empty 
+        else
+            System.out.println("Empty string"); 
+    } 
+      
+    // Driver Method 
+    public static void main(String[] args) 
+    { 
+        String str = "geeks for geeks"; 
+        printString(str, 'e', 2); 
+    } 
+}
+	
 		
 =======================================(CollectionsLogicalPrograms)===================================================
 
@@ -1950,6 +2028,9 @@ String word = "dog";
 
  Binary Search :=
 ~~~~~~~~~~~~~~~~
+ --- Faster than Linear Search 
+ --- Searches elements from given element in array
+
 
  Linear Search :=
 ~~~~~~~~~~~~~~~~~
@@ -1971,7 +2052,7 @@ String word = "dog";
 
 ============================================================================================================		
 
- DataStructures :=
+ DataStructures :=   ( YOUTUBE ----> Naresh-IT ///  Sandeep-Saradhy ///  Jenny ///  Programming with Mosh )  
 ~~~~~~~~~~~~~~~~~~ 
 	Primitive DS ---->  int, float, long, byte 
 
@@ -1985,7 +2066,26 @@ String word = "dog";
 			                           Sorting
 									   Insertion 
                                        Deletion	
-                                       Updation 									   
+                                       Updation 
+ 
+  Notations :=
+~~~~~~~~~~~~~
+
+  O(1) -------> Accessing  elements using Indexes ///  If Element Found at First Index
+
+  O(n) -------> Insertion / Deletion of elements using Indexes	(Linear-Curve) //// Delete element of array  (Worst-Case)
+                                                       
+													    If Element Found at Last Index
+   
+
+  O(n2) ------> 2 Nested For-Loop   ////   O(n3) ---> 3 Nested For-Loop
+
+  O(log n) --->  Slower than O(n)  //// 
+  
+  O(2n) ------>  Opposite to  O(log n) .
+  
+  
+ 
 
 
  Arrays66 :=
@@ -2014,5 +2114,409 @@ String word = "dog";
 		
 ============================================================================================================		
 		
-		
+  SingletonDemoEg :=
+~~~~~~~~~~~~~~~~~~~
+package com.demo.example;
 
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+
+public class JDBCSingleton {
+
+	 
+    
+ //Step 1
+       
+      // create a JDBCSingleton class.
+
+
+     //static member holds only one instance of the JDBCSingleton class.
+           
+         private static JDBCSingleton jdbc;
+         
+     //JDBCSingleton prevents the instantiation from any other class.
+         private JDBCSingleton() {  }
+      
+    //Now we are providing gloabal point of access.
+          
+         public static JDBCSingleton getInstance() {  
+                                     if (jdbc==null)
+                                   {
+                                            jdbc=new   
+                                      JDBCSingleton();
+                                   }
+                         return jdbc;
+             }
+          
+   // to get the connection from methods like insert, view etc. 
+          private static Connection getConnection()throws ClassNotFoundException, SQLException
+          {
+              
+              Connection con=null;
+              Class.forName("com.mysql.jdbc.Driver");
+              con= DriverManager.getConnection("jdbc:mysql://localhost:3306/ashwanirajput", "root", "ashwani");
+              return con;
+              
+          }
+          
+ //to insert the record into the database 
+          public int insert(String name, String pass) throws SQLException
+          {
+              Connection c=null;
+              
+              PreparedStatement ps=null;
+              
+              int recordCounter=0;
+              
+              try {
+                  
+                      c=this.getConnection();
+                      ps=c.prepareStatement("insert into userdata(uname,upassword)values(?,?)");
+                      ps.setString(1, name);
+                      ps.setString(2, pass);
+                      recordCounter=ps.executeUpdate();
+                      
+                      
+              } catch (Exception e) {
+                  
+                  e.printStackTrace();
+                  
+              } finally{
+                    
+                  if (ps!=null){
+                      ps.close();
+                  }if(c!=null){
+                      c.close();
+                  } 
+                  
+              }
+              
+             return recordCounter;
+          }
+
+//to view the data from the database      
+      public  void view(String name) throws SQLException
+      {
+                Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+                
+                try {
+                    
+                        con=this.getConnection();
+                        ps=con.prepareStatement("select * from userdata where uname=?");
+                        ps.setString(1, name);
+                        rs=ps.executeQuery();
+                        while (rs.next()) {
+                                  System.out.println("Name= "+rs.getString(2)+"\t"+"Paasword= "+rs.getString(3));    
+                       
+                        }
+                    
+              
+          } catch (Exception e) {
+                    System.out.println(e);
+              
+          }finally{
+                    if(rs!=null){
+                        rs.close();
+                    }if (ps!=null){
+                      ps.close();
+                  }if(con!=null){
+                      con.close();
+                  } 
+                    
+                }
+      }
+      
+// to update the password for the given username
+      public int update(String name, String password) throws SQLException
+      {
+              Connection c=null;
+              
+              PreparedStatement ps=null;
+              
+              int recordCounter=0;
+              
+              try {
+                  
+                      c=this.getConnection();
+                      ps=c.prepareStatement(" update userdata set upassword=? where uname='"+name+"' ");
+                      ps.setString(1, password);
+                      recordCounter=ps.executeUpdate();
+                      
+                      
+              } catch (Exception e) {
+                  
+                  e.printStackTrace();
+                  
+              } finally{
+                    
+                  if (ps!=null){
+                      ps.close();
+                  }if(c!=null){
+                      c.close();
+                  } 
+                  
+              }
+              
+             return recordCounter;
+          }
+          
+// to delete the data from the database 
+         public int delete(int userid) throws SQLException
+      {
+              Connection c=null;
+              
+              PreparedStatement ps=null;
+              
+              int recordCounter=0;
+              
+              try {
+                  
+                      c=this.getConnection();
+                      ps=c.prepareStatement(" delete from userdata where uid='"+userid+"' ");
+   
+                      recordCounter=ps.executeUpdate();
+                      
+                      
+              } catch (Exception e) {
+                  
+                  e.printStackTrace();
+                  
+              } finally{
+                    
+                  if (ps!=null){
+                      ps.close();
+                  }if(c!=null){
+                      c.close();
+                  } 
+                  
+              }
+              
+             return recordCounter;
+          }
+            
+          
+     
+    
+ }// End of JDBCSingleton class
+ 
+============================================
+
+package com.demo.example;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class JDBCSingletonDemo {
+	  static int count=1;
+	    static int  choice;
+	    public static void main(String[] args) throws IOException {
+	        
+	        JDBCSingleton jdbc= JDBCSingleton.getInstance();
+	        
+	        
+	        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+	   do{ 
+	        System.out.println("DATABASE OPERATIONS");
+	        System.out.println(" --------------------- ");
+	        System.out.println(" 1. Insertion ");
+	        System.out.println(" 2. View      ");
+	        System.out.println(" 3. Delete    ");
+	        System.out.println(" 4. Update    ");
+	        System.out.println(" 5. Exit      ");
+	        
+	        System.out.print("\n");
+	       
+	        
+	        System.out.print("Please enter the choice what you want to perform in the database: ");
+	        
+	        choice=Integer.parseInt(br.readLine());
+	        
+	        switch(choice)
+	       {
+	            
+	           case 1:{
+	                    System.out.print("Enter the username you want to insert data into the database: ");
+	                    String username=br.readLine();
+	                    System.out.print("Enter the password you want to insert data into the database: ");
+	                    String password=br.readLine();
+	                    
+	                    try {
+	                            int i= jdbc.insert(username, password);
+	                            if (i>0) {
+	                            System.out.println((count++) + " Data has been inserted successfully");
+	                            }else{
+	                                System.out.println("Data has not been inserted ");    
+	                            }
+	                        
+	                        } catch (Exception e) {
+	                          System.out.println(e);
+	                        }
+	                    
+	                     System.out.println("Press Enter key to continue...");
+	                     System.in.read();
+	                     
+	                   }//End of case 1
+	                   break;
+	            case 2:{
+	                    System.out.print("Enter the username you want to view the entire data from the database: ");
+	                    String username=br.readLine();
+	             
+	                    try  {
+	                            jdbc.view(username);
+	                         } catch (Exception e) {
+	                          System.out.println(e);
+	                        }
+	                     System.out.println("Press Enter key to continue...");
+	                     System.in.read();
+	                     
+	                   }//End of case 2
+	                  break;
+	             case 3:{
+	                     System.out.print("Enter the userid for which you want to delete the entire data from the database: ");
+	                     int userid=Integer.parseInt(br.readLine());
+	           
+	                     try {
+	                            int i= jdbc.delete(userid);
+	                            if (i>0) {
+	                            System.out.println((count++) + " Data has been deleted successfully");
+	                            }else{
+	                                System.out.println("Data has not been deleted");    
+	                            }
+	                        
+	                         } catch (Exception e) {
+	                          System.out.println(e);
+	                         }
+	                     System.out.println("Press Enter key to continue...");
+	                     System.in.read();
+	                     
+	                    }//End of case 3
+	                   break;
+	             case 4:{
+	                    System.out.print("Enter the username for which  you want to update the data into the database: ");
+	                    String username=br.readLine();
+	                    System.out.print("Enter the new password ");
+	                    String password=br.readLine();
+	                    
+	                    try {
+	                            int i= jdbc.update(username, password);
+	                            if (i>0) {
+	                            System.out.println((count++) + " Data has been updated successfully");
+	                            }
+	                        
+	                        } catch (Exception e) {
+	                          System.out.println(e);
+	                        }
+	                     System.out.println("Press Enter key to continue...");
+	                     System.in.read();
+	                    
+	                   }// end of case 4
+	                 break;
+	                 
+	             default:
+	                     return;
+	        }
+	        
+	       } while (choice!=4); 
+	       
+	    
+	  }
+
+}
+
+===================================================================================================================
+ 
+ Print Middle Node in Linked List  :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+static Node head;
+
+	// Link list node
+	class Node {
+		int data;
+		Node next;
+
+		// Constructor
+		public Node(Node next, int data) {
+			this.data = data;
+			this.next = next;
+		}
+	}
+	
+	//=========================================================
+	
+	
+	void push(Node head_ref, int new_data) {
+
+		// Allocate node
+		Node new_node = new Node(head_ref, new_data);
+
+		// Move the head to point to the new node
+		head = new_node;
+	}
+
+	// =========================================================
+ 
+	
+	// A utility function to print a
+	// given linked list
+	void printList(Node head) {
+		while (head != null) {
+			System.out.print(head.data + "-> ");
+			head = head.next;
+		}
+		System.out.println("null");
+	}
+	
+	//=========================================================
+
+	// Function to get the middle of
+	// the linked list
+	void printMiddle(Node head) {
+		int count = 0;
+		Node mid = head;
+
+		while (head != null) {
+
+			// Update mid, when 'count'
+			// is odd number
+			if ((count % 2) == 1)
+				mid = mid.next;
+
+			++count;
+			head = head.next;
+		}
+
+		// If empty list is provided
+		if (mid != null)
+			System.out.println("The middle element is [" + mid.data + "]\n");
+	}
+
+	// =========================================================
+
+	
+
+	// Driver code
+	public static void main(String[] args) {
+		GFG ll = new GFG();
+
+		for (int i = 3; i > 0; i--) {
+			ll.push(head, i);
+			ll.printList(head);
+			ll.printMiddle(head);
+		}
+	}
+
+	// =========================================================
+
+
+=========================================================================================================

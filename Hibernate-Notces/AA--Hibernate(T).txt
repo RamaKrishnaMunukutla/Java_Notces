@@ -76,7 +76,19 @@
 		
 ----> @OrderColumn(name = "order_id") --- column will not created.
 
-====================
+
+ @DynamicUpdate on an entity :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ -- Hibernate does not use the cached SQL statement for the update. 
+ -- Instead, it will generate a SQL statement each time we update the entity. 
+ -- This generated SQL includes only the changed columns.
+
+
+ @Modifying annotation :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+ -- It is used to enhance the @Query annotation to execute not only SELECT queries but also INSERT, UPDATE, DELETE, and even DDL queries.
+
+===================================================================================
 
  Hibernate 5 Features :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~

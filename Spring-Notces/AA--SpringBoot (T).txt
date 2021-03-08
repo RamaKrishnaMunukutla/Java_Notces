@@ -1205,6 +1205,14 @@ Undertow
 To enable this feature, set the server.compression.enabled property to true in the application.properties
 server.compression.enabled=true
 
+
+  Profiles in Maven :=
+~~~~~~~~~~~~~~~~~~~~~~
+ --- Run Specific Plugins in Specific-Environment.
+
+    <activateByDefault>  </activateByDefault> 
+
+
 ===========================================================================================
 
  MultiModuleProject := [https://www.javatpoint.com/spring-boot-multi-module-project]

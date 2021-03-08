@@ -17,9 +17,20 @@
  
  MySQL WorkBench ---> https://www.youtube.com/watch?v=uKwR9fWsZJ4&ab_channel=edureka%21
  
-  
+  SQL Queries Prcatise -----> W3-Resource ////  GeeksForGeeks
+
+
+ RowNum :=
+~~~~~~~~~~~
+
+
+ (Q) How to prevent SQL Injections ??
+ (A) By using Prepared Statements && Parameterized queries .
+ 
+ 
 ======================================================================================
- Joins :=
+ 
+ Joins :=   
 ~~~~~~~~~~
 SELECT a.*
 	FROM  job_history a 
@@ -79,6 +90,12 @@ SELECT first_name ||' '||last_name AS Full_Name, hire_date ,
        WHERE salary > 11000
         OR phone_number LIKE '______3%'
           ORDER BY first_name DESC;
+		  
+ 
+ Print First && Last Recrod form Table :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  select 
 		  
 =============================================================		  
   
@@ -165,6 +182,16 @@ NATURAL JOIN salesman;
                
  
 ===========================================================================
+
+ Self Join :=
+~~~~~~~~~~~~~
+ --- Comparing 2 Values within the Column (Or) Different-Column in same Table 
+ 
+ 
+ 
+
+===========================================================================
+
 Cross Join:= (Product of Rows----- M*N Rows)
 ~~~~~~~~~~~~
 
