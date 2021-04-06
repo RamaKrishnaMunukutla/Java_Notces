@@ -1,5 +1,5 @@
 
- Properties :=      [----- http://localhost:8965 ------] [ https://www.javatpoint.com/spring-boot-properties ]
+ Properties :=      [----- http://localhost:9411 ------] [ https://www.javatpoint.com/spring-boot-properties ]
 ~~~~~~~~~~~~~       [----- http://localhost:9000 ------] // [----- http://localhost:9595 ------]
  
  server.port=8965

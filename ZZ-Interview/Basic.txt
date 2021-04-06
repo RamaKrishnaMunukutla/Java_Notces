@@ -15,6 +15,15 @@
 				https://codeforwin.org/2018/04/file-handling-programming-exercises-and-solutions-in-c.html
 				https://codeforwin.org/2016/03/functions-programming-exercises-and-solutions-in-c.html
 				
+				https://github.com/kdn251/interviews
+				https://github.com/kdn251/interview-practice
+				
+				https://www.youtube.com/c/ProgrammingTutorials1M/playlists
+				
+				
+				  Searching && Sorting ----> KK-Java /// Saradhi (*********)
+				  
+				
  >> java programs github
  
  >> java 8 real time examples
@@ -1946,6 +1955,21 @@ public class GFG {
     O(n) //// O(n2) [Worst] //// O(1) [Worst] //// O(n)  [Best]
 
 
+ O(1) -------->  performance is not affected by the size of the input data.
+ 
+ O(N) -------->  This algorithm will take more time as number of elements in input data increases.
+                This algorithm whose performance is directly proportional to size of the input data.
+				
+ O(N^2)  -----> This  an algorithm whose performance is directly proportional to square of the size of the input data.				
+				
+ O(log N) ----> This algorithms whose execution time grows linearly as input data grows exponentially	//// uses divide and conquer rule to search for an element.			
+				
+ O(2N) -------> This  algorithm whose execution time is doubled for every extra element in the input data.				
+				
+O(N!) -----> This  algorithm which has to perform N! computations to solve a problem. Where N is the number of elements in the input data. For example
+
+
+
  (1) Bubble Sort  :=  O(n²) 
 ~~~~~~~~~~~~~~~~~~
  --- Sorts elements either in ASC/DESC by comparing ADJACENT elements.
@@ -1966,6 +1990,17 @@ public class GFG {
                }
            }
        }
+	   // KK Java Tutorial 
+	   
+	   		for (int i = 0; i < inputArray.length-1; i++) {
+			for (int j = 0; j < inputArray.length-1-i; j++) {
+				if(inputArray[j]>inputArray[j+1]) {
+					int temp = inputArray[j];
+					inputArray[j] = inputArray[j+1];
+					inputArray[j+1] =  temp;
+				}
+			}
+		}
 				
 				
 				O(log n)  >   O(n)  > O(n2)

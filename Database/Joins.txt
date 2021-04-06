@@ -13,7 +13,29 @@
  
   Count(*) ---- GROUP BY (Can apply on Mutiple Columns also)
   
- ======================================================================================================
+  
+  drop database test;
+  create database test;
+  use test;
+  
+=====================================================================================================================
+   
+ Copy Sructure :=
+~~~~~~~~~~~~~~~
+  CREATE TABLE dom AS SELECT * FROM students WHERE 1=2;
+
+
+
+ Insert Record from One-Table to another with Same ID :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ Insert into dom select * from students  where Student_ID =103;
+ 
+ 
+  Delete Record from Multiple Table with Same ID :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   delete  e,ss from employee e inner join students ss on e.Student_ID = ss.Student_ID where  e.Student_ID = 102;
+  
+=====================================================================================================================
  
  MySQL WorkBench ---> https://www.youtube.com/watch?v=uKwR9fWsZJ4&ab_channel=edureka%21
  

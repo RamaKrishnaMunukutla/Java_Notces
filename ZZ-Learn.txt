@@ -16,7 +16,7 @@
 23 Java string coding interview questions | Learn With Krishna Sandeep     venkata_munukutla@persistent.com
 18 Java array coding interview questions  /// 
 
-    ID /// Cascade /// Relations  ///  Lazy loading /// Proxy 
+    ID /// Cascade /// Relations  ///  Lazy loading /// Proxy /// http:localhost:
 
   https://www.javaguides.net/2020/06/free-spring-boot-microservices-open-source-projects-github.html
   https://www.javapedia.net/
@@ -38,7 +38,11 @@
 	     Java ----> LOGIC /// Git-Hub /// Stack-Over-Flow
 		 
 		 Angular ----> LOGIC /// Git-Hub /// Stack-Over-Flow
- 
+		 
+
+ https://training.unqork.io/#/auth/login
+ https://academy.unqork.com/path/associate-configurator
+
 =========================================================================================================   
 
  AshokIt22 :=
@@ -716,13 +720,13 @@ EclipseShortcut:=
 
  Ctrl + Shift :=
 ~~~~~~~~~~~~~~~
-     R~~~~~~~~Search Files In Project
-	 T~~~~~~~~Search  API  In Library
-	 O~~~~~~~Imports
-	 F~~~~~~~Format
-	 S~~~~~~~Save
-	 W~~~~~Close all.
-	 P~~~~~ to find closing brace. Place the cursor at the opening brace and use this.
+     R ~~~~~~~ Search Files In Project
+	 T ~~~~~~~ Search  API  In Library
+	 O ~~~~~~~ Imports
+	 F ~~~~~~~ Format
+	 S ~~~~~~~ Save
+	 W ~~~~~~~ Close all.
+	 P ~~~~~~~ to find closing brace. Place the cursor at the opening brace and use this.
 	   
 	Cntrl + O ----> Methods in Class 
 	
