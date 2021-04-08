@@ -9,7 +9,7 @@
  
      .........RealTimeTools590.....DevOps890Other......MockiSpringSecurity444to330....JIRA790......CloudComputing550.....
 		 
-     .........ApacheCamel985 .....JMeter330..........Capcha770....AJAX670....CodeReviewTools
+     .........ApacheCamel985 .....JMeter330..........Capcha770....AJAX670....CodeReviewTools....JQuery880
 		 
 ==============================================================================================  
 
@@ -4999,11 +4999,32 @@ Note: After Test is created, Save Test Plan with .jmx extension and run the test
 
 ==============/\/\/\/\/\===================\/\/\/\/\/\/\=================\/\/\/\/\/\/\====================
 
+ JQuery880 :=  [ https://www.tutorialsteacher.com/jquery/jquery-tutorials ]
+~~~~~~~~~~~~   [ https://www.javatpoint.com/what-is-jquery ]
+ 
+ --- Used to Manipulate the DOM && Designed to Manipulate Client side scripting language.
+ --- Used yo create powerful dynamic Web && Animated pages
+ --- It helps in loading pages faster. 
+ 
+ --- Sekectors are used to select element based on name, attribute, position 
+
+  
+                                 jQuery(code) ------> $(code) 
+								 
+								 
+			Here Dollar ($) is a function 
+
+
+
+ JQuery Function chaining :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Used to perform multiple methods on same set of elements . 
 
 
 
 
+======================================================================================================
 
-
+==============/\/\/\/\/\===================\/\/\/\/\/\/\=================\/\/\/\/\/\/\====================
 
 

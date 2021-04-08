@@ -1,0 +1,80 @@
+
+
+
+ (1) ngOnInit() :=
+~~~~~~~~~~~~~~~~~
+export class CustomerDetailsViewComponent implements OnInit {
+ 
+  data: any;
+  claimsList:any;
+  customerData:any;
+  
+  ngOnInit() {
+    this.customerService.getCustomerWithClaims(this.data.customerId).subscribe((data: any) => {
+      console.log(data);
+      this.customerData=data[0];
+      this.claimsList=data[0].claims;
+    });
+  }
+ 
+
+  constructor(public bsModalRef: BsModalRef,public customerService : CustomerService) {}
+  }
+  
+=======================================================================================================
+
+ (2) ngOnDestroy() :=
+~~~~~~~~~~~~~~~~~
+ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+  
+=======================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,238 @@
+
+ 
+   Refer " Master-data-Component.ts " ----> EzTravel-WebUAT
+ 
+ 
+====================================================================================================================
+ 
+ FormBuilder && FormGroup(controls) Example :=  (*************) 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+  
+  documentForm: FormGroup;
+  private formBuilder: FormBuilder
+   
+
+  ngOnInit() {
+    this.documentForm = this.formBuilder.group({
+      _id: [''],
+      cliamType: ['', Validators.required],
+      documentName:['',Validators.required],
+      documentStatus:['',Validators.required]
+    })
+  }
+  
+  
+                  <div class="form-group col-md-3">
+                      <label for="">Customer Name</label>
+                      <input type="text" class="form-control" formControlName="customerName"   [ngClass]="{ 'is-invalid': submitted && f.customerName.errors }" placeholder="">
+                      <div *ngIf="submitted && f.customerName.errors" class="invalid-feedback">
+                        <div *ngIf="f.customerName.errors.required">Customer name is required</div>
+                      </div>
+                    </div>
+					
+                      <div class="form-group col-md-3">
+                        <label for="">Contact Email</label>
+                        <input type="text" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && f.contactEmail.errors }" formControlName="contactEmail"
+                          placeholder="">
+                        <div *ngIf="submitted && f.contactEmail.errors" class="invalid-feedback">
+                          <div *ngIf="f.contactEmail.errors.required">Email is required</div>
+                          <div *ngIf="f.contactEmail.errors.email">Email must be a valid email address</div>
+                        </div>
+                      </div>
+					  
+					**********************  
+                 <div class="form-group col-md-3">
+                  <label for="">State/Region</label>
+                  <select class="form-control" id="hspState" formControlName="hospitalState"
+                    [ngClass]="{ 'is-invalid':submitted&& f.hospitalState.errors }">
+                    <option value="">Select</option>
+                    <option *ngFor="let state of hospitalStates" [value]="state.StateName">{{state.StateName}}
+                    </option>
+                  </select>
+                  <div *ngIf="submitted&&f.hospitalState.errors" class="invalid-feedback">
+                    <div *ngIf="f.hospitalState.errors.required">Please select country</div>
+                  </div>
+                </div>
+
+===================================
+
+Edit(i,id){
+  console.log(i);
+  alert(JSON.stringify(i.Documents[id].Name))
+  this.documentForm.get('cliamType').setValue(i.ClaimType)
+  this.documentForm.get('documentName').setValue(i.Documents[id].Name)
+  this.documentForm.get('documentStatus').setValue(i.Documents[id].Required)
+  // this.documentForm.get('_id').setValue(i._id)
+}
+updateDocument(){
+let requestObject = {
+  "Documents": [
+      {
+          "Name": this.documentForm.value.documentName,
+          "Required": this.documentForm.value.documentStatus
+      }
+    ]
+  }
+  this.master.updateDocumentsList(requestObject).subscribe(response => {
+    this.getClaimType();
+    this.updateDocumentData = response
+    console.log(this.updateDocumentData, 'update');
+  })
+}
+========================================================================================
+
+   export function MustMatch(controlName: string, matchingControlName: string) {
+    return (formGroup: FormGroup) => {
+        const control = formGroup.controls[controlName];
+        const matchingControl = formGroup.controls[matchingControlName];
+        if (matchingControl.errors && !matchingControl.errors.mustMatch) {
+            // return if another validator has already found an error on the matchingControl
+            return;
+        }
+        // set error on matchingControl if validation fails
+        if (control.value !== matchingControl.value) {
+            matchingControl.setErrors({ mustMatch: true });
+        } else {
+            matchingControl.setErrors(null);
+        }
+    }
+}
+
+
+========================================================================================
+
+export function MaxDatePattern(controlName: string) {
+    return (group: FormGroup): { [key: string]: any } => {
+        const control = group.controls[controlName];
+        let f = group.controls[controlName];
+        let t = new Date();
+        if (new Date(f.value) > t) {
+            control.setErrors({ maxDatePattern: true });
+        } else {
+            control.setErrors(null);
+        }
+        return {};
+    }
+}
+
+
+
+========================================================================================
+
+export function AtLeastOneValidator() {
+    return (controlGroup: FormGroup) => {
+        let controls = controlGroup.controls;
+        if (controls) {
+            let theOne = Object.keys(controls).find(key => controls[key].value !== '');
+            if (!theOne) {
+                return {
+                    AtLeastOneRequired: {
+                        text: 'At least one should be selected'
+                    }
+                }
+            }
+        }
+        return null;
+    };
+};
+
+
+
+========================================================================================
+
+  *******Modal-Footer************
+  
+                  <div class="modal-footer">
+                    <button type="button" class="btn masterBtn" data-dismiss="modal"
+                        (click)='showSubmit=false'>Close</button>
+                    <button type="submit" class="btn masterBtn" data-dismiss="modal" *ngIf='showSubmit'
+                        (click)='accesPermPost(accessPermission.value)'
+                        [disabled]="!accessPermission.get('permissionType').valid">Save</button>
+                    <button type="submit" class="btn masterBtn" data-dismiss="modal" *ngIf='!showSubmit'
+                        (click)='accesPermPost(accessPermission.value)'
+                        [disabled]="!accessPermission.valid">Update</button>
+                </div>
+
+===============================================================================================================
+ 
+                <div class="modal-body">
+                    <mat-form-field>
+                        <mat-label>Currency</mat-label>
+                        <input formControlName='type' matInput>
+                    </mat-form-field>
+                    <div class="errorShow"
+                        *ngIf="Currency.controls.type.touched && Currency.controls.type.invalid">
+                        <span *ngIf="Currency.controls.type.errors.required">
+                            Currency is required.
+                        </span>
+                    </div>
+                    &nbsp;&nbsp;
+                    <mat-form-field *ngIf='!showSubmit'>
+                        <mat-label>Status</mat-label>
+                        <mat-select formControlName='status'>
+                            <mat-option [value]="true">Active</mat-option>
+                            <mat-option [value]="false">In Active</mat-option>
+
+                        </mat-select>
+                    </mat-form-field>
+                    <div class="errorShow"
+                        *ngIf="Currency.controls.status.touched && Currency.controls.status.invalid">
+                        <span *ngIf="Currency.controls.status.errors.required">
+                            Status is required.
+                        </span>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

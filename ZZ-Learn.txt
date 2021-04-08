@@ -4,7 +4,7 @@
 	 
 	 Websites450..........TechnicalVideos440 (*********)
 	  
-	 FULLSTACK500......JavaPath ...........Learn990....Career550.......
+	 FULLSTACK500......JavaPath ...........Learn990....Career550.......Clients770
 		  
 	Baledung440........Install440.......EclipseShortcut
 	
@@ -129,7 +129,8 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
 	
 ================================================================================================
 
- Spring Btach ----> Multithreading with JVM Parllel-Instances [Buckiting]  (****)
+ 
+ Spring Batch ----> Multithreading with JVM Parllel-Instances [Buckiting]  (****)
  
   ORA_HASH ----> divides records into Buckets 
   
@@ -573,6 +574,20 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
      https://github.com/javatechie-angular-tutorial/javatechie-covid19-ng
  
 ==================================================================================================
+ 
+ Clients770 :=
+~~~~~~~~~~~~~
+
+ Mahindra First Choice :=
+~~~~~~~~~~~~~~~~~~~~~~~
+  (1) Active and Inactive Stocks  ----> Should have got Domain 'K'  (UAT)
+  
+  (2) Email Trigger     ----> Should have 'TESTED' Once 
+  
+  (3) DCR Transactions  ----> Should have got Domain 'K' && Observed Code
+   
+================================================================================================
+
 
  Baledung440 :=
 ~~~~~~~~~~~~~

@@ -109,3 +109,43 @@ const routes: Routes = [
 
 =======================================================================================================
 
+    let today = new Date();
+    let day = today.getDate();
+    let mont = today.getMonth() + 1; //January is 0!
+    let dd: string;
+    let mm: string;
+    var yyyy = today.getFullYear();
+	
+=======================================================================================================
+
+ permissionsdata(){
+    return JSON.parse(localStorage.getItem('role_permissions'));
+  }
+
+
+  logOut() {
+    localStorage.clear();
+    this.router.navigate(['/']);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

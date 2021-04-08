@@ -65,8 +65,32 @@ Differences betwwen Promises && Observables :=
   
 ==========================================================================================================================
 
+ Subscribe Eg :=
+~~~~~~~~~~~~~~~~
+getDocument(){
+  this.master.DocumentsList().subscribe(response => {
+    this.getData = response;
+    console.log(this.getData);
+  })
+  
+---------------
+
+  getInsuranceProviders() {
+    this.masterService.getInsuranceProviders().subscribe((data: any) => {
+      this.providers = data;
+    });
+  }
 
 ==========================================================================================================================
 
-
+ Modal Refer :=
+~~~~~~~~~~~~~~~~
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+			
+==========================================================================================================================			
+			
+			
+			
 

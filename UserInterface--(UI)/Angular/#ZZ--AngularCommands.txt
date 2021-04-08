@@ -36,29 +36,36 @@
 ~~~~~~~~~~~~~~
  ---It is used to create  ready made Angular-Project.
  
- 
- 
- 
 	 
-=================================================================================================================
+================================================================================================================= [ }); ]
 
 ----> ng new Hello --skip-tests /// ng new Hello -si -st ..../// Skips the "-Test-"(Spects) files. code
    
 ----> npm i || npm update || npm audit fix  || npm i @angular-devkit/build-angular  ---> for Cloned Projects (******)
   
-----> npm i -g @angular/core        /// npm i -g @angular/core --force    ///  npm i -g typescript   
+----> npm i -g @angular/core --force    ///  npm i -g typescript   
  
-----> npm i -g @angular/cli         /// npm i @angular/cli                ///  npm update @angular/cli@latest  
+---->      npm i -g @angular/cli       ///  npm update @angular/cli@latest  
 
-----> npm uninstall(i) -g @angular/cli /// npm i --save-dev @angular/cli@latest  
+  
+  Install-Angular ---------> npm uninstall(i) -g @angular/cli   ////    npm i --save-dev @angular/cli@latest
 
-
+  Global Install ----------> npm install -g @angular/cli   ////   npm i -g @angular/core 
+	
+  Local Install -----------> npm i @angular/cli@6  
+  
+    Dev-Kit   -------------> npm i @angular-devkit/build-angular@0.803.24
+	
+	
  npm uninstall -g @angular/cli                                                            
  npm i   -g @angular/cli@latest  
- npm i --save-dev @angular/cli@latest   
+ npm i --save-dev @angular/cli@latest
+ npm audit fix --force 
 
-               VERSION ----> ng --version 
 
+   Check-Angular-Version -----> ng --version 						 
+
+ 
 
  npm i bootstrap@3 --save          /// npm i --save bootstrap@3   ///   npm i ngx-bootstrap --save  /// npm install bootstrap@latest
  npm i bootstrap@3 jquery --save  ///  npm i bootstrap jquery --save 
@@ -70,19 +77,24 @@
  npm i -g @angular-devkit/schematics-cli
  npm i --save-dev @angular-devkit/build-angular
  
+ 
  Port :=
 ~~~~~~~
  ng s --port 4201 //Change Port 
  ng s -o //Opens Browser Automatically.
 
+
   Http  :=  npm i @angular/http@latest                                           
 ~~~~~~~~
+ 
  
  Forms :=   npm i --save forms-angular  ///  npm install @angular/forms --save
 ~~~~~~~
 
+
  Route :=   npm i angular-route 
 ~~~~~~~
+ 
  
  Pagination :=   npm install ngx-pagination --save
 ~~~~~~~~~~~~~~
@@ -102,10 +114,12 @@
  Component :=
 ~~~~~~~~~~~~
  ng g c Hello11   //component
- ng g c admin/users ........../// In a "-Admin-" Folder.
- ng g c  users --flat ......./// Create Component without-Folder.
- ng g c  hello -it -s ....../// for In-Line (Styles & Template)
- ng g module mod ..../// Generates Module
+ ng g c admin/users                      ......../// In a "-Admin-" Folder.
+ ng g c  users --flat                    ......./// Create Component without-Folder.
+ ng g c  hello -it -s                    ......///  For In-Line (Styles & Template)
+ ng g module mod                         .....///   Generates Module 
+ ng g c specific-folder/component-name   ....///  Generates Component Inside Folder 
+ 
  
  ng g c Hello/login        --nospec --flat=true 
  ng g c Hello/department   --nospec --flat=true  //Creates-Components under 1 folder.
@@ -163,21 +177,21 @@ Json (db.json):=
 ~~~~~~~~~~~~~~~~~~~
  npm i -s @angular/material@latest
  ng add @angular/material
- npm install angular-material --save
- npm install angular-material-datepicker
- npm install --save @angular/material @angular/cdk
- npm install material-design-icons
+ npm i angular-material --save
+ npm i angular-material-datepicker
+ npm i --save @angular/material @angular/cdk
+ npm i material-design-icons
 
  Animation :=
 ~~~~~~~~~~
- npm install --save @angular/material @angular/animations
- npm install @angular/animations --save
- npm install ng-pick-datetime --save
+ npm i --save @angular/material @angular/animations
+ npm i @angular/animations --save
+ npm i ng-pick-datetime --save
 
  pagination :=
-~~~~~~~~~~
-  npm install ngx-pagination --save
-  npm install primeng font-awesome
+~~~~~~~~~~~~~~
+  npm i ngx-pagination --save
+  npm i primeng font-awesome
   import {NgxPaginationModule} from 'ngx-pagination';
   
 
@@ -226,33 +240,51 @@ import { Keepalive } from '@ng-idle/keepalive';
 Imports :=
 ---------
   
-  
   import {HttpClientModule,HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
   import {Http, Response, RequestOptions, Headers,Http,HttpModule} from '@angular/http';
   import {Response, RequestOptions, Headers} from '@angular/http';
  
 
   import { Component, OnInit, Inject, HostListener, NgModule,OnChanges,Input,Output,Injectable } from '@angular/core';
-  import { Observable } from 'rxjs';
+  import { Observable , Subscription, Subject } from 'rxjs';
  
   
   import {FormGroup ,FormControl,FormsModule,ReactiveFormsModule,Validators} from '@angular/forms';  
+  import {ActivatedRoute, Router,RouterModule} from '@angular/router';
+  import { Router, ActivatedRoute } from '@angular/router';
+  import { httpInterceptorProviders } from './http-interceptors';
+  
+  
   import {BrowserModule} from '@angular/platform-browser';
+  import { NgxEditorModule } from 'ngx-editor';
   import { AppRoutingModule } from './app-routing.module'; 
 
+
   import { ToastrManager } from 'ng6-toastr-notifications';
-  import { SubSink } from 'subsink';  
+  import { SubSink } from 'subsink'; 
+  import { ModalModule } from 'ngx-bootstrap/modal';  
+
+
   
- ////MODULES
+  // ****OTHERS***
+  import { ToastrModule } from 'ngx-toastr';
+  import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+  import { Claim, UpdateClaim } from '../app/_shared/models/claim.model';
+  import {NgxPaginationModule} from 'ngx-pagination';
+  import { IndexRoutingModule } from './index-routing.module';
+  
+  
+  import { AngularCsv } from 'angular7-csv/dist/Angular-csv';
+  import { ToastrService } from 'ngx-toastr';
+  import { BsModalService, BsModalRef } from 'ngx-bootstrap';
+  import { BrowserModule } from '@angular/platform-browser';
 
-
- import {ActivatedRoute, Router,RouterModule} from '@angular/router';
- import { Router, ActivatedRoute } from '@angular/router';
 
   import { ImageCompressService, ResizeOptions, ImageUtilityService, IImage, SourceImage } from  'ng2-image-compress';
   import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   import { DOCUMENT,Location } from '@angular/common';  
   import {DataTablesModule} from 'angular-datatables';  
+
 
   import { FoodNode } from '../food-node';
   import { ExampleFlatNode } from '../example-flat-node';
@@ -260,6 +292,14 @@ Imports :=
   import {FlatTreeControl} from '@angular/cdk/tree';
   import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   import {MatTreeModule} from '@angular/material/tree';
+  import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+  
+  
+  import { MatFormFieldModule } from '@angular/material/form-field';
+  import {MatSelectModule} from '@angular/material/select';
+  import { MatInputModule } from '@angular/material/input';
+  import { HttpClientModule } from '@angular/common/http';
+  import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
   Important :=
 ~~~~~~~~~~~~~

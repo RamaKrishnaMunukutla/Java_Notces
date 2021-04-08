@@ -132,6 +132,11 @@ ngOnInit is a life cycle hook called by Angular to indicate that Angular is done
 ~~~~~~~~~~
  ---FormControl instance tracks the value and state of the individual html element it is associated with
  ---FormGroup instance tracks the value and state of all the form controls in it's group
+ 
+ 
+ Dependency injection :=
+~~~~~~~~~~~~~~~~~~~~~~
+ --- It is a design pattern in which a class requests dependencies from external sources rather than creating them. 
 
 =======================================================================================
 

@@ -6,7 +6,11 @@
    ........TwoWayBinding......ClassBinding.........StyleBinding
   
 
-======================================================================================
+========================================================================================================
+
+            Refer " Master-data-Component.html " ----> EzTravel-WebUAT
+
+========================================================================================================
 
  (1) Interpolation :=
 ~~~~~~~~~~~~~~~~~~~~~
@@ -22,7 +26,7 @@
  
  (2) PropertyBinding :=  [ hidden,isDisabled ]
 ~~~~~~~~~~~~~~~~~~~~~~
-  ---Binds Boolean Property.
+---> Binds Boolean Property.
 
  <div [hidden]="submitted" style="width: 600px;">
   submitted = false;
@@ -32,12 +36,83 @@
   
   <button [disabled]= "userForm.form.invalid" class="btn btn-primary" type="submit"> 
   
-========================================================================================
+
+----> Example 2 for 'ngClass'
+
+                <div class="form-group col-md-3">
+                  <label for="">From Date</label>
+                  <input type="date" class="form-control" formControlName="startDate"
+                    [ngClass]="{ 'is-invalid': submitted&&f.startDate.errors }" placeholder="">
+                  <div *ngIf="submitted && f.startDate.errors" class="invalid-feedback">
+                    <div *ngIf="submitted && f.startDate.errors">Please enter valid from date</div>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-3">
+                  <label for="">To Date</label>
+                  <input type="date" class="form-control" formControlName="endDate"
+                    [ngClass]="{ 'is-invalid': submitted&&f.endDate.errors }" placeholder="">
+                  <div *ngIf="submitted && f.endDate.errors" class="invalid-feedback">
+                    <div *ngIf="submitted && f.endDate.errors">Please enter valid To date</div>
+                  </div>
+				  
+
+----> Example-3 for ngClass 
+
+                <div class="form-group col-md-3">
+                  <label for="">Client Name</label>
+
+                  <!-- <label for="">Insurance Provider</label> -->
+                  <select class="form-control" id="contry"
+                      formControlName="clientName"
+                      [ngClass]="{ 'is-invalid':submitted&& f.clientName.errors }">
+                      <option value="">Select</option>
+                      <option *ngFor="let provider of providers"
+                          [value]="provider.clientId">{{provider.clientName}}
+                      </option>
+                  </select>
+                  <div *ngIf="submitted&&f.clientName.errors"
+                      class="invalid-feedback">
+                      <div *ngIf="f.clientName.errors.required">Please select
+                          Client</div>
+                  </div>
+			
+			
+-----> Example-4 for ngClass
+
+                                <div class="form-group col-md-3">
+                                    <label for="">Scheme*</label>
+                                    <select class="form-control add-dropdowns" id="scheme" formControlName="scheme"
+                                        [ngClass]="{ 'is-invalid': emptyScheme || (submitted&& f.scheme.errors) }">
+                                        <option value="">Select</option>
+                                        <option *ngFor="let schema of clientSchemas" [value]="schema._id ">
+                                            {{schema.schemeType}}
+                                        </option>
+                                    </select>
+                                    <i class="fa fa-plus add-icon" (click)="openAddformModal(addScheme)"></i>
+                                    <div *ngIf="emptyScheme || (submitted&&f.scheme.errors)" class="invalid-feedback">
+                                        <div *ngIf="emptyScheme || (f.scheme.errors.required)">Please select scheme</div>
+                                    </div>
+                                </div>
+								
+
+----> Example-5 for ngClass 
+
+                        <div class="form-group">
+                            <label>Role</label>
+                             <select (change)="Rolechange($event)"   class="form-control">
+                              <option value="">Select</option>
+                              <option *ngFor="let role of rolesList" value={{role._id}}>
+                                  {{role.role_name}}
+                              </option>                                 
+                            </select>
+                        </div>
+  
+==========================================================================================================
  
  
  (3) EventBinding :=  ( click,ngSubmit )
 ~~~~~~~~~~~~~~~~~~~~
-  ----
   
   	  <button (click)="deleteEmployee(employee.id)" 
 	                class="btn btn-danger">Delete</button>  ....// goes to TS-file "-deleteEmployee(id)-" method 
@@ -59,6 +134,10 @@
 	   }
 	  
 	  <form (ngSubmit)="onSubmit()"> 
+	  
+----------------------------
+
+	 <button class="btn btn-danger " (click)="download($event)">Download</button>  (**************)
 
 ================================================================================================================
 
@@ -88,6 +167,18 @@
 ----------------
  
  <input type="text" class="form-control" id="lastName" required [(ngModel)]="employee.lastName" name="lastName" class="col-xs-2" lastName #lastName="ngModel">
+ 
+----------------
+
+   <div class="row" style="margin-bottom: 25px;">
+        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 mx-auto">
+            <form>
+    
+                <input type="text" class="form-control" name="key" [(ngModel)]="key" size="50" placeholder="Search"
+                    (change)='search($event.target.value)' [disabled]="searchfield">
+            </form>
+        </div>
+    </div>
 		 
 
 =========================================================================================================
