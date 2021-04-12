@@ -31,8 +31,15 @@ ngOnDestroy() {
   
 =======================================================================================================
 
+---> Every Components has a LifeCycles.
+---> Angular Creates and Renders these Components and also Destroys them before removing form DOM. 
 
-
+ 
+ ngOnChanges() ---> Sets / Resets data Bound in Properties.
+ 
+ 
+ ngOnInit() ------> Hook that Initialize Directives / Components , after  displays data-Bound  Properties and 
+                    sets Components  that sets in Properties. 
 
 
 

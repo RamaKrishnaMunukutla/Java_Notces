@@ -10,9 +10,15 @@
  ---There are 3-directive.(SAC)
      
                                     
- (1) Structural (ng--If,For,Switch)------> Changes Structure of HTML-DOM.
- (2)Attribute [ [hidden]="hide()" ] -----> Changes Behavior of HTML-DOM.
- (3)Component [ <demo> ] ----------------> having Own-UI code.
+ (1) Structural (ng--If,For,Switch)------> used to manipulate and change the structure of the DOM elements. 
+                                           For example, *ngIf and *ngFor.
+ 
+ 
+ (2)Attribute [ [hidden]="hide()" ] -----> Changes the look or behavior of an element, component, or another directive.
+ 
+ 
+ (3)Component [ <demo> ] ----------------> These are used in main class. 
+                                           They contain the detail of how the component should be processed, instantiated and used at runtime.
  
  
  

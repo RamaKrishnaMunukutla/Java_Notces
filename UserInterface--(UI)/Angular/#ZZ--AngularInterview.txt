@@ -94,6 +94,13 @@ export class AppComponent {
 Modules are logical boundaries in your application and the application is divided into separate modules to separate the functionality of your application. Lets take an example of app.module.ts root module declared with @NgModule decorator  .
 
 
+ Packge.json :=
+~~~~~~~~~~~~~
+ --- Have Set of Packages that Required to Run Angular Application 
+              (1) Dependencies     ---> Essential to Run Application 
+			  (2) Dev-Dependencies ---> Necessary to Develop Application 
+
+
  Module :=
 ~~~~~~~~~~
  -- It is a mechanism to group components, directives, pipes and services that are related, in such a way that can be combined with other modules to create an application.
@@ -103,7 +110,10 @@ Modules are logical boundaries in your application and the application is divide
  NgModule :=
 ~~~~~~~~~~~
  ---It is a decorator function
- 
+
+
+ Services := Performs task(Data Fetching / Manipulation) Shared by Multiple Components. 
+~~~~~~~~~~~  Reduces Redundancy Code. // All Services are Singleton(****)
  
  Decorators :=
 ~~~~~~~~~~~~~
@@ -137,8 +147,161 @@ ngOnInit is a life cycle hook called by Angular to indicate that Angular is done
  Dependency injection :=
 ~~~~~~~~~~~~~~~~~~~~~~
  --- It is a design pattern in which a class requests dependencies from external sources rather than creating them. 
+ 
+ 
+ @Injectable :=
+~~~~~~~~~~~~~~
+ --- Set some metadata about which dependencies to inject into the constructor of the associated class. 
+ --- It's a class decorator that doesn't require parameters. 
+ --- Without this decorator no dependency will be injected.
+ 
+            Module Injector Hierarchy  ---->  @NgModule , @Injectable   
+			
+		   Element Injector Hierarchy  ---->  @Directive , @Component 
+ 
+ 
+ 
+ @Inject :=
+~~~~~~~~~~
+  --- Used at the level of constructor parameters to specify metadata regarding elements to inject. 
+  --- Without it, the type of parameters is used (obj:SomeType is equivalent to @Inject(SomeType) obj).
 
-=======================================================================================
+@Injectable()
+export class SomeService {
+  constructor(@Inject(Http) private http:Http, @Inject('sometoken') obj) {
+  }
+}
+
+
+ Providers :=
+~~~~~~~~~~~~
+ --- Injectors always rely on Providers to Inject Dependencies. (***********)
+
+  
+
+ MetaData :=
+~~~~~~~~~~~~
+ -- Tells Angular How to process Class.
+ 
+ 
+ Decarator :=
+~~~~~~~~~~~~~
+ --- Angular Provides MetaData through 'Decarator' .  /// Eg :: @NgModule  /// Part of TypeScript  
+ 
+ 
+           Parts of @NgModule ---> Declarations [Comp], Providers[Serv] , imports[Mod] , BootStrap , Exports 
+          ~~~~~~~~~~~~~~~~~~~~~
+ 
+ 
+ RootModule (AppModule) :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+ --- It Set-Up's Exceution of App /// BootStraps RootComponent /// One Application can have Multiple-Module (*****)
+
+
+  Selectors :=
+~~~~~~~~~~~~~~
+ --- Wrapper around Native element inside View. 
+ 
+ 
+ ElementRef :=
+~~~~~~~~~~~~~~
+
+
+  @HostBinding := Decorator allows you to set Properties of host Elements 
+~~~~~~~~~~~~~~~~
+
+  @HostListener := Handles Events of Host elements in Directive Class. 
+~~~~~~~~~~~~~~~~
+
+
+
+ Components := Control views (html). 
+~~~~~~~~~~~~~  They also communicate with other components and services to bring functionality to your app.
+
+
+ MVC In Component :=
+~~~~~~~~~~~~~~~~~~~
+ --- Supported in Component Level Itself 
+ 
+                          Model ---> Bindings ////  View ---->  Template    //// Controller ----> Cpomponent 
+ 
+ 
+   Parent to Child := @Input 
+ ~~~~~~~~~~~~~~~~~~~~
+ 
+
+   Child to Parent :=  @Outputs && Need Event ('EventEmitter')has to Trigger. 
+ ~~~~~~~~~~~~~~~~~~~~
+
+ 
+ Promises := Emits Single Value  /// Not Lazy   
+~~~~~~~~~~~
+ 
+ 
+ Observable := Emits Multiple Values Over Period of Time  ///  It is HHTP Response that arrives Asynchronously. 
+~~~~~~~~~~~ - It is The Response(Data which we get from  Database ---> HTTP-Response)  //// ONly --GET--
+                           that is done through HTTP with the help of Restful-Services    (***********)   
+			-- Only 'Subscribed' Components will receive Data from Services ///Assign to Local Variables .  (***********)
+            -- After Subscribing, it is upto  Components What they want to do with that data.(***********)			
+
+
+ FormGroup :=  Represents Group of 'FormControl' /// Returns TRUE if all Controls are Valid (****)
+~~~~~~~~~~~~  Used to track the value and validation state of form control.
+               used with FormControl and FormArray
+
+
+ FormControl := It is Class that Enables Validation. //// It is used to create Angular reactive form.
+~~~~~~~~~~~~    For Each Input Feild , Instance of Class Created that helps to check whether Touched (Or) Not .  (****)
+
+
+Reactive Form := Creating form using FormControl, FormGroup and FormArray is said to be reactive form.
+~~~~~~~~~~~~~~  They use ng module asReactiveFormsModule.
+  
+  
+ Template-Driven Form := Creating form using NgForm and NgModel, is said to be template-driven form. 
+~~~~~~~~~~~~~~~~~~~~~~~  They use ng module as FormsModule.
+
+
+ Template :=  Used to render the component in angular application.
+~~~~~~~~~~~
+
+
+
+
+  Routing :=
+~~~~~~~~~~~~
+ --- That helps to Navigate through Application.
+ --- Especially in SPA, loads Content Dynamically 
+
+
+ Module := It is  place where you can group the components, directives, pipes, and services and so On in  application
+~~~~~~~~~
+ ---> module defines an application //// It is a container for the different parts of an application.
+
+
+ AOT (Ahead of Time):= Convert Code to Build time before Browser Downloads and runs the code. /// Ensures Fast-Rendering.  
+~~~~~~~~~~~~~~~~~~~~~
+
+
+ JIT (Just In Time):= Compile Source-Code to Machine-Code during Exceution (Or) Runtime.  /// Dynamic-Compilation
+~~~~~~~~~~~~~~~~~~~~~
+
+
+
+===============================================================================================================
+
+
+ RxJS filter := It is used to filter values emitted by source Observable on the basis of given predicate. 
+~~~~~~~~~~~~~~~
+
+
+ RxJS Map :=  
+~~~~~~~~~~
+ --- It is pipeable operator that  applies a given function to each element emitted by the source Observableand emits the resulting values as an Observable. 
+ --- Map is used with pipe which is an instance method of Observable. 
+ --- Suppose we have an Observable of a string that contains comma separated names.
+
+
 
  @Inputs :=
 ~~~~~~~~~~
@@ -149,6 +312,15 @@ ngOnInit is a life cycle hook called by Angular to indicate that Angular is done
 
 =============================================================================================================
 
+ App Flow :=
+~~~~~~~~~~~
+           Angular CLI 
+ index.html ---> main.ts (BootStarp    RootModule  :: AppModule )  
+
+   AppModule --->         BootStrap  RootComponent :: AppComponent
+
+
+=============================================================================================================
 ---->What are lifecycle hooks available?
 Angular application goes through an entire set of processes or has a lifecycle right from its initiation to the end of the application. The representation of lifecycle in pictorial representation as follows, ScreenShot.The description of each lifecycle method is as below,
 

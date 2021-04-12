@@ -4994,6 +4994,31 @@ Note: After Test is created, Save Test Plan with .jmx extension and run the test
  -- AJAX request are written && executed with JavaScript code.
  -- JQuery offers many Convinient methods to AJAX 
  
+        Scope ----> Glue between Controller & View  /// Refers to Modal 
+	
+	 Controller ----> Where Angular JS functions OPerate on Data && Decide which view to be rendered.
+	   
+	  Binding ------> Syn(data) between Model && View /// ng-Model used for data Binding.   
+ 
+ 
+   Key Features of AngularJS ---> MVC, Directives , DataBinding , Directives , Services
+                      
+					         ---> Filters
+							 
+							 
+							 
+			 Directives ------> Element , CSS , Comment , Attribute    (ng-app, ng-init, ng-model)
+                 
+           Factory Method ----> Creates Directives
+
+
+   ng-App ---> Initilaize Angular-App		   
+
+   ng-init ---> Initilaize Angular-App Data 
+   
+   ng-Model ----> Binds HTML Tags 
+
+
 
 ======================================================================================================
 
@@ -5002,7 +5027,13 @@ Note: After Test is created, Save Test Plan with .jmx extension and run the test
  JQuery880 :=  [ https://www.tutorialsteacher.com/jquery/jquery-tutorials ]
 ~~~~~~~~~~~~   [ https://www.javatpoint.com/what-is-jquery ]
  
- --- Used to Manipulate the DOM && Designed to Manipulate Client side scripting language.
+---> jQuery is a small, fast and lightweight JavaScript library.
+     jQuery is platform-independent.
+     jQuery means "write less do more".
+     jQuery simplifies AJAX call and DOM manipulation.
+
+
+--- Used to Manipulate the DOM && Designed to Manipulate Client side scripting language.
  --- Used yo create powerful dynamic Web && Animated pages
  --- It helps in loading pages faster. 
  
@@ -5019,6 +5050,22 @@ Note: After Test is created, Save Test Plan with .jmx extension and run the test
  JQuery Function chaining :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
  --- Used to perform multiple methods on same set of elements . 
+
+
+ Ajax() method in jQuery := performs an AJAX request. It sends an asynchronous HTTP request to the server.
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+---> AngularJS is a framework, whereas jQuery is a library that is used for DOM manipulation.
+---> jQuery doesn't include a two-way binding feature, whereas AngularJS includes two-way data binding, directives, MVC, etc. as its key features.
+
+
+The features list of AngularJS is given as follows.
+Two-way data binding
+MVC (Model view controller)
+Testing
+Modules
+Routes, etc.
 
 
 

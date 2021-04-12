@@ -143,7 +143,14 @@
 
  (4) TwoWayBinding :=  
 ~~~~~~~~~~~~~~~~~~~~~
-  ----Import "Forms-Module" for ngModel. (*********)
+ --- Import "Forms-Module" for ngModel. (*********)
+ ---  "$event" where Changed Value are Present . 
+  
+  /// Without nGModel 
+  
+  <input [value] ="title" (input) ="title=$target.event.value" >
+
+-----------------------
  
  <input type="text" [(ngModel)]="name">
     {{name}}

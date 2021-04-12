@@ -6,7 +6,7 @@
 	  
 	  ...FileHandling880.........Alogorithms880...........SortingTechniques.........DataStructures.....
 	  
-	  ...SingletonDemoEg.........
+	  ...SingletonDemoEg.........SearchAlgorithm660
   
   
                 Programs-(YOUTUBE) ---->  Learn with KrishnaSundeep
@@ -23,6 +23,10 @@
 				[ https://javaconceptoftheday.com/big-o-notations-tutorials/ ]
 				[ https://www.javatpoint.com/java-programs ]
 				[ https://www.mysqltutorial.org/tryit/query/mysql-group_concat/#9 ]
+				
+				
+		Programming Tutorials ----> https://www.youtube.com/channel/UCuix1GOcmoqqWcHh1W1dWAg/playlists
+		    TECH DOSE  -----------> https://www.youtube.com/channel/UCnxhETjJtTPs37hOZ7vQ88g/playlists
 				
 				
 				  Searching && Sorting ----> KK-Java /// Saradhi (*********)
@@ -403,6 +407,21 @@
  
             copyOfInputNumber = copyOfInputNumber/10;
         }
+		
+		
+		
+		
+ Count Number of Digits in Number :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  while(num > 0){
+  
+      num = num / 10;
+	  count ++ ;
+  
+   }
+
+
 ======================================================================== 
 
  Prime Numbers within Range :=
@@ -2109,18 +2128,7 @@ O(N!) -----> This  algorithm which has to perform N! computations to solve a pr
                }
            }
        }
-	   // KK Java Tutorial 
-	   
-	   		for (int i = 0; i < inputArray.length-1; i++) {
-			for (int j = 0; j < inputArray.length-1-i; j++) {
-				if(inputArray[j]>inputArray[j+1]) {
-					int temp = inputArray[j];
-					inputArray[j] = inputArray[j+1];
-					inputArray[j+1] =  temp;
-				}
-			}
-		}
-				
+  	
 				
 				O(log n)  >   O(n)  > O(n2)
 	
@@ -2128,7 +2136,7 @@ O(N!) -----> This  algorithm which has to perform N! computations to solve a pr
 	
  (2) Selection  Order := O(n²) 
 ~~~~~~~~~~~~~~~~~~~~~~~
- --- It is Slow 	
+ --- It is Slow Because Compares with each element.  	
 
 
       for(i=0; i<(size-1); i++)
@@ -2154,24 +2162,30 @@ O(N!) -----> This  algorithm which has to perform N! computations to solve a pr
 	  
 	
 
- (1) Insertion Order :=  O(n²) 
+ (2) Insertion Order :=  O(n²) 
 ~~~~~~~~~~~~~~~~~~~~~~~
- ---
+ 
+  void sort(int arr[])
+    {
+        int n = arr.length;
+        for (int i = 1; i < n; ++i) {
+            int key = arr[i];
+            int j = i - 1;
+ 
+            /* Move elements of arr[0..i-1], that are
+               greater than key, to one position ahead
+               of their current position */
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j = j - 1;
+            }
+            arr[j + 1] = key;
+        }
+    }
 
-       for(i=1; i<size; i++)
-       {
-           temp = arr[i];
-           j = i - 1;
-           while((temp < arr[j]) && (j >= 0))
-           {
-               arr[j+1] = arr[j];
-               j = j - 1;
-           }
-           arr[j+1] = temp;
-       }
 
 
- (1) Insertion Order :=
+ (3) Selection Order :=
 ~~~~~~~~~~~~~~~~~~~~~~~
  ---
 
@@ -2266,8 +2280,37 @@ O(N!) -----> This  algorithm which has to perform N! computations to solve a pr
  --- Last Node will conatin  Address of First Node (****)		
 		
 		
-============================================================================================================		
-		
+============================================================================================================
+
+ SearchAlgorithm660 :=  (******* YOUTUBE ---> SANDEEP SARATHI **********)
+~~~~~~~~~~~~~~~~~~~~~~ 
+
+ (1) Linear Search :=
+~~~~~~~~~~~~~~~~~~~~
+ --- Compares Given element with every element in Array.
+ 
+  
+  public static int search(int arr[], int x)
+    {
+        int n = arr.length;
+        for (int i = 0; i < n; i++)
+        {
+            if (arr[i] == x)
+                return i;
+        }
+        return -1;
+    }
+
+
+
+ (2) Binary Search :=  
+~~~~~~~~~~~~~~~~~~~~
+ --- Takes 'Low' && 'High' values and Divide by '2'.
+ 
+  	
+	
+============================================================================================================
+
   SingletonDemoEg :=
 ~~~~~~~~~~~~~~~~~~~
 package com.demo.example;
