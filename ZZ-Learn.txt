@@ -1,12 +1,13 @@
    
       
-     AshokIt22............Repositaries990........Technologies.....PersistentSystems
+     AshokIt22.........Repositaries990........Technologies.....PersistentSystems
 	 
-	 Websites450..........TechnicalVideos440 (*********)
+	 Websites450.......TechnicalVideos440 (*********)
 	  
-	 FULLSTACK500......JavaPath ...........Learn990....Career550.......Clients770
-		  
-	Baledung440........Install440.......EclipseShortcut
+	 FULLSTACK500......JavaPath ...........Learn990....Career550.......
+	 
+	 Clients770.....DDDD....Baledung440........Install440.......EclipseShortcut...
+	
 	
 ====================================================================================================
     
@@ -662,6 +663,10 @@ username: Jhon
 
   
 ==================================================================================================
+
+  DDDD ---> C:\Program Files\Windows Media Player\Users\Sk2\bASIC\5 --- PP
+  
+====================================================================================================
  
  Career550 :=     Be Flexible to learn any TECH /// Learn /// Write LOGIC
 ~~~~~~~~~~~~
@@ -778,7 +783,6 @@ EclipseShortcut:=
 	CNTRL+- ~~~~~~~ZOOM-OUT
 	 
 =======================================================================================
-
 
 
 

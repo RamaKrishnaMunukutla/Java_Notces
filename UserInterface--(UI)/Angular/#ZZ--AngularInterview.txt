@@ -173,6 +173,25 @@ export class SomeService {
 }
 
 
+ Promises := Emits Single Value  /// Not Lazy   
+~~~~~~~~~~~
+ 
+ 
+ Observable := Emits Multiple Values Over Period of Time  ///  It is HHTP Response that arrives Asynchronously. 
+~~~~~~~~~~~ - It is The Response(Data which we get from  Database ---> HTTP-Response)  //// ONly --GET--
+                           that is done through HTTP with the help of Restful-Services    (***********)   
+			-- Only 'Subscribed' Components will receive Data from Services ///Assign to Local Variables .  (***********)
+            -- After Subscribing, it is upto  Components What they want to do with that data.(***********)	
+			
+			
+ Map := Transforms data in Obervable to desirable format. 
+~~~~~
+ 
+ 
+ Filter :=   Allows data which meets Condition. 
+~~~~~~~~~~~
+			
+			
  Providers :=
 ~~~~~~~~~~~~
  --- Injectors always rely on Providers to Inject Dependencies. (***********)
@@ -234,15 +253,7 @@ export class SomeService {
  ~~~~~~~~~~~~~~~~~~~~
 
  
- Promises := Emits Single Value  /// Not Lazy   
-~~~~~~~~~~~
- 
- 
- Observable := Emits Multiple Values Over Period of Time  ///  It is HHTP Response that arrives Asynchronously. 
-~~~~~~~~~~~ - It is The Response(Data which we get from  Database ---> HTTP-Response)  //// ONly --GET--
-                           that is done through HTTP with the help of Restful-Services    (***********)   
-			-- Only 'Subscribed' Components will receive Data from Services ///Assign to Local Variables .  (***********)
-            -- After Subscribing, it is upto  Components What they want to do with that data.(***********)			
+		
 
 
  FormGroup :=  Represents Group of 'FormControl' /// Returns TRUE if all Controls are Valid (****)

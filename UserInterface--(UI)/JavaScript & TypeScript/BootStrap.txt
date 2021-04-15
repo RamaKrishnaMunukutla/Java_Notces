@@ -7,9 +7,32 @@
 		https://getbootstrap.com/docs/4.0/components/modal/
 		https://getbootstrap.com/
 		
-		Icons ----> https://www.w3resource.com/icon/font-awesome/web-application-icons/map-marker.php
 		
-		Websites ---> https://www.youtube.com/channel/UCkjoHfkLEy7ZT4bA2myJ8xA/playlists
+		     Icons   ----> https://www.w3resource.com/icon/font-awesome/web-application-icons/map-marker.php
+		                   https://fontawesome.com/icons/code
+		
+		    Websites ---> https://www.youtube.com/channel/UCkjoHfkLEy7ZT4bA2myJ8xA/playlists
+		
+		
+		
+ Websites :=
+~~~~~~~~~~~~ 
+        Mr. Web Designer ---> https://www.youtube.com/channel/UCKwgH3vASrD2brd1l2m6NHw/playlists
+		Traversy Media -----> https://www.youtube.com/c/TraversyMedia/playlists
+		 Easy Tutorials ----> https://www.youtube.com/c/EasyTutorialsVideo/playlists
+		 
+		 
+ Design-Link :=
+~~~~~~~~~~~~~~~
+    https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css		 
+      <link rel="stylesheet" href="styles.css">
+	  
+	  
+ Eg for HTML, CSS, JS := (Youtube ---> Mr. Web Designer)
+~~~~~~~~~~~~~~~~~~~~~~~
+ https://codepen.io/bloqhead/pen/maKNyM
+
+ 
 
 ============================================================================================================ 
 

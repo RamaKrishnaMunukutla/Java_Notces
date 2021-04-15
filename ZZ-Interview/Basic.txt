@@ -26,7 +26,8 @@
 				
 				
 		Programming Tutorials ----> https://www.youtube.com/channel/UCuix1GOcmoqqWcHh1W1dWAg/playlists
-		    TECH DOSE  -----------> https://www.youtube.com/channel/UCnxhETjJtTPs37hOZ7vQ88g/playlists
+	 	    TECH DOSE  -----------> https://www.youtube.com/channel/UCnxhETjJtTPs37hOZ7vQ88g/playlists
+        With KrishnaSandeep ------> https://www.youtube.com/user/springhibernatetutes/playlists
 				
 				
 				  Searching && Sorting ----> KK-Java /// Saradhi (*********)
@@ -388,7 +389,14 @@
             secondTerm = thirdTerm;
         }
 		
-		
+ 
+ Factorial Program :=
+~~~~~~~~~~~~~~~~~~~~~~
+int i,fact=1;  
+  int number=5;//It is the number to calculate factorial    
+  for(i=1;i<=number;i++){    
+      fact=fact*i;    
+  }     
 		
   Sum of Digits :=
 ~~~~~~~~~~~~~~~~~
@@ -817,6 +825,10 @@ for (int i = 0; i < total; i++)
         }   
 		
 =============================================================================================================	
+
+ Print Occurance of 
+
+=============================================================================================================
  
  Print Even Index Elements in Arary  :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
