@@ -18,6 +18,9 @@
 18 Java array coding interview questions  /// 
 
     ID /// Cascade /// Relations  ///  Lazy loading /// Proxy /// http:localhost:
+	
+	 
+	 ky19472 /// Ykoti@129988
 
   https://www.javaguides.net/2020/06/free-spring-boot-microservices-open-source-projects-github.html
   https://www.javapedia.net/
@@ -614,6 +617,8 @@ https://www.baeldung.com/spring-cloud-series
  
  Install440 :=
 ~~~~~~~~~~
+   https://pastedownload.com/
+   
    
    https://downloads.mysql.com/archives/installer/
    https://dev.mysql.com/downloads/installer/
@@ -666,6 +671,8 @@ username: Jhon
 
   DDDD ---> C:\Program Files\Windows Media Player\Users\Sk2\bASIC\5 --- PP
   
+  
+  8074735148
 ====================================================================================================
  
  Career550 :=     Be Flexible to learn any TECH /// Learn /// Write LOGIC

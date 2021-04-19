@@ -1,19 +1,27 @@
 
 
  
-                DataTypes......  Touple................Functions.................Undefined123   ............Null-123
+    DataTypes......  Touple................Functions.................Undefined123   ............Null-123
 				
-				Var && Let......Type-Operators.........Type-Annotations..........Generic-Array.........Loops880
+    Var && Let......Type-Operators.........Type-Annotations..........Generic-Array.........Loops880
 
 
 -----------
 
    BitWise && Increment operator
    
-     
+     Leela Web Dev ---> https://www.youtube.com/c/LeelaWebDev/playlists
+	 
+	 
+	 https://jsbin.com/?html,js,output
+	 
+	 https://www.youtube.com/watch?v=xns0Vaip4wc&list=PL_euSNU_eLbfJEwuNa43lM89yfev537Mj&index=1&ab_channel=LeelaWebDev
 	          
+===================================================================================================================
 
-=======================================================================================
+    var  /// let /// this /// -> /// { ({  }) } ///
+
+==================================================================================================================
 
                                                        NOTCES
 													  ~~~~~~~~~
@@ -140,6 +148,11 @@ var list : number[] = [1, 3, 5];
 
 var list : Array<number> = [1, 3, 5];  
 
+
+
+  for(let num of numbers) ----> 'of' to Loop Over Numbers (******************)
+  for(let obj in objects) ----> 'in' to Loop Over Objects
+ 
 =======================================================================
 
 Touple:=

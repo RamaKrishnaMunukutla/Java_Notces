@@ -1550,6 +1550,8 @@ public class JUnit4PowerMockitoStaticTest{
                           JAVA-T-POINT /// JOURNAL-DEV
 						  
 		[ https://www.softwaretestinghelp.com/mock-private-static-void-methods-mockito/ ]
+		
+		  Mockito ----> DineshVaryani // KK Java Tutorials (*****Youtube*****)
 						  
 						  
  --- creating alternate object for the real object (********)

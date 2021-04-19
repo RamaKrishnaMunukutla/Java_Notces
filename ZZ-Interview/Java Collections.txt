@@ -544,6 +544,28 @@ TreeSet338:= [......ODN, S&TS.......]
 --->TreeSet also implements Searlizable and Cloneable interfaces.
 
 
+---> TreeSet adds elements to it according to their natural order. 
+     This internally compares the elements with each other using the compareTo (or compare) method.
+	 If you try to compare any object with a null value using one of these methods, a NullPointerException will be thrown.
+	 Therefore, if you try to add null values to a TreeSet it generates a NullPointerException at the run time. 
+
+---> TreeSet.add API - throws NullPointerException - if the specified element is null and this set uses natural ordering, or its comparator does not permit null elements 
+
+
+----> TreeSet class's add() method internally calls put() method of TreeMap class.
+      null value is not allowed as below code in put() methodif (key == null) throw new NullPointerException();
+		
+		StringBuffer sb = new StringBuffer("abs");
+		StringBuffer sb1 = new StringBuffer("abs");
+		System.out.println(sb.equals(sb1));
+		System.out.println(sb == sb1);
+
+		String sb3 = new String("abs");
+		String sb11 = new String("abs");
+		System.out.println(sb3.equals(sb11));
+		System.out.println(sb3 == sb11);
+
+
  SortedSet (I) :=
 ~~~~~~~~~~~~~~~
 ----> The elements are ordered either by using a natural ordering or by using a Comparator.
@@ -616,6 +638,10 @@ EnumSet660 :=
                      Collections.synchronizedMap(hashMap)
 					 
 ---->HashMap implements Cloneable and Serializable interfaces.
+
+======================================
+
+----> First HASHCODE is Calculated && Based on it, INDEX got Calculated (************************)
 
 ======================================
 

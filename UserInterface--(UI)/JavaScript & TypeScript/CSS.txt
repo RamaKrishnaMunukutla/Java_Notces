@@ -18,7 +18,13 @@ p {
   text-align: center;
   color: red;
  }
-	  
+ 
+ 
+ Others :=
+~~~~~~~~~~
+ 
+  <meta name ="viewport" content= "width = device-width, initila-scope =1.0"> 
+ 
 ========================================================================================================================
  
  External CSS :=
@@ -71,7 +77,14 @@ h1 {
 
 ========================================================================================================================
 
-
+ CSS padding --->  used to generate space around an element's content, inside of any defined borders.
+ 
+ -- top padding  --- right and left   -- bottom padding 
+ 
+  h-header ----> Changes Color when Mouse Points Over it.
+  
+  
+  
 ========================================================================================================================
 
 	  

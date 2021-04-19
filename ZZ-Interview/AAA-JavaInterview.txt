@@ -10,7 +10,7 @@ SEARCH:=
 
     .....I/O11...............Serialization123.........SERIALIZABLEandEXTERNALIZABLE.........FoundException
 	
-	.......GarbageCollection123.......................StringBufferBuilder123.............ASCII-123 ............
+	.......GarbageCollection123.......................StringBufferBuilder123.............ASCII-123 ......SubString70
 	 
 	 ......UpcastingANDDownCasting.........Enum123.......JDBC876.............Arrays-123..........
 	  
@@ -351,7 +351,11 @@ Whenever you create a string object using string literal, that object is stored 
 ~~~~~~~~~~~~~~
          str.substring(0,0);           -----> Returns Nothing 
   
-  word.substring(0 + 1, word.length()); ----> Returns Entire String Except First Character. 
+  word.substring(0 + 1, word.length()); ----> Returns Entire String Except First Character.  
+ 
+  String str3 = str.substring(0, str.length()-9);  ----> Reverse 
+  String str2 = str.substring(j, str.length());    ----> From Starting, Returns all Strings 
+  String str4 = str.substring(0, j);
   
   
   Recursion  :=  (*******************)
