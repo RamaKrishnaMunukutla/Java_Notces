@@ -10,6 +10,7 @@
 		
 		     Icons   ----> https://www.w3resource.com/icon/font-awesome/web-application-icons/map-marker.php
 		                   https://fontawesome.com/icons/code
+						   https://fontawesome.com/icons?d=gallery&p=2 
 		
 		    Websites ---> https://www.youtube.com/channel/UCkjoHfkLEy7ZT4bA2myJ8xA/playlists
 		
@@ -24,10 +25,23 @@
 		 
  Design-Link :=
 ~~~~~~~~~~~~~~~
+ <head>
     https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css		 
-      <link rel="stylesheet" href="styles.css">
+      
+	  <link rel="stylesheet" href="styles.css">
+	  
+	  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">	  
 	  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet0">
-      <meta name ="viewport" content= "width = device-width, inital-scope =1.0"> 
+	  
+	  <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100&display=swap" rel="stylesheet">
+     
+	 <meta name ="viewport" content= "width = device-width, inital-scope =1.0"> 
+	  
+	  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" ></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+	  
+ </head>	  
 	  
 	  
  Eg for HTML, CSS, JS := (Youtube ---> Mr. Web Designer)
@@ -54,6 +68,16 @@
    ........Collapse........Dropdown........Pager........Pills(Links)........Navigation-Bars.........
    
    .......ProgressBar......Spinner......Pagination.....
+   
+   
+  Classes :=
+~~~~~~~~~~
+
+----> <div class ="row">  </div> (********Display Content/Images Side-By*********) 
+
+----> <div class ="container-box">  </div>
+
+----> <div class ="banner-text">  </div>
   
 =============================================================================================================
  
@@ -62,9 +86,12 @@
 
    .......Container....container-fluid.....col-sm-4 && col-sm-8(Feild-Size).......
    
+   
   Page-Header ----> page-header
   
+  
   Jumbotron-(Big GreyBox) ------>  jumbotron.......
+  
   
   Tables --------->  table......table table-bordered......table table-dark......<thead class="thead-dark">  (thead-light)   
                             
@@ -78,8 +105,13 @@
 	   
   Alert(Text) -----> alert alert-success(-info, -warning, -danger) (-primary, -secondary, -dark, -light)
   
-  Label -----------> <label for="email">Email:</label>
   
+  Label -----------> <label for="email">Email:</label>
+
+
+  
+
+
 ==========================================================================================================
 
  Buttons239 :=

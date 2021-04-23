@@ -19,7 +19,7 @@
   ---Browsers do not display the HTML tags, but use them to render the content of the page
 
 ----><!DOCTYPE> declaration represents the document type, and helps browsers to display web pages correctly.
-
+href
 ---> The language is declared with the lang attribute.
  
    Eg :=  <html lang="en-US">
@@ -69,6 +69,8 @@
 
   <dl> && <dt> :=  [https://www.w3schools.com/tags/tag_dl.asp]
 ~~~~~~~~~~~~~~~~
+
+    text-center ----> Text at Center 
 		
 
  Form- <feildset> && <legend> := Dabba with Name
@@ -125,6 +127,8 @@
  --- "-alt-" attribute is also useful if the image cannot be displayed (e.g. if it does not exist).
         
 	    	Link -----> <a href="https://www.w3schools.com">This is a link</a>
+			            <a class = "express-btn">This is a link</a>
+						<a  href="www.google.com"><img src="\assets\component 6.png" >This is a link</a>
 
 
 =========================================================================================================	 
@@ -163,7 +167,7 @@
     
 =========================================================================================================
   
-  Events440 :=  [https://www.w3schools.com/tags/ref_eventattributes.asp]
+  Events440 :=  [ https://www.w3schools.com/tags/ref_eventattributes.asp ]
  ~~~~~~~~~~~
   -- Events are written in <body> Tag.
   
@@ -189,16 +193,7 @@
    
    <h6 class="mt-2" routerLink="/forgotpassword" style="color: cornflowerblue; cursor: pointer;">Forgot Password?</h6>
 
-
-
-
-
-
-
-
-
-
-
+ 
 
 =====================================================================================
 

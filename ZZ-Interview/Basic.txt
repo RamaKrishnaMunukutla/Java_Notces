@@ -826,7 +826,101 @@ for (int i = 0; i < total; i++)
 		
 =============================================================================================================	
 
- Print Occurance of 
+ put all even numbers in order first appear, and then odd numbers appear :=  (************)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	 static void rearrangeEvenAndOdd(int arr[]) {
+	        int j = 0, temp;
+	        for (int i = 0; i < arr.length; i++) {
+	            if (arr[i] % 2 != 0) {
+	                temp = arr[j];
+	                arr[j] = arr[i];
+	                arr[i] = temp;
+	                j++;
+	            }
+	        }
+	    }
+	    static void printArray(int arr[]) {
+	        for(int i=0;i<arr.length;i++)
+	            System.out.print(arr[i]+"\t");
+	        System.out.println();
+	    }
+		
+=============================================================================================================	
+ 
+ Reverse an Array without using Another Array := (*********)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ 	public static void reverse(int[] arr) {
+		// Declare two variables start and end
+		int start = 0;
+		int end = arr.length - 1;
+		// Run a loop while start is less than end
+		while (start < end) {
+			int temp = arr[start];
+			arr[start] = arr[end];
+			arr[end] = temp;
+			start++;
+			end--;
+		}
+	}
+
+===================================================================================
+
+ Even and Odd Segregate in Array :=  (*********)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	 static void rearrangeEvenAndOdd(int arr[]) {
+	        int j = 0, temp;
+	        for (int i = 0; i < arr.length; i++) {
+	            if (arr[i] % 2 != 0) {
+	                temp = arr[j];
+	                arr[j] = arr[i];
+	                arr[i] = temp;
+	                j++;
+	            }
+	        }
+	    }
+
+================================================================================================		
+
+  Delete at Most One Character to Make it a Valid Palindrome  :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	public static boolean validPalindrome(String s) {
+		// Declare two pointers
+		int left = 0;
+		int right = s.length() - 1;
+		/*
+		 * Run a loop while left pointer is less than or equal to right pointer.
+		 */
+		while (left <= right) {
+			if (s.charAt(left) != s.charAt(right)) {
+				return isPalindrome(s, left + 1, right) || isPalindrome(s, left, right - 1);
+			}
+			left++;
+			right--;
+		}
+		return true;
+	}
+
+	// Logic to check palindrome
+	private static boolean isPalindrome(String s, int start, int end) {
+		while (start <= end) {
+			if (s.charAt(start) != s.charAt(end)) {
+				return false;
+			}
+			start++;
+			end--;
+		}
+		return true;
+	}
+
+	public static void main(String[] args) {
+
+		boolean validPalindrome = validPalindrome("abdcba");
+		System.out.println(validPalindrome);
+	}
 
 =============================================================================================================
  
@@ -1098,7 +1192,32 @@ for (int i = 0; i < total; i++)
         a = a.substring(b.length());  
         System.out.println("After : " + a + " " + b); 
 		
-============================================================================
+===============================================================================================
+
+ Longest SubString without duplicates :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	static String getUniqueCharacterSubstringBruteForce(String input) {
+		String output = "";
+		for (int start = 0; start < input.length(); start++) {
+			Set<Character> visited = new HashSet<>();
+			int end = start;
+			for (; end < input.length(); end++) {
+				char currChar = input.charAt(end);
+				if (visited.contains(currChar)) {
+					break;
+				} else {
+					visited.add(currChar);
+				}
+			}
+			if (output.length() < end - start + 1) {
+				output = input.substring(start, end);
+			}
+		}
+		return output;
+	}
+
+===================================================================================================
 
  Replace Specific Character in String  :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1172,7 +1291,7 @@ for (int i = 0; i < total; i++)
       return s.substring(0, pos) + s.substring(pos + 1);
    }
 		
-============================================================================	
+================================================================================================	
  
    Occurance of Character in String :=   (******************)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1185,7 +1304,7 @@ for (int i = 0; i < total; i++)
  
         System.out.println("Number of occurances of 'a' in "+s+" = "+count);
 
-============================================================================
+========================================================================================
 
  Remove all white Spaces in String :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1205,7 +1324,7 @@ for (int i = 0; i < total; i++)
         String noSpaceStr2 = stringBuffer.toString();  
         System.out.println(noSpaceStr2);  
 
-============================================================================
+================================================================================================
 
  Remove Duplicates from String :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1226,7 +1345,7 @@ for (int i = 0; i < total; i++)
             }  
         } 
 		
-============================================================================		
+============================================================================================		
 
  Last Occurance of Character in String :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1240,9 +1359,60 @@ for (int i = 0; i < total; i++)
          System.out.println("Last occurrence of Hello is at index "+ lastIndex);
       }	
 	  
-============================================================================
+====================================================================================================
 
- Reverse The String With Preserving The Position Of Spaces :=
+ Check Correct Captial in String  :=  //  Cases ---> (1) USA   (2) usa  (3) Usa   (4) uSA
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	public static boolean detectCapital(String str) {
+
+		int capital = 0, small = 0, firstCap = 0, others = 0, wrongString = 0;
+
+		// ========== Case 1 && 2 ===================
+
+		for (int i = 0; i < str.length(); i++) {
+
+			char ch = str.charAt(i);
+
+			if (ch >= 65 && ch <= 90) {
+				capital++;
+			} else {
+				small++;
+			}
+
+		}
+
+		// ========== Case 3 ============ For Loop Starts with Index--1
+
+		if ((str.charAt(0) >= 65 && str.charAt(0) <= 90)) {
+			firstCap++;
+			for (int i = 1; i < str.length(); i++) {
+				char ch = str.charAt(i);
+				if (ch >= 97 && ch <= 122) {
+					others++;
+				}
+			}
+		}
+
+		// ======== Case 4 =========== For Loop Starts with Index--1 && Length - 1
+
+		for (int i = 1; i < str.length() - 1; i++) {
+			if (Character.isLowerCase(str.charAt(i)) && Character.isUpperCase(str.charAt(i + 1))) {
+				wrongString++;
+			}
+		}
+
+		if (wrongString == 1) {
+			return false;
+		}
+
+		return capital == str.length() || small == str.length() || (firstCap == 1 && others >= 1);
+
+	}
+	
+============================================================================================================
+
+ Reverse The String With Preserving The Position Of Spaces := (*************)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       char[] inputStringArray = inputString.toCharArray();
          
@@ -1288,6 +1458,43 @@ for (int i = 0; i < total; i++)
         
 		
 =====================================================================================================
+
+ Valid Palindrome in Given String (Start-To-End) Indexes BY Ignoring Spaces := (*************)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   
+   Input_1 ----> A man, a plan, a canal: Panama    // TRUE
+   
+   Input_2 ----> race a car   // FALSE
+
+
+	// Valid Palindrome Java Code
+	public static boolean isPalindrome(String s) {
+		// Declare two variables
+		int start = 0;
+		int end = s.length() - 1;
+		int lenStr = s.length();
+		char[] charArray = s.toCharArray();
+		// Run a loop
+		while (start <= end) {
+
+			while (start < end && !Character.isLetterOrDigit(s.charAt(start)))
+				start++; // Skip if there are Gaps 
+
+			while (start < end && !Character.isLetterOrDigit(s.charAt(end)))
+				end--; // Skip if there are Gaps 
+
+			if (start < end && Character.toLowerCase(s.charAt(start)) 
+					!= Character.toLowerCase(s.charAt(end)))
+				
+				return false; // If any thing Mis-Matches , BREAKS Loop
+			
+			start++;   //Next-Comparisons 
+			end--;
+		}
+		return true;
+	}
+	
+====================================================================================================
 
   Swaping First and Last Characters in String  :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2176,18 +2383,42 @@ public class GFG {
 
  O(1) -------->  performance is not affected by the size of the input data.
  
+
  O(N) -------->  This algorithm will take more time as number of elements in input data increases.
-                This algorithm whose performance is directly proportional to size of the input data.
+                 This algorithm whose performance is directly proportional to size of the input data.
 				
- O(N^2)  -----> This  an algorithm whose performance is directly proportional to square of the size of the input data.				
-				
- O(log N) ----> This algorithms whose execution time grows linearly as input data grows exponentially	//// uses divide and conquer rule to search for an element.			
+ O(N^2)  -----> This  an algorithm whose performance is directly proportional to square of the size of the input data.
+
+
+ O(log N) ----> This algorithms whose execution time grows linearly as input data grows exponentially	
+                //// uses divide and conquer rule to search for an element.			
 				
  O(2N) -------> This  algorithm whose execution time is doubled for every extra element in the input data.				
-				
-O(N!) -----> This  algorithm which has to perform N! computations to solve a problem. Where N is the number of elements in the input data. For example
+		
+		
+  O(N!) -----> This  algorithm which has to perform N! computations to solve a problem. 
+                Where N is the number of elements in the input data. For example
 
 
+
+  Notations :=
+~~~~~~~~~~~~~
+
+  O(1) -------> Accessing  elements using Indexes ///  If Element Found at First Index
+
+  O(n) -------> Insertion / Deletion of elements using Indexes	(Linear-Curve) //// Delete element of array  (Worst-Case)
+                                                       
+													    If Element Found at Last Index
+   
+
+  O(n2) ------> 2 Nested For-Loop   ////   O(n3) ---> 3 Nested For-Loop
+
+  O(log n) --->  Slower than O(n)  //// 
+  
+  O(2n) ------>  Opposite to  O(log n) .
+  
+  
+  
 
  (1) Bubble Sort  :=  O(n²) 
 ~~~~~~~~~~~~~~~~~~
@@ -2317,21 +2548,7 @@ O(N!) -----> This  algorithm which has to perform N! computations to solve a pr
                                        Deletion	
                                        Updation 
  
-  Notations :=
-~~~~~~~~~~~~~
 
-  O(1) -------> Accessing  elements using Indexes ///  If Element Found at First Index
-
-  O(n) -------> Insertion / Deletion of elements using Indexes	(Linear-Curve) //// Delete element of array  (Worst-Case)
-                                                       
-													    If Element Found at Last Index
-   
-
-  O(n2) ------> 2 Nested For-Loop   ////   O(n3) ---> 3 Nested For-Loop
-
-  O(log n) --->  Slower than O(n)  //// 
-  
-  O(2n) ------>  Opposite to  O(log n) .
   
   
  

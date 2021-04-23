@@ -5,7 +5,7 @@
 				
      .........JWT444...........MicroServices334(Links530).....JWT550......AgileMethodology768......SDLC445.....BitBucket99
 				
-     .........GIT996...XML900.......NumberConversion...........ApacheKafka540.......RabbitMQ330.....	 
+     .........GIT996...XML900.......NumberConversion...........ApacheKafka540.......RabbitMQ330.....ELKStack780	 
  
      .........RealTimeTools590.....DevOps890Other......MockiSpringSecurity444to330....JIRA790......CloudComputing550.....
 		 
@@ -16,8 +16,18 @@
                      Loggers ----> DEF-IW
 					 
 					 Maven ------> STRP-CI (Scopes) //// CCTP-I (Goals)
+					 
+
+ Testing Stages :=
+~~~~~~~~~~~~~~~~~~
+ 
+           Unit-Testing ---> Integration-Testing ----> UAT ---> Production (*************)
 
 
+  UAT := ( Alpha / Beta )
+ ~~~~~~
+ ---> Performed by  Customers of that Organisation (the One Who Asked to develop Software)
+ ---> This Testing done by Customer to test whether developed Software can handle Busniess-Need Or-Not by Entering Real time Business Scenario's . 
 
 =================================================================================================
 
@@ -1149,7 +1159,11 @@ public class Demo extends WebSecurityConfigurerAdapter{
                                                                                                   |
                                                                             Server <------ UserDetailService (BACK)  
   
-    Principal   -----> Given Name of Login User  
+    Principal   -----> User Identified through Authentication Process.
+
+ Granted Authorities ---> Group of Permissions that are allowed to Users.
+
+   Roles ----> Group of Authorities that are assigned together. 
   
 =================================================================
 
@@ -4651,9 +4665,49 @@ Streams API
 			      [ http://localhost:9090/order/zafa ]
   
  
-======================================================================================
+=========================================================================================================
 
-===========/\/\/\/\/\================\/\/\/\/\/\/\=================\/\/\/\/\/\/\====================
+==================/\/\/\/\/\================\/\/\/\/\/\/\=================\/\/\/\/\/\/\====================
+
+
+ ELKStack780 :=
+~~~~~~~~~~~~~~
+
+ ELK Stack := Combination of Elastic-Search , LogStach && Kibana for log analysis. 
+~~~~~~~~~~~~~
+
+
+ Elastic Search := It is Apache Lucese based Search 
+~~~~~~~~~~~~~~~~~
+ ---> It is distributed NoSQL database that stores data in form of JSON.
+ ---> It that stores data Across-Distributed-System where we can scale Across-Indexes.
+ ---> It can Expose Rest-API's  
+
+
+ LogStach :=     
+~~~~~~~~~~~~~
+ ---> Server side data Processing Pipeline that helps to store Input / Logs . (****)
+ ---> Pushes Logs (Streams Data) to Elastic-Search
+ ---> Log Monitoring Tool form remote Machines. 
+ 
+ 
+ Kibana := (Port ---> 5601)
+~~~~~~~~~~
+ --- Data Visualisation tool 
+ --- It represents data on UI form Elastic-Search.
+ --- Used for log && time series analytics and Application monitoring 
+ 
+ --- Enables the Searching and Interaction with data in ElasticSearch .
+ --- Performs Advanced Analytics and creation of reports . 
+
+   
+   Flow :=   LogStach <----> Elastic Search  <----> Kibana (**************)
+ ~~~~~~~~~
+ 
+ 
+============================================================================================================
+
+===============/\/\/\/\/\=====================\/\/\/\/\/\/\=================\/\/\/\/\/\/\====================
 
 
  Debug :=

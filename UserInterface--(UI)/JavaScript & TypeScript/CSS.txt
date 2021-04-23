@@ -1,5 +1,50 @@
 
 
+ CssBoarders.....CssProperties
+
+
+  NovamEbicdfghjk
+===============================================================================================================
+
+  UI/UX for Website ---> https://www.youtube.com/watch?v=3aOU9MbITlM&list=PLjwm_8O3suyPkIphVrJaebR2qE8jylWBQ&index=1&ab_channel=EasyTutorials
+  
+  WordPress ---> 
+  https://www.youtube.com/watch?v=wwSDxSjezag&list=PLjwm_8O3suyPYhCbBY8v4G-BOIm6ylRjZ&ab_channel=EasyTutorials
+  
+  
+  fa fa-star-half-o 
+
+===============================================================================================================
+
+ CSS :=
+~~~~~~~~
+ --- It is used to define styles for your web pages, including the design, layout and variations in display for different devices and screen sizes.
+ 
+                     '*' ------> selects all HTML elements on the page.
+
+                  '#para1' ----> applied to the HTML element with id="para1": 
+           
+		         '.center' ----> all HTML elements with class="center" will be red and center-aligned: 
+ 
+		         'p.center' ---> only <p> elements with class="center" will be red and center-aligned:
+
+
+=============================================
+
+  CSS Write To   ----> ID /// (.)Class /// Tags /// Tag-with-Id  /// Tag-With-Class (***********)
+~~~~~~~~~~~~~~~~
+
+---> (.)Class <Tag> { }
+
+---> (.)Class (.)Class { }
+
+---> (.)Class <Tag1> <Tag2> { }
+
+---> a.highlight:hover
+
+---> (.)Class <Tag>:hover  
+
+=============================================
  CSS Syntax :=
 ~~~~~~~~~~~~~~
 p {
@@ -32,6 +77,9 @@ p {
 ---> browser reads a style sheet, it will format the HTML document according to the information in the style sheet.
 ---> The external .css file should not contain any HTML tags.
 
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,11 +104,22 @@ h1 {
   margin-left: 20px;
 }
 
-===========================================
+
+
+* {
+  text-align: center;
+  color: blue;
+  font-family: 'Antonio', sans-serif;   ////Google Font Applied to all  elements 
+}
+
+
+
+========================================================================================================================
 
  In Line CSS :=
 ~~~~~~~~~~~~~~
-<h1 style="color:blue;text-align:center;">This is a heading</h1>
+  <h1 style="color:blue;text-align:center;">This is a heading</h1>
+  <p style="color:DodgerBlue;">Lorem ipsum...</p>
 
 
  Highest priority :=
@@ -69,11 +128,23 @@ h1 {
  -- External and internal style sheets (in the head section)
  -- Browser default
  
-========================================================================================================================
+ Eg :=
+~~~~~
+ <head>
+<style>
+body {
+  background-color: linen;
+}
 
- CSS Padding :=
-~~~~~~~~~~~~~~~
----> The CSS padding properties are used to generate space around an element's content, inside of any defined borders.
+h1 {
+  color: maroon;
+  margin-left: 40px;
+}
+</style>
+</head>
+ 
+========================================================================================================================
+ 
 
 ========================================================================================================================
 
@@ -86,21 +157,298 @@ h1 {
   
   
 ========================================================================================================================
+ 
+ CSSBoarders := [ https://www.w3schools.com/css/css_border.asp ]
+~~~~~~~~~~~~~~
+ 
+ border-style: dotted;
+ border-width: thick;
+ border-color: #ff0000; /* red */
+ 
+ 
+ CSSMargins := [ https://www.w3schools.com/css/css_margin.asp ]
+~~~~~~~~~~~~~~
+ div {
+  border: 1px solid black;
+  margin: 25px 50px 75px;
+  background-color: lightblue;
+ }
 
-	  
+
+ CSSPading :=  create space around an element's content, inside of any defined borders.
+~~~~~~~~~~~~   The CSS padding properties are used to generate space around an element's content, 
+               inside of any defined borders.
+			   
+  div {
+   padding-top: 50px;
+   padding-right: 30px;
+   
+   padding-bottom: 50px;
+   padding-left: 80px;
+   padding : initial ;
+   
+   padding: 25px 50px 75px 100px;
+ }
+ 
+ 
+ div.ex2 {
+  width: 300px;
+  padding: 25px;
+  box-sizing : border-box;
+  box-shadow : 0px 15px 15px 2px rba(213,213,213,0.5);
+  background-color: lightblue;
+ }
+========================================================================================================================
+
+ CSSHeightWidth := Only Dabba's Height && Width. 
+~~~~~~~~~~~~~~~~~~
+ div {
+   height: 200px;
+   max-width: 500px;
+   width: 50%;
+   background-color: powderblue;
+ }
+
+========================================================================================================================
+ 
+ CSSGoogleFonts := [ https://www.w3schools.com/css/css_font_google.asp ]
+~~~~~~~~~~~~~~~~~ 
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+  
+
+ CSSIcons := [ https://www.w3schools.com/css/css_icons.asp ]
+~~~~~~~~~~~~ 
+ 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+  
+===================================================================================
+ 
+ CSSPosition := [ https://www.w3schools.com/css/css_positioning.asp ]
+~~~~~~~~~~~~~~ 
+There are five different position values:
+
+ ** static
+ ** relative
+ ** fixed
+ ** absolute
+ ** sticky
+
+ Eg :=
+~~~~
+div.fixed {
+  position: fixed;  /// position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  border: 3px solid #73AD21;
+} 
+========================================================================================================================
+
+ BulletPointsType :=
+~~~~~~~~~~~~~~~~~~
+<html>
+ <head>
+  <style>
+
+ ul.a {
+  list-style-type: circle;
+ }
+
+ ul.b {
+  list-style-type: square;
+ }
+
+ ol.c {
+  list-style-type: upper-roman;
+ }
+
+ ol.d {
+  list-style-type: lower-alpha;
+ }
+
+ </style>
+ </head><body>
+
+<ul class="b">
+   <li>Coffee</li>
+   <li>Tea</li>
+   <li>Coca Cola</li>
+ </ul>
+
+ </body>
+</html>
+========================================================================================================================
+
+ CSSTables :=  // Here 'customers' is ID of Table 
+~~~~~~~~~~~~
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+
+
+========================================================================================================================
+ 
+ CSSEvents :=  [ https://www.w3schools.com/css/css_pseudo_classes.asp ]
+~~~~~~~~~~~~~
+ div:hover {
+   background-color: blue;
+ }
+ 
+ a.highlight:hover {
+   color: #ff0000;
+ } 
+ 
+ 
+ li a:hover {
+  background-color: #555;
+  color: white;
+}
+
+
+ CSSelectColorChange  :=  [ https://www.w3schools.com/css/css_pseudo_classes.asp ]
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 ========================================================================================================================
 
 
 ========================================================================================================================
 
+ CssProperties :=
+~~~~~~~~~~~~~~~~~
 
-========================================================================================================================
+ body{
+  overflow-x : hidden ;
+ }
+ 
+  background-color : lightblue;  -----> background: rgba(0, 128, 0, 0.3)   ///////      #b58 // #ff00ff // #fc9;
+  background-image : url("paper.gif"); 
+  
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+  
+  background-orgin : border-clip;
+  background-clip  : content-box;
+  
+  color : #fff ;
+  		  
+  opacity: 0.3;
+  color: white;
+  
+  text-align : center;
+  direction  : rtl;
+  vertical-align: top;
+  transform:capitalize ;
+  text-transform:capitalize
+ 
+  font-family : verdana;
+  font-size   : 20px;
+  font-weight : bold;
+ 
+  transform : capital;
+  transform : rotateY(180deg);       // Rotate Card by 180-Degree (**************)
+  z-index : 1 ;
+  
+   
+  margin-left   : 20px !important ;
+  margin-right  : 200px;
+  margin-bottom : 200px;
+  
+    width   : 300px;
+    height  : 300px;   //// 100vh ;
+    display : block;  ////  display : inline-block;   ////  display : inline-flex;
+	
+	 
+   line-height : 50px ;
+   list-style  : none ;
+   
+     top    :  25% ;
+    left    :  25% ;
+	float   : left ;
+  position  : absolute ;
+  
+    cursor   : pointer ;
+  box-shadow : 0px 15px 15px 2px rba(213,213,213,0.5);
+  transition : .5s ;
+ 
+===============================
 
+  border-style: dotted;
+  border-width: thick;
+  border-color: #ff0000; /* red */
+  
+  border-bottom: 6px solid red;   /// UnderLine whenever On-Mouse-Event on Link / Button 
+  border-bottom: 2px solid #fff;
+   
+   background-color: lightgrey;
+  border-radius: 5px;
+  
+  border : 0
+  outline : none 
+  
+  border-width:10px 1px 5px 20px;  
+  
+===============================  
+  
+  div {
+  border: 1px solid black;
+  margin: 25px 50px 75px;
+  background-color: lightblue;
+ }
+ 
+ div {
+  width: 300px;
+  margin: auto;
+  border: 1px solid red;
+}
 
-========================================================================================================================
+===============================
 
+   height: 200px;
+   max-width: 500px;
+   
+   padding-top: 50px;
+   padding-right: 30px;
 
-	  
+==================================
+
+  a {text-decoration:none;}
+  
+  a {text-decoration:no-underline;}
+
+==================================
+
+ @media screen and (max-width: 600px) {
+   .topnav a {
+     float: none;
+     width: 100%;
+   }
+ }
 ========================================================================================================================
 
 
