@@ -417,6 +417,10 @@ toString :=This method is from java.lang.Object class and it is non-final, non-s
 4. Preparing statement using cfg Object.
 
 
+ https://www.youtube.com/watch?v=3EezXDlrvP0&list=PLF9tovyahfL2Ge8xjs6PTzFOUlRA6_egu&index=4&ab_channel=LearnWithKrishnaSandeep
+ https://www.youtube.com/watch?v=IDLTT2K0xJA&list=PLF9tovyahfL2Ge8xjs6PTzFOUlRA6_egu&index=5&ab_channel=LearnWithKrishnaSandeep
+
+
   SessionFactory (I) :=
 ~~~~~~~~~~~~~~~~~~~~
    ---SessionFactory is an interface. // factory for Session objects. //// provides the instance of Session.

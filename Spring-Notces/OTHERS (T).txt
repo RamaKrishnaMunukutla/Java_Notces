@@ -4670,39 +4670,58 @@ Streams API
 ==================/\/\/\/\/\================\/\/\/\/\/\/\=================\/\/\/\/\/\/\====================
 
 
- ELKStack780 :=
+ ELKStack780 :=  [ https://www.elastic.co/downloads/ ]
 ~~~~~~~~~~~~~~
 
- ELK Stack := Combination of Elastic-Search , LogStach && Kibana for log analysis. 
+     YOUTUBE ===> ProgrammingKnowledge /// Intellipaat /// Java-Techie /// Tech-Primers 
+	 
+
+
+ ELK Stack := 
 ~~~~~~~~~~~~~
+ ---> Combination of Elastic-Search , LogStach && Kibana for log analysis. 
+ 
 
-
- Elastic Search := It is Apache Lucese based Search 
-~~~~~~~~~~~~~~~~~
- ---> It is distributed NoSQL database that stores data in form of JSON.
- ---> It that stores data Across-Distributed-System where we can scale Across-Indexes.
- ---> It can Expose Rest-API's  
-
-
- LogStach :=     
+  LogStach :=     
 ~~~~~~~~~~~~~
  ---> Server side data Processing Pipeline that helps to store Input / Logs . (****)
+ ---> It makes real time analysis of Logs from different Sources (*********)
+ ---> Handles  HTTP-Requests && Logging data and responses to it.
  ---> Pushes Logs (Streams Data) to Elastic-Search
  ---> Log Monitoring Tool form remote Machines. 
  
+    
  
- Kibana := (Port ---> 5601)
+ 
+ Elastic Search :=  http://localhost:9200  /// 127.0.0.1  /// 127.0.0.1:9300
+~~~~~~~~~~~~~~~~~
+ ---> It is Apache Lucese based Search 
+ ---> It is distributed NoSQL database that stores data in form of JSON document , on INDEX based . (***************)
+ ---> It that stores data Across-Distributed-System where we can scale Across-Indexes.
+ ---> It can Expose Rest-API's  
+ 
+           Command ---> elasticsearch.bat (In Bin-Folder 'CMD')
+
+ 
+ 
+ Kibana :=    http://localhost:5601
 ~~~~~~~~~~
- --- Data Visualisation tool 
+ --- Data Visualisation tool of Logs (Hows No.Of Hits with Message)
  --- It represents data on UI form Elastic-Search.
  --- Used for log && time series analytics and Application monitoring 
  
  --- Enables the Searching and Interaction with data in ElasticSearch .
  --- Performs Advanced Analytics and creation of reports . 
+ 
+              Command ---> kibana.bat (In Bin-Folder 'CMD')
 
    
-   Flow :=   LogStach <----> Elastic Search  <----> Kibana (**************)
- ~~~~~~~~~
+   
+   
+   Flow :=   Logs ---> LogStach <----> Elastic_Search  <----> Kibana (**************)
+ ~~~~~~~~~ 
+                    (Data-Process)       (Storage)          (Visualize)       
+ 
  
  
 ============================================================================================================

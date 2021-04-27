@@ -47,6 +47,10 @@ Key-Words :=
                               The size of the centralized database is large, which increases the response time for fetching the data.
 							  
   () Hierarchical Databases  (stores data in the form of parent-children relationship nodes.)
+  
+ 
+ Master-Data := Required data to run Application 
+~~~~~~~~~~~~~~~
 
 
  Heterogeneous DDB :=

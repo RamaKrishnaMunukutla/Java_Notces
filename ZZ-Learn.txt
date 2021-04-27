@@ -307,6 +307,11 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
 			      KodeKloud ~~~~~~~~~~~~ https://www.youtube.com/c/KodeKloud/playlist
              TechWorld with Nana ~~~~~~~ https://www.youtube.com/c/TechWorldwithNana/playlists	
 			 AWS Training Center ~~~~~~~ https://www.youtube.com/channel/UC1Yf7IBfhSNFTIyb7v83o_g/playlists
+		
+        https://www.youtube.com/watch?v=GJQ36pIYbic&list=PL9ooVrP1hQOE5ZDJJsnEXZ2upwK7aTYiX&ab_channel=edureka%21
+        https://www.youtube.com/watch?v=k1RI5locZE4&list=PL9ooVrP1hQOFWxRJcGdCot7AgJu29SVV3&ab_channel=edureka%21
+		                https://techworld-with-nana.teachable.com/courses/devops-bootcamp/lectures/29436454
+						
 
 
  Testing :=

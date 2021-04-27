@@ -53,6 +53,9 @@
 (Q) Why Pointers are not allowed in java ??
 (A) Because They are UnSafe  &&
     Avoiding Direct Access to Object form User (JVM is resp for Memory-Allocation)
+	
+	
+	Dates ---> https://www.youtube.com/watch?v=CqGG-agNu-M&list=PLF9tovyahfL2tDErVklUHiH6O5XVK1lUk&ab_channel=LearnWithKrishnaSandeep
 
 ===========================================================================================
 
