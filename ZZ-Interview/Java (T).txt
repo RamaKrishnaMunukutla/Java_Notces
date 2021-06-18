@@ -57,6 +57,9 @@
 	
 	Dates ---> https://www.youtube.com/watch?v=CqGG-agNu-M&list=PLF9tovyahfL2tDErVklUHiH6O5XVK1lUk&ab_channel=LearnWithKrishnaSandeep
 
+
+  Grabage Collections ------> follows Mark && Sweep algorithm
+
 ===========================================================================================
 
   OOPs :=

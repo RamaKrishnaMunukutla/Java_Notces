@@ -338,6 +338,62 @@
 	  
    int rowCount = noOfRows; ----> /// For Rev 'L'&& 'L' Combined Pattern  ("Katti") Pattern 
    
+==========================================================
+
+ Maximum contiguous sum in Array :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+  static int maxSubArraySum(int a[]) {
+		int size = a.length;
+		int max_so_far = a[0], max_ending_here = 0;
+
+		for (int i = 0; i < size; i++) {
+			max_ending_here = max_ending_here + a[i];
+			if ( max_ending_here > max_so_far)
+				max_so_far = max_ending_here;
+			if (max_ending_here < 0)
+				max_ending_here = 0;
+		}
+		return max_so_far;
+	}
+
+=============================================================
+
+ Remove duplicates form String :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	static String removeDuplicate(char str[], int n) {
+		// Used as index in the modified string
+		int index = 0;
+
+		// Traverse through all characters
+		for (int i = 0; i < n; i++) {
+
+			// Check if str[i] is present before it
+			int j;
+			for (j = 0; j < i; j++) {
+				if (str[i] == str[j]) {
+					break;
+				}
+			}
+
+			// If not present, then add it to
+			// result.
+			if (j == i) {
+				str[index++] = str[i];
+			}
+		}
+		return String.valueOf(Arrays.copyOf(str, index));
+	}
+
+	// Driver code
+	public static void main(String[] args) {
+		char str[] = "Raan".toCharArray();
+		int n = str.length;
+		System.out.println(removeDuplicate(str, n));
+	}
+	
+   
 ============================================================================
 
 ===========================================[ NumberLogicalPrograms ]================================================			
@@ -882,7 +938,86 @@ for (int i = 0; i < total; i++)
 	        }
 	    }
 
-================================================================================================		
+================================================================================================	
+
+ Move Even's to Front :=   (*********)
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+	public static int[] moveEvenToFront(int[] arr){
+	    int temp=0;
+	    int a=0;
+	    for(int i=0;i<arr.length;i++){
+	        if(arr[i]%2==0){
+
+	            for (int j=i;j>a;j--){
+	                temp=arr[j-1];
+	                arr[j-1]=arr[j];
+	                arr[j]=temp;
+	            }
+	            a++;
+	        }
+	    }
+	    return arr;
+	}
+
+
+==================================================================================================	
+
+ RE-Arrange Even and Odd :=  (******************)
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ 	public static void reverse(int[] arr) {
+		// Declare two variables start and end
+		int start = 0;
+		int end = arr.length - 1;
+		// Run a loop while start is less than end
+		while (start < end) {
+			int temp = arr[start];
+			arr[start] = arr[end];
+			arr[end] = temp;
+			start++;
+			end--;
+		}
+	}
+
+	static void rearrangeEvenAndOdd(int arr[]) {
+		int j = 0, temp;
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] % 2 != 0) {
+				temp = arr[j];
+				arr[j] = arr[i];
+				arr[i] = temp;
+				j++;
+			}
+		}
+	}
+==================================================================================================
+
+ First And Last Occurance of Digit in Array :=  (******************)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ 		public static void findFirstAndLast(int arr[], int x)
+		{
+			int n = arr.length;
+			int first = -1, last = -1;
+			for (int i = 0; i < n; i++) {
+				if (x != arr[i]) {
+					continue;
+				}
+				if (first == -1) {
+					first = i;
+				}
+				last = i;
+			}
+			if (first != -1) {
+				System.out.println("First Occurrence = " + first);
+				System.out.println("Last Occurrence = " + last);
+			}
+			else
+				System.out.println("Not Found");
+		}
+		
+==================================================================================================		
 
   Delete at Most One Character to Make it a Valid Palindrome  :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

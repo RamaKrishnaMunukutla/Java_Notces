@@ -848,14 +848,105 @@ fully certified JAX-RS implementation; supports HTTP 1.1 caching semantics inclu
 
  ObjectToJSONJ660 :=
 ~~~~~~~~~~~~~~~~~~
-       
-	   ObjectMapper obj= new ObjectMapper();
+ 
+
+     [ https://www.youtube.com/watch?v=FGhCl9eWUoE&list=PLO0KWyajXMh5n1_N5z1i1Y-6v8j2vfRXL ]
+	 
+	 
+
+Property Naming :=
+~~~~~~~~~~~~~~~
+
+ @JsonProperty (that property will be included) 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- It is used to indicate external property name, the name used in the data format (JSON or one of other supported data formats).
+ --- Using this annotation, We can Specify the Response-Feild-Name 
+ 
+                    @JsonProperty (access = Access.READ_ONLY )   //////////  WRITE_ONLY ////////// AUTO ////////// READ_WRITE
+					                                                     
+ 
+ @JsonProperty.value: ----> name to use
+ 
+ @JsonProperty.index: ----> physical index to use
+ 
+ @JsonProperty.defaultValue: ----> textual default value defined as metadata.
+ 
+ 
+ @JsonManagedReference and @JsonBackReference ------> to create a JSON structure in forward && Backward directions 
+
+
+============================================
+
+ @JsonInclude -----> used at exclude properties having null/empty or default values.
+ 
+  String jsonString = mapper
+            .writerWithDefaultPrettyPrinter()
+            .writeValueAsString(student);
+         System.out.println(jsonString);
+		 
+		 
+ @JsonIgnoreProperties ----> used at class level to mark a property or list of properties to be ignored
+ 
+                          @JsonIgnoreProperties({ "id", "systemId" })
+						  
+			
+		[ https://www.concretepage.com/jackson-api/jackson-jsonignore-jsonignoreproperties-and-jsonignoretype ]
+						  
+						  
+	 @JsonIgnore -----> It is annotated at a class property level to ignore it. 
+	 
+	 @JsonIgnoreProperties -----> It is annotated at class level and we need to specify the logical properties of that class to ignore them. 
+	 
+	 @JsonIgnoreType -----> It is annotated at class level and it ignores the complete class. 					  
+	
+	
+    
+    	ObjectMapper obj= new ObjectMapper();
 	   String str = obj.writeValueAsString(emp);
 	   
 	   String str = obj.writerWithDefaultPrettyPrinter().writeValueAsString(emp); ///Prints in Format.
 		
 	   System.out.println(str);
 	   
+	   
+ ObjecttoXML :=
+~~~~~~~~~~~~~~~~~~
+
+ @XmlElement( at Field)   ------>	Maps a field or property to an XML element
+ 
+   @JAXBElement Class     ------> It is  JAXB representation of an Xml Element. 
+ 
+ @XmlElementDecl  Class  -------> It  is used to represent root elements that correspond to named complex types.                                                     Classes with it must first be wrapped in an instance of JAXBElement
+														
+	propertyNamingStrategy ------>  [ https://dzone.com/articles/jackson-property-custom-naming-strategy ]
+	   
+	   
+ Jackson provides following custom naming strategies.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    SnakeCaseStrategy ------> properties will be in snake_case format.                      Eg: first_name
+ UpperCamelCaseStrategy ------> properties will be in UpperCamelCase format.       Eg: FirstName
+    LowerCaseStrategy ------> properties will be in lowercase format.                         Eg: firstname
+   KebabCaseStrategy ------> properties will be in kebab-case format.                       Eg: first-name
+      DefaultStrategy     ------> properties will be lowerCamelCase format.                  Eg: firstName;
+
+	  
+
+ PropertyNamingStrategy in Jackson  :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Defines how names of JSON properties ("external names") are derived from names of POJO methods and fields ("internal names"),
+
+
+     @JsonNaming ------>  used to choose the naming strategies for properties in serialization, overriding the default. 
+
+  @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+public class NamingBean {
+    private int id;
+    private String beanName;
+
+    // constructor, getters and setters
+  }
+
+  
 	   
  JSONtoObject880 :=
 ~~~~~~~~~~~~~~~~~
@@ -872,6 +963,7 @@ fully certified JAX-RS implementation; supports HTTP 1.1 caching semantics inclu
 		     employee =  mapper.readValue(new File("c://temp/employee.json"), Employee.class); .... ///FromFile
 		 
 		     employee =  mapper.readValue(str, Employee.class);   .....//From String
+
 
 ===================================================================================================================
 

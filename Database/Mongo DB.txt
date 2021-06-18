@@ -15,6 +15,8 @@
 	   
 	   https://www.javatpoint.com/mongodb-delete-documents
 	   
+	    mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb   
+	   
 	   
 ---> MongoDB provides Indexing, whereas Redis DB cannot.  /// dynamically allocates and de-allocates RAM 
 
@@ -47,7 +49,7 @@ cmd> mongod --auth
 > use sample
 (if it not exist, it is created)
 
-#3. View Collections(similer to tables)
+#3. View Collections(similar to tables)
 > show collections
 
 #4. **create a new user with read-write and admin permissions.

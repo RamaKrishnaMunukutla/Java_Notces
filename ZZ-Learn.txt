@@ -20,11 +20,7 @@
   
   mvs.ramakrishna@xebia.com /// Jaw06699  --- Cool910@ 
   
-  
-  Zoho ----> https://people.zoho.com /// MVSRama@1234
-
-
-  aarti.thakur@xebia.com   // shambhavi.mishra@xebia.com
+  https://www.pdfdrive.com/
 
 ====================================================================================================
 
@@ -113,6 +109,36 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
  NareshIT33 :=    SCJP /// OCJP
 ~~~~~~~~~~~~~~
   Notces-Password ---> 460621 
+  
+  
+   ELS_Example ----> 28/03/2021
+  
+    Reactive  -----> 27/03/2021
+	
+	Security ------> 08/03/2021
+
+	Kafka   -------> 19/02/2021
+	
+	 JMS ----------> 18/02/2021
+
+ MicroService -----> 22/01/2021
+  
+  Batch Process ---> 30/12/2020
+  
+  MangoDB   -------> 22/12/2020
+ 
+	  Junit -------> 18/12/2020
+  
+  Spring-Rest -----> 28/11/2020
+  
+     AJAX   ------->  25/11/2020
+  
+  Spring MVC ------> 2/11/2020
+  
+   Procedures -----> 30/10/2020
+  
+       JPA  -------> 28/09/2020
+	   
   
    Course Content Link:   http://www.nareshit.com/course/aws-online-training/
   For New  Batches Visit: https://nareshit.com/new-batches-hyderabad/#Online-Training
@@ -656,6 +682,7 @@ https://www.baeldung.com/spring-cloud-series
    
    
    https://downloads.mysql.com/archives/installer/
+   https://dev.mysql.com/downloads/workbench/
    https://dev.mysql.com/downloads/installer/
    https://www.mongodb.com/try/download/community  (Install ----> [Youtube] Programming Knowledge)
    

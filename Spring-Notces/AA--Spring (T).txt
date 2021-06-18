@@ -1751,7 +1751,53 @@ public class User {
    return new ResponseEntity<Employee>(employee, status);
 }
   	 
-====================================================
+==============================================================================================
+
+ Has-A :=
+~~~~~~~
+     @Query("From IssueChannelWorkflowMappingEntity ic where ic.issueType.issueTypeId = ?1 and ic.channelId = ?2")
+    IssueChannelWorkflowMappingEntity findByIssueTypeAndChannelId(String issueType, String channelId);
+	
+	
+     @Query("select tbl from UserChannelLinkageEntity tbl where UPPER(tbl.userChannelEntity.userAdid) = UPPER(?1) ")
+    List<UserChannelLinkageEntity> findByUserAdidIgnoreCase(String userId);
+
+
+    @Query(value = "delete from UserLobLinkageEntity c where UPPER(c.userLobEntity.userAdid) = UPPER(:userAdid) and c.userLobEntity.lobId in (:lobId)")
+    void deleteByuserAdidIgnoreCaseAndLobIdIn(@Param("userAdid") String userAdid, @Param("lobId") List<String> lobId);
+	
+	
+     @Query(value = "select c from UserProductLinkageEntity c where UPPER(c.userProductEntity.userAdid) = UPPER(?1) and c.userProductEntity.productId = ?2")
+    UserProductLinkageEntity findByUserAdidIgnoreCaseAndProductId(String userId, String productId);
+	
+	
+   @Query("select tbl from TeamLobLinkageEntity tbl where tbl.teamLobEntity.teamId = ?1")
+    List<TeamLobLinkageEntity> findByTeamId(String teamId);
+	
+	
+	@Query("select tb.teamBranchEntity.teamId From TeamBranchLinkageEntity tb where tb.teamBranchEntity.branchCode = ?1")
+    List<String> findByBranchId(String branchCode);
+	
+	
+	@Query("select tbl from UserTeamLinkageEntity tbl where tbl.userTeamEntity.userAdid = ?1")
+    Optional<List<UserTeamLinkageEntity>> findAllByUserAdidIgnoreCase(String userAdid);
+	
+	
+	
+		 
+ If Error comes whiel Fetching :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+       if (caseResolutionRequest.getResolutionStage().equalsIgnoreCase(STATUS_RESOLVED)) {
+                    existingCaseResolutionEntity = Optional.ofNullable(caseResolutionRepository.findByCaseIdAndStatus(caseResolutionRequest.getCaseId(), STATUS_ASSIGNED)).orElseThrow(() -> getCustomResolutionException("Assigned Case Resolution not found")).get(0);
+                } 
+
+				
+  stageTeamData.setHomeBranch(Optional.ofNullable(caseRepository.findByCaseId(caseResolutionRequest.getCaseId())).orElseThrow(() -> getCustomResolutionException("Home Branch not found")).getHomeBranch());
+
+	 
+  stageTeamData.setTeamType(Optional.ofNullable(caseResolutionRequest.getCustomerType()).orElseThrow(() -> getCustomResolutionException("Team Type not found")));
+
+================================================================================================
 
  --- we can retreive data from D/b in 4-ways in Data JAP
  

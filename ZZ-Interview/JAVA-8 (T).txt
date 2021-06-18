@@ -834,8 +834,46 @@ Terminal-Operations :=
 
 
                        Flattering ----> Convert Stream(Stream)  to Single-Stream 
-					   
-======================================================
+
+ flatMap :=
+~~~~~~~~
+
+		
+		  String[][] array2 = new String[][]{{"a", "b"}, {"c", "d"}, {"e", "f"}};
+
+		  List<String> collect = Stream.of(array2)     // Stream<String[]>
+		          .flatMap(Stream::of)                // Stream<String>
+		          .filter(x -> !"a".equals(x))        // filter out the a
+		          .collect(Collectors.toList());      // return a List
+
+		  collect.forEach(System.out::println);
+		  
+		  
+		// get Total Number of male and female employees Average Age
+				Map<String, Double> collect = list.stream().collect(Collectors.groupingBy(Employee::getEmpGender, Collectors.averagingInt(Employee::getEmpAge)));
+				
+				
+
+ ‘GROUP BY' :=  [ https://mkyong.com/java8/java-8-collectors-groupingby-and-mapping-example/ ]
+~~~~~~~~~~~~
+ ---- functionality similar to the  clause in the SQL language. 
+ ---- We use them for grouping objects by some property and storing results in a Map instance.
+
+   List<String> items =
+	                Arrays.asList("apple", "apple", "banana",
+	                        "apple", "orange", "banana", "papaya");
+
+	        Map<String, Long> result =
+	                items.stream().collect(
+	                        Collectors.groupingBy(
+	                                Function.identity(), Collectors.counting()
+	                        )
+	                );
+
+	        System.out.println(result);
+
+			
+===========================================================================
 
  distinct ----> Takes Only Unique elements. 	
 
@@ -886,6 +924,28 @@ Terminal-Operations :=
 
 =====================================================
 
+  
+ ‘GROUP BY' :=
+~~~~~~~~~~~~
+ ---- functionality similar to the  clause in the SQL language. 
+ ---- We use them for grouping objects by some property and storing results in a Map instance.
+
+
+   List<String> items =
+	                Arrays.asList("apple", "apple", "banana",
+	                        "apple", "orange", "banana", "papaya");
+
+	        Map<String, Long> result =
+	                items.stream().collect(
+	                        Collectors.groupingBy(
+	                                Function.identity(), Collectors.counting()
+	                        )
+	                );
+
+	        System.out.println(result);
+			
+=====================================================			
+
  Arrays Using Streams := (************)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 		String[] arr = { "Geeks", "for", "Geeks" }; 
@@ -918,6 +978,262 @@ Terminal-Operations :=
 
 ==========================================================================================
 
+ Java88 :=    [ https://stackify.com/streams-guide-java-8/]
+~~~~~~~~~
+  	static {
+		list = Arrays.asList(new Employee("1", "ram", 22000, 22, "Male", "B"),
+				new Employee("1", "rama", 22004, 22, "Male", "A"), new Employee("2", "krishna", 61525, 28, "Male", "A"),
+				new Employee("2", "krish", 109787, 28, "Male", "A"),
+				new Employee("3", "seeta", 33990, 29, "Female", "B"),
+				new Employee("1", "radha", 44456, 32, "Female", "A"),
+				new Employee("1", "ramya", 50598, 22, "Female", "A"),
+				new Employee("1", "shyam", 12229, 37, "Male", "A"), new Employee("1", "kiran", 74383, 44, "Male", "B"),
+				new Employee("1", "geeta", 179845, 50, "Female", "B"));
+	}
+	
+	
+	public class Employee {
+	private String empId;
+	private String empName;
+	private int empSal;
+	private int empAge;
+	private String empGender;
+	private String deptName;
+	 }
+	 
+-------------------------------------------------------------------------------------------------------
+	 
+ --- min() and max() return the minimum and maximum element in the stream respectively, based on a comparator.
+ 
+ --- Stream is a stream of object references. However, there are also the IntStream, LongStream, and DoubleStream, which are primitive specializations for int, long and double respectively.
+ 
+ --- These specialized streams do not extend Stream 
+ 
+ ---  The parallel sort uses Fork/Join Framework for sorting sub arrays parallelly.
+ 
+ 
+ 
+-------------------------------------------------------------------------------------------------------------------
+	
+		  String[][] array2 = new String[][]{{"a", "b"}, {"c", "d"}, {"e", "f"}};
+
+		  List<String> collect = Stream.of(array2)     // Stream<String[]>
+		          .flatMap(Stream::of)                // Stream<String>
+		          .filter(x -> !"a".equals(x))        // filter out the a
+		          .collect(Collectors.toList());      // return a List
+
+		  collect.forEach(System.out::println);
+		  
+-----------------------------------------------------------		 
+ 
+	 Set<String> collect =
+                list.stream()
+                        .map(x -> x.getBook())                              //  Stream<Set<String>>
+                        .flatMap(x -> x.stream())                           //  Stream<String>
+                        .filter(x -> !x.toLowerCase().contains("python"))   //  filter python book
+                        .collect(Collectors.toSet());                       //  remove duplicated
+
+        collect.forEach(System.out::println);
+	
+-----------------------------------------------------------
+
+      return list.stream()
+            .filter(n -> n % 2 == 1)
+            .max(Integer::compare)
+            .orElse(0);
+
+-----------------------------------------------------------
+
+     List<String> names = studentlist.stream() .map(n->n.name).collect(Collectors.toList());
+								   
+-----------------------------------------------------------	
+
+
+  // x is a String[]
+  List<String[]> result = stream1
+          .filter(x -> {
+              for(String s : x){      // really?
+                  if(s.equals("a")){
+                      return false;
+                  }
+              }
+              return true;
+          }).collect(Collectors.toList());
+
+--------------------------------------------------------------------------		  
+
+  String[][] array = new String[][]{{"a", "b"}, {"c", "d"}, {"e", "f"}};
+
+  List<String> collect = Stream.of(array)     // Stream<String[]>
+          .flatMap(Stream::of)                // Stream<String>
+          .filter(x -> !"a".equals(x))        // filter out the a
+          .collect(Collectors.toList());      // return a List
+		  
+		  
+		          Set<String> collect =
+                list.stream()
+                        .map(x -> x.getBook())                              //  Stream<Set<String>>
+                        .flatMap(x -> x.stream())                           //  Stream<String>
+                        .filter(x -> !x.toLowerCase().contains("python"))   //  filter python book
+                        .collect(Collectors.toSet());  
+
+
+   Set<String> collect2 = list.stream()
+                    //.map(x -> x.getBook())
+                    .flatMap(x -> x.getBook().stream())                 //  Stream<String>
+                    .filter(x -> !x.toLowerCase().contains("python"))   //  filter python book
+                    .collect(Collectors.toSet());
+					
+	memberNames.stream().filter((s) -> s.startsWith("A"))
+                    .map(String::toUpperCase)
+                    .forEach(System.out::println);
+------------------------------------------------------------------------------------------
+
+					// get Total Number of male and female employees
+		Map<String, Long> collect = list.stream()
+				.collect(Collectors.groupingBy(Employee::getEmpGender, Collectors.counting()));
+		System.out.println(collect);
+		System.out.println("=============================================");
+
+
+		// get Total Number of Each male and female employees Average Age
+		Map<String, Long> collect6 = list.stream()
+				.collect(Collectors.groupingBy(Employee::getEmpGender, Collectors.counting()));
+		System.out.println(collect6);
+		System.out.println("=============================================");
+
+
+		// get Total Average Salary of Each male and female employees Average Age
+		Map<String, Double> collect2 = list.stream().collect(
+				Collectors.groupingBy(Employee::getEmpGender, Collectors.averagingDouble(Employee::getEmpSal)));
+		Set<Entry<String, Double>> entrySet = collect2.entrySet();
+		for (Entry<String, Double> ent : entrySet) {
+			System.out.println(ent.getKey() + "  " + ent.getValue());
+		}
+		System.out.println("=============================================");
+
+
+		// Max Salary of employee
+		Optional<Employee> collect3 = list.stream()
+				.collect(Collectors.maxBy(Comparator.comparing(Employee::getEmpSal)));
+		System.out.println(collect3);
+		System.out.println("=============================================");
+
+
+		// get all employees name in Organization
+		List<String> collect4 = list.stream().map(Employee::getEmpName).collect(Collectors.toList());
+		System.out.println(collect4);
+		System.out.println("=============================================");
+
+
+		// Count Number of Employees in Each Department
+		Map<String, Long> collect5 = list.stream()
+				.collect(Collectors.groupingBy(Employee::getDeptName, Collectors.counting()));
+		System.out.println(collect5);
+		System.out.println("=============================================");
+
+
+		// Details of Youngest Male employee who works in 'A' Department
+		Optional<Employee> min = list.stream().filter(emp -> emp.getEmpGender() == "Male" && emp.getDeptName() == "A")
+				.min(Comparator.comparingInt(Employee::getEmpAge));
+		System.out.println(min);
+		System.out.println("=============================================");
+
+
+		// Maximum salary of employee
+		Optional<Employee> findFirst = list.stream().sorted(Comparator.comparingInt(Employee::getEmpSal)).findFirst();
+		System.out.println(findFirst);
+		System.out.println("=============================================");
+
+
+		// Display Male && Female Employee in 'A' Department
+	 Map<String, Long> collect7 = list.stream().filter(emp -> emp.getDeptName() == "B")
+				.collect(Collectors.groupingBy(Employee::getEmpGender, Collectors.counting()));
+	 System.out.println(collect7);
+		System.out.println("=============================================");
+		
+		
+		// Average salary  Male && Female Employee in all Departments
+	  Map<String, Double> collect8 = list.stream().collect(Collectors.groupingBy(Employee::getEmpGender, Collectors.averagingDouble(Employee::getEmpSal)));
+	 System.out.println(collect8);
+		System.out.println("=============================================");
+
+          // List<Employee> to Employee[] emp
+           Employee[] employees = list.stream().toArray(Employee[]::new);
+		   
+		   
+          // Count Employees who are having salary greater than 20000
+		Long empCount = list.stream().filter(e -> e.getEmpSal() > 20000).count();
+		System.out.println("=============================================");
+		
+		
+		 // Comparator for Objects 
+		 List<Employee> employees = empList.stream().sorted((e1, e2) -> e1.getName().compareTo(e2.getName())).collect(Collectors.toList());
+		System.out.println("=============================================");
+		
+		
+		// Min of Diff of Emp_Id's 
+		  Employee firstEmp = list.stream().min((e1, e2) -> e1.getId() - e2.getId()).orElseThrow(NoSuchElementException::new);	  
+		  Employee maxSalEmp = empList.stream().max(Comparator.comparing(Employee::getSalary)).orElseThrow(NoSuchElementException::new);
+		  
+		  
+		   // Collectors.joining() will insert the delimiter between the two String elements
+		     String empNames = empList.stream().map(Employee::getName).collect(Collectors.joining(", ")).toString();
+
+-----------------------------------------------------------
+
+		
+		// Used in Junit Test -Case , fetches Objects && storing in List by ID 
+		 List<Employee> employees = Stream.of(empIds).map(employeeRepository::findById).collect(Collectors.toList());
+		 
+		 
+		// Used in Junit Test -Case , fetches Objects by applying Validation && storing in List by ID 
+	   List<Employee> employees = Stream.of(empIds).map(employeeRepository::findById)
+      .filter(e -> e != null)
+      .filter(e -> e.getSalary() > 200000)
+      .collect(Collectors.toList());
+	  
+	  
+	  
+ toCollection() :=
+~~~~~~~~~~~~~~
+ --- We can use Collectors.toCollection() to extract the elements into any other collection by passing in a Supplier<Collection>. 
+ --- We can also use a constructor reference for the Supplier:	  
+ 
+ @Test
+  public void whenToVectorCollection_thenGetVector() {
+    Vector<String> empNames = empList.stream()
+            .map(Employee::getName)
+            .collect(Collectors.toCollection(Vector::new));
+    
+    assertEquals(empNames.size(), 3);
+  }
+		 
+
+ partitioningBy :=
+~~~~~~~~~~~~~~~~~
+ ---  partition a stream into two – based on whether the elements satisfy certain criteria or not.
+ 
+ 
+ Map<Boolean, List<Employee>> collect10 = list.stream()
+				.collect(Collectors.partitioningBy(i -> i.getEmpSal() % 2 == 0));
+
+		Set<Entry<Boolean, List<Employee>>> entrySet3 = collect10.entrySet();
+
+		for (Entry<Boolean, List<Employee>> et : entrySet3) {
+
+			System.out.println("-------------" + et.getKey() + "------------------");
+
+			List<Employee> value = et.getValue();
+
+			for (Employee emp : value) {
+				System.out.println(emp);
+			}
+
+		}
+
+===============================================================================================
+
 ---->Stream.forEach(Consumer action) method to traverse all the elements of stream and performs an action for each element of this stream.
 
  Eg11 :=
@@ -930,7 +1246,7 @@ Terminal-Operations :=
 ---->The behavior of forEach() operation is explicitly non-deterministic. ( No Guaranty of Ordering-elements )
     The behavior of forEachOrdered() operation respects the the encounter order of the stream if the stream has a defined encounter order whether it is parallel stream or sequential.
 	
- Eg22 :=
+ Eg2 :=
  ~~~~~
         List<Integer> list = Arrays.asList(2, 4, 6, 8, 10);
         list.stream().parallel().forEach( System.out::println );         // 6,10,8,4,2
@@ -940,17 +1256,25 @@ Terminal-Operations :=
 
 ---->Stream.toArray() to convert stream to array
 
- Eg1:=
+
+ Eg3:=
 ~~~~~~
         Stream<String> tokenStream = Arrays.asList("A", "B", "C", "D").stream();  //stream
         String[] tokenArray = tokenStream.toArray(String[]::new);   //array
         System.out.println(Arrays.toString(tokenArray));
 
- Eg2 :=
+
+ Eg4 :=
 ~~~~~~~
         Employee[] employeesArray = employeeList.stream().filter(e -> e.getSalary() < 400).toArray(Employee[]::new);		
 
 
+ Eg5 :=
+~~~~~~
+  stream().min(Comparator.comparing(StageMasterEntity::getOrderNo)).orElseThrow(NoSuchElementException::new);
+          return stageMasterEntity.getStageId();
+		
+		
  Eg for Collect() :=   // ****Collectors()*******
 ~~~~~~~~~~~~~~~~~~~~ 
     //  List<Product> ListOfPersons = productList.stream().collect(Collectors.toList());
@@ -1114,9 +1438,27 @@ It is used to avoid “NullPointerException”.
 ===============================================================================================================
 
  StringJoiner890 := [https://www.javaguides.net/2018/07/java-8-stringjoiner-class.html]
-~~~~~~~~~~~~~~~~~
-
-
+~~~~~~~~~~~~~~~~~    https://www.javatpoint.com/java-stringjoiner
+   
+ 
+ ----> used to construct a sequence of characters separated by a delimiter  (,) / (-). 
+ 
+ 
+ 
+ Collections singletonList()  :=   [ https://www.geeksforgeeks.org/collections-singletonlist-method-in-java-with-examples/ ]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ----> Return an immutable list containing only the specified object. 
+ ---> The returned list is serializable. This list will always contain only one element thus the name singleton list.
+ ----> When we try to add/remove an element on the returned singleton list, it would give UnsupportedOperationException.
+ 
+ 
+ 
+ CompletableFuture (C) :=    ////  belongs to java.util.cocurrent package. //////  Java-8
+~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Asynchronous programming. Asynchronous programming means writing non-blocking code. 
+ --- It runs a task on a separate thread than the main application thread and notifies the main thread about its progress, completion or failure.
+ 
+ 
 
 =================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
 ======================================================================================================
@@ -1190,7 +1532,9 @@ It is used to avoid “NullPointerException”.
  ComparatorInJava :=
 ~~~~~~~~~~~~~~~~~~~
 
-		 Comparator<Employee> comp	= ( o1,   o2)-> o1.getEmpName().compareTo(o2.getEmpName());
+ Eg11 :=
+~~~~~~~~
+   Comparator<Employee> comp = ( o1,   o2)-> o1.getEmpName().compareTo(o2.getEmpName());
 		
 		Collections.sort(listEmployees,comp);
 		 listEmployees.forEach(System.out::println);
@@ -1203,27 +1547,32 @@ It is used to avoid “NullPointerException”.
 	
 	
   Collections.sort(empList, (emp1, emp2) -> comp.compare(emp1, emp2));
-			 
-			 
- //Compare by Id
+	
+	
+ Eg22 :=
+~~~~~~~~			 
   Comparator<Employee> compareById_1 = Comparator.comparing(e -> e.getId());
- 
-
+  
   Comparator<Employee> compareById_2 = (Employee o1, Employee o2) -> o1.getId().compareTo( o2.getId() );
 
 
+ Eg33 :=
+~~~~~~~
   Comparator<Employee> comparator = Comparator.comparing(e -> e.getFirstName());
     employees.sort(comparator.reversed());
 
-
   employees.sort(Comparator.comparing(e -> e.getFirstName()));
-
 
     //Sort all employees by first name
     employees.sort(Comparator.comparing(e -> e.getFirstName()));
      
     //OR you can use below
     employees.sort(Comparator.comparing(Employee::getFirstName));
+
+
+ Eg44 :=
+~~~~~~
+StageMasterEntity stageMasterEntity = stageMasterEntities.stream().min(Comparator.comparing(StageMasterEntity::getOrderNo)).orElseThrow(NoSuchElementException::new);
 
 
  Strings :=

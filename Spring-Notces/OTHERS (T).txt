@@ -1,15 +1,15 @@
 
 
  
-    ..........MAVEN123.........SpringSecurity444......Mockito990.....JUnit550.....SPRINGCLOUD123
+  ....MAVEN123.........SpringSecurity444......Mockito990.....JUnit550.....SPRINGCLOUD123
 				
-     .........JWT444...........MicroServices334(Links530).....JWT550......AgileMethodology768......SDLC445.....BitBucket99
+  ...JWT444...........MicroServices334(Links530).....JWT550......AgileMethodology768......SDLC445.....BitBucket99
 				
-     .........GIT996...XML900.......NumberConversion...........ApacheKafka540.......RabbitMQ330.....ELKStack780	 
+  ...GIT996....XML900......NumberConversion...........ApacheKafka540.........RabbitMQ330.....ELKStack780.....graphQL460	 
  
-     .........RealTimeTools590.....DevOps890Other......MockiSpringSecurity444to330....JIRA790......CloudComputing550.....
+  ...RealTimeTools590.....DevOps890Other......MockiSpringSecurity444to330....JIRA790......CloudComputing550.....
 		 
-     .........ApacheCamel985 .....JMeter330..........Capcha770....AJAX670....CodeReviewTools....JQuery880
+  ...ApacheCamel985 .....JMeter330..........Capcha770.......AJAX670.......CodeReviewTools....JQuery880
 		 
 ==============================================================================================  
 
@@ -28,6 +28,12 @@
  ~~~~~~
  ---> Performed by  Customers of that Organisation (the One Who Asked to develop Software)
  ---> This Testing done by Customer to test whether developed Software can handle Busniess-Need Or-Not by Entering Real time Business Scenario's . 
+ 
+ 
+ JMS :=
+~~~~~
+
+  Manage Google Accounts ----> Less secure Apps Acess (Off) ----> Turn off Access 
 
 =================================================================================================
 
@@ -1795,7 +1801,9 @@ JUnit Vintage := To support running JUnit 3 and JUnit 4 written tests on the JUn
  
  @ExtendWith ---->  Register custom extensions
  
- @RunWith(SpringRunner. class) ----> provides a bridge between Spring Boot test features and JUnit. 
+ @RunWith(SpringRunner. class) ----> provides a bridge between Spring Boot test features and JUnit.
+
+   @InjectMocks -----> for Class which we write Unit-Testing  (******************) 
 
 
 @RunWith(JUnitPlatform.class)
@@ -1856,7 +1864,6 @@ JUnit Vintage := To support running JUnit 3 and JUnit 4 written tests on the JUn
  
  Eg :=  [ SBMS 7:00 AM 19/12/2020 ]
 ~~~~~
-
 @SpringBootTest(webEnvironment = WebEnvironment.MOCK)
 @AutoConfigureMockMvc
 @TestPropertySource("classpath:application-test.properties")
@@ -1864,23 +1871,24 @@ public class TestProductRestController {
 
 	@Autowired
 	private MockMvc mockMvc; 
-	
+
 	@Test
+	@Disabled
 	public void testSaveProduct() throws Exception {
 		//1. Create Dummy Http Request
 		MockHttpServletRequestBuilder request =
-		MockMvcRequestBuilders
-		.post("/rest/products/save")
-		.contentType(MediaType.APPLICATION_JSON)
-		.content("{\"prodCode\":\"ABC\", \"prodCost\":3.3}")
-		;
-		
+				MockMvcRequestBuilders
+				.post("/rest/products/save")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content("{\"prodCode\":\"ABC\", \"prodCost\":3.3}")
+				;
+
 		//2. Execute Request and Get Result
 		MvcResult result = mockMvc.perform(request).andReturn();
-		
+
 		//3. Read response object from result
 		MockHttpServletResponse response = result.getResponse();
-		
+
 		//4. validate/assert details
 		//expected Status, actual Status
 		assertEquals(HttpStatus.CREATED.value(), response.getStatus());
@@ -1888,9 +1896,123 @@ public class TestProductRestController {
 		if(!response.getContentAsString().contains("saved")) {
 			fail();
 		}
-		
+
 	}
 
+	@Test
+	@Disabled
+	public void testGetAllProducts() throws Exception {
+		//#1. Create one HTTP Request (URL,Method Type, Header, Body)
+		MockHttpServletRequestBuilder request =
+				MockMvcRequestBuilders.get("/rest/products/all");
+
+		//#2. Execute Request and get Result.
+		MvcResult result = mockMvc.perform(request).andReturn();
+
+		//#3. Read Response Object from Result.
+
+		MockHttpServletResponse response = result.getResponse();
+
+		//#4. Validate Response(assert data)
+
+		assertEquals(HttpStatus.OK.value(), response.getStatus());
+		assertEquals("application/json", response.getContentType());
+		String resBody = response.getContentAsString();
+		if(resBody==null || resBody.length()==0) {
+			fail();
+		}
+
+	}
+
+	@Test
+	@Disabled
+	public void testDeleteProductExist() throws Exception {
+		//1. create request
+		MockHttpServletRequestBuilder request =
+				MockMvcRequestBuilders.delete("/rest/products/remove/1");
+
+		//#2. Execute Request and get Result.
+		MvcResult result = mockMvc.perform(request).andReturn();
+
+		//#3. Read Response Object from Result.
+
+		MockHttpServletResponse response = result.getResponse();
+
+		//#4. Validate Response(assert data)
+		assertEquals(HttpStatus.OK.value(), response.getStatus());
+		if(!response.getContentAsString().contains("deleted")) {
+			fail();
+		}
+	}
+
+
+	@Test
+	@Disabled
+	public void testDeleteProductNotExist() throws Exception {
+		//1. create request
+		MockHttpServletRequestBuilder request =
+				MockMvcRequestBuilders.delete("/rest/products/remove/2020");
+
+		//#2. Execute Request and get Result.
+		MvcResult result = mockMvc.perform(request).andReturn();
+
+		//#3. Read Response Object from Result.
+
+		MockHttpServletResponse response = result.getResponse();
+
+		//#4. Validate Response(assert data)
+		assertEquals(HttpStatus.NOT_FOUND.value(), response.getStatus());
+		if(!response.getContentAsString().contains("Not Exist")) {
+			fail();
+		}
+	}
+
+	@Test
+	public void testUpdateProduct() throws Exception {
+		//1. create request
+		MockHttpServletRequestBuilder request =
+				MockMvcRequestBuilders
+				.put("/rest/products/modify/2")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content("{\"prodCode\":\"SAMSUNG TV\", \"prodCost\":5000.0}")
+				;
+
+		//#2. Execute Request and get Result.
+		MvcResult result = mockMvc.perform(request).andReturn();
+
+		//#3. Read Response Object from Result.
+		MockHttpServletResponse response = result.getResponse();
+
+		//4. validate
+		assertEquals(HttpStatus.OK.value(), response.getStatus());
+		//assertEquals(HttpStatus.RESET_CONTENT.value(), response.getStatus());
+		if(!response.getContentAsString().contains("Updated")) {
+			fail();
+		}
+	}
+
+	@Test
+	@Disabled
+	public void testUpdateProductNotExist() throws Exception {
+		// TODO : ____________
+		// Hint: similer to Delete not exist 
+	}
+	
+	@Test
+	@Disabled
+	public void testGetOneProductNotExist() throws Exception {
+		// TODO : ____________
+		// Hint: similer to Delete not exist 
+	}
+	
+	@Test
+	@Disabled
+	public void testGetOneProductExist() throws Exception {
+		// TODO : ____________
+		// Hint: similer to Delete exist 
+	}
+
+}
 =============================================
 
  @DisplayName ----> Used to provide any custom display name for a test class or test method
@@ -3966,7 +4088,9 @@ ProductOwner := Manager    /////////   Scrum-Master := TeamLeader
  GIT996 [81] := (uses 'C' language that reduces the OverHead Of run time)  //// [JAVA-TECHIE*****]
 ~~~~~~~~~~~~ // Cloud-based Hoisting Service that manages Repositaries.
 
-                       YOUTUBE -----> SHIVA-REDDY, ASHOK-IT.
+   GITPullRequest460                    
+
+					  YOUTUBE -----> SHIVA-REDDY, ASHOK-IT.
 
 
                    Dot--GIT --------> Consists of different Versions of GIT. 					   
@@ -4034,18 +4158,147 @@ Ex: Hyd team, chennai team, pune team etc...
 	  
 ======================================================
 
+ GITPullRequest660 :=    [ XIC557-RamaKrishna ]
+~~~~~~~~~~~~~~~~~~~~  
+ 
+  git status 
+  
+  git stash       ------>  Saves to Local                                        ///////////////////////    (OT) git stash pop
+  
+  git pull origin CRM-SPRINT-3-NEWSTORIES
+  
+  git push        ------> Updates Branch  && SYNC with Master-Branch 
+  
+  git stash apply 
+  
+  git add <Files-Name>  
+  
+  git status
+  
+  git commit -m "Added"
+  
+  git push 
+  
+  
+          Compare && Pull Request (Change Destination-Branch) -------> Assign Person ------>  Create Pull Request ------> Copy URL   /////////////    File-Changed 
+  
+  
+ Build Project :=   (In Normal Terminal)
+~~~~~~~~~~~~~~~~~
+  gradlew crm-case-service:build -x test  
+  
+  sudo kill -9 $(sudo lsof -t -i:8080)
+  
+ ./gradlew crm-case-service:build -x test  
+ 
+ 
+ 
+ If Build not Working :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+  export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+  
+  echo $JAVA_HOME 
+  
+  sudo apt  install openjdk-8-jdk
+  
+  echo $PATH
+  
+  export PATH=usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin;$JAVA_HOME/bin
+
+ 
+ 
+=============================================
+
+    First ----> checkout local branch 
+ 
+    git checkout {​branch name}​
+	
+	git stash
+	
+    git reset --hard HEAD
+  
+    git config --global user.email  mvs.ramakrishna@xebia.com
+    git config --global user.name   XIC557-RamaKrishna
+ 
+    then git  stash 
+	
+	then git pull origin CRM-SPRINT-3
+	
+=============================================
+
+  git checkout CRM-SPRINT-3-NEWSTORIES
+  
+  git pull
+  
+  git checkout -b Rama_Test
+  
+  git push 
+  
+================================================
+
  Respositary :=
 ~~~~~~~~~~~~~~
  ---Location  where Project Source-code placed.
  
 
 
-----> Git-Fetch --- Remote to Local repository.. pulls all commits from desired branch , stores in new Brach in local
+ Git-Fetch  ---> Remote to Local repository.. pulls all commits from desired branch , stores in new Brach in local
 
-      Git-Pull ----Remote to Working repository...pulls new changes from Central and update it in local repository.
+ Git-Pull  ----> Remote to Working repository...pulls new changes from Central and update it in local repository.
+ 
+ Git Conflit --> Stage && Commit && then 'Merge'
+
+ 
+ 
+ Git Merge ----> Local to Working  repository
+ 
+ Git Rebase ---> 
 	  
-	  Git Merge ----Local to Working  repository
+ 
+ 
+ Git diff ------> 
 
+ Git Stash -----> 
+
+ Git Reset  ----> Reset Changes in Staging area
+ 
+ Git Revert ----> Undo Chnages (a) before Staging
+ 
+                               (b) After Staging
+								
+							   (c) After Commit
+   
+ 
+ 
+ Git squash ---->
+ 
+ git Ignore ----> Specify which files need to get Ignored    //////  Eg :: Can Avoid Target using GIT 
+
+
+(Q) Difference between Git Pul && Fetch ?
+(A) 
+  GIT Pull -------> Merges Automatically && Commits into Branch  results in Conflits
+  GIT fetch  -----> Gathers all Commits form tatget Branch  which do not Exists in Current Branch
+                                No Merging of Branches 	   
+  
+  
+  QA && UAT ----> Recently They give chance to do Changes to Dev-Team as well  ///////////  Usually  Done by DevOps Team 
+  
+ git fetch -----> Gets What the changes are ///////////  Not Fetches actual files 
+ 
+ git pull ------> Connects with remote && fetches actual files  which are changes 
+ 
+ 
+ git reset -----> Goes to previous Commited Code if latest Commites has Issues   ///////////////////   Latest-Commits (Others) will be gone (*********)
+ 
+                             git reset --HARD  <Commit-ID>
+							 
+							 git push -f 
+							 
+							 
+
+ git revert -----> Goes to previous Commited Code if latest Commites has Issues   ///////////////////   Latest-Commits (Others) will be there  (*********)
 
 ---->"-Fork-" is copy of repository.
 
@@ -4723,6 +4976,44 @@ Streams API
                     (Data-Process)       (Storage)          (Visualize)       
  
  
+ Kibana -----> It is  data visualization tool. 
+	 
+	 
+	 Elasticsearch is a NoSQL database written in Java.	
+	 MongoDB is a document-oriented NoSQL database written in C++.
+	 
+	 Elasticsearch can handle the JSON document in indices, but the binary conversion is not possible of JSON document.	
+	 It is able to handle the JSON document and can convert the JSON into BSON (Binary version of JSON).
+
+
+ ElasticSearch Tutorial :=
+~~~~~~~~~~~~~~~~~~~
+ --- It is a NoSQL Database that stores the data in document format.
+ --- Scalable ////// Schema-Less   ///////  Document-Oriented 
+
+
+ Disadvantages of Elasticsearch :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Elasticsearch is not a good data store as other options such as MongoDB, Hadoop, etc. 
+ --- It performs well for small use cases, but in case of streaming of TB's data per day, it either chokes or loses the data.
+ --- It is a flexible and powerful data storage search engine, but it is a bit difficult to learn. Especially in terms of enterprise search usage, it is not as simplest as out the box search.
+
+
+
+  NODE -------> It is an instance of Elasticsearch, which is used to store data.   ///////  Part of Cluster that stores data   //////// handle HTTP requests form clients  who sends request to cluster.
+                       Master node has the ability to update the states of the cluster
+
+  CLUSTER ------> It is a set of one or more nodes that works together to hold the data
+  
+  DOCUMENT -----> Every document belongs to a type and associated with a unique identifier (UID). 
+  
+  INDEX ------> It is a group of different types of documents.
+  
+   SHARD --------> It allows your index to be divided into several pieces
+   
+   REPLICAS ------> It is an additional copy of shards
+   
+    TYPE -----> common set of fields
  
 ============================================================================================================
 
@@ -4741,7 +5032,43 @@ Streams API
   Ctrl+ Alt D ---> Skip Break-Points
   
   
-==============================
+======================================================================================
+
+ graphQL460  :=     [ https://github.com/Java-Techie-jt/spring-boot-graphQL ]
+~~~~~~~~~~~~
+ ---  It is Open-source server-side technology
+ --- Can PickUp Specific data (Feilds) Only 
+ --- Can Retrieve many resources from a single request
+ --- It is  best suited for microservices and complex systems because of using a simple query.
+ --- It is neutral to databases. You can use a relational or a NoSQL database.
+ 
+  --- It is not an alternative to SQL.       ///////  Follows client-driven architecture.   //////  It is  is data query and manipulation language for APIs - 
+  --- It is only an alternative to REST   ////////     Error handling is difficult.            ///////      The development speed in GraphQL is fast.
+ 
+ --- When the client sends a query, the server reads the requested query and fetches data from the database. 
+ --- This process is known as resolving the query. After resolving the query, the response is returned to the client in the official GraphQL specification format.
+ --- Difficult to maintain the server-side cache compared to the REST.
+ --- Over-fetching unnecessarily increases the payload size.
+ --- SDL is the language that is used to write GraphQL schemas.
+ 
+ 
+ --- Applications using GraphQL are fast and stable because they fetch the data for required fields only, unlike the REST APIs, 
+               where REST APIs fetch data for all the fields for a specific object.   (************)
+
+
+ --- Data over fetching  by the REST , can solve this problem by using GraphQL.
+ --- Populates Data  of Only required feilds Only, which we Specify at POST-Request   (************)
+ 
+ 
+ --- But, REST is not so flexible to cope up with the rapidly changing requirements of the clients that access them.
+ --- when the data gets more complex, the routes get longer. 
+ --- Sometimes, it is challenging to fetch the data with a single request. That's why we use GraphQL.
+ 
+ 
+          Parts -----> (a) Schemas   (b) Resolvers  (c) Query  
+		
+
+===========================================================================================================
 
  RealTimeTools590 :=
 ~~~~~~~~~~~~~~~~~~~

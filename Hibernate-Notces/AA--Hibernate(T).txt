@@ -88,6 +88,14 @@
  @Modifying annotation :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~
  -- It is used to enhance the @Query annotation to execute not only SELECT queries but also INSERT, UPDATE, DELETE, and even DDL queries.
+ 
+ 
+ @Id Generater :=
+~~~~~~~~~~~~~~~~
+ AUTO: Hibernate selects the generation strategy based on the used dialect,   ///// UUID values will use the UUIDGenerator.
+ IDENTITY: Hibernate relies on an auto-incremented database column to generate the primary key, /////  disables batch updates.
+ SEQUENCE: Hibernate requests the primary key value from a database sequence,
+ TABLE: Hibernate uses a database table to simulate a sequence.
 
 ===================================================================================
 
