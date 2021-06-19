@@ -1353,9 +1353,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
 ==============/\/\\/\\/==============\/\\/\//\/\============/\/\\/\/\\/\===========/\/\\/\==============
 
- EasyMock :=
+ EasyMock :=   ///////// CodeCoverage
 ~~~~~~~~~~~
- --- It is an open-source, Java-based testing framework used for testing Java applications && released under the Apache License. 
+ --- It is an open-source, Java-based testing framework used for testing Java applications && 
+              released under the Apache License. 
  --- We cannot mock final and private methods by using EasyMock.
  --- It mock   interfaces
  --- EasyMock.expect(mock.method(args)).andReturn(Value)       /// expect && andReturn 
@@ -1747,10 +1748,15 @@ public void getAllEmployeesAPI() throws Exception
 
 ----> JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage
 
-What is Code Coverage?
-----------------------
+
+=====================================================================================
+
+  CodeCoverage :=  
+~~~~~~~~~~~~~~~~~
  -- It is the process of identifying which lines of code is executed and which lines of code is not executed as part of Unit Testing.
  -- To generate code coverage report we will use Jacoco plugin
+ 
+   https://github.com/dailycodebuffer/Spring-MVC-Tutorials/tree/master/JaCoCo-Demo/src/test/java/com/dailycodebuffer
         
 		<plugin>
 				<groupId>org.jacoco</groupId>
@@ -1758,7 +1764,7 @@ What is Code Coverage?
 				<version>0.8.2</version>
         </plugin>
 
-
+=====================================================================================
 
 ---->To be able to execute junit 5 tests in eclipse, we will need following dependencies.
 

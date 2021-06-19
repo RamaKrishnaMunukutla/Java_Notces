@@ -19,7 +19,7 @@
 	  https://javaconceptoftheday.com/solving-real-time-queries-using-java-8-features-employee-management-system/
 	  
 	  https://github.com/Java-Techie-jt/java8 (****)
-			 
+      
 	
  Java 7 :=
 ~~~~~~~~~~

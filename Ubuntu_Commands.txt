@@ -1,0 +1,936 @@
+
+ 
+
+
+    GITPullRequest660..............IntelliJShortcuts............ReducesOverHeat...........InstallJAVA........MouseSpeed........InstallChrome........Bleachbit
+  
+  
+    InstallIntelliJ............InstallJenkins.........InstallDocker......InstallKubernetes.........InstalledSoftwares
+	
+	
+    DockerCommands...........KubernetesCommands
+
+
+==================================================================================================================
+ 
+   Sudo command -----> Ensure that it runs with root access.
+   
+   
+    Chef &&& Puppet  (ConfMana)  ///////   Ansible (ConfMana)   //////////   Nagios (ContMon) /////////  Linux Commands  ///////  Shell Scripting ////////  AWS
+	 
+	 ELK //// Kibana  ////
+
+
+  Continious DTIDM 
+
+==================================================================================================================
+
+  Other-ShortCuts :=
+~~~~~~~~~~~~~~~~~~~ 
+      
+	     DeskTop        ------>  Cntrl + Windows + D    /////       Windows + D    (**************)
+  
+          Menu                ----->  Windows + A 
+  
+  Maximize_window  ----->  Alt + F10 . 
+	  
+   Min && Max Apps ----->  
+	 
+      Close Window   ----->  Ctrl+ Q
+  
+   
+   
+   Short_Cut ------> Windows + (123456890) 
+   
+  New_Folder ------> Ctrl +Shift + N
+    
+ Delete all characters before the cursor ----->   Ctrl+U:		 
+		 
+		 
+==============================================================================================================================
+  
+  OracleDB ShortCut :=   [ https://dbeaver.io/download/?start&os=linux&arch=x86_64&dist=deb ]
+~~~~~~~~~~~~~~~~~~~
+
+    Cntrl Shift + E ---->  Execution Plan of Query 
+
+     Help ----> F1
+	 
+	 Ctrl + Alt + Shift + B ----->   Monitor Health of DataBase (View in  DashBoard)
+	 
+	 Ctrl + Alt + '   -----> Execute Query 
+	 
+	 Ctrl + \ ---->  
+	 
+==================================================================================================================================
+
+ 
+ GITPullRequest660 :=    [ XIC557-RamaKrishna ]
+~~~~~~~~~~~~~~~~~~  
+ 
+  git status 
+  
+  git stash       ------>  Saves to Local                                        ///////////////////////    (OT) git stash pop
+  
+  git pull origin CRM-SPRINT-3-NEWSTORIES
+  
+  git push        ------> Updates Branch  && SYNC with Master-Branch 
+  
+  git stash apply 
+  
+  git add <Files-Name>  
+  
+  git status
+  
+  git commit -m "Added"
+  
+  git push 
+  
+  
+          Compare && Pull Request (Change Destination-Branch) -------> Assign Person ------>  Create Pull Request ------> Copy URL   /////////////    File-Changed 
+  
+  
+  Build Project :=   (In Normal Terminal)
+~~~~~~~~~~~~
+  gradlew crm-case-service:build -x test  
+  
+  sudo kill -9 $(sudo lsof -t -i:8080)
+  
+ ./gradlew crm-case-service:build -x test  
+ 
+ 
+ 
+ If Build not Working :=
+~~~~~~~~~~~~~~~~~~
+
+  export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+  
+  echo $JAVA_HOME 
+  
+  sudo apt  install openjdk-8-jdk
+  
+  echo $PATH
+  
+  export PATH=usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin;$JAVA_HOME/bin
+
+ 
+ 
+=============================================
+
+    First ----> checkout local branch 
+ 
+    git checkout {​branch name}​
+	
+	git stash
+	
+    git reset --hard HEAD
+  
+    git config --global user.email  mvs.ramakrishna@xebia.com
+    git config --global user.name   XIC557-RamaKrishna
+ 
+    then git  stash 
+	
+	then git pull origin CRM-SPRINT-3
+	
+=============================================
+
+  git checkout CRM-SPRINT-3-NEWSTORIES
+  
+  git pull
+  
+  git checkout -b Rama_Test
+  
+  git push 
+ 
+====================================================================================================================================
+
+  IntelliJShortcuts :=   [ https://www.jetbrains.com/help/rider/Keymaps_Comparison_Windows.html#find_everything ]
+~~~~~~~~~~~~~~~~ [ https://www.cloudflight.io/press/intellij-idea-eclipse-shortcuts-1689/ ]
+
+
+   https://www.shortcutfoo.com/app/dojos/intellij-idea-win/cheatsheet
+   https://shortcutworld.com/IntelliJ-IDEA/win/IntelliJ_Shortcuts
+  
+  
+ 
+    Getters && Setters ----> Alt + Insert   //// Ctrl + Enter 
+
+                Print           -----> Sout   (i, v m)
+
+              PSVM          ------> Main Method
+			  
+           Comments   ------->  Ctrl + /
+			  
+			  Format      ------->  Ctrl + Alt + L     (****************)
+			  
+	  
+
+	  Creates_Object   ----->  Ctrl + Shift + Space   (L)
+		
+		   For_Loop        ------->  Ctrl + Shift + Enter  
+	  
+      Invoke refactoring  ----->  Ctrl+Alt+Shift+T	
+	  
+	   End_Of_Braces --------->  Ctrl + ]     /////////    Ctrl + [
+	  
+
+
+      Duplicate  Current_line ----->   Ctrl + D 
+
+        Delete Current_line  ------>  Ctrl + Y
+		  
+	      All Methods         ------->  Ctrl  + F12
+		  
+		  
+            Search_All     ------------> Ctrl + Shift + F  (N)    //////     (***************)
+	   
+	       Search_File    ------------> Ctrl + Shift + N   (***************)
+	  
+	  Search_ Methods   ----------> Ctrl + Fn + F12
+	  
+	     Impl_Method  --------------> Ctrl + Alt + B   (***************)
+		 
+      Search Package   -----------> Ctrl + N   
+	  
+	  
+	      Debug  -----> F8 
+	  
+	  Again Debug ------> F9
+		  
+		  
+=========================================
+
+    Change Themes --------> Ctrl + `   
+	   
+	    Font_Size       --------> Ctrl + Alt + S
+     
+          Rename  -------------> Ctrl + Fn + F6   
+		
+		 
+ 
+  Takes_declaration -----------> Ctrl+B
+		 
+		 Copy_Line     ------------>  Ctrl + D
+		 
+	   Recent_Files   ------------> Ctrl+ E 
+	 
+	 List_Of_Copied ------------->   Ctrl + Shift + V
+	   
+   Know Return_Type ---------->  Alt + Enter
+   
+   
+   
+              All        ---------> Shift(2)
+	   
+	  Run_Anywhere ------>  Control(2)
+   
+      Places_Used      -------> Alt + F7
+	
+	
+=================================================
+
+	     ----->  Ctrl + Shift + B   
+	 
+	 Search_Folder   ------> Ctrl + Shift + O   
+	 
+	     Tab (user.null)  ---->    If-Loop Automatic
+		 
+		  
+   showing us actions for the current context ----->  Alt + Enter
+     
+
+    	 ------->   Ctrl + Alt + (M / V)
+									
+         ------->  Shift (2)
+		 
+		 
+		  	
+				
+  GIT  :=  VCS -----> VCS OPeration PopUp
+~~~~~~~
+ 
+==================================================================================================================================
+
+    AWS ------> mvsrkri...  ///  Amazon910@#
+	
+	
+	Docker ----> mvsrkri...  /// ramakrishnamunukutla  ///  521191ramak
+	
+==================================================================================================================================
+
+ InstalledSoftwares :=       [ https://www.youtube.com/watch?v=GrI5c9PXS5k&ab_channel=LinuxTex ]
+~~~~~~~~~~~~~~~~~
+ 
+   sudo apt install preload
+  
+  sudo apt-get update   /////    sudo apt list --upgradable    //////   sudo apt-get upgrade     /////    sudo apt-get dist-upgrade
+  
+  sudo apt install gnome-shell-extensions
+  
+  
+  
+  ReducesOverHeat :=
+~~~~~~~~~~~~~~~~~~~
+  sudo add-apt-repository ppa:linrunner/tlp
+  sudo apt-get update
+  sudo apt-get install tlp tlp-rdw
+  sudo tlp start
+  
+   sudo gedit /etc/default/grub
+   sudo update-grub
+   
+   sudo apt-get clean
+  sudo apt-get autoremove
+  
+  sudo apt-get install compizconfig-settings-manager
+  
+   
+     CPU ------> sudo apt-get install indicator-cpufreq
+  
+    Hibernate ------> sudo pm-hibernate
+	
+	
+	Screen_Shot ------> Shift + PtrSc  (Drag-Mouse)
+  
+  
+=============================================
+  
+  MouseSpeed      :=     sudo apt-get install imwheel     
+~~~~~~~~~~  
+ 
+      sudo apt install imwheel
+    
+       gedit  ~/.imwheelrc
+ 
+    ".*"
+    None,      Up,   Button4, 3
+    None,      Down, Button5, 3
+    Control_L, Up,   Control_L|Button4
+    Control_L, Down, Control_L|Button5
+    Shift_L,   Up,   Shift_L|Button4
+    Shift_L,   Down, Shift_L|Button5
+	
+	 
+  Now run this command -----> killall imwheel && imwheel -b "4 5"
+
+add imwheel in start up apps, follow me ------->  imwheel -b "4 5"
+
+
+=====================================================
+
+  Rar_File Install :-=
+~~~~~~~~~~~~~~~
+
+   sudo apt install unrar
+
+============================================================
+  
+  Firefox Tweaks :=
+~~~~~~~~~~~~~~~
+  about:config
+  layers.acceleration.force-enabled
+  gfx.webrender.all
+ 
+ 
+ Numix Theme and Icons :=
+~~~~~~~~~~~~~~~~~~~~~~
+  sudo add-apt-repository ppa:numix/ppa
+  sudo apt-get update
+  sudo apt-get install numix-gtk-theme numix-icon-theme-circle
+
+
+   Synaptic Package Manager  -----> sudo apt install synaptic:
+
+    
+          Bleachbit ----> sudo apt install bleachbit
+		  
+===================================================================
+  
+  Hibernate-Commands :=
+~~~~~~~~~~~~~~~~~~
+ --- sudo gedit /etc/polkit-1/localauthority/50-local.d/com.ubuntu.enable-hibernate.pkla
+
+[Re-enable hibernate by default in upower]
+Identity=unix-user:*
+Action=org.freedesktop.upower.hibernate
+ResultActive=yes
+
+[Re-enable hibernate by default in logind]
+Identity=unix-user:*
+Action=org.freedesktop.login1.hibernate;org.freedesktop.login1.handle-hibernate-key;org.freedesktop.login1;org.freedesktop.login1.hibernate-multiple-sessions;org.freedesktop.login1.hibernate-ignore-inhibit
+ResultActive=yes
+
+===================================================================
+
+  InstallChrome :=
+~~~~~~~~~~~~~
+  sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+  sudo apt-get update 
+  sudo apt-get install google-chrome-stable
+
+  Update  ----> sudo apt-get --only-upgrade install google-chrome-stable
+  
+  
+  Mozilla :=  sudo apt install firefox
+~~~~~~~~~~
+
+
+  NGINX :=
+~~~~~~~~~
+  sudo apt-get install nginx
+  
+  sudo ufw enable
+ 
+  nginx -v
+ 
+=============================================================
+
+ 
+ InstallJAVA :=   (Oracle ----> Linux_64_tar.gz //// 144MB)
+~~~~~~~~~~
+
+  Install Java in Ubuntu ----> https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04 
+
+
+  export JAVA_HOME=home/ramakrishna/Downloads/Downloaded/jdk-8u291-linux-x64/jdk1.8.0_291
+
+  echo $JAVA_HOME
+  
+  export PATH=${home/ramakrishna/Downloads/Downloaded/jdk-8u291-linux-x64/jdk1.8.0_291}:${JAVA_HOME}/bin
+  
+  export PATH=$PATH:$JAVA_HOME/bin
+  
+   
+========================================================================
+
+   sudo apt install default-jre
+   
+   sudo apt install default-jdk   ////   sudo apt install openjdk-8-jdk
+   
+   javac --version
+   
+   sudo update-alternatives --config java
+   
+   sudo gedit  /etc/environment
+   
+          JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"              /bin/java
+   
+   source  /etc/environment
+   
+   echo $JAVA_HOME
+   
+   sudo apt remove default-jdk    //////// sudo apt-get autoremove openjdk-8-jre
+   
+   
+      tar -zxvf jdk-8***
+   
+   sudo mkdir -p usr/lib/jvm/jre/jdk-1.8.0_291
+   
+   sudo mv jdk-1.8.0_291  usr/lib/jvm/jre/jdk-1.8.0_291
+   
+   cd usr/lib/jvm/jre/jdk-1.8.0_291
+   
+   ls
+   
+    sudo update-alternatives --install usr/bin/java java/usr/lib/jvm/jre/jdk-1.8.0_291
+   
+   sudo update-alternatives --install usr/bin/java java/usr/lib/jvm/jdk-1.8.0_291/bin/java 2
+   
+   
+========================================================================  
+   
+ InstallIntelliJ :=
+~~~~~~~~~~~~~
+   snap  find "IntelliJ"
+   
+   sudo snap install intellij-idea-community --classic 
+   
+   
+   STS  (Install New Software ) ----> http://download.eclipse.org/releases/mars
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Eclipse Java EE Developer Tools
+  Eclipse Java Web Developer Tools
+  Eclipse Web Developer Tools
+  
+  
+==================================================
+ 
+ Add Refresh Button :=
+~~~~~~~~~~~~~~~~~
+   
+   sudo add-apt-repository ppa:nae-team/ppa
+   
+    sudo apt-get update-alternatives
+	
+	sudo apt-get install nautilus-refresh
+	
+	nautilus -q
+	
+	sudo add-apt-repository ppa:nae-team/ppa
+sudo apt-get update
+sudo apt-get install nautilus-refresh
+ 
+ 
+    just a min please
+
+==================================================
+
+ Install GIT :=
+~~~~~~~~~~
+   sudo apt-get install git -y
+   
+   git --version
+   
+   git config --global user.name "Rama Krishna"
+   git config --global user.email "ramakrishnamunukutla910@gmail.com"
+   git config --list
+   
+     
+ other commands :=
+~~~~~~~~~~~~~~~
+   git clone (url)
+   git add (file names)
+   git commit -m "(committed message)
+   git push -u origin master
+   remote add origin master (url) 
+   
+ =======================================================
+ 
+  Install Teams :=  [ https://www.microsoft.com/en-in/microsoft-teams/download-app#desktopAppDownloadregion ]
+~~~~~~~~~~~~~~
+   dpkg -i teams
+   
+   
+  Echo Problem in Teams :=
+~~~~~~~~~~~~~~~~~~~~~~~
+ sudo nano /etc/pulse/default.pa
+
+.ifexists module-echo-cancel.so
+load-module module-echo-cancel aec_method=webrtc source_name=echocancel sink_name=echocancel1
+set-default-source echocancel
+set-default-sink echocancel1
+.endif
+
+ =======================================================
+ 
+ 
+ InstallJenkins :=   [ http://127.0.0.1:8080/ ]
+~~~~~~~~~~~~~
+ --- wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+ --- sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > \  /etc/apt/sources.list.d/jenkins.list'
+ --- sudo apt-get install jenkins -y
+ --- sudo apt-get update
+ --- sudo apt-get install jenkins
+ 
+ 
+ InstallDocker   :=
+~~~~~~~~~~~
+  sudo apt-get install \ apt-transport-https \ ca-certificates \ curl  gnupg \ lsb-release
+  
+  sudo apt install docker.io
+  
+  sudo docker --version
+  
+  sudo systemctl status docker
+  
+  
+  
+  Certificates -----> sudo apt-get install apt-transport-https ca-certificates
+  
+  Verify that the package manager is pointing to the right repository ----->  apt-cache policy docker-engine
+  
+  
+  
+  Start ----> sudo systemctl start docker  //////   sudo systemctl enable docker  
+  
+  Version -----> docker --version
+  
+  sudo systemctl enable --now docker
+  
+  sudo docker run hello-world
+  
+  sudo docker images
+ 
+        
+		              CURL -----> sudo apt-get install curl  
+					  
+					  
+  InstallKubernetes   :=
+~~~~~~~~~~~~~~~~~~
+
+  sudo su
+  
+  swapoff -a
+  
+  nano /etc/fstab     -----> Comment Swap Line 
+  
+  nano /etc/hostname
+  
+  ifconfig
+  
+  nano /etc/hosts
+  
+  nano /etc/network/interfaces
+  
+  /// Add Below
+  auto enp0s8
+  iface enp0s8 inet static
+  address 172.17.0.1
+  
+  nano  /etc/hosts/ 
+   ##add##  172.17.0.1  kmaster
+   
+  sudo apt-get install -y apt-transport-https ca-certificates curl 
+   
+  sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+  
+  echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+  
+  sudo apt-get install -y kubelet kubeadm kubectl
+  
+  sudo apt-mark hold kubelet kubeadm kubectl
+  
+  sudo su
+  nano /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+    Environment="cgroup-driver=systemd/cgroup-driver=cgroupfs"
+
+================================================================
+
+  sudo apt-get install curl
+ 
+  sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+  
+  sudo apt-get install kubeadm kubelet kubectl
+ 
+  sudo apt-mark hold kubeadm kubelet kubectl
+  
+  kubeadm version
+ 
+ =================================================================
+    
+  NotedSoftwares  :=
+~~~~~~~~~~~~~~~
+   
+   JDK -- 1.8 -   --- OK   (ProgrammingKnowledge)
+   
+   PostMan       --- OK  (Store      //////////////////////////////////    GraphQL    
+   
+   DBeaver Community    ---  OK
+   
+   Notepad++                  --- OK  (Store)
+   
+   IntelliJ                         --- OK  (ProgrammingKnowledge)
+   
+  GITBash                      --- OK  (ProgrammingKnowledge)
+  
+ ===================================================  
+   
+   Citrix Receiver                    --- ???   
+  
+   Sonic Wall Net Extender     ---  OK
+   
+   Gradle ----> https://gradle.org/next-steps/?version=4.9&format=all
+   
+===================================================  
+   
+   Teams   //// OutLook  ///   Cisco Webax  -----> OK
+   
+===================================================
+
+  Jenkins   ------ OK  (ProgrammingKnowledge)
+
+  Docker   ------ OK  (ProgrammingKnowledge)    
+  
+===================================================
+
+  Master-Branch <-----  Sprint-Branch  <-----  Story-Branch  <----- Developer-Branch 
+
+==================================================================================================================================
+ 
+ DockerCommands :=
+~~~~~~~~~~~~~~~~
+
+      Install ------> sudo apt install docker.io    (************)
+	  
+	  
+	  
+	  Start Docker -----> sudo systemctl start docker   //////    sudo systemctl enable docker  
+	  
+	  
+  sudo docker start    ///////////////    sudo docker start sl
+ 
+ sudo docker pull mysql
+ 
+ sudo docker images
+ 
+
+    docker run nginx   /////  docker pull nginx
+	
+	
+	Start Docker      ----------> systemctl docker 
+  
+   Lists All Container (Runing) ---------> sudo docker ps
+   
+   Check All Container -------> sudo docker ps -a 
+	
+   Stop Container    ----------> sudo docker stop <Container-ID>    //////////////     (******* First Stop, then Remove Container *********)
+   
+   Remove Image ------> sudo docker rmi <Image-ID>
+   
+   Save Image Inside Container ------> sudo docker commit <Container-ID> <Image-ID> (Name)
+   
+   docker volume ls 
+   
+   Kill Container    ----------> sudo docker kill sl
+	
+	List of Images -------------> sudo docker images
+	
+ 
+ Delete Image ----> sudo docker run -d -p0.0.0.0:80:80 mysql:latest
+ 
+ Deletes_Image ------> sudo docker image rm -f image d1165f221234 
+ 
+ 
+==================================================================================================================================
+
+ KubernetesCommands :=
+~~~~~~~~~~~~~~~~~~~
+
+  Add Packaege -----> sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add  
+ 
+ Make Repo ------> sudo apt-get install -y apt-transport-https  
+ 
+  Add-Repo ----->  udo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+ 
+  Install Kubernetes Components -----> sudo apt-get install -y kubelet kubeadm kubectl kubernetes-cni  
+  
+  
+  nano deploy.yaml
+  
+  kubectl get pods  ////////  kubectl get pods  (po)  ///////   kubectl get deployments 
+  
+  kubectl get pods --all-namespaces
+  
+  kubectl create deployment mydep --image = nginx  --repli
+  
+  kubectl create  -f deploy.yaml
+ 
+ kubectl create service nodeport nginx --tcp=80:80
+ 
+ kubectl get svc
+ 
+ kubectl delete service nginx
+ 
+ kubectl get svc 
+ 
+ kubectl delete deployment nginx1
+ 
+ kubectl get pods --all-namespaces -o wide  ---------- (More Info of PODS) 
+ 
+ 
+ 
+
+==================================================================================================================================
+
+
+
+==================================================================================================================================
+
+
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+   
+   JDK -- 1.8  (If Linux, ----> Linux_64_tar.gz //// 144MB )   
+   
+   PostMan       
+   
+   DBeaver Community    [ https://dbeaver.io/download/ ] 
+   
+   Notepad++                 
+   
+   IntelliJ                         
+   
+     GIT            
+
+   WPS Office      
+  
+ ===================================================  
+   
+   Citrix Receiver     [ https://atawworkspace.yesbank.in/Citrix/StoreWeb/ ]
+  
+   Sonic Wall Net Extender  (tgz)   [ https://www.sonicwall.com/products/remote-access/vpn-clients/ ]
+
+   AnyDesk   
+   
+   
+===================================================  
+   
+   Teams     
+   
+   Cisco Webax   (Optional)
+ 
+===================================================
+
+
+  VokoScreen
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+
+
+
+======================================================================================================================================
+
+
+
+======================================================================================================================================
+
+

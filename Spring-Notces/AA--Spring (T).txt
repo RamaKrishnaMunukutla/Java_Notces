@@ -82,6 +82,12 @@ Core:=  [ http://localhost:8965/ ]
       Spring 2.5 ----> 2007
       Spring 3.0 ----> 2009
       Spring 4.0 ----> 2013
+	  
+	  
+ Spring Multi Module Project :=  [ https://github.com/Java-Techie-jt/spring-multi-module-application ]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- It is built from a parent-POM that manages a group of submodules.
+ 
  
 ============================================================================================================
 
@@ -1785,11 +1791,11 @@ public class User {
 	
 	
 		 
- If Error comes whiel Fetching :=
-~~~~~~~~~~~~~~~~~~~~~~~~~
-       if (caseResolutionRequest.getResolutionStage().equalsIgnoreCase(STATUS_RESOLVED)) {
-                    existingCaseResolutionEntity = Optional.ofNullable(caseResolutionRepository.findByCaseIdAndStatus(caseResolutionRequest.getCaseId(), STATUS_ASSIGNED)).orElseThrow(() -> getCustomResolutionException("Assigned Case Resolution not found")).get(0);
-                } 
+ If Error comes while Fetching :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ if (caseResolutionRequest.getResolutionStage().equalsIgnoreCase(STATUS_RESOLVED)) {
+               existingCaseResolutionEntity = Optional.ofNullable(caseResolutionRepository.findByCaseIdAndStatus(caseResolutionRequest.getCaseId(), STATUS_ASSIGNED)).orElseThrow(() -> getCustomResolutionException("Assigned Case Resolution not found")).get(0);
+   } 
 
 				
   stageTeamData.setHomeBranch(Optional.ofNullable(caseRepository.findByCaseId(caseResolutionRequest.getCaseId())).orElseThrow(() -> getCustomResolutionException("Home Branch not found")).getHomeBranch());
