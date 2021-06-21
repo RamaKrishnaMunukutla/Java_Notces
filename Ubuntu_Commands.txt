@@ -2,7 +2,10 @@
  
 
 
-    GITPullRequest660..............IntelliJShortcuts............ReducesOverHeat...........InstallJAVA........MouseSpeed........InstallChrome........Bleachbit
+    GITPullRequest660..............IntelliJShortcuts............
+	
+	
+	ReducesOverHeat...........InstallJAVA........MouseSpeed........InstallChrome........Bleachbit
   
   
     InstallIntelliJ............InstallJenkins.........InstallDocker......InstallKubernetes.........InstalledSoftwares

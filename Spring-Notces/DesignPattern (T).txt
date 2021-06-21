@@ -5,7 +5,7 @@
     
            SingletonDesign.........ProtoTypeDesign........FactoryDesign..................BuilderPattern
 		   
-		   ProxyDesign550.........TemplateDesign566
+		   ProxyDesign550.........TemplateDesign566.......BuilderDesignPattern
 
 
 ===========================================================================================================
@@ -515,8 +515,23 @@ Eg::-  Now building the foundation for a house is same for all type of houses, w
    
    Eg :: ATM, uses the Chain of Responsibility design pattern in money giving process.
 
+==========================================================================================================
 
-=========================================================================================
+ BuilderDesignPattern :=
+~~~~~~~~~~~~~~~~~~~~~~~~
+ --- The parameters to the constructor are reduced and are provided in highly readable method calls.
+ --- Builder design pattern also helps in minimizing the number of parameters in constructor and 
+            thus there is no need to pass in null for optional parameters to the constructor.
+
+ --- Object is always instantiated in a complete state
+ --- Immutable objects can be build without much complex logic in object building process.
+
+ --- The only big difference between this builder pattern and abstract factory pattern is that, builder provides you more control over the object creation process and that’s it. 
  
- 
+
+==========================================================================================================
+
+
+
+
 

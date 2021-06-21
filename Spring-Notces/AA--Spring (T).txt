@@ -84,10 +84,14 @@ Core:=  [ http://localhost:8965/ ]
       Spring 4.0 ----> 2013
 	  
 	  
- Spring Multi Module Project :=  [ https://github.com/Java-Techie-jt/spring-multi-module-application ]
+ Spring_Multi_Module_Project :=  [ https://github.com/Java-Techie-jt/spring-multi-module-application ]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- --- It is built from a parent-POM that manages a group of submodules.
- 
+ --- It is built from a parent-POM that manages a group of sub-modules.
+ --- Parent project works as a container for base maven configurations.
+ --- Build system take care of the build order.
+ --- Make it easy and flexible to deploy the application.
+ --- You can re-use the code from the modules across different projects.
+ --- We only need to specify all the dependencies in the parent pom. All the other modules share the same pom  (*********)
  
 ============================================================================================================
 
@@ -1757,15 +1761,41 @@ public class User {
    return new ResponseEntity<Employee>(employee, status);
 }
   	 
-==============================================================================================
+=================================================================
 
+ Optional :=   [ ---findAny, find** in 'Collection' Returns Optional--- ]
+------------
+ CaseEntity caseEntity = Optional.ofNullable(caseRepository.findByCaseId(caseId)).
+                               orElseThrow(() -> getCustomResolutionException("Case entity not found by case id "));
+            
+
+ caseResolutionEntity = Optional.ofNullable(caseResolutionRepository.findByCaseIdAndStatus(caseId, currentStatus)).
+   orElseThrow(() -> getCustomResolutionException("Case Resolution not found for case id and statues")).get(0);
+
+
+ IssueTypeEntity issueTypeEntity =                            Optional.ofNullable(issueTypeRespository.findByIssueTypeId(caseResolutionRequest.getIssueTypeId())).
+                              orElseThrow(() -> getCustomResolutionException("Issue type entity not found. "));
+      
+	  
+ caseResolutionEntity.setValueMasterEntity(Optional.ofNullable
+                     (valueMasterRepository.findById(caseResolutionRequest.getValueCodeData().getValueId())).
+					 orElseThrow(() -> getCustomResolutionException("Value Master Data Not found")).get());
+        
+
+ Optional<ModeData> optionalModeData = modeData.stream().
+                 filter(mode -> mode.getModeId().equalsIgnoreCase(modeId)).findAny();
+
+
+
+		
+=================================================================
  Has-A :=
 ~~~~~~~
-     @Query("From IssueChannelWorkflowMappingEntity ic where ic.issueType.issueTypeId = ?1 and ic.channelId = ?2")
-    IssueChannelWorkflowMappingEntity findByIssueTypeAndChannelId(String issueType, String channelId);
+	@Query("From IssueChannelWorkflowMappingEntity ic where ic.issueType.issueTypeId = ?1 and ic.channelId = ?2")
+	IssueChannelWorkflowMappingEntity findByIssueTypeAndChannelId(String issueType, String channelId);
 	
 	
-     @Query("select tbl from UserChannelLinkageEntity tbl where UPPER(tbl.userChannelEntity.userAdid) = UPPER(?1) ")
+	@Query("select tbl from UserChannelLinkageEntity tbl where UPPER(tbl.userChannelEntity.userAdid) = UPPER(?1) ")
     List<UserChannelLinkageEntity> findByUserAdidIgnoreCase(String userId);
 
 
@@ -1773,11 +1803,11 @@ public class User {
     void deleteByuserAdidIgnoreCaseAndLobIdIn(@Param("userAdid") String userAdid, @Param("lobId") List<String> lobId);
 	
 	
-     @Query(value = "select c from UserProductLinkageEntity c where UPPER(c.userProductEntity.userAdid) = UPPER(?1) and c.userProductEntity.productId = ?2")
+	@Query(value = "select c from UserProductLinkageEntity c where UPPER(c.userProductEntity.userAdid) = UPPER(?1) and c.userProductEntity.productId = ?2")
     UserProductLinkageEntity findByUserAdidIgnoreCaseAndProductId(String userId, String productId);
 	
 	
-   @Query("select tbl from TeamLobLinkageEntity tbl where tbl.teamLobEntity.teamId = ?1")
+	@Query("select tbl from TeamLobLinkageEntity tbl where tbl.teamLobEntity.teamId = ?1")
     List<TeamLobLinkageEntity> findByTeamId(String teamId);
 	
 	
@@ -1787,6 +1817,14 @@ public class User {
 	
 	@Query("select tbl from UserTeamLinkageEntity tbl where tbl.userTeamEntity.userAdid = ?1")
     Optional<List<UserTeamLinkageEntity>> findAllByUserAdidIgnoreCase(String userAdid);
+	
+	
+	 @Query("SELECT distinct f.id as id, f.formMetaData.name as name FROM Form f JOIN  f.makerCheckerRequest r WHERE r.status = ?1")
+	List<CTA> findAllCTAByStatus(RequestStatus status);     // (*********************)
+
+
+    @Query("SELECT f FROM Form f JOIN FETCH f.makerCheckerRequest r WHERE f.id= ?1 And r.status = ?2")
+    Form findByIdAndStatus(Long id, RequestStatus status);
 	
 	
 	

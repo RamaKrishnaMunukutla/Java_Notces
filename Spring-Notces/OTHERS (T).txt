@@ -4094,7 +4094,7 @@ ProductOwner := Manager    /////////   Scrum-Master := TeamLeader
  GIT996 [81] := (uses 'C' language that reduces the OverHead Of run time)  //// [JAVA-TECHIE*****]
 ~~~~~~~~~~~~ // Cloud-based Hoisting Service that manages Repositaries.
 
-   GITPullRequest460                    
+   GITPullRequest660                    
 
 					  YOUTUBE -----> SHIVA-REDDY, ASHOK-IT.
 
@@ -5009,17 +5009,19 @@ Streams API
   NODE -------> It is an instance of Elasticsearch, which is used to store data.   ///////  Part of Cluster that stores data   //////// handle HTTP requests form clients  who sends request to cluster.
                        Master node has the ability to update the states of the cluster
 
-  CLUSTER ------> It is a set of one or more nodes that works together to hold the data
+
+ CLUSTER -----> It is a set of one or more nodes that works together to hold the data
   
-  DOCUMENT -----> Every document belongs to a type and associated with a unique identifier (UID). 
+ DOCUMENT ----> Every document belongs to a type and associated with a unique identifier (UID). 
   
   INDEX ------> It is a group of different types of documents.
   
-   SHARD --------> It allows your index to be divided into several pieces
+   SHARD -----> It allows your index to be divided into several pieces
    
-   REPLICAS ------> It is an additional copy of shards
+ REPLICAS ----> It is an additional copy of shards
    
     TYPE -----> common set of fields
+ 
  
 ============================================================================================================
 

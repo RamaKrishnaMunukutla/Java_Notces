@@ -3,7 +3,7 @@
 
         .....LAMBDAEXPRESSIONS123....FUNCTONALINTERFACE123.........METHODREFERENCE123
    
-        .....DEFAULTMETHOD123........STREAMS123.....OPTIONAL123....StringJoiner890....ForEach990
+        .....DEFAULTMETHOD123........STREAMS123.....OPTIONAL123....StringJoiner890....ForEach990.....Java88Data
 		
 		.....ComparatorInJava........Predicate335........MultipleInheritance555..........LocalDateTime3430
 	  
@@ -820,22 +820,40 @@ Terminal-Operations :=
  V. Multiple: There can be multiple Intermediate operations in a Stream operation. 
               There can be only one Terminal operation in Stream processing statement
 
-=====================================================
+=================================================================================
  
- map -------->  map(x -> x * x)  //// String::toLowerCase /// converts Stream<X> to Stream<Y>  && returns a new Stream (******)
+ MAP :=  map(x -> x * x)  //// String::toLowerCase /// converts Stream<X> to Stream<Y>  && returns a new Stream (******)
+~~~~~~
+ --map() is used to transform one object into other by applying a function 
  
+ --- Stream.map() function to convert a stream of strings to stream of integers. Here the function Integer::valueOf() takes one string from stream at a time, and convert the string to integer and put in another stream of integers, which is then collected using Collectors.toList().
+
+--->flatMap() operation has the effect of applying a one-to-many transformation to the elements of the stream, and then flattening the resulting elements into a new stream.
+ ----The function used for transformation in flatMap() is a stateless function and returns only a stream of new values.
+
+---->Stream.skip() method can be a useful in certain cases where we need to get the elements from a stream but first we need to skip few elements from the stream. 
+
+Retrives Specific Property of Object form List(Object)
  
-                     Data Transformation ---->  Converting List<Employee> to List<firstName> 
+                      Data Transformation ---->  Converting List<Employee> to List<firstName> 
  
- flatmap ---->  https://howtodoinjava.com/java8/stream-flatmap-example/             ////  One-To-Many Mapping
-                flatten a Stream of collections to a stream of objects             //// List<List<Integer>> (*****)
-                flattening is referred to as merging multiple collections/arrays into one. (********)
-                flatMap(x -> x.stream())  ///// flatMap(x -> Arrays.stream(x))
+ Eg :=
+~~~~
+    List<String> teamIds = removedMappings.stream().map(TeamType::getTeamId).collect(Collectors.toList());
+	
+	
+=================================================================================	
+                     
+ FLATMAP  :=   [ https://howtodoinjava.com/java8/stream-flatmap-example/ ] ////  One-To-Many Mapping
+~~~~~~~~~~              
+ --- flatten a Stream of collections to a stream of objects  //// List<List<Integer>> (*****)
+ --- flattening is referred to as merging multiple collections / arrays into one. (********)
+ --- flatMap(x -> x.stream())  ///// flatMap(x -> Arrays.stream(x))
 
 
                        Flattering ----> Convert Stream(Stream)  to Single-Stream 
 
- flatMap :=
+ Eg :=
 ~~~~~~~~
 
 		
@@ -852,8 +870,58 @@ Terminal-Operations :=
 		// get Total Number of male and female employees Average Age
 				Map<String, Double> collect = list.stream().collect(Collectors.groupingBy(Employee::getEmpGender, Collectors.averagingInt(Employee::getEmpAge)));
 				
-				
+  Eg2 :=
+~~~~~~~
+   formRequest.getApiConfigs().stream().flatMap( c -> c.getConfigAPIFields().stream().
+                    map(f -> getDynamicApiFormConfig(c.getConfigId(), f)) ).
+					                    collect(Collectors.toSet());
 
+
+  Eg3 :=
+~~~~~~~~
+        final List<Map<Long, String>> result = listCompletableFuture.join();
+        final Map<Long, String> preFilledValues = result.stream().flatMap(m -> m.entrySet().stream())
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+				
+ 
+  Eg4 :=
+~~~~~~~~
+final Map<String, Map<String, List<Field>>> collect = blocks.stream().flatMap(a ->
+                a.getFields().stream().filter(fieldPredicate)).
+                collect(Collectors.groupingBy(Field::getSearchByPreFilledValue, Collectors.groupingBy(Field::getPreFilledSource, Collectors.mapping(f
+                        -> f, Collectors.toList()))));
+
+
+ Eg5 :=
+~~~~~
+  List<List<DynamicConfig>> lists ;
+  Map<Long, List<String>> data = lists.stream().filter(p -> !Objects.isNull(p) && !p.isEmpty()).
+                      flatMap(List::stream).collect(toMap(DynamicConfig::getId, DynamicConfig::getDynamicValues));
+ 
+ 
+ Eg6 :=
+~~~~~~
+ List<String> txnStatusFilterValues = filterList.stream().
+               filter(filter -> filter.getFilterType().equalsIgnoreCase(FilterEnum.TxnStatusFilter.name()))
+                    .map(filter -> filter.getFilterValues()).collect(Collectors.toList())
+                     .stream().flatMap(List::stream).collect(Collectors.toList());
+					 
+					 
+ Eg7 :=
+~~~~~~~ 
+  private Map<String, List<KPITrendEntity>> getTrendTotal(List<KPITrendValue> kpiTrendValues) {
+        return kpiTrendValues.stream()
+                .map(e -> e.getKpiTrendEntityMap().values())
+                .flatMap(Collection::stream)
+                .flatMap(Collection::stream)
+                .collect(groupingBy(KPITrendEntity::getkpi))
+                .entrySet().stream()
+                .map(entry -> new AbstractMap.SimpleEntry<String, List<KPITrendEntity>>(entry.getKey(), getMergedValuesOnYearAndMonth(entry.getValue())))
+                .collect(toMap(entry -> (entry.getKey()), entry -> (entry.getValue()), (e1, e2) -> e1, LinkedHashMap::new));			 
+					 
+					 
+=======================================================================================================================				
+ 
  ‘GROUP BY' :=  [ https://mkyong.com/java8/java-8-collectors-groupingby-and-mapping-example/ ]
 ~~~~~~~~~~~~
  ---- functionality similar to the  clause in the SQL language. 
@@ -872,17 +940,60 @@ Terminal-Operations :=
 
 	        System.out.println(result);
 
-			
-===========================================================================
+ Eg8 :=
+~~~~~~~
+  keyOpportunities.setKeyOpportunities(new HashMap<String, Long>(terms.getBuckets().stream()
+                .map(s -> {
+                    Map<String, Long> m = new HashMap();
+                    String z = (String) s.getKey();
+                    String[] strings = z.split(",");
+                    for (int i = 0; i < strings.length; i++) {
+                        m.put(strings[i], ((Terms.Bucket) s).getDocCount());
+                    }
+                    return m;
+                }).collect(Collectors.toList()).stream().flatMap(e -> e.entrySet().stream()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue))));
+	
+	
+====================================================================================================================
 
- distinct ----> Takes Only Unique elements. 	
+ distinct :=
+~~~~~~~~~~~
+ --- Takes Only Unique elements. 
+ --- 
 
+ Eg1 :=
+~~~~~~
+      campaignDetails.stream()
+                .filter(FunctionUtil.distinctByKey(campaignDetail -> campaignDetail.getCampId())).
+				collect(Collectors.toList());
+
+ Eg2 :=
+~~~~~~
+boolean present = (Arrays.asList(psmMultiRoles)).stream().filter(x -> x.equalsIgnoreCase(role)).findAny().isPresent();
+
+
+ Eg3 :=
+~~~~~
+Optional<ChannelData> channel = channelData.stream().
+                     filter(data -> data.getChannelDescription().equalsIgnoreCase(channelName)).findAny();
+
+ Eg4 :=
+~~~~~~
+    private List<CustomerSearchRequest> getSearchRequest(Map<Field, Set<String>> searchKeywords) {
+        return searchKeywords
+                .entrySet()
+                .stream()
+                .map(entry -> new CustomerSearchRequest(entry.getKey().getName(), entry.getValue().stream().findAny().get()))
+                .collect(toList());
+    }
+
+====================================================================================================================
 
  peek --------> Returns a new Stream consist of elements from the original Stream. 
                 list.stream().peek(System.out::println).collect(Collectors.toList());    
 
 
-================			
+====================================================================================================================			
 			
  sorted ------> sorted() //// sorted(Comparator.comparing(Person::getAge).thenComparing(Person::getGender).reversed())
                 sorted(Comparator.reverseOrder())
@@ -898,24 +1009,85 @@ Terminal-Operations :=
  
  forEachOrdered ----> Orders the elements. 
 
-=======================================================
+====================================================================================================================================
 
- MAP :=
-~~~~~~
- --- map() is used to transform one object into other by applying a function 
- 
- --- Stream.map() function to convert a stream of strings to stream of integers. Here the function Integer::valueOf() takes one string from stream at a time, and convert the string to integer and put in another stream of integers, which is then collected using Collectors.toList().
-
---->flatMap() operation has the effect of applying a one-to-many transformation to the elements of the stream, and then flattening the resulting elements into a new stream.
- ----The function used for transformation in flatMap() is a stateless function and returns only a stream of new values.
-
----->Stream.skip() method can be a useful in certain cases where we need to get the elements from a stream but first we need to skip few elements from the stream. 
-
-
- Sorted() in Reverse Order :=
+ 'SORTED()' in Reverse Order :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   List<Employee> listOfEmployee = empList.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+ --- Sorts List of Objects based on Object-Property 
+ 
+ 
+ 
+---> List<Employee> listOfEmployee = empList.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
    
+---> fields.stream().sorted(Comparator.comparingInt(FieldResponse::getKeySequence)).collect(Collectors.toList());
+   
+---> List<Map<String, String>> results = limitPerProduct > 0 ? sortedList.subList(0, min(limitPerProduct, sortedList.size())) : sortedList;
+
+
+
+
+  Eg1 :=
+~~~~~~~
+        List<UserRequest> pendingRequests = userRequestList.stream().
+		sorted(Comparator.comparing(UserRequest::getModifiedOn, Comparator.reverseOrder())).
+		limit(100).collect(Collectors.toList());
+
+
+  Eg2 :=
+~~~~~~~
+        List<RejectedRequest> rejectedRequestList = rejectedRequests.stream().
+		sorted(Comparator.comparing(RejectedRequest::getRejectedOn, Comparator.reverseOrder())).
+		limit(100).collect(Collectors.toList());
+
+
+  Eg3 :=
+~~~~~~~
+         reasonList.stream()
+                .map(reasonMapping -> reasonMapping.getReason())
+                .sorted(Comparator.comparingInt(this::getOrder)).collect(Collectors.toList());
+
+
+
+  Eg4 :=
+~~~~~~~
+        return distinctCampaigns
+                .stream()
+                .sorted(Comparator.comparing(Campaign::getCampStartDate, Comparator.nullsLast(Comparator.reverseOrder())))
+                .map(campaignDetail -> CampaignTransformer.buildCampaignDetailResponse(campaignDetail, true))
+                .collect(Collectors.toList());
+
+
+  Eg5 :=
+~~~~~~~
+        CaseResolutionEntity getCurrentStage = caseResolutionEntities.stream().
+		          sorted(Comparator.comparing(CaseResolutionEntity::getModifiedOn).reversed())
+                                   .collect(Collectors.toList()).stream().findFirst().orElse(null);
+
+
+ Eg6 :=
+~~~~~~
+            return Optional
+                    .ofNullable(recommendationRepository.getRecommendations(filterList.getFilterList(), rmFilters, null, null))
+                    .orElseGet(Collections::emptyList)
+                    .stream().sorted((Comparator.comparingDouble(this::getPriorityAsDouble).reversed()))
+                    .map(response -> mapToResponseData(response))
+                    .collect(toList()); 
+					
+					
+ Eg7 :=
+~~~~~~~
+    public List<ApproveUsersDTO> approveUserMapper(List<UserBulkData> users) {
+        return users.stream().map(UserBuilder::getUserResponse)
+                .sorted(Comparator.comparing(ApproveUsersDTO::getCreatedOn).reversed())
+                .collect(Collectors.toList());
+    }
+
+    public List<RejectedUserDTO> rejectedUserMapper(List<UserBulkData> users) {
+        return users.stream().map(UserBuilder::getRejectedUserResponse)
+                .sorted(Comparator.comparing(RejectedUserDTO::getCreatedOn).reversed())
+                .collect(Collectors.toList());
+    }				
+====================================================================================================================================   
    
  GeyKeys using Java-8 :=
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -944,7 +1116,33 @@ Terminal-Operations :=
 
 	        System.out.println(result);
 			
-=====================================================			
+==============================================================================================================================	
+
+ AnyMatch :=   /////  stream().anyMatch(-----)
+~~~~~~~~~~~
+ --- Returns Boolean 
+ 
+ 
+ Eg1 :=
+~~~~~~
+            boolean isCustomTeam = assignmentRequest.getStageTeamDataList()
+                    .stream()
+                    .anyMatch(s -> s.getIsServiceByNoc().equalsIgnoreCase("N")
+                            && s.getIsServiceByBranch().equalsIgnoreCase("N"));
+
+
+ Eg2 :=  ///   Comparing  List[AdditionalFields_attributeName]  ----TO--- AdditionalConfigAttributes_fieldName
+~~~~~~~
+      List<AdditionalConfigAttributes> additionalConfigFilteredResponse = additionalConfigFields.getAdditionalFields()
+            .stream().filter(attributes -> caseCreateRequest.getAdditionalFieldsList()
+                 .stream().map(AdditionalFields::getAttributeName).anyMatch(name -> name.equals(attributes.getFieldName()))).collect(Collectors.toList());
+
+
+ Eg3 :=
+~~~~~~
+    set.stream().anyMatch(x -> Objects.nonNull(x.getApiPrefix()) && x.getApiPrefix().equalsIgnoreCase(WIDGET_CONFIG_SEARCH_DASHBOARD));
+
+============================================================ 
 
  Arrays Using Streams := (************)
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -978,21 +1176,27 @@ Terminal-Operations :=
 
 ==========================================================================================
 
- Java88 :=    [ https://stackify.com/streams-guide-java-8/]
-~~~~~~~~~
-  	static {
-		list = Arrays.asList(new Employee("1", "ram", 22000, 22, "Male", "B"),
-				new Employee("1", "rama", 22004, 22, "Male", "A"), new Employee("2", "krishna", 61525, 28, "Male", "A"),
-				new Employee("2", "krish", 109787, 28, "Male", "A"),
+ Java88Data :=    [ https://stackify.com/streams-guide-java-8/]
+~~~~~~~~~~~~~
+ 
+ public static List<Employee>list =null;
+ 
+ static {
+		list = Arrays.asList(new Employee("1", "ramesh", 22000, 22, "Male", "B"),
+				new Employee("1", "rama", 22004, 22, "Male", "A"), 
+				new Employee("2", "krishna", 61525, 28, "Male", "A"),
+				new Employee("2", "kishore", 109787, 28, "Male", "A"),
 				new Employee("3", "seeta", 33990, 29, "Female", "B"),
 				new Employee("1", "radha", 44456, 32, "Female", "A"),
 				new Employee("1", "ramya", 50598, 22, "Female", "A"),
-				new Employee("1", "shyam", 12229, 37, "Male", "A"), new Employee("1", "kiran", 74383, 44, "Male", "B"),
+				new Employee("1", "shyam", 12229, 37, "Male", "A"), 
+				new Employee("1", "kiran", 74383, 44, "Male", "B"),
 				new Employee("1", "geeta", 179845, 50, "Female", "B"));
 	}
 	
 	
 	public class Employee {
+	private int empSal;
 	private String empId;
 	private String empName;
 	private int empSal;
@@ -1396,8 +1600,9 @@ Eg:=
 =================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
 ======================================================================================================
 
-OPTIONAL123 := 
+OPTIONAL123 :=   [ ---findAny, find** in 'Collection' Returns Optional--- ]
 ~~~~~~~~~~~~
+ 
   
   (.....ofNullable(), isPresent(), isEmpty(), ofNullable(),  orElseThrow(), of(),  get()......)  (******)
 
@@ -1423,8 +1628,10 @@ It is used to avoid “NullPointerException”.
  contain a "--non-null--" T reference (in which case we say the reference is “present”), or it may 
  contain "--nothing--" (in which case we say the reference is “absent”).
  
- Eg:=
-~~~~
+ 
+ 
+ Eg1 :=
+~~~~~~~
         Optional<Integer> canBeEmpty1 = Optional.of(5);
         canBeEmpty1.isPresent();                    // returns true
         canBeEmpty1.get();                          // returns 5
@@ -1435,7 +1642,107 @@ It is used to avoid “NullPointerException”.
 		
 ----> to retrieve a record by id or some fields from the database, basically, we are not sure whether the record exists or not, in that case, the method returns the null reference.Code to avoid such null pointer exception
 
-===============================================================================================================
+ 
+ Eg1.1 :=
+~~~~~~~~
+   Optional<TeamEntity> team = teamRepository.findByTeamId(teamId);
+   
+   
+ Eg2 :=
+~~~~~~~
+   Optional<AuthRule> securityCheck = mappings.stream().filter(k -> request.getRequestURI().contains(k.path)).findAny();
+   
+   
+ Eg3 :=
+~~~~~
+   Optional<StageTeamData> stageTeamData = assignmentRequest.getStageTeamDataList()
+                    .stream()
+                    .filter(s -> s.getIsServiceByBranch().equalsIgnoreCase("Y")
+                            && s.getIsServiceByNoc().equalsIgnoreCase("N"))
+                    .findFirst(); 
+
+
+ Eg4 :=
+~~~~~~
+Optional<StageTeamData> stageTeamData = assignmentRequest.getStageTeamDataList().stream().
+                                                  filter(st -> st.getBranchId().equalsIgnoreCase(nocBranch)).findAny();
+                
+
+ Eg5 :=
+~~~~~~~~
+caseResolutionEntity = Optional.ofNullable(caseResolutionRepository.
+           findByCaseIdAndStatus(caseId, STATUS_ASSIGNED)).orElseThrow(() -> 
+		                                getCustomResolutionException("Case Resolution not found")).get(0);
+
+
+ Eg7 :=
+~~~~~~~~
+ CaseEntity caseEntity = Optional.ofNullable(caseRepository.findByCaseId(caseId)).
+                               orElseThrow(() -> getCustomResolutionException("Case entity not found by case id "));
+    
+	
+ Eg8 :=
+~~~~~~~~
+ caseResolutionEntity = Optional.ofNullable(caseResolutionRepository.findByCaseIdAndStatus(caseId, currentStatus)).
+   orElseThrow(() -> getCustomResolutionException("Case Resolution not found for case id and statues")).get(0);
+
+
+ Eg9 :=
+~~~~~~~~
+ IssueTypeEntity issueTypeEntity =                            Optional.ofNullable(issueTypeRespository.findByIssueTypeId(caseResolutionRequest.getIssueTypeId())).
+                              orElseThrow(() -> getCustomResolutionException("Issue type entity not found. "));
+      
+ Eg10 :=
+~~~~~~~~	  
+ caseResolutionEntity.setValueMasterEntity(Optional.ofNullable
+                     (valueMasterRepository.findById(caseResolutionRequest.getValueCodeData().getValueId())).
+					 orElseThrow(() -> getCustomResolutionException("Value Master Data Not found")).get());
+        
+ Eg11 :=
+~~~~~~~~
+ Optional<ModeData> optionalModeData = modeData.stream().
+                 filter(mode -> mode.getModeId().equalsIgnoreCase(modeId)).findAny();
+
+
+ Eg12 :=
+~~~~~~~
+ Optional<StageMasterEntity> stageMasterEntity = stageMasterRepository.findById(caseDecisionReviewResponsesList.get(0).getStageMasterEntity().getStageId());
+
+
+ Eg13 :=
+~~~~~~~
+       List<CaseDecisionReview> caseDecisionReviewList = caseDecisionReviewResponsesList
+                    .stream()
+                    .filter(caseResolutionEntity -> caseResolutionEntity.getStatus().equalsIgnoreCase("COMPLETED"))
+                    .map(cDR -> CaseDecisionReview.builder()
+                            .modifiedById(cDR.getCreatedBy())
+                            .modifiedByName(!StringUtils.isBlank(cDR.getCreatedBy()) ? teamService.getUserNameByAdid(cDR.getCreatedBy()) : StringUtils.EMPTY)
+                            .modifiedOn(cDR.getCreatedOn())
+                            .remarks(cDR.getRemarks())
+                            .team(teamService.getTeamNameByTeamId(cDR.getTeamId()).getTeamDescription())
+                            .decision(!ObjectUtils.isEmpty(cDR.getValueMasterEntity())
+                                    ? Optional.ofNullable(valueMasterRepository.findById(cDR.getValueMasterEntity().getValueId()).orElseThrow(() -> new ValueNotFoundException("Value not found")).getValue()).get() : StringUtils.EMPTY)
+                            .build())
+                    .collect(Collectors.toList());
+
+
+ Eg14 :=
+~~~~~~~~~
+ channelIds.forEach(channelId -> channelLinkageRepository.delete(Optional.ofNullable
+       (channelLinkageRepository.findById(getUserChannelEntity(userAdid, channelId)).
+                    orElseThrow(() -> new RequestIdNotFoundException("No record found for this channel"))).get()));
+
+
+
+ Eg15 :=
+~~~~~~~~~
+ user.setRole(Objects.isNull(userRecord[1]) || userRecord[1].isEmpty() ? Optional.empty() : Optional.of(userRecord[1].trim()));
+ Optional<Boolean> mobileEnabled = (userRecord[2].length() < 4) ? Optional.empty() :                                       Optional.of(Boolean.parseBoolean(userRecord[2].trim()));
+         
+
+
+
+==========================================================================================================================
 
  StringJoiner890 := [https://www.javaguides.net/2018/07/java-8-stringjoiner-class.html]
 ~~~~~~~~~~~~~~~~~    https://www.javatpoint.com/java-stringjoiner
