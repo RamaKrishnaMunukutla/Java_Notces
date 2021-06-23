@@ -1,7 +1,7 @@
 
 
  
-  ....MAVEN123.........SpringSecurity444......Mockito990.....JUnit550.....SPRINGCLOUD123
+  ....MAVEN123.........SpringSecurity444......Mockito990.....JUnit550.....SPRINGCLOUD123...............
 				
   ...JWT444...........MicroServices334(Links530).....JWT550......AgileMethodology768......SDLC445.....BitBucket99
 				
@@ -1728,6 +1728,32 @@ public void getAllEmployeesAPI() throws Exception
    https://www.youtube.com/watch?v=GgWuE-k1_nI&feature=youtu.be&ab_channel=NareshiTechnologies
    
    
+       https://www.logicbig.com/how-to/code-snippets/jcode-spring-mvc-junit-test.html ]
+       https://examples.javacodegeeks.com/core-java/java-8-stream-collectors-groupingby-example
+          
+		  
+       https://www.springboottutorial.com/unit-testing-for-spring-boot-rest-services
+       https://www.baeldung.com/integration-testing-in-spring                        (************)
+       https://examples.javacodegeeks.com/spring-boot-mockmvc-tutorial/     (*****MVC****)
+       https://dzone.com/articles/rest-endpoint-testing-with-mockmvc
+										
+
+         JUnit + ObjectMapper ------> https://howtodoinjava.com/spring-boot2/testing/spring-boot-mockmvc-example/
+
+
+
+ MockHttpServletRequestBuilder ----->  https://www.logicbig.com/how-to/code-snippets/jcode-spring-mvc-junit-test.html 
+ 
+ 
+       MockMvcRequestBuilders  ------>   Pass the path parameters   in API's   /////  [ https://howtodoinjava.com/spring-boot2/testing/spring-boot-mockmvc-example/ ]
+                                                                                                                            https://www.onlinetutorialspoint.com/spring-boot/spring-boot-mockmvc-junit-test-example.html
+ 
+ 
+ 
+ 
+ MockMvcResultMatchers &&& MockMvcResultHandlers ----->  verify the status response codes and response content 
+
+                       @ContextConfiguration       ----------->    Used to load the context configuration and bootstrap the context that our test will use. 
    
  Types of Testing := [ JRTP -- 28th SEp 2020 ]
 ~~~~~~~~~~~~~~~~~~~

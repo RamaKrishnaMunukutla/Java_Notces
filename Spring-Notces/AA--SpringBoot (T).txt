@@ -1,6 +1,6 @@
 
   
- ....SpringBootInternalWork .....AdvantagesOfSpringBoot........MultipleInstances990
+ ....ConfigurationProperties33.......SpringBootInternalWork .....AdvantagesOfSpringBoot........MultipleInstances990
   
  ....Profiles333............SpringBootServletInitializer330....Profiles444.....LOMBOK770.......FileUpload......Environment440
    
@@ -246,11 +246,100 @@ public class Book {
 
 ===========================================================================================================
 
- @ConfigurationProperties (Prefix="config") :=  
+ @ConfigurationProperties33 (Prefix="config") :=  
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- lt Letting developer maps the entire .properties and yml file into an object easily.
+ --- for externalized configuration.   //// @Value to inject the .properties value one by one, this is good for small and simple structure
+ --- It supports both .properties and .yml file.
+		
+    https://github.com/greenlearner01/Microservices/tree/master/profilesDemo/src/main/java/com/gl/profilesDemo		
+	
+ Eg :=
+~~~~~
+  resources/application.properties :=
+~~~~~~~~~~~~~~~~~~~~~~~~~
+ spring.main.banner-mode=off
+ app.colour=steelblue
+ app.lang=en
+ app.theme=dark
+ recipients[0]=user1@example.com
+ recipients[1]=user2@example.com
+ recipients[2]=user3@example.com
+ recipients[3]=user4@example.com
+ #Map Properties
+ mail.additionalHeaders.redelivery=true
+ mail.additionalHeaders.secure=true
+
+
+@Configuration
+@ConfigurationProperties(prefix = "app")
+public class AppProperties {
+
+    private String colour;
+    private String lang;
+    private String theme;
+	private List<String> recipients;
+    private Map<String, String> additionalHeaders;
+
+
+
+@Component
+@PropertySource("classpath:global.properties")
+@ConfigurationProperties
+public class GlobalProperties {
+
+    private int threadPool;
+    private String email;
+
+    //getters and setters
+
+ }
+
+===================================================	
+ 	
+	 @PropertySource   --------------> It  set the path to the custom properties file
+
  
-    https://github.com/greenlearner01/Microservices/tree/master/profilesDemo/src/main/java/com/gl/profilesDemo
+ @RequestHeader   
+~~~~~~~~~~~~~~~
+  --- bind method parameters to request headers.
   
+  
+ @ServletComponentScan := 
+~~~~~~~~~~~~~~~~~~~~~~~~~
+  ---- Automatically register the following Servlet components for embedded web servers.
+ 
+   (1) @WebServlet  .
+   (2) @WebFilter.
+   (3) @WebListener annotations
+   
+  --- Spring Boot use embedded container for the deployment (until we deploy it on external container). 
+  --- The embedded container does not support the @WebServlet, @WebFilter and @WebListener annotations. 
+  --- To handle it and support these annotations. Spring Boot introduced the new @ServletComponentScan annotation.
+  
+=================================================== 
+  
+  @ImportAutoConfiguration :=  
+~~~~~~~~~~~~~~~~~~~~~~
+ ---- when you don't want to enable the default autoconfiguration with @EnableAutoConfiguration. 
+ ---- @EnableAutoConfiguration attemps to configure beans that are located on your classpath eg tomcat-embedded.jar.  
+ ----Whereas @ImportAutoConfiguration only runs the configuration classes that you provided in the annotation.
+ 
+ 
+  Eg :=
+-------
+@ComponentScan("path.to.your.controllers")
+@ImportAutoConfiguration({WebMvcAutoConfiguration.class
+    , DispatcherServletAutoConfiguration.class
+    , EmbeddedServletContainerAutoConfiguration.class
+    , ServerPropertiesAutoConfiguration.class
+    , HttpMessageConvertersAutoConfiguration.class})
+public class App {
+  public static void main(String[] args) {
+    SpringApplication.run(App.class, args);
+  }
+}
+
 ===========================================================================================================
 
         RequestBody --->https://www.concretepage.com/spring-5/spring-restcontroller                      					 

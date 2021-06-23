@@ -11,7 +11,7 @@
     InstallIntelliJ............InstallJenkins.........InstallDocker......InstallKubernetes.........InstalledSoftwares
 	
 	
-    DockerCommands...........KubernetesCommands
+    DockerCommands...........KubernetesCommands.....OrderInUbuntu
 
 
 ==================================================================================================================
@@ -22,10 +22,7 @@
     Chef &&& Puppet  (ConfMana)  ///////   Ansible (ConfMana)   //////////   Nagios (ContMon) /////////  Linux Commands  ///////  Shell Scripting ////////  AWS
 	 
 	 ELK //// Kibana  ////
-
-
-  Continious DTIDM 
-
+	  
 ==================================================================================================================
 
   Other-ShortCuts :=
@@ -147,8 +144,8 @@
  
 ====================================================================================================================================
 
-  IntelliJShortcuts :=   [ https://www.jetbrains.com/help/rider/Keymaps_Comparison_Windows.html#find_everything ]
-~~~~~~~~~~~~~~~~ [ https://www.cloudflight.io/press/intellij-idea-eclipse-shortcuts-1689/ ]
+ IntelliJShortcuts :=   [ https://www.jetbrains.com/help/rider/Keymaps_Comparison_Windows.html#find_everything ]
+~~~~~~~~~~~~~~~~~~~~~   [ https://www.cloudflight.io/press/intellij-idea-eclipse-shortcuts-1689/ ]
 
 
    https://www.shortcutfoo.com/app/dojos/intellij-idea-win/cheatsheet
@@ -158,42 +155,44 @@
  
     Getters && Setters ----> Alt + Insert   //// Ctrl + Enter 
 
-                Print           -----> Sout   (i, v m)
+           Print      -----> Sout   (i, v m)
 
-              PSVM          ------> Main Method
+           PSVM -----------> Main Method
 			  
-           Comments   ------->  Ctrl + /
+           Comments ------->  Ctrl + /
 			  
-			  Format      ------->  Ctrl + Alt + L     (****************)
+           Format --------->  Ctrl + Alt + L     (****************)
 			  
 	  
 
-	  Creates_Object   ----->  Ctrl + Shift + Space   (L)
+	  Creates_Object   ------>  Ctrl + Shift + Space   (L)
 		
-		   For_Loop        ------->  Ctrl + Shift + Enter  
+		   For_Loop    ------->  Ctrl + Shift + Enter  
 	  
-      Invoke refactoring  ----->  Ctrl+Alt+Shift+T	
+      Invoke refactoring  ---->  Ctrl+Alt+Shift+T	
 	  
 	   End_Of_Braces --------->  Ctrl + ]     /////////    Ctrl + [
 	  
 
 
-      Duplicate  Current_line ----->   Ctrl + D 
+      Duplicate  Current_line -----> Ctrl + D 
 
-        Delete Current_line  ------>  Ctrl + Y
+        Delete Current_line  ------> Ctrl + Y
 		  
-	      All Methods         ------->  Ctrl  + F12
+	        All Methods     -------> Ctrl  + F12
 		  
 		  
-            Search_All     ------------> Ctrl + Shift + F  (N)    //////     (***************)
+          Search_All ---------> Ctrl + Shift + F  (N) (*******)
 	   
-	       Search_File    ------------> Ctrl + Shift + N   (***************)
+          Search_File --------> Ctrl + Shift + N   (***********)
 	  
-	  Search_ Methods   ----------> Ctrl + Fn + F12
+	  Search_ Methods --------> Ctrl + Fn + F12  (*************)
 	  
-	     Impl_Method  --------------> Ctrl + Alt + B   (***************)
+	    Impl_Method ----------> Ctrl + Alt + B   (*************)
 		 
-      Search Package   -----------> Ctrl + N   
+        Search Package -------> Ctrl + N   (**********)
+		
+		ScreenShot     --------> Shift + Fn + PrintSc  (******)
 	  
 	  
 	      Debug  -----> F8 
@@ -203,31 +202,31 @@
 		  
 =========================================
 
-    Change Themes --------> Ctrl + `   
+      Change Themes ------> Ctrl + `   
 	   
-	    Font_Size       --------> Ctrl + Alt + S
+	    Font_Size --------> Ctrl + Alt + S
      
-          Rename  -------------> Ctrl + Fn + F6   
+          Rename  --------> Ctrl + Fn + F6   
 		
 		 
  
   Takes_declaration -----------> Ctrl+B
 		 
-		 Copy_Line     ------------>  Ctrl + D
+		 Copy_Line ------------>  Ctrl + D
 		 
-	   Recent_Files   ------------> Ctrl+ E 
+	   Recent_Files   ---------> Ctrl+ E 
 	 
-	 List_Of_Copied ------------->   Ctrl + Shift + V
+	 List_Of_Copied -----------> Ctrl + Shift + V
 	   
-   Know Return_Type ---------->  Alt + Enter
+   Know Return_Type ----------->  Alt + Enter
    
    
    
-              All        ---------> Shift(2)
+           All  ---------> Shift(2)
 	   
 	  Run_Anywhere ------>  Control(2)
    
-      Places_Used      -------> Alt + F7
+      Places_Used -------> Alt + F7
 	
 	
 =================================================
@@ -262,9 +261,9 @@
 ==================================================================================================================================
 
  InstalledSoftwares :=       [ https://www.youtube.com/watch?v=GrI5c9PXS5k&ab_channel=LinuxTex ]
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
  
-   sudo apt install preload
+  sudo apt install preload
   
   sudo apt-get update   /////    sudo apt list --upgradable    //////   sudo apt-get upgrade     /////    sudo apt-get dist-upgrade
   
@@ -298,8 +297,8 @@
   
 =============================================
   
-  MouseSpeed      :=     sudo apt-get install imwheel     
-~~~~~~~~~~  
+  MouseSpeed :=     sudo apt-get install imwheel     
+~~~~~~~~~~~~~~  
  
       sudo apt install imwheel
     
@@ -321,15 +320,15 @@ add imwheel in start up apps, follow me ------->  imwheel -b "4 5"
 
 =====================================================
 
-  Rar_File Install :-=
-~~~~~~~~~~~~~~~
+  Rar_File Install :=
+~~~~~~~~~~~~~~~~~~~~~
 
    sudo apt install unrar
 
 ============================================================
   
   Firefox Tweaks :=
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
   about:config
   layers.acceleration.force-enabled
   gfx.webrender.all
@@ -349,24 +348,8 @@ add imwheel in start up apps, follow me ------->  imwheel -b "4 5"
 		  
 ===================================================================
   
-  Hibernate-Commands :=
-~~~~~~~~~~~~~~~~~~
- --- sudo gedit /etc/polkit-1/localauthority/50-local.d/com.ubuntu.enable-hibernate.pkla
-
-[Re-enable hibernate by default in upower]
-Identity=unix-user:*
-Action=org.freedesktop.upower.hibernate
-ResultActive=yes
-
-[Re-enable hibernate by default in logind]
-Identity=unix-user:*
-Action=org.freedesktop.login1.hibernate;org.freedesktop.login1.handle-hibernate-key;org.freedesktop.login1;org.freedesktop.login1.hibernate-multiple-sessions;org.freedesktop.login1.hibernate-ignore-inhibit
-ResultActive=yes
-
-===================================================================
-
-  InstallChrome :=
-~~~~~~~~~~~~~
+ InstallChrome :=
+~~~~~~~~~~~~~~~~~
   sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
   sudo apt-get update 
   sudo apt-get install google-chrome-stable
@@ -390,7 +373,7 @@ ResultActive=yes
 
  
  InstallJAVA :=   (Oracle ----> Linux_64_tar.gz //// 144MB)
-~~~~~~~~~~
+~~~~~~~~~~~~~~~
 
   Install Java in Ubuntu ----> https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04 
 
@@ -443,7 +426,7 @@ ResultActive=yes
 ========================================================================  
    
  InstallIntelliJ :=
-~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
    snap  find "IntelliJ"
    
    sudo snap install intellij-idea-community --classic 
@@ -460,7 +443,7 @@ ResultActive=yes
 ==================================================
  
  Add Refresh Button :=
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
    
    sudo add-apt-repository ppa:nae-team/ppa
    
@@ -471,8 +454,8 @@ ResultActive=yes
 	nautilus -q
 	
 	sudo add-apt-repository ppa:nae-team/ppa
-sudo apt-get update
-sudo apt-get install nautilus-refresh
+	sudo apt-get update
+	sudo apt-get install nautilus-refresh
  
  
     just a min please
@@ -480,7 +463,7 @@ sudo apt-get install nautilus-refresh
 ==================================================
 
  Install GIT :=
-~~~~~~~~~~
+~~~~~~~~~~~~~~~
    sudo apt-get install git -y
    
    git --version
@@ -491,7 +474,7 @@ sudo apt-get install nautilus-refresh
    
      
  other commands :=
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
    git clone (url)
    git add (file names)
    git commit -m "(committed message)
@@ -500,8 +483,8 @@ sudo apt-get install nautilus-refresh
    
  =======================================================
  
-  Install Teams :=  [ https://www.microsoft.com/en-in/microsoft-teams/download-app#desktopAppDownloadregion ]
-~~~~~~~~~~~~~~
+ Install Teams :=  [ https://www.microsoft.com/en-in/microsoft-teams/download-app#desktopAppDownloadregion ]
+~~~~~~~~~~~~~~~~~~
    dpkg -i teams
    
    
@@ -517,119 +500,28 @@ set-default-sink echocancel1
 
  =======================================================
  
- 
- InstallJenkins :=   [ http://127.0.0.1:8080/ ]
-~~~~~~~~~~~~~
- --- wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
- --- sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > \  /etc/apt/sources.list.d/jenkins.list'
- --- sudo apt-get install jenkins -y
- --- sudo apt-get update
- --- sudo apt-get install jenkins
- 
- 
- InstallDocker   :=
-~~~~~~~~~~~
-  sudo apt-get install \ apt-transport-https \ ca-certificates \ curl  gnupg \ lsb-release
-  
-  sudo apt install docker.io
-  
-  sudo docker --version
-  
-  sudo systemctl status docker
-  
-  
-  
-  Certificates -----> sudo apt-get install apt-transport-https ca-certificates
-  
-  Verify that the package manager is pointing to the right repository ----->  apt-cache policy docker-engine
-  
-  
-  
-  Start ----> sudo systemctl start docker  //////   sudo systemctl enable docker  
-  
-  Version -----> docker --version
-  
-  sudo systemctl enable --now docker
-  
-  sudo docker run hello-world
-  
-  sudo docker images
- 
-        
-		              CURL -----> sudo apt-get install curl  
-					  
-					  
-  InstallKubernetes   :=
-~~~~~~~~~~~~~~~~~~
 
-  sudo su
-  
-  swapoff -a
-  
-  nano /etc/fstab     -----> Comment Swap Line 
-  
-  nano /etc/hostname
-  
-  ifconfig
-  
-  nano /etc/hosts
-  
-  nano /etc/network/interfaces
-  
-  /// Add Below
-  auto enp0s8
-  iface enp0s8 inet static
-  address 172.17.0.1
-  
-  nano  /etc/hosts/ 
-   ##add##  172.17.0.1  kmaster
-   
-  sudo apt-get install -y apt-transport-https ca-certificates curl 
-   
-  sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
-  
-  echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-  
-  sudo apt-get install -y kubelet kubeadm kubectl
-  
-  sudo apt-mark hold kubelet kubeadm kubectl
-  
-  sudo su
-  nano /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
-    Environment="cgroup-driver=systemd/cgroup-driver=cgroupfs"
-
-================================================================
-
-  sudo apt-get install curl
- 
-  sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
-  
-  sudo apt-get install kubeadm kubelet kubectl
- 
-  sudo apt-mark hold kubeadm kubelet kubectl
-  
-  kubeadm version
  
  =================================================================
     
   NotedSoftwares  :=
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
    
    JDK -- 1.8 -   --- OK   (ProgrammingKnowledge)
    
-   PostMan       --- OK  (Store      //////////////////////////////////    GraphQL    
+       PostMan       --- OK  (Store      //////////////////////////////////    GraphQL    
    
-   DBeaver Community    ---  OK
+   DBeaver Community  ---  OK
    
-   Notepad++                  --- OK  (Store)
+   Notepad++   --- OK  (Store)
    
-   IntelliJ                         --- OK  (ProgrammingKnowledge)
+   IntelliJ    --- OK  (ProgrammingKnowledge)
    
-  GITBash                      --- OK  (ProgrammingKnowledge)
+    GITBash    --- OK  (ProgrammingKnowledge)
   
  ===================================================  
    
-   Citrix Receiver                    --- ???   
+   Citrix Receiver  --- ???   
   
    Sonic Wall Net Extender     ---  OK
    
@@ -651,92 +543,18 @@ set-default-sink echocancel1
 
 ==================================================================================================================================
  
- DockerCommands :=
-~~~~~~~~~~~~~~~~
-
-      Install ------> sudo apt install docker.io    (************)
-	  
-	  
-	  
-	  Start Docker -----> sudo systemctl start docker   //////    sudo systemctl enable docker  
-	  
-	  
-  sudo docker start    ///////////////    sudo docker start sl
+  OrderInUbuntu :=
+~~~~~~~~~~~~~~~~~~
  
- sudo docker pull mysql
- 
- sudo docker images
- 
-
-    docker run nginx   /////  docker pull nginx
-	
-	
-	Start Docker      ----------> systemctl docker 
-  
-   Lists All Container (Runing) ---------> sudo docker ps
-   
-   Check All Container -------> sudo docker ps -a 
-	
-   Stop Container    ----------> sudo docker stop <Container-ID>    //////////////     (******* First Stop, then Remove Container *********)
-   
-   Remove Image ------> sudo docker rmi <Image-ID>
-   
-   Save Image Inside Container ------> sudo docker commit <Container-ID> <Image-ID> (Name)
-   
-   docker volume ls 
-   
-   Kill Container    ----------> sudo docker kill sl
-	
-	List of Images -------------> sudo docker images
-	
- 
- Delete Image ----> sudo docker run -d -p0.0.0.0:80:80 mysql:latest
- 
- Deletes_Image ------> sudo docker image rm -f image d1165f221234 
- 
- 
-==================================================================================================================================
-
- KubernetesCommands :=
-~~~~~~~~~~~~~~~~~~~
-
-  Add Packaege -----> sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add  
- 
- Make Repo ------> sudo apt-get install -y apt-transport-https  
- 
-  Add-Repo ----->  udo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
- 
-  Install Kubernetes Components -----> sudo apt-get install -y kubelet kubeadm kubectl kubernetes-cni  
-  
-  
-  nano deploy.yaml
-  
-  kubectl get pods  ////////  kubectl get pods  (po)  ///////   kubectl get deployments 
-  
-  kubectl get pods --all-namespaces
-  
-  kubectl create deployment mydep --image = nginx  --repli
-  
-  kubectl create  -f deploy.yaml
- 
- kubectl create service nodeport nginx --tcp=80:80
- 
- kubectl get svc
- 
- kubectl delete service nginx
- 
- kubectl get svc 
- 
- kubectl delete deployment nginx1
- 
- kubectl get pods --all-namespaces -o wide  ---------- (More Info of PODS) 
- 
- 
- 
-
-==================================================================================================================================
-
-
+     VokoScreen
+	  AnyDesk
+	   Teams
+	 FileExplorer
+	   Chrome
+	  Notepad++
+	    IDE
+	    DB
+	  Postman
 
 ==================================================================================================================================
 
