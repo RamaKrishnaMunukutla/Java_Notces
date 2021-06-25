@@ -2,7 +2,7 @@
  
 
 
-    GITPullRequest660..............IntelliJShortcuts............
+    GITPullRequest660..............IntelliJShortcuts............J2EENotShowing
 	
 	
 	ReducesOverHeat...........InstallJAVA........MouseSpeed........InstallChrome........Bleachbit
@@ -11,7 +11,7 @@
     InstallIntelliJ............InstallJenkins.........InstallDocker......InstallKubernetes.........InstalledSoftwares
 	
 	
-    DockerCommands...........KubernetesCommands.....OrderInUbuntu
+    DownloadPostgresql..........OrderInUbuntu
 
 
 ==================================================================================================================
@@ -253,11 +253,39 @@
  
 ==================================================================================================================================
 
-    AWS ------> mvsrkri...  ///  Amazon910@#
-	
-	
-	Docker ----> mvsrkri...  /// ramakrishnamunukutla  ///  521191ramak
-	
+  DownloadPostgresql :=
+~~~~~~~~~~~~~~~~~~~~~~~
+
+ 
+ sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+
+ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+ 
+ sudo apt-get update
+ 
+ sudo apt-get -y install postgresql
+
+ sudo apt-get install postgresql-12
+ 
+ ls /etc/postgresql/12/main
+ 
+ service postgresql
+ 
+ service postgresql status
+ 
+ sudo su postgres                   //////////////   type 'exit' to Exit   (******)
+              psql
+			  create user rama with password 'rama';  [KKK]
+              \du
+			  alter user rama with superuser;
+			  drop user <UserName>
+		
+		
+ ----> Open 'Pdmin3' in Ubuntu_Playstore
+ 
+ ----> give URL (127.0.0.1) && Credentials [KKK] &&& Click 'Ok'
+
+
 ==================================================================================================================================
 
  InstalledSoftwares :=       [ https://www.youtube.com/watch?v=GrI5c9PXS5k&ab_channel=LinuxTex ]
@@ -432,8 +460,8 @@ add imwheel in start up apps, follow me ------->  imwheel -b "4 5"
    sudo snap install intellij-idea-community --classic 
    
    
-   STS  (Install New Software ) ----> http://download.eclipse.org/releases/mars
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+   J2EENotShowing  (Install New Software ) ----> http://download.eclipse.org/releases/mars
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
    Eclipse Java EE Developer Tools
   Eclipse Java Web Developer Tools

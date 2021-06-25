@@ -1828,6 +1828,11 @@ public class User {
 	
 	
 	
+	private boolean checkResponse(ResponseEntity<String> response) {
+        return response != null && (response.getStatusCode() == HttpStatus.OK || response.getStatusCode() == HttpStatus.CREATED
+                || response.getStatusCode() == HttpStatus.ACCEPTED);
+    }
+	
 		 
  If Error comes while Fetching :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

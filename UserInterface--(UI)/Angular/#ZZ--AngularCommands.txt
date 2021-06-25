@@ -354,7 +354,6 @@ Imports :=
  
  Angular && Forms :=
 ~~~~~~~~~~~~~~~~~~~
-
 	  https://github.com/gopinav/Angular-Tutorials
 	  https://github.com/gopinav/Angular-Component-Interaction-Tutorial
 	  https://github.com/gopinav/Angular-Forms-Tutorial
@@ -368,6 +367,11 @@ Imports :=
 	 https://github.com/gopinav/Angular-Authentication-Tutorial
 	 https://github.com/gopinav/Angular-Material-Tutorial
 	 	 
+		 
+ VueJS :=
+~~~~~~~~~
+   https://github.com/gopinav/Vue-3-Tutorials
+   
 		 
  JavaScript :=
 ~~~~~~~~~~~~~

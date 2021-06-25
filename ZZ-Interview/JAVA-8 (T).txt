@@ -1416,10 +1416,32 @@ Optional<ChannelData> channel = channelData.stream().
 
  partitioningBy :=
 ~~~~~~~~~~~~~~~~~
- ---  partition a stream into two – based on whether the elements satisfy certain criteria or not.
+ ----> partition a stream into two – based on whether the elements satisfy certain criteria or not.
  
  
+ Eg1 :=
+~~~~~~
  Map<Boolean, List<Employee>> collect10 = list.stream()
+				.collect(Collectors.partitioningBy(i -> i.getEmpSal() % 2 == 0));
+
+		Set<Entry<Boolean, List<Employee>>> entrySet3 = collect10.entrySet();
+
+		for (Entry<Boolean, List<Employee>> et : entrySet3) {
+
+			System.out.println("-------------" + et.getKey() + "------------------");
+
+			List<Employee> value = et.getValue();
+
+			for (Employee emp : value) {
+				System.out.println(emp);
+			}
+		}
+		
+		
+ 
+  Eg2 :=
+~~~~~~~~~~
+		Map<Boolean, List<Employee>> collect10 = list.stream()
 				.collect(Collectors.partitioningBy(i -> i.getEmpSal() % 2 == 0));
 
 		Set<Entry<Boolean, List<Employee>>> entrySet3 = collect10.entrySet();

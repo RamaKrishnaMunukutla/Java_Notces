@@ -1,0 +1,278 @@
+
+
+
+  VueJSCommands 
+
+
+=============================================================================================================================================
+
+ VueJs :=
+~~~~~~~~
+ --- It is component based architecture
+ --- It has Devtool && has declarative model
+ --- All the Vue components are also the Vue instances.
+ 
+  
+  WokrFlow :=
+~~~~~~~~~~~~~
+
+  index.html ----> main.js -----> App.vue 
+ 
+ 
+ Dot Vue file :=
+~~~~~~~~~~~~~~
+ --- Known as Single file Components (SFC)
+ --- Consists of three types of top level blocks 
+ 
+  (a) <template></template>  -----> HTML for UI 
+  (b) <script></script>      -----> Maintains Logic && Functionality of App  
+  (c) <style></style>        -----> CSS Block 
+
+========================================================================================================================================================
+ 
+  DataBinding :=  [ https://www.tutorialspoint.com/vuejs/vuejs_binding.htm ]
+~~~~~~~~~~~~~~~
+
+  name: "Rama"
+  channel :"codeEvolution"
+
+   <div v-text="name">Hello</div>  ---- Complie-Time-Error    
+   <div v-text="channel"></div>  ---- GOOD
+   <div v-bind:id="channel1"></div>  ---- GOOD  
+   
+   
+    <a href = "{{hreflink}}"      target = "_blank">Click Me </a> <br/>
+    <a v-bind:href = "hreflink"   target = "_blank">Click Me </a> <br/>  ////// hreflink : "http://www.google.com"
+    <input v-model.trim = "message">
+	
+	
+ Eg1 :=
+~~~~~~
+         .info {
+            color: #00529B;
+            background-color: #BDE5F8;
+         }
+	------------------
+    <div id = "classbinding">
+    <div class = "info"  v-bind:class = "{ active: isActive, 'displayError': hasError }">
+            {{title}}
+         </div>
+      </div>
+  -------------------
+       el: '#classbinding',
+       data: {
+               title : "This is class binding example",
+               isActive : false,
+               hasError : false
+            }
+   
+   
+     
+            channel:'<b>App_Dev</b>' ----->  <div v-html="channel"></div>
+   
+  
+  Eg2 :=
+~~~~~~~~
+      <div id = "classbinding">
+         <div v-bind:class = "[infoclass, errorclass]">{{title}}</div>
+      </div>
+      <script type = "text/javascript">
+         var vm = new Vue({
+            el: '#classbinding',
+            data: {
+               title : "This is class binding example",
+               infoclass : 'info',
+               errorclass : 'displayError'
+            }
+         });  
+
+=======================================================================================================================================
+
+ Directives80 :=
+~~~~~~~~~~~~~~~
+    v-for, v-if, v-else, v-show, v-on, v-bind, and v-model,v-on
+	
+	    
+	
+	v-on:click
+	<button v-on:click = "displayLanguage(item)"><span style = "font-size:25px;">{{ item }}</span></button>
+	 
+	 
+	v-bind ----> <input type = "text" v-model = "kilometers">
+	
+	
+	<button v-on:click = "displaynumbers">Click ME</button>
+	<button @click = "displaynumbers">Click ME</button>
+	
+	
+	<button v-on:click.once = "buttonclickedonce" v-bind:style = "styleobj">Click Once</button>
+  -------------
+	 buttonclickedonce : function() {
+    this.clicknum++;
+   },
+   buttonclicked : function() {
+   this.clicknum1++;
+  }
+   
+   
+   <input type = "text"  v-on:keyup.enter = "showinputvalue"/>  ----> Key-Modifiers we can control the event handling
+    <input type = "text" v-on:keyup.enter = "showinputvalue" v-bind:style = "styleobj" placeholder = "Enter your name"/>
+   
+   <a href = "http://www.google.com" v-on:click.prevent = "clickme" target = "_blank" v-bind:style = "styleobj">Click Me</a>
+	<div v-bind:style = "styleobj" v-on:mouseover = "changebgcolor" v-on:mouseout = "originalcolor"></div>
+	
+	
+	               <script type = "text/javascript" src = "js/vue_instance.js"></script>
+	               <script type = "text/javascript" src = "js/vue_template1.js"></script>
+
+=================================================
+
+  CustomDirective50 :=
+~~~~~~~~~~~~~~~~~~~~~
+ --- Can create a directive using 'Vue.directive'
+
+ Eg1 :=
+~~~~~
+         Vue.directive("changestyle",{
+            bind(e1,binding, vnode) {
+               console.log(e1);
+               e1.style.color = "red";
+               e1.style.fontSize = "30px";
+            }
+         });
+         var vm = new Vue({
+            el: '#databinding',
+            data: {
+            },
+            methods : {
+            },
+         });
+		 
+===================================================
+
+ Filter20 :=
+~~~~~~~~~~~~
+   <span style = "font-size:25px;"><b>Letter count is : {{name | countletters}}</b></span>
+
+=======================================================================================================================================
+
+  method and computed properties :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  computed property ----> random numbers returned SAME 
+   method  property ----> random numbers returned DIFFERENT 
+
+=======================================================================================================================================
+
+ ConditionalBlock  :=  [ https://www.tutorialspoint.com/vuejs/vuejs_rendering.htm ]
+~~~~~~~~~~~~~~~~~~~~~
+  
+  <h1 v-if = "show">This is h1 tag</h1>
+    <h2 v-else>This is h2 tag</h2>
+	
+	 
+	   For_loop ---> https://www.tutorialspoint.com/vuejs/vuejs_rendering.htm
+	
+	
+==========================================================================================================================================================
+
+ Routing :=
+~~~~~~~~~~
+
+  <script src = "/path/to/vue.js"></script>
+  <script src = "/path/to/vue-router.js"></script>
+  
+  <script type = "text/javascript" src = "js/vue.js"></script>
+  <script type = "text/javascript" src = "js/vue-router.js"></script>
+
+========================================================================================================================================================
+
+
+
+========================================================================================================================================================
+
+
+========================================================================================================================================================
+
+
+
+=========================================================================================================================================================
+
+
+==========================================================================================================================================================
+
+
+========================================================================================================================================================
+
+
+
+========================================================================================================================================================
+
+
+========================================================================================================================================================
+
+
+
+=========================================================================================================================================================
+
+
+==========================================================================================================================================================
+
+
+=========================================================================================================================================================
+
+
+==========================================================================================================================================================
+
+
+========================================================================================================================================================
+
+
+
+========================================================================================================================================================
+
+
+========================================================================================================================================================
+
+
+
+=========================================================================================================================================================
+
+
+==========================================================================================================================================================
+  
+  VueJSCommands :=  ( Install -Node- )
+~~~~~~~~~~~~~~~~~~
+
+  npm install vue@next 
+  npm install -g @vue/cli
+  vue create hello-world
+
+
+  npm install -g yarn
+  yarn global add @vue/cli
+  vue --version
+  
+  vue create hello-world
+  yarn serve   ///// npm run serve  (Into Project)
+  
+  
+  npm install  ////  yarn install
+  npm update -g @vue/cli
+
+
+  Routing ----> npm  install vue-router
+
+
+========================================================================================================================================================
+
+
+
+=========================================================================================================================================================
+
+
+==========================================================================================================================================================
+
+
+
+

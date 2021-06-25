@@ -2269,9 +2269,226 @@ Junit ----> ECL Emma (STS MarketPlace)
 			<scope>test</scope>
 		</dependency>
 
+===============================================================================
+
+MockMvc := [ https://examples.javacodegeeks.com/spring-boot-mockmvc-tutorial/ ]
+ ~~~~~~~~~~
+ ---- Test Spring MVC application /////  lie somewhere between between unit and integration tests.
+ ---- Encapsulates all web application beans and makes them available for testing.
+ ---- It is a utility class that gives you the ability to send mock HTTP servlet requests in a simulated MVC environment.
+	
+
+	
+ Eg :=
+------
+    private MockMvc mockMvc;
+	
+ @BeforeEach
+ public void setup() throws Exception {
+    this.mockMvc = MockMvcBuilders.webAppContextSetup(this.webApplicationContext).build();
+  }
 
 
-============================================
+
+ andExpect(MockMvcResultMatchers.status().isOk())  :=
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ---- will verify that response HTTP status is Ok (200). This ensures that the request was successfully executed
+
+
+
+ andExpect(MockMvcResultMatchers.jsonPath(“$.message”).value(“Hello World!!!”)) 
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ will verify that response content matches with the argument “Hello World!!!“. Here, we used jsonPath, which  extracts response content and provides the requested value
+
+
+ andReturn() 
+ ~~~~~~~~~~
+ ---- will return the MvcResult object, which is used when we have to verify something that isn't directly achievable by the library. 
+ ---- In this case, we've added assertEquals to match the  content type of the response that is extracted from the MvcResult object
+
+
+
+
+  @InjectMocks Vs @Mock :=
+~~~~~~~~~~~~~~~~~~~~~~~
+ ---- @InjectMocks tells the framework that take the @Mock UserRepository userRespository; and
+ ---- Inject that into userService so rather than auto wiring a real instance of UserRepository a Mock of UserRepository will be injected in userService.
+ 
+ 
+class UserService{
+
+  @Autowired
+  UserRepository userRepository;
+...
+}
+then in the test class for UserService you will do
+
+...
+class TestUserService{
+  @Mock 
+  UserRepository userRepository;
+
+  @InjectMocks
+  UserService userService;
+
+...
+}
+
+
+
+ @Mockito.doNothing() :=
+~~~~~~~~~~~~~~~~~~~~~~
+ --- To run the method only for the purpose of some other things that are related to that method. But directly there is no test required on that method itself.
+ 
+ 
+ 
+  @MockMVC :=
+~~~~~~~~~~~~~
+
+   private MockMvc mockMvc;
+   
+   @Before
+    public void setUp(){
+        mockMvc = MockMvcBuilders.standaloneSetup(itemController)
+                .build();
+    }
+
+
+  when / doReturn  :=
+~~~~~~~~~~~~~~~~~~~~
+ ---- For Stubbing Void Methods 
+ 
+ 
+ when / thenReturn :=
+~~~~~~~~~~~~~~~~~~~~
+ ---- For Stubbing Methods which Returns Something
+ 
+ 
+ 
+@RunWith(SpringJUnit4ClassRunner.class)
+@WebMvcTest(CaseHistoryResource.class)
+@AutoConfigureRestDocs(outputDir = "build/snippets")
+public class CaseHistoryResourceTest {
+
+    public static final String CASE_HISTORY_ENDPOINT = "/api/crm-case/case-history/{caseId}";
+    public static final String CASE_ID = "CS080920000003";
+    public static final String AUTH_HEADER = "Authorization";
+    public static final String AUTH_TOKEN = "Basic dXNlcjpzZWNyZXQ=";
+
+
+    @Autowired
+    private MockMvc mockMvc;
+
+
+    @Autowired
+    private CaseHistoryResource caseHistoryResource;
+
+
+    @MockBean
+    private CaseHistoryService caseHistoryService;
+
+
+    @Test
+    public void getCaseHistoryTest() throws Exception {
+        when(caseHistoryService.getCaseHistory(anyString())).thenReturn(getCaseHistory());
+        mockMvc.perform(
+                RestDocumentationRequestBuilders
+                        .get(CASE_HISTORY_ENDPOINT, CASE_ID)
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .header(AUTH_HEADER, AUTH_TOKEN)
+        )
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.caseId").exists())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.caseHistory[*].timelineStatus").exists())
+                .andReturn();
+        verify(caseHistoryService, times(1)).getCaseHistory(anyString());
+    }
+
+
+
+    @Test
+    public void getCaseHistoryNotFoundTest() throws Exception {
+        when(caseHistoryService.getCaseHistory(anyString())).thenReturn(getCaseHistoryNotData());
+        mockMvc.perform(
+                RestDocumentationRequestBuilders
+                        .get(CASE_HISTORY_ENDPOINT, CASE_ID)
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .header(AUTH_HEADER, AUTH_TOKEN)
+        )
+                .andExpect(status().isNotFound())
+                .andExpect(result -> assertEquals(CaseConstants.CASE_NOT_FOUND_EXCEPTION_MSG,
+                        result.getResolvedException().getMessage()))
+                .andExpect(result -> assertTrue(result.getResolvedException()
+                        instanceof CaseNotFoundException));
+        verify(caseHistoryService, times(1)).getCaseHistory(anyString());
+    }
+
+    private CaseHistoryResponse getCaseHistoryNotData() {
+        CaseHistoryResponse caseHistoryResponse = new CaseHistoryResponse();
+        List<CaseHistory> caseHistoryList = new ArrayList<>();
+        caseHistoryResponse.setCaseHistory(caseHistoryList);
+        return caseHistoryResponse;
+    }
+ 
+ 
+    @Test
+    public void whenFindFirst_thenGetFirstEmployeeInStream() {
+        
+		Integer[] empIds = { 1, 2, 3, 4 };   
+        Employee employee = Stream.of(empIds)
+        .map(employeeRepository::findById)
+        .filter(e -> e != null)
+        .filter(e -> e.getSalary() > 100000)
+        .findFirst()
+        .orElse(null);
+        assertEquals(employee.getSalary(), new Double(200000));
+		
+    }
+
+
+ Peek () :=
+~~~~~~~
+ --- Performs the specified operation on each element of the stream and returns a new stream
+ --- It is Intermediate Operator 
+ 
+  @Test
+  public void whenIncrementSalaryUsingPeek_thenApplyNewSalary() {
+      Employee[] arrayOfEmps = {
+        new Employee(1, "Jeff Bezos", 100000.0), 
+        new Employee(2, "Bill Gates", 200000.0), 
+        new Employee(3, "Mark Zuckerberg", 300000.0)
+    };
+
+    List<Employee> empList = Arrays.asList(arrayOfEmps);
+    
+    empList.stream()
+      .peek(e -> e.salaryIncrement(10.0))
+      .peek(System.out::println)
+      .collect(Collectors.toList());
+
+    assertThat(empList, contains(
+      hasProperty("salary", equalTo(110000.0)),
+      hasProperty("salary", equalTo(220000.0)),
+      hasProperty("salary", equalTo(330000.0))
+    ));
+ }
+
+
+
+@Test
+public void whenSortStream_thenGetSortedStream() {
+    List<Employee> employees = empList.stream()
+      .sorted((e1, e2) -> e1.getName().compareTo(e2.getName()))
+      .collect(Collectors.toList());
+
+    assertEquals(employees.get(0).getName(), "Bill Gates");
+    assertEquals(employees.get(1).getName(), "Jeff Bezos");
+    assertEquals(employees.get(2).getName(), "Mark Zuckerberg");
+}
+
+============================================================================
 
  Mockito330 :=
 ~~~~~~~~~~~~

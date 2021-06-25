@@ -11,24 +11,25 @@
  spring.jpa.show-sql = true
  spring.jpa.generate-ddl=true
  spring.jpa.hibernate.ddl-auto = create
- 
- spring.profiles.active=swagger-disabled-for-qa 
- 
+  
+  
  spring.mvc.view.prefix=/WEB-INF/views
  spring.mvc.view.suffix=.jsp
- 
- logging.level.org.springframework=debug
  
  spring.security.user.name= user
  spring.security.user.password= user
  security.basic.enabled=false
- 
- srping.main.banner-mode=OFF 
+  
+  logging.level.org.springframework=debug
+ spring.main.banner-mode=OFF 
+ spring.profiles.active=swagger-disabled-for-qa 
+ spring.session.store-type=jdbc
+
  
  spring.session.store-type = dbc  # To store the Session-Objects to MySQL database.
  spring.datasource.initialize = false.
  
- spring.session.store-type=jdbc
+
   
 
  H2-Database :=  http://localhost:8965/h2-console
@@ -57,6 +58,17 @@ spring.data.mongodb.host=localhost
 spring.data.mongodb.port=27017
 spring.data.mongodb.database=Flipkart
 
+
+ Postgresql :=
+~~~~~~~~~~~~~~
+spring.datasource.url=jdbc:postgresql://localhost:5432/test
+spring.datasource.username=rama
+spring.datasource.password=rama
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQL81Dialect
+
 =============================================================================================
 
  MangoDB :=
@@ -70,8 +82,66 @@ spring.data.mongodb.database=Flipkart
  
  
 
-=====================================================================================================
- 
+======================================================================================================================================
+
+ Gradle file (Kotlin) :=   [ https://start.spring.io/ ]
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+plugins {
+	id("org.springframework.boot") version "2.6.0-SNAPSHOT"
+	id("io.spring.dependency-management") version "1.0.11.RELEASE"
+	war
+	kotlin("jvm") version "1.5.20"
+	kotlin("plugin.spring") version "1.5.20"
+}
+
+group = "com.example"
+version = "0.0.1-SNAPSHOT"
+java.sourceCompatibility = JavaVersion.VERSION_1_8
+
+configurations {
+	compileOnly {
+		extendsFrom(configurations.annotationProcessor.get())
+	}
+}
+
+repositories {
+	mavenCentral()
+	maven { url = uri("https://repo.spring.io/milestone") }
+	maven { url = uri("https://repo.spring.io/snapshot") }
+}
+
+dependencies {
+	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("org.springframework.boot:spring-boot-starter-data-rest")
+	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	implementation ( "org.springframework.boot:spring-boot-starter-tomcat")
+	compileOnly("org.projectlombok:lombok")
+	developmentOnly("org.springframework.boot:spring-boot-devtools")
+	runtimeOnly("mysql:mysql-connector-java")
+	annotationProcessor("org.projectlombok:lombok")
+	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
+}
+
+tasks.withType<KotlinCompile> {
+	kotlinOptions {
+		freeCompilerArgs = listOf("-Xjsr305=strict")
+		jvmTarget = "1.8"
+	}
+}
+
+tasks.withType<Test> {
+	useJUnitPlatform()
+}
+
+=================================================================================================================================
+
  MicroServices :=
 ~~~~~~~~~~~~~~~
  eureka.client.register-with-eureka=false
