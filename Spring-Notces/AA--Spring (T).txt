@@ -1714,7 +1714,8 @@ public class User {
    	@Override
 	public ResponseEntity<Object> findTitleById(Long titleId) throws TitleNotFoundException {
 //	TitleMaster findById = titleRepositary.findById(titleId).orElseThrow( () -> new TitleNotFoundException("Given Title-Id not found  :: "));
-		Optional<TitleMaster> findById = Optional.of(titleRepositary.findById(titleId).orElseThrow( () -> new TitleNotFoundException("Given Title-Id not found  :: ")));;							
+		Optional<TitleMaster> findById = Optional.of(titleRepositary.findById(titleId).
+		                                     orElseThrow( () -> new TitleNotFoundException("Given Title-Id not found  :: ")));							
 		TitleMaster titleMaster = findById.get();
 		responseObject.setTimestamp(AppConstants.localDateTime);
 		responseObject.setStatusCode(AppConstants.sucessStatusCode);
@@ -1761,7 +1762,7 @@ public class User {
    return new ResponseEntity<Employee>(employee, status);
 }
   	 
-=================================================================
+===============================================================================
 
  Optional :=   [ ---findAny, find** in 'Collection' Returns Optional--- ]
 ------------
@@ -1855,13 +1856,32 @@ public class User {
   (3) Predefined methods    (4) QBE
 
  
-  Sorting ------>  repo.saveAll(sort.by("empName").ascending());  ::: List
-~~~~~~~~~~~        listofEmp.forEach(emp -> { Sysoutemp });
+  Sorting ------>  Sort ss = new Sort("empName");                              /////  findAll(Sort)  &&&& findAll(Pageable)
+~~~~~~~~~~~        Sort ss = Sort.by(Direction.DESC, "empName");
+                   repo.saveAll(sort.by("empName").ascending());  ::: List
+                   listofEmp.forEach(emp -> { Sysoutemp });
 		
 
- Pagination  ----->       PageRequest page = PageRequest.of(0,3);
-~~~~~~~~~~~      Page<CustomerEntity> findAll = repo.findAll(page);
+ Pagination  :=   
+~~~~~~~~~~~~~    
+  Pageable ----> Providing Page_Size (divides records) and Page_Number 
+  Output   ----> Page (In which number of records exits)
+   
+                                       (number of pages, number of records)
+                 PageRequest page = PageRequest.of(0,3);
+                 Page<CustomerEntity> findAll = repo.findAll(page);
                  List<Customer> listOfCust = findAll().getContent();
+
+
+
+ Pagination (Using Example)  :=  /// Can also use 'Example' (for 'AND' Only)         
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Employee emp = new Employee();
+  emp.setSal(100);
+  emp.setEmpName("Ram");
+  Example<Employee> ex = Example.of(ex);
+  List<Employee> list = repo.findAll(ex);
+  list.forEach(System.out::println)
 
 
 

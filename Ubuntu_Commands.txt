@@ -8,13 +8,10 @@
 	ReducesOverHeat...........InstallJAVA........MouseSpeed........InstallChrome........Bleachbit
   
   
-    InstallIntelliJ............InstallJenkins.........InstallDocker......InstallKubernetes.........InstalledSoftwares
-	
-	
-    DownloadPostgresql..........OrderInUbuntu
+    InstallIntelliJ...........OthersDownloads.....DownloadPostgresql.......InstalledSoftwares.....OrderInUbuntu
 
 
-==================================================================================================================
+===================================================================================================================================
  
    Sudo command -----> Ensure that it runs with root access.
    
@@ -23,9 +20,9 @@
 	 
 	 ELK //// Kibana  ////
 	  
-==================================================================================================================
+======================================================================================================================================
 
-  Other-ShortCuts :=
+ Other-ShortCuts :=
 ~~~~~~~~~~~~~~~~~~~ 
       
 	     DeskTop        ------>  Cntrl + Windows + D    /////       Windows + D    (**************)
@@ -101,7 +98,7 @@
  
  
  If Build not Working :=
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
   export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
   
@@ -253,8 +250,60 @@
  
 ==================================================================================================================================
 
-  DownloadPostgresql :=
-~~~~~~~~~~~~~~~~~~~~~~~
+  OthersDownloads 
+~~~~~~~~~~~~~~~~~~~
+
+
+  VSC in Ubuntu  :=
+~~~~~~~~~~~~~~~~~~~ 
+   sudo snap install --classic code
+   
+   sudo apt install ./code_1.57.1-1623937013_amd64.deb
+   
+   sudo dpkg -i  code_1.57.1-1623937013_amd64.deb
+   
+   sudo apt-get install -f 
+   
+   wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+   
+   sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+
+   sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+
+    rm -f packages.microsoft.gpg
+   
+   sudo apt install apt-transport-https
+   
+   sudo apt update
+
+   sudo apt install code 
+   
+   
+  Node Js Download  -----> sudo apt install nodejs
+~~~~~~~~~~~~~~~~~~~~	
+	
+	 
+  Install Angular  -----> sudo apt install npm  (******)
+~~~~~~~~~~~~~~~~~~	      sudo npm install -g @angular/cli@latest
+	
+
+ Install Vue     ------> sudo npm install -g @vue/cli 	
+~~~~~~~~~~~~~~           npm install -g yarn
+		
+		
+ Install MySql :=
+~~~~~~~~~~~~~~~~~~
+   wget -c https://repo.mysql.com//mysql-apt-config_0.8.13-1_all.deb
+   vi ~/.bashrc
+ 
+ export JAVA_HOME=/usr/java/<your version of java>
+ export PATH=${PATH}:${JAVA_HOME}/bin
+
+
+====================================================================================================================================
+
+  DownloadPostgresql :=   
+~~~~~~~~~~~~~~~~~~~~~~~ 
 
  
  sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
@@ -526,7 +575,7 @@ set-default-source echocancel
 set-default-sink echocancel1
 .endif
 
- =======================================================
+=======================================================
  
 
  

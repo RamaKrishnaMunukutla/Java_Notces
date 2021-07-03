@@ -7,7 +7,7 @@
 				
   ...GIT996....XML900......NumberConversion...........ApacheKafka540.........RabbitMQ330.....ELKStack780.....graphQL460	 
  
-  ...RealTimeTools590.....DevOps890Other......MockiSpringSecurity444to330....JIRA790......CloudComputing550.....
+  ...RealTimeTools590.....DevOps890Other......Mockito330....JIRA790......CloudComputing550.....
 		 
   ...ApacheCamel985 .....JMeter330..........Capcha770.......AJAX670.......CodeReviewTools....JQuery880
 		 

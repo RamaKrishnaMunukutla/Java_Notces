@@ -1,13 +1,46 @@
 
 
+ nxzAAC1EQAAU7AGY8gUQnev_99A
+    
+  https://gist.github.com/FeatureSpitter/6fcf696dc51736b0e16a42d8ae70bb12
+http://134.209.29.209/swagger-ui/index.html?configUrl=/api-docs/swagger-config
 
-
+   https://github.com/oktaykcr/vuejs-springboot-crud
    https://github.com/oktadev/okta-kotlin-spring-boot-vue-example
    https://github.com/oktaykcr/vuejs-springboot-crud
+   https://github.com/jaypee01/featurefitter/pull/1/files
    https://github.com/javatodev/vue-js-base-project/tree/main/src
-   https://www.springboottutorial.com/spring-boot-vue-full-stack-crud-maven-application
+   https://github.com/javatodev/vue-js-base-project
    
+   
+   https://www.springboottutorial.com/spring-boot-vue-full-stack-crud-maven-application
+   https://www.baeldung.com/spring-boot-vue-js
+   https://kotlinlang.org/docs/getting-started.html
+ 
+   https://bezkoder.com/spring-boot-vue-js-authentication-jwt-spring-security/
+   https://bezkoder.com/spring-boot-vue-js-crud-example/
+   https://spring.io/guides/tutorials/spring-boot-kotlin/
+   
+   
+   https://www.knowledgefactory.net/2021/01/kotlin-spring-boot-mongo-db-vuejs-crud.html  (*******)
+   https://github.com/knowledgefactory4u/kotlin_spring_vue_mongo_crud (***)
+   https://github.com/in28minutes/spring-boot-vuejs-fullstack-examples  (*****Examples*****)
+   
+   
+   https://hibbard.eu/filterable-table-vuejs/  (---Filter----)
+   https://dev.to/rtficial/kotlin-coroutines-and-retrofit-a-practical-approach-to-consuming-rest-apis-in-android-446k
+   
+   
+   https://titanwolf.org/Network/Articles/Article?AID=2804b980-0ac2-4042-8d8a-9f4ef63d3b28#gsc.tab=0   (--RestTemplate--)
+   https://gist.github.com/CalamarBicefalo/ef69db4ee297b2eba925150724150027
+   
+   
+   codevolution....Travesery(2)..freecamP(1)
+   
+   
+   https://www.youtube.com/watch?v=e-E0UB-YDRk&ab_channel=Bitfumes
    https://stackoverflow.com/questions/54393321/filter-table-rows-with-vue
+
 
 ========================================================================================================================================================
  Intro :=
@@ -126,7 +159,40 @@ println(c1.year)    // Outputs 1969
 
 ========================================================================================================================================================
 
+  https://github.com/jaypee01/featurefitter/pull/1/files
+  https://gist.github.com/FeatureSpitter/6fcf696dc51736b0e16a42d8ae70bb12
+http://134.209.29.209/swagger-ui/index.html?configUrl=/api-docs/swagger-config
 
+   https://github.com/oktadev/okta-kotlin-spring-boot-vue-example
+   https://github.com/oktaykcr/vuejs-springboot-crud
+   https://github.com/javatodev/vue-js-base-project/tree/main/src
+   https://github.com/javatodev/vue-js-base-project
+   https://github.com/oktaykcr/vuejs-springboot-crud
+   
+   https://www.springboottutorial.com/spring-boot-vue-full-stack-crud-maven-application
+   https://www.baeldung.com/spring-boot-vue-js
+   https://kotlinlang.org/docs/getting-started.html
+   https://bezkoder.com/spring-boot-vue-js-authentication-jwt-spring-security/
+   https://bezkoder.com/spring-boot-vue-js-crud-example/
+   https://spring.io/guides/tutorials/spring-boot-kotlin/
+   
+   
+   https://www.knowledgefactory.net/2021/01/kotlin-spring-boot-mongo-db-vuejs-crud.html  (*******)
+   https://github.com/knowledgefactory4u/kotlin_spring_vue_mongo_crud (***)
+   https://github.com/in28minutes/spring-boot-vuejs-fullstack-examples  (*****Examples*****)
+   
+   
+   https://hibbard.eu/filterable-table-vuejs/  (---Filter----)
+   https://dev.to/rtficial/kotlin-coroutines-and-retrofit-a-practical-approach-to-consuming-rest-apis-in-android-446k
+   
+   
+   codevolution....Travesery(2)..freecamP(1)
+   
+   
+   https://www.youtube.com/watch?v=e-E0UB-YDRk&ab_channel=Bitfumes
+   https://stackoverflow.com/questions/54393321/filter-table-rows-with-vue
+   
+   
 ========================================================================================================================================================
 
 

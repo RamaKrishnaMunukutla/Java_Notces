@@ -120,9 +120,13 @@
 ====================
 
  (Q) Difference between Update && Merge??
- (A) Update:  if you are sure that the session does not contains an already persistent instance with the same identifier,then use update to save the data in hibernate
+ (A) Update:  if you are sure that the session does not contains an already persistent instance with the same identifier,
+                                then use update to save the data in hibernate
      Merge:  if you want to save your modifications at any time with out knowing about the state of an session, then use merge() in hibernate.
-	 
+	   
+	                             Persist ----> Insert 
+								 Merge  -----> Update 
+								 
 
  (Q) Annotation that makes Class Immutable  ?? 
  (A) In Hibernate Annotation if we want to make an entity immutable, @Immutable can help. 
@@ -1276,6 +1280,7 @@ It supports 2 types of Parameters, Those are
  ---It provides index number starts from zero(0) to every ? symbol in HQL.
  ---Set data using q.setParameter(index,data) method
  ---This method must be called after query object and before list() method.
+ ---Reads data in method params in  order (*********)
 
 
 2]NamedParameter  (:a) := 

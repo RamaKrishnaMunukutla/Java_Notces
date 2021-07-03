@@ -61,15 +61,22 @@ spring.data.mongodb.database=Flipkart
 
  Postgresql :=
 ~~~~~~~~~~~~~~
-spring.datasource.url=jdbc:postgresql://localhost:5432/test
-spring.datasource.username=rama
-spring.datasource.password=rama
-spring.jpa.hibernate.ddl-auto=update
+server.port = 8999
+spring.datasource.url=jdbc:postgresql://localhost:5432/demo
+spring.datasource.username=root
+spring.datasource.password=root
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQL81Dialect
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQL121Dialect
+spring.jpa.hibernate.ddl-auto=update
 
-=============================================================================================
+server.port = 8999
+spring.datasource.url= jdbc:postgresql://localhost:5432/postgres
+spring.datasource.username= postgres
+spring.datasource.password= password
+spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation= true
+spring.jpa.properties.hibernate.dialect= org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto= update 
 
  MangoDB :=
 ~~~~~~~~~~
@@ -80,26 +87,23 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQL81Dialec
  spring.data.mongodb.username=sa 
  spring.data.mongodb.password=sa
  
- 
-
 ======================================================================================================================================
 
- Gradle file (Kotlin) :=   [ https://start.spring.io/ ]
+ Gradle file (Kotlin) :=   [ https://start.spring.io/ ]   ////// Configure MySQL  //// Choose stable SpringBoot_Version && see <Package>
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("org.springframework.boot") version "2.6.0-SNAPSHOT"
+	id("org.springframework.boot") version "2.5.2"
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
-	war
 	kotlin("jvm") version "1.5.20"
 	kotlin("plugin.spring") version "1.5.20"
 }
 
 group = "com.example"
 version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_1_8
+java.sourceCompatibility = JavaVersion.VERSION_11
 
 configurations {
 	compileOnly {
@@ -117,16 +121,18 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-	implementation("org.springframework.boot:spring-boot-starter-data-rest")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
+// https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
+//	implementation("khttp:khttp:1.0.0")
+	implementation( "com.github.jkcclemens:khttp:0.1.0")
+	implementation ("org.apache.httpcomponents:httpclient:4.5.13")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	implementation ( "org.springframework.boot:spring-boot-starter-tomcat")
-	compileOnly("org.projectlombok:lombok")
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+	implementation("com.opencsv:opencsv:5.2")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
-	runtimeOnly("mysql:mysql-connector-java")
-	annotationProcessor("org.projectlombok:lombok")
-	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	//runtimeOnly ("org.postgresql:postgresql")
+	runtimeOnly  ("mysql:mysql-connector-java:8.0.18")
+	 implementation( "org.jetbrains.kotlin:kotlin-noarg")
 }
 
 tasks.withType<KotlinCompile> {
@@ -139,6 +145,8 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+
 
 =================================================================================================================================
 

@@ -21,6 +21,8 @@
   mvs.ramakrishna@xebia.com /// Jaw06699  --- Cool910@ 
   
   https://www.pdfdrive.com/
+  
+  https://github.com/xebiaww/yes-genie-platform
 
 ====================================================================================================
 
@@ -127,7 +129,7 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
   
   MangoDB   -------> 22/12/2020
  
-	  Junit -------> 18/12/2020
+    Junit ---------> 18/12/2020
   
   Spring-Rest -----> 28/11/2020
   
@@ -136,8 +138,18 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
   Spring MVC ------> 2/11/2020
   
    Procedures -----> 30/10/2020
+   
+   Hibernate collections && Mapping  ----> [16,13] Oct 2020 
+   
+   Custom Queries ----> 13 Oct 2020  [10,12]
   
-       JPA  -------> 28/09/2020
+      JPA  -------> 28/09/2020
+	  
+  @PropertySource ----> 14 Sep 2020 
+	   
+	  YAML  ------> 16 Sep 2020 
+	   
+     Lombok  -----> [11,14]  Sep 2020 
 	   
   
    Course Content Link:   http://www.nareshit.com/course/aws-online-training/
@@ -165,6 +177,16 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
   
   https://github.com/kunaltyagi9/Spring-Boot-with-Angular
   
+=====================================================================================================================
+ 
+ Completion780 :=
+~~~~~~~~~~~~~~~~
+ (1) Requirement Understanding 
+ 
+ (2) UnderStand && Analyse Existing code 
+ 
+ (3) Code for Required Output  (****Practise***)
+
 =====================================================================================================================
 
 
@@ -698,6 +720,8 @@ https://www.baeldung.com/spring-cloud-series
    https://www.zdsoft.com/   
    https://www.faststone.org/FSCaptureDownload.htm
    https://online-video-cutter.com/
+   
+   Screen_Zoom ----> https://docs.microsoft.com/en-us/sysinternals/downloads/zoomit
    
 
    

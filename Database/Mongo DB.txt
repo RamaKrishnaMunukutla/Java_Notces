@@ -5,7 +5,7 @@
 
     
 	
-============================================================================================
+========================================================================================================================================
 
    Tables ----> Collection
       Row ----> Document
@@ -14,6 +14,7 @@
        MONGO-DB ----> SBMS 7:00 AM (22th_to_29th  /12/2020) [**********]
 	   
 	   https://www.javatpoint.com/mongodb-delete-documents
+	   https://www.youtube.com/watch?v=Www6cTUymCY&ab_channel=Amigoscode
 	   
 	    mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb   
 	   
@@ -26,7 +27,7 @@
 
 ----> MongoDB databases have dynamic schema. There is no need to define the structure to create collections. (****)
 	   
-================================================================================================
+==========================================================================================================================================
 	                           
     							   Basic Mongo Commands ( "Not Only SQL".)
 							   ~~~~~~~~~~~~~~~~~~~~~~~~~~

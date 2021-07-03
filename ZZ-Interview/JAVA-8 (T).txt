@@ -1640,16 +1640,18 @@ OPTIONAL123 :=   [ ---findAny, find** in 'Collection' Returns Optional--- ]
 ---->It is a bounded collection that is it contains at most one element only. It is an alternative to “null” value.
 
 Main Advantage of Optional is:
-
-It is used to avoid null checks.
-It is used to avoid “NullPointerException”.
+ It is used to avoid null checks.
+ It is used to avoid “NullPointerException”.
+ Used to avoid null data reading (********)
 
 ---->always initialize your object references with some value, and never with null. 
 
 ---->Optional is a way of replacing a nullable T reference with a non-null value. An Optional may either
  contain a "--non-null--" T reference (in which case we say the reference is “present”), or it may 
  contain "--nothing--" (in which case we say the reference is “absent”).
- 
+  
+  
+                         isPresent() -----> Internally checks for Not equal to Null 
  
  
  Eg1 :=
@@ -1664,6 +1666,16 @@ It is used to avoid “NullPointerException”.
 		
 ----> to retrieve a record by id or some fields from the database, basically, we are not sure whether the record exists or not, in that case, the method returns the null reference.Code to avoid such null pointer exception
 
+
+ Eg1.1 :=
+~~~~~~~~
+   Optional<Employee> opt = employeeRepository.findByTeamId(empId);
+   if(opt.isPresent()){
+       Employee emp = opt.get()
+   }else{
+     System.out.println("Data Does not exists")
+   }
+   
  
  Eg1.1 :=
 ~~~~~~~~

@@ -2,7 +2,7 @@
 
 
 
-  ANT ---> MAVEN /// GRADLE 
+  ANT ---> MAVEN /// GRADLECommands 
 
 ==========================================================================
 
@@ -347,5 +347,20 @@ User can configure central repository
 User can configure remote repository
 
 
+===========================================================================================================================================
 
+ GRADLECommands :=
+~~~~~~~~~~~~~~~~~
+
+  gradlew crm-case-service:build -x test  
+  sudo kill -9 $(sudo lsof -t -i:8080)
+  
+  
+ ./gradlew crm-case-service:build -x test 
+   gradlew clean build  
+ 
+   gradlew build --refresh-dependencies
+
+
+===========================================================================================================================================
 

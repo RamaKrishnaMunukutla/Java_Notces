@@ -37,20 +37,28 @@
  ---It is used to create  ready made Angular-Project.
  
 	 
-================================================================================================================= [ }); ]
+============================================================================================================================== [ }); ]
 
-----> ng new Hello --skip-tests /// ng new Hello -si -st ..../// Skips the "-Test-"(Spects) files. code
+
+----> ng new Hello --skip-tests /// 
+      ng new Hello -si -st ..../// Skips the "-Test-"(Spects) files. code
    
-----> npm i || npm update || npm audit fix  || npm i @angular-devkit/build-angular  ---> for Cloned Projects (******)
+   
+----> npm i || npm update || npm audit fix  || 
+      npm i @angular-devkit/build-angular  ---> for Cloned Projects (******)
   
-----> npm i -g @angular/core --force    ///  npm i -g typescript   
+  
+----> npm i -g @angular/core --force    ///  
+      npm i -g typescript   
  
----->      npm i -g @angular/cli       ///  npm update @angular/cli@latest  
+ 
+----> npm i -g @angular/cli       ///  
+      npm update @angular/cli@latest  
 
   
-  Install-Angular ---------> npm uninstall(i) -g @angular/cli   ////    npm i --save-dev @angular/cli@latest
+  Install-Angular ---------> npm uninstall -g @angular/cli   ////    npm i --save-dev @angular/cli@latest
 
-  Global Install ----------> npm install -g @angular/cli   ////   npm i -g @angular/core 
+  Global Install ----------> npm install -g @angular/cli@latest  ////   npm i -g @angular/core 
 	
   Local Install -----------> npm i @angular/cli@6  
   
@@ -76,6 +84,16 @@
  npm i @angular-devkit/build-angular@0.13.0
  npm i -g @angular-devkit/schematics-cli
  npm i --save-dev @angular-devkit/build-angular
+ 
+ 
+ Create New Project :=
+~~~~~~~~~~~~~~~~~~~~~
+ ng new HelloWorld 
+ git config --global core.autocrlf false 
+ npm install --global npm@6
+--------
+ ng new HelloWorld -d        //Tells which files are created in CMD
+ ng new Hello2 --skip-tests  // To skip test files
  
  
  Port :=
@@ -107,10 +125,7 @@
    npm i express body-parser --save
                    
 ===================================================================================
- 
-  ng new HelloWorld -d        //Tells which files are created in CMD
- ng new Hello2 --skip-tests  // To skip test files.
- 
+  
  Component :=
 ~~~~~~~~~~~~
  ng g c Hello11   //component
@@ -330,6 +345,7 @@ Imports :=
  employee.service.ts :=
 ~~~~~~~~~~~~~~~~~~~~~~
 
+  (()=>{}, ()=>{});
 
 ================================================================================
 
@@ -339,9 +355,16 @@ Imports :=
 
 ==========================================================================================
  
- Tutorials770 :=
-~~~~~~~~~~~~~~~
- 
+  GITHUBLINKS :=
+~~~~~~~~~~~~~
+  https://github.com/getarrays/employeemanager   //// AmigosCode (Full_Stack ---- Table Crud with Filter)
+  https://github.com/getarrays/employeemanagerapp
+
+
+  https://github.com/gothinkster/angular-realworld-example-app
+  https://github.com/getarrays/employeemanagerapp  (***have_a_look***)
+  
+  
  Angular-2 :=
 ~~~~~~~~~~~~
 	  https://github.com/gopinav/Angular-2-Tutorials
@@ -386,9 +409,7 @@ Imports :=
   
 ============================================================================================
  
- GITHUBLINKS :=
-~~~~~~~~~~~~~
-  https://github.com/gothinkster/angular-realworld-example-app
+
  
  
  

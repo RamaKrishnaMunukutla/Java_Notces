@@ -1,4 +1,4 @@
-
+ 
   
  ....ConfigurationProperties33.......SpringBootInternalWork .....AdvantagesOfSpringBoot........MultipleInstances990
   
@@ -45,6 +45,10 @@
  
  --- Generates WAR-File 
  --- Creates Tomcat-Embedded-Servlet-Container && Context added to it.  
+ 
+=========================
+
+  Web ///// DevTools //// JPA //// MySql //// Lombok /// 
 
 =====================================================================================================================
 
@@ -246,7 +250,7 @@ public class Book {
 
 ===========================================================================================================
 
- @ConfigurationProperties33 (Prefix="config") :=  
+ @ConfigurationProperties33 (Prefix="config") :=     ImportAutoConfiguration40....PropertySource22
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  --- lt Letting developer maps the entire .properties and yml file into an object easily.
  --- for externalized configuration.   //// @Value to inject the .properties value one by one, this is good for small and simple structure
@@ -319,8 +323,8 @@ public class GlobalProperties {
   
 =================================================== 
   
-  @ImportAutoConfiguration :=  
-~~~~~~~~~~~~~~~~~~~~~~
+  @ImportAutoConfiguration :=    
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  ---- when you don't want to enable the default autoconfiguration with @EnableAutoConfiguration. 
  ---- @EnableAutoConfiguration attemps to configure beans that are located on your classpath eg tomcat-embedded.jar.  
  ----Whereas @ImportAutoConfiguration only runs the configuration classes that you provided in the annotation.
@@ -362,15 +366,38 @@ public class App {
 
 =========================================================================================================
 
-  @PropertySource :=
-~~~~~~~~~~~~~~~~~
+  @PropertySource22 :=
+~~~~~~~~~~~~~~~~~~~~~
  --- To externalize your configuration to a properties file. 
- --- to include properties from the application.properties file into the Environment and to inject them into class attributes.
+ --- Spring f/w  loads properties file into Spring Container from the application.properties file into the Environment (Key-Value)   
+               and to inject them into class attributes.  (*************)
+			   
+			     Default -----> @PropertySource("classpath:application.properties")  ////  application.properties has more priority 
+				  
+			   
  --- In this tutorial, we will show you how to use @PropertySource to read a properties file and display the values with @Value and Environment.
- 
  ---  use Environment to get the property values.
  ---  YAML Cannot loaded using @PropertySource  annotation (**********)
- 
+ 
+               
+			                      @PropertySource        ------> Loads Outside file into Container 
+			           @Value / @ConfigurationProperties ------> Reads Data from  Spring-Conatiner to Class 
+					   
+					   
+					   @PropertySource  -----> Spring_Coantiner ---->  @Value / @ConfigurationProperties  (*****************)
+					   
+					   
+(Q) If Same variable is present in two Dot-Properties file, which one is loaded ?? 
+(A) Last Dot-Properties file will actually Override the Value 
+
+
+(Q) Difference between @Value && @ConfigurationProperties  ??
+(A) @Value --- will give Exception if not matching was found 
+    @ConfigProp --- will give null if not matching was found
+
+
+
+
   Eg :=
  ~~~~~
  
@@ -381,7 +408,7 @@ public class App {
 
 @Configuration
 @ComponentScan(basePackages = { "com.mkyong.*" })
-@PropertySource("classpath:config.properties")
+@PropertySource("classpath:abcd.properties")  // (*******)  
 public class AppConfigMongoDB {
 
     //1.2.3.4
@@ -424,7 +451,7 @@ public class AppConfigMongoDB {
 	
 	        ........@Profiles, @Transactional, @Import, @ImportResource..............
  
-===============================================================================================
+=================================================================================================================================================
 
  MultipleInstances990 :=
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -469,6 +496,11 @@ Profiles provide ability for application developers to specify different applica
                      "-- spring.profile.active=dev --" ...... ( prod (or) test etc... )
  
  --- we can also define it with annotaion "--@Profile("dev")--"
+
+ 
+          @Profile("default") -----> Only One Profile  //// If no Annotation is not metioned (applicable to all) 
+		                             Executes for every profile (*********)
+
 
 ======================================================================================================
 
@@ -517,6 +549,14 @@ Profiles provide ability for application developers to specify different applica
 	*) It is applied without any variable having @NonNullthen Lombok generated Default constrcutor/zero param
 
 7. @Data = @Getter + @Setter + @ToString + @EqualsAndHashCode + @RequiredArgsConstructor
+
+
+ (Q) Types of Constructors :: 
+    --- Default 
+	--- Params 
+	--- Selected Variable as Params 
+	
+	   Need Extra Constructor ----> Need to go manually 
 
   
  @Data :=

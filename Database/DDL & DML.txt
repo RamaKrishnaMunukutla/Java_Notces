@@ -24,6 +24,9 @@ Key-Words :=
 	   
 	  .....LIKE ('%.%' && '_ _ _' && '_ _e%').........round()........
 	   
+	
+ (Q) How to Optimize the Millions of records in Database (Store/Fetch) ??  (**************)
+ (A) Using Indexing .
 
 ===============================================================================================================
 
@@ -49,6 +52,10 @@ Key-Words :=
 							 
 							 
 		Set_Operators (Same_Structure-Table) ------> Union   //////   Union-All   ////////  Intersect   ////// Minus 
+   
+   
+   in() ----> retrives records only Matches && fetches data in any Order 
+   
    
 ===============================================================================================================
 
@@ -623,6 +630,7 @@ SELECT123 :=
 ---> SELECT last_name FROM employees WHERE last_name LIKE '______';
 
 ---> SELECT first_name, last_name, salary, salary*.15 PF from employees;
+
 
   DISTINCT clause :=
 ~~~~~~~~~~~~~~~~~~~~

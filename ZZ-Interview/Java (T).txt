@@ -9,6 +9,8 @@
 	 
 	 Garbage-Collection --- https://howtodoinjava.com/java/garbage-collection/all-garbage-collection-algorithms/
 	 
+	    Repl ----> https://replit.com/languages/java10
+	 
 	 [ Escape-Characters ]  
 	 
 	    SOLIDPrinciples 
@@ -1184,6 +1186,10 @@ Encapsulation :=
 ~~~~~~~~~~~~~
 ---->Wrapping code and data into Single-Unit.
 ---->Wrapping code and methods within classes in combination with implementation hiding (through access control) 
+
+----> By providing only a setter or getter method, you can make the class read-only or write-only. (***************)
+
+----> It is a way to achieve data hiding in Java because other class will not be able to access the data through the private data members.  (*********)
 
 --->Information hiding is done through using access control modifiers (public, private, protected)   
     Implementation hiding is achieved through creation of interface for a class.
