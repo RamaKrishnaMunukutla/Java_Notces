@@ -110,14 +110,11 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
 
  NareshIT33 :=    SCJP /// OCJP
 ~~~~~~~~~~~~~~
-  Notces-Password ---> 460621 
-  
-  
    ELS_Example ----> 28/03/2021
-  
-    Reactive  -----> 27/03/2021
+ 
+ Reactive Programming ----> 24/03/2021 	 [ 24 to 27]
 	
-	Security ------> 08/03/2021
+	Security ------> 08/03/2021  [8 to 17] 
 
 	Kafka   -------> 19/02/2021
 	
@@ -130,26 +127,32 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
   MangoDB   -------> 22/12/2020
  
     Junit ---------> 18/12/2020
+	
+  RestTemplate ----> 17/12/2020
+	
+	Swagger -------> 12/12/2020
   
-  Spring-Rest -----> 28/11/2020
+  Spring-Rest -----> 28/11/2020  [ 28/11 to 17/12]
   
      AJAX   ------->  25/11/2020
   
   Spring MVC ------> 2/11/2020
   
-   Procedures -----> 30/10/2020
+ Procedures -----> 30/10/2020
    
-   Hibernate collections && Mapping  ----> [16,13] Oct 2020 
-   
-   Custom Queries ----> 13 Oct 2020  [10,12]
+ Hibernate collections && Mapping  ----> [16,13] Oct 2020 
+ 
+ Custom Queries ----> 13 Oct 2020  [10,12]
   
-      JPA  -------> 28/09/2020
+   JPA  -------> 28/09/2020 [From 21]
 	  
-  @PropertySource ----> 14 Sep 2020 
+ Scheduler -----> [21,22] Sep 2021 
+	  
+  PropertySource ----> 14 Sep 2020 
 	   
-	  YAML  ------> 16 Sep 2020 
-	   
-     Lombok  -----> [11,14]  Sep 2020 
+    YAML  ------> [16,21] Sep 2020 
+ 
+    Lombok  -----> [11,14]  Sep 2020 
 	   
   
    Course Content Link:   http://www.nareshit.com/course/aws-online-training/

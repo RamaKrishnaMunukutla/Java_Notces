@@ -996,6 +996,10 @@ SpringSecurity444 :=  [ https://www.baeldung.com/security-spring ] // [ https://
 	
   [ https://www.youtube.com/watch?v=qs91V059u68&list=PLZdfbI_OZWANoX7SJXi5xbKXu-q9AzSgQ&index=3&ab_channel=AlmightyJava ]
 
+=============================================================
+
+   CSRFAttack.....OAuth2x
+   
 
                    Class 'User' HAS-A 'Role'(OneToMany) (********)
 				 
@@ -1052,10 +1056,206 @@ SpringSecurity444 :=  [ https://www.baeldung.com/security-spring ] // [ https://
   ACL,  CAS-Client, Open-ID
 
 
+*) Authentication Manager (Handle Un/Pwd) can be done using (any one of)
+
+a. InMemoryAuthentication : Store Un/pwd inside RAM and validate on
+				User Login. (used for Dev/Test)
+
+b. JdbcAuthentication : Store Un/pwd inside Database and validate on
+                          User Login using Spring JDBC(SQLs).
+
+c. *** UserDetailsService : Store Un/pwd inside Database and validate on
+                          User Login using Spring Data JPA(ORM).
+						  
+						  
+
+#1. UserDetailsService(I) given by Spring Security (ORM).
+     It has method loadUserByUsername(uname):UserDetails ,
+     For this we should write impl class code.
+
+ its impl class, 
+   will read username from login page,
+   goto database to fetch usertab and rolestab data,
+   load data into User(model) class object,
+   convert into Spring Security User Object.
+
+***** ReturnType of loadUserByUsername is UserDetails(I)
+    its impl class is User(C) [org.springframework.security.core.userdetails]
+
+Q) Why can't we pass our Model class Object in place of Spring Security
+   User object?
+
+A) Validation and session creation code is pre-defined, that is 
+   implemented on top of Spring Security User class object.
+   So, we can not pass our Model class object.
+
+Q) What is the diff b/w Authority and GrantedAuthority?
+A) 
+Authorities = Roles exist in Application (all roles)
+Ex: ADMIN, CASHIER, CLERK, ACCOUNTENT, MANAGER, SUPINR
+
+GrantedAuthority = Allocated Roles for a User.
+Ex:
+   Md.Syed(User)  - CASHIER, ACCOUNTENT (Granted Authorities)
+   SRI RAM (USER) - ADMIN (Granted Authorities)
+   SAMSUN (USER)  - MANAGER, CLERK (Granted Authorities)
+   
+ Ex:
+  String role = "ADMIN";
+  GrantedAuthority gas = new SimpleGrantedAuthority(role);
+  ----------------------------------
+Q) How can we convert our Model class Roles to Set<GrantedAuthority>?
+A)
+   Set<String> roles = .....// {ADMIN,EMPLOYEE} (FROM MODEL CLASS)
+
+   Set<GrantedAuthority> sgas = new HashSet<>();
+   for(String s:roles) {
+        sgas.add(new SimpleGrantedAuthority(s));
+   }  
+
+==========================================================================
+
+		          CSRFAttack  CSRFAttack.....OAuth2x
+               ~~~~~~~~~~~~~~~~
+			   
+CSRF = Cross Site Request Forgery
+
+Request is created by attacker and send to enduser machine
+using different sources, like email, adv search, spam setting
+..etc
+ Enduser clicks on link which is created by attacker,
+ that internally makes request to Payment/Bank Server..etc
+
+=> For Every User on request server allocating 
+   one unique id for tx along with page loaded
+   this id is called as CSRF Token given as hidden value
+
+=> This token generation, validation is taken care by Spring security.
+=> Internally it is using code: UUID.randomUUID().toString()
+   HttpSessionCsrfTokenRepository.
+
+ (I) : CsrfTokenRepository
+ For validating token : CsrfRequestPostProcessor
+ 
+ 
+     Ataker ----> Client ----> Bank 
+ 
+ 
+=> Web MVC - CSRF Token, by default CSRF Token is enabled.
+   To disable it GotoSecurity config
+
+   http
+   .csrf().disable()
+   .authorizeRequests()
+   .antMatchers(...)
+
+=> Web REST - JWT, OAuth 2.x
+
+=>** If you share Token, CVV, OTP, Password even App can not
+     support security..etc.
+
+*** When your doing tx using NetBanking do not open any other tab in
+    browser, after logout close browser and open again.
+    Even before tx.
+ 
+
+=======================================================================================
+
+                  OAuth2x [Open Authorization]
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+				
+ OAuth 2.x is a Open Standard Framework, used to Authorize
+ EndUser for Business(Client) Application for regular transactions.
+
+=> Oauth 2.x is used to validate enduser and client Application
+   and provides a token (OAuth 2.x Token) which works for
+   that pair (EndUser + Client)
+
+
+=> Here we have 3 Components (3 systems)
+
+a. Authorization and Resource Server
+ex:
+ Facebook, Google, Twitter, Github, LinkedIn ..etc
+
+b. Client Applications (Business Apps)
+ex:
+ BookMyShow, Redbus, Zomato, MakeMyTrip, Carwale...etc
+
+c. EndUser who has account in Auth & Resource server
+    and want to use business applications.
+-------------------------------------------------------------
+*) OAuth 2.x is recomanded to use in daily/normal business 
+  applications, not for finance applications (use Spring Security).
+
+Ex: HDFC Bank App use Spring Security 
+    Food Order App - OAuth 2.x + Spring Security
+   
+--------------------------------------------------------
+Stage#1 Register Client Application with Auth & Resource Server
+
+a. Client Application is implemented by a Company and deployed
+   inside one server successfully.
+
+b. Now, This Client Application should be registered with 
+   Auth and Resource Server (Ex: Facebook).
+
+c. On successful register, Auth and Resource Server Generates
+    ClientId and Secret.
+--------------------------
+Stage#2 Register EndUser with Auth & Resource Server
+
+a. EndUser has to register and verfiy his details with
+    Auth and Resource Server.
+
+b. Then Login, fill profile data Gender, DOB, Email, Mobile..etc
+c. You can use all services exposed to enduser by Facebook.
+   Ex: Post, Comment, Share...etc
+
+--------------------------------------------------
+Stage#3 ** EndUser using Client App services
+
+(#1). User Going to Client Application(BMS) and click on Login With Facebook
+(#2). BMS is asking permission to EndUser (Grant)
+(#3). User first login with Facebook with un,pwd
+(#4). Then click on Continue as <UserName> at dialog box
+          ie called as UserGrant.
+
+(#5). Now, ClientApp(BMS) is going to Facebook with
+      clientId, secret and user grant.
+
+(#6). Auth Server validating all details and generating
+      access token.
+
+(#7). Access Token is given back to Client App
+    which is valid for Client(BMS) + EndUser(RAGHU)
+
+(#8). Now, client App is going to Resource Server(Data)
+     and asking for user data with access token
+
+(#9). Resource server process the token and provide user data
+(#10). User data is given back to client App
+(#11). Client Storing user data and they allow end user for Operations
+(#12). Client indicates User Login Success.
+(#13). Now User can make request for Booking Ticket, Cancel ticket,
+          check history, search...etc
+(#14). ClientApp is giving response for user request.
+
+ 
+
+Grant -- Permission , User must be logged-in with Auth & Resource server
+ and click on Accept Permission 'Continue As RAGHU'..
+
+I'm User(RAGHU) granting Client(BMS) 
+  to read my data from Auth & Resource Server(Facebook).
+  
+  
+   
 (Q)What is the meaning of OAuth?
 (A) OAuth means open authorization Protocol. 
     This protocol allows you to access the client applications on HTTP for third-party providers like Google, Facebook, etc. It helps you to share resources stored on one site with another site without the need for their credentials
 
+==============================================================================
  
  (1) Cookie-based-Authorization :=  [SessionID(Unique)] [Cookie-based-Authentication]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1109,7 +1309,7 @@ SpringSecurity444 :=  [ https://www.baeldung.com/security-spring ] // [ https://
  --- Can Secure All-Controller / One-Controller (Or) Based on URL (Or) Authenticate on ROLE. 
  --- BCryptPasswordEncoder Mehod used to BCrypt-Password
 
-===========================================
+ 
 
  Load User form Database ---->  UserDetailService (C) ---- loadUserByUsername(String name) 
   

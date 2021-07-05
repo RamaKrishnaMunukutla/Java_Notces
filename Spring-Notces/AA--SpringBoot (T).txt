@@ -1,18 +1,18 @@
  
   
- ....ConfigurationProperties33.......SpringBootInternalWork .....AdvantagesOfSpringBoot........MultipleInstances990
+   ....ConfigurationProperties33.......SpringBootInternalWork .....AdvantagesOfSpringBoot........MultipleInstances990
   
- ....Profiles333............SpringBootServletInitializer330....Profiles444.....LOMBOK770.......FileUpload......Environment440
+  ....Profiles333............SpringBootServletInitializer330....Profiles444.....LOMBOK770.......FileUpload......Environment440
    
- ....SpringBootJDBC440.........SpringbootMVCHibernate660.......Runner740.......PropertiesGet....Actuator550....Scheduler990
+  ....SpringBootJDBC440.........SpringbootMVCHibernate660.......Runner740.......PropertiesGet....Actuator550....Scheduler990
   
- ....YAML660...................HATEOAS780.....Thymeleaf890.....Multipart444....NamedQueries660....
+  ....YAML660...................HATEOAS780.....Thymeleaf890.....Multipart444....NamedQueries660....
    
- ....RestTemplate660...........Swagger220.....Chache440........ErrorHandling490.....SpringTransactional....BootRegEx
+  ....RestTemplate660...........Swagger220.....Chache440........ErrorHandling490.....SpringTransactional....BootRegEx
 	
- ....SpringBatch660............RedisDB........PCF660...........SpringBatch880.......Cache330.......BootMongoDB 
+  ....SpringBatch660............RedisDB........PCF660...........SpringBatch880.......Cache330.......BootMongoDB 
    
- ....SpringBootFaceBook995.....Conditional880......SpringBootCache880........WhiteLabelError
+  ....SpringBootFaceBook995.....Conditional880......SpringBootCache880........WhiteLabelError
 
 
 ===========================================================================================================
