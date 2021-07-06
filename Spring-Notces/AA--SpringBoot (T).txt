@@ -659,8 +659,9 @@ https://www.codejava.net/frameworks/spring-boot/spring-boot-crud-example-with-sp
 ==========================================================================================================================
  
  Scheduler990 :=  [ https://github.com/Java-Techie-jt/spring-boot-scheduler ]
-~~~~~~~~~~~~~~
-  -- Execuetes a piece of Code for a Periodically    /////   @Scheduled(cron = "0 15 10 15 * ?")
+~~~~~~~~~~~~~~      https://crontab.guru/
+
+  ---- Execuetes a piece of Code for a Periodically    /////   @Scheduled(cron = "0 15 10 15 * ?")
   
   
  Methods := fixedDelay , fixedRate , initialDelay 

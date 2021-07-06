@@ -474,11 +474,15 @@ log4j.appender.logFile.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %m%
 
                          Check_Version ----> gradle -v
 
-
-=============================================================================================================
+=====================================================================================================================================================
+=====================================================================================================================================================
  
                                   MAVEN123 (MavenGoals) [build and dependency management tool] 
                                  ~~~~~~~~~~~~~~~~~~~~~~~
+								 
+								 MavenGoals.......BuildProfile
+								 
+								 
  Ant :=
 ~~~~~~
  --- It a Tool-Box && doesn't have life-Cycle.
@@ -593,7 +597,7 @@ What is Maven
 
 Note: If it displays version of maven, we are done with maven setup.
 
-=======================
+============================================================================
 
 
 MAVEN ----> KK JAVA TUTORIALS 
@@ -701,7 +705,7 @@ MAVEN ----> KK JAVA TUTORIALS
 
 ============
 
- MavenGoals :=
+ MavenGoals :=       
 ------------
 -> Maven goals are used to instruct what operation has to be done by Maven for our application as part of build process
 
@@ -877,11 +881,39 @@ These maven remote repository work exactly same way as maven’s central reposit
 
                     ----- ear > war > jar file
 					
- Build Profile :=
+========================================================================================================
+					
+ BuildProfile :=
 ~~~~~~~~~~~~~~~~~ 
  --- Refers Set of Configurations that are required to build the application.
  --- Helps in customizing build for different-environments. 	
+ --- we can actually add profiles to any of three locations :: Project-specific profiles go into the project's pom.xml file
+                                                               User-specific profiles go into the user's settings.xml file
+                                                               Global profiles go into the global settings.xml file
+
+
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-help-plugin</artifactId>
+            <version>3.2.0</version>
+            <executions>
+                <execution>
+                    <id>show-profiles</id>
+                    <phase>compile</phase>
+                    <goals>
+                        <goal>active-profiles</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+		
+		
+		
+		
+		
 	
+========================================================================================================
+
 	      Artifact-Id ---> Name of Project
 	      Group-Id ------> Package-Name
 		  
