@@ -110,7 +110,8 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
 
  NareshIT33 :=    SCJP /// OCJP
 ~~~~~~~~~~~~~~
-   ELS_Example ----> 28/03/2021
+   
+   ELK_Example ----> 28/03/2021
  
  Reactive Programming ----> 24/03/2021 	 [ 24 to 27]
 	
@@ -182,11 +183,13 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
   
 =====================================================================================================================
  
- Completion780 :=
+ Completion780 :=  (*****FILTERING_DATA********) ////////   (*******SYNTAX********)
 ~~~~~~~~~~~~~~~~
- (1) Requirement Understanding 
+ (1) Requirement Understanding  (DOMAIN)
  
- (2) UnderStand && Analyse Existing code 
+ (2) UnderStand && Analyse (a) Existing_Code 
+                           (b)   TABLES &&
+						   (c)     UI
  
  (3) Code for Required Output  (****Practise***)
 
