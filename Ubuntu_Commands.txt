@@ -5,7 +5,7 @@
     GITPullRequest660..............IntelliJShortcuts............J2EENotShowing
 	
 	
-	ReducesOverHeat...........InstallJAVA........MouseSpeed........InstallChrome........Bleachbit
+	ReducesOverHeat...........InstallJAVA........MouseSpeed........InstallChrome........Bleachbit.....ShellScripting
   
   
     InstallIntelliJ...........OthersDownloads.....DownloadPostgresql.......InstalledSoftwares.....OrderInUbuntu
@@ -635,7 +635,9 @@ set-default-sink echocancel1
 
 ==================================================================================================================================
 
-
+ ShellScripting :=
+~~~~~~~~~~~~~~~~~
+ --- It is a program to write a series of commands for the shell to execute. I
 
 
 ======================================================================================================================================

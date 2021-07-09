@@ -1761,8 +1761,26 @@ public class User {
    }       
    return new ResponseEntity<Employee>(employee, status);
 }
-  	 
-===============================================================================
+ 
+
+ Eg55 :=
+~~~~~~~
+	@PutMapping("/students/{id}")
+	public ResponseEntity<Object> updateStudent(@RequestBody Student student, @PathVariable long id) {
+
+		Optional<Student> studentOptional = studentRepository.findById(id);
+
+		if (!studentOptional.isPresent())
+			return ResponseEntity.notFound().build();
+
+		student.setId(id);
+		
+		studentRepository.save(student);
+
+		return ResponseEntity.noContent().build();
+	} 
+	
+=============================================================================================================
 
  Optional :=   [ ---findAny, find** in 'Collection' Returns Optional--- ]
 ------------
@@ -1847,8 +1865,9 @@ public class User {
 	 
   stageTeamData.setTeamType(Optional.ofNullable(caseResolutionRequest.getCustomerType()).orElseThrow(() -> getCustomResolutionException("Team Type not found")));
   
+==========================================================  
   
- JOINS :=  ///  Generally [LEFT,INNER] Joins are used 
+ JOINS :=  ///  Generally [LEFT,INNER] Joins are used   (/\/\/\*************/\/\\/\/\)
 ~~~~~~~~~
 	@Query("SELECT e.ename,e.addr,p.pcode FROM Employee e INNER JOIN e.prjs  AS  p WHERE p.client=:client")
 	List<Object[]> getDataByClient(String client);
@@ -1861,6 +1880,25 @@ public class User {
 	//@Query("SELECT e.ename,e.addr,p.pcode FROM Employee e JOIN e.prjs  AS  p WHERE e.addr=:addr")
 	//@Query("SELECT e.ename,e.addr,p.pcode FROM Employee e FULL JOIN e.prjs  AS  p WHERE e.addr=:addr")
 	List<Object[]> getDataByClientLJ(String addr);
+	
+	
+	    @Query(nativeQuery = true,value =  "select can.name as CandidateName, \n"
+    		+ "can.cgpa as CGPA, \n"
+    		+ "can.course_specialization AS Specialization, \n"
+    		+ "j.job_description as PositionApplied ,\n"
+    		+ "i.interview_type as InterviewRound,\n"
+    		+ "ja.job_application_status as NextInterviewDate ,\n"
+    		+ "i.interview_status as Status \n"
+    		+ "from candidate AS can \n"
+    		+ "  INNER JOIN campus AS cam\n"
+    		+ "     ON can.id = cam.id\n"
+    		+ "  INNER JOIN job_application as ja\n"
+    		+ "     ON ja.id = can.id	\n"
+    		+ "  INNER JOIN job as j \n"
+    		+ "     ON j.id = ja.id\n"
+    		+ " INNER JOIN interview as i   \n"
+    		+ "     ON i.id = ja.id")
+    List<Object[]> manageInterviews();
 
 ================================================================================================
 
@@ -1877,16 +1915,23 @@ public class User {
                    listofEmp.forEach(emp -> { Sysoutemp });
 		
 
- Pagination  :=   
+ Pagination  :=  [ https://www.javatips.net/api/org.springframework.data.domain.page ]  
 ~~~~~~~~~~~~~    
   Pageable ----> Providing Page_Size (divides records) and Page_Number 
   Output   ----> Page (In which number of records exits)
    
-                                       (number of pages, number of records)
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
+
+
+                                (number of pages, number of records)
                  PageRequest page = PageRequest.of(0,3);
                  Page<CustomerEntity> findAll = repo.findAll(page);
                  List<Customer> listOfCust = findAll().getContent();
-
+				  
 
 
  Pagination (Using Example)  :=  /// Can also use 'Example' (for 'AND' Only)         

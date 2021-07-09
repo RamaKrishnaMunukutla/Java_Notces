@@ -1086,7 +1086,27 @@ Optional<ChannelData> channel = channelData.stream().
         return users.stream().map(UserBuilder::getRejectedUserResponse)
                 .sorted(Comparator.comparing(RejectedUserDTO::getCreatedOn).reversed())
                 .collect(Collectors.toList());
-    }				
+    }
+
+
+ Eg 8 :=
+~~~~~~~
+		// Top Five employee Salary Objects Details
+	  List<Employee> collect = list.stream()
+				.sorted(Comparator.comparing(Employee::getEmpSal, Comparator.reverseOrder()))
+				.limit(5).collect(Collectors.toList());
+		System.out.println(collect);
+		collect.forEach(System.out::println); 
+		
+		
+  Eg9 :=
+~~~~~~~~
+		// Top Five employee Salary Details
+		List<Integer> collect = list.stream()
+				.sorted(Comparator.comparing(Employee::getEmpSal, Comparator.reverseOrder())).map(e -> e.getEmpSal())
+				.limit(5).collect(Collectors.toList());
+		System.out.println(collect);
+	}
 ====================================================================================================================================   
    
  GeyKeys using Java-8 :=

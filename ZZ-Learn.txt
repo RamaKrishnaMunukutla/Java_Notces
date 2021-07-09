@@ -1,6 +1,6 @@
    
       
-     AshokIt22.........Repositaries990........Technologies.....PersistentSystems
+     AshokIt22.........Repositories990........Technologies.....PersistentSystems
 	 
 	 Websites450.......TechnicalVideos440 (*********)
 	  
@@ -224,7 +224,7 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
 =========================================================================================================
 
 
- Repositaries990 :=
+ Repositories990 :=
 ~~~~~~~~~~~~~~~~
     In28Minutes --------> https://github.com/in28minutes?tab=repositories
     Journal-Dev --------> https://github.com/journaldev/journaldev
@@ -706,36 +706,28 @@ https://www.baeldung.com/spring-cloud-series
  
  Install440 :=   
 ~~~~~~~~~~
-   https://pastedownload.com/
-   
-   
+    
    https://downloads.mysql.com/archives/installer/
    https://dev.mysql.com/downloads/workbench/
    https://dev.mysql.com/downloads/installer/
+  
    https://www.mongodb.com/try/download/community  (Install ----> [Youtube] Programming Knowledge)
+   https://dbeaver.io/download/
    
    
    https://www.jenkins.io/download/
    https://docs.docker.com/docker-for-windows/install/
    https://kubernetes.io/docs/tasks/tools/install-kubectl/
-
-
-   https://www.dell.com/support/home/en-us/drivers/driversdetails?driverid=r70v3  (MaxAudioPro)
    
-   
+==================== 
+      
    https://www.zdsoft.com/   
    https://www.faststone.org/FSCaptureDownload.htm
    https://online-video-cutter.com/
+   https://www.dell.com/support/home/en-us/drivers/driversdetails?driverid=r70v3  (Waves-Max-Audio-Pro)
+   https://docs.microsoft.com/en-us/sysinternals/downloads/zoomit  (Screen_Zoom)
    
-   Screen_Zoom ----> https://docs.microsoft.com/en-us/sysinternals/downloads/zoomit
    
-
-   
-----> Team viewer download  /// Microsoft Teams 
-
-----> Zoom download 
-
-
  zd soft serial key :=
 ~~~~~~~~~~~~~~~~~~~~ 
  Name: PCBOKS SYSTEM
@@ -749,14 +741,33 @@ https://www.baeldung.com/spring-cloud-series
 username: Jhon
    key  : JXKQZ-RGMMK-TVJHO-TGZEV
 
+====================
+
+ Screen Record/ Shot :=
+~~~~~~~~~~~~~~~~~~~~~~  
+    Ubuntu   -----> Voko Screen 
+    Windows ------> Snipping Tool
+
+   
+----> Team viewer download  /// Microsoft Teams 
+
+----> Zoom download 
+
+
+
+
 
   .......NodeJs.....Visual-Studio-Code(Node -v && npm -v).......WindRar.....WPS-Office.....Nodepad++
   
   .......PostMan......... Team-Viewer // Zoom ...........Max Audio pro.....
   
+  
+  
+  
  HR Policy := /// Biot
 ~~~~~~~~~~~
   ---> Pay 3 Months salary for early release and Joining-Company will pay that amount 
+
 
   
 ==================================================================================================
