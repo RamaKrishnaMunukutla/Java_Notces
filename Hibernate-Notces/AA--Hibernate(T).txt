@@ -1,17 +1,17 @@
  
 
                 
-		..........ConnectionProperties..........SessionFactory.........keyComponentsofHibernate......Cache880
+   ..........ConnectionProperties..........SessionFactory.........keyComponentsofHibernate......Cache880
 		
-		.............GetVsLoad..............ObjectStateInHibernate.......Collections123..........PrimaryKeyGenerate
-		
-		 .............HQL456..................HQLParameters(***).........HibernateValidatorAPI.....DirtyChecking480......
+   .............GetVsLoad..............ObjectStateInHibernate.......Collections123..........PrimaryKeyGenerate......AuditingData
+ 
+   .............HQL456..................HQLParameters(***).........HibernateValidatorAPI.....DirtyChecking480......
 		 
-		 .........CriteriaQueries220............NamedQueries888..........NativeSQLQueries770.........DesignPatternsUsed990
+   .........CriteriaQueries220............NamedQueries888..........NativeSQLQueries770.........DesignPatternsUsed990
 		
-		........HibernateOverJDBC.................Auto123..................JPA111.....HQLExamples.........
+   ........HibernateOverJDBC.................Auto123..................JPA111.....HQLExamples.........
 		
-		.........ConnectionPool330........TransactionManagement..........
+   .........ConnectionPool330........TransactionManagement..........
 
 =========================================================================================================
 
@@ -1139,9 +1139,8 @@ Suports 2 ways data selection without creating extra columns means,
 @1--1 ~~~~~~~~~~@ManyToOne(Uni)~~~~@OneToOne(Bi-direc)
 @OneToMany~~~~~@OneToMany(Uni)~~~~@OneToOne(Bi-direc)
 
-============================================================
-
-=========================/\/\\/\/\==========\/\\/\/\\/==============================
+=========================================================================================================================================
+=========================================================================================================================================
 
  PrimaryKeyGenerate :=
 ~~~~~~~~~~~~~~~~~~~~
@@ -1176,8 +1175,68 @@ Suports 2 ways data selection without creating extra columns means,
     private ProjectStatus projectStatus;
 
 
-=========================/\/\\/\/\==========\/\\/\/\\/==============================
+=========================================================================================================================================
+=========================================================================================================================================
 
+ AuditingData :=
+~~~~~~~~~~~~~~~
+ --- means tracking and logging events related to persistent entities, or simply entity versioning. Inspired by SQL triggers, the events are insert, update and delete operations on entities. 
+ --- The benefits of database auditing are analogous to those provided by source version control. 
+
+---->  configure JPA to automatically persist the CreatedBy, CreatedDate, LastModifiedBy, and LastModifiedDate columns for any entity.
+
+  JPA Auditing annotations :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   @CreatedDate    ----> Declares a field as the one representing the date the entity containing the field was created.
+ 
+ @LastModifiedDate ----> Declares a field as the one representing the date the entity containing the field was recently modified.
+ 
+    @CreatedBy     ----> Declares a field as the one representing the principal that created the entity containing the field.
+ 
+ @LastModifiedBy   ----> Declares a field as the one representing the principal that recently modified the entity containing the field.
+
+ Eg :=
+~~~~~~
+@EntityListeners(AuditingEntityListener.class)
+@MappedSuperclass
+public class Auditable<U> {
+  
+    @CreatedBy
+    @Column(name = "created_by", updatable = false)
+    private U createdBy;
+  
+    @CreatedDate
+    @Column(name = "created_date", updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date creationDate;
+ 
+    @LastModifiedBy
+    @Column(name = "last_modified_by")
+    private U lastModifiedBy;
+ 
+    @LastModifiedDate
+    @Column(name = "last_modified_date")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date lastModifiedDate;
+ 
+ 
+ 
+ @SpringBootApplication
+@EnableJpaAuditing(auditorAwareRef = "auditorAware")
+public class Springboot2JpaAuditingApplication {
+
+    @Bean
+    public AuditorAware<String> auditorAware() {
+        return new AuditorAwareImpl();
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(Springboot2JpaAuditingApplication.class, args);
+    }
+}
+
+=========================================================================================================================================
+=========================================================================================================================================
 
  HQL456 :=
 ~~~~~~~~~

@@ -352,6 +352,8 @@ User can configure remote repository
  GRADLECommands :=
 ~~~~~~~~~~~~~~~~~
 
+  gradle init 
+
   gradlew crm-case-service:build -x test  
   sudo kill -9 $(sudo lsof -t -i:8080)
   

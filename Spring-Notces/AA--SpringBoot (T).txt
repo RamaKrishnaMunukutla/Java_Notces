@@ -527,10 +527,10 @@ Profiles provide ability for application developers to specify different applica
   
 10 Expand Package Explorer to view added/genrated code in class
 
-====================================================================
+=================================================================
 
  Lombok Annotations:
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 1. @Getter and @Setter : 
    This annotation says to lombok generate get and set methods for variables
 
@@ -558,7 +558,7 @@ Profiles provide ability for application developers to specify different applica
 	
 	   Need Extra Constructor ----> Need to go manually 
 
-  
+=================================================================  
  @Data :=
 ~~~~~~~~~
  --- It is a convenient shortcut annotation that bundles the features of @ToString, @EqualsAndHashCode, @Getter / @Setter, and @RequiredArgsConstructor together.  
@@ -579,19 +579,36 @@ Profiles provide ability for application developers to specify different applica
  
  application.yml  
 ~~~~~~~~~~~~~~~~~
-
  demo:
     Location : location is Hyderabad.
- 
 
-=================================================================================================================
+=================================================================
+
+ Builder := 
+~~~~~~~~~~
+ --- to create instances of our class.
+ --- Lombok does all of the work for us. We can now build a Widget and test it:
+
+@Getter
+@Builder
+public class Widget {
+    private final String name;
+    private final int id;
+ }
+
+ Widget testWidget = Widget.builder()
+  .name("foo")
+  .id(1)
+  .build();
+  
+=============================================================
 
  FileUpload  :=
 ~~~~~~~~~~~~
  
     https://github.com/chargeahead/SpringBootFileUpload
 
-=================================================================================================================
+===================================================================================================================================================
 
  SpringBootJDBC440 := [ https://github.com/kishanjavatrainer/SpringBootJdbc ]
 ~~~~~~~~~~~~~~~~~~~
