@@ -1070,10 +1070,23 @@ Spring Boot upgrades all dependencies automatically when you upgrade Spring Boot
 					 management.endpoints.web.expose.include = health, info 
 					 management.endpoints.web.expose.expose =  beans, metrics 
   
+  
+  Actuator : It provides 'Ready made services' [Production Ready Endpoints]
+    that gives services at production specially, to check
+    a) Are my Beans(Objects) created?
+    b) All properties loaded?
+    c) Cache enabled?
+    d) Log files created? content?
+    e) Is server started Properly?
+    ..etc.
+
+=> To check all MS actuators using one central application, we can
+  use admin-server (admin -ui/ admin moniter).
+
  --- Actuator endpoints to monitor metrics of individual microservices. 
- ---when application is pushed to production, you can choose to manage and monitor your application using HTTP endpoints.
- ---Spring Actuator which allows provides all that information in  a running application.
- ---Provides information about which beans are created in Spring's Application Context and how Controllers are mapped.
+ --- when application is pushed to production, you can choose to manage and monitor your application using HTTP endpoints.
+ --- Spring Actuator which allows provides all that information in  a running application.
+ --- Provides information about which beans are created in Spring's Application Context and how Controllers are mapped.
 
 
 -> In Spring Boot 2.x v '/actuator' is mandatory in  URL to access Actuator endpoints

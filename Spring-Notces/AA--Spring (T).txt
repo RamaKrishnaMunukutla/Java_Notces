@@ -1618,6 +1618,9 @@ ResultSetExtractor :=
  DAOLayer := [ https://www.baeldung.com/persistence-with-spring-series ]
 ~~~~~~~~~~
 
+    JpaSpecificationExecutor20......Optional224.......HasA890.......JOINS55
+	
+
 Jdbc ---> Connection,WriteQueries,Close-Connection (Table Has-To-Create Manually) // Connection-Req In Every-Methods
 
 JdbcTemplate --- WriteQueries  (Table Has-To-Create Manually)
@@ -1656,7 +1659,6 @@ SpringDataJPA(JpaRepositary ) :=  [ https://github.com/Java-Techie-jt/spring-dat
 
  ---internally generates a JPQL (Java Persistence Query Language) query based on the method name.
  
-============
  (4)
 ----> Used if you do not want to create abstract DAO (implementing interfaces) , Spring Data JPA is a good choice.
  
@@ -1668,7 +1670,55 @@ SpringDataJPA(JpaRepositary ) :=  [ https://github.com/Java-Techie-jt/spring-dat
 ----> by using JpaRepositary, there are predefined-methods to Perform CRUD with Database.
                                    (No-Need to write either Impl-Class Or methods )
  
-============
+==========================================================================
+
+ JpaSpecificationExecutor20(I) := [ https://javadeveloperzone.com/spring/spring-jpa-dynamic-query-example/ ]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- which provides functionality to generate a dynamic query in spring JPA
+ 
+ Eg :=
+~~~~~~~
+@Repository
+@Transactional
+public interface EmployeeRepository extends CrudRepository<Employee,Long>, JpaSpecificationExecutor<Employee> { }
+
+
+        String employeeName = "Harry";
+        java.util.List<Employee> employeeList = employeeRepository.findAll(new Specification<Employee>(){
+            @Override
+            public Predicate toPredicate(Root<Employee> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                List<Predicate> predicates = new ArrayList<>();
+                if(employeeName!=null) {
+                    predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("employeeName"), employeeName)));
+                }
+                return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
+            }
+        });
+        employeeRepository.delete(employeeList);
+	
+	
+    @DeleteMapping("/posts/{postId}/comments/{commentId}")
+    public ResponseEntity<?> deleteComment(@PathVariable (value = "postId") Long postId,
+                              @PathVariable (value = "commentId") Long commentId) {
+        return commentRepository.findByIdAndPostId(commentId, postId).map(comment -> {
+            commentRepository.delete(comment);
+            return ResponseEntity.ok().build();
+        }).orElseThrow(() -> new ResourceNotFoundException("Comment not found with id " + commentId + " and postId " + postId));
+    }	
+	
+	
+    @PostMapping("/posts/{postId}/comments")
+    public Comment createComment(@PathVariable (value = "postId") Long postId,
+                                 @Valid @RequestBody Comment comment) {
+        return postRepository.findById(postId).map(post -> {
+            comment.setPost(post);
+            return commentRepository.save(comment);
+        }).orElseThrow(() -> new ResourceNotFoundException("PostId " + postId + " not found"));
+    }
+
+	
+================================================================================
+
 
 ----> used to provide JPA based repositary that aims to simplify  implementations of Data-Access-Layer using JPA.
 
@@ -1782,7 +1832,7 @@ public class User {
 	
 =============================================================================================================
 
- Optional :=   [ ---findAny, find** in 'Collection' Returns Optional--- ]
+ Optional224 :=   [ ---findAny, find** in 'Collection' Returns Optional--- ]     
 ------------
  CaseEntity caseEntity = Optional.ofNullable(caseRepository.findByCaseId(caseId)).
                                orElseThrow(() -> getCustomResolutionException("Case entity not found by case id "));
@@ -1808,8 +1858,16 @@ public class User {
 
 		
 =================================================================
- Has-A :=
-~~~~~~~
+
+ HasA890 :=    
+~~~~~~~~~~
+
+
+	 @Query(nativeQuery = true, value = "select * from interview i  where i.jobapplication_id =? and\n"
+    		+ "i.interview_status =? ")
+    List<Interview> findInterviewDetails(Long jobapplication_id, String interview_status );
+	
+	
 	@Query("From IssueChannelWorkflowMappingEntity ic where ic.issueType.issueTypeId = ?1 and ic.channelId = ?2")
 	IssueChannelWorkflowMappingEntity findByIssueTypeAndChannelId(String issueType, String channelId);
 	
@@ -1867,7 +1925,7 @@ public class User {
   
 ==========================================================  
   
- JOINS :=  ///  Generally [LEFT,INNER] Joins are used   (/\/\/\*************/\/\\/\/\)
+ JOINS55 :=  ///  Generally [LEFT,INNER] Joins are used   (/\/\/\*************/\/\\/\/\)
 ~~~~~~~~~
 	@Query("SELECT e.ename,e.addr,p.pcode FROM Employee e INNER JOIN e.prjs  AS  p WHERE p.client=:client")
 	List<Object[]> getDataByClient(String client);

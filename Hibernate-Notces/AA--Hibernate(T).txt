@@ -1,19 +1,20 @@
  
 
                 
-   ..........ConnectionProperties..........SessionFactory.........keyComponentsofHibernate......Cache880
+   ..........ConnectionProperties..........SessionFactory........keyComponentsofHibernate......Cache880.....mappedBy90
 		
-   .............GetVsLoad..............ObjectStateInHibernate.......Collections123..........PrimaryKeyGenerate......AuditingData
+   .............GetVsLoad..............ObjectStateInHibernate.....Collections123..........PrimaryKeyGenerate......AuditingData
  
-   .............HQL456..................HQLParameters(***).........HibernateValidatorAPI.....DirtyChecking480......
+   .............HQL456..................HQLParameters(***).......HibernateValidatorAPI.....DirtyChecking480......
 		 
-   .........CriteriaQueries220............NamedQueries888..........NativeSQLQueries770.........DesignPatternsUsed990
+   .........CriteriaQueries220..........NamedQueries888..........NativeSQLQueries770.........DesignPatternsUsed990
 		
    ........HibernateOverJDBC.................Auto123..................JPA111.....HQLExamples.........
 		
    .........ConnectionPool330........TransactionManagement..........
 
-=========================================================================================================
+
+=============================================================================================================================================
 
               Hibernate-ORM  ----> https://github.com/RameshMF/Hibernate-ORM-Tutorials
 			                       https://github.com/RameshMF/springboot-validation
@@ -97,7 +98,7 @@
  SEQUENCE: Hibernate requests the primary key value from a database sequence,
  TABLE: Hibernate uses a database table to simulate a sequence.
 
-===================================================================================
+==============================================================================================================================================
 
  Hibernate 5 Features :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -690,7 +691,78 @@ If row is not available in DB then it returns “ObjectNotFoundException.
     Employee e = (Employee)obj;
     System.out.println(e);
 
--------------------------------------------------------------------------------------------
+================================================================================================================================================
+
+ mappedBy90 :=
+~~~~~~~~~~~~
+ --- Indicates that the entity in this side is the inverse of the relationship, and the owner resides in the "other" entity.
+ --- you can access the other table from the class which you've annotated with "mappedBy" (fully bidirectional relationship).
+
+
+In JPA or Hibernate, entity associations are directional, either unidirectional or bidirectional. 
+Always mappedBy attribute is used in bidirectional association to link with other side of entity.
+
+
+In the above tables, BRANCH and STUDENT tables has One-To-Many association. 
+In Hibernate association mappings, each entity plays a role of either owning-entity (the entity which is having foreign key mapping of other entity’s mapped table) or non owning entity (the other side of owning entity).
+
+
+In above One-To-Many relation, Student entity has owning-side role, which is mapped with foreign key of BRANCH table to the branch reference using @JoinColumn. To make the association bidirectional, the other side of entity Branch also should have Student(s) entity reference and we will be used mappedBy attribute to map to student(s) reference in Branch entity.
+
+
+mappedBy attribute indicates that which entity owns the relationship (in this example, Student) and what reference is used for non-owning entity within owner entity (in this example, branch is the reference name used in Student entity to map Branch entity).
+
+
+ Eg :=
+~~~~~
+@Entity
+public class Branch implements Serializable {
+  
+  @Id
+  @Column(name="BRANCH_ID")
+  private int branchId;
+  
+  @Column(name="BRANCH_NAME")
+  private String branchName;
+  
+  @Column(name="BRANCH_SHORT_NAME")
+  private String branchShortName;
+  
+   @Column(name="description")
+  private String description;
+  
+  //bi-directional many-to-one association to Student
+  @OneToMany(mappedBy="branch", cascade={CascadeType.ALL},
+      orphanRemoval = true)
+  private List<Student> students;
+        
+}
+
+
+ Problems with bidirectional one-to-many mapping :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- A bidirectional mapping tightly couples the many-side of the relationship to the one-side.
+
+>> In our example, If you load comments via the post entity, you won’t be able to limit the number of comments loaded. That essentially means that you won’t be able to paginate.
+
+>> If you load comments via the post entity, you won’t be able to sort them based on different properties. You can define a default sorting order using @OrderColumn annotation but that will have performance implications.
+
+You’ll find yourself banging your head around something called a LazyInitializationException.
+
+>> When can I use a bidirectional one-to-many mapping
+A bidirectional one-to-many mapping might be a good idea if the number of child entities is limited.
+
+>> Moreover, A bidirectional mapping tightly couples the many-side of the relationship to the one-side. Many times, this tight coupling is desired.
+
+For example, Consider a Survey application with a Question and an Option entity exhibiting a one-to-many relationship between each other.
+
+In the survey app, A Question can have a set of Options. Also, every Question is tightly coupled with its Options. When you create a Question, you’ll also provide a set of Options. And, when you retrieve a Question, you will also need to fetch the Options.
+
+Moreover, A Question can have at max 4 or 5 Options. These kind of cases are perfect for bi-directional mappings.
+
+So, To decide between bidirectional and unidirectional mappings, you should think whether the entities have a tight coupling or not.
+
+================================================================================================================================================
 
 GetVsLoad :=
 ~~~~~~~~~~~~~
@@ -703,7 +775,7 @@ GetVsLoad :=
 3.Takes Network call everytime.
   Takes Network call only on reading data.
 
--------------------------------------------------------------------------------------------
+================================================================================================================================================
 
 
 ObjectStateInHibernate:= a newly created Object exits in---------memory

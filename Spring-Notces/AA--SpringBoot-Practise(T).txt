@@ -2,7 +2,7 @@
 
  
 
-     ........Mapping123........RestAnnotations555.............Param123............... 
+     ........Mapping123........RestAnnotations555.............Param123...............JSONAnnotations890
  
       ........Response11.........Autowiring123...........JpaRepositaryWithStreams123............
  
@@ -161,7 +161,7 @@ RestAnnotations555(JAX-RS) := It maps the HTTP DELETE requests on the specific h
 
  @Path~~~~~~~~~~~~specify the URL path on which this method will be invoked.
 
-===================================================================
+===============================================================================================================================
 
  Param123 := 
 ~~~~~~~~~~~  
@@ -170,7 +170,35 @@ RestAnnotations555(JAX-RS) := It maps the HTTP DELETE requests on the specific h
  
          Spring RESTFul ------>  @PathVariable //// @RequestParam
 
-======================================================================
+==================================================================================================================================
+
+ JSONAnnotations890 := [ https://www.javaguides.net/2019/04/jackson-ignore-null-and-empty-fields-on-serialization.html ]
+~~~~~~~~~~~~~~~~~~~~~~
+
+  @JsonInclude(Include.NON_EMPTY)
+  
+  @JsonInclude(Include.NON_NULL)
+  
+  
+  
+  
+ Dependency :=
+ ----------
+ <dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.9.8</version>
+</dependency>
+
+
+(Q) How many types of JSON are there?
+(A) Learn about the Different JSON Data Types Format
+ S No.	Type
+  2.	String
+  3.	Boolean
+  4.	Array
+  5.	Value
+==================================================================================================================================
 
   Annotations :=
 ~~~~~~~~~~~~~~~~
@@ -888,6 +916,7 @@ Factory pattern – BeanFactory for creating instance of an object.
  Boot22 :=
 ~~~~~~~~
  https://github.com/RameshMF/Spring-Boot-2.0-Projects
+ https://github.com/RameshMF/spring-boot-tutorial
  https://github.com/RameshMF/SpringAll
  https://github.com/RameshMF/Spring-5.0-Projects
  

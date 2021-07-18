@@ -544,7 +544,16 @@
 
 
   Routing ----> npm  install vue-router
-
+  
+  Build 
+~~~~~~~~~~  
+ npm run build
+ npm run build -prod
+ npm cache clean --force
+ 
+ npm i @vue/cli-service
+ npm i -g live-server
+ npm i typescript --save-dev
 
 ========================================================================================================================================================
 

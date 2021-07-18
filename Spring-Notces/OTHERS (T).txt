@@ -3304,7 +3304,72 @@ A) Spring Cloud is programming- develoing one application as
  
  Distributed-Applications := The App that Runs at Multiple-Devices.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-						
+
+===========================================================================
+
+ MonoLithic Application :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+ --- Good in Development , But not in maintenance  (**********************)
+
+
+ Monolithic App Advantages :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+a. Easy/Simple to Develop, Test, Deployment.
+b. Easy to maintain. Finding Bugs, Checking Logs, ...etc
+c. Easy/Simple to Scale. Creating multiple Instances is easy task.
+
+
+ Limitations/Drawbacks of Monolithic :=  (***********)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+a.** For even small code modification (application update)
+     entire application must be re-built and re-deploy.
+b.** If any bugs/Problems/Excepions occured in one service/module
+     it may down complete application, that may effect full project.
+c.** If application gets no.of services increased then code becomes
+     complex and even application size.
+d.** Adding new/other Technologies may effect design, code and becomes
+     complex with our framework integrations.
+e.** CI/CD -> Continuous Integration - Continuous Deployment
+     is difficult to configure for no.of modules increased,
+     may lead to Down Service for small bugs, effects full application.
+     Takes more time for small update even (to create Full build).
+f. ** Efficient Resource handling even after Load Balancing 
+      may not be done, as modules/services not used in exact count
+      /request order.
+	  
+===========================================================================
+
+ SOA - Service Oriented Architecture [Design] :=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*) SOA is design/Architecture (not code). This is used to 
+   link two Projects/Applications by using one mediator server 
+   'Register & Discovery Server'[R&D Server].
+
+ --- One Project wants to communicate with Other && No Load Balacing(*****************)
+ 
+ 
+*) It has 3 components.
+a) Service Provider : It contains skeleton code/service code.
+    Ex: Java application.
+
+b) Service Register & Discovery : It holds details of all services
+   in Gloabl Format (XML)named as Document.
+   
+c) Service Consumer : It contains stubs code which are created using
+            Document and makes communication with Provider.
+
+*) 3 Operations
+1) Publish : Read Skeleton from Provider and Create Document , place
+             in R&D Server.
+
+2) Find  : Consumer reads one Document based on ID(ServiceId)
+           then generates stubs (code created from document).
+
+3) Bind : It creates communication between Provider and Consumer
+          using HTTP Protocol and XML as Data.
+
+===========================================================================
+		  
 Features of Microservices :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
  ---Small focused (simple)
@@ -3324,6 +3389,7 @@ Advantages of Microservices :=
  Challanges of MicroServices :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   --- Require heavy investment && Heavy Infrastructure Setup
+  --- Difficulty to maintain Service Instances in Kubernetes  (***********)
   ---Configuration management (maintain components across various environments)
   --- Distributed Transaction // Distributed Logging // Security Concern 
   ---Debugging is difficult in this MC Architecture.
@@ -3481,10 +3547,19 @@ In Microservices based project below communications will be available
 
 =========================================================================================================
 
- SpringCloud :=  [ https://www.baeldung.com/spring-cloud-series ]
+ SpringCloud60 :=  [ https://www.baeldung.com/spring-cloud-series ]
 ~~~~~~~~~~~~~~~
  --- system that provides integration with external systems.
  --- Build on Top of application.
+
+  Theory    Programming
+--------------------------
+  OOPs ---  Java
+  ORM  ---  JPA with Hibernate
+  DI   ---  Spring 
+  SOA  ---  SOAP
+ CP&&FC --- ReST
+Microservices -- Spring Cloud [Programming]
 
 
  (1) API-Gateway (more 'freq' used than Zuul-Proxy) :=  /// Single-Point-entry to Application.
@@ -3640,6 +3715,26 @@ eureka:
 ---> Eureka Service Registration and Discovery helps in such scenarios. As all services are registered to the Eureka server and lookup done by calling the Eureka Server, any change in service locations need not be handled and is taken care.
 
 
+Eureka will not store any Document(in XML/JSON).
+    It contains ServiceInstance Details(projectName-ServiceId,
+     instanceId, IP+PORT, Load Details..)
+	 
+
+ There must be single entry/exit for application(all microservices).
+   that is handled using API-Gateway. Spring Cloud -Netflix ZUUL.
+
+ -> Flow for Request:
+       -> Client Machine -> Request -> API Gateway -> R&D server
+       -> Provide MS details to API Gateway
+       -> API Gateway calls MS --> MS gives response back
+       -> Send Response to Client Machine.
+
+*) Note: Eureka never makes HTTP calls (Request/Respons).
+         It can never call any MS, it gives one MS details to 
+	 another MS by using serviceId.
+	 Even Zuul behaves like one MS
+	 
+	 
  Eureka-Discovery-Client ( @EnableEurekaClient ) := 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  ---Used by Other-Services Register to Eureka-server.
@@ -3673,9 +3768,155 @@ A) Microservice running under one server,
 Q) How can generate one random number in Spring Boot?
 A) Spring boot has provided 'RandomValuePropertySource'(C)
   Thats says follow below format keys to generate randome value
+   
+   
+*) Eureka Server :-
+-> It is called as Register and Discovery Server.
+-> This is a Tool/Software given by Spring Cloud - Netflix.
+->** It will not make any HTTP calls to any Microservices.
+-> It is a Register that holds details,
+   Microservice ApplicationName(serviceId),
+   InstanceId, Where it running (HOST and PORT)
+   how many time it is running(No.of Instances),
+   Load Details for all instance(current load/max load).
+
+-> Microservice may run at any system, not a issue, 
+   but it must be registered with eureka server.
+
+->** If Microservice is registered with Eureka then
+   one ServiceInstance is created.
+
+     Service   = Microservice
+     Instance  = Application Running under server
+
+     ie Microservice which is currently running in a server,
+        its all details.
+
+
+ --------------------- Eureka Server --------------------------
+   ServiceId    InstanceId         HOST/IP       PORT    LOAD
+ ---------------------------------------------------------------
+  SEARCH-APP    SEARCH-APP:58012  192.168.0.1    9898    0/200
+  SEARCH-APP    SEARCH-APP:74410  192.168.0.2    8585    0/200
+  SEARCH-APP    SEARCH-APP:25690  192.168.3.0    8080    0/200
+ 
+ ---------------------------------------------------------------
+
+ ******* (ServiceInstance) **********
+ serviceId :  spring.application.name  | Project Name
+ instanceId:  ${spring.application.name}:${random.value} |
+                             Unique number for one instance
+ HOST/IP : System Unique name  / IP Address
+
+ PORT    : Port Number of Server
+ Load    : Load Factor (Current Load/Max Load).
+
+---------------------------------------------------------
+Q) What is Eureka Server? 
+A) Register and Discovery Server
+Q) Who provided this software?
+A) Spring Cloud Netflix
+Q) Do we need to register every 
+   Microservice Instance with eureka?
+A) YES, MUST.
+Q) What is ServiceInstance? what it contains?
+A) Microservice running under one server,
+   ServiceInstance=serviceId, InstanceId, HOST/IP, PORT, LOAD Details.
+
+Q) How can generate one random number in Spring Boot?
+A) Spring boot has provided 'RandomValuePropertySource'(C)
+  Thats says follow below format keys to generate randome value
+
+  ${random.int} , ${random.long}, ${random.uuid}, ${random.value}
+
+  UUID - Universally Unique IDentifier (JDK 1.5)
+   
+  random.value- Generates Hexa Decimal Number.
+
+
+--example code--
+1. application.properties
+spring.application.name=TEST-APP
+#my.instance.id=${spring.application.name}:${random.value}
+my.instance.id=${random.value}
+#my.instance.id=${random.int}
+#my.instance.id=${random.long}
+#my.instance.id=${random.uuid}
+
+2. Runner class
+package com.example.demo;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+
+@Component
+public class TestRandom implements CommandLineRunner {
+	@Value("${my.instance.id}")
+	private String instanceId;
+	
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println(instanceId);
+	}
+}
+===================================================================
+ 	     Eureka Server and Dashboard Creation
+-------------------------------------------------------------------
+S#1 Create Eureka Server Application.
+
+Name : SpringCloudEurekaServer
+Dep  : Eureka Server
+
+S#2 At Starter class : @EnableEurekaServer
+
+S#3 application.properties
+server.port=8761
+eureka.client.fetch-registry=false
+eureka.client.register-with-eureka=false
+
+S#4. Run Starter class and enter URL
+      http://localhost:8761/
+--------------------------------------------------------------------
+Q) What is the difference between Spring Boot and Spring Cloud?
+A) Spring Boot is providing concepts to implement one Application.
+
+   WebMvc, Data Jpa, Email, Scheduling, Security,Actuator..etc
+
+   Spring Cloud is designed on top of Spring Boot and one Architecture
+   (Microservices) to implement Microservices Applications.
+
+   Spring Cloud = Spring Boot + MS Architecture.
+
+   Eureka, Zuul, Hystrix, Config Server, Zipkin and Sleuth ..etc.
+
+
+
+*) If you write one MS,that must be registered with Eureka, for this
+   add key:
+         eureka.client.register-with-eureka=true
   
-  
+  Consider there can be multiple MS(ex#100), then 100 times we should
+  write eureka.client.register-with-eureka=true. So, that they made
+  default value as true. So, no need to add above key in MS apps.
+
+  But write one time as false, inside Eureka Server
+       eureka.client.register-with-eureka=false
+
+*) If your MS want to communicate with other MS, then first enable of
+  getting other MS data to your Microservice, using below key:
+       eureka.client.fetch-registry=true.
+
+  -> Default value is true. So, need not to write in every MS
+     this key. But one time write false inside Eureka.
+        eureka.client.fetch-registry=false
+
+-----------------------------------------------------------------
+SpringBoot7AM_27012021.txt
+Displaying SpringBoot7AM_27012021.txt.
 ---------------------Discovery Client Full flow----------------
+
+
 *) Define Two MicroserviceApps and Register with Eureka Server.
     (You can run MS in any servers/System/IP)
  -> All MS details are stored in Eureka as ServiceInstance
@@ -3712,6 +3953,45 @@ Here,
 #11 Return back to RestController(Consumer).
 #12. Final Response is given back to end client/API Gateway.
 
+Q) Can't we deploy Eureka and MS in tomcat ?
+A) They are in running in Tomcat server (Embedded Server).
+
+Q) Here for our MS we added dependency eureka discovery client.
+  Isn't parent ?
+
+A) Actually : Spring Boot is one Parent, Spring Cloud is another parent
+   (2 different projects developed using Maven)
+   Our App is child that can have only one parent(Spring Boot), 
+   if we want to add another parent (Spring Cloud) use 
+   <dependencyManagement/>
+  
+Q) What are the case we should go for eureka server?
+A) For finding one MS.
+   One MS want to communicate with other MS , so fetch register.
+
+Q) Is there any  max. no.of MS should be registerd to Eureka server sir ?
+A) Unlimited.
+
+Q) Do we need to follow execution order in MS?
+A) Yes. First Eureka then MS.
+
+Q) Which port numbers should be taken ? is there any standard?
+A) MS any port number is fine (0-65535, take from : 1024-65535)
+  Eureka Recomanded Port is : 8761.
+
+Q) How does <dependencyManagement> and parent tag works in Maven?
+https://www.youtube.com/results?search_query=maven+raghu+nareshit
+
+
+
+Q) Here for our MS we added dependency eureka discovery client.
+  Isn't parent ?
+
+A) Actually : Spring Boot is one Parent, Spring Cloud is another parent
+   (2 different projects developed using Maven)
+   Our App is child that can have only one parent(Spring Boot), 
+   if we want to add another parent (Spring Cloud) use 
+   <dependencyManagement/>
 		   
 ==========================================================================================
  
@@ -3872,7 +4152,16 @@ HHH
  
  ---Works based on Condition :: Request, Log-in, Wait(Session), TimeOut.....Sleep(MS)
  
- Eg :=
+ 
+-> MS must supports Circuit Breaker concept. ie Stop Executing actual  (*****************)
+   logic for a period of time, in cascade exception occured.
+   [multiple exceptions for continious request ..]
+   It gives dummy exectuion with error message.
+   'Unable to Process request! try later'
+   
+   
+   
+   Eg :=
 ~~~~~
 @RestController
 public class FallbackController {
@@ -3943,6 +4232,10 @@ Circuit Breaker
  
    Flow := Request (PostMan) ---> Method ---> Dot-YML ---> Many Ports ---> Re-Direct (Based on Traffic)
 ~~~~~~~~~
+    
+    Max_Load ----> Maximum requets it can handle (*********Raghu 22_Jan_2020*******)
+	
+----> Load cannot be wasted , But memory can be wasted (************)
 
 ----> Request-handling methods are called as "-EndPoints-" (**************)
 
@@ -3963,12 +4256,51 @@ Ex:
 
 *) Scaling : Improve System Processing Capacity for client request process.
 Two types
-a) Horizontal Scaling : Creating multiple Instances for our Application.
-b) Vertical Scaling   : Improve/Enhance Hardware Configuration.
+a) Horizontal Scaling : Creating multiple Instances for our Application. (Done through AWS/ Kubernetes)
+b) Vertical Scaling   : Improve/Enhance Hardware Configuration. (Done through hardware work)
+
+      Current load ----> No of requets proceesed by server 
+	    Max_load ----> default 200 requets 
 
 *) Load Balancing : Handling multiple request made by different clients
    using Both Horizontal and Vertical Scaling.
    By using LBS(Load Balacing Server).  
+   
+   *) This client is used to fetch one ServiceInstance from Eureka
+   which has less Load Factor.
+
+*) If multiple Instances are having same load then random 
+   ServiceInstance is selected.
+
+*) Here, LoadBalancerClient is a interface. It has one abstract method
+   choose(ServiceId) that takes ServiceId of Producer App. It gets
+   only one ServiceInstance object.
+
+*) By using SI (ServiceInstance), read URI -> add Path (URL)->
+   Make HTTP Request.
+
+*) Spring Cloud Netflix has provided Ribbon, that provides Impl for
+   LoadBalancerClient(I) which must be used at consumer side.
+   [Client Side Load Balancer]
+
+*** Server Side Load Balance: Running Producer App multiple times
+                  [Horizontal Scaling]
+
+ => We need to add InstanceId. If there is only One Instance, then
+    SID is taken as IID[Event not required to provide manually]. 
+    But if we have multiple Instances, must give any ID(number)
+
+   Provide as:
+    eureka.instance.instance-id=${spring.application.name}:${random.value}
+
+
+
+   Client Side Load Balance : Feching one Instance from Register
+                       that has less load factor at Consumer side.
+
+ => Add Ribbon Dependency that gives Impls to LoadBalancerClient(I) 
+    named as : RibbonLoadBalancerClient(C), that comes with 
+    auto-configuration.
 
  
  Alogorithm followed for load-balancing :=
@@ -4006,9 +4338,22 @@ b) Vertical Scaling   : Improve/Enhance Hardware Configuration.
  -- Handles all distributed LOG tracing. (******)
  -- Add the Dependencies && Specify URL of  SleuthAndZipkinto in MC (******)
 
+                   Trace-ID (Unique&& Same) //// Span-Id (Changes to every MC)
 
-    Trace-ID (Unique&& Same) //// Span-Id (Changes to every MC)
+Nature of Microservices:-
 
+*) Distributed Tracing and Logging : In case of multiple MS are
+   interacting with each other (IntraCommunication) Finding
+   execution flow, Log file data, success/error messages
+   is called as 'Distributed Tracing and Logging'.
+
+-> Distributed Tracing and Logging can be implemented using  
+   Zipkin + Sleuth which is given by Spring Cloud. 
+   3rd Party Tool ELK - Elastic Search - Logstash - Kibana
+   From https://www.elastic.co/
+   
+   
+   
 Steps to implement Distributed logging using Slueth & Zipkin
 ------------------------------------------------------------
  --- Used in MicroService-Architecture for Log-Tracing Purpose 
@@ -4179,14 +4524,222 @@ Note: Client application should be displayed in Admin Server Dashboard.
  
     @EnableFeignClient ----> (Class-Level)  Scans Interfaces that declare that they are FeignClient.
 	
+=> Feign Client is also called as Abstract client  or
+   Declarative Client.
 
+=> We need to define only interface. One Impl class is 
+   generated [ie proxy class].
+   
+=> Internal Logic is generated using LoadBalancerClient.
+   ie 
+      Choose One ServiceInstance using SID
+      Read URI, Make URL(add Path)
+      Submit Req, get Response..etc
+
+*) This time we define RestConsumer as Interface,
+   using Producer RestController methods
+   as abstract methods.
+
+*) Annotations: @FeignClient, @EnableFeignClients
+
+*) @FeignClient("serviceId") must be provided on RestConsumer Intreface
+
+*) @EnableFeignClients must be added at Starter class. So that Proxy
+   class generation is activated.
+
+       --------------------------------------------------------------
+                         Feign Client Code [FC]
+
+		 (Consumer)  Product----<>Vendor (Producer)
+
+1. Eureka Server
+Name : SpringCloudFCEureka
+Dep  : Eureka Server
+
+(same as before)
+----------------------------------------------------------------
+2. Producer App
+Name : SpringCloudFCVendor
+Dep  : Eureka Discovery Client, Spring web.
+
+> At starter : @EnableEurekaClient
+
+> application.yml
+server:
+  port: 9900
+  
+spring:
+  application:
+    name: VENDOR-SERVICE
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${random.value}
+
+> RestController
+package in.nareshit.raghu.rest;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/vendor")
+public class VendorRestController {
+	
+	@Value("${server.port}")
+	private String port;
+
+	@GetMapping("/msg")
+	public ResponseEntity<String> showMsg() {
+		return ResponseEntity.ok("WELCOME TO VENDOR!" + port);
+	}
+	
+}
+
+----------------------------------------------------------------
+3. Consumer App
+Name : SpringCloudFCProduct
+Dep  : Eureka Discovery Client, Spring web, Open Feign(Netflix)
+
+> At Starter class: @EnableEurekaClient, @EnableFeignClients
+
+> application.yml
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+server:
+  port: 8866
+spring:
+  application:
+    name: PRODUCT-SERVICE
+
+--> RestConsumer ------------------
+
+package in.nareshit.raghu.consumer;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@FeignClient("VENDOR-SERVICE")
+public interface VendorRestConsumer {
+
+	@GetMapping("/vendor/msg")
+	public ResponseEntity<String> showMsg() ;
+}
+
+
+---> RestController ------
+package in.nareshit.raghu.rest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import in.nareshit.raghu.consumer.VendorRestConsumer;
+
+@RestController
+@RequestMapping("/prod")
+public class ProductRestController {
+	
+	@Autowired
+	private VendorRestConsumer consumer;
+	
+	@GetMapping("/data")
+	public String getData() {
+		System.out.println(consumer.getClass().getName());
+		
+		ResponseEntity<String> resp = consumer.showMsg();
+		return "FROM PRODUCT=>" + resp.getBody();
+	}
+	
+}
+
+=================Execution Order=======================================
+1. Run Eureka Server
+
+2. Run Producer App (VendorApp) 3 times by changing Port number
+
+3. Run Consumer App (ProductApp-1 time)
+
+4. Goto Eureka Serve check all instances
+
+5. Click on Consumer(ProductApp) link modify as Full URL
+Ex: http://192.168.0.8:8866/actuator/info
+
+Modified : http://192.168.0.8:8866/prod/data
+
+6. Check for Response (refresh multiple times)
+
+*) At Console : com.sun.proxy.$Proxy79
+   [An impl class generated at runtime]
+https://docs.oracle.com/javase/8/docs/technotes/guides/reflection/proxy.html
+
+--Feign Proxy internal code looks like--
+
+@Component
+public class Proxy79 implements VendorRestConsumer {
+ 
+  @Autowired
+  private LoadBalancerClient client;
+
+  @GetMapping("/vendor/msg")
+  public ResponseEntity<String> showMsg() {
+           //choose SI
+	   // Read URI, add path
+	   // Make HTTP call
+	   // Get Respose
+         return ...;
+  }
+
+}
+VendorRestConsumer consumer = new Proxy79();
+----------------------------------------------------
+*) InstanceId: any String
+*) ${random.value} It geneates one hexa decimal number every time.
+ex: VENDOR-SERVICE:377cdd72c3aa2d0c3dd5e1227efbbcc1 
+------------------------------------------------------
+Task:
+  Admin  -----<>Dept
+  Student------<>Course
 
  -- Used to Perform Loading Balancing with Eureka to invoke external Service.
  -- Internally balance Load
  -- No need to write Unit-Test-Cases . Declare Interface &&  action in RUNTIME 
  -- using "block()" method, can make Synchronous. 
  
- 
+ Code Link:
+https://www.mediafire.com/file/kuc1tcmtouce0yh/SpringCloudFeignClient_06022021_RAGHU_7AM.zip/file
+
+		Spring Cloud: MS Intra Communication
+		     [ Open Feign | Feign Client]
+
+*) We need to apply two annotations at Consumer code:
+  At Starter class :  @EnableFeignClients
+  At Consumer Interface : @FeignClient with ServiceId of Producer.
+
+
+*) In Producer RestController we have added few operations(methods). 
+   To access those at consumer, we should add them as abstract methods
+   in interface, also copy Model classes.
+
+   [Copy Models --- Duplicate Code in MS?? YES. Limitation in MS]
+
+
+http://192.168.0.8:8866/prod/data
+http://192.168.0.8:8866/prod/datab
+http://192.168.0.8:8866/prod/datac
+http://192.168.0.8:8866/prod/datad
+
 ===========================================================================================
  
  Environment :=
@@ -4624,8 +5177,18 @@ Ex: Hyd team, chennai team, pune team etc...
  CHARGE-AHEAD :=
 ~~~~~~~~~~~~~~     https://www.youtube.com/watch?v=h2FCDY9av_o&list=PLmySAPXhfGyATTXmgCmjkn9ZS4HB8wY57&index=3&ab_channel=ChargeAhead
 		  
+=================================================================================================
 
-======================================================
+Explain the Gitflow workflow?
+
+Gitflow stores the history a particular project by employing two long-running parallel branches which are master and develop:
+
+Master – This is ready to go branch. Everything is tested and approved on this branch. 
+Hotfix – these branches are used to quickly patch production releases. They are almost like your feature branches and release branches; besides, they’re based on master instead of develop.
+Develop – All the features branches are merged into this branch. These are the one which undergoes testing. Only after rigorous testing, it merges with the master branch.  
+Feature – each new feature should sit in its own branch, which is then pushed to their parent branch, which is the develop branch.
+
+=================================================================================================
 
   Working_Directory ---->  in STS 
   
@@ -4635,9 +5198,55 @@ Ex: Hyd team, chennai team, pune team etc...
 
       Remote_Repo   ---->  git push / git pull 	(**Child_Branch**)  
 
-      Central_Repo  ---->  (**Master_Branch**)	  
+      Central_Repo  ---->  (**Master_Branch**)	
+
+
+(Q) Difference between git pull && git fetch ??
+(A) rebase command is used to integrate changes from one branch into another. 
+    It is an alternative to the “merge” command. 
+    The difference between rebasing and merge is that rebase rewrites the commit history in order to produce a straight, linear succession of commits.
+    Merging is Git’s way of putting a forked history back together again. 
+    The git merge command helps you take the independent lines of development created by git branch and integrate them into a single branch.
+	
+	
+-----> In git rebase, a feature branch is moved into a master. 
+       Git merge maintains the history by adding a new commit. (************)
+
+
+(Q) Diference between git merge && git rebase ?? 
+(A) git rebase [new-commit]
+ 
+ 
+(Q) What is git cherry pickup ??
+(A) Picks a particular commit from One-branch and insert to another-branch
+
+
+(Q) What does ‘git pull’ command in GIT do internally?
+(A) So, pull is a blend of two orders: bring and combine.
+
+
+ git diff          ----> It shows the changes between commits, commits and working tree.
+ git status        ----> It shows the difference between working directories and index.
+ git stash applies ----> It is used to bring back the saved changes on the working directory.
+ git log ----> To get information about a specific commit in your project history- by author, date, content or history
+ 
+ 
+ git rm -----> It removes the files from the staging area and also of the disk.
+ git log ----> It is used to find the specific commit in the history.
+ git add ----> It adds file changes in the existing directory to the index.
+ 
+ git reset -------> It is used to reset the index and as well as the working directory to the state of the last commit.
+ git checkout ----> It is used to update the directories of the working tree with those from another branch without merging.
+ git Is tree -----> It represents a tree object including the mode and the name of each item.
+ git instaweb ----> It automatically directs a web browser and runs the web server with an interface into your local repository.  
+ 
+ 
+ git clean ----> cleans a repository by removing the files that are not currently tracked by git recursively.
+ git pop ------>  helps you retrieve the changes pushed on the stack.
+ git fork -----> allows you to freely experiment with changes without affecting the original project.
 	  
-======================================================
+	  
+========================================================================================
 
  GITPullRequest660 :=    [ XIC557-RamaKrishna ]
 ~~~~~~~~~~~~~~~~~~~~  
@@ -4652,7 +5261,8 @@ Ex: Hyd team, chennai team, pune team etc...
   
   git stash apply 
   
-  git add <Files-Name>  
+  git add <Files-Name>  /////  Undo -----> git rm <FileName> (Or) git reset <fileName>  ///////   git reset --hard HEAD~
+                                           git reset HEAD~1  (Or) git reset --hard <BranchName>
   
   git status
   
@@ -4686,13 +5296,19 @@ Ex: Hyd team, chennai team, pune team etc...
   echo $PATH
   
   export PATH=usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin;$JAVA_HOME/bin
-
  
- 
-=============================================
+=========================================================================
 
     First ----> checkout local branch 
  
+	Delete Branch ----> git branch -d <branch>  /////////////   
+	
+	Recover Deleted Branch -----> git checkout -b <your-branch> <sha>
+	
+	Merge Branch -----> git merge <your-branch>
+	
+==========================================================================
+
     git checkout {​branch name}​
 	
 	git stash
@@ -4702,11 +5318,11 @@ Ex: Hyd team, chennai team, pune team etc...
     git config --global user.email  mvs.ramakrishna@xebia.com
     git config --global user.name   XIC557-RamaKrishna
  
-    then git  stash 
+    git  stash 
 	
 	then git pull origin CRM-SPRINT-3
 	
-=============================================
+=====================================================================
 
   git checkout CRM-SPRINT-3-NEWSTORIES
   
@@ -4715,6 +5331,14 @@ Ex: Hyd team, chennai team, pune team etc...
   git checkout -b Rama_Test
   
   git push 
+  
+  
+ Merge Branches :=
+~~~~~~~~~~~~~~~~~~
+git checkout master
+git pull origin master
+git merge test
+git push origin master
   
 ================================================
 
@@ -4725,10 +5349,14 @@ Ex: Hyd team, chennai team, pune team etc...
 
 
  Git-Fetch  ---> Remote to Local repository.. pulls all commits from desired branch , stores in new Brach in local
+                 Git fetch will download new commits from a remote repository to a local repository
+
 
  Git-Pull  ----> Remote to Working repository...pulls new changes from Central and update it in local repository.
+                 Git pull does the same as git fetch and also merges the same into your local working files
  
- Git Conflit --> Stage && Commit && then 'Merge'
+ 
+ Git Conflit ----> Stage && Commit && then 'Merge'
 
  
  
@@ -4738,9 +5366,9 @@ Ex: Hyd team, chennai team, pune team etc...
 	  
  
  
- Git diff ------> 
+ git stash drop ---->  used to remove the stashed item.  
 
- Git Stash -----> 
+ Git Stash  list -----> will display the list of stashed items
 
  Git Reset  ----> Reset Changes in Staging area
  
@@ -4750,6 +5378,12 @@ Ex: Hyd team, chennai team, pune team etc...
 								
 							   (c) After Commit
    
+   
+  git stash list -----> will display the list of stashed items
+  
+  git stash drop -----> used to remove the stashed item 
+  
+  git stash apply ----> used to bring back the saved changes onto your current working directory.
  
  
  Git squash ---->
@@ -4764,6 +5398,14 @@ Ex: Hyd team, chennai team, pune team etc...
                                 No Merging of Branches 	   
   
   
+(Q) How will you know in Git if a branch has already been merged into master?
+(A) git branch --merged – It lists the branches that have been merged into the current branch.
+    git branch --no-merged – It lists the branches that have not been merged.
+
+
+(Q) What do you understand by a detached HEAD?
+(A) Detached HEAD is a state when the HEAD pointer points to a specific commit and not to a branch.
+ 
   QA && UAT ----> Recently They give chance to do Changes to Dev-Team as well  ///////////  Usually  Done by DevOps Team 
   
  git fetch -----> Gets What the changes are ///////////  Not Fetches actual files 
@@ -4785,7 +5427,7 @@ Ex: Hyd team, chennai team, pune team etc...
 
 ---->top clone specific branch ....git clone -b master <Link> master.......
 
-===============================
+================================================================================
 
  GIT-COMMANDS :=  [ cd <TAB> ..... ls ..... git branch ]
 ~~~~~~~~~~~~~~~
@@ -5043,6 +5685,15 @@ git branch :=   Shows Branches that are Created.
 ~~~~~~~~~~~~~~~~~~
 
 ----> Occurs When Multiple-Developers are working on SAME-LINE of same-Respositary (May be Different-Branches)
+
+
+(Q) What is Subgit? Why use it?
+(A) 'Subgit' is a tool that migrates SVN to Git. It is a stable and stress-free migration. Subgit is one of the solutions for a company-wide migration from SVN to Git that is:
+
+It is much superior to git-svn
+No need to change the infrastructure that is already placed.
+It allows using all git and all sub-version features.
+It provides stress ?free migration experience.
 	
 ========================================	
 					   
@@ -5114,6 +5765,13 @@ git branch :=   Shows Branches that are Created.
 							 
  GitLab := It is DevOps Platform that helps Team to collaberate && helps to build a better Paltform .  
 ~~~~~~~~~~
+
+
+(Q) How GIT protects the code in a repository?
+(A) GIT is made very secure since it contains the source code of an organization. 
+    All the objects in a GIT repository are encrypted with a hashing algorithm called SHA1.
+    This algorithm is quite strong and fast. It protects source code and other contents of repository against the possible malicious attacks.
+    This algorithm also maintains the integrity of GIT repository by protecting the change history against accidental changes.
 	
 ===============================================================================================================
 

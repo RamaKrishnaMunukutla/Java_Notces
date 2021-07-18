@@ -137,9 +137,9 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
   
      AJAX   ------->  25/11/2020
   
-  Spring MVC ------> 2/11/2020
+  Spring MVC ------> 3/11/2020  [3/11 to 21/11]
   
- Procedures -----> 30/10/2020
+   Procedures -----> 30/10/2020
    
  Hibernate collections && Mapping  ----> [16,13] Oct 2020 
  
@@ -153,7 +153,7 @@ Ex : E-Seva, Me-Seva, SBI Agent Portal etc...
 	   
     YAML  ------> [16,21] Sep 2020 
  
-    Lombok  -----> [11,14]  Sep 2020 
+   Lombok  -----> [11,14]  Sep 2020 
 	   
   
    Course Content Link:   http://www.nareshit.com/course/aws-online-training/

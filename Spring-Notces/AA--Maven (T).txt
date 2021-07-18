@@ -1,10 +1,26 @@
 
 
+    GRADLECommands
 
+  
 
-  ANT ---> MAVEN /// GRADLECommands 
+=============================================================================================================================================
 
-==========================================================================
+> mvn clean package -DskipTests
+> clean install
+ 
+> mvn install
+> java -jar .\target\spring-boot-example-1.0-SNAPSHOT.jar
+ 
+> gradle build
+> java -jar .\build\libs\spring-boot-gradle-example-1.0.0.jar
+ 
+ 
+ 
+ 
+   ANT ---> MAVEN ///
+
+===========================================================================================================================================
 
 ---->Maven is a dependency management tool. It provides the developer a complete build lifecycle framework.
 

@@ -709,9 +709,14 @@ class Car implements Vehicle {
 =================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
 ======================================================================================================
 
-STREAMS123 :=   
-~~~~~~~~~~~    [ https://www.concretepage.com/java/java-8/ ]
+STREAMS123 :=     [ https://www.concretepage.com/java/java-8/ ]
+~~~~~~~~~~~   
 
+ .......MAP90.....FLATMAP40......GROUPBY60.....distinct90.....SORTED80....AnyMatch100....OPTIONAL123
+ 
+ .......StringJoiner890....ForEach990.....SortedAndLimit(Int).....PartitioningBy890
+ 
+ 
  --- Instead, a stream carries values from a source through a pipeline. (**********)
  --- It is not a data structure that stores elements. 
 		   
@@ -822,7 +827,7 @@ Terminal-Operations :=
 
 =================================================================================
  
- MAP :=  map(x -> x * x)  //// String::toLowerCase /// converts Stream<X> to Stream<Y>  && returns a new Stream (******)
+ MAP90 :=  map(x -> x * x)  //// String::toLowerCase /// converts Stream<X> to Stream<Y>  && returns a new Stream (******)
 ~~~~~~
  --map() is used to transform one object into other by applying a function 
  
@@ -837,14 +842,14 @@ Retrives Specific Property of Object form List(Object)
  
                       Data Transformation ---->  Converting List<Employee> to List<firstName> 
  
- Eg :=
+ Eg :=  
 ~~~~
     List<String> teamIds = removedMappings.stream().map(TeamType::getTeamId).collect(Collectors.toList());
 	
 	
 =================================================================================	
                      
- FLATMAP  :=   [ https://howtodoinjava.com/java8/stream-flatmap-example/ ] ////  One-To-Many Mapping
+ FLATMAP40  :=   [ https://howtodoinjava.com/java8/stream-flatmap-example/ ] ////  One-To-Many Mapping
 ~~~~~~~~~~              
  --- flatten a Stream of collections to a stream of objects  //// List<List<Integer>> (*****)
  --- flattening is referred to as merging multiple collections / arrays into one. (********)
@@ -853,7 +858,7 @@ Retrives Specific Property of Object form List(Object)
 
                        Flattering ----> Convert Stream(Stream)  to Single-Stream 
 
- Eg :=
+ Eg :=   
 ~~~~~~~~
 
 		
@@ -922,10 +927,26 @@ final Map<String, Map<String, List<Field>>> collect = blocks.stream().flatMap(a 
 					 
 =======================================================================================================================				
  
- ‘GROUP BY' :=  [ https://mkyong.com/java8/java-8-collectors-groupingby-and-mapping-example/ ]
+ ‘GROUPBY60' :=  [ https://mkyong.com/java8/java-8-collectors-groupingby-and-mapping-example/ ]
 ~~~~~~~~~~~~
  ---- functionality similar to the  clause in the SQL language. 
  ---- We use them for grouping objects by some property and storing results in a Map instance.
+
+
+   List<String> items =
+	                Arrays.asList("apple", "apple", "banana",
+	                        "apple", "orange", "banana", "papaya");
+
+	        Map<String, Long> result =  
+	                items.stream().collect(
+	                        Collectors.groupingBy(
+	                                Function.identity(), Collectors.counting()
+	                        )
+	                );
+
+	        System.out.println(result);
+			
+			
 
    List<String> items =
 	                Arrays.asList("apple", "apple", "banana",
@@ -956,7 +977,7 @@ final Map<String, Map<String, List<Field>>> collect = blocks.stream().flatMap(a 
 	
 ====================================================================================================================
 
- distinct :=
+ distinct90 :=  
 ~~~~~~~~~~~
  --- Takes Only Unique elements. 
  --- 
@@ -1009,9 +1030,9 @@ Optional<ChannelData> channel = channelData.stream().
  
  forEachOrdered ----> Orders the elements. 
 
-====================================================================================================================================
+===============================================================================================================
 
- 'SORTED()' in Reverse Order :=
+ 'SORTED80()' in Reverse Order :=  
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  --- Sorts List of Objects based on Object-Property 
  
@@ -1089,8 +1110,10 @@ Optional<ChannelData> channel = channelData.stream().
     }
 
 
- Eg 8 :=
-~~~~~~~
+ 
+ 
+ Eg_8 (SortedAndLimit):=
+~~~~~~~~~~~~~~~~~~~~~~~
 		// Top Five employee Salary Objects Details
 	  List<Employee> collect = list.stream()
 				.sorted(Comparator.comparing(Employee::getEmpSal, Comparator.reverseOrder()))
@@ -1099,48 +1122,27 @@ Optional<ChannelData> channel = channelData.stream().
 		collect.forEach(System.out::println); 
 		
 		
-  Eg9 :=
-~~~~~~~~
+  Eg9 (limit And Sorted):=
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 		// Top Five employee Salary Details
 		List<Integer> collect = list.stream()
 				.sorted(Comparator.comparing(Employee::getEmpSal, Comparator.reverseOrder())).map(e -> e.getEmpSal())
 				.limit(5).collect(Collectors.toList());
 		System.out.println(collect);
 	}
-====================================================================================================================================   
+=========================================================================================================   
    
  GeyKeys using Java-8 :=
 ~~~~~~~~~~~~~~~~~~~~~~~~
    Map>Integer , Integer> Imap =  map.entrySet().stream().filter(map1-> map1.getKey() >5)
                                             .collect(Collectors.toMap(map1 -> map1.getKey(), map1 -> map1.getValue()));
 
-=====================================================
+		
+===========================================================================================================	
 
-  
- ‘GROUP BY' :=
-~~~~~~~~~~~~
- ---- functionality similar to the  clause in the SQL language. 
- ---- We use them for grouping objects by some property and storing results in a Map instance.
-
-
-   List<String> items =
-	                Arrays.asList("apple", "apple", "banana",
-	                        "apple", "orange", "banana", "papaya");
-
-	        Map<String, Long> result =
-	                items.stream().collect(
-	                        Collectors.groupingBy(
-	                                Function.identity(), Collectors.counting()
-	                        )
-	                );
-
-	        System.out.println(result);
-			
-==============================================================================================================================	
-
- AnyMatch :=   /////  stream().anyMatch(-----)
-~~~~~~~~~~~
- --- Returns Boolean 
+ AnyMatch100 :=   /////  stream().anyMatch(-----)
+~~~~~~~~~~~ 
+ --- Returns Boolean   
  
  
  Eg1 :=
@@ -1434,8 +1436,8 @@ Optional<ChannelData> channel = channelData.stream().
   }
 		 
 
- partitioningBy :=
-~~~~~~~~~~~~~~~~~
+ PartitioningBy890 :=
+~~~~~~~~~~~~~~~~~~~~
  ----> partition a stream into two – based on whether the elements satisfy certain criteria or not.
  
  
@@ -1644,7 +1646,7 @@ Eg:=
 
 OPTIONAL123 :=   [ ---findAny, find** in 'Collection' Returns Optional--- ]
 ~~~~~~~~~~~~
- 
+   
   
   (.....ofNullable(), isPresent(), isEmpty(), ofNullable(),  orElseThrow(), of(),  get()......)  (******)
 
@@ -1806,6 +1808,7 @@ caseResolutionEntity = Optional.ofNullable(caseResolutionRepository.
  
  
  
+ 
  Collections singletonList()  :=   [ https://www.geeksforgeeks.org/collections-singletonlist-method-in-java-with-examples/ ]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  ----> Return an immutable list containing only the specified object. 
@@ -1887,8 +1890,8 @@ caseResolutionEntity = Optional.ofNullable(caseResolutionRepository.
 		empList.forEach(System.out::println);
 
 
-=================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
-======================================================================================================
+=================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\===================================================
+=========================================================================================================================================
 
  ComparatorInJava :=
 ~~~~~~~~~~~~~~~~~~~
@@ -2050,8 +2053,6 @@ List<String> sorted = strings
 		
 		int sum = Integer.sum(100, 20);
 		System.out.println(sum);
-		
-================================
 	
 
 =================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
@@ -2145,8 +2146,8 @@ Eg :=
      return p -> p.getAge() > 18 && p.getGender().equalsIgnoreCase("F");
    }
 
-=================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
-======================================================================================================
+=================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========================/\/\/\/\/\/\/\/\======================================
+==========================================================================================================================================
 
   Abstract Class && Interface in Java 8 :=
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2159,8 +2160,8 @@ Eg :=
                            (3) Default-Methods [No-Need to write in Impl-Class]          (4) Static-Methods 
 
 
-=================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
-======================================================================================================
+=================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=====================================================
+==========================================================================================================================================
 
  MultipleInheritance555 := 
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2245,8 +2246,8 @@ public class Test implements I1,I2,I3 {
 	removeif(), replaceAll() ---> default implementation 
 	
 	
-=================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\=============
-======================================================================================================
+=================/\/\\/\/\===============/\/\/\/\/\/\/\/\===========/\/\/\/\/\/\/\/\========================================================
+=================================================================================================================================================
  
  LocalDateTime3430 :=
 ~~~~~~~~~~~~~~~~~~~~
@@ -2255,6 +2256,6 @@ public class Test implements I1,I2,I3 {
  --- LocalDate(),  LocalTime(), LocalDateTime(),  
 
 
-==================================================================================================
+=================================================================================================================================================
 
 
